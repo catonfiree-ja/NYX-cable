@@ -106,16 +106,26 @@ function decodeHtmlEntities(text: string) {
 }
 
 // Build a map of product names/codes → slug for auto-linking
-type ProductLinkMap = { pattern: string; slug: string; label: string }[]
+type ProductLinkMap = { pattern: string; slug: string; label: string; prefix: string }[]
 
-function buildProductLinkMap(products: any[]): ProductLinkMap {
+function buildProductLinkMap(products: any[], variants?: any[]): ProductLinkMap {
   const map: ProductLinkMap = []
   for (const p of products) {
     const slug = p.slug?.current
     if (!slug) continue
     // Add productCode as match pattern (e.g., "YSLY-JZ", "OPVC-JZ")
     if (p.productCode && p.productCode.length > 2) {
-      map.push({ pattern: p.productCode, slug, label: p.productCode })
+      map.push({ pattern: p.productCode, slug, label: p.productCode, prefix: '/products/detail/' })
+    }
+  }
+  // Add variant models (e.g., "YSLY-JZ 3G0.5")
+  if (variants) {
+    for (const v of variants) {
+      const slug = v.slug?.current
+      if (!slug) continue
+      if (v.model && v.model.length > 3) {
+        map.push({ pattern: v.model, slug, label: v.model, prefix: '/products/variant/' })
+      }
     }
   }
   // Sort by pattern length descending so longer patterns match first
@@ -132,7 +142,7 @@ function autoLinkText(text: string, linkMap: ProductLinkMap, currentSlug: string
   let keyIdx = 0
   
   while (remaining.length > 0) {
-    let bestMatch: { index: number; pattern: string; slug: string; label: string } | null = null
+    let bestMatch: { index: number; pattern: string; slug: string; label: string; prefix: string } | null = null
     
     for (const entry of linkMap) {
       // Skip self-linking
@@ -153,10 +163,10 @@ function autoLinkText(text: string, linkMap: ProductLinkMap, currentSlug: string
       parts.push(remaining.substring(0, bestMatch.index))
     }
     
-    // Add the linked product code
+    // Add the linked product/variant
     parts.push(
-      <a key={`al-${keyIdx++}`} href={`/products/detail/${bestMatch.slug}`} 
-         style={{ color: 'var(--nyx-orange)', textDecoration: 'underline', fontWeight: 600 }}>
+      <a key={`al-${keyIdx++}`} href={`${bestMatch.prefix}${bestMatch.slug}`} 
+         style={{ color: '#f0a500', textDecoration: 'underline', textUnderlineOffset: '3px', fontWeight: 600 }}>
         {bestMatch.pattern}
       </a>
     )
@@ -310,9 +320,9 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
   const categories = product.categories || []
   const relatedProducts = product.relatedProducts || []
 
-  // Build auto-link map from all products
+  // Build auto-link map from all products + current product's variants
   const allProducts = await getProducts()
-  const linkMap = buildProductLinkMap(allProducts)
+  const linkMap = buildProductLinkMap(allProducts, variants)
 
   return (
     <>
