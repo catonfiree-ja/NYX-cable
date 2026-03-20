@@ -133,11 +133,22 @@ export default function RootLayout({
               <div>
                 <h4>ผลิตภัณฑ์</h4>
                 <ul className="footer-links">
-                  <li><a href="/products">สายคอนโทรล</a></li>
-                  <li><a href="/products">สาย VFD / Servo</a></li>
-                  <li><a href="/products">สายทนความร้อน</a></li>
-                  <li><a href="/products">สายชีลด์</a></li>
-                  <li><a href="/products">สายเครน</a></li>
+                  <li><a href="/products/detail/control-cable">สายคอนโทรล</a></li>
+                  <li><a href="/products/detail/vfd-cable">สาย VFD / Servo</a></li>
+                  <li><a href="/products/detail/heat-resistant-cable">สายทนความร้อน</a></li>
+                  <li><a href="/products/detail/double-shielded-cable">สายชีลด์</a></li>
+                  <li><a href="/products">ดูสินค้าทั้งหมด →</a></li>
+                </ul>
+              </div>
+
+              {/* Quick Links */}
+              <div>
+                <h4>ลิงก์ด่วน</h4>
+                <ul className="footer-links">
+                  <li><a href="/blog">บทความ & คู่มือ</a></li>
+                  <li><a href="/about">เกี่ยวกับเรา</a></li>
+                  <li><a href="/contact">ติดต่อเรา</a></li>
+                  <li><a href="/products">แคตตาล็อกสินค้า</a></li>
                 </ul>
               </div>
 
