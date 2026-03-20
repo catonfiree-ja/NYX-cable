@@ -1,5 +1,5 @@
 import React from 'react'
-import { getProduct, getProducts } from '@/lib/queries'
+import { getProduct, getProducts, getVariants } from '@/lib/queries'
 import { notFound } from 'next/navigation'
 
 const styles = `
@@ -320,9 +320,9 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
   const categories = product.categories || []
   const relatedProducts = product.relatedProducts || []
 
-  // Build auto-link map from all products + current product's variants
-  const allProducts = await getProducts()
-  const linkMap = buildProductLinkMap(allProducts, variants)
+  // Build auto-link map from all products + ALL variants (parentProduct refs not set in Sanity)
+  const [allProducts, allVariants] = await Promise.all([getProducts(), getVariants()])
+  const linkMap = buildProductLinkMap(allProducts, allVariants)
 
   return (
     <>
