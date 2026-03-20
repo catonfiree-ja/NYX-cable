@@ -32,11 +32,12 @@ const styles = `
   .variant-info h1 { font-size: 1.6rem; font-weight: 800; color: #1a1a2e; margin-bottom: 8px; }
   .variant-parent-link { display: inline-flex; align-items: center; gap: 6px; color: #3b82f6; font-size: 0.85rem; margin-bottom: 16px; text-decoration: none; }
   .variant-parent-link:hover { text-decoration: underline; }
-  .variant-specs { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin: 20px 0; }
-  .spec-card { background: #f8fbff; border: 1px solid #e2e8f0; border-radius: 10px; padding: 14px 16px; }
-  .spec-card .spec-label { font-size: 0.72rem; font-weight: 600; color: #64748b; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
-  .spec-card .spec-value { font-size: 1.1rem; font-weight: 700; color: #1a1a2e; }
-  .spec-card .spec-unit { font-size: 0.75rem; color: #94a3b8; margin-left: 4px; }
+  .variant-specs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin: 24px 0; }
+  .spec-card { background: #fff; border: 1px solid #e2e8f0; border-left: 3px solid #2563eb; border-radius: 10px; padding: 16px 20px; transition: all 0.2s; }
+  .spec-card:hover { box-shadow: 0 2px 8px rgba(37,99,235,0.08); border-left-color: #f0a500; }
+  .spec-card .spec-label { font-size: 0.72rem; font-weight: 600; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px; }
+  .spec-card .spec-value { font-size: 1.15rem; font-weight: 800; color: #1a3c6e; }
+  .spec-card .spec-unit { font-size: 0.75rem; color: #94a3b8; margin-left: 4px; font-weight: 500; }
   .variant-siblings { margin-top: 32px; }
   .variant-siblings h2 { font-size: 1.2rem; font-weight: 700; margin-bottom: 16px; color: #1a1a2e; }
   .siblings-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 8px; }
@@ -57,7 +58,7 @@ const styles = `
   @media (max-width: 768px) {
     .variant-detail { grid-template-columns: 1fr; gap: 20px; }
     .variant-image-box { min-height: 150px; font-size: 1.2rem; }
-    .variant-specs { grid-template-columns: repeat(2, 1fr); }
+    .variant-specs { grid-template-columns: repeat(2, 1fr); gap: 10px; }
     .siblings-grid { grid-template-columns: 1fr; }
     .quick-quote-inner { flex-direction: column; gap: 8px; }
     .quick-quote-actions { width: 100%; }
