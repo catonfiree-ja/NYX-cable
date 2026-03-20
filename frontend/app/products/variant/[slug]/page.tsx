@@ -139,9 +139,9 @@ export default async function VariantDetailPage({ params }: { params: Promise<{ 
               </ul>
             )}
 
-            <div className="product-actions" style={{ marginTop: '20px' }}>
-              <a href="tel:021115588" className="btn btn-primary btn-lg">สอบถามราคา</a>
-              <a href={`https://page.line.me/ubb9405u?text=${lineText}`} className="btn btn-line btn-lg" target="_blank" rel="noopener noreferrer">แอด LINE</a>
+            <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', marginTop: '20px' }}>
+              <a href="tel:021115588" style={{ display: 'inline-flex', alignItems: 'center', padding: '14px 36px', background: 'linear-gradient(135deg, #1a3c6e, #2563eb)', color: '#fff', borderRadius: '50px', fontWeight: 700, fontSize: '1rem', textDecoration: 'none', boxShadow: '0 4px 14px rgba(37,99,235,0.25)' }}>สอบถามราคา</a>
+              <a href={`https://page.line.me/ubb9405u?text=${lineText}`} target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', padding: '14px 32px', background: 'linear-gradient(135deg, #06c755, #00b843)', color: '#fff', borderRadius: '50px', fontWeight: 700, fontSize: '0.95rem', textDecoration: 'none', boxShadow: '0 4px 14px rgba(6,199,85,0.25)' }}>แอด LINE</a>
             </div>
           </div>
         </div>
