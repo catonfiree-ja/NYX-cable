@@ -11,9 +11,10 @@ export async function generateStaticParams() {
 }
 
 // ─── Dynamic Metadata ───
-export async function generateMetadata({ params }: any): Promise<Metadata> {
-  if (!params?.slug) return { title: 'ไม่พบสินค้า | NYX Cable' }
-  const variant = await getVariant(params.slug)
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params
+  if (!slug) return { title: 'ไม่พบสินค้า | NYX Cable' }
+  const variant = await getVariant(slug)
   if (!variant) return { title: 'ไม่พบสินค้า | NYX Cable' }
   const parent = variant.parentProduct
   return {
@@ -63,8 +64,9 @@ const styles = `
   }
 `
 
-export default async function VariantDetailPage({ params }: any) {
-  const variant = await getVariant(params.slug)
+export default async function VariantDetailPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params
+  const variant = await getVariant(slug)
   if (!variant) notFound()
 
   const parent = variant.parentProduct
