@@ -106,15 +106,17 @@ export default async function VariantDetailPage({ params }: { params: Promise<{ 
           <div className="variant-info">
             <h1>{variant.title}</h1>
             {parent && (
-              <a href={`/products/detail/${parent.slug?.current}`} className="variant-parent-link">
+              <a href={`/products/detail/${parent.slug?.current}`} className="variant-parent-link" style={{ display: 'block', marginBottom: '12px' }}>
                 ← ดูสินค้าหลัก: {parent.title}
               </a>
             )}
-            {variant.model && <span className="product-code">{variant.model}</span>}
+            {variant.model && <span className="product-code" style={{ display: 'inline-block', marginBottom: '8px' }}>{variant.model}</span>}
 
-            <span className={`stock-badge ${variant.inStock !== false ? 'stock-in' : 'stock-out'}`} style={{ display: 'inline-block', marginTop: '12px' }}>
-              {variant.inStock !== false ? 'พร้อมส่ง' : 'สั่งผลิต'}
-            </span>
+            <div style={{ marginTop: '4px' }}>
+              <span className={`stock-badge ${variant.inStock !== false ? 'stock-in' : 'stock-out'}`}>
+                {variant.inStock !== false ? 'พร้อมส่ง' : 'สั่งผลิต'}
+              </span>
+            </div>
 
             {specItems.length > 0 ? (
               <div className="variant-specs">
