@@ -1,0 +1,675 @@
+[
+  {
+    "id": 20848,
+    "slug": "cvv",
+    "title": "ซื้อสายไฟ CVV, CVV-F, CVV-S คุณภาพยุโรป จาก NYX CABLE",
+    "link": "https://nyxcable.com/product/cvv/",
+    "categories": [
+      254
+    ],
+    "tags": [],
+    "featured_media": 0,
+    "status": "publish"
+  },
+  {
+    "id": 20843,
+    "slug": "vct",
+    "title": "สายไฟ VCT ยืดหยุ่น ปลอดภัย ทนกระแส รับแรงดันได้ถึง 450/750V",
+    "link": "https://nyxcable.com/product/vct/",
+    "categories": [
+      254
+    ],
+    "tags": [],
+    "featured_media": 0,
+    "status": "publish"
+  },
+  {
+    "id": 19798,
+    "slug": "profinet-connector-180",
+    "title": "PROFINET Connector : 180 Dregree",
+    "link": "https://nyxcable.com/product/profinet-connector-180/",
+    "categories": [
+      115
+    ],
+    "tags": [],
+    "featured_media": 19799,
+    "status": "publish"
+  },
+  {
+    "id": 19796,
+    "slug": "profibus-connector-90pg",
+    "title": "PROFIBUS Connector : 90 Dregree With PG",
+    "link": "https://nyxcable.com/product/profibus-connector-90pg/",
+    "categories": [
+      115
+    ],
+    "tags": [],
+    "featured_media": 20547,
+    "status": "publish"
+  },
+  {
+    "id": 19789,
+    "slug": "pur-hf",
+    "title": "PUR-HF : สายไฟรับแรงดึงสำหรับ Cable Reel Crane",
+    "link": "https://nyxcable.com/product/pur-hf/",
+    "categories": [
+      111
+    ],
+    "tags": [],
+    "featured_media": 19794,
+    "status": "publish"
+  },
+  {
+    "id": 19788,
+    "slug": "eib-bus-knx",
+    "title": "EIB Bus : KNX application",
+    "link": "https://nyxcable.com/product/eib-bus-knx/",
+    "categories": [
+      115
+    ],
+    "tags": [],
+    "featured_media": 19795,
+    "status": "publish"
+  },
+  {
+    "id": 19787,
+    "slug": "profibus-connector-90",
+    "title": "PROFIBUS Connector : 90 Dregree",
+    "link": "https://nyxcable.com/product/profibus-connector-90/",
+    "categories": [
+      115
+    ],
+    "tags": [],
+    "featured_media": 20548,
+    "status": "publish"
+  },
+  {
+    "id": 19786,
+    "slug": "profibus-drag-chain",
+    "title": "PROFIBUS Cable : for drag chain application (motion)",
+    "link": "https://nyxcable.com/product/profibus-drag-chain/",
+    "categories": [
+      115
+    ],
+    "tags": [],
+    "featured_media": 19793,
+    "status": "publish"
+  },
+  {
+    "id": 19785,
+    "slug": "sif-gl",
+    "title": "SiF/Gl : Single Core สายทนความร้อน 200C",
+    "link": "https://nyxcable.com/product/sif-gl/",
+    "categories": [
+      113
+    ],
+    "tags": [],
+    "featured_media": 19792,
+    "status": "publish"
+  },
+  {
+    "id": 19271,
+    "slug": "h07v-k",
+    "title": "H07V-K : สาย Wiring ตู้คอนโทรล MDB (750Volt) &#8211; Size: 1.5 to 240 mm2",
+    "link": "https://nyxcable.com/product/h07v-k/",
+    "categories": [
+      257
+    ],
+    "tags": [],
+    "featured_media": 9532,
+    "status": "publish"
+  },
+  {
+    "id": 19270,
+    "slug": "h05v-k",
+    "title": "H05V-K : สาย Wiring ตู้คอนโทรล MDB (500Volt) &#8211; Size: 0.5, 0.75 and 1 mm2",
+    "link": "https://nyxcable.com/product/h05v-k/",
+    "categories": [
+      257
+    ],
+    "tags": [],
+    "featured_media": 9529,
+    "status": "publish"
+  },
+  {
+    "id": 17515,
+    "slug": "%e0%b8%aa%e0%b8%b2%e0%b8%a2%e0%b8%a1%e0%b8%b1%e0%b8%a5%e0%b8%95%e0%b8%b4%e0%b8%84%e0%b8%ad%e0%b8%a3%e0%b9%8c",
+    "title": "Multicore Cable : สายมัลติคอร์",
+    "link": "https://nyxcable.com/product/%e0%b8%aa%e0%b8%b2%e0%b8%a2%e0%b8%a1%e0%b8%b1%e0%b8%a5%e0%b8%95%e0%b8%b4%e0%b8%84%e0%b8%ad%e0%b8%a3%e0%b9%8c/",
+    "categories": [
+      108
+    ],
+    "tags": [],
+    "featured_media": 9564,
+    "status": "publish"
+  },
+  {
+    "id": 17514,
+    "slug": "flex-jz",
+    "title": "Flex-JZ : สายคอนโทรล",
+    "link": "https://nyxcable.com/product/flex-jz/",
+    "categories": [
+      254
+    ],
+    "tags": [],
+    "featured_media": 9562,
+    "status": "publish"
+  },
+  {
+    "id": 8862,
+    "slug": "profibus-outdoor",
+    "title": "PROFIBUS Cable : for outdoor application",
+    "link": "https://nyxcable.com/product/profibus-outdoor/",
+    "categories": [
+      115
+    ],
+    "tags": [],
+    "featured_media": 9563,
+    "status": "publish"
+  },
+  {
+    "id": 8860,
+    "slug": "ysly-jz-1kv",
+    "title": "YSLY-JZ 1kV: สายไฟอ่อนสำหรับเดินงาน  Control และ Power",
+    "link": "https://nyxcable.com/product/ysly-jz-1kv/",
+    "categories": [
+      255
+    ],
+    "tags": [],
+    "featured_media": 9561,
+    "status": "publish"
+  },
+  {
+    "id": 7708,
+    "slug": "profinet-type-a",
+    "title": "PROFINET Type A Cable สำหรับระบบ Industrial Ethernet",
+    "link": "https://nyxcable.com/product/profinet-type-a/",
+    "categories": [
+      115
+    ],
+    "tags": [],
+    "featured_media": 9551,
+    "status": "publish"
+  },
+  {
+    "id": 7349,
+    "slug": "ngflgou",
+    "title": "NGFLGou : สายไฟแบนฉนวนทำจากยางสำหรับ Cable Trolley",
+    "link": "https://nyxcable.com/product/ngflgou/",
+    "categories": [
+      111
+    ],
+    "tags": [],
+    "featured_media": 9544,
+    "status": "publish"
+  },
+  {
+    "id": 7143,
+    "slug": "%e0%b8%aa%e0%b8%b2%e0%b8%a2%e0%b8%84%e0%b8%ad%e0%b8%99%e0%b9%82%e0%b8%97%e0%b8%a3%e0%b8%a5",
+    "title": "Control Cable : สายคอนโทรล",
+    "link": "https://nyxcable.com/product/%e0%b8%aa%e0%b8%b2%e0%b8%a2%e0%b8%84%e0%b8%ad%e0%b8%99%e0%b9%82%e0%b8%97%e0%b8%a3%e0%b8%a5/",
+    "categories": [
+      108
+    ],
+    "tags": [],
+    "featured_media": 9564,
+    "status": "publish"
+  },
+  {
+    "id": 6733,
+    "slug": "ntscgewoeu",
+    "title": "NTSCGEWOEU : สายไฟรับแรงดึงสำหรับ Cable Reel ที่ใช้ในงานเหมืองโดยเฉพาะ",
+    "link": "https://nyxcable.com/product/ntscgewoeu/",
+    "categories": [
+      111
+    ],
+    "tags": [],
+    "featured_media": 9547,
+    "status": "publish"
+  },
+  {
+    "id": 6411,
+    "slug": "nsshoeu",
+    "title": "NSSHÖU : สายไฟสำหรับงานเหมืองโดยเฉพาะ",
+    "link": "https://nyxcable.com/product/nsshoeu/",
+    "categories": [
+      110
+    ],
+    "tags": [],
+    "featured_media": 9566,
+    "status": "publish"
+  },
+  {
+    "id": 4499,
+    "slug": "olflex-classic-115-cy",
+    "title": "Olflex Classic 115 CY : สายคอนโทรลมีชีลด์",
+    "link": "https://nyxcable.com/product/olflex-classic-115-cy/",
+    "categories": [
+      253
+    ],
+    "tags": [],
+    "featured_media": 9567,
+    "status": "publish"
+  },
+  {
+    "id": 4494,
+    "slug": "liycy-jz",
+    "title": "LiYCY-JZ : สายคอนโทรลมีชีลด์",
+    "link": "https://nyxcable.com/product/liycy-jz/",
+    "categories": [
+      253
+    ],
+    "tags": [],
+    "featured_media": 9537,
+    "status": "publish"
+  },
+  {
+    "id": 4489,
+    "slug": "rs485-rs422",
+    "title": "Twisted Pair : สายคู่บิดเกลียว มีชีลด์ สำหรับสัญญาณ RS485 Cable",
+    "link": "https://nyxcable.com/product/rs485-rs422/",
+    "categories": [
+      132
+    ],
+    "tags": [],
+    "featured_media": 9568,
+    "status": "publish"
+  },
+  {
+    "id": 4343,
+    "slug": "rs485-rs422-belden",
+    "title": "NYX CABLE จำหน่ายสาย Belden ครบวงจรสำหรับงานอุตสาหกรรม",
+    "link": "https://nyxcable.com/product/rs485-rs422-belden/",
+    "categories": [
+      132
+    ],
+    "tags": [],
+    "featured_media": 9570,
+    "status": "publish"
+  },
+  {
+    "id": 4342,
+    "slug": "rs485-rs422-hosiwell",
+    "title": "สาย RS485 Cable สายคู่บิดเกลียว มีชีลด์ สำหรับสัญญาณ RS485 โดยเฉพาะ : Hosiwell (โฮซิเวล)",
+    "link": "https://nyxcable.com/product/rs485-rs422-hosiwell/",
+    "categories": [
+      132
+    ],
+    "tags": [],
+    "featured_media": 9571,
+    "status": "publish"
+  },
+  {
+    "id": 4335,
+    "slug": "igus",
+    "title": "Multiflex CP : สายไฟรางกระดูกงูมีชีลด์ ฉนวนทนน้ำมัน (Cable Carrier)",
+    "link": "https://nyxcable.com/product/igus/",
+    "categories": [
+      111
+    ],
+    "tags": [],
+    "featured_media": 9540,
+    "status": "publish"
+  },
+  {
+    "id": 4330,
+    "slug": "pfa-cable",
+    "title": "PFA, PTFE, ETFE, FEP : สายไฟทนความร้อน 260C พร้อมทั้งทนสารเคมี",
+    "link": "https://nyxcable.com/product/pfa-cable/",
+    "categories": [
+      112
+    ],
+    "tags": [],
+    "featured_media": 9523,
+    "status": "publish"
+  },
+  {
+    "id": 4325,
+    "slug": "robot-cable",
+    "title": "Robot Welding Cable : สายไฟสำหรับงานเชื่อมหุ่นยนต์โดยเฉพาะ",
+    "link": "https://nyxcable.com/product/robot-cable/",
+    "categories": [
+      111
+    ],
+    "tags": [],
+    "featured_media": 9557,
+    "status": "publish"
+  },
+  {
+    "id": 4324,
+    "slug": "multiflex-p",
+    "title": "Multiflex P : สายไฟรางกระดูกงู ฉนวนทนน้ำมัน (Cable Carrier)",
+    "link": "https://nyxcable.com/product/multiflex-p/",
+    "categories": [
+      111
+    ],
+    "tags": [],
+    "featured_media": 9542,
+    "status": "publish"
+  },
+  {
+    "id": 4321,
+    "slug": "yc11y-jz",
+    "title": "YC11Y-JZ : สายไฟทนน้ำมัน สายไฟทนสารเคมี แบบมีชีลด์",
+    "link": "https://nyxcable.com/product/yc11y-jz/",
+    "categories": [
+      112
+    ],
+    "tags": [],
+    "featured_media": 9560,
+    "status": "publish"
+  },
+  {
+    "id": 4317,
+    "slug": "double-shielded-cable",
+    "title": "Double Shield Cable : สายชีลด์สองชั้น",
+    "link": "https://nyxcable.com/product/double-shielded-cable/",
+    "categories": [
+      252
+    ],
+    "tags": [],
+    "featured_media": 9528,
+    "status": "publish"
+  },
+  {
+    "id": 4314,
+    "slug": "siaf-ignition-wire",
+    "title": "SiAF/Zu : Ignition wire 10,000 V (10kV)",
+    "link": "https://nyxcable.com/product/siaf-ignition-wire/",
+    "categories": [
+      113
+    ],
+    "tags": [],
+    "featured_media": 9572,
+    "status": "publish"
+  },
+  {
+    "id": 4312,
+    "slug": "sif",
+    "title": "SiF : Singel Core สายทนความร้อน 180C",
+    "link": "https://nyxcable.com/product/sif/",
+    "categories": [
+      113
+    ],
+    "tags": [],
+    "featured_media": 9553,
+    "status": "publish"
+  },
+  {
+    "id": 4308,
+    "slug": "welding-cable",
+    "title": "WELDING CABLE : สายเชื่อมทองแดงเต็ม 100%",
+    "link": "https://nyxcable.com/product/welding-cable/",
+    "categories": [
+      110
+    ],
+    "tags": [],
+    "featured_media": 10355,
+    "status": "publish"
+  },
+  {
+    "id": 4306,
+    "slug": "liyy-tp",
+    "title": "LiYY(TP) : สายคู่บิดเกลียว ไม่มีชีลด์",
+    "link": "https://nyxcable.com/product/liyy-tp/",
+    "categories": [
+      256
+    ],
+    "tags": [],
+    "featured_media": 9538,
+    "status": "publish"
+  },
+  {
+    "id": 4298,
+    "slug": "devicenet-thin",
+    "title": "สายไฟ DeviceNet Thin : สำหรับระบบ Automation",
+    "link": "https://nyxcable.com/product/devicenet-thin/",
+    "categories": [
+      115
+    ],
+    "tags": [],
+    "featured_media": 9527,
+    "status": "publish"
+  },
+  {
+    "id": 4295,
+    "slug": "devicenet-thick",
+    "title": "สายไฟ DeviceNet Thick : สำหรับระบบ Automation",
+    "link": "https://nyxcable.com/product/devicenet-thick/",
+    "categories": [
+      115
+    ],
+    "tags": [],
+    "featured_media": 9526,
+    "status": "publish"
+  },
+  {
+    "id": 4293,
+    "slug": "thermocouple-type-k-cable",
+    "title": "Thermocouple Type K Extension Cable",
+    "link": "https://nyxcable.com/product/thermocouple-type-k-cable/",
+    "categories": [
+      258
+    ],
+    "tags": [],
+    "featured_media": 9556,
+    "status": "publish"
+  },
+  {
+    "id": 4290,
+    "slug": "cc-link",
+    "title": "CC Link Cable &#8211; Ver.1.10 : สำหรับ Mitsubishi automation RS-485",
+    "link": "https://nyxcable.com/product/cc-link/",
+    "categories": [
+      115
+    ],
+    "tags": [],
+    "featured_media": 9525,
+    "status": "publish"
+  },
+  {
+    "id": 4287,
+    "slug": "rs485-rs422-sttp",
+    "title": "ST-TP : สายคู่บิดเกลียว สำหรับ RS485, RS422 โดยเฉพาะ",
+    "link": "https://nyxcable.com/product/rs485-rs422-sttp/",
+    "categories": [
+      132
+    ],
+    "tags": [],
+    "featured_media": 9555,
+    "status": "publish"
+  },
+  {
+    "id": 4285,
+    "slug": "lift-2s",
+    "title": "Lift-2s : สายไฟสลิงคู่สำหรับ Crane, Pendant cable, Lift Cable",
+    "link": "https://nyxcable.com/product/lift-2s/",
+    "categories": [
+      110
+    ],
+    "tags": [],
+    "featured_media": 9535,
+    "status": "publish"
+  },
+  {
+    "id": 4283,
+    "slug": "h07vvh6-f",
+    "title": "PVC Flat Cable : สายไฟแบนสำหรับ Crane และ Cable Trolley",
+    "link": "https://nyxcable.com/product/h07vvh6-f/",
+    "categories": [
+      111
+    ],
+    "tags": [],
+    "featured_media": 9552,
+    "status": "publish"
+  },
+  {
+    "id": 4281,
+    "slug": "profibus-cable",
+    "title": "PROFIBUS Cable : สำหรับระบบ Siemens Automation",
+    "link": "https://nyxcable.com/product/profibus-cable/",
+    "categories": [
+      115
+    ],
+    "tags": [],
+    "featured_media": 9550,
+    "status": "publish"
+  },
+  {
+    "id": 4279,
+    "slug": "h07rn-f",
+    "title": "NYX CABLE จำหน่ายสาย H07RN-F สายไฟกันน้ำสำหรับปั๊มน้ำ",
+    "link": "https://nyxcable.com/product/h07rn-f/",
+    "categories": [
+      112,
+      110
+    ],
+    "tags": [],
+    "featured_media": 9530,
+    "status": "publish"
+  },
+  {
+    "id": 4247,
+    "slug": "y11y-jz",
+    "title": "Y11Y-JZ : สายไฟทนน้ำมัน สายไฟทนสารเคมี",
+    "link": "https://nyxcable.com/product/y11y-jz/",
+    "categories": [
+      112
+    ],
+    "tags": [],
+    "featured_media": 9559,
+    "status": "publish"
+  },
+  {
+    "id": 4233,
+    "slug": "multiflex-cy",
+    "title": "Multiflex CY : สายไฟรางกระดูกงูมีชีลด์ (Cable Carrier)",
+    "link": "https://nyxcable.com/product/multiflex-cy/",
+    "categories": [
+      111
+    ],
+    "tags": [],
+    "featured_media": 9540,
+    "status": "publish"
+  },
+  {
+    "id": 4230,
+    "slug": "multiflex-y",
+    "title": "Multiflex Y : สายไฟรางกระดูกงู (Cable Carrier)",
+    "link": "https://nyxcable.com/product/multiflex-y/",
+    "categories": [
+      111
+    ],
+    "tags": [],
+    "featured_media": 15469,
+    "status": "publish"
+  },
+  {
+    "id": 4227,
+    "slug": "nsgafou",
+    "title": "NSGAFou 1.8/3 kV : สายไฟทนต่อการขีดข่วนและน้ำมัน",
+    "link": "https://nyxcable.com/product/nsgafou/",
+    "categories": [
+      110
+    ],
+    "tags": [],
+    "featured_media": 9545,
+    "status": "publish"
+  },
+  {
+    "id": 4222,
+    "slug": "nshtou",
+    "title": "NSHTOU : สายไฟรับแรงดึงสำหรับ Cable Reel Crane",
+    "link": "https://nyxcable.com/product/nshtou/",
+    "categories": [
+      111
+    ],
+    "tags": [],
+    "featured_media": 9546,
+    "status": "publish"
+  },
+  {
+    "id": 4220,
+    "slug": "rs485-rs422-liycy-tp",
+    "title": "LiYCY(TP) : สายคู่บิดเกลียว มีชีลด์",
+    "link": "https://nyxcable.com/product/rs485-rs422-liycy-tp/",
+    "categories": [
+      132
+    ],
+    "tags": [],
+    "featured_media": 9536,
+    "status": "publish"
+  },
+  {
+    "id": 4209,
+    "slug": "olflex-classic-110",
+    "title": "Olflex Classic 110 : สายคอนโทรล",
+    "link": "https://nyxcable.com/product/olflex-classic-110/",
+    "categories": [
+      254
+    ],
+    "tags": [],
+    "featured_media": 9548,
+    "status": "publish"
+  },
+  {
+    "id": 4204,
+    "slug": "opvc-jz",
+    "title": "OPVC-JZ : สายคอนโทรล",
+    "link": "https://nyxcable.com/product/opvc-jz/",
+    "categories": [
+      254
+    ],
+    "tags": [],
+    "featured_media": 9549,
+    "status": "publish"
+  },
+  {
+    "id": 4201,
+    "slug": "jz-500",
+    "title": "สาย JZ 500 Volt : สายคอนโทรล",
+    "link": "https://nyxcable.com/product/jz-500/",
+    "categories": [
+      254
+    ],
+    "tags": [],
+    "featured_media": 9534,
+    "status": "publish"
+  },
+  {
+    "id": 4027,
+    "slug": "sihf",
+    "title": "SiHF : สายไฟทนความร้อน 180C",
+    "link": "https://nyxcable.com/product/sihf/",
+    "categories": [
+      113
+    ],
+    "tags": [],
+    "featured_media": 9554,
+    "status": "publish"
+  },
+  {
+    "id": 4025,
+    "slug": "liycy",
+    "title": "LiYCY : สายคอนโทรลมีชีลด์",
+    "link": "https://nyxcable.com/product/liycy/",
+    "categories": [
+      253
+    ],
+    "tags": [],
+    "featured_media": 10354,
+    "status": "publish"
+  },
+  {
+    "id": 4019,
+    "slug": "ysly-jz",
+    "title": "YSLY-JZ: สายคอนโทรล",
+    "link": "https://nyxcable.com/product/ysly-jz/",
+    "categories": [
+      254
+    ],
+    "tags": [],
+    "featured_media": 9562,
+    "status": "publish"
+  }
+]

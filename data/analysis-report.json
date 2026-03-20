@@ -1,0 +1,2368 @@
+{
+  "extractedAt": "2026-03-19T15:05:31.795Z",
+  "summary": {
+    "totalProducts": 56,
+    "totalCategories": 18,
+    "totalPosts": 33,
+    "totalPages": 178,
+    "totalMedia": 1181
+  },
+  "products": {
+    "count": 56,
+    "items": [
+      {
+        "id": 20848,
+        "title": "ซื้อสายไฟ CVV, CVV-F, CVV-S คุณภาพยุโรป จาก NYX CABLE",
+        "slug": "cvv",
+        "categories": [
+          254
+        ],
+        "hasContent": false,
+        "contentLength": 0
+      },
+      {
+        "id": 20843,
+        "title": "สายไฟ VCT ยืดหยุ่น ปลอดภัย ทนกระแส รับแรงดันได้ถึง 450/750V",
+        "slug": "vct",
+        "categories": [
+          254
+        ],
+        "hasContent": false,
+        "contentLength": 0
+      },
+      {
+        "id": 19798,
+        "title": "PROFINET Connector : 180 Dregree",
+        "slug": "profinet-connector-180",
+        "categories": [
+          115
+        ],
+        "hasContent": true,
+        "contentLength": 226
+      },
+      {
+        "id": 19796,
+        "title": "PROFIBUS Connector : 90 Dregree With PG",
+        "slug": "profibus-connector-90pg",
+        "categories": [
+          115
+        ],
+        "hasContent": true,
+        "contentLength": 117
+      },
+      {
+        "id": 19789,
+        "title": "PUR-HF : สายไฟรับแรงดึงสำหรับ Cable Reel Crane",
+        "slug": "pur-hf",
+        "categories": [
+          111
+        ],
+        "hasContent": true,
+        "contentLength": 594
+      },
+      {
+        "id": 19788,
+        "title": "EIB Bus : KNX application",
+        "slug": "eib-bus-knx",
+        "categories": [
+          115
+        ],
+        "hasContent": true,
+        "contentLength": 173
+      },
+      {
+        "id": 19787,
+        "title": "PROFIBUS Connector : 90 Dregree",
+        "slug": "profibus-connector-90",
+        "categories": [
+          115
+        ],
+        "hasContent": true,
+        "contentLength": 96
+      },
+      {
+        "id": 19786,
+        "title": "PROFIBUS Cable : for drag chain application (motion)",
+        "slug": "profibus-drag-chain",
+        "categories": [
+          115
+        ],
+        "hasContent": true,
+        "contentLength": 587
+      },
+      {
+        "id": 19785,
+        "title": "SiF/Gl : Single Core สายทนความร้อน 200C",
+        "slug": "sif-gl",
+        "categories": [
+          113
+        ],
+        "hasContent": true,
+        "contentLength": 197
+      },
+      {
+        "id": 19271,
+        "title": "H07V-K : สาย Wiring ตู้คอนโทรล MDB (750Volt) &#8211; Size: 1.5 to 240 mm2",
+        "slug": "h07v-k",
+        "categories": [
+          257
+        ],
+        "hasContent": true,
+        "contentLength": 479
+      },
+      {
+        "id": 19270,
+        "title": "H05V-K : สาย Wiring ตู้คอนโทรล MDB (500Volt) &#8211; Size: 0.5, 0.75 and 1 mm2",
+        "slug": "h05v-k",
+        "categories": [
+          257
+        ],
+        "hasContent": true,
+        "contentLength": 446
+      },
+      {
+        "id": 17515,
+        "title": "Multicore Cable : สายมัลติคอร์",
+        "slug": "%e0%b8%aa%e0%b8%b2%e0%b8%a2%e0%b8%a1%e0%b8%b1%e0%b8%a5%e0%b8%95%e0%b8%b4%e0%b8%84%e0%b8%ad%e0%b8%a3%e0%b9%8c",
+        "categories": [
+          108
+        ],
+        "hasContent": true,
+        "contentLength": 44461
+      },
+      {
+        "id": 17514,
+        "title": "Flex-JZ : สายคอนโทรล",
+        "slug": "flex-jz",
+        "categories": [
+          254
+        ],
+        "hasContent": true,
+        "contentLength": 50138
+      },
+      {
+        "id": 8862,
+        "title": "PROFIBUS Cable : for outdoor application",
+        "slug": "profibus-outdoor",
+        "categories": [
+          115
+        ],
+        "hasContent": true,
+        "contentLength": 365
+      },
+      {
+        "id": 8860,
+        "title": "YSLY-JZ 1kV: สายไฟอ่อนสำหรับเดินงาน  Control และ Power",
+        "slug": "ysly-jz-1kv",
+        "categories": [
+          255
+        ],
+        "hasContent": true,
+        "contentLength": 484
+      },
+      {
+        "id": 7708,
+        "title": "PROFINET Type A Cable สำหรับระบบ Industrial Ethernet",
+        "slug": "profinet-type-a",
+        "categories": [
+          115
+        ],
+        "hasContent": true,
+        "contentLength": 101
+      },
+      {
+        "id": 7349,
+        "title": "NGFLGou : สายไฟแบนฉนวนทำจากยางสำหรับ Cable Trolley",
+        "slug": "ngflgou",
+        "categories": [
+          111
+        ],
+        "hasContent": true,
+        "contentLength": 124
+      },
+      {
+        "id": 7143,
+        "title": "Control Cable : สายคอนโทรล",
+        "slug": "%e0%b8%aa%e0%b8%b2%e0%b8%a2%e0%b8%84%e0%b8%ad%e0%b8%99%e0%b9%82%e0%b8%97%e0%b8%a3%e0%b8%a5",
+        "categories": [
+          108
+        ],
+        "hasContent": true,
+        "contentLength": 55303
+      },
+      {
+        "id": 6733,
+        "title": "NTSCGEWOEU : สายไฟรับแรงดึงสำหรับ Cable Reel ที่ใช้ในงานเหมืองโดยเฉพาะ",
+        "slug": "ntscgewoeu",
+        "categories": [
+          111
+        ],
+        "hasContent": true,
+        "contentLength": 232
+      },
+      {
+        "id": 6411,
+        "title": "NSSHÖU : สายไฟสำหรับงานเหมืองโดยเฉพาะ",
+        "slug": "nsshoeu",
+        "categories": [
+          110
+        ],
+        "hasContent": true,
+        "contentLength": 205
+      },
+      {
+        "id": 4499,
+        "title": "Olflex Classic 115 CY : สายคอนโทรลมีชีลด์",
+        "slug": "olflex-classic-115-cy",
+        "categories": [
+          253
+        ],
+        "hasContent": true,
+        "contentLength": 1421
+      },
+      {
+        "id": 4494,
+        "title": "LiYCY-JZ : สายคอนโทรลมีชีลด์",
+        "slug": "liycy-jz",
+        "categories": [
+          253
+        ],
+        "hasContent": true,
+        "contentLength": 133
+      },
+      {
+        "id": 4489,
+        "title": "Twisted Pair : สายคู่บิดเกลียว มีชีลด์ สำหรับสัญญาณ RS485 Cable",
+        "slug": "rs485-rs422",
+        "categories": [
+          132
+        ],
+        "hasContent": true,
+        "contentLength": 105
+      },
+      {
+        "id": 4343,
+        "title": "NYX CABLE จำหน่ายสาย Belden ครบวงจรสำหรับงานอุตสาหกรรม",
+        "slug": "rs485-rs422-belden",
+        "categories": [
+          132
+        ],
+        "hasContent": false,
+        "contentLength": 0
+      },
+      {
+        "id": 4342,
+        "title": "สาย RS485 Cable สายคู่บิดเกลียว มีชีลด์ สำหรับสัญญาณ RS485 โดยเฉพาะ : Hosiwell (โฮซิเวล)",
+        "slug": "rs485-rs422-hosiwell",
+        "categories": [
+          132
+        ],
+        "hasContent": true,
+        "contentLength": 527
+      },
+      {
+        "id": 4335,
+        "title": "Multiflex CP : สายไฟรางกระดูกงูมีชีลด์ ฉนวนทนน้ำมัน (Cable Carrier)",
+        "slug": "igus",
+        "categories": [
+          111
+        ],
+        "hasContent": true,
+        "contentLength": 283
+      },
+      {
+        "id": 4330,
+        "title": "PFA, PTFE, ETFE, FEP : สายไฟทนความร้อน 260C พร้อมทั้งทนสารเคมี",
+        "slug": "pfa-cable",
+        "categories": [
+          112
+        ],
+        "hasContent": true,
+        "contentLength": 227
+      },
+      {
+        "id": 4325,
+        "title": "Robot Welding Cable : สายไฟสำหรับงานเชื่อมหุ่นยนต์โดยเฉพาะ",
+        "slug": "robot-cable",
+        "categories": [
+          111
+        ],
+        "hasContent": true,
+        "contentLength": 254
+      },
+      {
+        "id": 4324,
+        "title": "Multiflex P : สายไฟรางกระดูกงู ฉนวนทนน้ำมัน (Cable Carrier)",
+        "slug": "multiflex-p",
+        "categories": [
+          111
+        ],
+        "hasContent": true,
+        "contentLength": 278
+      },
+      {
+        "id": 4321,
+        "title": "YC11Y-JZ : สายไฟทนน้ำมัน สายไฟทนสารเคมี แบบมีชีลด์",
+        "slug": "yc11y-jz",
+        "categories": [
+          112
+        ],
+        "hasContent": true,
+        "contentLength": 200
+      },
+      {
+        "id": 4317,
+        "title": "Double Shield Cable : สายชีลด์สองชั้น",
+        "slug": "double-shielded-cable",
+        "categories": [
+          252
+        ],
+        "hasContent": true,
+        "contentLength": 162
+      },
+      {
+        "id": 4314,
+        "title": "SiAF/Zu : Ignition wire 10,000 V (10kV)",
+        "slug": "siaf-ignition-wire",
+        "categories": [
+          113
+        ],
+        "hasContent": true,
+        "contentLength": 121
+      },
+      {
+        "id": 4312,
+        "title": "SiF : Singel Core สายทนความร้อน 180C",
+        "slug": "sif",
+        "categories": [
+          113
+        ],
+        "hasContent": true,
+        "contentLength": 93
+      },
+      {
+        "id": 4308,
+        "title": "WELDING CABLE : สายเชื่อมทองแดงเต็ม 100%",
+        "slug": "welding-cable",
+        "categories": [
+          110
+        ],
+        "hasContent": true,
+        "contentLength": 228
+      },
+      {
+        "id": 4306,
+        "title": "LiYY(TP) : สายคู่บิดเกลียว ไม่มีชีลด์",
+        "slug": "liyy-tp",
+        "categories": [
+          256
+        ],
+        "hasContent": true,
+        "contentLength": 131
+      },
+      {
+        "id": 4298,
+        "title": "สายไฟ DeviceNet Thin : สำหรับระบบ Automation",
+        "slug": "devicenet-thin",
+        "categories": [
+          115
+        ],
+        "hasContent": true,
+        "contentLength": 74
+      },
+      {
+        "id": 4295,
+        "title": "สายไฟ DeviceNet Thick : สำหรับระบบ Automation",
+        "slug": "devicenet-thick",
+        "categories": [
+          115
+        ],
+        "hasContent": true,
+        "contentLength": 53
+      },
+      {
+        "id": 4293,
+        "title": "Thermocouple Type K Extension Cable",
+        "slug": "thermocouple-type-k-cable",
+        "categories": [
+          258
+        ],
+        "hasContent": true,
+        "contentLength": 173
+      },
+      {
+        "id": 4290,
+        "title": "CC Link Cable &#8211; Ver.1.10 : สำหรับ Mitsubishi automation RS-485",
+        "slug": "cc-link",
+        "categories": [
+          115
+        ],
+        "hasContent": true,
+        "contentLength": 257
+      },
+      {
+        "id": 4287,
+        "title": "ST-TP : สายคู่บิดเกลียว สำหรับ RS485, RS422 โดยเฉพาะ",
+        "slug": "rs485-rs422-sttp",
+        "categories": [
+          132
+        ],
+        "hasContent": true,
+        "contentLength": 159
+      },
+      {
+        "id": 4285,
+        "title": "Lift-2s : สายไฟสลิงคู่สำหรับ Crane, Pendant cable, Lift Cable",
+        "slug": "lift-2s",
+        "categories": [
+          110
+        ],
+        "hasContent": true,
+        "contentLength": 115
+      },
+      {
+        "id": 4283,
+        "title": "PVC Flat Cable : สายไฟแบนสำหรับ Crane และ Cable Trolley",
+        "slug": "h07vvh6-f",
+        "categories": [
+          111
+        ],
+        "hasContent": true,
+        "contentLength": 160
+      },
+      {
+        "id": 4281,
+        "title": "PROFIBUS Cable : สำหรับระบบ Siemens Automation",
+        "slug": "profibus-cable",
+        "categories": [
+          115
+        ],
+        "hasContent": true,
+        "contentLength": 60
+      },
+      {
+        "id": 4279,
+        "title": "NYX CABLE จำหน่ายสาย H07RN-F สายไฟกันน้ำสำหรับปั๊มน้ำ",
+        "slug": "h07rn-f",
+        "categories": [
+          112,
+          110
+        ],
+        "hasContent": false,
+        "contentLength": 0
+      },
+      {
+        "id": 4247,
+        "title": "Y11Y-JZ : สายไฟทนน้ำมัน สายไฟทนสารเคมี",
+        "slug": "y11y-jz",
+        "categories": [
+          112
+        ],
+        "hasContent": true,
+        "contentLength": 174
+      },
+      {
+        "id": 4233,
+        "title": "Multiflex CY : สายไฟรางกระดูกงูมีชีลด์ (Cable Carrier)",
+        "slug": "multiflex-cy",
+        "categories": [
+          111
+        ],
+        "hasContent": true,
+        "contentLength": 258
+      },
+      {
+        "id": 4230,
+        "title": "Multiflex Y : สายไฟรางกระดูกงู (Cable Carrier)",
+        "slug": "multiflex-y",
+        "categories": [
+          111
+        ],
+        "hasContent": true,
+        "contentLength": 206
+      },
+      {
+        "id": 4227,
+        "title": "NSGAFou 1.8/3 kV : สายไฟทนต่อการขีดข่วนและน้ำมัน",
+        "slug": "nsgafou",
+        "categories": [
+          110
+        ],
+        "hasContent": true,
+        "contentLength": 209
+      },
+      {
+        "id": 4222,
+        "title": "NSHTOU : สายไฟรับแรงดึงสำหรับ Cable Reel Crane",
+        "slug": "nshtou",
+        "categories": [
+          111
+        ],
+        "hasContent": true,
+        "contentLength": 289
+      },
+      {
+        "id": 4220,
+        "title": "LiYCY(TP) : สายคู่บิดเกลียว มีชีลด์",
+        "slug": "rs485-rs422-liycy-tp",
+        "categories": [
+          132
+        ],
+        "hasContent": true,
+        "contentLength": 129
+      },
+      {
+        "id": 4209,
+        "title": "Olflex Classic 110 : สายคอนโทรล",
+        "slug": "olflex-classic-110",
+        "categories": [
+          254
+        ],
+        "hasContent": true,
+        "contentLength": 50472
+      },
+      {
+        "id": 4204,
+        "title": "OPVC-JZ : สายคอนโทรล",
+        "slug": "opvc-jz",
+        "categories": [
+          254
+        ],
+        "hasContent": true,
+        "contentLength": 50035
+      },
+      {
+        "id": 4201,
+        "title": "สาย JZ 500 Volt : สายคอนโทรล",
+        "slug": "jz-500",
+        "categories": [
+          254
+        ],
+        "hasContent": true,
+        "contentLength": 50247
+      },
+      {
+        "id": 4027,
+        "title": "SiHF : สายไฟทนความร้อน 180C",
+        "slug": "sihf",
+        "categories": [
+          113
+        ],
+        "hasContent": true,
+        "contentLength": 277
+      },
+      {
+        "id": 4025,
+        "title": "LiYCY : สายคอนโทรลมีชีลด์",
+        "slug": "liycy",
+        "categories": [
+          253
+        ],
+        "hasContent": true,
+        "contentLength": 1471
+      },
+      {
+        "id": 4019,
+        "title": "YSLY-JZ: สายคอนโทรล",
+        "slug": "ysly-jz",
+        "categories": [
+          254
+        ],
+        "hasContent": true,
+        "contentLength": 52252
+      }
+    ]
+  },
+  "categories": {
+    "count": 18,
+    "items": [
+      {
+        "id": 114,
+        "name": "H05V-K / H07V-K (IEC06 / IEC02 / VSF / THW-F)",
+        "slug": "vsf",
+        "parent": 0,
+        "count": 0,
+        "description": "<h1>สาย H05V-K และ H07V-K</h1>\r\n<h3>สเปกสูงกว่า <strong>60227 IEC 06  / </strong><strong>60227 IEC 02 / </strong><strong>VSF / THWF</strong></h3>\r\n<h3>สามารถใช้ทดแทนได้เป็นอย่างดีสินค้ามีในสต๊อกพร้อมส่งถึง 240  mm2</h3>\r\n<h3><span style=\"text-decoration: underline\">เป็นสายไฟทองแดงแกนฝอย</span> มีความอ่อนตัวสูง</h3>\r\n<h3>สำหรับ wiring ตู้คอนโทรล / เดินเชื่อมต่อระหว่าง Battery / ใช้ได้ทั้งไฟ AC-DC</h3>\r\n<strong>ขนาด 0.5 , 0.75 และ 1 mm2</strong> จะเป็นรุ่น H05V-K สามารถรับแรงดันได้ 500 Volt\r\n\r\n<strong>ขนาดตั้งแต่ 1.5 ถึง 240 mm2</strong> จะเป็นรุ่น H07V-K สามารถรับแรงดันได้ 750 Volt ซึ่งสามารถใช้กับไฟ 3 Phase ได้เป็นอย่างดี\r\n\r\nอีกทั้งฉนวนเป็น PVC ชนิดพิเศษที่มีคุณภาพสูงกว่า PVC ที่ขายทั่วไปในท้องตลาดทำให้มีความบางของฉนวนมากกว่าสาย VSF / THWF / IEC02 / IEC06\r\n\r\nซึ่งทำให้เข้า <a href=\"https://www.changfi.com/fix/2022/07/06/terminal-block-%E0%B8%84%E0%B8%B7%E0%B8%AD%E0%B8%AD%E0%B8%B0%E0%B9%84%E0%B8%A3/\">Terminal blocks</a> ได้ง่ายยิ่งขึ้นประหยัดเวลาในการติดตั้ง"
+      },
+      {
+        "id": 111,
+        "name": "High-Flex Motion Cables",
+        "slug": "high-flex-cable",
+        "parent": 0,
+        "count": 10,
+        "description": "สายไฟรางกระดูกงู / Dragchin cable / Reeling Cable\r\nสายที่ถูกออกแบบโครงสร้างสายไฟมา เพื่อรองรับการเคลื่อนที่โดยเฉพาะ โดยตัวสายจะมีความอ่อนตัว และรองรับแรงดึงได้สูงกว่าสายไฟทั่วไปมาก"
+      },
+      {
+        "id": 115,
+        "name": "Industrial Bus Cables",
+        "slug": "industrial-bus-cable",
+        "parent": 0,
+        "count": 11,
+        "description": "โดย PLC Cable ของทาง NYX Cable\r\nนั้นมีหลายแบบให้เลือกดังต่อไปนี้\r\n1. PROFIBUS Cable : สำหรับระบบ Siemens Automation\r\n2. CC Link Cable – Ver1.10 : สำหรับ Mitsubishi automation\r\n3. AS interface cable (AS-i Cable)\r\n4. DeviceNet Thin : สำหรับระบบ Automation\r\n5. DeviceNet Thick : สำหรับระบบ Automation\r\n\r\nPLC Cable , PLC นั้นย่อมาจาก <a href=\"https://en.wikipedia.org/wiki/Programmable_logic_controller\">Programmable Logic Controller</a> , PLC เป็นอุปกรณ์ที่ใช้ควบคุมการทำงานของเครื่องจักรในโรงงานอุตสาหกรรมซึ่งนำมาใช้ทดแทนวงจรรีเลย์แบบเดิมโดย PLC นั้นมีข้อดีกว่าตรงที่สามารถเขียนโปรแกรมเพื่อควบคุมการทำงานของเครื่องจักรให้เฉพาะเจาะจงกับหน้างานนั้นๆ ดังนั้น PLC หนึ่งเครื่องจึงสามารถสับเปลี่ยนหมุนเวียนติดตั้งกับเครื่องจักรใดก็ได้ เพียงแค่เปลี่ยนโปรแกรมที่จะใช้งานให้เหมาะกับสภาพการทำงานนั้นๆ ในขณะที่วงจรรีเลย์แบบเดิมนั้นจะเป็นแบบติดตั้งไปกับเครื่องจักร และมีการใช้งานที่เฉพาะเจาะจงเพียงอย่างเดียว"
+      },
+      {
+        "id": 128,
+        "name": "Uncategorized",
+        "slug": "uncategorized",
+        "parent": 0,
+        "count": 0,
+        "description": ""
+      },
+      {
+        "id": 257,
+        "name": "สาย Wiring ตู้คอนโทรล",
+        "slug": "wiring-cable",
+        "parent": 108,
+        "count": 2,
+        "description": ""
+      },
+      {
+        "id": 258,
+        "name": "สายควบคุมอุณหภูมิฮีทเตอร์",
+        "slug": "thermocouple-cable",
+        "parent": 251,
+        "count": 1,
+        "description": ""
+      },
+      {
+        "id": 108,
+        "name": "สายคอนโทรล",
+        "slug": "control-cable",
+        "parent": 0,
+        "count": 2,
+        "description": "<h1>YSLY-JZ สายคอนโทรลคุณภาพสูงสำหรับโรงงานอุตสาหกรรม</h1>\r\n<img class=\"aligncenter size-large wp-image-20609\" src=\"https://nyxcable.com/wp-content/uploads/2025/01/Compare-Multi-Core-Cable-2-1024x576.jpg\" alt=\"สายคอนโทรล YSLY-JZ ราคาคุ้ม ติดตั้งได้ตามมาตรฐานอุตสาหกรรม\" width=\"1024\" height=\"576\" />\r\n\r\nสายไฟคอนโทรล ถือเป็นหัวใจสำคัญของงานระบบไฟฟ้าในโรงงานอุตสาหกรรมและระบบอัตโนมัติ (Automation System) เพราะเป็นสายที่ใช้ควบคุมการทำงานของเครื่องจักร การส่งสัญญาณ และการเชื่อมต่ออุปกรณ์ไฟฟ้าหลายชนิดเข้าด้วยกันอย่างมีประสิทธิภาพ รวมถึงต้องมีความทนทาน ความแม่นยำในการส่งสัญญาณ และความปลอดภัย ซึ่งเป็นคุณสมบัติหลักที่ไม่อาจมองข้ามได้\r\n<h2>สายคอนโทรล (Control Cable) คืออะไร ?</h2>\r\nสายคอนโทรล (Control Cable) คือ สายไฟฟ้าประเภทหนึ่งที่ออกแบบมาโดยเฉพาะสำหรับการส่งสัญญาณควบคุม การวัดค่า และการเชื่อมต่อระหว่างแผงควบคุม (Control Panel) หรือตู้ควบคุม กับอุปกรณ์ภาคสนาม เช่น เซนเซอร์, สวิตช์, วาล์ว, มอเตอร์ หรือเครื่องจักรต่าง ๆ โดยทั่วไปแล้วสายคอนโทรลจะมีลักษณะเป็นสายหลายแกน (Multi-Core) ที่มีความยืดหยุ่นสูง เพื่อให้ง่ายต่อการติดตั้งและเดินสายในพื้นที่จำกัดของตู้ควบคุมหรือตามรางเดินสายไฟ\r\n\r\nเมื่อเปรียบเทียบกับสายไฟฟ้าที่ใช้ในระบบไฟฟ้าทั่วไป สายคอนโทรลมักจะออกแบบให้มีฉนวนที่บางกว่า เนื่องจากเกรดของ PVC ที่ใช้มีคุณภาพสูงกว่า ทำให้ทนทานต่อสภาพแวดล้อมทางอุตสาหกรรมได้ดี มีความอ่อนตัว และรองรับแรงดันไฟฟ้าได้ถึง 1,000V อย่างมีประสิทธิภาพ\r\n<h3>ประเภทของสายคอนโทรลที่ NYX Cable จำหน่าย</h3>\r\n<ol>\r\n \t<li><a href=\"https://nyxcable.com/cat/control-cable/multicore-cable/\">สายมัลติคอร์ (Multicore Cable)</a></li>\r\n \t<li><a href=\"https://nyxcable.com/cat/control-cable/control-power-cable/\">สายไฟอ่อนสำหรับเดินงาน Control และ Power </a></li>\r\n \t<li><a href=\"https://nyxcable.com/cat/control-cable/control-cable-noshield/\">สายคู่บิดเกลียว ไม่มีชีลด์ </a></li>\r\n \t<li><a href=\"https://nyxcable.com/cat/control-cable/wiring-cable/\">สาย Wiring ตู้คอนโทรล</a></li>\r\n</ol>\r\n<h2>สายคอนโทรลเหมาะสำหรับการใช้งานหรืออุตสาหกรรมประเภทใด ?</h2>\r\nด้วยคุณสมบัติเด่นด้านความยืดหยุ่นและความทนทาน สายไฟฟ้าคอนโทรลจึงเป็นที่ต้องการอย่างยิ่งในหลากหลายอุตสาหกรรมที่ต้องพึ่งพาระบบการวัดและควบคุมอุปกรณ์ต่าง ๆ ระบบอัตโนมัติภายในโรงงาน เช่น\r\n<ul>\r\n \t<li><strong>อุตสาหกรรมการผลิตและโรงงานอัตโนมัติ :</strong> โดยจะใช้สาย Wiring สำหรับตู้คอนโทรล เพื่อเชื่อมต่อ PLC, รีเลย์ และอุปกรณ์ควบคุมต่าง ๆ ให้เข้ากับเครื่องจักรและสายพานการผลิต</li>\r\n \t<li><strong>ระบบอาคารอัจฉริยะ (Smart Building) :</strong> สำหรับการควบคุมระบบ HVAC (เครื่องปรับอากาศ), ระบบไฟส่องสว่าง และระบบรักษาความปลอดภัย</li>\r\n \t<li><strong>เครื่องจักรและอุปกรณ์เคลื่อนที่ :</strong> เนื่องจากสายคอนโทรลมีความยืดหยุ่นสูง จึงเหมาะสำหรับส่วนที่ต้องมีการเคลื่อนไหว เช่น รางกระดูกงู เครน Cable Reel แขนกล หุ่นยนต์ และเครื่องมือกล</li>\r\n \t<li><strong>ระบบขนส่งและโลจิสติกส์ :</strong> นิยมใช้สายไฟตู้คอนโทรลในระบบลำเลียง (Conveyor System) และระบบคลังสินค้าอัตโนมัติ</li>\r\n</ul>\r\n<h2>แนะนำสายคอนโทรล YSLY-JZ</h2>\r\nสายไฟฟ้าคอนโทรลตระกูล YSLY เป็นตัวเลือกยอดนิยมที่หลายประเทศในยุโรปเลือกใช้ ด้วยโครงสร้างที่ออกแบบมา.ให้มีความยืดหยุ่น สามารถนำไฟฟ้าได้ดี ใช้ฉนวน PVC ตามมาตรฐาน จึงทำให้มีความน่าเชื่อถือสูง\r\n<h3>โครงสร้างของสาย YSLY-JZ</h3>\r\n<ol>\r\n \t<li><strong>ตัวนำทองแดง :</strong> ใช้ตัวนำทองแดงเปลือยเส้นฝอยละเอียด (Class 5) ทำให้มีความอ่อนตัวสูงเทียบเท่าสาย VCT เมื่อมีขนาดหน้าตัดเท่ากัน</li>\r\n \t<li><strong>ฉนวนภายใน :</strong> ทำจาก PVC มีสีดำ โดยแต่ละแกนจะพิมพ์กำกับด้วยตัวเลข เพื่อความง่ายและแม่นยำในการระบุสายขณะติดตั้ง</li>\r\n \t<li><strong>ฉนวนภายนอก :</strong> ทำจาก PVC มีสีเทาหรือสีดำ พิมพ์กำกับด้วยสีดำหรือสีขาว บอกขนาดของสายไฟเป็น mm²และจำนวน Core ของสายไฟ</li>\r\n</ol>\r\n<h3>สรุปความแตกต่างของสายไฟฟ้าคอนโทรลรุ่น YSLY-JZ และ YSLY-OZ</h3>\r\nรุ่นหลักที่ใช้กันทั่วไปในตลาดคือ YSLY-JZ และ YSLY-OZ ซึ่งความแตกต่างของรหัส JZ และ OZ นั้น เป็นการบ่งชี้ถึงรูปแบบการเดินสายดิน (Grounding) ตามมาตรฐานการติดตั้งในยุโรป ดังนี้\r\n<ul>\r\n \t<li><strong>JZ (Green/Yellow Core) :</strong> J หมายถึง สายคอนโทรล รุ่นที่มีแกนสายดิน (Protective Conductor) สีเขียวคาดเหลือง รวมอยู่ด้วย\r\n<ul>\r\n \t<li><strong>ตัวอย่าง :</strong> YSLY-JZ 3G1 หมายถึง สายมี 3 แกน, G หมายถึงมีสายกราวนด์ (เขียว/เหลือง) และ 1 คือขนาด 1.0 mm²</li>\r\n \t<li><strong>รูปแบบสาย :</strong> พิมพ์กำกับด้วยเลข 1, เลข 2 และสีเขียวคาดเหลือง</li>\r\n</ul>\r\n</li>\r\n \t<li><strong>OZ (No Green/Yellow Core) :</strong> O หมายถึง สายคอนโทรล รุ่นที่ไม่มีแกนสายดิน\r\n<ul>\r\n \t<li><strong>ตัวอย่าง :</strong> YSLY-OZ 3X1 หมายถึง สายมี 3 แกน, X หมายถึงไม่มีสายกราวนด์ และ 1 คือขนาด 1.0 mm²</li>\r\n \t<li><strong>รูปแบบสาย :</strong> มาร์คด้วยเลข 1, เลข 2 และ เลข 3 (ทุกแกนเป็นสีดำและพิมพ์กำกับด้วยตัวเลข)</li>\r\n</ul>\r\n</li>\r\n</ul>\r\nการจำแนกด้วยรหัส JZ และ OZ ช่วยให้ผู้ใช้งานสามารถเลือกสาย Control Cable ที่มีโครงสร้างตรงตามข้อกำหนดของระบบควบคุมไฟฟ้าและข้อบังคับด้านความปลอดภัยได้อย่างถูกต้องแม่นยำ\r\n<table border=\"1\">\r\n<thead>\r\n<tr>\r\n<th><strong>รุ่น</strong></th>\r\n<th><strong>คุณสมบัติเด่น</strong></th>\r\n<th><strong>ตัวอย่าง (3 แกน)</strong></th>\r\n</tr>\r\n</thead>\r\n<tbody>\r\n<tr>\r\n<td><strong>YSLY-JZ</strong></td>\r\n<td><strong>มีสายกราวนด์</strong> (สายเขียว-เหลือง) รวมอยู่ด้วย</td>\r\n<td>3G1: มีสายกำกับตัวเลข 1, 2 และสายเขียว-เหลือง</td>\r\n</tr>\r\n<tr>\r\n<td><strong>YSLY-OZ</strong></td>\r\n<td><strong>ไม่มีสายกราวนด์</strong> ทุกแกนกำกับด้วยตัวเลข</td>\r\n<td>3X1: มีสายกำกับตัวเลข 1, 2 และ 3</td>\r\n</tr>\r\n</tbody>\r\n</table>\r\n<h3>จุดเด่นของ YSLY-JZ เมื่อเทียบกับสายคอนโทรลทั่วไป (VCT / IEC 53 และ CVV)</h3>\r\n<ul>\r\n \t<li><strong>ประหยัดพื้นที่ :</strong> YSLY-JZ ออกแบบมาสำหรับติดตั้งในระบบไฟฟ้าสำหรับโรงงานอุตสาหกรรมโดยเฉพาะ จึงมีฉนวนที่บางกว่าเพราะใช้ PVC เกรดที่ดีกว่าสายไฟทั่วไป ทำให้สามารถลดขนาดพื้นที่หน้าตัดของสายไฟได้ 40-65% แต่คุณสมบัติทางไฟฟ้ายังเหมือนเดิม ซึ่งทำให้ประหยัดขนาดและลดค่าท่อของท่อร้อยสายไฟ</li>\r\n \t<li><strong>ความยืดหยุ่นสูง :</strong> มีความอ่อนตัวมากกว่าแม้จะใช้ทองแดงความละเอียดเท่ากับสายไฟ VCT เนื่องจากฉนวน PVC ที่บางกว่า จึงทำให้ติดตั้งได้ดีและดัดโค้งงอได้อย่างยืดหยุ่น ทำให้สามารถจบงานได้ไวและลดค่าแรงลง</li>\r\n \t<li><strong>รองรับแรงดันไฟฟ้าได้สูง :</strong> สามารถรับแรงดันไฟฟ้าได้ถึง 500V จึงทำให้สามารถนำไปใช้กับไฟฟ้า 3 เฟส ที่มีกระแสไฟฟ้าที่ 380-420V ได้เป็นอย่างดี</li>\r\n \t<li><strong>ผลิตได้หลายขนาด :</strong> มีพื้นที่หน้าตัดตั้งแต่ 0.5 mm² - 240 mm² และสามารถสั่งผลิตได้ถึง 100 คอร์ ต่างจากสาย CVV ที่มีไลน์การผลิตเพียง 30 คอร์เท่านั้น</li>\r\n</ul>\r\nในส่วนของชื่อเรียกแต่ละแบรนด์ของสายไฟฟ้าคอนโทรล YSLY-JZ ที่มีขายในประเทศไทยนั้นมีหลายชื่อ เช่น Olflex Classic 110, OPVC-JZ และ JZ-500 โดยแต่ละชื่อของสายไฟ จะกำหนดให้แตกต่างกันไปในแต่ละยี่ห้อ\r\n<h2>วิธีเลือกซื้อสายคอนโทรล YSLY-JZ</h2>\r\n<ol>\r\n \t<li><strong>จำนวนแกน</strong> พิจารณาจากอุปกรณ์ควบคุมที่ต้องการเชื่อมต่อ</li>\r\n \t<li><strong>ขนาดพื้นที่หน้าตัด (Core &amp; Size) :</strong> พิจารณาจากปริมาณกระแสไฟฟ้าที่ต้องใช้และความต้านทานรวมของสายไฟ</li>\r\n \t<li><strong>แรงดันไฟฟ้าที่รองรับ (Voltage Rating) :</strong> สาย Control Cable ทั่วไปมักรองรับแรงดัน 300-500 V แต่บางรุ่นสามารถรองรับได้สูงถึง 1,000V ดังนั้น จึงควรสอบถามคุณสมบัติการรองรับกระแสไฟฟ้า เพื่อให้ได้สายไฟที่เหมาะสมกับการติดตั้งและใช้งาน</li>\r\n \t<li><strong>โครงสร้างฉนวนและชีลด์ (Insulation &amp; Shielding) :</strong> หากติดตั้งในพื้นที่ที่มีคลื่นรบกวนสูง ควรเลือกสาย Control Cable แบบมีชีลด์ เพื่อให้การส่งสัญญาณแม่นยำ ไม่ถูกรบกวนจากคลื่นแม่เหล็กไฟฟ้าที่เกิดจากอุปกรณ์ต่าง ๆ ในโรงงาน โดยเฉพาะอินเวอร์เตอร์</li>\r\n \t<li><strong>สีของฉนวนภายนอก</strong> สีเทาหรือสีดำ\r\n<ul>\r\n \t<li>สีเทาเหมาะสำหรับการเดินภายในและภายนอก (ต้องร้อยท่อ)</li>\r\n \t<li>สีดำเหมาะสำหรับเดินภายในและภายนอก (โดยตรงไม่ต้องร้อยท่อ)</li>\r\n</ul>\r\n</li>\r\n \t<li><strong>ความยืดหยุ่นและความทนทาน :</strong> สำหรับงานที่มีการสั่นสะเทือนหรือต้องเคลื่อนไหว โค้งงอเล็กน้อย ควรเลือกสายที่มีความอ่อนตัว เช่น สาย YSLY-JZ ที่ทำมาจากวัสดุที่ได้คุณภาพ ช่วยยืดอายุการใช้งานของสายไฟ ทองแดงไม่ขาดในเหมือนสายทั่วๆไปตามท้องตลาด</li>\r\n \t<li><strong>สายคอนโทรล ราคา และมาตรฐาน :</strong> เลือกจากผู้ผลิตหรือผู้นำเข้าที่มีมาตรฐานรองรับ เช่น IEC, CE, TIS หรือ VDE เพื่อความปลอดภัยและอายุการใช้งานที่ยาวนาน</li>\r\n</ol>\r\n<h2>เช็กราคาสายคอนโทรลโมเดล YSLY-JZ ที่ NYX CABLE</h2>\r\n<table border=\"1\">\r\n<thead>\r\n<tr>\r\n<th>Model</th>\r\n<th>NO. of strands x Max\r\nstrand Dia.(mm)</th>\r\n<th>Outer Dia.\r\n(mm)</th>\r\n<th>Cu Weight\r\n(kg/km)</th>\r\n<th>Weight\r\n(kg/km)</th>\r\n<th>Conductor Resistance\r\n@ 20oC (Ohm/km)</th>\r\n<th>ราคา บาท\r\nPrice Baht</th>\r\n</tr>\r\n</thead>\r\n<tbody>\r\n<tr>\r\n<td style=\"text-align: center\">YSLY-OZ 2X0.5</td>\r\n<td style=\"text-align: center\">16x0.20</td>\r\n<td style=\"text-align: center\">4.9</td>\r\n<td style=\"text-align: center\">9.6</td>\r\n<td style=\"text-align: center\">38</td>\r\n<td style=\"text-align: center\">39.0</td>\r\n<td style=\"text-align: center\">14.44</td>\r\n</tr>\r\n<tr>\r\n<td style=\"text-align: center\">YSLY-JZ 3G0.5</td>\r\n<td style=\"text-align: center\">16x0.20</td>\r\n<td style=\"text-align: center\">5.2</td>\r\n<td style=\"text-align: center\">14.4</td>\r\n<td style=\"text-align: center\">47</td>\r\n<td style=\"text-align: center\">39.0</td>\r\n<td style=\"text-align: center\">19.54</td>\r\n</tr>\r\n<tr>\r\n<td style=\"text-align: center\">YSLY-JZ 4G0.5</td>\r\n<td style=\"text-align: center\">16x0.20</td>\r\n<td style=\"text-align: center\">5.7</td>\r\n<td style=\"text-align: center\">19.2</td>\r\n<td style=\"text-align: center\">58</td>\r\n<td style=\"text-align: center\">39.0</td>\r\n<td style=\"text-align: center\">24.37</td>\r\n</tr>\r\n<tr>\r\n<td style=\"text-align: center\">YSLY-JZ 5G0.5</td>\r\n<td style=\"text-align: center\">16x0.20</td>\r\n<td style=\"text-align: center\">6.0</td>\r\n<td style=\"text-align: center\">24</td>\r\n<td style=\"text-align: center\">75</td>\r\n<td style=\"text-align: center\">39.0</td>\r\n<td style=\"text-align: center\">30.34</td>\r\n</tr>\r\n<tr>\r\n<td style=\"text-align: center\">YSLY-JZ 6G0.5</td>\r\n<td style=\"text-align: center\">16x0.20</td>\r\n<td style=\"text-align: center\">6.5</td>\r\n<td style=\"text-align: center\">28.8</td>\r\n<td style=\"text-align: center\">89</td>\r\n<td style=\"text-align: center\">39.0</td>\r\n<td style=\"text-align: center\">40.00</td>\r\n</tr>\r\n<tr>\r\n<td style=\"text-align: center\">YSLY-JZ 7G0.5</td>\r\n<td style=\"text-align: center\">16x0.20</td>\r\n<td style=\"text-align: center\">7.1</td>\r\n<td style=\"text-align: center\">33.6</td>\r\n<td style=\"text-align: center\">93</td>\r\n<td style=\"text-align: center\">39.0</td>\r\n<td style=\"text-align: center\">44.58</td>\r\n</tr>\r\n<tr>\r\n<td style=\"text-align: center\">YSLY-JZ 8G0.5</td>\r\n<td style=\"text-align: center\">16x0.20</td>\r\n<td style=\"text-align: center\">7.7</td>\r\n<td style=\"text-align: center\">38.4</td>\r\n<td style=\"text-align: center\">110</td>\r\n<td style=\"text-align: center\">39.0</td>\r\n<td style=\"text-align: center\">51.40</td>\r\n</tr>\r\n<tr>\r\n<td style=\"text-align: center\">YSLY-JZ 10G0.5</td>\r\n<td style=\"text-align: center\">16x0.20</td>\r\n<td style=\"text-align: center\">8.6</td>\r\n<td style=\"text-align: center\">48</td>\r\n<td style=\"text-align: center\">140</td>\r\n<td style=\"text-align: center\">39.0</td>\r\n<td style=\"text-align: center\">64.42</td>\r\n</tr>\r\n<tr>\r\n<td style=\"text-align: center\">YSLY-JZ 12G0.5</td>\r\n<td style=\"text-align: center\">16x0.20</td>\r\n<td style=\"text-align: center\">9.1</td>\r\n<td style=\"text-align: center\">58</td>\r\n<td style=\"text-align: center\">150</td>\r\n<td style=\"text-align: center\">39.0</td>\r\n<td style=\"text-align: center\">75.54</td>\r\n</tr>\r\n<tr>\r\n<td style=\"text-align: center\">YSLY-JZ 14G0.5</td>\r\n<td style=\"text-align: center\">16x0.20</td>\r\n<td style=\"text-align: center\">9.3</td>\r\n<td style=\"text-align: center\">67</td>\r\n<td style=\"text-align: center\">170</td>\r\n<td style=\"text-align: center\">39.0</td>\r\n<td style=\"text-align: center\">90.65</td>\r\n</tr>\r\n<tr>\r\n<td style=\"text-align: center\">YSLY-JZ 16G0.5</td>\r\n<td style=\"text-align: center\">16x0.20</td>\r\n<td style=\"text-align: center\">10.4</td>\r\n<td style=\"text-align: center\">77</td>\r\n<td style=\"text-align: center\">195</td>\r\n<td style=\"text-align: center\">39.0</td>\r\n<td style=\"text-align: center\">101.46</td>\r\n</tr>\r\n<tr>\r\n<td style=\"text-align: center\">YSLY-JZ 18G0.5</td>\r\n<td style=\"text-align: center\">16x0.20</td>\r\n<td style=\"text-align: center\">10.8</td>\r\n<td style=\"text-align: center\">86</td>\r\n<td style=\"text-align: center\">215</td>\r\n<td style=\"text-align: center\">39.0</td>\r\n<td style=\"text-align: center\">113.29</td>\r\n</tr>\r\n<tr>\r\n<td style=\"text-align: center\">YSLY-JZ 20G0.5</td>\r\n<td style=\"text-align: center\">16x0.20</td>\r\n<td style=\"text-align: center\">11.8</td>\r\n<td style=\"text-align: center\">96</td>\r\n<td style=\"text-align: center\">230</td>\r\n<td style=\"text-align: center\">39.0</td>\r\n<td style=\"text-align: center\">123.86</td>\r\n</tr>\r\n<tr>\r\n<td style=\"text-align: center\">YSLY-JZ 21G0.5</td>\r\n<td style=\"text-align: center\">16x0.20</td>\r\n<td style=\"text-align: center\">12.0</td>\r\n<td style=\"text-align: center\">101</td>\r\n<td style=\"text-align: center\">245</td>\r\n<td style=\"text-align: center\">39.0</td>\r\n<td style=\"text-align: center\">135.44</td>\r\n</tr>\r\n<tr>\r\n<td style=\"text-align: center\">YSLY-JZ 25G0.5</td>\r\n<td style=\"text-align: center\">16x0.20</td>\r\n<td style=\"text-align: center\">12.8</td>\r\n<td style=\"text-align: center\">120</td>\r\n<td style=\"text-align: center\">280</td>\r\n<td style=\"text-align: center\">39.0</td>\r\n<td style=\"text-align: center\">152.66</td>\r\n</tr>\r\n<tr>\r\n<td style=\"text-align: center\">YSLY-JZ 30G0.5</td>\r\n<td style=\"text-align: center\">16x0.20</td>\r\n<td style=\"text-align: center\">13.7</td>\r\n<td style=\"text-align: center\">144</td>\r\n<td style=\"text-align: center\">310</td>\r\n<td style=\"text-align: center\">39.0</td>\r\n<td style=\"text-align: center\">184.45</td>\r\n</tr>\r\n<tr>\r\n<td style=\"text-align: center\">YSLY-JZ 32G0.5</td>\r\n<td style=\"text-align: center\">16x0.20</td>\r\n<td style=\"text-align: center\">14.0</td>\r\n<td style=\"text-align: center\">154</td>\r\n<td style=\"text-align: center\">345</td>\r\n<td style=\"text-align: center\">39.0</td>\r\n<td style=\"text-align: center\">199.00</td>\r\n</tr>\r\n<tr>\r\n<td style=\"text-align: center\">YSLY-JZ 35G0.5</td>\r\n<td style=\"text-align: center\">16x0.20</td>\r\n<td style=\"text-align: center\">14.9</td>\r\n<td style=\"text-align: center\">168</td>\r\n<td style=\"text-align: center\">390</td>\r\n<td style=\"text-align: center\">39.0</td>\r\n<td style=\"text-align: center\">235.08</td>\r\n</tr>\r\n<tr>\r\n<td style=\"text-align: center\">YSLY-JZ 50G0.5</td>\r\n<td style=\"text-align: center\">16x0.20</td>\r\n<td style=\"text-align: center\">17.6</td>\r\n<td style=\"text-align: center\">240</td>\r\n<td style=\"text-align: center\">510</td>\r\n<td style=\"text-align: center\">39.0</td>\r\n<td style=\"text-align: center\">409.97</td>\r\n</tr>\r\n</tbody>\r\n</table>\r\n<h2>NYX CABLE จำหน่ายสายคอนโทรลงานอุตสาหกรรม ราคาปลีก-ส่ง พร้อมส่งด่วนใน 3 ชม. จากโกดังบางนา</h2>\r\nสายไฟคอนโทรล (Control Cable) จาก NYX CABLE คือสายไฟอุตสาหกรรมคุณภาพสูงที่ออกแบบมาเพื่อตอบโจทย์งานควบคุมทุกประเภท ที่นี่เราจำหน่ายสายไฟคอนโทรล VSF (THW-F) ที่ใช้สำหรับเดินตู้คอนโทรลโดยเฉพาะ อีกทั้งยังจำหน่ายสายรุ่นยอดนิยมอย่าง YSLY-JZ / YSLY-OZ โดยทุกสายผ่านการผลิตตามมาตรฐานสากล จึงมั่นใจได้ในความปลอดภัย ความทนทาน และอายุการใช้งานที่ยาวนาน เหมาะสำหรับงานระบบเครื่องจักรอัตโนมัติ ตู้ควบคุมไฟฟ้า และโครงสร้างระบบไฟฟ้าในโรงงานอุตสาหกรรมโดยเฉพาะ\r\n\r\nNYX CABLE มีสต๊อกพร้อมส่ง ตั้งแต่ขนาด 0.5 mm² - 240 mm² พร้อมบริการให้คำปรึกษาโดยผู้เชี่ยวชาญด้านสายไฟฟ้า ช่วยให้คุณเลือกสเปกสายได้ตรงตามการใช้งานจริง ทั้งรุ่นและขนาด ทำให้ไม่ต้องเผื่อขนาดสายไฟให้ใหญ่เกินความจำเป็น ช่วยให้ลดต้นทุน และมีโอกาสปิดงานได้เพิ่มขึ้น ปลอดภัย และคุ้มค่าในระยะยาว สนใจสั่งซื้อสอบถามข้อมูลเพิ่มเติมได้ที่โทร <a href=\"tel:+6621115588\">02-111-5588</a> หรือ LINE OA : <a href=\"https://page.line.me/ubb9405u?openQrModal=true\" target=\"_blank\" rel=\"noopener\">@nyxcable</a>\r\n<h2 style=\"margin-bottom: 12px\">FAQs คำถามที่พบบ่อยเกี่ยวกับสายคอนโทรล</h2>\r\n[sp_easyaccordion id=\"20836\"]"
+      },
+      {
+        "id": 253,
+        "name": "สายคอนโทรลมีชีลด์",
+        "slug": "shielded-control-cable",
+        "parent": 109,
+        "count": 3,
+        "description": ""
+      },
+      {
+        "id": 132,
+        "name": "สายคู่บิดเกลียว RS485 / RS422",
+        "slug": "twisted-pair-cable",
+        "parent": 0,
+        "count": 5,
+        "description": "สายสำหรับสัญญาณ RS485, RS422 สัญญาณ 4-20mA\r\nซึ่งสัญญาณดังกล่าวข้างต้นต้องใช้สาย Twisted Pair ในการส่งสัญญาณเพื่อลดการรบกวนกันละหว่างสัญญาณแต่ละคู่สายให้เกิดขึ้นน้อยที่สุด\r\n\r\nสาย Model ST-TP ถูกออกแบบมาสำหรับสัญญาณดังกล่าวข้างต้นโดยเฉพาะ\r\n\r\n \tตัวนำทองแดงฝอยเคลือบดีบุก ทำให้ สามารถทนทานต่อความชื้น เหมาะกับพื้นที่ที่มีความชื้นสูง เช่น ร้อยท่อฝังดิน การเดินกลางแจ้ง ในงาน Solar Farm และอีกทั้งยังเป็นเส้นฝอยทำให้มีความอ่อนตัวสูง\r\n \tCore Twist in Pair ทำให้สัญญาณของแต่ละเส้นไม่รบกวนกัน\r\n \tAluminum Foil Shielded นั้นเหมาะกับสัญญาณ RS485, RS422 ซึ่งเป็นสัญญาณ Digital มากกว่า Tinned Copper Braid Shield\r\n\r\n<a href=\"https://nyxcable.com/wp-content/uploads/2025/01/Compare-ST-TP-Shield-cable-1-scaled.jpg\"></a>\r\nNote : สาย ST-TP ถูกออกแบบมาสำหรับการเดินสัญญาณโดยเฉพาะ เช่น RS485, RS232 และ Modbus\r\nสามารถทนต่อความชื้นและแสงแดดได้เป็นอย่างดี เช่น การเดินการแจ้งโดยไม่ต้องร้อยท่อ ในงาน Solar Farm, การร้อยท่อฟังดิน สามารถเดินได้ไกลสูงสุด 1,200m ด้วยตัวนำเพียง 16 AWG (1.31 mm2)"
+      },
+      {
+        "id": 256,
+        "name": "สายคู่บิดเกลียว ไม่มีชีลด์",
+        "slug": "control-cable-noshield",
+        "parent": 108,
+        "count": 1,
+        "description": ""
+      },
+      {
+        "id": 252,
+        "name": "สายชีลด์สองชั้น",
+        "slug": "double-shielded-cable",
+        "parent": 109,
+        "count": 1,
+        "description": ""
+      },
+      {
+        "id": 109,
+        "name": "สายชีลล์ (Shielded Cable)",
+        "slug": "shielded-cable",
+        "parent": 0,
+        "count": 4,
+        "description": "<h1>จำหน่ายสายคอนโทรลมีชีลด์ครบทุกรุ่นจาก NYX CABLE</h1>\r\n<strong>NYX CABLE</strong> ผู้นำด้านสายไฟและสายคอนโทรลคุณภาพยุโรป จำหน่ายสายคอนโทรลมีชีลด์ (Shield Cable) ครบทุกรุ่น ทั้งแบบฟอยล์ชีลด์ (Foil Shield) แบบถักชีลด์ (Braid Shield) และ<a href=\"https://nyxcable.com/product/double-shielded-cable/\">สายชีลด์สองชั้น</a> (Double Shielded) ออกแบบมาสำหรับการใช้งานในระบบควบคุม เครื่องจักรอัตโนมัติ และงานอุตสาหกรรมที่ต้องการความเสถียรสูง สายชีลด์จาก NYX CABLE ผลิตจากวัสดุคุณภาพสูง มาตรฐานสากล สามารถป้องกันสัญญาณรบกวนไฟฟ้าได้อย่างมีประสิทธิภาพ ช่วยให้ระบบทำงานได้อย่างแม่นยำ ปลอดภัย และยาวนาน\r\n<h2>สายคอนโทรลมีชีลด์ (Shield Cable)</h2>\r\nสายคอนโทรลมีชีลด์ เป็นสายไฟฟ้าที่ออกแบบมาเพื่อลดหรือป้องกันสัญญาณรบกวนทางไฟฟ้า (EMI) ที่อาจเกิดขึ้นระหว่างการส่งสัญญาณ คำว่า “ชีลด์” หรือ “Shield” หมายถึง “โล่ป้องกัน” ซึ่งจะทำหน้าที่เป็นชั้นป้องกันสัญญาณรบกวนระหว่าง ตัวนำภายในสาย กับ สภาพแวดล้อมภายนอก\r\n<h3>หน้าที่ของชีลด์ในสายคอนโทรล</h3>\r\nสำหรับสายคอนโทรล (Control Cable) ชั้นชีลด์ช่วยป้องกันไม่ให้สัญญาณรบกวนจากภายนอกเข้ามากระทบกับการส่งผ่านข้อมูลและคำสั่ง ช่วยให้ระบบสื่อสารและการควบคุมเครื่องจักรทำงานได้อย่างแม่นยำและเสถียร\r\n<h3>หน้าที่ของชีลด์ในสายพาวเวอร์ (Power Cable)</h3>\r\nสำหรับสายพาวเวอร์ เช่น สายไฟที่ใช้กับ VFD Motor (Variable Frequency Drive) ชีลด์จะทำหน้าที่ตรงกันข้าม คือ ช่วยป้องกันไม่ให้สัญญาณรบกวนจากภายในสายไฟส่งออกไปรบกวนอุปกรณ์อื่นในระบบ\r\n<h3>การต่อกราวนด์ในสายชีลด์อย่างถูกวิธี</h3>\r\nการติดตั้งสายชีลด์ทุกประเภท ต้องต่อปลายทั้งสองด้านของชีลด์ลงกราวนด์ (Grounding) อย่างถูกต้อง เพื่อให้กระแสสัญญาณรบกวนสามารถระบายไปสู่พื้นได้อย่างมีประสิทธิภาพ หากไม่มีการต่อกราวนด์ ชีลด์จะไม่สามารถทำงานเต็มประสิทธิภาพ\r\n<h2>รู้จักสายชีลด์ 3 ประเภทที่ใช้ในสายคอนโทรล</h2>\r\nโดยทั่วไปชีลด์ที่นิยมใช้ในสายคอนโทรลมี 3 ประเภทหลัก ซึ่งแต่ละแบบมีคุณสมบัติแตกต่างกัน เหมาะกับการใช้งานเฉพาะทาง ทั้งด้านการป้องกันสัญญาณรบกวน ความยืดหยุ่น และต้นทุนการผลิต\r\n<h3>1. สายชีลด์ทองแดงเคลือบดีบุกถัก (Tinned Copper Braid Shield)</h3>\r\nชีลด์ทองแดงเคลือบดีบุกถัก เป็นที่นิยมในงานอุตสาหกรรม เนื่องจากมีความอ่อนตัวสูงที่สุด เหมาะกับงานในระบบคอนโทรลทั่วไปที่ต้องการทั้งความยืดหยุ่น และการป้องกันสัญญาณรบกวนความถี่ต่ำที่เกิดจากสาย Power Cable\r\n<h4>ข้อดี</h4>\r\n<ul>\r\n \t<li>มีความอ่อนตัวสูง ใช้ได้ดีกับอุปกรณ์ที่มีการเคลื่อนไหว</li>\r\n \t<li>อ่อนตัวติดตั้งง่าย ลดระยะเวลาการติดตั้งประหยัดค่าแรง</li>\r\n \t<li>ขนาดสายไฟโดยรวมมีขนาดไม่แตกต่างจากรุ่นไม่มีชีลด์มากนัก ทำให้ลดขนาดท่อหรือราง</li>\r\n \t<li>ป้องกันสัญญาณรบกวนในช่วงความถี่ต่ำที่เกิดจากสาย Power Cable ได้ดีกว่าชีลด์แบบอะลูมิเนียมฟอยล์</li>\r\n \t<li>มีการนำไฟฟ้าที่ดีเพราะผลิตจากทองแดง ทำให้สามารถกราวนด์สัญญาณรบกวนออกได้อย่างมีประสิทธิภาพ</li>\r\n</ul>\r\n<h4>ข้อจำกัด</h4>\r\n<ul>\r\n \t<li>ต้นทุนสูงที่สุด ในชีลด์ทั้งสามประเภท เนื่องจากขั้นตอนการผลิตซับซ้อนและวัสดุมีต้นทุนสูง</li>\r\n</ul>\r\n<h3>2. สายชีลด์อะลูมิเนียมฟอยล์ (Aluminum Foil Shield)</h3>\r\nชีลด์อะลูมิเนียมฟอยล์ เป็นตัวเลือกยอดนิยมในงานที่ต้องการต้นทุนต่ำ เหมาะกับงานป้องกันสัญญาณรบกวนความถี่สูง สัญญาณดิจิทัลต่าง ๆ เช่น สัญญาณ RS-485 สัญญาณ RS-422 สัญญาณ RS-232 CAN-Bus และ Modbus\r\n<h4>ข้อดี</h4>\r\n<ul>\r\n \t<li>ต้นทุนต่ำ ผลิตง่าย เหมาะกับงานจำนวนมาก</li>\r\n \t<li>ป้องกันสัญญาณรบกวนในช่วงความถี่สูงได้ดี เช่น สัญญาณดิจิทัล</li>\r\n</ul>\r\n<h4>ข้อจำกัด</h4>\r\n<ul>\r\n \t<li>การนำไฟฟ้าต่ำเพราะทำจากอะลูมิเนียม จึงต้องมี Drain Wire เพื่อระบายสัญญาณรบกวนแทน</li>\r\n \t<li>ประสิทธิภาพป้องกันสัญญาณรบกวนน้อยกว่าชีลด์ทองแดงเคลือบด้วยดีบุกถัก</li>\r\n \t<li>ไม่เหมาะกับอุปกรณ์ที่ต้องเคลื่อนสายหรือมีการขยับบ่อย</li>\r\n</ul>\r\n<h3>3. สายชีลด์แบบเทปทองแดง (Copper Tape Shield)</h3>\r\nชีลด์แบบ Copper Tape เหมาะสำหรับงานที่ต้องการความทนทานและการป้องกันสัญญาณรบกวนระดับปานกลาง อย่างไรก็ตาม ปัจจุบันไม่ค่อยได้รับความนิยม เนื่องจากมีข้อจำกัดหลายด้าน เช่น ราคาขายสูงกว่า ติดตั้งยากเพราะขาดความอ่อนตัว และมีขนาดสายใหญ่ ส่งผลให้เปลืองค่าท่อและค่ารางสายไฟ เมื่อเปรียบเทียบแล้วจึงไม่โดดเด่นเท่าชีลด์ทองแดงเคลือบด้วยดีบุกและอะลูมิเนียมฟอยล์\r\n<h4>ข้อดี</h4>\r\n<ul>\r\n \t<li>ผลิตง่าย และมีต้นทุนอยู่ระหว่างชีลด์ทองแดงเคลือบด้วยดีบุกและอะลูมิเนียมฟอยล์</li>\r\n \t<li>ป้องกันสัญญาณรบกวนในช่วงความถี่ต่ำได้ดีกว่าชีลด์แบบอะลูมิเนียมฟอยล์ เนื่องจากมีความหนามากกว่า</li>\r\n \t<li>มีการนำไฟฟ้าที่ดีเพราะผลิตจากทองแดง ทำให้สามารถกราวนด์สัญญาณรบกวนออกได้อย่างมีประสิทธิภาพ</li>\r\n</ul>\r\n<h4>ข้อจำกัด</h4>\r\n<ul>\r\n \t<li>ความอ่อนตัวต่ำมาก ๆ ทำให้สายคอนโทรลที่ใช้ชีลด์นี้จะมีลักษณะแข็งเหมือนสายพาวเวอร์แม้ตัวนำจะเป็นเส้นฝอยก็ตามทำให้ติดตั้งยาก</li>\r\n \t<li>โครงสร้างสายต้องมีชั้น Bedding ที่หนารองรับ เพื่อกันการบาดจาก Copper Tape ที่แข็งและหนา จึงเป็นผลให้ขนาด OD ของสายใหญ่ขึ้นมากตามไปด้วย ทำให้เปลืองค่าท่อ ค่ารางสายไฟ เพิ่มขึ้น</li>\r\n \t<li>ไม่เหมาะกับอุปกรณ์ที่ต้องเคลื่อนสายหรือมีการขยับบ่อย</li>\r\n</ul>\r\nภาพเปรียบเทียบขนาดสายที่ใช้ชีลด์ทองแดงเคลือบด้วยดีบุกถัก (Tinned Copper Braid Shield) และชีลด์แบบเทปทองแดง (Copper Tape Shield) ที่ขนาดสาย 2×1.5 mm² เท่ากัน พบว่าสายที่ใช้ชีลด์แบบเทปทองแดงมีขนาดใหญ่กว่าสายที่ใช้ชีลด์ทองแดงเคลือบดีบุกแบบถักถึง 2.4 เท่า\r\n\r\n<a href=\"http://nyxcable.com/wp-content/uploads/2026/01/image4.png\"><img class=\"size-full wp-image-20852 aligncenter\" src=\"http://nyxcable.com/wp-content/uploads/2026/01/image4.png\" alt=\"เปรียบเทียบสายคอนโทรลมีชีลด์ (Shield Cable) สำหรับงานอุตสาหกรรม\" width=\"1024\" height=\"576\" /></a>\r\n<h2>การใช้งานในอุตสาหกรรมสำหรับสายคอนโทรลมีชีลด์</h2>\r\nสายชีลด์เหมาะสำหรับงานที่ต้องการความแม่นยำในการส่งสัญญาณควบคุม และมีความเสี่ยงต่อการรบกวนจากคลื่นไฟฟ้า (EMI) เช่น\r\n<ul>\r\n \t<li><strong>โรงงานอุตสาหกรรมอัตโนมัติ (Factory Automation)</strong> ที่ใช้ PLC, Sensor หรือ Servo Motor</li>\r\n \t<li><strong>งานระบบไฟฟ้าและเครื่องจักรกลหนัก</strong> เช่น เครื่องปั๊ม เครื่องกลึง สายพานลำเลียง</li>\r\n \t<li><strong>ระบบสื่อสารและควบคุมเสียง / ภาพ</strong> ที่ต้องการคุณภาพสัญญาณสูง</li>\r\n \t<li><strong>งานอาคารและระบบควบคุมอุณหภูมิ (HVAC)</strong></li>\r\n</ul>\r\nสายคอนโทรลมีชีลด์จาก NYX CABLE ออกแบบให้ทนต่อสัญญาณรบกวนสูง เหมาะกับสภาพแวดล้อมอุตสาหกรรมทุกประเภท\r\n<h2>วิธีเลือกซื้อสายคอนโทรลมีชีลด์</h2>\r\nการเลือกซื้อสายคอนโทรลมีชีลด์ที่เหมาะสมมีความสำคัญต่อความปลอดภัยและประสิทธิภาพของระบบไฟฟ้า จึงควรพิจารณาดังนี้\r\n<ol>\r\n \t<li><strong>เลือกประเภทชีลด์ให้ตรงกับการใช้งาน</strong>\r\n<ul>\r\n \t<li><strong>สายชีลด์ทองแดงเคลือบดีบุกถัก</strong> เหมาะสำหรับงานในระบบคอนโทรลทั่วไปที่ต้องการความอ่อนตัว และป้องกันสัญญาณรบกวนในช่วงความถี่ต่ำที่เกิดจากสาย Power Cable</li>\r\n \t<li><strong>สายชีลด์อะลูมิเนียมฟอยล์</strong> เหมาะกับงานป้องกันสัญญาณรบกวนความถี่สูง แต่ไม่ต้องการความยืดหยุ่น</li>\r\n \t<li><strong>สายชีลด์เทปทองแดง</strong> เหมาะกับงานที่ต้องการความทนทานและการป้องกันสัญญาณรบกวนระดับกลาง แต่ไม่เหมาะกับงานที่ต้องการความอ่อนตัว</li>\r\n</ul>\r\n</li>\r\n \t<li><strong>จำนวนคอร์และขนาดหน้าตัด</strong>\r\n<ul>\r\n \t<li><strong>เลือกจำนวนคอร์ให้ตรงกับอุปกรณ์และระบบควบคุม</strong> เช่น หากต้องการใช้สายชีลด์ 3 คอร์ ควรตรวจสอบให้มั่นใจว่าเหมาะกับการเชื่อมต่อทุกจุดในระบบ</li>\r\n \t<li><strong>ขนาดหน้าตัด (mm²)</strong> ต้องเหมาะสมกับกระแสไฟฟ้า และระยะทางที่ใช้งาน</li>\r\n</ul>\r\nการเลือกคอร์หรือหน้าตัดไม่เหมาะสม อาจทำให้สายเกิดความร้อนสูง เกิดปัญหาลัดวงจร (Short Circuit) หรือเกิด Voltage Drop ส่งผลให้สัญญาณผิดพลาดหรือหายได้</li>\r\n \t<li><strong>วัสดุฉนวนและเปลือกสาย</strong>\r\n<ul>\r\n \t<li>เลือกวัสดุฉนวนที่ทนความร้อน</li>\r\n \t<li>สำหรับงานที่มีน้ำมันหรือสารเคมี ให้เลือกสายที่มีฉนวนและเปลือกทนสารเคมี</li>\r\n \t<li>ชีลด์ช่วยป้องกันสัญญาณรบกวน</li>\r\n</ul>\r\n</li>\r\n \t<li><strong>แรงดันใช้งาน</strong>\r\n<ul>\r\n \t<li>ตรวจสอบว่าสายรองรับแรงดันไฟฟ้าที่ใช้อย่างเหมาะสม</li>\r\n \t<li>ระบบไฟฟ้าแรงดันสูงควรเลือกสายที่มีแรงดันสูงตามสเปก</li>\r\n</ul>\r\n</li>\r\n \t<li><strong>เลือกผู้ผลิตหรือแบรนด์ที่เชื่อถือได้</strong>\r\n<ul>\r\n \t<li>เลือกผู้ผลิตที่มีประสบการณ์และมาตรฐาน อย่าง <strong>NYX CABLE</strong></li>\r\n \t<li>ตรวจสอบเอกสารรับรองมาตรฐาน VDE และ IEC</li>\r\n \t<li>ผู้ผลิตที่ให้คำปรึกษาและส่งด่วนจะช่วยให้ติดตั้งสายคอนโทรลตรงตามหน้างาน</li>\r\n</ul>\r\n</li>\r\n</ol>\r\n<h2>เลือก NYX CABLE เพื่อสายคอนโทรลมีชีลด์ที่ปลอดภัยและทนทาน</h2>\r\nเลือกใช้<a href=\"https://nyxcable.com/shielded-control-cable/\">สายคอนโทรลมีชีลด์</a>จาก NYX CABLE เพราะเรามุ่งเน้นคุณภาพและความปลอดภัยเป็นหลัก สายทุกเส้นผ่านมาตรฐานยุโรป VDE และ IEC ผลิตจากวัสดุคุณภาพสูง ให้ความอ่อนตัวดีเยี่ยม ออกแบบมาเพื่อใช้กับงานอุตสาหกรรมโดยเฉพาะ พร้อมบริการให้คำปรึกษาด้านสเปกสายไฟ มีสต๊อกพร้อมส่ง ทำให้ลูกค้าใช้งานได้ตรงตามหน้างาน ลดปัญหาสัญญาณรบกวน และมั่นใจในความทนทานระยะยาว สนใจสั่งซื้อสอบถามข้อมูลเพิ่มเติมได้ที่โทร <a href=\"tel:021115588\">02-111-5588</a> หรือ LINE : <a href=\"https://page.line.me/ubb9405u?openQrModal=true\" target=\"_blank\" rel=\"nofollow noopener\">@nyxcable</a>\r\n<h2 style=\"margin-bottom: 12px\">FAQs คำถามที่พบบ่อยเกี่ยวกับสายคอนโทรลมีชีลด์</h2>\r\n[sp_easyaccordion id=\"20851\"]"
+      },
+      {
+        "id": 251,
+        "name": "สายทนความร้อน ทนสารเคมี",
+        "slug": "resistant-cable",
+        "parent": 0,
+        "count": 9,
+        "description": "\r\n<h1>NYX CABLE ศูนย์รวมสายไฟทนความร้อนและสายไฟทนน้ำมัน</h1>\r\nในระบบวิศวกรรมอุตสาหกรรม ความทนทานของสายไฟฟ้าคือหัวใจสำคัญของความเสถียรในไลน์การผลิต โดยเฉพาะในพื้นที่ที่ต้องเผชิญกับ “High-Temperature Environment” อุณหภูมิสภาพแวดล้อมสูง และ \"Chemical Aggression\" (การกัดกร่อนจากสารเคมีและน้ำมัน) สายไฟทั่วไปที่ใช้ฉนวน PVC มักจะเกิดการแข็งกรอบ แตกหัก หรือบวมพองเมื่อสัมผัสปัจจัยเหล่านี้ นำไปสู่ปัญหาไฟฟ้าลัดวงจรและ Downtime ที่มหาศาล\r\n\r\n<strong>NYX CABLE</strong> คือผู้เชี่ยวชาญและผู้นำเข้าสายไฟทนความร้อน สายไฟทนน้ำมัน และสายไฟทนสารเคมี ชนิดพิเศษสำหรับงานหนัก เราคัดสรรผลิตภัณฑ์มาตรฐานยุโรป (VDE/IEC) ที่ครอบคลุมทุกระดับอุณหภูมิและทุกสภาวะการใช้งาน ตั้งแต่สายไฟฉนวนยาง Neoprene, ยางซิลิโคน ไปจนถึงฉนวนฟลูออโรพอลิเมอร์ (Teflon) คุณภาพสูง เพื่อให้มั่นใจว่าระบบไฟฟ้าของคุณจะทำงานได้อย่างเต็มประสิทธิภาพในทุกสภาพแวดล้อม\r\n\r\n<h2>เจาะลึกประเภทสายไฟทนความร้อนและทนน้ำมันที่ตอบโจทย์ทุกอุตสาหกรรม</h2>\r\nเพื่อให้การเลือกใช้งานเป็นไปอย่างถูกต้องตามหลักวิศวกรรม NYX CABLE ได้แบ่งหมวดหมู่สายไฟตามคุณสมบัติเฉพาะทาง ดังนี้\r\n\r\n<h3>1. สายไฟฉนวนยางสำหรับงานหนัก กันน้ำและน้ำมัน (Rubber Cables)</h3>\r\n<ul>\r\n \t<li><a href=\"https://nyxcable.com/product/h07rn-f/\" target=\"_blank\" rel=\"noopener\">H07RN-F</a> : สายไฟฉนวนยาง Neoprene (Chloroprene) ที่ขึ้นชื่อเรื่องความทนทานทางกลสูง ทนต่อการขูดขีด แรงกระแทก และน้ำมันได้ดีเยี่ยม เหมาะสำหรับเป็นสายไฟกันน้ำ สายไฟใต้น้ำ (Submersible) และงานเชื่อมต่ออุปกรณ์เคลื่อนที่ในไซต์งานก่อสร้าง</li>\r\n</ul>\r\n\r\n<h3>2. สายไฟทนความร้อนสูงฉนวนซิลิโคน (Silicone Cables 180°C - 200°C)</h3>\r\nสายไฟสำหรับระบบความร้อนสูงกลุ่มนี้โดดเด่นเรื่องความยืดหยุ่นสูง และทนอุณหภูมิได้ในช่วงกว้างตั้งแต่ -60°C ในลักษณะงาน เช่น ห้องแช่แข็งอุตสาหกรรม ถึง 180°C ในลักษณะงาน เช่น เตาอบอุตสาหกรรมและตู้อบแห้ง เครื่องฉีดพลาสติก ระบบหม้อต้มและท่อส่งไอน้ำ โรงหล่อโลหะและกระจก เป็นต้น\r\n<ul>\r\n \t<li><a href=\"https://nyxcable.com/product/sihf/\" target=\"_blank\" rel=\"noopener\">SiHF</a> : สายคอนโทรลหลายคอร์ (Multi-Core) สำหรับงานระบบความร้อนและมอเตอร์</li>\r\n \t<li><a href=\"https://nyxcable.com/product/sif/\" target=\"_blank\" rel=\"noopener\">SiF</a> : สายไฟทนความร้อนแกนเดี่ยว (Single Core) ทนความร้อน 180°C สำหรับฮีตเตอร์</li>\r\n \t<li><a href=\"https://nyxcable.com/product/sif-gl/\" target=\"_blank\" rel=\"noopener\">SiF/GL</a> : สายแกนเดี่ยวเสริมชั้นปกป้องด้วยใยแก้ว (Glass Fiber Braid) เพิ่มความแข็งแรงทางกลและทนความร้อนได้สูงถึง 200°C</li>\r\n</ul>\r\n\r\n<h3>3. สายไฟทนความร้อนสูงสุดและทนสารเคมี (Fluoropolymer Cables 260°C)</h3>\r\n<ul>\r\n \t<li><a href=\"https://nyxcable.com/product/pfa-cable/\" target=\"_blank\" rel=\"noopener\">PFA, PTFE, ETFE, FEP</a> : สายไฟที่ใช้ฉนวนกลุ่มฟลูออโรพอลิเมอร์ (Teflon) ทนความร้อนได้สูงสุดถึง 260°C มีคุณสมบัติเด่นคือทนต่อสารเคมีรุนแรง กรด ด่าง และน้ำมันได้เกือบทุกชนิด นิยมใช้ในอุตสาหกรรมเคมี เตาหลอม และอากาศยาน เช่น\r\n        <ul>\r\n            <li>กรดแบบเข้มข้นของ กรดซัลฟิวริก กรดไฮโดรคลอริก กรดไนตริก</li>\r\n            <li>ด่างแบบเข้มข้นของ โซเดียมไฮดรอกไซด์ โพแทสเซียมไฮดรอกไซด์ แอมโมเนีย</li>\r\n            <li>น้ำมันพืชและไขมันสัตว์ น้ำมันไบโอดีเซล น้ำมันไฮดรอลิก น้ำมันหล่อเย็น น้ำมันเกียร์และน้ำมันเครื่อง</li>\r\n        </ul>\r\n    </li>\r\n</ul>\r\n\r\n<h3>4. สายไฟทนน้ำมันและงานเคลื่อนที่ความเร็วสูง (PUR Cables)</h3>\r\n<ul>\r\n \t<li><a href=\"https://nyxcable.com/product/y11y-jz/\" target=\"_blank\" rel=\"noopener\">Y11Y-JZ / YC11Y-JZ</a> : สายไฟฉนวน Polyurethane (PUR) ออกแบบมาเพื่อเป็นสายไฟทนเคมีและน้ำมันโดยเฉพาะ ทนต่อการตัด (Notch Resistant) และความเค้นทางกลสูง โดยรุ่น <a href=\"https://nyxcable.com/product/yc11y-jz/\" target=\"_blank\" rel=\"noopener\">YC11Y-JZ</a> จะมีการเสริมชีลด์เพื่อป้องกันสัญญาณรบกวน EMI</li>\r\n</ul>\r\n\r\n<h3>5. สายสัญญาณพิเศษและงานเฉพาะทาง</h3>\r\n<ul>\r\n \t<li><a href=\"https://nyxcable.com/product/thermocouple-type-k-cable/\" target=\"_blank\" rel=\"noopener\">Thermocouple Type K Extension Cable</a> : สายสัญญาณสำหรับต่อขยายเซนเซอร์วัดอุณหภูมิที่ต้องการความแม่นยำสูงและทนความร้อน</li>\r\n \t<li><a href=\"https://nyxcable.com/product/siaf-ignition-wire/\" target=\"_blank\" rel=\"noopener\">SiAF/Zu</a> : สายจุดระเบิดแรงดันสูง (Ignition Wire) รองรับแรงดันไฟฟ้าได้ถึง 10,000V (10kV) สำหรับงานระบบเผาไหม้และเตาแก๊สอุตสาหกรรม</li>\r\n</ul>\r\n\r\n<h2>การประยุกต์ใช้งานสายไฟทนความร้อนสูง สายไฟทนน้ำมัน และสายไฟทนสารเคมีในอุตสาหกรรมต่าง ๆ</h2>\r\nการเลือกใช้สายไฟให้เหมาะสมกับหน้างาน คือปัจจัยสำคัญที่จะช่วยยืดอายุการใช้งานเครื่องจักรและป้องกันอุบัติเหตุในโรงงานอุตสาหกรรม โดยมีตัวอย่างการประยุกต์ใช้สายไฟให้เหมาะกับงานอุตสาหกรรม เช่น\r\n<ul>\r\n \t<li><strong>อุตสาหกรรมหลอมโลหะและกระจก</strong> : ในกระบวนการที่มีการแผ่รังสีความร้อนสูงต่อเนื่อง เช่น บริเวณหน้าเตาหลอม หรือรางลำเลียงเหล็กแดง การใช้สายไฟทนความร้อน SiF/GLที่มีใยแก้วถักหุ้มจะช่วยป้องกันการบาด แรงกระแทก และทนต่อการเสียดสี หรือหากเป็นพื้นที่ที่มีอุณหภูมิวิกฤตเกิน 200°C สายกลุ่ม PTFE/PFA จะเป็นโซลูชันเดียวที่รองรับความร้อนระดับนั้นได้โดยฉนวนไม่ละลาย</li>\r\n \t<li><strong>อุตสาหกรรมพลาสติกและบรรจุภัณฑ์</strong> : บริเวณชุดทำความร้อนหรือ Heater Band ของเครื่องฉีดพลาสติก (Injection Molding) มักจะมีการเคลื่อนที่และความร้อนสะสมสูง สายไฟทนความร้อน SiF และ SiHF จึงนิยมนำมาใช้เพื่อให้สายสามารถขยับตัวได้โดยไม่กรอบแตก ขณะเดียวกันในไลน์ผลิตที่มีน้ำมันไฮดรอลิกรั่วซึม การใช้สาย Y11Y-JZ จะช่วยป้องกันฉนวนบวมจากการสัมผัสน้ำมันได้โดยตรง</li>\r\n \t<li><strong>อุตสาหกรรมปิโตรเคมีและแท่นขุดเจาะ</strong> : พื้นที่เหล่านี้ต้องการสายที่ทนทานต่อทั้งสารเคมีกัดกร่อนและแรงกระทำทางกลที่รุนแรง สาย H07RN-F จึงนิยมนำใช้เป็นสายเมนหลักสำหรับเครื่องมือไฟฟ้าและปั๊มน้ำ เนื่องจากทนต่อไอระเหยน้ำมันและความชื้นได้ดีเยี่ยม ขณะที่สายสัญญาณควบคุมเซนเซอร์อุณหภูมิจะเลือกใช้ Thermocouple Type K Extension Cable ที่มีเปลือกหุ้มทนสารเคมี</li>\r\n \t<li><strong>ระบบโรงพยาบาลและห้องปฏิบัติการ</strong> : เครื่องนึ่งฆ่าเชื้อ (Autoclave) หรือตู้อบความร้อนสูงที่ต้องมีการทำความสะอาดด้วยสารเคมีบ่อยครั้ง นิยมใช้สาย FEP หรือ PTFE เพราะมีความทนทานต่อสารทำละลายและฆ่าเชื้อทำความสะอาดได้ง่าย และสายไฟจะไม่เสื่อมสภาพ</li>\r\n \t<li><strong>ระบบทำความเย็นและห้องแช่แข็ง</strong> : ในห้องแช่แข็งอุณหภูมิต่ำกว่า -40°C สายไฟปกติจะแข็งตัวและแตกได้ง่ายเมื่อมีการเคลื่อนไหว แต่สายฉนวนซิลิโคนอย่าง SiHF ยังคงความอ่อนตัวได้แม้ในอุณหภูมิที่ -60°C ทำให้ระบบระบายอากาศและไฟส่องสว่างในห้องแช่แข็งทำงานได้อย่างปลอดภัย</li>\r\n</ul>\r\n\r\n<h2>ทำไมต้องเลือกสายไฟทนความร้อนทนน้ำมันจาก NYX CABLE ?</h2>\r\nการเลือกซัพพลายเออร์ที่เข้าใจสเปกเชิงวิศวกรรม คือการประกันความเสี่ยงให้กับโครงการของคุณ\r\n<ul>\r\n \t<li><strong>ความเชี่ยวชาญเฉพาะทางและคำปรึกษาเชิงวิศวกรรม</strong> : ทีมงานของเรามีความรู้เชิงลึกเกี่ยวกับพิกัดความร้อนและเคมีของสายไฟแต่ละชนิด ด้วยประสบการณ์ทางด้านสายไฟกว่า 20 ปี เราพร้อมช่วยคุณวิเคราะห์หน้างานเพื่อแนะนำรุ่นที่เหมาะสมที่สุด ไม่ว่าจะเป็นการเดินสายคู่กับ Thermocouple Type K การเดินสายไฟใหม่ การเดินสายทดแทนสายไฟเส้นเก่า หรือการเลือกสายให้ตรงตามสเปกที่ติดมาพร้อมกับเครื่องจักร (OEM Spec)</li>\r\n \t<li><strong>การรับประกันคุณภาพตามมาตรฐานสากล</strong> : สินค้าทุกรุ่นจาก NYX CABLE ผ่านการรับรองมาตรฐานระดับโลก เช่น UL, VDE, HAR และ IEC มั่นใจได้ในความปลอดภัยของฉนวนและการนำไฟฟ้าที่เสถียร</li>\r\n \t<li><strong>สต๊อกสินค้าครบวงจรและบริการจัดส่งที่รวดเร็ว</strong> : เราสต๊อกสินค้าครอบคลุมทุกช่วงอุณหภูมิ ตั้งแต่สายฉนวนยางทั่วไปจนถึงสายทนความร้อน 260°C พร้อมจัดส่งด่วนทั่วประเทศ เพื่อให้ไลน์การผลิตของคุณไม่ต้องหยุดชะงักนานเกินความจำเป็น</li>\r\n \t<li><strong>ความปลอดภัยเหนือระดับด้วยวัสดุไม่ลามไฟ</strong> : สายไฟกลุ่ม SiHF และฟลูออโรพอลิเมอร์ของเราเป็นแบบ Halogen-Free และมีคุณสมบัติไม่ลามไฟ ช่วยลดควันพิษและป้องกันการแพร่กระจายของไฟเมื่อเกิดเหตุฉุกเฉิน</li>\r\n</ul>\r\n\r\n<h2>เลือก NYX CABLE เพื่อโซลูชันสายไฟงานหนักที่คุณไว้วางใจได้</h2>\r\nยกระดับความปลอดภัยและความเสถียรของโรงงานด้วยสายไฟงานอุตสาหกรรมหนักที่มีคุณสมบัติทนความร้อน ทนน้ำมัน และสารเคมีคุณภาพสูงจาก NYX CABLE เราพร้อมให้บริการทั้งคำปรึกษาด้านเทคนิคและการจัดหาสายไฟตามสเปกเครื่องจักร มีสต๊อกครบทุกรุ่น ทุกขนาดหน้าตัด พร้อมจัดส่งทั่วประเทศ เพื่อให้คุณมั่นใจได้ว่างานติดตั้งเป็นไปอย่างราบรื่น ปลอดภัย และได้มาตรฐานสูงสุด สนใจสั่งซื้อสอบถามข้อมูลเพิ่มเติมได้ที่โทร <a href=\"tel:+6621115588\">02-111-5588</a> หรือ LINE : <a href=\"https://page.line.me/ubb9405u\" target=\"_blank\" rel=\"nofollow noopener\">@nyxcable</a>\r\n\r\n<h2 style=\"margin-bottom: 12px\">FAQs: คำถามที่พบบ่อยเกี่ยวกับสายไฟทนความร้อนและน้ำมัน</h2>\r\n[sp_easyaccordion id=\"20841\"]"
+      },
+      {
+        "id": 112,
+        "name": "สายทนสารเคมี",
+        "slug": "oil-resistant-cable",
+        "parent": 251,
+        "count": 4,
+        "description": ""
+      },
+      {
+        "id": 254,
+        "name": "สายมัลติคอร์ (Multicore Cable)",
+        "slug": "multicore-cable",
+        "parent": 108,
+        "count": 7,
+        "description": ""
+      },
+      {
+        "id": 110,
+        "name": "สายไฟฉนวนทำจากยาง/กันน้ำ",
+        "slug": "water-resistant-cable",
+        "parent": 0,
+        "count": 5,
+        "description": "สายไฟลิฟต์ สายไฟกันน้ำ และ ฉนวนทำจากยาง"
+      },
+      {
+        "id": 113,
+        "name": "สายไฟทนความร้อน",
+        "slug": "heat-resistant-cable",
+        "parent": 251,
+        "count": 4,
+        "description": ""
+      },
+      {
+        "id": 255,
+        "name": "สายไฟอ่อนสำหรับเดินงาน Control และ Power",
+        "slug": "control-power-cable",
+        "parent": 108,
+        "count": 1,
+        "description": ""
+      }
+    ]
+  },
+  "pages": {
+    "count": 178,
+    "items": [
+      {
+        "id": 20692,
+        "title": "การส่งสินค้า 2024",
+        "slug": "%e0%b8%81%e0%b8%b2%e0%b8%a3%e0%b8%aa%e0%b9%88%e0%b8%87%e0%b8%aa%e0%b8%b4%e0%b8%99%e0%b8%84%e0%b9%89%e0%b8%b2-2024",
+        "template": "",
+        "parent": 4448,
+        "hasContent": true
+      },
+      {
+        "id": 20639,
+        "title": "การส่งสินค้า 2023",
+        "slug": "%e0%b8%81%e0%b8%b2%e0%b8%a3%e0%b8%aa%e0%b9%88%e0%b8%87%e0%b8%aa%e0%b8%b4%e0%b8%99%e0%b8%84%e0%b9%89%e0%b8%b2-2023",
+        "template": "",
+        "parent": 4448,
+        "hasContent": true
+      },
+      {
+        "id": 20523,
+        "title": "นโยบายความเป็นส่วนตัว",
+        "slug": "privacy-policy",
+        "template": "",
+        "parent": 0,
+        "hasContent": true
+      },
+      {
+        "id": 19834,
+        "title": "การส่งสินค้า 2022",
+        "slug": "%e0%b8%81%e0%b8%b2%e0%b8%a3%e0%b8%aa%e0%b9%88%e0%b8%87%e0%b8%aa%e0%b8%b4%e0%b8%99%e0%b8%84%e0%b9%89%e0%b8%b2-2022",
+        "template": "",
+        "parent": 4448,
+        "hasContent": true
+      },
+      {
+        "id": 18663,
+        "title": "YSLY-JZ 5G35",
+        "slug": "ysly-jz-5g35",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18658,
+        "title": "YSLY-JZ 4G35",
+        "slug": "ysly-jz-4g35",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18653,
+        "title": "YSLY-JZ 7G25",
+        "slug": "ysly-jz-7g25",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18648,
+        "title": "YSLY-JZ 5G25",
+        "slug": "ysly-jz-5g25",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18643,
+        "title": "YSLY-JZ 4G25",
+        "slug": "ysly-jz-4g25",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18633,
+        "title": "YSLY-JZ 3G25",
+        "slug": "ysly-jz-3g25",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18634,
+        "title": "YSLY-JZ 7G16",
+        "slug": "ysly-jz-7g16",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18628,
+        "title": "YSLY-JZ 5G16",
+        "slug": "ysly-jz-5g16",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18623,
+        "title": "YSLY-JZ 4G16",
+        "slug": "ysly-jz-4g16",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18618,
+        "title": "YSLY-JZ 3G16",
+        "slug": "ysly-jz-3g16",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18613,
+        "title": "YSLY-JZ 7G10",
+        "slug": "ysly-jz-7g10",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18608,
+        "title": "YSLY-JZ 5G10",
+        "slug": "ysly-jz-5g10",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18603,
+        "title": "YSLY-JZ 4G10",
+        "slug": "ysly-jz-4g10",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18598,
+        "title": "YSLY-JZ 3G10",
+        "slug": "ysly-jz-3g10",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18593,
+        "title": "YSLY-JZ 7G6",
+        "slug": "ysly-jz-7g6",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18588,
+        "title": "YSLY-JZ 5G6",
+        "slug": "ysly-jz-5g6",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18583,
+        "title": "YSLY-JZ 4G6",
+        "slug": "ysly-jz-4g6",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18577,
+        "title": "YSLY-JZ 3G6",
+        "slug": "ysly-jz-3g6",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18572,
+        "title": "YSLY-JZ 12G4",
+        "slug": "ysly-jz-12g4",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18567,
+        "title": "YSLY-JZ 7G4",
+        "slug": "ysly-jz-7g4",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18562,
+        "title": "YSLY-JZ 5G4",
+        "slug": "ysly-jz-5g4",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18557,
+        "title": "YSLY-JZ 4G4",
+        "slug": "ysly-jz-4g4",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18552,
+        "title": "YSLY-JZ 3G4",
+        "slug": "ysly-jz-3g4",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18547,
+        "title": "YSLY-OZ 2X4",
+        "slug": "ysly-oz-2x4",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18542,
+        "title": "YSLY-JZ 100G2.5",
+        "slug": "ysly-jz-100g2-5",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18537,
+        "title": "YSLY-JZ 61G2.5",
+        "slug": "ysly-jz-61g2-5",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18532,
+        "title": "YSLY-JZ 50G2.5",
+        "slug": "ysly-jz-50g2-5",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18527,
+        "title": "YSLY-JZ 42G2.5",
+        "slug": "ysly-jz-42g2-5",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18522,
+        "title": "YSLY-JZ 34G2.5",
+        "slug": "ysly-jz-34g2-5",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18517,
+        "title": "YSLY-JZ 32G2.5",
+        "slug": "ysly-jz-32g2-5",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18512,
+        "title": "YSLY-JZ 25G2.5",
+        "slug": "ysly-jz-25g2-5",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18507,
+        "title": "YSLY-JZ 18G2.5",
+        "slug": "ysly-jz-18g2-5",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18502,
+        "title": "YSLY-JZ 14G2.5",
+        "slug": "ysly-jz-14g2-5",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18497,
+        "title": "YSLY-JZ 12G2.5",
+        "slug": "ysly-jz-12g2-5",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18492,
+        "title": "YSLY-JZ 8G2.5",
+        "slug": "ysly-jz-8g2-5",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18487,
+        "title": "YSLY-JZ 7G2.5",
+        "slug": "ysly-jz-7g2-5",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18482,
+        "title": "YSLY-JZ 5G2.5",
+        "slug": "ysly-jz-5g2-5",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18477,
+        "title": "YSLY-JZ 4G2.5",
+        "slug": "ysly-jz-4g2-5",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18472,
+        "title": "YSLY-JZ 3G2.5",
+        "slug": "ysly-jz-3g2-5",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18467,
+        "title": "YSLY-OZ 2X2.5",
+        "slug": "ysly-oz-2x2-5",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18462,
+        "title": "YSLY-JZ 100G1.5",
+        "slug": "ysly-jz-100g1-5",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18457,
+        "title": "YSLY-JZ 80G1.5",
+        "slug": "ysly-jz-80g1-5",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18452,
+        "title": "YSLY-JZ 65G1.5",
+        "slug": "ysly-jz-65g1-5",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18447,
+        "title": "YSLY-JZ 61G1.5",
+        "slug": "ysly-jz-61g1-5",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18442,
+        "title": "YSLY-JZ 56G1.5",
+        "slug": "ysly-jz-56g1-5",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18437,
+        "title": "YSLY-JZ 50G1.5",
+        "slug": "ysly-jz-50g1-5",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18432,
+        "title": "YSLY-JZ 42G1.5",
+        "slug": "ysly-jz-42g1-5",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18427,
+        "title": "YSLY-JZ 40G1.5",
+        "slug": "ysly-jz-40g1-5",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18422,
+        "title": "YSLY-JZ 34G1.5",
+        "slug": "ysly-jz-34g1-5",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18417,
+        "title": "YSLY-JZ 30G1.5",
+        "slug": "ysly-jz-30g1-5",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18412,
+        "title": "YSLY-JZ 25G1.5",
+        "slug": "ysly-jz-25g1-5",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18407,
+        "title": "YSLY-JZ 21G1.5",
+        "slug": "ysly-jz-21g1-5",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18402,
+        "title": "YSLY-JZ 19G1.5",
+        "slug": "ysly-jz-19g1-5",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18397,
+        "title": "YSLY-JZ 18G1.5",
+        "slug": "ysly-jz-18g1-5",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18392,
+        "title": "YSLY-JZ 16G1.5",
+        "slug": "ysly-jz-16g1-5",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18387,
+        "title": "YSLY-JZ 14G1.5",
+        "slug": "ysly-jz-14g1-5",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18382,
+        "title": "YSLY-JZ 12G1.5",
+        "slug": "ysly-jz-12g1-5",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18377,
+        "title": "YSLY-JZ 10G1.5",
+        "slug": "ysly-jz-10g1-5",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18372,
+        "title": "YSLY-JZ 9G1.5",
+        "slug": "ysly-jz-9g1-5",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18367,
+        "title": "YSLY-JZ 8G1.5",
+        "slug": "ysly-jz-8g1-5",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18362,
+        "title": "YSLY-JZ 7G1.5",
+        "slug": "ysly-jz-7g1-5",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18357,
+        "title": "YSLY-JZ 6G1.5",
+        "slug": "ysly-jz-6g1-5",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18352,
+        "title": "YSLY-JZ 5G1.5",
+        "slug": "ysly-jz-5g1-5",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18347,
+        "title": "YSLY-JZ 4G1.5",
+        "slug": "ysly-jz-4g1-5",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18342,
+        "title": "YSLY-JZ 3G1.5",
+        "slug": "ysly-jz-3g1-5",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18337,
+        "title": "YSLY-OZ 2X1.5",
+        "slug": "ysly-oz-2x1-5",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18332,
+        "title": "YSLY-JZ 100G1",
+        "slug": "ysly-jz-100g1",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18327,
+        "title": "YSLY-JZ 80G1",
+        "slug": "ysly-jz-80g1",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18322,
+        "title": "YSLY-JZ 65G1",
+        "slug": "ysly-jz-65g1",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18317,
+        "title": "YSLY-JZ 61G1",
+        "slug": "ysly-jz-61g1",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18312,
+        "title": "YSLY-JZ 56G1",
+        "slug": "ysly-jz-56g1",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18307,
+        "title": "YSLY-JZ 50G1",
+        "slug": "ysly-jz-50g1",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18302,
+        "title": "YSLY-JZ 42G1",
+        "slug": "ysly-jz-42g1",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18297,
+        "title": "YSLY-JZ 41G1",
+        "slug": "ysly-jz-41g1",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18292,
+        "title": "YSLY-JZ 40G1",
+        "slug": "ysly-jz-40g1",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18287,
+        "title": "YSLY-JZ 37G1",
+        "slug": "ysly-jz-37g1",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18282,
+        "title": "YSLY-JZ 36G1",
+        "slug": "ysly-jz-36g1",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18277,
+        "title": "YSLY-JZ 34G1",
+        "slug": "ysly-jz-34g1",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18272,
+        "title": "YSLY-JZ 27G1",
+        "slug": "ysly-jz-27g1",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18267,
+        "title": "YSLY-JZ 26G1",
+        "slug": "ysly-jz-26g1",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18262,
+        "title": "YSLY-JZ 25G1",
+        "slug": "ysly-jz-25g1",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18256,
+        "title": "YSLY-JZ 12G1",
+        "slug": "ysly-jz-12g1",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18251,
+        "title": "YSLY-JZ 6G1",
+        "slug": "ysly-jz-6g1",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18246,
+        "title": "YSLY-JZ 24G1",
+        "slug": "ysly-jz-24g1",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18236,
+        "title": "YSLY-JZ 20G1",
+        "slug": "ysly-jz-20g1",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18231,
+        "title": "YSLY-JZ 19G1",
+        "slug": "ysly-jz-19g1",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18226,
+        "title": "YSLY-JZ 18G1",
+        "slug": "ysly-jz-18g1",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18221,
+        "title": "YSLY-JZ 16G1",
+        "slug": "ysly-jz-16g1",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18216,
+        "title": "YSLY-JZ 14G1",
+        "slug": "ysly-jz-14g1",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18211,
+        "title": "YSLY-JZ 12G",
+        "slug": "ysly-jz-12g",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18206,
+        "title": "YSLY-JZ 10G1",
+        "slug": "ysly-jz-10g1",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18201,
+        "title": "YSLY-JZ 9G1",
+        "slug": "ysly-jz-9g1",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18196,
+        "title": "YSLY-JZ 8G1",
+        "slug": "ysly-jz-8g1",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18191,
+        "title": "YSLY-JZ 7G1",
+        "slug": "ysly-jz-7g1",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18187,
+        "title": "YSLY-JZ 5G1",
+        "slug": "ysly-jz-5g1-2",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18182,
+        "title": "YSLY-JZ 5G1",
+        "slug": "ysly-jz-5g1",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18177,
+        "title": "YSLY-JZ 4G1",
+        "slug": "ysly-jz-4g1",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18172,
+        "title": "YSLY-JZ 3G1",
+        "slug": "ysly-jz-3g1",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18164,
+        "title": "YSLY-OZ 2X1",
+        "slug": "ysly-oz-2x1",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18154,
+        "title": "YSLY-JZ 4G0.75",
+        "slug": "ysly-jz-4g0-75",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18146,
+        "title": "YSLY-JZ 100G0.75",
+        "slug": "ysly-jz-100g0-75",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18141,
+        "title": "YSLY-JZ 80G0.75",
+        "slug": "ysly-jz-80g0-75",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18136,
+        "title": "YSLY-JZ 65G0.75",
+        "slug": "ysly-jz-65g0-75",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18131,
+        "title": "YSLY-JZ 61G0.75",
+        "slug": "ysly-jz-61g0-75",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18126,
+        "title": "YSLY-JZ 50G0.75",
+        "slug": "ysly-jz-50g0-75",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18121,
+        "title": "YSLY-JZ 42G0.75",
+        "slug": "ysly-jz-42g0-75",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18116,
+        "title": "YSLY-JZ 41G0.75",
+        "slug": "ysly-jz-41g0-75",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18111,
+        "title": "YSLY-JZ 40G0.75",
+        "slug": "ysly-jz-40g0-75",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18106,
+        "title": "YSLY-JZ 37G0.75",
+        "slug": "ysly-jz-37g0-75",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18101,
+        "title": "YSLY-JZ 34G0.75",
+        "slug": "ysly-jz-34g0-75",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18096,
+        "title": "YSLY-JZ 32G0.75",
+        "slug": "ysly-jz-32g0-75",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18091,
+        "title": "YSLY-JZ 31G0.75",
+        "slug": "ysly-jz-31g0-75",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18086,
+        "title": "YSLY-JZ 30G0.75",
+        "slug": "ysly-jz-30g0-75",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18081,
+        "title": "YSLY-JZ 25G0.75",
+        "slug": "ysly-jz-25g0-75",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18076,
+        "title": "YSLY-JZ 21G0.75",
+        "slug": "ysly-jz-21g0-75",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18071,
+        "title": "YSLY-JZ 20G0.75",
+        "slug": "ysly-jz-20g0-75",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18066,
+        "title": "YSLY-JZ 18G0.75",
+        "slug": "ysly-jz-18g0-75",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18061,
+        "title": "YSLY-JZ 16G0.75",
+        "slug": "ysly-jz-16g0-75",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18056,
+        "title": "YSLY-JZ 14G0.75",
+        "slug": "ysly-jz-14g0-75",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18051,
+        "title": "YSLY-JZ 12G0.75",
+        "slug": "ysly-jz-12g0-75",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18046,
+        "title": "YSLY-JZ 10G0.75",
+        "slug": "ysly-jz-10g0-75",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18041,
+        "title": "YSLY-JZ 9G0.75",
+        "slug": "ysly-jz-9g0-75",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18036,
+        "title": "YSLY-JZ 8G0.75",
+        "slug": "ysly-jz-8g0-75",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18031,
+        "title": "YSLY-JZ 7G0.75",
+        "slug": "ysly-jz-7g0-75",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18026,
+        "title": "YSLY-JZ 6G0.75",
+        "slug": "ysly-jz-6g0-75",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18021,
+        "title": "YSLY-JZ 5G0.75",
+        "slug": "ysly-jz-5g0-75",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18017,
+        "title": "YSLY-JZ 3G0.75",
+        "slug": "ysly-jz-3g0-75-2",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18012,
+        "title": "YSLY-JZ 3G0.75",
+        "slug": "ysly-jz-3g0-75",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18007,
+        "title": "YSLY-OZ 2X0.75",
+        "slug": "ysly-oz-2x0-75",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 18001,
+        "title": "YSLY-JZ 100G0.5",
+        "slug": "ysly-jz-100g0-5",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 17996,
+        "title": "YSLY-JZ 80G0.5",
+        "slug": "ysly-jz-80g0-5",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 17991,
+        "title": "YSLY-JZ 65G0.5",
+        "slug": "ysly-jz-65g0-5",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 17986,
+        "title": "YSLY-JZ 61G0.5",
+        "slug": "ysly-jz-61g0-5",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 17981,
+        "title": "YSLY-JZ 52G0.5",
+        "slug": "ysly-jz-52g0-5",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 17976,
+        "title": "YSLY-JZ 50G0.5",
+        "slug": "ysly-jz-50g0-5",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 17971,
+        "title": "YSLY-JZ 42G0.5",
+        "slug": "ysly-jz-42g0-5",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 17966,
+        "title": "YSLY-JZ 40G0.5",
+        "slug": "ysly-jz-40g0-5",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 17961,
+        "title": "YSLY-JZ 35G0.5",
+        "slug": "ysly-jz-35g0-5",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 17956,
+        "title": "YSLY-JZ 32G0.5",
+        "slug": "ysly-jz-32g0-5",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 17951,
+        "title": "YSLY-JZ 30G0.5",
+        "slug": "ysly-jz-30g0-5",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 17946,
+        "title": "YSLY-JZ 25G0.5",
+        "slug": "ysly-jz-25g0-5",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 17941,
+        "title": "YSLY-JZ 21G0.5",
+        "slug": "ysly-jz-21g0-5",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 17936,
+        "title": "YSLY-JZ 20G0.5",
+        "slug": "ysly-jz-20g0-5",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 17931,
+        "title": "YSLY-JZ 18G0.5",
+        "slug": "ysly-jz-18g0-5",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 17926,
+        "title": "YSLY-JZ 16G0.5",
+        "slug": "ysly-jz-16g0-5",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 17921,
+        "title": "YSLY-JZ 14G0.5",
+        "slug": "ysly-jz-14g0-5",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 17916,
+        "title": "YSLY-JZ 12G0.5",
+        "slug": "ysly-jz-12g0-5",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 17911,
+        "title": "YSLY-JZ 10G0.5",
+        "slug": "ysly-jz-10g0-5",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 17906,
+        "title": "YSLY-JZ 8G0.5",
+        "slug": "ysly-jz-8g0-5",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 17891,
+        "title": "YSLY-JZ 7G0.5",
+        "slug": "ysly-jz-7g0-5",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 17886,
+        "title": "YSLY-JZ 6G0.5",
+        "slug": "ysly-jz-6g0-5",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 17878,
+        "title": "YSLY-JZ 5G0.5",
+        "slug": "ysly-jz-5g0-5",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 17825,
+        "title": "YSLY-JZ 4G0.5",
+        "slug": "ysly-jz-4g0-5",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 17823,
+        "title": "YSLY-JZ 3G0.5",
+        "slug": "ysly-jz-3g0-5",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 17710,
+        "title": "YSLY-OZ 2X0.5",
+        "slug": "ysly-oz-2x0-5",
+        "template": "",
+        "parent": 17708,
+        "hasContent": true
+      },
+      {
+        "id": 17708,
+        "title": "สายคอนโทรล",
+        "slug": "%e0%b8%aa%e0%b8%b2%e0%b8%a2%e0%b8%84%e0%b8%ad%e0%b8%99%e0%b9%82%e0%b8%97%e0%b8%a3%e0%b8%a5",
+        "template": "",
+        "parent": 0,
+        "hasContent": true
+      },
+      {
+        "id": 17593,
+        "title": "การส่งสินค้า 2021",
+        "slug": "%e0%b8%81%e0%b8%b2%e0%b8%a3%e0%b8%aa%e0%b9%88%e0%b8%87%e0%b8%aa%e0%b8%b4%e0%b8%99%e0%b8%84%e0%b9%89%e0%b8%b2-2021",
+        "template": "",
+        "parent": 4448,
+        "hasContent": true
+      },
+      {
+        "id": 15258,
+        "title": "การส่งสินค้า 2020",
+        "slug": "%e0%b8%81%e0%b8%b2%e0%b8%a3%e0%b8%aa%e0%b9%88%e0%b8%87%e0%b8%aa%e0%b8%b4%e0%b8%99%e0%b8%84%e0%b9%89%e0%b8%b2_2020",
+        "template": "",
+        "parent": 4448,
+        "hasContent": true
+      },
+      {
+        "id": 15228,
+        "title": "การส่งสินค้า 2019",
+        "slug": "%e0%b8%81%e0%b8%b2%e0%b8%a3%e0%b8%aa%e0%b9%88%e0%b8%87%e0%b8%aa%e0%b8%b4%e0%b8%99%e0%b8%84%e0%b9%89%e0%b8%b2_2019",
+        "template": "",
+        "parent": 4448,
+        "hasContent": true
+      },
+      {
+        "id": 8701,
+        "title": "Thank You",
+        "slug": "thank-you",
+        "template": "",
+        "parent": 0,
+        "hasContent": true
+      },
+      {
+        "id": 6468,
+        "title": "การส่งสินค้า 2018",
+        "slug": "%e0%b8%81%e0%b8%b2%e0%b8%a3%e0%b8%aa%e0%b9%88%e0%b8%87%e0%b8%aa%e0%b8%b4%e0%b8%99%e0%b8%84%e0%b9%89%e0%b8%b2_2018",
+        "template": "",
+        "parent": 4448,
+        "hasContent": true
+      },
+      {
+        "id": 4592,
+        "title": "การส่งสินค้า 2017",
+        "slug": "%e0%b8%81%e0%b8%b2%e0%b8%a3%e0%b8%aa%e0%b9%88%e0%b8%87%e0%b8%aa%e0%b8%b4%e0%b8%99%e0%b8%84%e0%b9%89%e0%b8%b2_2017",
+        "template": "",
+        "parent": 4448,
+        "hasContent": true
+      },
+      {
+        "id": 4482,
+        "title": "ทำบุญบริษัท",
+        "slug": "%e0%b8%97%e0%b8%b3%e0%b8%9a%e0%b8%b8%e0%b8%8d%e0%b8%9a%e0%b8%a3%e0%b8%b4%e0%b8%a9%e0%b8%b1%e0%b8%97",
+        "template": "",
+        "parent": 4448,
+        "hasContent": true
+      },
+      {
+        "id": 4462,
+        "title": "Profile Picture",
+        "slug": "profile-picture",
+        "template": "",
+        "parent": 4448,
+        "hasContent": true
+      },
+      {
+        "id": 4448,
+        "title": "อัลบั้ม",
+        "slug": "event",
+        "template": "",
+        "parent": 0,
+        "hasContent": true
+      },
+      {
+        "id": 4010,
+        "title": "เกี่ยวกับเรา",
+        "slug": "aboutus",
+        "template": "100-width.php",
+        "parent": 0,
+        "hasContent": true
+      },
+      {
+        "id": 4005,
+        "title": "บทความ",
+        "slug": "news",
+        "template": "",
+        "parent": 0,
+        "hasContent": true
+      },
+      {
+        "id": 3954,
+        "title": "รีวิว",
+        "slug": "product-review",
+        "template": "100-width.php",
+        "parent": 0,
+        "hasContent": true
+      },
+      {
+        "id": 3414,
+        "title": "My Account",
+        "slug": "my-account",
+        "template": "",
+        "parent": 0,
+        "hasContent": true
+      },
+      {
+        "id": 3413,
+        "title": "Checkout",
+        "slug": "checkout",
+        "template": "",
+        "parent": 0,
+        "hasContent": true
+      },
+      {
+        "id": 3412,
+        "title": "Cart",
+        "slug": "cart",
+        "template": "",
+        "parent": 0,
+        "hasContent": false
+      },
+      {
+        "id": 3411,
+        "title": "สายคอนโทรล",
+        "slug": "shop",
+        "template": "",
+        "parent": 0,
+        "hasContent": true
+      },
+      {
+        "id": 14,
+        "title": "ติดต่อเรา",
+        "slug": "contact",
+        "template": "100-width.php",
+        "parent": 0,
+        "hasContent": true
+      },
+      {
+        "id": 1797,
+        "title": "หน้าแรก",
+        "slug": "home",
+        "template": "",
+        "parent": 0,
+        "hasContent": true
+      }
+    ]
+  },
+  "posts": {
+    "count": 33,
+    "items": [
+      {
+        "id": 20969,
+        "title": "ขนาดสายไฟวัดยังไงให้ถูกต้อง ? เลือกสายไฟโรงงานอย่างมืออาชีพ",
+        "slug": "wire-size-measurement-and-selection-guide",
+        "date": "2026-02-24T10:43:12"
+      },
+      {
+        "id": 20866,
+        "title": "สาย VCT คืออะไร เหมาะกับงานแบบไหน และควรเลือกอย่างไร ?",
+        "slug": "what-is-vct-cable-and-how-to-choose",
+        "date": "2026-01-20T11:55:30"
+      },
+      {
+        "id": 20865,
+        "title": "สายคอนโทรลคืออะไร ? รู้รอบด้านพร้อมวิธีเลือก",
+        "slug": "control-cable-explained",
+        "date": "2026-01-20T11:29:38"
+      },
+      {
+        "id": 20864,
+        "title": "แนวทางวางแผนสต๊อกสายคอนโทรล คุมราคาต้นทุน",
+        "slug": "control-cable-stock-planning-guide",
+        "date": "2026-01-20T10:16:57"
+      },
+      {
+        "id": 20863,
+        "title": "ขนาดสายไฟ H07RN-F มาตรฐาน พร้อมแนวทางการเลือกใช้ให้เหมาะสม",
+        "slug": "h07rn-f-cable-guide-industrial",
+        "date": "2026-01-20T08:12:47"
+      },
+      {
+        "id": 20862,
+        "title": "คู่มือเลือกซื้อสายทวิสแพร์ พร้อมแนะนำเลือกยี่ห้อไหนดี ?",
+        "slug": "twisted-pair-cable-buying-guide",
+        "date": "2026-01-20T08:02:35"
+      },
+      {
+        "id": 20861,
+        "title": "สายไฟ CVV คืออะไร เหมาะกับการใช้งานรูปแบบไหน ? รู้ครบที่นี่",
+        "slug": "cvv-control-cable-complete-guide",
+        "date": "2026-01-20T07:58:42"
+      },
+      {
+        "id": 20860,
+        "title": "สายคู่บิดเกลียว คืออะไร ? เจาะลึกทุกเรื่องก่อนเลือกใช้งาน",
+        "slug": "twisted-pair-cable-guide-types-comparison",
+        "date": "2026-01-20T06:54:37"
+      },
+      {
+        "id": 20858,
+        "title": "รู้จักตู้คอนโทรลไฟฟ้า มีกี่ประเภทและมีส่วนประกอบอะไรบ้าง ?",
+        "slug": "control-panel-wiring-guide",
+        "date": "2026-01-20T06:06:00"
+      },
+      {
+        "id": 20040,
+        "title": "มาตรฐานของสายไฟกันน้ำ “H07RN-F” ในงานใต้น้ำ",
+        "slug": "standard-h07rn-f",
+        "date": "2024-07-01T15:47:55"
+      },
+      {
+        "id": 20036,
+        "title": "การใช้งาน “RS485” ในระบบควบคุม",
+        "slug": "rs485-cable-control-system",
+        "date": "2024-07-01T15:38:04"
+      },
+      {
+        "id": 20031,
+        "title": "ฉนวนยางของสาย “H07RN-F” กับ PVC ในสายไฟทั่วไป",
+        "slug": "h07rn-f-rubber-cable",
+        "date": "2024-05-17T14:31:27"
+      },
+      {
+        "id": 20026,
+        "title": "สายไฟควบคุม “RS485” เพื่อลดสัญญาณรบกวน",
+        "slug": "%e0%b8%aa%e0%b8%b2%e0%b8%a2-rs485-%e0%b8%81%e0%b8%b1%e0%b8%99%e0%b8%aa%e0%b8%b1%e0%b8%8d%e0%b8%8d%e0%b8%b2%e0%b8%93",
+        "date": "2024-05-17T14:28:07"
+      },
+      {
+        "id": 20021,
+        "title": "“H07RN-F” สายใต้น้ำ ทางเลือกที่ดีกว่า",
+        "slug": "h07rn-f-%e0%b8%aa%e0%b8%b2%e0%b8%a2%e0%b9%83%e0%b8%95%e0%b9%89%e0%b8%99%e0%b9%89%e0%b8%b3",
+        "date": "2024-04-27T16:15:13"
+      },
+      {
+        "id": 20018,
+        "title": "ปัญหาที่พบบ่อยเมื่อใช้ สาย “RS485”",
+        "slug": "%e0%b8%9b%e0%b8%b1%e0%b8%8d%e0%b8%ab%e0%b8%b2%e0%b8%97%e0%b8%b5%e0%b9%88%e0%b8%9e%e0%b8%9a%e0%b8%9a%e0%b9%88%e0%b8%ad%e0%b8%a2-%e0%b8%aa%e0%b8%b2%e0%b8%a2-rs485",
+        "date": "2024-04-27T16:05:16"
+      },
+      {
+        "id": 20008,
+        "title": "สาย H07RN-F ในโรงงาน",
+        "slug": "%e0%b8%aa%e0%b8%b2%e0%b8%a2-h07rn-f-%e0%b9%83%e0%b8%99%e0%b9%82%e0%b8%a3%e0%b8%87%e0%b8%87%e0%b8%b2%e0%b8%99",
+        "date": "2024-03-19T15:48:36"
+      },
+      {
+        "id": 20005,
+        "title": "วิธีเลือกสาย “RS485” Cable",
+        "slug": "%e0%b8%a7%e0%b8%b4%e0%b8%98%e0%b8%b5%e0%b9%80%e0%b8%a5%e0%b8%b7%e0%b8%ad%e0%b8%81%e0%b8%aa%e0%b8%b2%e0%b8%a2-rs485-cable",
+        "date": "2024-03-19T15:31:43"
+      },
+      {
+        "id": 19998,
+        "title": "สาย  “RS485” Cable ในโรงงาน",
+        "slug": "%e0%b8%aa%e0%b8%b2%e0%b8%a2-rs485-cable-%e0%b9%83%e0%b8%99%e0%b9%82%e0%b8%a3%e0%b8%87%e0%b8%87%e0%b8%b2%e0%b8%99",
+        "date": "2024-02-23T16:31:04"
+      },
+      {
+        "id": 19993,
+        "title": "สาย “H07RN-F” คือ",
+        "slug": "h07rn-f-%e0%b8%84%e0%b8%b7%e0%b8%ad",
+        "date": "2024-02-23T16:26:01"
+      },
+      {
+        "id": 19985,
+        "title": "จุดเด่น “Belden” Cable คือ",
+        "slug": "%e0%b8%88%e0%b8%b8%e0%b8%94%e0%b9%80%e0%b8%94%e0%b9%88%e0%b8%99-belden-cable-%e0%b8%84%e0%b8%b7%e0%b8%ad",
+        "date": "2024-02-09T12:50:37"
+      },
+      {
+        "id": 19979,
+        "title": "“สาย RS485” คือ",
+        "slug": "%e0%b8%aa%e0%b8%b2%e0%b8%a2-rs485-%e0%b8%84%e0%b8%b7%e0%b8%ad",
+        "date": "2024-02-09T12:40:46"
+      },
+      {
+        "id": 3760,
+        "title": "10 สนามบินรักษ์โลก ประหยัดพลังงานเพื่อโลกอนาคต",
+        "slug": "10-%e0%b8%aa%e0%b8%99%e0%b8%b2%e0%b8%a1%e0%b8%9a%e0%b8%b4%e0%b8%99%e0%b8%a3%e0%b8%b1%e0%b8%81%e0%b8%a9%e0%b9%8c%e0%b9%82%e0%b8%a5%e0%b8%81-%e0%b8%9b%e0%b8%a3%e0%b8%b0%e0%b8%ab%e0%b8%a2%e0%b8%b1",
+        "date": "2016-01-25T11:52:40"
+      },
+      {
+        "id": 3730,
+        "title": "12 ไอเดียรถเข็นไฟฟ้าดีไซน์แปลกใหม่ไม่ซ้ำใคร",
+        "slug": "12-%e0%b9%84%e0%b8%ad%e0%b9%80%e0%b8%94%e0%b8%b5%e0%b8%a2%e0%b8%a3%e0%b8%96%e0%b9%80%e0%b8%82%e0%b9%87%e0%b8%99%e0%b9%84%e0%b8%9f%e0%b8%9f%e0%b9%89%e0%b8%b2%e0%b8%94%e0%b8%b5%e0%b9%84%e0%b8%8b",
+        "date": "2016-01-25T11:47:58"
+      },
+      {
+        "id": 3743,
+        "title": "ผุด 2 ไอเดียรถสาธารณะพลังงานแสงอาทิตย์ ที่แปลกแต่จริง!",
+        "slug": "%e0%b8%9c%e0%b8%b8%e0%b8%94-2-%e0%b9%84%e0%b8%ad%e0%b9%80%e0%b8%94%e0%b8%b5%e0%b8%a2%e0%b8%a3%e0%b8%96%e0%b8%aa%e0%b8%b2%e0%b8%98%e0%b8%b2%e0%b8%a3%e0%b8%93%e0%b8%b0%e0%b8%9e%e0%b8%a5%e0%b8%b1",
+        "date": "2016-01-25T11:33:11"
+      },
+      {
+        "id": 3722,
+        "title": "มาเหนือเมฆ! Stella รถยนต์พลังโซล่า ที่พร้อมใช้งานได้จริง",
+        "slug": "%e0%b8%a1%e0%b8%b2%e0%b9%80%e0%b8%ab%e0%b8%99%e0%b8%b7%e0%b8%ad%e0%b9%80%e0%b8%a1%e0%b8%86-stella-%e0%b8%a3%e0%b8%96%e0%b8%a2%e0%b8%99%e0%b8%95%e0%b9%8c%e0%b8%9e%e0%b8%a5%e0%b8%b1%e0%b8%87%e0%b9%82",
+        "date": "2016-01-25T10:28:13"
+      },
+      {
+        "id": 3685,
+        "title": "ลาก่อนนิวเคลียร์ ญี่ปุ่นสร้างโซลาเซลล์ลอยน้ำ",
+        "slug": "%e0%b8%a5%e0%b8%b2%e0%b8%81%e0%b9%88%e0%b8%ad%e0%b8%99%e0%b8%99%e0%b8%b4%e0%b8%a7%e0%b9%80%e0%b8%84%e0%b8%a5%e0%b8%b5%e0%b8%a2%e0%b8%a3%e0%b9%8c-%e0%b8%8d%e0%b8%b5%e0%b9%88%e0%b8%9b%e0%b8%b8%e0%b9%88",
+        "date": "2016-01-25T09:57:07"
+      },
+      {
+        "id": 3675,
+        "title": "ไอเดียแหวก! “เสาไฟฟ้าแรงสูง” แนวใหม่ ในธีม “ดินแดนแห่งยักษ์”",
+        "slug": "%e0%b9%84%e0%b8%ad%e0%b9%80%e0%b8%94%e0%b8%b5%e0%b8%a2%e0%b9%81%e0%b8%ab%e0%b8%a7%e0%b8%81-%e0%b9%80%e0%b8%aa%e0%b8%b2%e0%b9%84%e0%b8%9f%e0%b8%9f%e0%b9%89%e0%b8%b2%e0%b9%81%e0%b8%a3%e0%b8%87-2",
+        "date": "2016-01-22T14:24:43"
+      },
+      {
+        "id": 3665,
+        "title": "กระทรวงพลังงาน ร่วม การไฟฟ้า ทำแผนพัฒนากำลังผลิตไฟฟ้าของประเทศ ฉบับใหม่ รับอาเซียน",
+        "slug": "%e0%b8%81%e0%b8%a3%e0%b8%b0%e0%b8%97%e0%b8%a3%e0%b8%a7%e0%b8%87%e0%b8%9e%e0%b8%a5%e0%b8%b1%e0%b8%87%e0%b8%87%e0%b8%b2%e0%b8%99-%e0%b8%a3%e0%b9%88%e0%b8%a7%e0%b8%a1-%e0%b8%81%e0%b8%b2%e0%b8%a3%e0%b9%84",
+        "date": "2016-01-22T13:39:10"
+      },
+      {
+        "id": 3622,
+        "title": "จับตา โซล่าฟาร์ม ดีจริงหรือไม่? ต่ออนาคตพลังงานทดแทนไทย",
+        "slug": "%e0%b8%88%e0%b8%b1%e0%b8%9a%e0%b8%95%e0%b8%b2-%e0%b9%82%e0%b8%8b%e0%b8%a5%e0%b9%88%e0%b8%b2%e0%b8%9f%e0%b8%b2%e0%b8%a3%e0%b9%8c%e0%b8%a1-%e0%b8%94%e0%b8%b5%e0%b8%88%e0%b8%a3%e0%b8%b4%e0%b8%87%e0%b8%ab",
+        "date": "2016-01-22T09:42:24"
+      },
+      {
+        "id": 3630,
+        "title": "บ้านยุคใหม่ ขายไฟฟ้า คืนกำไรกลับมาได้อย่างไม่น่าเชื่อ",
+        "slug": "%e0%b8%9a%e0%b9%89%e0%b8%b2%e0%b8%99%e0%b8%a2%e0%b8%b8%e0%b8%84%e0%b9%83%e0%b8%ab%e0%b8%a1%e0%b9%88-%e0%b8%82%e0%b8%b2%e0%b8%a2%e0%b9%84%e0%b8%9f%e0%b8%9f%e0%b9%89%e0%b8%b2-%e0%b8%84%e0%b8%b7%e0%b8%99",
+        "date": "2016-01-22T09:36:37"
+      },
+      {
+        "id": 3515,
+        "title": "รู้หรือยัง? Code สีสายไฟเปลี่ยนใหม่ อัพเดทตามมอก.11-2553",
+        "slug": "%e0%b8%a3%e0%b8%b9%e0%b9%89%e0%b8%ab%e0%b8%a3%e0%b8%b7%e0%b8%ad%e0%b8%a2%e0%b8%b1%e0%b8%87-code-%e0%b8%aa%e0%b8%b5%e0%b8%aa%e0%b8%b2%e0%b8%a2%e0%b9%84%e0%b8%9f%e0%b9%80%e0%b8%9b%e0%b8%a5%e0%b8%b5",
+        "date": "2016-01-22T08:30:30"
+      },
+      {
+        "id": 3369,
+        "title": "ปรับใหม่! มาตรฐานการติดตั้งสายไฟ มีอะไรเปลี่ยนไปบ้าง ไปดู",
+        "slug": "%e0%b8%9b%e0%b8%a3%e0%b8%b1%e0%b8%9a%e0%b9%83%e0%b8%ab%e0%b8%a1%e0%b9%88-%e0%b8%a1%e0%b8%b2%e0%b8%95%e0%b8%a3%e0%b8%90%e0%b8%b2%e0%b8%99%e0%b8%81%e0%b8%b2%e0%b8%a3%e0%b8%95%e0%b8%b4%e0%b8%94%e0%b8%95",
+        "date": "2015-12-18T07:18:44"
+      },
+      {
+        "id": 2778,
+        "title": "งานอบรมให้ความรู้งานติดตั้ง Solar Roof ของระบบโซล่าเซลล์",
+        "slug": "solaroof-seminar",
+        "date": "2015-08-26T08:46:06"
+      }
+    ]
+  },
+  "media": {
+    "count": 1181,
+    "types": {
+      "image/jpeg": 1007,
+      "application/pdf": 9,
+      "image/png": 160,
+      "image/webp": 1,
+      "image/svg+xml": 1,
+      "image/gif": 3
+    }
+  }
+}

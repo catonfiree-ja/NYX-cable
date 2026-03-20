@@ -1,0 +1,28 @@
+# Dependencies
+**/node_modules/
+
+# Next.js
+**/.next/
+**/out/
+**/dist/
+
+# Environment
+.env
+.env.local
+.env.production
+**/.env
+**/.env.local
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# IDE
+.vscode/
+.idea/
+
+# Sanity
+**/sanity/.sanity/

@@ -1,0 +1,362 @@
+[
+  {
+    "id": 2,
+    "count": 0,
+    "description": "",
+    "link": "https://nyxcable.com/category/aliquam-congue-fermentum-nisl/",
+    "name": "Aliquam Congue Fermentum Nisl",
+    "slug": "aliquam-congue-fermentum-nisl",
+    "taxonomy": "category",
+    "parent": 0,
+    "meta": [],
+    "yoast_head": "<!-- This site is optimized with the Yoast SEO plugin v27.2 - https://yoast.com/product/yoast-seo-wordpress/ -->\n<title>Aliquam Congue Fermentum Nisl Archives - NYX Cable</title>\n<meta name=\"robots\" content=\"index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1\" />\n<link rel=\"canonical\" href=\"https://nyxcable.com/category/aliquam-congue-fermentum-nisl/\" />\n<meta property=\"og:locale\" content=\"en_US\" />\n<meta property=\"og:type\" content=\"article\" />\n<meta property=\"og:title\" content=\"Aliquam Congue Fermentum Nisl Archives - NYX Cable\" />\n<meta property=\"og:url\" content=\"https://nyxcable.com/category/aliquam-congue-fermentum-nisl/\" />\n<meta property=\"og:site_name\" content=\"NYX Cable\" />\n<meta name=\"twitter:card\" content=\"summary_large_image\" />\n<script type=\"application/ld+json\" class=\"yoast-schema-graph\">{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"CollectionPage\",\"@id\":\"https://nyxcable.com/category/aliquam-congue-fermentum-nisl/\",\"url\":\"https://nyxcable.com/category/aliquam-congue-fermentum-nisl/\",\"name\":\"Aliquam Congue Fermentum Nisl Archives - NYX Cable\",\"isPartOf\":{\"@id\":\"https://nyxcable.com/#website\"},\"breadcrumb\":{\"@id\":\"https://nyxcable.com/category/aliquam-congue-fermentum-nisl/#breadcrumb\"},\"inLanguage\":\"en-US\"},{\"@type\":\"BreadcrumbList\",\"@id\":\"https://nyxcable.com/category/aliquam-congue-fermentum-nisl/#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https://nyxcable.com/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Aliquam Congue Fermentum Nisl\"}]},{\"@type\":\"WebSite\",\"@id\":\"https://nyxcable.com/#website\",\"url\":\"https://nyxcable.com/\",\"name\":\"NYX Cable\",\"description\":\"\",\"potentialAction\":[{\"@type\":\"SearchAction\",\"target\":{\"@type\":\"EntryPoint\",\"urlTemplate\":\"https://nyxcable.com/?s={search_term_string}\"},\"query-input\":{\"@type\":\"PropertyValueSpecification\",\"valueRequired\":true,\"valueName\":\"search_term_string\"}}],\"inLanguage\":\"en-US\"}]}</script>\n<!-- / Yoast SEO plugin. -->",
+    "yoast_head_json": {
+      "title": "Aliquam Congue Fermentum Nisl Archives - NYX Cable",
+      "robots": {
+        "index": "index",
+        "follow": "follow",
+        "max-snippet": "max-snippet:-1",
+        "max-image-preview": "max-image-preview:large",
+        "max-video-preview": "max-video-preview:-1"
+      },
+      "canonical": "https://nyxcable.com/category/aliquam-congue-fermentum-nisl/",
+      "og_locale": "en_US",
+      "og_type": "article",
+      "og_title": "Aliquam Congue Fermentum Nisl Archives - NYX Cable",
+      "og_url": "https://nyxcable.com/category/aliquam-congue-fermentum-nisl/",
+      "og_site_name": "NYX Cable",
+      "twitter_card": "summary_large_image",
+      "schema": {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "CollectionPage",
+            "@id": "https://nyxcable.com/category/aliquam-congue-fermentum-nisl/",
+            "url": "https://nyxcable.com/category/aliquam-congue-fermentum-nisl/",
+            "name": "Aliquam Congue Fermentum Nisl Archives - NYX Cable",
+            "isPartOf": {
+              "@id": "https://nyxcable.com/#website"
+            },
+            "breadcrumb": {
+              "@id": "https://nyxcable.com/category/aliquam-congue-fermentum-nisl/#breadcrumb"
+            },
+            "inLanguage": "en-US"
+          },
+          {
+            "@type": "BreadcrumbList",
+            "@id": "https://nyxcable.com/category/aliquam-congue-fermentum-nisl/#breadcrumb",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://nyxcable.com/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Aliquam Congue Fermentum Nisl"
+              }
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://nyxcable.com/#website",
+            "url": "https://nyxcable.com/",
+            "name": "NYX Cable",
+            "description": "",
+            "potentialAction": [
+              {
+                "@type": "SearchAction",
+                "target": {
+                  "@type": "EntryPoint",
+                  "urlTemplate": "https://nyxcable.com/?s={search_term_string}"
+                },
+                "query-input": {
+                  "@type": "PropertyValueSpecification",
+                  "valueRequired": true,
+                  "valueName": "search_term_string"
+                }
+              }
+            ],
+            "inLanguage": "en-US"
+          }
+        ]
+      }
+    },
+    "_links": {
+      "self": [
+        {
+          "href": "https://nyxcable.com/wp-json/wp/v2/categories/2",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://nyxcable.com/wp-json/wp/v2/categories"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://nyxcable.com/wp-json/wp/v2/taxonomies/category"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "https://nyxcable.com/wp-json/wp/v2/posts?categories=2"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 42,
+    "count": 33,
+    "description": "",
+    "link": "https://nyxcable.com/category/news-update/",
+    "name": "News&amp;Update",
+    "slug": "news-update",
+    "taxonomy": "category",
+    "parent": 0,
+    "meta": [],
+    "yoast_head": "<!-- This site is optimized with the Yoast SEO plugin v27.2 - https://yoast.com/product/yoast-seo-wordpress/ -->\n<title>News&amp;Update Archives - NYX Cable</title>\n<meta name=\"robots\" content=\"index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1\" />\n<link rel=\"canonical\" href=\"https://nyxcable.com/category/news-update/\" />\n<meta property=\"og:locale\" content=\"en_US\" />\n<meta property=\"og:type\" content=\"article\" />\n<meta property=\"og:title\" content=\"News&amp;Update Archives - NYX Cable\" />\n<meta property=\"og:url\" content=\"https://nyxcable.com/category/news-update/\" />\n<meta property=\"og:site_name\" content=\"NYX Cable\" />\n<meta name=\"twitter:card\" content=\"summary_large_image\" />\n<script type=\"application/ld+json\" class=\"yoast-schema-graph\">{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"CollectionPage\",\"@id\":\"https://nyxcable.com/category/news-update/\",\"url\":\"https://nyxcable.com/category/news-update/\",\"name\":\"News&amp;Update Archives - NYX Cable\",\"isPartOf\":{\"@id\":\"https://nyxcable.com/#website\"},\"breadcrumb\":{\"@id\":\"https://nyxcable.com/category/news-update/#breadcrumb\"},\"inLanguage\":\"en-US\"},{\"@type\":\"BreadcrumbList\",\"@id\":\"https://nyxcable.com/category/news-update/#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https://nyxcable.com/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"News&amp;Update\"}]},{\"@type\":\"WebSite\",\"@id\":\"https://nyxcable.com/#website\",\"url\":\"https://nyxcable.com/\",\"name\":\"NYX Cable\",\"description\":\"\",\"potentialAction\":[{\"@type\":\"SearchAction\",\"target\":{\"@type\":\"EntryPoint\",\"urlTemplate\":\"https://nyxcable.com/?s={search_term_string}\"},\"query-input\":{\"@type\":\"PropertyValueSpecification\",\"valueRequired\":true,\"valueName\":\"search_term_string\"}}],\"inLanguage\":\"en-US\"}]}</script>\n<!-- / Yoast SEO plugin. -->",
+    "yoast_head_json": {
+      "title": "News&amp;Update Archives - NYX Cable",
+      "robots": {
+        "index": "index",
+        "follow": "follow",
+        "max-snippet": "max-snippet:-1",
+        "max-image-preview": "max-image-preview:large",
+        "max-video-preview": "max-video-preview:-1"
+      },
+      "canonical": "https://nyxcable.com/category/news-update/",
+      "og_locale": "en_US",
+      "og_type": "article",
+      "og_title": "News&amp;Update Archives - NYX Cable",
+      "og_url": "https://nyxcable.com/category/news-update/",
+      "og_site_name": "NYX Cable",
+      "twitter_card": "summary_large_image",
+      "schema": {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "CollectionPage",
+            "@id": "https://nyxcable.com/category/news-update/",
+            "url": "https://nyxcable.com/category/news-update/",
+            "name": "News&amp;Update Archives - NYX Cable",
+            "isPartOf": {
+              "@id": "https://nyxcable.com/#website"
+            },
+            "breadcrumb": {
+              "@id": "https://nyxcable.com/category/news-update/#breadcrumb"
+            },
+            "inLanguage": "en-US"
+          },
+          {
+            "@type": "BreadcrumbList",
+            "@id": "https://nyxcable.com/category/news-update/#breadcrumb",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://nyxcable.com/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "News&amp;Update"
+              }
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://nyxcable.com/#website",
+            "url": "https://nyxcable.com/",
+            "name": "NYX Cable",
+            "description": "",
+            "potentialAction": [
+              {
+                "@type": "SearchAction",
+                "target": {
+                  "@type": "EntryPoint",
+                  "urlTemplate": "https://nyxcable.com/?s={search_term_string}"
+                },
+                "query-input": {
+                  "@type": "PropertyValueSpecification",
+                  "valueRequired": true,
+                  "valueName": "search_term_string"
+                }
+              }
+            ],
+            "inLanguage": "en-US"
+          }
+        ]
+      }
+    },
+    "_links": {
+      "self": [
+        {
+          "href": "https://nyxcable.com/wp-json/wp/v2/categories/42",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://nyxcable.com/wp-json/wp/v2/categories"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://nyxcable.com/wp-json/wp/v2/taxonomies/category"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "https://nyxcable.com/wp-json/wp/v2/posts?categories=42"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 44,
+    "count": 0,
+    "description": "",
+    "link": "https://nyxcable.com/category/product-reviews/",
+    "name": "Product Reviews",
+    "slug": "product-reviews",
+    "taxonomy": "category",
+    "parent": 0,
+    "meta": [],
+    "yoast_head": "<!-- This site is optimized with the Yoast SEO plugin v27.2 - https://yoast.com/product/yoast-seo-wordpress/ -->\n<title>Product Reviews Archives - NYX Cable</title>\n<meta name=\"robots\" content=\"index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1\" />\n<link rel=\"canonical\" href=\"https://nyxcable.com/category/product-reviews/\" />\n<meta property=\"og:locale\" content=\"en_US\" />\n<meta property=\"og:type\" content=\"article\" />\n<meta property=\"og:title\" content=\"Product Reviews Archives - NYX Cable\" />\n<meta property=\"og:url\" content=\"https://nyxcable.com/category/product-reviews/\" />\n<meta property=\"og:site_name\" content=\"NYX Cable\" />\n<meta name=\"twitter:card\" content=\"summary_large_image\" />\n<script type=\"application/ld+json\" class=\"yoast-schema-graph\">{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"CollectionPage\",\"@id\":\"https://nyxcable.com/category/product-reviews/\",\"url\":\"https://nyxcable.com/category/product-reviews/\",\"name\":\"Product Reviews Archives - NYX Cable\",\"isPartOf\":{\"@id\":\"https://nyxcable.com/#website\"},\"breadcrumb\":{\"@id\":\"https://nyxcable.com/category/product-reviews/#breadcrumb\"},\"inLanguage\":\"en-US\"},{\"@type\":\"BreadcrumbList\",\"@id\":\"https://nyxcable.com/category/product-reviews/#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https://nyxcable.com/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Product Reviews\"}]},{\"@type\":\"WebSite\",\"@id\":\"https://nyxcable.com/#website\",\"url\":\"https://nyxcable.com/\",\"name\":\"NYX Cable\",\"description\":\"\",\"potentialAction\":[{\"@type\":\"SearchAction\",\"target\":{\"@type\":\"EntryPoint\",\"urlTemplate\":\"https://nyxcable.com/?s={search_term_string}\"},\"query-input\":{\"@type\":\"PropertyValueSpecification\",\"valueRequired\":true,\"valueName\":\"search_term_string\"}}],\"inLanguage\":\"en-US\"}]}</script>\n<!-- / Yoast SEO plugin. -->",
+    "yoast_head_json": {
+      "title": "Product Reviews Archives - NYX Cable",
+      "robots": {
+        "index": "index",
+        "follow": "follow",
+        "max-snippet": "max-snippet:-1",
+        "max-image-preview": "max-image-preview:large",
+        "max-video-preview": "max-video-preview:-1"
+      },
+      "canonical": "https://nyxcable.com/category/product-reviews/",
+      "og_locale": "en_US",
+      "og_type": "article",
+      "og_title": "Product Reviews Archives - NYX Cable",
+      "og_url": "https://nyxcable.com/category/product-reviews/",
+      "og_site_name": "NYX Cable",
+      "twitter_card": "summary_large_image",
+      "schema": {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "CollectionPage",
+            "@id": "https://nyxcable.com/category/product-reviews/",
+            "url": "https://nyxcable.com/category/product-reviews/",
+            "name": "Product Reviews Archives - NYX Cable",
+            "isPartOf": {
+              "@id": "https://nyxcable.com/#website"
+            },
+            "breadcrumb": {
+              "@id": "https://nyxcable.com/category/product-reviews/#breadcrumb"
+            },
+            "inLanguage": "en-US"
+          },
+          {
+            "@type": "BreadcrumbList",
+            "@id": "https://nyxcable.com/category/product-reviews/#breadcrumb",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://nyxcable.com/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Product Reviews"
+              }
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://nyxcable.com/#website",
+            "url": "https://nyxcable.com/",
+            "name": "NYX Cable",
+            "description": "",
+            "potentialAction": [
+              {
+                "@type": "SearchAction",
+                "target": {
+                  "@type": "EntryPoint",
+                  "urlTemplate": "https://nyxcable.com/?s={search_term_string}"
+                },
+                "query-input": {
+                  "@type": "PropertyValueSpecification",
+                  "valueRequired": true,
+                  "valueName": "search_term_string"
+                }
+              }
+            ],
+            "inLanguage": "en-US"
+          }
+        ]
+      }
+    },
+    "_links": {
+      "self": [
+        {
+          "href": "https://nyxcable.com/wp-json/wp/v2/categories/44",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://nyxcable.com/wp-json/wp/v2/categories"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://nyxcable.com/wp-json/wp/v2/taxonomies/category"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "https://nyxcable.com/wp-json/wp/v2/posts?categories=44"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  }
+]
