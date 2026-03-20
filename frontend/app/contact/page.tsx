@@ -87,6 +87,17 @@ export default function ContactPage() {
           </div>
         </div>
       </div>
+
+      <section className="cta-section" style={{ marginTop: '0' }}>
+        <div className="container">
+          <h2>ยังไม่แน่ใจรุ่นไหน? ดูแคตตาล็อกก่อน</h2>
+          <p>สำรวจสินค้ากว่า 150 รุ่น พร้อมสเปคและราคา</p>
+          <div className="cta-actions">
+            <a href="/products" className="btn btn-accent btn-lg">ดูสินค้าทั้งหมด →</a>
+            <a href="/blog" className="btn btn-primary btn-lg">อ่านบทความ & คู่มือ</a>
+          </div>
+        </div>
+      </section>
     </>
   )
 }

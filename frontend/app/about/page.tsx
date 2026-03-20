@@ -58,6 +58,17 @@ export default function AboutPage() {
           <div className="timeline-item"><span className="timeline-year">2026</span><div className="timeline-desc"><h3>ก้าวสู่ดิจิทัล</h3><p>เปิดตัวเว็บไซต์ใหม่พร้อมระบบ CMS สำหรับอัพเดทข้อมูลสินค้า</p></div></div>
         </div>
       </div>
+
+      <section className="cta-section">
+        <div className="container">
+          <h2>พร้อมเลือกสายไฟคุณภาพยุโรป?</h2>
+          <p>สำรวจแคตตาล็อกสินค้ากว่า 150 รุ่น หรือปรึกษาทีมวิศวกรของเรา</p>
+          <div className="cta-actions">
+            <a href="/products" className="btn btn-accent btn-lg">ดูสินค้าทั้งหมด →</a>
+            <a href="/contact" className="btn btn-primary btn-lg">ติดต่อเรา</a>
+          </div>
+        </div>
+      </section>
     </>
   )
 }
