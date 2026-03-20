@@ -1,5 +1,5 @@
 import React from 'react'
-import { getProduct, getProducts, getVariants } from '@/lib/queries'
+import { getProduct, getProducts, getVariants, getBlogPosts } from '@/lib/queries'
 import { notFound } from 'next/navigation'
 import VariantTable from './VariantTable'
 
@@ -42,6 +42,24 @@ const styles = `
   .related-card { display: block; padding: var(--spacing-lg); background: var(--color-white); border: 1px solid var(--color-gray-200); border-radius: var(--radius-lg); text-decoration: none; transition: all var(--transition-normal); }
   .related-card:hover { border-color: var(--color-secondary); box-shadow: var(--shadow-lg); transform: translateY(-2px); }
   .related-card h3 { font-size: var(--font-size-sm); font-weight: 600; color: var(--color-primary); }
+
+  .related-blogs { padding: var(--spacing-2xl) 0; }
+  .related-blogs h2 { font-size: 1.4rem; font-weight: 700; color: var(--color-primary); margin-bottom: 20px; }
+  .blogs-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
+  .blog-card-link { display: block; text-decoration: none; border: 1px solid #e2e8f0; border-radius: 12px; padding: 20px; background: #fff; transition: all 0.25s; }
+  .blog-card-link:hover { border-color: #2563eb; box-shadow: 0 4px 16px rgba(37,99,235,0.1); transform: translateY(-2px); }
+  .blog-card-link .bc-title { font-size: 0.95rem; font-weight: 700; color: #1a3c6e; line-height: 1.4; margin-bottom: 6px; }
+  .blog-card-link .bc-excerpt { font-size: 0.8rem; color: #64748b; line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .blog-card-link .bc-date { font-size: 0.7rem; color: #94a3b8; margin-top: 8px; }
+
+  .other-products { padding: var(--spacing-xl) 0 var(--spacing-3xl); }
+  .other-products h2 { font-size: 1.4rem; font-weight: 700; color: var(--color-primary); margin-bottom: 20px; }
+  .op-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; }
+  .op-card { display: block; text-decoration: none; border: 1px solid #e2e8f0; border-radius: 12px; padding: 20px 16px; text-align: center; background: #fff; transition: all 0.25s; }
+  .op-card:hover { border-color: #2563eb; box-shadow: 0 4px 16px rgba(37,99,235,0.1); transform: translateY(-2px); }
+  .op-card .op-code { font-size: 0.65rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
+  .op-card .op-name { font-size: 0.9rem; font-weight: 700; color: #1a3c6e; }
+  .op-card .op-desc { font-size: 0.75rem; color: #64748b; margin-top: 4px; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
 
   /* ─── Quick Quote Floating Bar ─── */
   .quick-quote-bar {
@@ -438,6 +456,52 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
           </div>
         </div>
       </section>
+
+      {/* ─── Related Blog Posts ─── */}
+      {(async () => {
+        const allBlogPosts = await getBlogPosts()
+        const blogPosts = allBlogPosts.slice(0, 3)
+        if (blogPosts.length === 0) return null
+        return (
+          <section className="related-blogs">
+            <div className="container">
+              <h2>คู่มือ & บทความที่เกี่ยวข้อง</h2>
+              <div className="blogs-grid">
+                {blogPosts.map((bp: any) => (
+                  <a key={bp._id} href={`/blog/${bp.slug?.current}`} className="blog-card-link">
+                    <div className="bc-title">{bp.title}</div>
+                    {bp.excerpt && <div className="bc-excerpt">{bp.excerpt}</div>}
+                    {bp.publishedAt && <div className="bc-date">{new Date(bp.publishedAt).toLocaleDateString('th-TH', { day: 'numeric', month: 'long', year: 'numeric' })}</div>}
+                  </a>
+                ))}
+              </div>
+            </div>
+          </section>
+        )
+      })()}
+
+      {/* ─── Other Products ─── */}
+      {(async () => {
+        const allProducts = await getProducts()
+        const otherProducts = allProducts.filter((p: any) => p.slug?.current !== slug).slice(0, 4)
+        if (otherProducts.length === 0) return null
+        return (
+          <section className="other-products">
+            <div className="container">
+              <h2>สินค้าหมวดอื่นที่น่าสนใจ</h2>
+              <div className="op-grid">
+                {otherProducts.map((p: any) => (
+                  <a key={p._id} href={`/products/detail/${p.slug?.current}`} className="op-card">
+                    {p.productCode && <div className="op-code">{p.productCode}</div>}
+                    <div className="op-name">{p.title}</div>
+                    {p.shortDescription && <div className="op-desc">{p.shortDescription}</div>}
+                  </a>
+                ))}
+              </div>
+            </div>
+          </section>
+        )
+      })()}
 
       {/* ─── Quick Quote Floating Bar ─── */}
       <div className="quick-quote-bar">
