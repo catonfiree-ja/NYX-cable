@@ -362,8 +362,8 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
               ))}
             </ul>
             <div className="product-actions">
-              <a href="tel:021115588" className="btn btn-primary btn-lg">สอบถามราคา</a>
-              <a href={`https://page.line.me/ubb9405u?text=${encodeURIComponent(`สนใจสินค้า: ${product.title}${product.productCode ? ` (${product.productCode})` : ''} — ขอใบเสนอราคา`)}`} className="btn btn-line btn-lg" target="_blank" rel="noopener noreferrer">แอด LINE</a>
+              <a href="tel:021115588" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '12px 28px', background: 'linear-gradient(135deg, #1a3c6e, #2563eb)', color: '#fff', borderRadius: '50px', fontWeight: 700, fontSize: '0.95rem', textDecoration: 'none', boxShadow: '0 4px 14px rgba(37,99,235,0.3)', transition: 'all 0.25s' }}>📞 สอบถามราคา</a>
+              <a href={`https://page.line.me/ubb9405u?text=${encodeURIComponent(`สนใจสินค้า: ${product.title}${product.productCode ? ` (${product.productCode})` : ''} — ขอใบเสนอราคา`)}`} target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '12px 28px', background: 'linear-gradient(135deg, #06c755, #00b843)', color: '#fff', borderRadius: '50px', fontWeight: 700, fontSize: '0.95rem', textDecoration: 'none', boxShadow: '0 4px 14px rgba(6,199,85,0.3)', transition: 'all 0.25s' }}>💬 แอด LINE</a>
             </div>
           </div>
         </div>
