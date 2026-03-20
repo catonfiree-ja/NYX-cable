@@ -223,6 +223,39 @@ a:hover {
   font-weight: 600;
 }
 
+/* ─── CTA Pulse Animation ─── */
+@keyframes ctaPulse {
+  0%, 100% { box-shadow: 0 4px 14px rgba(0,0,0,0.15); }
+  50% { box-shadow: 0 4px 24px rgba(0,0,0,0.35), 0 0 0 4px rgba(255,255,255,0.08); }
+}
+@keyframes ctaPulseBlue {
+  0%, 100% { box-shadow: 0 4px 14px rgba(37,99,235,0.25); }
+  50% { box-shadow: 0 4px 28px rgba(37,99,235,0.5), 0 0 0 5px rgba(37,99,235,0.1); }
+}
+@keyframes ctaPulseGreen {
+  0%, 100% { box-shadow: 0 4px 14px rgba(6,199,85,0.25); }
+  50% { box-shadow: 0 4px 28px rgba(6,199,85,0.5), 0 0 0 5px rgba(6,199,85,0.1); }
+}
+@keyframes ctaPulseGold {
+  0%, 100% { box-shadow: 0 4px 14px rgba(240,165,0,0.25); }
+  50% { box-shadow: 0 4px 28px rgba(240,165,0,0.5), 0 0 0 5px rgba(240,165,0,0.1); }
+}
+.btn-primary, .btn-accent, .btn-line,
+[style*="linear-gradient(135deg, #1a3c6e"] {
+  animation: ctaPulseBlue 2.5s ease-in-out infinite;
+}
+.btn-line,
+[style*="linear-gradient(135deg, #06c755"] {
+  animation: ctaPulseGreen 2.5s ease-in-out infinite;
+}
+.btn-accent {
+  animation: ctaPulseGold 2.5s ease-in-out infinite;
+}
+.btn-primary:hover, .btn-accent:hover, .btn-line:hover,
+[style*="linear-gradient"]:hover {
+  animation: none;
+}
+
 .btn-line:hover {
   background: #05b04b;
   color: var(--color-white);
