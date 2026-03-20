@@ -1,0 +1,1379 @@
+[
+  {
+    "coreSize": "2X0.5",
+    "model": "สายคอนโทรล YSLY-OZ 2X0.5",
+    "strands": "16&#215;0.20",
+    "outerDiameter": 4.9,
+    "cuWeight": 9.6,
+    "totalWeight": 38,
+    "conductorResistance": 39
+  },
+  {
+    "coreSize": "3G0.5",
+    "model": "สายคอนโทรล YSLY-JZ 3G0.5",
+    "strands": "16&#215;0.20",
+    "outerDiameter": 5.2,
+    "cuWeight": 14.4,
+    "totalWeight": 47,
+    "conductorResistance": 39
+  },
+  {
+    "coreSize": "4G0.5",
+    "model": "สายคอนโทรล YSLY-JZ 4G0.5",
+    "strands": "16&#215;0.20",
+    "outerDiameter": 5.7,
+    "cuWeight": 19.2,
+    "totalWeight": 58,
+    "conductorResistance": 39
+  },
+  {
+    "coreSize": "5G0.5",
+    "model": "สายคอนโทรล YSLY-JZ 5G0.5",
+    "strands": "16&#215;0.20",
+    "outerDiameter": 6,
+    "cuWeight": 24,
+    "totalWeight": 75,
+    "conductorResistance": 39
+  },
+  {
+    "coreSize": "6G0.5",
+    "model": "สายคอนโทรล YSLY-JZ 6G0.5",
+    "strands": "16&#215;0.20",
+    "outerDiameter": 6.5,
+    "cuWeight": 28.8,
+    "totalWeight": 89,
+    "conductorResistance": 39
+  },
+  {
+    "coreSize": "7G0.5",
+    "model": "สายคอนโทรล YSLY-JZ 7G0.5",
+    "strands": "16&#215;0.20",
+    "outerDiameter": 7.1,
+    "cuWeight": 33.6,
+    "totalWeight": 93,
+    "conductorResistance": 39
+  },
+  {
+    "coreSize": "8G0.5",
+    "model": "สายคอนโทรล YSLY-JZ 8G0.5",
+    "strands": "16&#215;0.20",
+    "outerDiameter": 7.7,
+    "cuWeight": 38.4,
+    "totalWeight": 110,
+    "conductorResistance": 39
+  },
+  {
+    "coreSize": "10G0.5",
+    "model": "สายคอนโทรล YSLY-JZ 10G0.5",
+    "strands": "16&#215;0.20",
+    "outerDiameter": 8.6,
+    "cuWeight": 48,
+    "totalWeight": 140,
+    "conductorResistance": 39
+  },
+  {
+    "coreSize": "12G0.5",
+    "model": "สายคอนโทรล YSLY-JZ 12G0.5",
+    "strands": "16&#215;0.20",
+    "outerDiameter": 9.1,
+    "cuWeight": 58,
+    "totalWeight": 150,
+    "conductorResistance": 39
+  },
+  {
+    "coreSize": "14G0.5",
+    "model": "สายคอนโทรล YSLY-JZ 14G0.5",
+    "strands": "16&#215;0.20",
+    "outerDiameter": 9.3,
+    "cuWeight": 67,
+    "totalWeight": 170,
+    "conductorResistance": 39
+  },
+  {
+    "coreSize": "16G0.5",
+    "model": "สายคอนโทรล YSLY-JZ 16G0.5",
+    "strands": "16&#215;0.20",
+    "outerDiameter": 10.4,
+    "cuWeight": 77,
+    "totalWeight": 195,
+    "conductorResistance": 39
+  },
+  {
+    "coreSize": "18G0.5",
+    "model": "สายคอนโทรล YSLY-JZ 18G0.5",
+    "strands": "16&#215;0.20",
+    "outerDiameter": 10.8,
+    "cuWeight": 86,
+    "totalWeight": 215,
+    "conductorResistance": 39
+  },
+  {
+    "coreSize": "20G0.5",
+    "model": "สายคอนโทรล YSLY-JZ 20G0.5",
+    "strands": "16&#215;0.20",
+    "outerDiameter": 11.8,
+    "cuWeight": 96,
+    "totalWeight": 230,
+    "conductorResistance": 39
+  },
+  {
+    "coreSize": "21G0.5",
+    "model": "สายคอนโทรล YSLY-JZ 21G0.5",
+    "strands": "16&#215;0.20",
+    "outerDiameter": 12,
+    "cuWeight": 101,
+    "totalWeight": 245,
+    "conductorResistance": 39
+  },
+  {
+    "coreSize": "25G0.5",
+    "model": "สายคอนโทรล YSLY-JZ 25G0.5",
+    "strands": "16&#215;0.20",
+    "outerDiameter": 12.8,
+    "cuWeight": 120,
+    "totalWeight": 280,
+    "conductorResistance": 39
+  },
+  {
+    "coreSize": "30G0.5",
+    "model": "สายคอนโทรล YSLY-JZ 30G0.5",
+    "strands": "16&#215;0.20",
+    "outerDiameter": 13.7,
+    "cuWeight": 144,
+    "totalWeight": 310,
+    "conductorResistance": 39
+  },
+  {
+    "coreSize": "32G0.5",
+    "model": "สายคอนโทรล YSLY-JZ 32G0.5",
+    "strands": "16&#215;0.20",
+    "outerDiameter": 14,
+    "cuWeight": 154,
+    "totalWeight": 345,
+    "conductorResistance": 39
+  },
+  {
+    "coreSize": "35G0.5",
+    "model": "สายคอนโทรล YSLY-JZ 35G0.5",
+    "strands": "16&#215;0.20",
+    "outerDiameter": 14.9,
+    "cuWeight": 168,
+    "totalWeight": 390,
+    "conductorResistance": 39
+  },
+  {
+    "coreSize": "40G0.5",
+    "model": "สายคอนโทรล YSLY-JZ 40G0.5",
+    "strands": "16&#215;0.20",
+    "outerDiameter": 15.6,
+    "cuWeight": 192,
+    "totalWeight": 450,
+    "conductorResistance": 39
+  },
+  {
+    "coreSize": "42G0.5",
+    "model": "สายคอนโทรล YSLY-JZ 42G0.5",
+    "strands": "16&#215;0.20",
+    "outerDiameter": 16.2,
+    "cuWeight": 202,
+    "totalWeight": 470,
+    "conductorResistance": 39
+  },
+  {
+    "coreSize": "50G0.5",
+    "model": "สายคอนโทรล YSLY-JZ 50G0.5",
+    "strands": "16&#215;0.20",
+    "outerDiameter": 17.6,
+    "cuWeight": 240,
+    "totalWeight": 510,
+    "conductorResistance": 39
+  },
+  {
+    "coreSize": "52G0.5",
+    "model": "สายคอนโทรล YSLY-JZ 52G0.5",
+    "strands": "16&#215;0.20",
+    "outerDiameter": 17.7,
+    "cuWeight": 252,
+    "totalWeight": 530,
+    "conductorResistance": 39
+  },
+  {
+    "coreSize": "61G0.5",
+    "model": "สายคอนโทรล YSLY-JZ 61G0.5",
+    "strands": "16&#215;0.20",
+    "outerDiameter": 18.9,
+    "cuWeight": 293,
+    "totalWeight": 650,
+    "conductorResistance": 39
+  },
+  {
+    "coreSize": "65G0.5",
+    "model": "สายคอนโทรล YSLY-JZ 65G0.5",
+    "strands": "16&#215;0.20",
+    "outerDiameter": 19.8,
+    "cuWeight": 312,
+    "totalWeight": 685,
+    "conductorResistance": 39
+  },
+  {
+    "coreSize": "80G0.5",
+    "model": "สายคอนโทรล YSLY-JZ 80G0.5",
+    "strands": "16&#215;0.20",
+    "outerDiameter": 21.5,
+    "cuWeight": 384,
+    "totalWeight": 780,
+    "conductorResistance": 39
+  },
+  {
+    "coreSize": "100G0.5",
+    "model": "สายคอนโทรล YSLY-JZ 100G0.5",
+    "strands": "16&#215;0.20",
+    "outerDiameter": 23.9,
+    "cuWeight": 480,
+    "totalWeight": 970,
+    "conductorResistance": 39
+  },
+  {
+    "coreSize": "2X0.75",
+    "model": "สายคอนโทรล YSLY-OZ 2X0.75",
+    "strands": "24&#215;0.20",
+    "outerDiameter": 5.5,
+    "cuWeight": 14.4,
+    "totalWeight": 43,
+    "conductorResistance": 26
+  },
+  {
+    "coreSize": "3G0.75",
+    "model": "สายคอนโทรล YSLY-JZ 3G0.75",
+    "strands": "24&#215;0.20",
+    "outerDiameter": 5.7,
+    "cuWeight": 22,
+    "totalWeight": 61,
+    "conductorResistance": 26
+  },
+  {
+    "coreSize": "4G0.75",
+    "model": "สายคอนโทรล YSLY-JZ 4G0.75",
+    "strands": "24&#215;0.20",
+    "outerDiameter": 6.2,
+    "cuWeight": 28.8,
+    "totalWeight": 75,
+    "conductorResistance": 26
+  },
+  {
+    "coreSize": "5G0.75",
+    "model": "สายคอนโทรล YSLY-JZ 5G0.75",
+    "strands": "24&#215;0.20",
+    "outerDiameter": 6.9,
+    "cuWeight": 36,
+    "totalWeight": 100,
+    "conductorResistance": 26
+  },
+  {
+    "coreSize": "6G0.75",
+    "model": "สายคอนโทรล YSLY-JZ 6G0.75",
+    "strands": "24&#215;0.20",
+    "outerDiameter": 7.6,
+    "cuWeight": 43.2,
+    "totalWeight": 115,
+    "conductorResistance": 26
+  },
+  {
+    "coreSize": "7G0.75",
+    "model": "สายคอนโทรล YSLY-JZ 7G0.75",
+    "strands": "24&#215;0.20",
+    "outerDiameter": 7.6,
+    "cuWeight": 50,
+    "totalWeight": 125,
+    "conductorResistance": 26
+  },
+  {
+    "coreSize": "8G0.75",
+    "model": "สายคอนโทรล YSLY-JZ 8G0.75",
+    "strands": "24&#215;0.20",
+    "outerDiameter": 8.9,
+    "cuWeight": 58,
+    "totalWeight": 140,
+    "conductorResistance": 26
+  },
+  {
+    "coreSize": "9G0.75",
+    "model": "สายคอนโทรล YSLY-JZ 9G0.75",
+    "strands": "24&#215;0.20",
+    "outerDiameter": 9.6,
+    "cuWeight": 65,
+    "totalWeight": 150,
+    "conductorResistance": 26
+  },
+  {
+    "coreSize": "10G0.75",
+    "model": "สายคอนโทรล YSLY-JZ 10G0.75",
+    "strands": "24&#215;0.20",
+    "outerDiameter": 9.9,
+    "cuWeight": 72,
+    "totalWeight": 170,
+    "conductorResistance": 26
+  },
+  {
+    "coreSize": "12G0.75",
+    "model": "สายคอนโทรล YSLY-JZ 12G0.75",
+    "strands": "24&#215;0.20",
+    "outerDiameter": 10.2,
+    "cuWeight": 86,
+    "totalWeight": 210,
+    "conductorResistance": 26
+  },
+  {
+    "coreSize": "14G0.75",
+    "model": "สายคอนโทรล YSLY-JZ 14G0.75",
+    "strands": "24&#215;0.20",
+    "outerDiameter": 10.9,
+    "cuWeight": 101,
+    "totalWeight": 225,
+    "conductorResistance": 26
+  },
+  {
+    "coreSize": "16G0.75",
+    "model": "สายคอนโทรล YSLY-JZ 16G0.75",
+    "strands": "24&#215;0.20",
+    "outerDiameter": 11.2,
+    "cuWeight": 115,
+    "totalWeight": 240,
+    "conductorResistance": 26
+  },
+  {
+    "coreSize": "18G0.75",
+    "model": "สายคอนโทรล YSLY-JZ 18G0.75",
+    "strands": "24&#215;0.20",
+    "outerDiameter": 12.1,
+    "cuWeight": 130,
+    "totalWeight": 280,
+    "conductorResistance": 26
+  },
+  {
+    "coreSize": "20G0.75",
+    "model": "สายคอนโทรล YSLY-JZ 20G0.75",
+    "strands": "24&#215;0.20",
+    "outerDiameter": 13,
+    "cuWeight": 144,
+    "totalWeight": 310,
+    "conductorResistance": 26
+  },
+  {
+    "coreSize": "21G0.75",
+    "model": "สายคอนโทรล YSLY-JZ 21G0.75",
+    "strands": "24&#215;0.20",
+    "outerDiameter": 13.4,
+    "cuWeight": 151,
+    "totalWeight": 325,
+    "conductorResistance": 26
+  },
+  {
+    "coreSize": "25G0.75",
+    "model": "สายคอนโทรล YSLY-JZ 25G0.75",
+    "strands": "24&#215;0.20",
+    "outerDiameter": 14.2,
+    "cuWeight": 180,
+    "totalWeight": 370,
+    "conductorResistance": 26
+  },
+  {
+    "coreSize": "30G0.75",
+    "model": "สายคอนโทรล YSLY-JZ 30G0.75",
+    "strands": "24&#215;0.20",
+    "outerDiameter": 15.1,
+    "cuWeight": 216,
+    "totalWeight": 440,
+    "conductorResistance": 26
+  },
+  {
+    "coreSize": "31G0.75",
+    "model": "สายคอนโทรล YSLY-JZ 31G0.75",
+    "strands": "24&#215;0.20",
+    "outerDiameter": 16.1,
+    "cuWeight": 223,
+    "totalWeight": 455,
+    "conductorResistance": 26
+  },
+  {
+    "coreSize": "32G0.75",
+    "model": "สายคอนโทรล YSLY-JZ 32G0.75",
+    "strands": "24&#215;0.20",
+    "outerDiameter": 16.2,
+    "cuWeight": 230,
+    "totalWeight": 460,
+    "conductorResistance": 26
+  },
+  {
+    "coreSize": "34G0.75",
+    "model": "สายคอนโทรล YSLY-JZ 34G0.75",
+    "strands": "24&#215;0.20",
+    "outerDiameter": 16.3,
+    "cuWeight": 245,
+    "totalWeight": 500,
+    "conductorResistance": 26
+  },
+  {
+    "coreSize": "37G0.75",
+    "model": "สายคอนโทรล YSLY-JZ 37G0.75",
+    "strands": "24&#215;0.20",
+    "outerDiameter": 16.5,
+    "cuWeight": 260,
+    "totalWeight": 535,
+    "conductorResistance": 26
+  },
+  {
+    "coreSize": "40G0.75",
+    "model": "สายคอนโทรล YSLY-JZ 40G0.75",
+    "strands": "24&#215;0.20",
+    "outerDiameter": 17.5,
+    "cuWeight": 288,
+    "totalWeight": 570,
+    "conductorResistance": 26
+  },
+  {
+    "coreSize": "41G0.75",
+    "model": "สายคอนโทรล YSLY-JZ 41G0.75",
+    "strands": "24&#215;0.20",
+    "outerDiameter": 17.7,
+    "cuWeight": 296,
+    "totalWeight": 580,
+    "conductorResistance": 26
+  },
+  {
+    "coreSize": "42G0.75",
+    "model": "สายคอนโทรล YSLY-JZ 42G0.75",
+    "strands": "24&#215;0.20",
+    "outerDiameter": 17.8,
+    "cuWeight": 302,
+    "totalWeight": 590,
+    "conductorResistance": 26
+  },
+  {
+    "coreSize": "50G0.75",
+    "model": "สายคอนโทรล YSLY-JZ 50G0.75",
+    "strands": "24&#215;0.20",
+    "outerDiameter": 19.5,
+    "cuWeight": 360,
+    "totalWeight": 640,
+    "conductorResistance": 26
+  },
+  {
+    "coreSize": "61G0.75",
+    "model": "สายคอนโทรล YSLY-JZ 61G0.75",
+    "strands": "24&#215;0.20",
+    "outerDiameter": 20.8,
+    "cuWeight": 439,
+    "totalWeight": 775,
+    "conductorResistance": 26
+  },
+  {
+    "coreSize": "65G0.75",
+    "model": "สายคอนโทรล YSLY-JZ 65G0.75",
+    "strands": "24&#215;0.20",
+    "outerDiameter": 21.9,
+    "cuWeight": 468,
+    "totalWeight": 895,
+    "conductorResistance": 26
+  },
+  {
+    "coreSize": "80G0.75",
+    "model": "สายคอนโทรล YSLY-JZ 80G0.75",
+    "strands": "24&#215;0.20",
+    "outerDiameter": 24,
+    "cuWeight": 576,
+    "totalWeight": 1155,
+    "conductorResistance": 26
+  },
+  {
+    "coreSize": "100G0.75",
+    "model": "สายคอนโทรล YSLY-JZ 100G0.75",
+    "strands": "24&#215;0.20",
+    "outerDiameter": 26.4,
+    "cuWeight": 720,
+    "totalWeight": 1310,
+    "conductorResistance": 26
+  },
+  {
+    "coreSize": "2X1",
+    "model": "สายคอนโทรล YSLY-OZ 2X1",
+    "strands": "32&#215;0.20",
+    "outerDiameter": 5.8,
+    "cuWeight": 19.2,
+    "totalWeight": 57,
+    "conductorResistance": 19.5
+  },
+  {
+    "coreSize": "3G1",
+    "model": "สายคอนโทรล YSLY-JZ 3G1",
+    "strands": "32&#215;0.20",
+    "outerDiameter": 6.3,
+    "cuWeight": 28.8,
+    "totalWeight": 80,
+    "conductorResistance": 19.5
+  },
+  {
+    "coreSize": "4G1",
+    "model": "สายคอนโทรล YSLY-JZ 4G1",
+    "strands": "32&#215;0.20",
+    "outerDiameter": 6.7,
+    "cuWeight": 38.4,
+    "totalWeight": 105,
+    "conductorResistance": 19.5
+  },
+  {
+    "coreSize": "5G1",
+    "model": "สายคอนโทรล YSLY-JZ 5G1",
+    "strands": "32&#215;0.20",
+    "outerDiameter": 7.3,
+    "cuWeight": 48,
+    "totalWeight": 125,
+    "conductorResistance": 19.5
+  },
+  {
+    "coreSize": "6G1",
+    "model": "สายคอนโทรล YSLY-JZ 6G1",
+    "strands": "32&#215;0.20",
+    "outerDiameter": 8.1,
+    "cuWeight": 57.6,
+    "totalWeight": 135,
+    "conductorResistance": 19.5
+  },
+  {
+    "coreSize": "7G1",
+    "model": "สายคอนโทรล YSLY-JZ 7G1",
+    "strands": "32&#215;0.20",
+    "outerDiameter": 8.3,
+    "cuWeight": 67,
+    "totalWeight": 150,
+    "conductorResistance": 19.5
+  },
+  {
+    "coreSize": "8G1",
+    "model": "สายคอนโทรล YSLY-JZ 8G1",
+    "strands": "32&#215;0.20",
+    "outerDiameter": 9.5,
+    "cuWeight": 77,
+    "totalWeight": 175,
+    "conductorResistance": 19.5
+  },
+  {
+    "coreSize": "9G1",
+    "model": "สายคอนโทรล YSLY-JZ 9G1",
+    "strands": "32&#215;0.20",
+    "outerDiameter": 10.3,
+    "cuWeight": 86.4,
+    "totalWeight": 200,
+    "conductorResistance": 19.5
+  },
+  {
+    "coreSize": "10G1",
+    "model": "สายคอนโทรล YSLY-JZ 10G1",
+    "strands": "32&#215;0.20",
+    "outerDiameter": 10.5,
+    "cuWeight": 96,
+    "totalWeight": 220,
+    "conductorResistance": 19.5
+  },
+  {
+    "coreSize": "12G1",
+    "model": "สายคอนโทรล YSLY-JZ 12G1",
+    "strands": "32&#215;0.20",
+    "outerDiameter": 10.8,
+    "cuWeight": 115,
+    "totalWeight": 260,
+    "conductorResistance": 19.5
+  },
+  {
+    "coreSize": "14G1",
+    "model": "สายคอนโทรล YSLY-JZ 14G1",
+    "strands": "312&#215;0.20",
+    "outerDiameter": 11.6,
+    "cuWeight": 134,
+    "totalWeight": 290,
+    "conductorResistance": 19.5
+  },
+  {
+    "coreSize": "16G1",
+    "model": "สายคอนโทรล YSLY-JZ 16G1",
+    "strands": "32&#215;0.20",
+    "outerDiameter": 12.1,
+    "cuWeight": 154,
+    "totalWeight": 320,
+    "conductorResistance": 19.5
+  },
+  {
+    "coreSize": "18G1",
+    "model": "สายคอนโทรล YSLY-JZ 18G1",
+    "strands": "32&#215;0.20",
+    "outerDiameter": 12.9,
+    "cuWeight": 173,
+    "totalWeight": 350,
+    "conductorResistance": 19.5
+  },
+  {
+    "coreSize": "19G1",
+    "model": "สายคอนโทรล YSLY-JZ 19G1",
+    "strands": "32&#215;0.20",
+    "outerDiameter": 13,
+    "cuWeight": 182,
+    "totalWeight": 360,
+    "conductorResistance": 19.5
+  },
+  {
+    "coreSize": "20G1",
+    "model": "สายคอนโทรล YSLY-JZ 20G1",
+    "strands": "32&#215;0.20",
+    "outerDiameter": 13.7,
+    "cuWeight": 192,
+    "totalWeight": 370,
+    "conductorResistance": 19.5
+  },
+  {
+    "coreSize": "21G1",
+    "model": "สายคอนโทรล YSLY-JZ 21G1",
+    "strands": "32&#215;0.20",
+    "outerDiameter": 14.1,
+    "cuWeight": 205,
+    "totalWeight": 380,
+    "conductorResistance": 19.5
+  },
+  {
+    "coreSize": "24G1",
+    "model": "สายคอนโทรล YSLY-JZ 24G1",
+    "strands": "32&#215;0.20",
+    "outerDiameter": 14.6,
+    "cuWeight": 236,
+    "totalWeight": 445,
+    "conductorResistance": 19.5
+  },
+  {
+    "coreSize": "25G1",
+    "model": "สายคอนโทรล YSLY-JZ 25G1",
+    "strands": "32&#215;0.20",
+    "outerDiameter": 14.8,
+    "cuWeight": 240,
+    "totalWeight": 470,
+    "conductorResistance": 19.5
+  },
+  {
+    "coreSize": "26G1",
+    "model": "สายคอนโทรล YSLY-JZ 26G1",
+    "strands": "32&#215;0.20",
+    "outerDiameter": 15.2,
+    "cuWeight": 252,
+    "totalWeight": 495,
+    "conductorResistance": 19.5
+  },
+  {
+    "coreSize": "27G1",
+    "model": "สายคอนโทรล YSLY-JZ 27G1",
+    "strands": "32&#215;0.20",
+    "outerDiameter": 15.9,
+    "cuWeight": 259,
+    "totalWeight": 530,
+    "conductorResistance": 19.5
+  },
+  {
+    "coreSize": "34G1",
+    "model": "สายคอนโทรล YSLY-JZ 34G1",
+    "strands": "32&#215;0.20",
+    "outerDiameter": 17.2,
+    "cuWeight": 326,
+    "totalWeight": 600,
+    "conductorResistance": 19.5
+  },
+  {
+    "coreSize": "36G1",
+    "model": "สายคอนโทรล YSLY-JZ 36G1",
+    "strands": "32&#215;0.20",
+    "outerDiameter": 17.5,
+    "cuWeight": 346,
+    "totalWeight": 620,
+    "conductorResistance": 19.5
+  },
+  {
+    "coreSize": "37G1",
+    "model": "สายคอนโทรล YSLY-JZ 37G1",
+    "strands": "32&#215;0.20",
+    "outerDiameter": 17.6,
+    "cuWeight": 355,
+    "totalWeight": 630,
+    "conductorResistance": 19.5
+  },
+  {
+    "coreSize": "40G1",
+    "model": "สายคอนโทรล YSLY-JZ 40G1",
+    "strands": "32&#215;0.20",
+    "outerDiameter": 18.4,
+    "cuWeight": 384,
+    "totalWeight": 680,
+    "conductorResistance": 19.5
+  },
+  {
+    "coreSize": "41G1",
+    "model": "สายคอนโทรล YSLY-JZ 41G1",
+    "strands": "32&#215;0.20",
+    "outerDiameter": 18.9,
+    "cuWeight": 394,
+    "totalWeight": 700,
+    "conductorResistance": 19.5
+  },
+  {
+    "coreSize": "42G1",
+    "model": "สายคอนโทรล YSLY-JZ 42G1",
+    "strands": "32&#215;0.20",
+    "outerDiameter": 19,
+    "cuWeight": 403,
+    "totalWeight": 720,
+    "conductorResistance": 19.5
+  },
+  {
+    "coreSize": "50G1",
+    "model": "สายคอนโทรล YSLY-JZ 50G1",
+    "strands": "32&#215;0.20",
+    "outerDiameter": 20.9,
+    "cuWeight": 480,
+    "totalWeight": 925,
+    "conductorResistance": 19.5
+  },
+  {
+    "coreSize": "56G1",
+    "model": "สายคอนโทรล YSLY-JZ 56G1",
+    "strands": "32&#215;0.20",
+    "outerDiameter": 21.6,
+    "cuWeight": 538,
+    "totalWeight": 1020,
+    "conductorResistance": 19.5
+  },
+  {
+    "coreSize": "61G1",
+    "model": "สายคอนโทรล YSLY-JZ 61G1",
+    "strands": "32&#215;0.20",
+    "outerDiameter": 22.5,
+    "cuWeight": 586,
+    "totalWeight": 1100,
+    "conductorResistance": 19.5
+  },
+  {
+    "coreSize": "65G1",
+    "model": "สายคอนโทรล YSLY-JZ 65G1",
+    "strands": "32&#215;0.20",
+    "outerDiameter": 23.4,
+    "cuWeight": 624,
+    "totalWeight": 1170,
+    "conductorResistance": 19.5
+  },
+  {
+    "coreSize": "80G1",
+    "model": "สายคอนโทรล YSLY-JZ 80G1",
+    "strands": "32&#215;0.20",
+    "outerDiameter": 25.7,
+    "cuWeight": 786,
+    "totalWeight": 1300,
+    "conductorResistance": 19.5
+  },
+  {
+    "coreSize": "100G1",
+    "model": "สายคอนโทรล YSLY-JZ 100G1",
+    "strands": "32&#215;0.20",
+    "outerDiameter": 28.6,
+    "cuWeight": 960,
+    "totalWeight": 1630,
+    "conductorResistance": 19.5
+  },
+  {
+    "coreSize": "2X1.5",
+    "model": "สายคอนโทรล YSLY-OZ 2X1.5",
+    "strands": "30&#215;0.25",
+    "outerDiameter": 6.6,
+    "cuWeight": 28.8,
+    "totalWeight": 100,
+    "conductorResistance": 13.3
+  },
+  {
+    "coreSize": "3G1.5",
+    "model": "สายคอนโทรล YSLY-JZ 3G1.5",
+    "strands": "30&#215;0.25",
+    "outerDiameter": 6.8,
+    "cuWeight": 43.2,
+    "totalWeight": 110,
+    "conductorResistance": 13.3
+  },
+  {
+    "coreSize": "4G1.5",
+    "model": "สายคอนโทรล YSLY-JZ 4G1.5",
+    "strands": "30&#215;0.25",
+    "outerDiameter": 7.4,
+    "cuWeight": 57.6,
+    "totalWeight": 125,
+    "conductorResistance": 13.3
+  },
+  {
+    "coreSize": "5G1.5",
+    "model": "สายคอนโทรล YSLY-JZ 5G1.5",
+    "strands": "30&#215;0.25",
+    "outerDiameter": 8.3,
+    "cuWeight": 72,
+    "totalWeight": 145,
+    "conductorResistance": 13.3
+  },
+  {
+    "coreSize": "6G1.5",
+    "model": "สายคอนโทรล YSLY-JZ 6G1.5",
+    "strands": "30&#215;0.25",
+    "outerDiameter": 9,
+    "cuWeight": 86.4,
+    "totalWeight": 170,
+    "conductorResistance": 13.3
+  },
+  {
+    "coreSize": "7G1.5",
+    "model": "สายคอนโทรล YSLY-JZ 7G1.5",
+    "strands": "30&#215;0.25",
+    "outerDiameter": 9.1,
+    "cuWeight": 101,
+    "totalWeight": 195,
+    "conductorResistance": 13.3
+  },
+  {
+    "coreSize": "8G1.5",
+    "model": "สายคอนโทรล YSLY-JZ 8G1.5",
+    "strands": "30&#215;0.25",
+    "outerDiameter": 10.9,
+    "cuWeight": 115,
+    "totalWeight": 215,
+    "conductorResistance": 13.3
+  },
+  {
+    "coreSize": "9G1.5",
+    "model": "สายคอนโทรล YSLY-JZ 9G1.5",
+    "strands": "30&#215;0.25",
+    "outerDiameter": 11.7,
+    "cuWeight": 129,
+    "totalWeight": 230,
+    "conductorResistance": 13.3
+  },
+  {
+    "coreSize": "10G1.5",
+    "model": "สายคอนโทรล YSLY-JZ 10G1.5",
+    "strands": "30&#215;0.25",
+    "outerDiameter": 11.8,
+    "cuWeight": 144,
+    "totalWeight": 260,
+    "conductorResistance": 13.3
+  },
+  {
+    "coreSize": "12G1.5",
+    "model": "สายคอนโทรล YSLY-JZ 12G1.5",
+    "strands": "30&#215;0.25",
+    "outerDiameter": 12.4,
+    "cuWeight": 173,
+    "totalWeight": 310,
+    "conductorResistance": 13.3
+  },
+  {
+    "coreSize": "14G1.5",
+    "model": "สายคอนโทรล YSLY-JZ 14G1.5",
+    "strands": "30&#215;0.25",
+    "outerDiameter": 12.9,
+    "cuWeight": 202,
+    "totalWeight": 360,
+    "conductorResistance": 13.3
+  },
+  {
+    "coreSize": "16G1.5",
+    "model": "สายคอนโทรล YSLY-JZ 16G1.5",
+    "strands": "30&#215;0.25",
+    "outerDiameter": 13.8,
+    "cuWeight": 230,
+    "totalWeight": 390,
+    "conductorResistance": 13.3
+  },
+  {
+    "coreSize": "18G1.5",
+    "model": "สายคอนโทรล YSLY-JZ 18G1.5",
+    "strands": "30&#215;0.25",
+    "outerDiameter": 14.8,
+    "cuWeight": 259,
+    "totalWeight": 420,
+    "conductorResistance": 13.3
+  },
+  {
+    "coreSize": "19G1.5",
+    "model": "สายคอนโทรล YSLY-JZ 19G1.5",
+    "strands": "30&#215;0.25",
+    "outerDiameter": 14.9,
+    "cuWeight": 279,
+    "totalWeight": 440,
+    "conductorResistance": 13.3
+  },
+  {
+    "coreSize": "21G1.5",
+    "model": "สายคอนโทรล YSLY-JZ 21G1.5",
+    "strands": "30&#215;0.25",
+    "outerDiameter": 16,
+    "cuWeight": 302,
+    "totalWeight": 535,
+    "conductorResistance": 13.3
+  },
+  {
+    "coreSize": "25G1.5",
+    "model": "สายคอนโทรล YSLY-JZ 25G1.5",
+    "strands": "30&#215;0.25",
+    "outerDiameter": 17.2,
+    "cuWeight": 360,
+    "totalWeight": 600,
+    "conductorResistance": 13.3
+  },
+  {
+    "coreSize": "30G1.5",
+    "model": "สายคอนโทรล YSLY-JZ 30G1.5",
+    "strands": "30&#215;0.25",
+    "outerDiameter": 18.8,
+    "cuWeight": 432,
+    "totalWeight": 660,
+    "conductorResistance": 13.3
+  },
+  {
+    "coreSize": "34G1.5",
+    "model": "สายคอนโทรล YSLY-JZ 34G1.5",
+    "strands": "30&#215;0.25",
+    "outerDiameter": 19.8,
+    "cuWeight": 490,
+    "totalWeight": 730,
+    "conductorResistance": 13.3
+  },
+  {
+    "coreSize": "40G1.5",
+    "model": "สายคอนโทรล YSLY-JZ 40G1.5",
+    "strands": "30&#215;0.25",
+    "outerDiameter": 21.6,
+    "cuWeight": 576,
+    "totalWeight": 895,
+    "conductorResistance": 13.3
+  },
+  {
+    "coreSize": "42G1.5",
+    "model": "สายคอนโทรล YSLY-JZ 42G1.5",
+    "strands": "30&#215;0.25",
+    "outerDiameter": 21.6,
+    "cuWeight": 605,
+    "totalWeight": 900,
+    "conductorResistance": 13.3
+  },
+  {
+    "coreSize": "50G1.5",
+    "model": "สายคอนโทรล YSLY-JZ 50G1.5",
+    "strands": "30&#215;0.25",
+    "outerDiameter": 23.8,
+    "cuWeight": 720,
+    "totalWeight": 1060,
+    "conductorResistance": 13.3
+  },
+  {
+    "coreSize": "56G1.5",
+    "model": "สายคอนโทรล YSLY-JZ 56G1.5",
+    "strands": "30&#215;0.25",
+    "outerDiameter": 25.2,
+    "cuWeight": 806,
+    "totalWeight": 1200,
+    "conductorResistance": 13.3
+  },
+  {
+    "coreSize": "61G1.5",
+    "model": "สายคอนโทรล YSLY-JZ 61G1.5",
+    "strands": "30&#215;0.25",
+    "outerDiameter": 25.6,
+    "cuWeight": 878,
+    "totalWeight": 1320,
+    "conductorResistance": 13.3
+  },
+  {
+    "coreSize": "65G1.5",
+    "model": "สายคอนโทรล YSLY-JZ 65G1.5",
+    "strands": "30&#215;0.25",
+    "outerDiameter": 26.9,
+    "cuWeight": 936,
+    "totalWeight": 1440,
+    "conductorResistance": 13.3
+  },
+  {
+    "coreSize": "80G1.5",
+    "model": "สายคอนโทรล YSLY-JZ 80G1.5",
+    "strands": "30&#215;0.25",
+    "outerDiameter": 29.4,
+    "cuWeight": 1152,
+    "totalWeight": 1750,
+    "conductorResistance": 13.3
+  },
+  {
+    "coreSize": "100G1.5",
+    "model": "สายคอนโทรล YSLY-JZ 100G1.5",
+    "strands": "30&#215;0.25",
+    "outerDiameter": 32.8,
+    "cuWeight": 1440,
+    "totalWeight": 2355,
+    "conductorResistance": 13.3
+  },
+  {
+    "coreSize": "2X2.5",
+    "model": "สายคอนโทรล YSLY-OZ 2X2.5",
+    "strands": "50&#215;0.25",
+    "outerDiameter": 7.7,
+    "cuWeight": 48,
+    "totalWeight": 120,
+    "conductorResistance": 7.98
+  },
+  {
+    "coreSize": "3G2.5",
+    "model": "สายคอนโทรล YSLY-JZ 3G2.5",
+    "strands": "50&#215;0.25",
+    "outerDiameter": 8.3,
+    "cuWeight": 72,
+    "totalWeight": 170,
+    "conductorResistance": 7.98
+  },
+  {
+    "coreSize": "4G2.5",
+    "model": "สายคอนโทรล YSLY-JZ 4G2.5",
+    "strands": "50&#215;0.25",
+    "outerDiameter": 9.1,
+    "cuWeight": 96,
+    "totalWeight": 180,
+    "conductorResistance": 7.98
+  },
+  {
+    "coreSize": "5G2.5",
+    "model": "สายคอนโทรล YSLY-JZ 5G2.5",
+    "strands": "50&#215;0.25",
+    "outerDiameter": 10.2,
+    "cuWeight": 120,
+    "totalWeight": 190,
+    "conductorResistance": 7.98
+  },
+  {
+    "coreSize": "7G2.5",
+    "model": "สายคอนโทรล YSLY-JZ 7G2.5",
+    "strands": "50&#215;0.25",
+    "outerDiameter": 11.2,
+    "cuWeight": 168,
+    "totalWeight": 280,
+    "conductorResistance": 7.98
+  },
+  {
+    "coreSize": "8G2.5",
+    "model": "สายคอนโทรล YSLY-JZ 8G2.5",
+    "strands": "50&#215;0.25",
+    "outerDiameter": 13.1,
+    "cuWeight": 192,
+    "totalWeight": 325,
+    "conductorResistance": 7.98
+  },
+  {
+    "coreSize": "12G2.5",
+    "model": "สายคอนโทรล YSLY-JZ 12G2.5",
+    "strands": "50&#215;0.25",
+    "outerDiameter": 15.1,
+    "cuWeight": 288,
+    "totalWeight": 510,
+    "conductorResistance": 7.98
+  },
+  {
+    "coreSize": "14G2.5",
+    "model": "สายคอนโทรล YSLY-JZ 14G2.5",
+    "strands": "50&#215;0.25",
+    "outerDiameter": 16.1,
+    "cuWeight": 336,
+    "totalWeight": 600,
+    "conductorResistance": 7.98
+  },
+  {
+    "coreSize": "18G2.5",
+    "model": "สายคอนโทรล YSLY-JZ 18G2.5",
+    "strands": "50&#215;0.25",
+    "outerDiameter": 18.1,
+    "cuWeight": 432,
+    "totalWeight": 870,
+    "conductorResistance": 7.98
+  },
+  {
+    "coreSize": "25G2.5",
+    "model": "สายคอนโทรล YSLY-JZ 25G2.5",
+    "strands": "50&#215;0.25",
+    "outerDiameter": 21.2,
+    "cuWeight": 600,
+    "totalWeight": 1140,
+    "conductorResistance": 7.98
+  },
+  {
+    "coreSize": "32G2.5",
+    "model": "สายคอนโทรล YSLY-JZ 32G2.5",
+    "strands": "50&#215;0.25",
+    "outerDiameter": 24,
+    "cuWeight": 768,
+    "totalWeight": 1205,
+    "conductorResistance": 7.98
+  },
+  {
+    "coreSize": "34G2.5",
+    "model": "สายคอนโทรล YSLY-JZ 34G2.5",
+    "strands": "50&#215;0.25",
+    "outerDiameter": 24.8,
+    "cuWeight": 816,
+    "totalWeight": 1320,
+    "conductorResistance": 7.98
+  },
+  {
+    "coreSize": "42G2.5",
+    "model": "สายคอนโทรล YSLY-JZ 42G2.5",
+    "strands": "50&#215;0.25",
+    "outerDiameter": 27.5,
+    "cuWeight": 1008,
+    "totalWeight": 1610,
+    "conductorResistance": 7.98
+  },
+  {
+    "coreSize": "50G2.5",
+    "model": "สายคอนโทรล YSLY-JZ 50G2.5",
+    "strands": "50&#215;0.25",
+    "outerDiameter": 29.8,
+    "cuWeight": 1200,
+    "totalWeight": 1885,
+    "conductorResistance": 7.98
+  },
+  {
+    "coreSize": "61G2.5",
+    "model": "สายคอนโทรล YSLY-JZ 61G2.5",
+    "strands": "50&#215;0.25",
+    "outerDiameter": 32.1,
+    "cuWeight": 1464,
+    "totalWeight": 2475,
+    "conductorResistance": 7.98
+  },
+  {
+    "coreSize": "100G2.5",
+    "model": "สายคอนโทรล YSLY-JZ 100G2.5",
+    "strands": "50&#215;0.25",
+    "outerDiameter": 41.1,
+    "cuWeight": 2400,
+    "totalWeight": 4005,
+    "conductorResistance": 7.98
+  },
+  {
+    "coreSize": "2X4",
+    "model": "สายคอนโทรล YSLY-OZ 2X4",
+    "strands": "56&#215;0.30",
+    "outerDiameter": 9.3,
+    "cuWeight": 77,
+    "totalWeight": 175,
+    "conductorResistance": 4.95
+  },
+  {
+    "coreSize": "3G4",
+    "model": "สายคอนโทรล YSLY-JZ 3G4",
+    "strands": "56&#215;0.30",
+    "outerDiameter": 10.2,
+    "cuWeight": 115,
+    "totalWeight": 210,
+    "conductorResistance": 4.95
+  },
+  {
+    "coreSize": "4G4",
+    "model": "สายคอนโทรล YSLY-JZ 4G4",
+    "strands": "56&#215;0.30",
+    "outerDiameter": 11.1,
+    "cuWeight": 154,
+    "totalWeight": 270,
+    "conductorResistance": 4.95
+  },
+  {
+    "coreSize": "5G4",
+    "model": "สายคอนโทรล YSLY-JZ 5G4",
+    "strands": "56&#215;0.30",
+    "outerDiameter": 12.4,
+    "cuWeight": 192,
+    "totalWeight": 300,
+    "conductorResistance": 4.95
+  },
+  {
+    "coreSize": "7G4",
+    "model": "สายคอนโทรล YSLY-JZ 7G4",
+    "strands": "56&#215;0.30",
+    "outerDiameter": 13.7,
+    "cuWeight": 269,
+    "totalWeight": 410,
+    "conductorResistance": 4.95
+  },
+  {
+    "coreSize": "12G4",
+    "model": "สายคอนโทรล YSLY-JZ 12G4",
+    "strands": "56&#215;0.30",
+    "outerDiameter": 18.1,
+    "cuWeight": 461,
+    "totalWeight": 710,
+    "conductorResistance": 4.95
+  },
+  {
+    "coreSize": "3G6",
+    "model": "สายคอนโทรล YSLY-JZ 3G6",
+    "strands": "84&#215;0.30",
+    "outerDiameter": 11.9,
+    "cuWeight": 173,
+    "totalWeight": 300,
+    "conductorResistance": 3.3
+  },
+  {
+    "coreSize": "4G6",
+    "model": "สายคอนโทรล YSLY-JZ 4G6",
+    "strands": "84&#215;0.30",
+    "outerDiameter": 13.2,
+    "cuWeight": 230,
+    "totalWeight": 330,
+    "conductorResistance": 3.3
+  },
+  {
+    "coreSize": "5G6",
+    "model": "สายคอนโทรล YSLY-JZ 5G6",
+    "strands": "84&#215;0.30",
+    "outerDiameter": 14.5,
+    "cuWeight": 288,
+    "totalWeight": 430,
+    "conductorResistance": 3.3
+  },
+  {
+    "coreSize": "7G6",
+    "model": "สายคอนโทรล YSLY-JZ 7G6",
+    "strands": "84&#215;0.30",
+    "outerDiameter": 16.1,
+    "cuWeight": 403,
+    "totalWeight": 600,
+    "conductorResistance": 3.3
+  },
+  {
+    "coreSize": "3G10",
+    "model": "สายคอนโทรล YSLY-JZ 3G10",
+    "strands": "80&#215;0.40",
+    "outerDiameter": 15,
+    "cuWeight": 288,
+    "totalWeight": 545,
+    "conductorResistance": 1.91
+  },
+  {
+    "coreSize": "4G10",
+    "model": "สายคอนโทรล YSLY-JZ 4G10",
+    "strands": "80&#215;0.40",
+    "outerDiameter": 16.6,
+    "cuWeight": 384,
+    "totalWeight": 750,
+    "conductorResistance": 1.91
+  },
+  {
+    "coreSize": "5G10",
+    "model": "สายคอนโทรล YSLY-JZ 5G10",
+    "strands": "80&#215;0.40",
+    "outerDiameter": 18.4,
+    "cuWeight": 480,
+    "totalWeight": 930,
+    "conductorResistance": 1.91
+  },
+  {
+    "coreSize": "7G10",
+    "model": "สายคอนโทรล YSLY-JZ 7G10",
+    "strands": "80&#215;0.40",
+    "outerDiameter": 20.3,
+    "cuWeight": 672,
+    "totalWeight": 1105,
+    "conductorResistance": 1.91
+  },
+  {
+    "coreSize": "3G16",
+    "model": "สายคอนโทรล YSLY-JZ 3G16",
+    "strands": "128&#215;0.40",
+    "outerDiameter": 16.8,
+    "cuWeight": 461,
+    "totalWeight": 830,
+    "conductorResistance": 1.21
+  },
+  {
+    "coreSize": "4G16",
+    "model": "สายคอนโทรล YSLY-JZ 4G16",
+    "strands": "128&#215;0.40",
+    "outerDiameter": 19.2,
+    "cuWeight": 614,
+    "totalWeight": 1050,
+    "conductorResistance": 1.21
+  },
+  {
+    "coreSize": "5G16",
+    "model": "สายคอนโทรล YSLY-JZ 5G16",
+    "strands": "128&#215;0.40",
+    "outerDiameter": 21.6,
+    "cuWeight": 768,
+    "totalWeight": 1300,
+    "conductorResistance": 1.21
+  },
+  {
+    "coreSize": "7G16",
+    "model": "สายคอนโทรล YSLY-JZ 7G16",
+    "strands": "128&#215;0.40",
+    "outerDiameter": 23.8,
+    "cuWeight": 1075,
+    "totalWeight": 1735,
+    "conductorResistance": 1.21
+  },
+  {
+    "coreSize": "3G25",
+    "model": "สายคอนโทรล YSLY-JZ 3G25",
+    "strands": "200&#215;0.40",
+    "outerDiameter": 22.8,
+    "cuWeight": 720,
+    "totalWeight": 1065,
+    "conductorResistance": 0.78
+  },
+  {
+    "coreSize": "4G25",
+    "model": "สายคอนโทรล YSLY-JZ 4G25",
+    "strands": "200&#215;0.40",
+    "outerDiameter": 23.9,
+    "cuWeight": 960,
+    "totalWeight": 1675,
+    "conductorResistance": 0.78
+  },
+  {
+    "coreSize": "5G25",
+    "model": "สายคอนโทรล YSLY-JZ 5G25",
+    "strands": "200&#215;0.40",
+    "outerDiameter": 26.8,
+    "cuWeight": 1200,
+    "totalWeight": 2100,
+    "conductorResistance": 0.78
+  },
+  {
+    "coreSize": "7G25",
+    "model": "สายคอนโทรล YSLY-JZ 7G25",
+    "strands": "200&#215;0.40",
+    "outerDiameter": 31,
+    "cuWeight": 1680,
+    "totalWeight": 2705,
+    "conductorResistance": 0.78
+  },
+  {
+    "coreSize": "4G35",
+    "model": "สายคอนโทรล YSLY-JZ 4G35",
+    "strands": "280&#215;0.40",
+    "outerDiameter": 28.4,
+    "cuWeight": 1344,
+    "totalWeight": 2050,
+    "conductorResistance": 0.554
+  },
+  {
+    "coreSize": "5G35",
+    "model": "สายคอนโทรล YSLY-JZ 5G35",
+    "strands": "280&#215;0.40",
+    "outerDiameter": 32.1,
+    "cuWeight": 1680,
+    "totalWeight": 2635,
+    "conductorResistance": 0.554
+  }
+]
