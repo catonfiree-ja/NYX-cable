@@ -1,4 +1,4 @@
-import { getBlogPost, getBlogPosts } from '@/lib/queries'
+import { getBlogPost, getBlogPosts, getProducts } from '@/lib/queries'
 import { notFound } from 'next/navigation'
 
 const styles = `
@@ -23,7 +23,17 @@ const styles = `
   .blog-share span { font-weight: 600; color: var(--color-primary); }
   .blog-nav { display: flex; justify-content: space-between; padding: var(--spacing-xl) 0; }
   .blog-nav a { color: var(--color-secondary); font-weight: 500; }
-  @media (max-width: 768px) { .blog-detail-hero h1 { font-size: var(--font-size-2xl); } }
+
+  .related-products { max-width: 800px; margin: 0 auto; padding: 0 var(--container-padding) var(--spacing-2xl); }
+  .related-products h2 { font-size: 1.3rem; font-weight: 700; color: var(--color-primary); margin-bottom: 20px; padding-bottom: 12px; border-bottom: 2px solid #e2e8f0; }
+  .related-products-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 16px; }
+  .rp-card { display: block; text-decoration: none; color: #1a1a2e; border: 1px solid #e2e8f0; border-radius: 12px; padding: 20px 16px; text-align: center; transition: all 0.25s; background: #fff; }
+  .rp-card:hover { border-color: #2563eb; box-shadow: 0 4px 16px rgba(37,99,235,0.12); transform: translateY(-3px); }
+  .rp-card .rp-code { font-size: 0.7rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px; }
+  .rp-card .rp-name { font-size: 0.9rem; font-weight: 700; color: #1a3c6e; line-height: 1.3; }
+  .rp-card .rp-desc { font-size: 0.75rem; color: #64748b; margin-top: 6px; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+
+  @media (max-width: 768px) { .blog-detail-hero h1 { font-size: var(--font-size-2xl); } .related-products-grid { grid-template-columns: repeat(2, 1fr); } }
 `
 
 function formatDate(dateStr: string) {
@@ -114,6 +124,14 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ slu
   const post = await getBlogPost(slug)
   if (!post) notFound()
 
+  // Get related products — use Sanity relatedProducts first, fallback to all products
+  let relatedProducts = post.relatedProducts || []
+  if (relatedProducts.length === 0) {
+    const allProducts = await getProducts()
+    // Shuffle and pick 4
+    relatedProducts = allProducts.sort(() => Math.random() - 0.5).slice(0, 4)
+  }
+
   return (
     <>
       <style dangerouslySetInnerHTML={{ __html: styles }} />
@@ -150,6 +168,21 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ slu
           <a href={`https://lin.ee/share?url=https://www.nyxcable.com/blog/${post.slug?.current}`} target="_blank" rel="noopener noreferrer" className="btn btn-line btn-sm">LINE</a>
         </div>
       </article>
+
+      {relatedProducts.length > 0 && (
+        <section className="related-products">
+          <h2>สินค้าที่เกี่ยวข้อง</h2>
+          <div className="related-products-grid">
+            {relatedProducts.slice(0, 4).map((p: any) => (
+              <a key={p._id} href={`/products/detail/${p.slug?.current}`} className="rp-card">
+                {p.productCode && <div className="rp-code">{p.productCode}</div>}
+                <div className="rp-name">{p.title}</div>
+                {p.shortDescription && <div className="rp-desc">{p.shortDescription}</div>}
+              </a>
+            ))}
+          </div>
+        </section>
+      )}
 
       <section className="cta-section">
         <div className="container">
