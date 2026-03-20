@@ -54,12 +54,11 @@ const styles = `
 
   .other-products { padding: var(--spacing-xl) 0 var(--spacing-3xl); max-width: 1280px; margin: 0 auto; padding-left: var(--container-padding); padding-right: var(--container-padding); }
   .other-products h2 { font-size: 1.4rem; font-weight: 700; color: var(--color-primary); margin-bottom: 20px; text-align: center; }
-  .op-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
-  .op-card { display: block; text-decoration: none; border: 1px solid #e2e8f0; border-radius: 12px; padding: 20px 16px; text-align: center; background: #fff; transition: all 0.25s; }
+  .op-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  .op-card { display: flex; flex-direction: column; align-items: center; justify-content: center; text-decoration: none; border: 1px solid #e2e8f0; border-radius: 12px; padding: 28px 16px; text-align: center; background: #fff; transition: all 0.25s; min-height: 100px; }
   .op-card:hover { border-color: #2563eb; box-shadow: 0 4px 16px rgba(37,99,235,0.1); transform: translateY(-2px); }
-  .op-card .op-code { font-size: 0.65rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
-  .op-card .op-name { font-size: 0.9rem; font-weight: 700; color: #1a3c6e; }
-  .op-card .op-desc { font-size: 0.75rem; color: #64748b; margin-top: 4px; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .op-card .op-code { font-size: 0.7rem; color: #94a3b8; letter-spacing: 0.5px; margin-bottom: 6px; }
+  .op-card .op-name { font-size: 0.95rem; font-weight: 700; color: #1a3c6e; line-height: 1.4; }
 
   /* ─── Quick Quote Floating Bar ─── */
   .quick-quote-bar {
@@ -494,7 +493,6 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
                   <a key={p._id} href={`/products/detail/${p.slug?.current}`} className="op-card">
                     {p.productCode && <div className="op-code">{p.productCode}</div>}
                     <div className="op-name">{p.title}</div>
-                    {p.shortDescription && <div className="op-desc">{p.shortDescription}</div>}
                   </a>
                 ))}
               </div>
