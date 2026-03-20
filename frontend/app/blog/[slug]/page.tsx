@@ -18,7 +18,7 @@ const styles = `
   .blog-content li { margin-bottom: var(--spacing-xs); }
   .blog-content blockquote { border-left: 4px solid var(--color-secondary); padding: var(--spacing-md) var(--spacing-xl); margin: var(--spacing-xl) 0; background: var(--color-gray-50); border-radius: 0 var(--radius-md) var(--radius-md) 0; font-style: italic; color: var(--color-gray-600); }
   .blog-content strong { color: var(--color-primary); }
-  .blog-content a { color: var(--color-secondary); text-decoration: underline; }
+  .blog-content a:not(.btn) { color: var(--color-secondary); text-decoration: underline; }
   .blog-share { display: flex; gap: var(--spacing-md); align-items: center; padding: var(--spacing-xl) 0; border-top: 1px solid var(--color-gray-200); margin-top: var(--spacing-2xl); }
   .blog-share span { font-weight: 600; color: var(--color-primary); }
   .blog-nav { display: flex; justify-content: space-between; padding: var(--spacing-xl) 0; }
