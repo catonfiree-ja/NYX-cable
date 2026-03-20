@@ -178,6 +178,33 @@ export default function RootLayout({
         >
           LINE สอบถาม
         </a>
+        <script dangerouslySetInnerHTML={{ __html: `
+          (function(){
+            var sel='.btn-primary,.btn-line,.btn-accent,[style*="border-radius: 50px"]';
+            document.addEventListener('mousemove',function(e){
+              document.querySelectorAll(sel).forEach(function(btn){
+                var r=btn.getBoundingClientRect();
+                var cx=r.left+r.width/2, cy=r.top+r.height/2;
+                var dx=e.clientX-cx, dy=e.clientY-cy;
+                var dist=Math.sqrt(dx*dx+dy*dy);
+                if(dist<100){
+                  var pull=Math.min((100-dist)/100*0.35,0.35);
+                  btn.style.transform='translate('+dx*pull+'px,'+dy*pull+'px) scale(1.03)';
+                  btn.style.transition='transform 0.15s ease-out';
+                } else {
+                  btn.style.transform='';
+                  btn.style.transition='transform 0.4s ease-out';
+                }
+              });
+            });
+            document.addEventListener('mouseleave',function(){
+              document.querySelectorAll(sel).forEach(function(btn){
+                btn.style.transform='';
+                btn.style.transition='transform 0.4s ease-out';
+              });
+            },true);
+          })();
+        `}} />
       </body>
     </html>
   );
