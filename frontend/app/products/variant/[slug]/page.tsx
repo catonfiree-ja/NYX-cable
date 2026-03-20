@@ -29,10 +29,10 @@ const styles = `
   .variant-hero { background: linear-gradient(135deg, #f8fbff, #eef4fb); padding: 16px 0; border-bottom: 1px solid #e2e8f0; }
   .variant-detail { display: grid; grid-template-columns: 300px 1fr; gap: 40px; padding: 32px 0; }
   .variant-image-box { background: linear-gradient(145deg, #f0f4f8, #e8edf3); border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; font-weight: 900; color: #003366; letter-spacing: 2px; min-height: 250px; }
-  .variant-info h1 { font-size: 1.6rem; font-weight: 800; color: #1a1a2e; margin-bottom: 8px; }
-  .variant-parent-link { display: inline-flex; align-items: center; gap: 6px; color: #3b82f6; font-size: 0.85rem; margin-bottom: 16px; text-decoration: none; }
+  .variant-info h1 { font-size: 1.6rem; font-weight: 800; color: #1a1a2e; margin-bottom: 12px; }
+  .variant-parent-link { display: inline-flex; align-items: center; gap: 6px; color: #3b82f6; font-size: 0.85rem; margin-bottom: 16px; text-decoration: none; clear: both; }
   .variant-parent-link:hover { text-decoration: underline; }
-  .variant-specs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin: 24px 0; }
+  .variant-specs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 24px 0; }
   .spec-card { background: #fff; border: 1px solid #e2e8f0; border-left: 3px solid #2563eb; border-radius: 10px; padding: 16px 20px; transition: all 0.2s; }
   .spec-card:hover { box-shadow: 0 2px 8px rgba(37,99,235,0.08); border-left-color: #f0a500; }
   .spec-card .spec-label { font-size: 0.72rem; font-weight: 600; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px; }
@@ -59,6 +59,7 @@ const styles = `
     .variant-detail { grid-template-columns: 1fr; gap: 20px; }
     .variant-image-box { min-height: 150px; font-size: 1.2rem; }
     .variant-specs { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+    .variant-info h1 { font-size: 1.3rem; }
     .siblings-grid { grid-template-columns: 1fr; }
     .quick-quote-inner { flex-direction: column; gap: 8px; }
     .quick-quote-actions { width: 100%; }
