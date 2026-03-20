@@ -365,7 +365,7 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
           const VariantName = ({ v, fallback }: { v: any, fallback?: string }) => {
             const name = v.model || v.title || fallback || 'ขนาด'
             if (v.slug?.current) {
-              return <a href={`/products/variant/${v.slug.current}`} style={{ fontWeight: 600, color: 'var(--color-primary)', textDecoration: 'none' }}>{name}</a>
+              return <a href={`/products/variant/${v.slug.current}`} style={{ fontWeight: 700, color: '#f0a500', textDecoration: 'underline', textUnderlineOffset: '3px' }}>{name}</a>
             }
             return <span style={{ fontWeight: 600, color: 'var(--color-primary)' }}>{name}</span>
           }
