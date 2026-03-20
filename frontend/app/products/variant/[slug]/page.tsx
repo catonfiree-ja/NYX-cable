@@ -1,6 +1,7 @@
 import { getVariant, getVariants } from '@/lib/queries'
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
+import SiblingVariants from './SiblingVariants'
 
 // ─── Static Params for SSG ───
 export async function generateStaticParams() {
@@ -146,26 +147,11 @@ export default async function VariantDetailPage({ params }: { params: Promise<{ 
 
         {/* Sibling Variants */}
         {siblings.length > 0 && (
-          <section className="variant-siblings">
-            <h2>ขนาดอื่นๆ ของ {parent?.title || 'สินค้านี้'}</h2>
-            <div className="siblings-grid">
-              {/* Current variant */}
-              <div className="sibling-card current">
-                <div>
-                  <div className="sibling-name">{variant.title} ← ดูอยู่</div>
-                  {variant.crossSection && <div className="sibling-spec">{variant.cores && `${variant.cores} แกน × `}{variant.crossSection} mm²</div>}
-                </div>
-              </div>
-              {siblings.map((s: any) => (
-                <a key={s._id} href={`/products/variant/${s.slug?.current}`} className="sibling-card">
-                  <div>
-                    <div className="sibling-name">{s.title}</div>
-                    {s.crossSection && <div className="sibling-spec">{s.cores && `${s.cores} แกน × `}{s.crossSection} mm²</div>}
-                  </div>
-                </a>
-              ))}
-            </div>
-          </section>
+          <SiblingVariants
+            siblings={siblings}
+            currentVariant={variant}
+            parentTitle={parent?.title || 'สินค้านี้'}
+          />
         )}
       </div>
 
