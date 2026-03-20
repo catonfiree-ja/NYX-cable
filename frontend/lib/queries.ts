@@ -44,6 +44,7 @@ export async function getProduct(slug: string) {
         model,
         cores,
         crossSection,
+        strandsInfo,
         outerDiameter,
         copperWeight,
         totalWeight,

@@ -390,8 +390,11 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
                       <th>รุ่น</th>
                       <th>แกน</th>
                       <th>พท.หน้าตัด (mm²)</th>
+                      <th>NO of strands × Max strand Dia.(mm)</th>
                       <th>OD (mm)</th>
+                      <th>Cu Weight (kg/km)</th>
                       <th>น้ำหนัก (kg/km)</th>
+                      <th>Conductor Resistance @ 20°C (Ω/km)</th>
                       <th>สต็อก</th>
                     </tr>
                   </thead>
@@ -401,8 +404,11 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
                         <td><VariantName v={v} /></td>
                         <td>{v.cores || '-'}</td>
                         <td>{v.crossSection || '-'}</td>
+                        <td>{v.strandsInfo || '-'}</td>
                         <td>{v.outerDiameter || '-'}</td>
+                        <td>{v.copperWeight || '-'}</td>
                         <td>{v.totalWeight || '-'}</td>
+                        <td>{v.conductorResistance || '-'}</td>
                         <td>
                           <span className={`stock-badge ${v.inStock !== false ? 'stock-in' : 'stock-out'}`}>
                             {v.inStock !== false ? 'พร้อมส่ง' : 'สั่งผลิต'}
