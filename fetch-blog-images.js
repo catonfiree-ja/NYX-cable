@@ -1,4 +1,5 @@
 // Fetch WP blog post slugs + featured image URLs
+// Outputs BOTH encoded and decoded slug keys for maximum matching
 const fs = require('fs');
 
 async function main() {
@@ -21,17 +22,20 @@ async function main() {
         const media = post._embedded && post._embedded['wp:featuredmedia'];
         if (media && media[0]) {
           const m = media[0];
-          // Prefer webp, fallback to jpg
           const imgUrl = m.source_url_webp || m.source_url;
-          // Get 800px size for cards  
           const sizes = m.media_details && m.media_details.sizes;
           const cardUrl = (sizes && (
             (sizes['fusion-800'] && (sizes['fusion-800'].source_url_webp || sizes['fusion-800'].source_url)) ||
             (sizes['recent-posts'] && (sizes['recent-posts'].source_url_webp || sizes['recent-posts'].source_url))
           )) || imgUrl;
           
+          // Add both encoded slug (original from WP) AND decoded slug (for Sanity matching)
           mapping[slug] = cardUrl;
-          console.log(`  ${slug} -> ${cardUrl.split('/').pop()}`);
+          const decodedSlug = decodeURIComponent(slug);
+          if (decodedSlug !== slug) {
+            mapping[decodedSlug] = cardUrl;
+          }
+          console.log(`  ${decodedSlug} -> ${cardUrl.split('/').pop()}`);
         }
       }
       
@@ -44,7 +48,7 @@ async function main() {
     }
   }
 
-  console.log(`\nTotal: ${Object.keys(mapping).length} posts with images`);
+  console.log(`\nTotal entries: ${Object.keys(mapping).length}`);
   
   const outDir = 'frontend/data';
   if (!fs.existsSync(outDir)) fs.mkdirSync(outDir, { recursive: true });
