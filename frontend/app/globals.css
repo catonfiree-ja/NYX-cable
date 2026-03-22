@@ -1064,8 +1064,16 @@ a:hover {
   opacity: 0.65;
 }
 
+.cta-blink-text {
+  animation: ctaBlink 1s ease-in-out infinite !important;
+  opacity: 1 !important;
+  font-weight: 700;
+  font-size: 0.85rem !important;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.3);
+}
+
 .cta-call {
-  background: linear-gradient(160deg, #0d47a1, #1565c0, #1976d2);
+  background: linear-gradient(160deg, #c0392b, #e74c3c, #ef5350);
 }
 
 .cta-line-big {

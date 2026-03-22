@@ -89,27 +89,27 @@ export default function RootLayout({
         {/* Main Content */}
         <main id="main-content">{children}</main>
 
-        {/* Pre-Footer CTA Buttons — Premium Gradient with Pulse */}
+        {/* Pre-Footer CTA Buttons — Animated with Blink */}
         <section className="prefooter-cta">
           <a href="tel:021115588" className="cta-big cta-call cta-pulse">
             <span className="cta-big-icon">📞</span>
             <span className="cta-big-text">
               <strong>Call หาเราทันที</strong>
-              <small>สนใจ คลิกเลย เพื่อโทรหาเรา</small>
+              <small className="cta-blink-text">Click เลย !!!</small>
             </span>
           </a>
           <a href="https://line.me/R/ti/p/@ubb9405u" target="_blank" rel="noopener noreferrer" className="cta-big cta-line-big cta-pulse">
             <span className="cta-big-icon">💬</span>
             <span className="cta-big-text">
               <strong>LINE ปรึกษาฟรี</strong>
-              <small>แอดไลน์ @nyxcable</small>
+              <small className="cta-blink-text">Click เลย !!!</small>
             </span>
           </a>
           <a href="mailto:sales@nyxcable.com" className="cta-big cta-email cta-pulse">
             <span className="cta-big-icon">✉️</span>
             <span className="cta-big-text">
               <strong>Email สอบถาม</strong>
-              <small>sales@nyxcable.com</small>
+              <small className="cta-blink-text">Click เลย !!!</small>
             </span>
           </a>
         </section>
