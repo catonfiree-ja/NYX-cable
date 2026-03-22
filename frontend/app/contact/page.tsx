@@ -8,7 +8,7 @@ const styles = `
     position: relative;
     background: linear-gradient(160deg, #001a33 0%, #002d5c 35%, #003d7a 70%, #002244 100%);
     color: #fff;
-    padding: 64px 0 56px;
+    padding: 64px 0 32px;
     text-align: center;
     overflow: hidden;
   }
@@ -20,25 +20,25 @@ const styles = `
     background-size: cover;
   }
   .contact-hero h1 { font-size: 2.5rem; font-weight: 800; margin-bottom: 12px; position: relative; }
-  .contact-hero p { font-size: 1.05rem; opacity: 0.8; max-width: 500px; margin: 0 auto; position: relative; line-height: 1.7; }
+  .contact-hero p { font-size: 1.05rem; opacity: 0.8; max-width: 500px; margin: 0 auto 28px; position: relative; line-height: 1.7; }
 
-  /* ─── Quick Contact Ribbon ─── */
+  /* ─── Quick Contact Ribbon (inside hero) ─── */
   .quick-ribbon {
-    display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;
-    padding: 20px 0; margin-top: -28px; position: relative; z-index: 2;
+    display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;
+    position: relative; z-index: 2;
   }
   .ribbon-btn {
     display: inline-flex; align-items: center; gap: 10px;
-    padding: 14px 28px; border-radius: 50px; font-weight: 700; font-size: 0.9rem;
+    padding: 12px 24px; border-radius: 50px; font-weight: 700; font-size: 0.88rem;
     text-decoration: none; transition: all 0.25s; color: #fff;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+    border: 1px solid rgba(255,255,255,0.2);
   }
-  .ribbon-btn.call { background: linear-gradient(135deg, #f0a500, #d48900); }
-  .ribbon-btn.call:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(240,165,0,0.35); color: #fff; }
-  .ribbon-btn.line { background: linear-gradient(135deg, #06c755, #04a845); }
-  .ribbon-btn.line:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(6,199,85,0.35); color: #fff; }
-  .ribbon-btn.email { background: linear-gradient(135deg, #0066cc, #003d7a); }
-  .ribbon-btn.email:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,102,204,0.35); color: #fff; }
+  .ribbon-btn.call { background: rgba(240,165,0,0.2); border-color: rgba(240,165,0,0.4); }
+  .ribbon-btn.call:hover { background: rgba(240,165,0,0.35); transform: translateY(-2px); color: #fff; }
+  .ribbon-btn.line { background: rgba(6,199,85,0.2); border-color: rgba(6,199,85,0.4); }
+  .ribbon-btn.line:hover { background: rgba(6,199,85,0.35); transform: translateY(-2px); color: #fff; }
+  .ribbon-btn.email { background: rgba(255,255,255,0.1); }
+  .ribbon-btn.email:hover { background: rgba(255,255,255,0.2); transform: translateY(-2px); color: #fff; }
 
   /* ─── Contact Grid ─── */
   .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; padding: 40px 0 56px; }
@@ -233,17 +233,13 @@ export default function ContactPage() {
         <div className="container">
           <h1>ติดต่อเรา</h1>
           <p>ทีมวิศวกรพร้อมให้คำปรึกษา สอบถามราคาและสต็อกสินค้า</p>
+          <div className="quick-ribbon">
+            <a href="tel:021115588" className="ribbon-btn call">📞 โทร 02-111-5588</a>
+            <a href="https://page.line.me/@ubb9405u" className="ribbon-btn line" target="_blank" rel="noopener noreferrer">💬 แอด LINE @nyxcable</a>
+            <a href="mailto:sales@nyxcable.com" className="ribbon-btn email">✉️ sales@nyxcable.com</a>
+          </div>
         </div>
       </section>
-
-      {/* ─── Quick Contact Ribbon ─── */}
-      <div className="container">
-        <div className="quick-ribbon">
-          <a href="tel:021115588" className="ribbon-btn call">📞 โทร 02-111-5588</a>
-          <a href="https://page.line.me/@ubb9405u" className="ribbon-btn line" target="_blank" rel="noopener noreferrer">💬 แอด LINE @nyxcable</a>
-          <a href="mailto:sales@nyxcable.com" className="ribbon-btn email">✉️ sales@nyxcable.com</a>
-        </div>
-      </div>
 
       {/* ─── Contact Grid ─── */}
       <div className="container">
