@@ -4,23 +4,52 @@ import Image from 'next/image'
 import { notFound } from 'next/navigation'
 
 const styles = `
-  .cat-hero { background: linear-gradient(135deg, var(--color-primary-dark), var(--color-primary)); color: var(--color-white); padding: var(--spacing-2xl) 0; }
-  .cat-hero .breadcrumb { font-size: var(--font-size-sm); opacity: 0.7; margin-bottom: var(--spacing-md); }
-  .cat-hero .breadcrumb a { color: rgba(255,255,255,0.7); }
-  .cat-hero .breadcrumb a:hover { color: var(--color-accent); }
-  .cat-hero h1 { font-size: var(--font-size-3xl); font-weight: 700; margin-bottom: var(--spacing-sm); }
-  .cat-hero p { font-size: var(--font-size-base); opacity: 0.85; max-width: 600px; }
-  .cat-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: var(--spacing-xl); padding: var(--spacing-3xl) 0; }
-  .cat-product-card { display: block; text-decoration: none; color: inherit; border: 1px solid var(--color-gray-200); border-radius: var(--radius-xl); overflow: hidden; transition: all var(--transition-normal); position: relative; }
-  .cat-product-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-xl); border-color: var(--color-secondary); }
-  .cat-product-img { height: 200px; background: linear-gradient(135deg, #f0f7ff, #e8f0fe); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; font-weight: 800; color: var(--color-primary); letter-spacing: 1px; overflow: hidden; }
-  .cat-product-img img { width: 100%; height: 100%; object-fit: cover; }
-  .cat-product-body { padding: var(--spacing-lg); }
-  .cat-product-body h3 { font-size: var(--font-size-base); font-weight: 600; color: var(--color-primary); margin-bottom: var(--spacing-xs); }
-  .cat-product-body .code { font-size: var(--font-size-xs); color: var(--color-secondary); font-weight: 500; margin-bottom: var(--spacing-sm); }
-  .cat-product-body p { font-size: var(--font-size-sm); color: var(--color-gray-500); line-height: 1.6; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
-  .cat-empty { text-align: center; padding: var(--spacing-4xl) 0; color: var(--color-gray-500); }
-  @media (max-width: 768px) { .cat-grid { grid-template-columns: 1fr; } }
+  .cat-hero {
+    background: linear-gradient(160deg, #001a33 0%, #002d5c 35%, #003d7a 70%, #002244 100%);
+    color: #fff; padding: 48px 0 40px;
+    position: relative; overflow: hidden;
+  }
+  .cat-hero::before {
+    content: ''; position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 400'%3E%3Ccircle cx='200' cy='200' r='200' fill='rgba(0,153,255,0.06)'/%3E%3Ccircle cx='1200' cy='100' r='150' fill='rgba(240,165,0,0.04)'/%3E%3C/svg%3E") no-repeat center;
+    background-size: cover;
+  }
+  .cat-hero .container { position: relative; z-index: 1; }
+  .cat-hero .breadcrumb { font-size: 0.82rem; margin-bottom: 12px; }
+  .cat-hero .breadcrumb a { color: rgba(255,255,255,0.65); text-decoration: none; transition: color 0.2s; }
+  .cat-hero .breadcrumb a:hover { color: #f0a500; }
+  .cat-hero h1 { font-size: 2.2rem; font-weight: 800; margin-bottom: 12px; }
+  .cat-hero p { font-size: 1rem; opacity: 0.8; max-width: 600px; line-height: 1.7; }
+  .cat-hero .product-count-badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 6px 16px; border-radius: 50px;
+    background: rgba(240,165,0,0.15); border: 1px solid rgba(240,165,0,0.3);
+    font-size: 0.82rem; font-weight: 600; color: #f0a500;
+    margin-top: 16px;
+  }
+  .cat-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 24px; padding: 36px 0 56px; }
+  .cat-product-card {
+    display: block; text-decoration: none; color: inherit;
+    border: 1px solid #e8edf3; border-radius: 16px;
+    overflow: hidden; transition: all 0.35s cubic-bezier(0.4,0,0.2,1);
+    position: relative; background: #fff;
+    box-shadow: 0 2px 8px rgba(0,51,102,0.04);
+  }
+  .cat-product-card:hover { transform: translateY(-6px); box-shadow: 0 12px 36px rgba(0,51,102,0.12); border-color: rgba(0,153,255,0.3); }
+  .cat-product-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #003366, #0099ff); opacity: 0; transition: opacity 0.3s; z-index: 1; }
+  .cat-product-card:hover::before { opacity: 1; }
+  .cat-product-img { height: 200px; background: linear-gradient(135deg, #f0f7ff, #e8f0fe); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; font-weight: 800; color: #003366; letter-spacing: 1px; overflow: hidden; }
+  .cat-product-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s cubic-bezier(0.4,0,0.2,1); }
+  .cat-product-card:hover .cat-product-img img { transform: scale(1.05); }
+  .cat-product-body { padding: 20px; }
+  .cat-product-body h3 { font-size: 0.95rem; font-weight: 700; color: #003366; margin-bottom: 6px; }
+  .cat-product-body .code { font-size: 0.72rem; color: #0099ff; font-weight: 600; margin-bottom: 10px; letter-spacing: 0.3px; }
+  .cat-product-body p { font-size: 0.82rem; color: #64748b; line-height: 1.6; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .cat-empty { text-align: center; padding: 80px 0; color: #64748b; }
+  @media (max-width: 768px) {
+    .cat-hero h1 { font-size: 1.5rem; }
+    .cat-grid { grid-template-columns: 1fr; }
+  }
 `
 
 export async function generateStaticParams() {
@@ -61,10 +90,11 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
       <section className="cat-hero">
         <div className="container">
           <div className="breadcrumb">
-            <a href="/">หน้าแรก</a> / <a href="/products">ผลิตภัณฑ์</a> / {category.title}
+            <a href="/">หน้าแรก</a> › <a href="/products">ผลิตภัณฑ์</a> › {category.title}
           </div>
           <h1>{category.title}</h1>
           {category.shortDescription && <p>{category.shortDescription}</p>}
+          {products.length > 0 && <div className="product-count-badge">📦 {products.length} รุ่นในหมวดนี้</div>}
         </div>
       </section>
 
