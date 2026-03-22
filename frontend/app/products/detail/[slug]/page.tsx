@@ -1,7 +1,11 @@
 import React from 'react'
 import { getProduct, getProducts, getVariants, getBlogPosts } from '@/lib/queries'
+import { urlFor } from '@/lib/sanity'
+import Image from 'next/image'
 import { notFound } from 'next/navigation'
 import VariantTable from './VariantTable'
+import ExcelSpecTable from './ExcelSpecTable'
+import productSpecsData from '@/data/product-specs.json'
 
 const styles = `
   .product-detail-hero { background: linear-gradient(160deg, #001a33, #003366, #002d5c); color: var(--color-white); padding: var(--spacing-2xl) 0; position: relative; }
@@ -11,7 +15,7 @@ const styles = `
   .breadcrumb a { color: rgba(255,255,255,0.7); }
   .breadcrumb a:hover { color: var(--color-accent); }
   .product-detail { display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-3xl); padding: var(--spacing-3xl) 0; }
-  .product-image-box { background: linear-gradient(135deg, #f0f7ff, #e8f0fe); border-radius: var(--radius-xl); display: flex; align-items: center; justify-content: center; min-height: 400px; font-size: 1.4rem; font-weight: 800; color: var(--color-primary); letter-spacing: 2px; border: 1px solid rgba(0,51,102,0.06); position: sticky; top: 100px; }
+  .product-image-box { background: linear-gradient(135deg, #f0f7ff, #e8f0fe); border-radius: var(--radius-xl); display: flex; align-items: center; justify-content: center; min-height: 400px; max-height: 550px; font-size: 1.4rem; font-weight: 800; color: var(--color-primary); letter-spacing: 2px; border: 1px solid rgba(0,51,102,0.06); position: sticky; top: 100px; align-self: start; overflow: hidden; }
   .product-info h1 { font-size: var(--font-size-3xl); font-weight: 800; color: var(--color-primary); margin-bottom: var(--spacing-sm); line-height: 1.3; letter-spacing: -0.3px; }
   .product-code { display: inline-flex; padding: 4px 14px; background: rgba(0,153,255,0.1); color: var(--color-secondary); font-size: var(--font-size-sm); font-weight: 600; border-radius: var(--radius-full); margin-bottom: var(--spacing-md); }
   .product-categories { display: flex; gap: var(--spacing-xs); flex-wrap: wrap; margin-bottom: var(--spacing-lg); }
@@ -252,6 +256,10 @@ function renderDescription(body: any, shortDesc?: string, productTitle?: string,
     const isThaiContent = hasThai && fullText.length > 10
     
     if (!isRealContent && !isThaiContent) return false
+
+    // Skip broken table headers from WP import (no data rows)
+    const brokenHeaders = ['Cross Section', 'Current rating', 'Current Rating', 'Bending radius', 'Weight kg', 'O.D. mm', 'Outer Diameter']
+    if (brokenHeaders.some(h => fullText.includes(h) && fullText.length < 60)) return false
     
     return true
   })
@@ -354,7 +362,11 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
       </div>
       <div className="container">
         <div className="product-detail">
-          <div className="product-image-box">{product.productCode || 'NYX'}</div>
+          <div className="product-image-box">
+            {product.images?.[0] ? (
+              <Image src={urlFor(product.images[0]).width(600).height(500).url()} alt={product.title} width={600} height={500} style={{ objectFit: 'contain', width: '100%', height: 'auto', maxHeight: '500px', borderRadius: 'var(--radius-xl)' }} priority />
+            ) : (product.productCode || 'NYX')}
+          </div>
           <div className="product-info">
             <h1>{product.title}</h1>
             {product.productCode && <span className="product-code">{product.productCode}</span>}
@@ -378,6 +390,13 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
                 <li key={i}><span className="label">{s.key}</span><span className="value">{s.value}</span></li>
               ))}
             </ul>
+
+            {/* ─── Excel Product Spec Table (from client Excel file) ─── */}
+            {(() => {
+              const specData = (productSpecsData as any)[slug]
+              if (!specData) return null
+              return <ExcelSpecTable slug={slug} data={specData} />
+            })()}
             <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', marginBottom: '24px' }}>
               <a href="tel:021115588" style={{ display: 'inline-flex', alignItems: 'center', padding: '14px 36px', background: 'linear-gradient(135deg, #1a3c6e, #2563eb)', color: '#fff', borderRadius: '50px', fontWeight: 700, fontSize: '1rem', textDecoration: 'none', boxShadow: '0 4px 14px rgba(37,99,235,0.25)', transition: 'all 0.25s' }}>สอบถามราคา</a>
               <a href={`https://page.line.me/ubb9405u?text=${encodeURIComponent(`สนใจสินค้า: ${product.title}${product.productCode ? ` (${product.productCode})` : ''} — ขอใบเสนอราคา`)}`} target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', padding: '14px 32px', background: 'linear-gradient(135deg, #06c755, #00b843)', color: '#fff', borderRadius: '50px', fontWeight: 700, fontSize: '0.95rem', textDecoration: 'none', boxShadow: '0 4px 14px rgba(6,199,85,0.25)', transition: 'all 0.25s' }}>แอด LINE</a>

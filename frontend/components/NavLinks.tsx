@@ -6,7 +6,9 @@ import { usePathname } from 'next/navigation'
 const links = [
   { href: '/', label: 'หน้าแรก' },
   { href: '/products', label: 'ผลิตภัณฑ์' },
+  { href: '/gallery', label: 'แกลเลอรี่' },
   { href: '/blog', label: 'บทความ' },
+  { href: '/reviews', label: 'รีวิว' },
   { href: '/about', label: 'เกี่ยวกับเรา' },
   { href: '/contact', label: 'ติดต่อเรา' },
 ]

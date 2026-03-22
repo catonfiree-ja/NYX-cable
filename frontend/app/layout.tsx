@@ -1,9 +1,21 @@
 import type { Metadata } from "next";
+import { Prompt } from "next/font/google";
 import "./globals.css";
 import { OrganizationSchema } from "@/components/StructuredData";
 import NavLinks from "@/components/NavLinks";
+import GoogleAnalytics from "@/components/GoogleAnalytics";
+import CookieConsent from "@/components/CookieConsent";
+import FloatingContactFAB from "@/components/FloatingContactFAB";
+
+const prompt = Prompt({
+  subsets: ["thai", "latin"],
+  weight: ["300", "400", "500", "600", "700", "800"],
+  display: "swap",
+  variable: "--font-prompt",
+});
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://www.nyxcable.com'),
   title: {
     default: "NYX Cable — ผู้เชี่ยวชาญสายไฟอุตสาหกรรมคุณภาพยุโรป",
     template: "%s | NYX Cable",
@@ -22,6 +34,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "th_TH",
     siteName: "NYX Cable",
+    images: [{ url: "/api/og", width: 1200, height: 630 }],
   },
 };
 
@@ -42,15 +55,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="th">
-      <body>
+    <html lang="th" className={prompt.variable}>
+      <body className={prompt.className}>
+        <a href="#main-content" className="skip-nav">ข้ามไปเนื้อหาหลัก</a>
         <OrganizationSchema />
+        <GoogleAnalytics />
         {/* Top Info Bar */}
         <div className="top-bar">
           <div className="container">
             <div className="top-bar-contact">
               <a href="tel:021115588">02-111-5588</a>
-              <a href="tel:0957275453">095-727-5453</a>
               <a href="mailto:sales@nyxcable.com">sales@nyxcable.com</a>
             </div>
             <div className="top-bar-contact">
@@ -73,26 +87,26 @@ export default function RootLayout({
         </header>
 
         {/* Main Content */}
-        <main>{children}</main>
+        <main id="main-content">{children}</main>
 
-        {/* Pre-Footer CTA Buttons */}
+        {/* Pre-Footer CTA Buttons — Premium Gradient with Pulse */}
         <section className="prefooter-cta">
-          <a href="tel:021115588" className="cta-big cta-call">
-            <span className="cta-big-icon">Tel</span>
+          <a href="tel:021115588" className="cta-big cta-call cta-pulse">
+            <span className="cta-big-icon">📞</span>
             <span className="cta-big-text">
               <strong>Call หาเราทันที</strong>
-              <small>02-111-5588</small>
+              <small>สนใจ คลิกเลย เพื่อโทรหาเรา</small>
             </span>
           </a>
-          <a href="https://page.line.me/ubb9405u" target="_blank" rel="noopener noreferrer" className="cta-big cta-line-big">
-            <span className="cta-big-icon">LINE</span>
+          <a href="https://line.me/R/ti/p/@ubb9405u" target="_blank" rel="noopener noreferrer" className="cta-big cta-line-big cta-pulse">
+            <span className="cta-big-icon">💬</span>
             <span className="cta-big-text">
               <strong>LINE ปรึกษาฟรี</strong>
-              <small>@nyxcable</small>
+              <small>แอดไลน์ @nyxcable</small>
             </span>
           </a>
-          <a href="mailto:sales@nyxcable.com" className="cta-big cta-email">
-            <span className="cta-big-icon">Mail</span>
+          <a href="mailto:sales@nyxcable.com" className="cta-big cta-email cta-pulse">
+            <span className="cta-big-icon">✉️</span>
             <span className="cta-big-text">
               <strong>Email สอบถาม</strong>
               <small>sales@nyxcable.com</small>
@@ -115,6 +129,10 @@ export default function RootLayout({
                   มาตรฐานยุโรป ส่งตรงจากโรงงาน
                   พร้อมบริการให้คำปรึกษาโดยทีมวิศวกร
                 </p>
+                <div style={{ display: 'flex', gap: '12px', marginTop: '12px' }}>
+                  <a href="https://www.facebook.com/NYXCable" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-gray-400)', fontSize: '0.85rem', textDecoration: 'none' }} aria-label="Facebook">Facebook</a>
+                  <a href="https://www.youtube.com/@nyxcable" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-gray-400)', fontSize: '0.85rem', textDecoration: 'none' }} aria-label="YouTube">YouTube</a>
+                </div>
               </div>
 
               {/* Quick Links */}
@@ -129,15 +147,15 @@ export default function RootLayout({
                 </ul>
               </div>
 
-              {/* Products */}
               <div>
-                <h4>ผลิตภัณฑ์</h4>
+                <h4>หมวดหมู่สินค้า</h4>
                 <ul className="footer-links">
-                  <li><a href="/products/detail/control-cable">สายคอนโทรล</a></li>
-                  <li><a href="/products/detail/vfd-cable">สาย VFD / Servo</a></li>
-                  <li><a href="/products/detail/heat-resistant-cable">สายทนความร้อน</a></li>
-                  <li><a href="/products/detail/double-shielded-cable">สายชีลด์</a></li>
-                  <li><a href="/products">ดูสินค้าทั้งหมด →</a></li>
+                  <li><a href="/products/control-cable">สายคอนโทรล</a></li>
+                  <li><a href="/products/shielded-cable">สายชีลด์</a></li>
+                  <li><a href="/products/instrument-cable">สาย Instrument</a></li>
+                  <li><a href="/products/high-flex-cable">High-Flex Cable</a></li>
+                  <li><a href="/products/industrial-bus-cable">Industrial Bus</a></li>
+                  <li><a href="/products">ดูหมวดหมู่ทั้งหมด →</a></li>
                 </ul>
               </div>
 
@@ -149,6 +167,7 @@ export default function RootLayout({
                   <li><a href="/about">เกี่ยวกับเรา</a></li>
                   <li><a href="/contact">ติดต่อเรา</a></li>
                   <li><a href="/products">แคตตาล็อกสินค้า</a></li>
+                  <li><a href="/privacy-policy">นโยบายความเป็นส่วนตัว</a></li>
                 </ul>
               </div>
 
@@ -159,7 +178,6 @@ export default function RootLayout({
                   <span className="icon">Tel</span>
                   <div>
                     <div>02-111-5588</div>
-                    <div>095-727-5453</div>
                   </div>
                 </div>
                 <div className="footer-contact-item">
@@ -168,27 +186,21 @@ export default function RootLayout({
                 </div>
                 <div className="footer-contact-item">
                   <span className="icon">Loc</span>
-                  <span>บางนา, กรุงเทพฯ</span>
+                  <span>2098 หมู่ 1 ต.สำโรงเหนือ (ซ.สุขุมวิท 72) อ.เมือง สมุทรปราการ 10270</span>
                 </div>
               </div>
             </div>
 
             <div className="footer-bottom">
               <span>© {new Date().getFullYear()} NYX Cable. All Rights Reserved.</span>
-              <span>สายไฟอุตสาหกรรมคุณภาพสูง มาตรฐานยุโรป</span>
+              <span><a href="/privacy-policy" style={{ color: 'inherit', textDecoration: 'none', opacity: 0.7 }}>Privacy Policy</a> · สายไฟอุตสาหกรรมคุณภาพสูง มาตรฐานยุโรป</span>
             </div>
           </div>
         </footer>
 
-        {/* Floating LINE Button */}
-        <a
-          href="https://page.line.me/ubb9405u"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="floating-line"
-        >
-          LINE สอบถาม
-        </a>
+        {/* Floating Contact FAB — appears after 60s, bottom-left */}
+        <FloatingContactFAB />
+        <CookieConsent />
         <script dangerouslySetInnerHTML={{ __html: `
           (function(){
             var sel='.btn-primary,.btn-line,.btn-accent,[style*="border-radius: 50px"]';

@@ -1,4 +1,6 @@
 import { getProducts, getBlogPosts, getFAQs } from '@/lib/queries'
+import Image from 'next/image'
+import { urlFor as sanityUrlFor } from '@/lib/sanity'
 
 export default async function HomePage() {
   // Fetch real data from Sanity
@@ -7,6 +9,17 @@ export default async function HomePage() {
   const faqs = await getFAQs()
   const topProducts = products.slice(0, 8)
   const latestPosts = blogPosts.slice(0, 3)
+
+  // FAQPage Schema.org
+  const faqSchema = faqs.length > 0 ? {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((f: any) => ({
+      '@type': 'Question',
+      name: f.question,
+      acceptedAnswer: { '@type': 'Answer', text: f.answer },
+    })),
+  } : null
 
   const categories = [
     { name: "สายคอนโทรล (Control Cable)", slug: "control-cable", abbr: "CC", desc: "YSLY-JZ, YSLY-JB สายคอนโทรลประสิทธิภาพสูง มาตรฐาน DIN VDE", count: 12 },
@@ -63,28 +76,76 @@ export default async function HomePage() {
     {
       q: "สายคอนโทรล คืออะไร?",
       a: "สายไฟที่มีตัวนำเป็นเส้นฝอยขนาดเล็กทำให้มีความอ่อนตัวสูง เหมาะสำหรับเชื่อมต่อเพื่อนำสัญญาณระหว่างอุปกรณ์วัดและคอมพิวเตอร์ ลักษณะของสายคอนโทรลสำหรับโรงงานอุตสาหกรรมนั้นมีหลายรูปแบบ ตามสภาพหน้างาน โดยสิ่งที่ทำให้แต่ละชนิดแตกต่างกัน คือ ตัวนำไฟฟ้า ฉนวน Shield และฉนวนภายนอก",
-      link: "/products"
+      link: "/products/control-cable"
     },
     {
       q: "LiYCY อ่านว่าอะไร?",
-      a: "LiYCY (อ่านว่า ลี-วาย-ซี-วาย) เป็นชื่อที่กำหนดตามมาตรฐาน DIN VDE โดยตัวอักษรแต่ละตัวมีความหมาย: Li = Litze (ตัวนำเส้นฝอย), Y = PVC (ฉนวน), C = Cu Screen (ชีลด์ทองแดง), Y = PVC (เปลือกนอก) — เป็นสายคอนโทรลมีชีลด์ป้องกันสัญญาณรบกวน",
+      a: "LiYCY (อ่านว่า แอล-ไอ-วาย-ซี-วาย ตามตัวอักษร) เป็นชื่อตามมาตรฐาน DIN VDE โดยแต่ละตัวอักษรบ่งบอกโครงสร้างสายจากในออกนอก: Li = Litze (ตัวนำเส้นฝอย), Y = PVC (ฉนวน), C = Cu Screen (ชีลด์ทองแดง), Y = PVC (เปลือกนอก) — เป็นสายคอนโทรลมีชีลด์ป้องกันสัญญาณรบกวน",
       link: "/products/detail/liycy"
     },
     {
       q: "สายไฟชนิดใดเดินใต้น้ำได้?",
-      a: "สาย H07RN-F ฉนวนภายในและฉนวนภายนอกทำจากยาง Neoprene ซึ่งมีคุณสมบัติยอดเยี่ยมทั้งในเรื่องของการทนน้ำ ทนแดด ทนสารเคมี H07RN-F ทนต่อแรงดันของน้ำได้ดีกว่าสายไฟคอนโทรลปกติที่ทำจาก PVC",
+      a: "สาย H07RN-F ฉนวนภายในและภายนอกทำจากยาง Neoprene ทนน้ำ ทนแดด ทนสารเคมี ทนต่อแรงดันน้ำได้ดีกว่าสาย PVC ทั่วไป สาย NYY หรือ CV ถึงจะฉนวนหนา แต่ทำจาก PVC หากแช่น้ำลึกกว่า 1 เมตรนานๆ ฉนวนจะบวมและเสียหาย",
       link: "/products/detail/h07rn-f"
     },
     {
+      q: "สแควร์มิล (Sq.mm.) คืออะไร?",
+      a: "สแควร์มิล คือ ขนาดพื้นที่หน้าตัดตัวนำ มีลักษณะเป็น 2 มิติ (กว้าง x ยาว) ใช้แทนตารางเมตรเพราะสายไฟมีขนาดเล็กมาก 1 Sq.mm. = 0.000001 ตร.ม. ถ้าเปรียบเทียบ 1 Sq.mm. เป็นจังหวัดภูเก็ต 1 ตร.ม. จะเท่าพื้นผิวโลกทั้งใบ",
+      link: "/blog/wire-size-measurement-and-selection-guide"
+    },
+    {
+      q: "AWG คืออะไร?",
+      a: "AWG ย่อมาจาก American Wire Gauge เป็นหน่วยวัดขนาดพื้นที่หน้าตัดตัวนำที่ใช้ในอเมริกาและทั่วโลก ข้อสังเกต: ยิ่ง AWG มากขึ้น ขนาดตัวนำยิ่งเล็กลง และทุกๆ 2 AWG ที่ลดลง ขนาดตัวนำจะใหญ่ขึ้น 1.59 เท่า (เช่น 14 AWG = 1.59 เท่าของ 16 AWG)",
+      link: "/blog/wire-size-measurement-and-selection-guide"
+    },
+    {
+      q: "การเคลือบทองแดงด้วยดีบุก (Tinned Copper) มีประโยชน์อย่างไร?",
+      a: "ป้องกันการเกิดสนิมทองแดง (Oxidation สีเขียว) ที่ทำให้ความสามารถนำไฟฟ้าลดลง จำเป็นในงาน: จุดเชื่อมต่อที่สัมผัสอากาศ, พื้นที่ชื้น/ใต้ดิน/ใต้น้ำ, อุณหภูมิเกิน 80°C และพื้นที่มีสารเคมีกัดกร่อนสูง",
+      link: "/products/control-cable"
+    },
+    {
+      q: "จะรู้ได้อย่างไรว่าสายไฟรุ่นไหนอ่อนตัวกว่ากัน?",
+      a: "ดูจากค่ารัศมีความโค้งงอ (Bending Radius) เป็นจำนวนเท่าของเส้นผ่าศูนย์กลาง — ยิ่งค่าน้อย สายยิ่งอ่อนตัว เช่น สาย Superflex 12G0.75 OD 12mm Bending Radius 3 เท่า ดังนั้นรัศมีโค้งงอเล็กสุดคือ 12×3 = 36 mm",
+      link: "/products/high-flex-cable"
+    },
+    {
+      q: "YSLY-JZ ดีกว่า VCT / CVV อย่างไร?",
+      a: "YSLY-JZ มีพื้นที่หน้าตัดเล็กกว่า 40-55% ช่วยประหยัดขนาดท่อ ร้อยท่อง่ายกว่า ค่าแรงถูกกว่า แต่รับกระแสได้เท่ากับ CVV/VCT และใช้กับไฟ 3 Phase ได้ (ทนแรงดัน 500V) ราคาก็ใกล้เคียงกัน",
+      link: "/products/detail/ysly-jz"
+    },
+    {
+      q: "Shield แบบ Braid กับ Copper Tape ต่างกันอย่างไร? (CVV-S vs LiYCY)",
+      a: "Tinned Copper Braid (LiYCY) อ่อนตัวกว่ามาก ไม่ต้องมีตัวกันบาดจากความคม ทำให้สายมีพื้นที่หน้าตัดเล็กกว่า ใช้ท่อเล็กลง 35-70% ประหยัดค่าแรงติดตั้ง ในราคาที่เทียบเคียงกัน",
+      link: "/products/detail/liycy"
+    },
+    {
       q: "YSLY-JZ รับกระแสได้เท่าไหร่?",
-      a: "สาย YSLY-JZ ผลิตตั้งแต่ขนาด 0.5 mm² ถึง 2.5 mm² โดยรับกระแสได้ตั้งแต่ 3A (0.5mm²) ถึง 18A (2.5mm²) ที่พื้นผิว 30°C เดิน 1 เส้น ซึ่งเพียงพอสำหรับงานคอนโทรลและสัญญาณในโรงงาน",
+      a: "สาย YSLY-JZ ผลิตตั้งแต่ 0.5–2.5 mm² รับกระแส 3A (0.5mm²) ถึง 18A (2.5mm²) ที่ 30°C เดิน 1 เส้น เพียงพอสำหรับงานคอนโทรลและสัญญาณในโรงงาน",
       link: "/products/detail/ysly-jz"
     },
   ];
 
   const clients = [
-    'SCG', 'PTT', 'Toyota', 'Mitsubishi', 'Panasonic',
-    'Delta', 'CP Group', 'Thai Union'
+    { name: 'SCG', id: 'image-0946e535cf5788a2e11b68c726c193210b5175c8-293x118-png' },
+    { name: 'PTT', id: 'image-b77aebfbcf5609c05d4fb92a7cb2af6516b9b73a-222x129-png' },
+    { name: 'Mitsubishi Electric', id: 'image-c5919c8e34fde8d7afc47cc366656a209a98a24a-224x225-jpg' },
+    { name: 'BITEC', id: 'image-4aed5172b1733e159b298c4b6941ee73a79f4d49-354x106-png' },
+    { name: 'Bangchak', id: 'image-c39c90d64c125e451836452cba413790b083b228-364x95-png' },
+    { name: 'Siam Makro', id: 'image-f96e389eb6f5d7644bde3f40e4a779e3f839c15a-225x225-jpg' },
+    { name: 'Sansiri', id: 'image-038cf0ae35fd736b4aa751ff6661639dba4f5212-225x30-png' },
+    { name: 'INSEE', id: 'image-91e49a11b567c2be9e566788b35d3d257f46cc34-229x143-png' },
+    { name: 'TOA', id: 'image-3e2ca7fc4765787c07f43c8d3ca2f035ac66b5d5-214x208-png' },
+    { name: 'ThaiBev', id: 'image-dc58ec6ed86ff0b813183a60290db9e32b88d9a9-212x200-png' },
+    { name: 'Ford', id: 'image-1d5476b93fa9c404b38d7bb5388830b3298a4ae9-187x208-png' },
+    { name: 'Toyota Tsusho', id: 'image-76f8ef8d2f3c5698f8f2fcdfac50fa409f398646-102x84-jpg' },
+    { name: 'B.Grimm', id: 'image-987eeae2c7809c714c6021de1fefde3b4ada0361-400x93-jpg' },
+    { name: 'Panasonic', id: 'image-b1992652a8796d28c871cb4cafafa301a0895f16-197x200-png' },
+    { name: 'EVERGREEN', id: 'image-c0bce8bab8d97ca92546f85ccec04d5783c24a6f-293x129-png' },
+    { name: 'STECON', id: 'image-04b24dda8f3574b049e3893fd7238e4a263763cf-200x166-png' },
+    { name: 'Central Group', id: 'image-b8b9c15599eee6d2f39cafd2435f0968a774e866-281x150-png' },
+    { name: 'Sena Development', id: 'image-d688453b0591d87fceeec09a2c7eba8317f61e87-187x62-png' },
+    { name: 'Thai Summit', id: 'image-d820ea83f352ef3761e9cfd80c0ce718e0b24276-146x161-png' },
+    { name: 'United Paper', id: 'image-013868be446d33b843f192b0cb616d2c78b03c24-225x225-png' },
   ];
 
   const heroStyle = `
@@ -144,13 +205,20 @@ export default async function HomePage() {
     .hero-trust-badge .trust-text p { font-size: 0.78rem; margin: 4px 0 0; opacity: 0.55; line-height: 1.4; }
     .hero-v2 .cta-row { display: flex; gap: 14px; flex-wrap: wrap; animation: fadeInUp 0.8s ease 0.3s both; }
 
-    /* ─── Clients ─── */
-    .clients-section { background: #fff; padding: 44px 0; border-bottom: none; position: relative; }
+    /* ─── Clients Marquee ─── */
+    .clients-section { background: #fff; padding: 44px 0; border-bottom: none; position: relative; overflow: hidden; }
     .clients-section::after { content: ''; position: absolute; bottom: 0; left: 10%; right: 10%; height: 1px; background: linear-gradient(90deg, transparent, #e2e8f0, #f0a500, #e2e8f0, transparent); }
     .clients-section h3 { text-align: center; font-size: 0.8rem; color: #94a3b8; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 24px; }
-    .clients-grid { display: flex; justify-content: center; flex-wrap: wrap; gap: 16px; align-items: center; }
-    .client-logo { background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 10px 24px; font-size: 0.85rem; font-weight: 700; color: #334155; transition: all 0.3s cubic-bezier(0.4,0,0.2,1); min-width: 110px; text-align: center; letter-spacing: 0.5px; }
-    .client-logo:hover { border-color: #003366; color: #003366; box-shadow: 0 4px 12px rgba(0,51,102,0.08); transform: translateY(-2px); }
+    
+    @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+    /* The container holds 2 identical grids and translates by 50% (width of one grid) to loop smoothly */
+    .marquee-container { display: flex; width: max-content; animation: marquee 40s linear infinite; }
+    .marquee-container:hover { animation-play-state: paused; }
+    .clients-grid { display: flex; gap: 20px; padding: 0 10px; }
+    .client-logo { background: #fff; border: 1px solid #e2e8f0; border-radius: 10px; padding: 10px 16px; transition: all 0.3s cubic-bezier(0.4,0,0.2,1); width: 160px; display: flex; align-items: center; justify-content: center; height: 75px; flex-shrink: 0; }
+    .client-logo:hover { border-color: #003366; box-shadow: 0 4px 12px rgba(0,51,102,0.08); transform: translateY(-2px); }
+    .client-logo img { max-height: 45px; max-width: 120px; object-fit: contain; filter: grayscale(100%) opacity(0.55); transition: filter 0.3s; }
+    .client-logo:hover img { filter: grayscale(0%) opacity(1); }
 
     /* ─── Product Cards ─── */
     .home-products { padding: 70px 0; background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%); }
@@ -172,6 +240,10 @@ export default async function HomePage() {
       padding: 28px 0; background: linear-gradient(135deg, #f0f7ff, #e8f0fe); letter-spacing: 1.5px;
       border-bottom: 1px solid rgba(0,51,102,0.06);
     }
+    .home-product-card img.product-abbr {
+      padding: 0; height: 140px; object-fit: contain; border-radius: 12px 12px 0 0;
+      background: #fff; width: 100%; display: block;
+    }
     .home-product-card h4 { font-size: 0.88rem; font-weight: 600; color: #003366; margin-bottom: 6px; line-height: 1.4; padding: 16px 16px 0; }
     .home-product-card p { font-size: 0.78rem; color: #64748b; line-height: 1.5; margin-bottom: 12px; padding: 0 16px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
     .home-product-card .view-more { font-size: 0.78rem; color: #0099ff; font-weight: 600; padding: 0 16px 16px; display: block; }
@@ -182,6 +254,7 @@ export default async function HomePage() {
     .main-product-list::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, #e2e8f0, transparent); }
     .main-product-list h2 { font-size: 1.9rem; font-weight: 800; color: #003366; text-align: center; margin-bottom: 12px; letter-spacing: -0.3px; }
     .main-product-list h2::after { content: ''; display: block; width: 50px; height: 3px; background: linear-gradient(90deg, #fbb03b, #f0a500); margin: 12px auto 28px; border-radius: 2px; }
+    .main-product-list .section-sub { text-align: center; color: #64748b; margin-bottom: 28px; }
     .product-list-items { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; max-width: 920px; margin: 0 auto; }
     .product-list-item {
       display: flex; align-items: center; gap: 14px; padding: 14px 18px;
@@ -425,6 +498,9 @@ export default async function HomePage() {
 
   return (
     <>
+      {faqSchema && (
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      )}
       <style dangerouslySetInnerHTML={{ __html: heroStyle }} />
 
       {/* ─── Hero Section (Industrial Style) ─── */}
@@ -478,12 +554,24 @@ export default async function HomePage() {
 
       {/* ─── Our Clients (Trust Section) ─── */}
       <section className="clients-section">
-        <div className="container">
-          <h3>ลูกค้าที่ไว้วางใจเรา</h3>
-          <div className="clients-grid">
-            {clients.map(c => (
-              <div key={c} className="client-logo">{c}</div>
-            ))}
+        <div className="container" style={{ maxWidth: '100vw', padding: 0 }}>
+          <h3 style={{ marginBottom: 32 }}>ลูกค้าที่ไว้วางใจเรา</h3>
+          <div className="marquee-container">
+            <div className="clients-grid">
+              {clients.map(c => (
+                <div key={`c1-${c.name}`} className="client-logo" title={c.name}>
+                  <img src={sanityUrlFor({ _type: 'image', asset: { _type: 'reference', _ref: c.id } }).width(300).fit('max').auto('format').url()} alt={`${c.name} - ลูกค้า NYX Cable`} loading="lazy" />
+                </div>
+              ))}
+            </div>
+            {/* Duplicate grid for endless scroll effect */}
+            <div className="clients-grid" aria-hidden="true">
+              {clients.map(c => (
+                <div key={`c2-${c.name}`} className="client-logo" title={c.name}>
+                  <img src={sanityUrlFor({ _type: 'image', asset: { _type: 'reference', _ref: c.id } }).width(300).fit('max').auto('format').url()} alt={`${c.name} - ลูกค้า NYX Cable`} loading="lazy" />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -493,29 +581,29 @@ export default async function HomePage() {
         <div className="container">
           <div className="stats-grid">
             <div className="stat-item">
-              <div className="stat-num">50+</div>
-              <div className="stat-label">รุ่นสินค้า</div>
+              <div className="stat-num">20+</div>
+              <div className="stat-label">ปีประสบการณ์</div>
             </div>
             <div className="stat-item">
-              <div className="stat-num">150+</div>
+              <div className="stat-num">5,000+</div>
+              <div className="stat-label">ลูกค้าองค์กร</div>
+            </div>
+            <div className="stat-item">
+              <div className="stat-num">15,000+</div>
               <div className="stat-label">ขนาดพร้อมส่ง</div>
             </div>
             <div className="stat-item">
               <div className="stat-num">DIN VDE</div>
               <div className="stat-label">มาตรฐานยุโรป</div>
             </div>
-            <div className="stat-item">
-              <div className="stat-num">10+</div>
-              <div className="stat-label">ปีประสบการณ์</div>
-            </div>
           </div>
         </div>
       </section>
 
-      {/* ─── Main Product List (from original — with Thai names) ─── */}
       <section className="main-product-list">
         <div className="container">
-          <h2>สายคอนโทรล</h2>
+          <h2>สินค้ายอดนิยม</h2>
+          <p className="section-sub">สายไฟที่ลูกค้าเลือกใช้มากที่สุด — คลิกเพื่อดูรายละเอียด</p>
           <div className="product-list-items">
             {mainProducts.map(p => (
               <a key={p.slug} href={`/products/detail/${p.slug}`} className="product-list-item">
@@ -525,8 +613,10 @@ export default async function HomePage() {
               </a>
             ))}
           </div>
-          <div className="view-all-btn" style={{ marginTop: '24px' }}>
-            <a href="/products" className="btn btn-primary">ดูสินค้าเพิ่มเติม →</a>
+          <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap', justifyContent: 'center', marginTop: '24px' }}>
+            <a href="/products" className="btn btn-primary">ดูหมวดหมู่ทั้งหมด →</a>
+            <a href="/products/control-cable" className="btn btn-outline" style={{ border: '2px solid var(--color-primary)', color: 'var(--color-primary)' }}>สายคอนโทรล</a>
+            <a href="/products/shielded-cable" className="btn btn-outline" style={{ border: '2px solid var(--color-primary)', color: 'var(--color-primary)' }}>สายชีลด์</a>
           </div>
         </div>
       </section>
@@ -582,7 +672,11 @@ export default async function HomePage() {
           <div className="home-product-grid">
             {topProducts.map((p: any) => (
               <a key={p._id} href={`/products/detail/${p.slug?.current}`} className="home-product-card">
-                <span className="product-abbr">{(p.productCode || p.title || '').substring(0, 3).toUpperCase()}</span>
+                {p.image ? (
+                  <Image src={sanityUrlFor(p.image).width(400).height(300).url()} alt={p.title} width={400} height={300} className="product-abbr" />
+                ) : (
+                  <span className="product-abbr">{(p.productCode || p.title || '').substring(0, 3).toUpperCase()}</span>
+                )}
                 <h4>{p.title}</h4>
                 <p>{p.shortDescription || p.categories?.[0]?.title || 'สายไฟอุตสาหกรรม'}</p>
                 <span className="view-more">ดูรายละเอียด →</span>
@@ -606,7 +700,7 @@ export default async function HomePage() {
 
           <div className="category-grid">
             {categories.map((cat) => (
-              <a key={cat.slug} href="/products" className="category-card">
+              <a key={cat.slug} href={`/products/${cat.slug}`} className="category-card">
                 <div className="category-card-image">{cat.abbr}</div>
                 <div className="category-card-body">
                   <h3>{cat.name}</h3>
@@ -638,6 +732,67 @@ export default async function HomePage() {
           </div>
           <div className="view-all-btn" style={{ marginTop: '24px' }}>
             <a href="/blog" className="btn btn-primary">ดูบทความทั้งหมด ({blogPosts.length} บทความ) →</a>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── เปรียบเทียบ NYX Cable vs สายทั่วไป ─── */}
+      <section style={{ padding: '60px 0', background: 'linear-gradient(180deg, #f0f7ff, #fff)' }}>
+        <div className="container">
+          <h2 style={{ textAlign: 'center', fontSize: '1.6rem', fontWeight: 800, color: '#003366', marginBottom: 8 }}>เปรียบเทียบ NYX Cable กับสายไฟทั่วไป</h2>
+          <p className="section-sub" style={{ textAlign: 'center', marginBottom: 32 }}>ดูข้อแตกต่างที่ชัดเจน ทำไมโรงงานชั้นนำเลือก NYX Cable</p>
+          <div style={{ overflowX: 'auto' }}>
+            <table style={{ width: '100%', maxWidth: 800, margin: '0 auto', borderCollapse: 'collapse', fontSize: '0.9rem', borderRadius: 12, overflow: 'hidden', boxShadow: '0 2px 12px rgba(0,0,0,0.06)' }}>
+              <thead>
+                <tr>
+                  <th style={{ background: '#003366', color: '#fff', padding: '12px 16px', textAlign: 'left', fontWeight: 600 }}>คุณสมบัติ</th>
+                  <th style={{ background: '#003366', color: '#fbb03b', padding: '12px 16px', textAlign: 'center', fontWeight: 700 }}>NYX Cable</th>
+                  <th style={{ background: '#003366', color: '#94a3b8', padding: '12px 16px', textAlign: 'center', fontWeight: 500 }}>สายทั่วไป</th>
+                </tr>
+              </thead>
+              <tbody>
+                {[
+                  ['พื้นที่หน้าตัดสาย', 'เล็กกว่า 40-55%', 'ใหญ่กว่า'],
+                  ['ตัวนำทองแดง', 'เคลือบดีบุก (Tinned)', 'ทองแดงเปล่า'],
+                  ['มาตรฐาน', 'DIN VDE / IEC ยุโรป', 'มอก. พื้นฐาน'],
+                  ['ความอ่อนตัว', 'สูงมาก (เส้นฝอยละเอียด)', 'ปานกลาง'],
+                  ['จำนวนคอร์', 'สูงสุด 100 คอร์', 'สูงสุด 24 คอร์'],
+                  ['ป้องกัน EMI (ชีลด์)', 'Tinned Cu Braid', 'Copper Tape / ไม่มี'],
+                  ['ราคา', 'เทียบเท่าหรือถูกกว่า', 'ใกล้เคียง'],
+                ].map((row, i) => (
+                  <tr key={i} style={{ background: i % 2 === 0 ? '#fff' : '#f8fafc' }}>
+                    <td style={{ padding: '10px 16px', fontWeight: 600, color: '#334155', borderBottom: '1px solid #e8edf3' }}>{row[0]}</td>
+                    <td style={{ padding: '10px 16px', textAlign: 'center', color: '#003366', fontWeight: 700, borderBottom: '1px solid #e8edf3' }}>✅ {row[1]}</td>
+                    <td style={{ padding: '10px 16px', textAlign: 'center', color: '#94a3b8', borderBottom: '1px solid #e8edf3' }}>{row[2]}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <div style={{ textAlign: 'center', marginTop: 24 }}>
+            <a href="/products" className="btn btn-primary">ดูผลิตภัณฑ์ทั้งหมด →</a>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── ภาพส่งสินค้าจริง ─── */}
+      <section style={{ padding: '60px 0', background: '#fff' }}>
+        <div className="container">
+          <h2 style={{ textAlign: 'center', fontSize: '1.6rem', fontWeight: 800, color: '#003366', marginBottom: 8 }}>ส่งสินค้าจริง ตรงเวลา ทั่วประเทศ</h2>
+          <p className="section-sub" style={{ textAlign: 'center', marginBottom: 32 }}>ภาพจากการจัดส่งจริงถึงมือลูกค้าทั่วประเทศ</p>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: 16 }}>
+            {["ส่งด่วนจากโกดังบางนา", "สต็อกพร้อมส่งทุกขนาด", "บรรจุภัณฑ์แข็งแรง", "จัดส่งทั่วประเทศ"].map((label, i) => (
+              <div key={i} style={{ background: 'linear-gradient(135deg, #f0f7ff, #e8f4fd)', borderRadius: 12, padding: 32, textAlign: 'center', border: '1px solid rgba(0,51,102,0.06)' }}>
+                <div style={{ fontSize: '2rem', marginBottom: 12 }}>{['🚚', '📦', '✅', '🇹🇭'][i]}</div>
+                <h4 style={{ fontSize: '0.95rem', fontWeight: 700, color: '#003366', marginBottom: 4 }}>{label}</h4>
+                <p style={{ fontSize: '0.8rem', color: '#64748b', lineHeight: 1.5 }}>
+                  {['ส่งด่วน 2 ชม. ในกรุงเทพฯ-ปริมณฑล', 'สินค้า 60+ รุ่น 15,000+ ขนาด', 'แพ็คอย่างดี ป้องกันความเสียหาย', 'ขนส่งผ่านพาร์ทเนอร์ชั้นนำ'][i]}
+                </p>
+              </div>
+            ))}
+          </div>
+          <div style={{ textAlign: 'center', marginTop: 24 }}>
+            <a href="/gallery" className="btn btn-primary">ดูภาพส่งสินค้าเพิ่มเติม →</a>
           </div>
         </div>
       </section>

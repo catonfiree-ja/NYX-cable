@@ -1,4 +1,27 @@
-@import url('https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700;800&display=swap');
+/* Font is self-hosted via next/font/google in layout.tsx */
+
+/* ─── Accessibility ─── */
+.skip-nav {
+  position: absolute;
+  top: -100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--color-primary);
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0 0 var(--radius-md) var(--radius-md);
+  z-index: 9999;
+  font-weight: 600;
+  text-decoration: none;
+}
+.skip-nav:focus {
+  top: 0;
+  color: #fff;
+}
+*:focus-visible {
+  outline: 3px solid var(--color-secondary);
+  outline-offset: 2px;
+}
 
 /* ─── CSS Custom Properties (Design Tokens) ─── */
 :root {
@@ -944,6 +967,60 @@ a:hover {
   .cta-big-text strong { font-size: 0.9rem; }
 }
 
+/* Pulse animation for CTA buttons */
+@keyframes ctaPulse {
+  0% { box-shadow: 0 0 0 0 rgba(255,255,255,0.4); }
+  70% { box-shadow: 0 0 0 12px rgba(255,255,255,0); }
+  100% { box-shadow: 0 0 0 0 rgba(255,255,255,0); }
+}
+.cta-pulse {
+  animation: ctaPulse 2s ease-in-out infinite;
+}
+.cta-big-icon {
+  font-size: 1.4rem;
+  border: none;
+  background: rgba(255,255,255,0.12);
+}
+
+/* ─── Floating Contact FAB (bottom-left, 60s delay) ─── */
+.floating-fab {
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 9999;
+  animation: fabSlideIn 0.5s ease-out;
+}
+@keyframes fabSlideIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.fab-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 18px;
+  border-radius: 50px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.85rem;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.fab-btn:hover {
+  transform: scale(1.08);
+  box-shadow: 0 6px 28px rgba(0,0,0,0.35);
+}
+.fab-line {
+  background: linear-gradient(135deg, #06c755, #04a845);
+}
+.fab-call {
+  background: linear-gradient(135deg, #1976d2, #0d47a1);
+}
+
 /* ─── Header Logo with SVG ─── */
 .header-logo {
   display: flex;
@@ -1001,9 +1078,7 @@ a:hover {
   color: #fff;
 }
 @media (max-width: 768px) {
-  .corner-ribbon { width: 90px; height: 90px; top: -4px; right: -4px; }
-  .corner-ribbon::before { top: 16px; right: -36px; width: 140px; font-size: 0.6rem; padding: 4px 0; }
-  .corner-ribbon::after { border-width: 0 90px 90px 0; }
+  .corner-ribbon { display: none; }
 }
 
 /* ─── Enhanced Product Card Hover ─── */

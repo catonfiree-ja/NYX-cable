@@ -23,15 +23,51 @@ const styles = `
   .form-group textarea { min-height: 120px; resize: vertical; }
   .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-md); }
   .success-msg { background: rgba(16,185,129,0.1); border: 1px solid rgba(16,185,129,0.3); border-radius: var(--radius-lg); padding: var(--spacing-xl); text-align: center; color: var(--color-success); font-weight: 500; }
-  @media (max-width: 768px) { .contact-grid { grid-template-columns: 1fr; } .form-row { grid-template-columns: 1fr; } }
+  .error-msg { background: rgba(239,68,68,0.1); border: 1px solid rgba(239,68,68,0.3); border-radius: var(--radius-lg); padding: var(--spacing-lg); text-align: center; color: var(--color-danger); font-weight: 500; margin-bottom: var(--spacing-md); }
+  .submit-btn { position: relative; }
+  .submit-btn:disabled { opacity: 0.7; cursor: not-allowed; }
+  .contact-map { margin: 48px 0 0; }
+  .contact-map h2 { font-size: var(--font-size-xl); font-weight: 700; color: var(--color-primary); margin-bottom: var(--spacing-lg); text-align: center; }
+  .contact-map iframe { width: 100%; height: 350px; border: 0; border-radius: var(--radius-xl); box-shadow: var(--shadow-md); }
+  .contact-map-btn { text-align: center; margin-top: var(--spacing-md); }
+  .warehouse-section { padding: 48px 0; }
+  .warehouse-section h2 { font-size: var(--font-size-xl); font-weight: 700; color: var(--color-primary); margin-bottom: var(--spacing-lg); text-align: center; }
+  .warehouse-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  .warehouse-photo { border-radius: var(--radius-lg); overflow: hidden; aspect-ratio: 4/3; cursor: pointer; position: relative; }
+  .warehouse-photo img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
+  .warehouse-photo:hover img { transform: scale(1.08); }
+  @media (max-width: 768px) { .contact-grid { grid-template-columns: 1fr; } .form-row { grid-template-columns: 1fr; } .warehouse-grid { grid-template-columns: repeat(2, 1fr); } }
 `
 
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false)
+  const [error, setError] = useState('')
+  const [loading, setLoading] = useState(false)
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
-    setSubmitted(true)
+    setLoading(true)
+    setError('')
+
+    const formData = new FormData(e.currentTarget)
+    formData.append('access_key', 'YOUR_WEB3FORMS_KEY') // TODO: Replace with actual key
+
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: formData,
+      })
+      const data = await res.json()
+      if (data.success) {
+        setSubmitted(true)
+      } else {
+        setError('เกิดข้อผิดพลาด กรุณาลองใหม่อีกครั้ง')
+      }
+    } catch {
+      setError('ไม่สามารถส่งข้อความได้ กรุณาโทรหาเราที่ 02-111-5588')
+    } finally {
+      setLoading(false)
+    }
   }
 
   return (
@@ -48,7 +84,7 @@ export default function ContactPage() {
           <div className="contact-info-cards">
             <div className="contact-card">
               <div className="contact-card-icon">Tel</div>
-              <div><h3>โทรศัพท์</h3><p><a href="tel:021115588">02-111-5588</a><br/><a href="tel:0957275453">095-727-5453</a></p></div>
+              <div><h3>โทรศัพท์</h3><p><a href="tel:021115588">02-111-5588</a></p></div>
             </div>
             <div className="contact-card">
               <div className="contact-card-icon">LINE</div>
@@ -60,32 +96,94 @@ export default function ContactPage() {
             </div>
             <div className="contact-card">
               <div className="contact-card-icon">Loc</div>
-              <div><h3>ที่อยู่</h3><p>บางนา, กรุงเทพฯ<br/>จ-ศ 8:30-17:30</p></div>
+              <div><h3>ที่อยู่</h3><p>2098 หมู่ 1 ต.สำโรงเหนือ (ซ.สุขุมวิท 72)<br/>อ.เมือง สมุทรปราการ 10270<br/>จ-ศ 8:30-17:30<br/><a href="https://www.google.com/maps/dir/Current+Location/13.65811028970517,100.59934546581569" target="_blank" rel="noopener noreferrer">นำทาง Google Maps →</a></p></div>
             </div>
           </div>
           <div className="contact-form-box">
             <h2>ส่งข้อความถึงเรา</h2>
             {submitted ? (
               <div className="success-msg">
-                ส่งข้อความสำเร็จ! ทีมงานจะติดต่อกลับภายใน 1 ชั่วโมง
+                ✅ ส่งข้อความสำเร็จ! ทีมงานจะติดต่อกลับภายใน 1 ชั่วโมง
               </div>
             ) : (
               <form onSubmit={handleSubmit}>
+                {/* Web3Forms hidden fields */}
+                <input type="hidden" name="subject" value="สอบถามจากเว็บไซต์ NYX Cable" />
+                <input type="hidden" name="from_name" value="NYX Cable Website" />
+                <input type="checkbox" name="botcheck" style={{ display: 'none' }} />
+
+                {error && <div className="error-msg">{error}</div>}
                 <div className="form-row">
-                  <div className="form-group"><label>ชื่อ *</label><input type="text" placeholder="ชื่อ-นามสกุล" required/></div>
-                  <div className="form-group"><label>บริษัท</label><input type="text" placeholder="ชื่อบริษัท"/></div>
+                  <div className="form-group"><label htmlFor="name">ชื่อ *</label><input id="name" name="name" type="text" placeholder="ชื่อ-นามสกุล" required/></div>
+                  <div className="form-group"><label htmlFor="company">บริษัท</label><input id="company" name="company" type="text" placeholder="ชื่อบริษัท"/></div>
                 </div>
                 <div className="form-row">
-                  <div className="form-group"><label>เบอร์โทร *</label><input type="tel" placeholder="0XX-XXX-XXXX" required/></div>
-                  <div className="form-group"><label>อีเมล</label><input type="email" placeholder="email@company.com"/></div>
+                  <div className="form-group"><label htmlFor="phone">เบอร์โทร *</label><input id="phone" name="phone" type="tel" placeholder="0XX-XXX-XXXX" required/></div>
+                  <div className="form-group"><label htmlFor="email">อีเมล</label><input id="email" name="email" type="email" placeholder="email@company.com"/></div>
                 </div>
-                <div className="form-group"><label>สินค้าที่สนใจ</label><select><option value="">-- เลือก --</option><option>สายคอนโทรล</option><option>สาย VFD</option><option>สายทนความร้อน</option><option>อื่นๆ</option></select></div>
-                <div className="form-group"><label>รายละเอียด *</label><textarea placeholder="ระบุรุ่น ขนาด จำนวนที่ต้องการ" required></textarea></div>
-                <button type="submit" className="btn btn-primary btn-lg" style={{width:'100%',justifyContent:'center'}}>ส่งข้อความ →</button>
+                <div className="form-group">
+                  <label htmlFor="product">สินค้าที่สนใจ</label>
+                  <select id="product" name="product">
+                    <option value="">-- เลือก --</option>
+                    <option>สายคอนโทรล (Control Cable)</option>
+                    <option>สาย VFD / Servo Cable</option>
+                    <option>สายทนความร้อน (Heat Resistant)</option>
+                    <option>สายชีลด์ (Shielded Cable)</option>
+                    <option>สายเครน (Crane Cable)</option>
+                    <option>สาย Bus / Data Cable</option>
+                    <option>อื่นๆ</option>
+                  </select>
+                </div>
+                <div className="form-group"><label htmlFor="message">รายละเอียด *</label><textarea id="message" name="message" placeholder="ระบุรุ่น ขนาด จำนวนที่ต้องการ" required></textarea></div>
+                <button type="submit" className="btn btn-primary btn-lg submit-btn" style={{width:'100%',justifyContent:'center'}} disabled={loading}>
+                  {loading ? 'กำลังส่ง...' : 'ส่งข้อความ →'}
+                </button>
               </form>
             )}
           </div>
         </div>
+      </div>
+
+      {/* Google Maps */}
+      <div className="container">
+        <div className="contact-map">
+          <h2>แผนที่</h2>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3877.5!2d100.5993!3d13.6581!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTPCsDM5JzI5LjIiTiAxMDDCsDM1JzU3LjYiRQ!5e0!3m2!1sth!2sth!4v1234567890"
+            allowFullScreen
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            title="แผนที่ NYX Cable - บางนา สมุทรปราการ"
+          />
+          <div className="contact-map-btn">
+            <a href="https://www.google.com/maps/dir/Current+Location/13.65811028970517,100.59934546581569" target="_blank" rel="noopener noreferrer" className="btn btn-primary">
+              นำทาง Google Maps →
+            </a>
+          </div>
+        </div>
+      </div>
+
+      {/* Warehouse Gallery */}
+      <div className="container">
+        <section className="warehouse-section">
+          <h2>สำนักงานและคลังสินค้า</h2>
+          <div className="warehouse-grid">
+            {[
+              { src: 'https://nyxcable.com/wp-content/uploads/2024/12/LINE_ALBUM_201224_241220_1-scaled.jpg', alt: 'อาคารสำนักงาน NYX Cable' },
+              { src: 'https://nyxcable.com/wp-content/uploads/2024/09/61778.jpg', alt: 'ทางเข้าสำนักงาน NYX Cable' },
+              { src: 'https://nyxcable.com/wp-content/uploads/2024/09/61777.jpg', alt: 'ประตูสำนักงาน NYX Cable' },
+              { src: 'https://nyxcable.com/wp-content/uploads/2024/12/LINE_ALBUM_201224_241220_6-scaled.jpg', alt: 'คลังสินค้าสายไฟ NYX Cable' },
+              { src: 'https://nyxcable.com/wp-content/uploads/2024/12/86205.jpg', alt: 'ม้วนสายไฟพร้อมส่ง NYX Cable' },
+              { src: 'https://nyxcable.com/wp-content/uploads/2024/09/61766.jpg', alt: 'ชั้นวางสินค้าสายไฟ NYX Cable' },
+              { src: 'https://nyxcable.com/wp-content/uploads/2024/12/LINE_ALBUM_201224_241220_7-scaled.jpg', alt: 'ห้องประชุม NYX Cable' },
+              { src: 'https://nyxcable.com/wp-content/uploads/2024/12/S__4472836.jpg', alt: 'เครื่องตัดสายไฟ NYX Cable' },
+            ].map((photo, i) => (
+              <div key={i} className="warehouse-photo">
+                <img src={photo.src} alt={photo.alt} loading="lazy" />
+              </div>
+            ))}
+          </div>
+        </section>
       </div>
 
       <section className="cta-section" style={{ marginTop: '0' }}>

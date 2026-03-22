@@ -9,7 +9,7 @@ export async function GET() {
 ## Company Info
 - Company: NYX Cable (บริษัท เอ็นวายเอ็กซ์ เคเบิ้ล จำกัด)
 - Website: https://www.nyxcable.com
-- Phone: 02-111-5588, 095-727-5453, 095-547-9536
+- Phone: 02-111-5588
 - Email: sales@nyxcable.com
 - LINE: @nyxcable (https://page.line.me/ubb9405u)
 - Location: บางนา, กรุงเทพมหานคร

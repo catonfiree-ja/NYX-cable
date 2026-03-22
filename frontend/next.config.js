@@ -1,5 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  images: {
+    remotePatterns: [
+      { protocol: 'https', hostname: 'cdn.sanity.io' },
+    ],
+  },
   // 301 redirects from old WordPress URLs to new Next.js routes
   async redirects() {
     return [

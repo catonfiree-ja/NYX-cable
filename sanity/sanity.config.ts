@@ -64,6 +64,11 @@ export default defineConfig({
                     S.documentTypeListItem('faq').title('คำถามที่พบบ่อย'),
                   ])
               ),
+
+            S.divider(),
+
+            // Gallery
+            S.documentTypeListItem('galleryAlbum').title('📸 แกลเลอรี่'),
           ]),
     }),
     visionTool({ defaultApiVersion: '2024-01-01' }),

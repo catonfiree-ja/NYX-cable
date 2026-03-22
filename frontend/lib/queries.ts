@@ -4,7 +4,10 @@ import { client } from './sanity'
 
 export async function getProducts() {
   return client.fetch(`
-    *[_type == "product"] | order(title asc) {
+    *[_type == "product"
+      && !(title match "สายเชื่อม")
+      && !(title match "welding")
+    ] | order(title asc) {
       _id,
       title,
       slug,
@@ -182,7 +185,18 @@ export async function getCategory(slug: string) {
 
 export async function getBlogPosts() {
   return client.fetch(`
-    *[_type == "blogPost"] | order(publishedAt desc) {
+    *[_type == "blogPost"
+      && !(title match "รถเข็นไฟฟ้า")
+      && !(title match "สนามบินรักษ์โลก")
+      && !(title match "รถสาธารณะพลังงานแสงอาทิตย์")
+      && !(title match "นิวเคลียร์")
+      && !(title match "Stella รถยนต์พลังโซล่า")
+      && !(title match "เสาไฟฟ้าแรงสูง")
+      && !(title match "โซล่าฟาร์ม")
+      && !(title match "แผนพัฒนากำลังผลิตไฟฟ้า")
+      && !(title match "ขายไฟฟ้า คืนกำไร")
+      && !(title match "Solar Roof")
+    ] | order(publishedAt desc) {
       _id,
       title,
       slug,
@@ -272,4 +286,28 @@ export async function getPage(slug: string) {
   `,
     { slug }
   )
+}
+
+// ─── Gallery Queries ────────────────────────────────────
+
+export async function getGalleryAlbums() {
+  return client.fetch(`
+    *[_type == "galleryAlbum"] | order(orderRank asc) {
+      _id,
+      title,
+      slug,
+      cover,
+      photos[] {
+        _key,
+        _type,
+        asset,
+        caption,
+        hotspot,
+        crop
+      },
+      year,
+      orderRank,
+      linkUrl
+    }
+  `)
 }

@@ -5,6 +5,7 @@ import blogPost from './blogPost'
 import page from './page'
 import postCategory from './postCategory'
 import faq from './faq'
+import galleryAlbum from './galleryAlbum'
 import siteSettings from './siteSettings'
 
 export const schemaTypes = [
@@ -18,6 +19,9 @@ export const schemaTypes = [
   page,
   postCategory,
   faq,
+
+  // Gallery
+  galleryAlbum,
 
   // Settings
   siteSettings,
