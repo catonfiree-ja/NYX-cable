@@ -1,5 +1,6 @@
 import { getBlogPosts } from '@/lib/queries'
 import { urlFor as sanityUrlFor } from '@/lib/sanity'
+import blogImages from '@/data/blog-images.json'
 
 const styles = `
   .blog-hero { background: linear-gradient(135deg, var(--color-primary-dark), var(--color-primary)); color: var(--color-white); padding: var(--spacing-3xl) 0; text-align: center; }
@@ -62,6 +63,12 @@ export default async function BlogPage() {
                   {post.featuredImage ? (
                     <img
                       src={sanityUrlFor(post.featuredImage).width(700).height(400).fit('crop').auto('format').url()}
+                      alt={post.title}
+                      loading="lazy"
+                    />
+                  ) : (blogImages as Record<string, string>)[post.slug?.current] ? (
+                    <img
+                      src={(blogImages as Record<string, string>)[post.slug?.current]}
                       alt={post.title}
                       loading="lazy"
                     />
