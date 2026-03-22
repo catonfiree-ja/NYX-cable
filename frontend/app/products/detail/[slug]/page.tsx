@@ -8,12 +8,12 @@ import ExcelSpecTable from './ExcelSpecTable'
 import productSpecsData from '@/data/product-specs.json'
 
 const styles = `
-  .product-detail-hero { background: linear-gradient(160deg, #001a33, #003366, #002d5c); color: var(--color-white); padding: var(--spacing-2xl) 0; position: relative; }
-  .product-detail-hero::before { content: ''; position: absolute; inset: 0; background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="g" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="0.5"/></pattern></defs><rect fill="url(%23g)" width="100" height="100"/></svg>'); }
+  .product-detail-hero { background: linear-gradient(160deg, #001a33 0%, #002d5c 35%, #003d7a 70%, #002244 100%); color: #fff; padding: 48px 0 40px; position: relative; overflow: hidden; }
+  .product-detail-hero::before { content: ''; position: absolute; inset: 0; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 400'%3E%3Ccircle cx='200' cy='200' r='200' fill='rgba(0,153,255,0.06)'/%3E%3Ccircle cx='1200' cy='100' r='150' fill='rgba(240,165,0,0.04)'/%3E%3C/svg%3E") no-repeat center; background-size: cover; }
   .product-detail-hero .container { position: relative; z-index: 1; }
-  .breadcrumb { font-size: var(--font-size-sm); opacity: 0.7; margin-bottom: var(--spacing-md); }
-  .breadcrumb a { color: rgba(255,255,255,0.7); }
-  .breadcrumb a:hover { color: var(--color-accent); }
+  .breadcrumb { font-size: 0.82rem; margin-bottom: 12px; }
+  .breadcrumb a { color: rgba(255,255,255,0.65); text-decoration: none; transition: color 0.2s; }
+  .breadcrumb a:hover { color: #f0a500; }
   .product-detail { display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-3xl); padding: var(--spacing-3xl) 0; }
   .product-image-box { background: linear-gradient(135deg, #f0f7ff, #e8f0fe); border-radius: var(--radius-xl); display: flex; align-items: center; justify-content: center; min-height: 400px; max-height: 550px; font-size: 1.4rem; font-weight: 800; color: var(--color-primary); letter-spacing: 2px; border: 1px solid rgba(0,51,102,0.06); position: sticky; top: 100px; align-self: start; overflow: hidden; }
   .product-info h1 { font-size: var(--font-size-3xl); font-weight: 800; color: var(--color-primary); margin-bottom: var(--spacing-sm); line-height: 1.3; letter-spacing: -0.3px; }
