@@ -356,7 +356,7 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
       <div className="product-detail-hero">
         <div className="container">
           <div className="breadcrumb">
-            <a href="/">หน้าแรก</a> / <a href="/products">ผลิตภัณฑ์</a> / {product.title}
+            <a href="/">หน้าแรก</a> › <a href="/products">ผลิตภัณฑ์</a> › {product.title}
           </div>
         </div>
       </div>
