@@ -628,9 +628,9 @@ a:hover {
 
 /* ─── CTA Section ─── */
 .cta-section {
-  background: linear-gradient(135deg, var(--color-primary-dark), var(--color-primary));
+  background: linear-gradient(160deg, #001a33 0%, #002d5c 35%, #003d7a 70%, #002244 100%);
   color: var(--color-white);
-  padding: var(--spacing-4xl) 0;
+  padding: 56px 0 32px;
   text-align: center;
   position: relative;
   overflow: hidden;
@@ -640,24 +640,25 @@ a:hover {
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 30% 50%, rgba(0, 153, 255, 0.15), transparent 60%);
+  background: radial-gradient(ellipse at 50% 50%, rgba(251,176,59,0.06), transparent 70%);
 }
 
 .cta-section h2 {
-  font-size: var(--font-size-3xl);
-  font-weight: 700;
-  margin-bottom: var(--spacing-md);
+  font-size: 1.8rem;
+  font-weight: 800;
+  margin-bottom: 12px;
   position: relative;
 }
 
 .cta-section p {
-  font-size: var(--font-size-lg);
-  opacity: 0.9;
-  margin-bottom: var(--spacing-2xl);
-  max-width: 600px;
+  font-size: 0.95rem;
+  opacity: 0.7;
+  margin-bottom: 28px;
+  max-width: 500px;
   margin-left: auto;
   margin-right: auto;
   position: relative;
+  line-height: 1.7;
 }
 
 .cta-actions {
@@ -667,6 +668,126 @@ a:hover {
   flex-wrap: wrap;
   position: relative;
 }
+
+/* ─── Animated Contact Bar (Click เลย !!!) ─── */
+@keyframes ctaBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+@keyframes ctaGlow {
+  0%, 100% { box-shadow: 0 4px 20px rgba(0,0,0,0.2); }
+  50% { box-shadow: 0 8px 32px rgba(0,0,0,0.35); }
+}
+
+.cta-contact-bar {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.cta-contact-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 22px 20px;
+  text-decoration: none;
+  color: #fff;
+  font-weight: 800;
+  font-size: 1.1rem;
+  transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+  position: relative;
+  overflow: hidden;
+  border: none;
+  cursor: pointer;
+}
+
+.cta-contact-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0) 50%);
+  pointer-events: none;
+}
+
+.cta-contact-btn:hover {
+  transform: scale(1.02);
+  filter: brightness(1.1);
+}
+
+.cta-contact-btn:active {
+  transform: scale(0.98);
+}
+
+/* Call Button — Red gradient */
+.cta-contact-btn--call {
+  background: linear-gradient(180deg, #e74c3c 0%, #c0392b 100%);
+  animation: ctaGlow 2s ease-in-out infinite;
+}
+
+/* LINE Button — Green gradient */
+.cta-contact-btn--line {
+  background: linear-gradient(180deg, #2ecc71 0%, #27ae60 100%);
+  animation: ctaGlow 2s ease-in-out infinite 0.3s;
+}
+
+/* Email Button — Gold gradient */
+.cta-contact-btn--email {
+  background: linear-gradient(180deg, #f39c12 0%, #e67e22 100%);
+  animation: ctaGlow 2s ease-in-out infinite 0.6s;
+}
+
+.cta-contact-btn .cta-btn-icon {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.2);
+  font-size: 1.4rem;
+  flex-shrink: 0;
+}
+
+.cta-contact-btn .cta-btn-text {
+  text-align: left;
+}
+
+.cta-contact-btn .cta-btn-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  letter-spacing: 0.3px;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+
+.cta-contact-btn .cta-btn-blink {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin-top: 2px;
+  animation: ctaBlink 1s ease-in-out infinite;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.3);
+}
+
+@media (max-width: 768px) {
+  .cta-contact-bar {
+    grid-template-columns: 1fr;
+  }
+  .cta-contact-btn {
+    padding: 18px 20px;
+  }
+  .cta-contact-btn .cta-btn-title {
+    font-size: 1rem;
+  }
+  .cta-section h2 { font-size: 1.3rem; }
+  .cta-section p { font-size: 0.85rem; }
+}
+
 
 /* ─── Footer ─── */
 .footer {
