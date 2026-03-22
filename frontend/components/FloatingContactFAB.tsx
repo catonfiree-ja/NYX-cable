@@ -6,11 +6,11 @@ export default function FloatingContactFAB() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setVisible(true);
-    }, 60000); // 60 seconds delay
+    const timer = setTimeout(() => setVisible(true), 3000);
     return () => clearTimeout(timer);
   }, []);
+
+  const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
 
   if (!visible) return null;
 
@@ -38,6 +38,16 @@ export default function FloatingContactFAB() {
         </svg>
         <span>Call</span>
       </a>
+      <button
+        onClick={scrollToTop}
+        className="fab-btn fab-top"
+        aria-label="เลื่อนขึ้นบน"
+      >
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/>
+        </svg>
+        <span>Top</span>
+      </button>
     </div>
   );
 }

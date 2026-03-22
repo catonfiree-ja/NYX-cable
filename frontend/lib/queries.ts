@@ -4,10 +4,7 @@ import { client } from './sanity'
 
 export async function getProducts() {
   return client.fetch(`
-    *[_type == "product"
-      && !(title match "สายเชื่อม")
-      && !(title match "welding")
-    ] | order(title asc) {
+    *[_type == "product"] | order(title asc) {
       _id,
       title,
       slug,
