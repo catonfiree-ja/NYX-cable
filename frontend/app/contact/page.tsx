@@ -31,14 +31,13 @@ const styles = `
     display: inline-flex; align-items: center; gap: 10px;
     padding: 12px 24px; border-radius: 50px; font-weight: 700; font-size: 0.88rem;
     text-decoration: none; transition: all 0.25s; color: #fff;
-    border: 1px solid rgba(255,255,255,0.2);
   }
-  .ribbon-btn.call { background: rgba(240,165,0,0.2); border-color: rgba(240,165,0,0.4); }
-  .ribbon-btn.call:hover { background: rgba(240,165,0,0.35); transform: translateY(-2px); color: #fff; }
-  .ribbon-btn.line { background: rgba(6,199,85,0.2); border-color: rgba(6,199,85,0.4); }
-  .ribbon-btn.line:hover { background: rgba(6,199,85,0.35); transform: translateY(-2px); color: #fff; }
-  .ribbon-btn.email { background: rgba(255,255,255,0.1); }
-  .ribbon-btn.email:hover { background: rgba(255,255,255,0.2); transform: translateY(-2px); color: #fff; }
+  .ribbon-btn.call { background: linear-gradient(135deg, #f0a500, #d48900); box-shadow: 0 4px 14px rgba(240,165,0,0.3); }
+  .ribbon-btn.call:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(240,165,0,0.4); color: #fff; }
+  .ribbon-btn.line { background: linear-gradient(135deg, #06c755, #04a845); box-shadow: 0 4px 14px rgba(6,199,85,0.3); }
+  .ribbon-btn.line:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(6,199,85,0.4); color: #fff; }
+  .ribbon-btn.email { background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.4); }
+  .ribbon-btn.email:hover { background: rgba(255,255,255,0.25); transform: translateY(-2px); color: #fff; }
 
   /* ─── Contact Grid ─── */
   .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; padding: 40px 0 56px; }
