@@ -183,16 +183,18 @@ export async function getCategory(slug: string) {
 export async function getBlogPosts() {
   return client.fetch(`
     *[_type == "blogPost"
-      && !(title match "รถเข็นไฟฟ้า")
-      && !(title match "สนามบินรักษ์โลก")
-      && !(title match "รถสาธารณะพลังงานแสงอาทิตย์")
-      && !(title match "นิวเคลียร์")
-      && !(title match "Stella รถยนต์พลังโซล่า")
-      && !(title match "เสาไฟฟ้าแรงสูง")
-      && !(title match "โซล่าฟาร์ม")
-      && !(title match "แผนพัฒนากำลังผลิตไฟฟ้า")
-      && !(title match "ขายไฟฟ้า คืนกำไร")
-      && !(title match "Solar Roof")
+      && !(slug.current in [
+        "12-ไอเดียรถเข็นไฟฟ้าดีไซ",
+        "10-สนามบินรักษ์โลก-ประหยั",
+        "ผุด-2-ไอเดียรถสาธารณะพลั",
+        "ลาก่อนนิวเคลียร์-ญี่ปุ่",
+        "มาเหนือเมฆ-stella-รถยนต์พลังโ",
+        "ไอเดียแหวก-เสาไฟฟ้าแรง-2",
+        "จับตา-โซล่าฟาร์ม-ดีจริงห",
+        "กระทรวงพลังงาน-ร่วม-การไ",
+        "บ้านยุคใหม่-ขายไฟฟ้า-คืน",
+        "solaroof-seminar"
+      ])
     ] | order(publishedAt desc) {
       _id,
       title,
