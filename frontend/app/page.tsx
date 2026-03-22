@@ -526,27 +526,27 @@ export default async function HomePage() {
               </div>
             </div>
             <div className="hero-v2-right">
-              <div className="hero-trust-badge">
+              <a href="/contact" className="hero-trust-badge" style={{ textDecoration: 'none', color: 'inherit' }}>
                 <span className="trust-icon">01</span>
                 <div className="trust-text">
                   <h4>ให้คำแนะนำ</h4>
                   <p>จากผู้เชี่ยวชาญด้านสายไฟฟ้าคอนโทรลโดยเฉพาะ</p>
                 </div>
-              </div>
-              <div className="hero-trust-badge">
+              </a>
+              <a href="/contact" className="hero-trust-badge" style={{ textDecoration: 'none', color: 'inherit' }}>
                 <span className="trust-icon">02</span>
                 <div className="trust-text">
                   <h4>แก้ไขปัญหา</h4>
                   <p>แก้ไขปัญหาตรงจุดกับปรึกษามืออาชีพ</p>
                 </div>
-              </div>
-              <div className="hero-trust-badge">
+              </a>
+              <a href="/gallery" className="hero-trust-badge" style={{ textDecoration: 'none', color: 'inherit' }}>
                 <span className="trust-icon">03</span>
                 <div className="trust-text">
                   <h4>จัดส่งสินค้า</h4>
                   <p>ถึงที่หมายอย่างเป็นระบบและตรงต่อเวลา</p>
                 </div>
-              </div>
+              </a>
             </div>
           </div>
         </div>
@@ -559,17 +559,17 @@ export default async function HomePage() {
           <div className="marquee-container">
             <div className="clients-grid">
               {clients.map(c => (
-                <div key={`c1-${c.name}`} className="client-logo" title={c.name}>
+                <a key={`c1-${c.name}`} href="/gallery" className="client-logo" title={c.name} style={{ textDecoration: 'none' }}>
                   <img src={sanityUrlFor({ _type: 'image', asset: { _type: 'reference', _ref: c.id } }).width(300).fit('max').auto('format').url()} alt={`${c.name} - ลูกค้า NYX Cable`} loading="lazy" />
-                </div>
+                </a>
               ))}
             </div>
             {/* Duplicate grid for endless scroll effect */}
             <div className="clients-grid" aria-hidden="true">
               {clients.map(c => (
-                <div key={`c2-${c.name}`} className="client-logo" title={c.name}>
+                <a key={`c2-${c.name}`} href="/gallery" className="client-logo" title={c.name} tabIndex={-1} style={{ textDecoration: 'none' }}>
                   <img src={sanityUrlFor({ _type: 'image', asset: { _type: 'reference', _ref: c.id } }).width(300).fit('max').auto('format').url()} alt={`${c.name} - ลูกค้า NYX Cable`} loading="lazy" />
-                </div>
+                </a>
               ))}
             </div>
           </div>
@@ -579,24 +579,26 @@ export default async function HomePage() {
       {/* ─── Stats Bar ─── */}
       <section className="stats-bar">
         <div className="container">
-          <div className="stats-grid">
-            <div className="stat-item">
-              <div className="stat-num">20+</div>
-              <div className="stat-label">ปีประสบการณ์</div>
+          <a href="/about" style={{ textDecoration: 'none', color: 'inherit' }}>
+            <div className="stats-grid">
+              <div className="stat-item">
+                <div className="stat-num">20+</div>
+                <div className="stat-label">ปีประสบการณ์</div>
+              </div>
+              <div className="stat-item">
+                <div className="stat-num">5,000+</div>
+                <div className="stat-label">ลูกค้าองค์กร</div>
+              </div>
+              <div className="stat-item">
+                <div className="stat-num">15,000+</div>
+                <div className="stat-label">ขนาดพร้อมส่ง</div>
+              </div>
+              <div className="stat-item">
+                <div className="stat-num">DIN VDE</div>
+                <div className="stat-label">มาตรฐานยุโรป</div>
+              </div>
             </div>
-            <div className="stat-item">
-              <div className="stat-num">5,000+</div>
-              <div className="stat-label">ลูกค้าองค์กร</div>
-            </div>
-            <div className="stat-item">
-              <div className="stat-num">15,000+</div>
-              <div className="stat-label">ขนาดพร้อมส่ง</div>
-            </div>
-            <div className="stat-item">
-              <div className="stat-num">DIN VDE</div>
-              <div className="stat-label">มาตรฐานยุโรป</div>
-            </div>
-          </div>
+          </a>
         </div>
       </section>
 
@@ -628,12 +630,12 @@ export default async function HomePage() {
           <p className="section-sub">มั่นใจคุณภาพ + บริการรวดเร็วทันใจ + ราคาดี + ยืนยันจากผู้ใช้จริง</p>
           <div className="why-nyx-grid">
             {whyNyx.map((item, i) => (
-              <div key={i} className="why-nyx-card">
+              <a key={i} href="/contact" className="why-nyx-card" style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}>
                 <div className="wnc-num">{item.num}</div>
                 <h3>{item.title}</h3>
                 <p>{item.desc}</p>
                 <span className="wnc-stat">{item.stat}</span>
-              </div>
+              </a>
             ))}
           </div>
         </div>

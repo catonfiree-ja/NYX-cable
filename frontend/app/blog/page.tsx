@@ -1,4 +1,5 @@
 import { getBlogPosts } from '@/lib/queries'
+import { urlFor as sanityUrlFor } from '@/lib/sanity'
 
 const styles = `
   .blog-hero { background: linear-gradient(135deg, var(--color-primary-dark), var(--color-primary)); color: var(--color-white); padding: var(--spacing-3xl) 0; text-align: center; }
@@ -7,8 +8,10 @@ const styles = `
   .blog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: var(--spacing-xl); padding: var(--spacing-3xl) 0; }
   .blog-card { border-radius: var(--radius-xl); overflow: hidden; background: var(--color-white); border: 1px solid var(--color-gray-200); transition: all var(--transition-normal); text-decoration: none; color: inherit; display: block; }
   .blog-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-xl); border-color: var(--color-secondary); color: inherit; }
-  .blog-card-image { height: 200px; background: linear-gradient(135deg, var(--color-gray-100), var(--color-gray-200)); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; font-weight: 800; color: var(--color-primary); letter-spacing: 1px; position: relative; }
-  .blog-card-image .date-badge { position: absolute; top: 12px; right: 12px; background: var(--color-primary); color: var(--color-white); font-size: var(--font-size-xs); padding: 4px 12px; border-radius: var(--radius-md); }
+  .blog-card-image { height: 200px; background: linear-gradient(135deg, var(--color-gray-100), var(--color-gray-200)); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; font-weight: 800; color: var(--color-primary); letter-spacing: 1px; position: relative; overflow: hidden; }
+  .blog-card-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
+  .blog-card:hover .blog-card-image img { transform: scale(1.05); }
+  .blog-card-image .date-badge { position: absolute; top: 12px; right: 12px; background: var(--color-primary); color: var(--color-white); font-size: var(--font-size-xs); padding: 4px 12px; border-radius: var(--radius-md); z-index: 1; }
   .blog-card-body { padding: var(--spacing-lg); }
   .blog-card-body .tags { display: flex; gap: var(--spacing-xs); margin-bottom: var(--spacing-sm); flex-wrap: wrap; }
   .blog-card-body .tag { font-size: var(--font-size-xs); background: rgba(0,153,255,0.08); color: var(--color-secondary); padding: 2px 8px; border-radius: var(--radius-full); font-weight: 500; }
@@ -56,7 +59,15 @@ export default async function BlogPage() {
             {posts.map((post: any) => (
               <a key={post._id} href={`/blog/${post.slug?.current}`} className="blog-card">
                 <div className="blog-card-image">
-                  BLOG
+                  {post.featuredImage ? (
+                    <img
+                      src={sanityUrlFor(post.featuredImage).width(700).height(400).fit('crop').auto('format').url()}
+                      alt={post.title}
+                      loading="lazy"
+                    />
+                  ) : (
+                    'BLOG'
+                  )}
                   <span className="date-badge">{formatDate(post.publishedAt)}</span>
                 </div>
                 <div className="blog-card-body">
@@ -81,6 +92,18 @@ export default async function BlogPage() {
           </div>
         )}
       </div>
+
+      {/* CTA ท้ายหน้า Blog — ป้องกัน Dead End */}
+      <section className="cta-section">
+        <div className="container">
+          <h2>สนใจสายไฟสำหรับโรงงาน?</h2>
+          <p>ดูแคตตาล็อกสินค้ากว่า 50 รุ่น หรือปรึกษาทีมวิศวกรเลย</p>
+          <div className="cta-actions">
+            <a href="/products" className="btn btn-accent btn-lg">ดูสินค้าทั้งหมด →</a>
+            <a href="/contact" className="btn btn-primary btn-lg">ติดต่อเรา</a>
+          </div>
+        </div>
+      </section>
     </>
   )
 }
