@@ -224,9 +224,9 @@ export default async function HomePage() {
     .marquee-row:nth-child(4) { animation-duration: 40s; }
     .marquee-row:nth-child(5) { animation-duration: 34s; }
     .marquee-logos { display: flex; gap: 16px; padding: 0 8px; }
-    .client-logo { background: #fff; border: 1px solid #e2e8f0; border-radius: 10px; padding: 8px 14px; transition: all 0.3s cubic-bezier(0.4,0,0.2,1); width: 140px; display: flex; align-items: center; justify-content: center; height: 62px; flex-shrink: 0; }
+    .client-logo { background: #fff; border: 1px solid #e2e8f0; border-radius: 10px; padding: 10px 16px; transition: all 0.3s cubic-bezier(0.4,0,0.2,1); width: 160px; display: flex; align-items: center; justify-content: center; height: 72px; flex-shrink: 0; }
     .client-logo:hover { border-color: #003366; box-shadow: 0 4px 12px rgba(0,51,102,0.08); transform: translateY(-2px); }
-    .client-logo img { max-height: 38px; max-width: 110px; object-fit: contain; filter: grayscale(100%) opacity(0.55); transition: filter 0.3s; }
+    .client-logo img { width: 100%; height: 100%; object-fit: contain; filter: grayscale(100%) opacity(0.6); transition: filter 0.3s; padding: 4px; }
     .client-logo:hover img { filter: grayscale(0%) opacity(1); }
 
     /* ─── Product Cards ─── */
