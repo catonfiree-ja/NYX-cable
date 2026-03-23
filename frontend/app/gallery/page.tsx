@@ -90,7 +90,7 @@ const styles = `
   .lightbox-nav { all: unset; cursor: pointer; font-size: 2.5rem; color: #fff; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; border-radius: 50%; transition: background 0.2s; flex-shrink: 0; }
   .lightbox-nav:hover:not(:disabled) { background: rgba(255,255,255,0.15); }
   .lightbox-nav:disabled { opacity: 0.25; cursor: default; }
-  .lightbox-thumbs { display: flex; gap: 6px; padding: 12px 0; overflow-x: auto; justify-content: center; flex-wrap: wrap; }
+  .lightbox-thumbs { display: flex; gap: 6px; padding: 8px 0; overflow-x: auto; max-height: 80px; flex-wrap: nowrap; }
   .lightbox-thumb { all: unset; cursor: pointer; border: 2px solid transparent; border-radius: 6px; overflow: hidden; opacity: 0.5; transition: all 0.2s; }
   .lightbox-thumb.active { border-color: var(--color-secondary, #f0c040); opacity: 1; }
   .lightbox-thumb:hover { opacity: 0.8; }
