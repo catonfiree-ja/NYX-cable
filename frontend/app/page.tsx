@@ -602,15 +602,9 @@ export default async function HomePage() {
       {/* ─── CTA Buttons (like original site) ─── */}
       <section style={{ padding: '20px 0 60px', background: '#fff' }}>
         <div className="container" style={{ display: 'flex', gap: 16, justifyContent: 'center', flexWrap: 'wrap' }}>
-          <a href="tel:021115588" style={{ display: 'inline-flex', alignItems: 'center', gap: 12, padding: '18px 40px', borderRadius: 50, background: 'linear-gradient(180deg, #5ba3e6, #2b6cb0)', color: '#fff', fontWeight: 800, fontSize: '1.2rem', textDecoration: 'none', boxShadow: '0 4px 12px rgba(43,108,176,0.3)', transition: 'transform 0.2s' }}>
-            📞 Call หาเราทันที
-          </a>
-          <a href="https://lin.ee/NYXcable" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: 12, padding: '18px 40px', borderRadius: 50, background: 'linear-gradient(180deg, #06c755, #04a845)', color: '#fff', fontWeight: 800, fontSize: '1.2rem', textDecoration: 'none', boxShadow: '0 4px 12px rgba(6,199,85,0.3)', transition: 'transform 0.2s' }}>
-            💬 LINE ปรึกษาฟรี
-          </a>
-          <a href="mailto:sales@nyxcable.com" style={{ display: 'inline-flex', alignItems: 'center', gap: 12, padding: '18px 40px', borderRadius: 50, background: 'linear-gradient(180deg, #f0c040, #d4a017)', color: '#fff', fontWeight: 800, fontSize: '1.2rem', textDecoration: 'none', boxShadow: '0 4px 12px rgba(212,160,23,0.3)', transition: 'transform 0.2s' }}>
-            ✉️ Email สอบถาม
-          </a>
+          <a href="tel:021115588" className="btn btn-primary btn-lg">📞 Call หาเราทันที</a>
+          <a href="https://page.line.me/ubb9405u" className="btn btn-accent btn-lg" target="_blank" rel="noopener noreferrer">💬 LINE ปรึกษาฟรี</a>
+          <a href="mailto:sales@nyxcable.com" className="btn btn-secondary btn-lg">✉️ Email สอบถาม</a>
         </div>
       </section>
 
