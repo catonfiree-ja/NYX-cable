@@ -65,6 +65,14 @@ export default defineConfig({
                           .schemaType('contactPage')
                           .documentId('contactPage')
                       ),
+                    S.listItem()
+                      .id('privacyPage')
+                      .title('🔒 นโยบายความเป็นส่วนตัว')
+                      .child(
+                        S.document()
+                          .schemaType('privacyPage')
+                          .documentId('privacyPage')
+                      ),
                   ])
               ),
 
@@ -118,7 +126,7 @@ export default defineConfig({
     templates: (templates) =>
       templates.filter(
         ({ schemaType }) =>
-          !['siteSettings', 'homePage', 'aboutPage', 'contactPage'].includes(schemaType)
+          !['siteSettings', 'homePage', 'aboutPage', 'contactPage', 'privacyPage'].includes(schemaType)
       ),
   },
 })

@@ -375,3 +375,17 @@ export async function getGlobalSeo() {
     }
   `)
 }
+
+export async function getPrivacyPage() {
+  return client.fetch(`
+    *[_type == "privacyPage"][0] {
+      heading,
+      subheading,
+      body,
+      lastUpdated,
+      metaTitle,
+      metaDescription
+    }
+  `)
+}
+
