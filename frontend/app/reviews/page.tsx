@@ -3,6 +3,11 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'รีวิวจากลูกค้า | NYX Cable',
   description: 'ลูกค้ากว่า 50 องค์กรไว้วางใจสายไฟ NYX Cable คะแนนเฉลี่ย 4.8/5 ดาว',
+  openGraph: {
+    title: 'รีวิวจากลูกค้า | NYX Cable',
+    description: 'รีวิวจริงจากวิศวกรและช่างไฟฟ้าที่ใช้สายไฟ NYX Cable คะแนนเฉลี่ย 4.8/5 จาก 50+ องค์กร',
+    images: [{ url: '/images/gallery/profile.webp', width: 1200, height: 630, alt: 'NYX Cable รีวิวจากลูกค้า' }],
+  },
 }
 
 const styles = `
