@@ -32,6 +32,44 @@ export default defineConfig({
 
             S.divider(),
 
+            // Page Singletons
+            S.listItem()
+              .id('pages')
+              .title('📄 หน้าเว็บ (Singleton)')
+              .child(
+                S.list()
+                  .id('pagesList')
+                  .title('หน้าเว็บ')
+                  .items([
+                    S.listItem()
+                      .id('homePage')
+                      .title('🏠 หน้าแรก')
+                      .child(
+                        S.document()
+                          .schemaType('homePage')
+                          .documentId('homePage')
+                      ),
+                    S.listItem()
+                      .id('aboutPage')
+                      .title('🏢 เกี่ยวกับเรา')
+                      .child(
+                        S.document()
+                          .schemaType('aboutPage')
+                          .documentId('aboutPage')
+                      ),
+                    S.listItem()
+                      .id('contactPage')
+                      .title('📞 ติดต่อเรา')
+                      .child(
+                        S.document()
+                          .schemaType('contactPage')
+                          .documentId('contactPage')
+                      ),
+                  ])
+              ),
+
+            S.divider(),
+
             // Products
             S.listItem()
               .id('products')
@@ -76,5 +114,12 @@ export default defineConfig({
 
   schema: {
     types: schemaTypes,
+    // Prevent creating new documents for singleton types
+    templates: (templates) =>
+      templates.filter(
+        ({ schemaType }) =>
+          !['siteSettings', 'homePage', 'aboutPage', 'contactPage'].includes(schemaType)
+      ),
   },
 })
+

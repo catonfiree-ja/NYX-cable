@@ -1,6 +1,12 @@
+import type { Metadata } from 'next'
 import { getGalleryAlbums } from '@/lib/queries'
 import GalleryLightbox from '@/components/GalleryLightbox'
 import LocalAlbumLightbox from '@/components/LocalAlbumLightbox'
+
+export const metadata: Metadata = {
+  title: 'แกลเลอรี่ ผลงาน & การจัดส่ง | NYX Cable',
+  description: 'ภาพผลงานจริงจากลูกค้าและการจัดส่งสายไฟ NYX Cable ทั่วประเทศ รูปภาพกว่า 50+ ภาพ',
+}
 
 const DELIVERY_2026_PHOTOS = [
   '/delivery-2026/delivery-2026-00.jpg',
