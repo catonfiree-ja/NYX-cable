@@ -58,6 +58,18 @@ const styles = `
   .quick-quote-code { font-size: 0.72rem; opacity: 0.6; }
   .quick-quote-actions { display: flex; gap: 8px; }
 
+  .cta-btn-call { display: inline-flex; align-items: center; gap: 8px; padding: 14px 36px; background: linear-gradient(135deg, #1a3c6e, #2563eb); color: #fff; border-radius: 50px; font-weight: 700; font-size: 1rem; text-decoration: none; box-shadow: 0 4px 14px rgba(37,99,235,0.25); transition: all 0.25s; }
+  .cta-btn-call:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(37,99,235,0.35); color: #fff; }
+  .cta-btn-line { display: inline-flex; align-items: center; gap: 8px; padding: 14px 32px; background: linear-gradient(135deg, #06c755, #00b843); color: #fff; border-radius: 50px; font-weight: 700; font-size: 0.95rem; text-decoration: none; box-shadow: 0 4px 14px rgba(6,199,85,0.25); transition: all 0.25s; }
+  .cta-btn-line:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(6,199,85,0.35); color: #fff; }
+  .parent-spec-card { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 20px; margin-top: 20px; }
+  .parent-spec-card .spec-card-title { font-size: 0.9rem; font-weight: 700; color: #003366; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 2px solid #f0a500; display: inline-block; }
+  .parent-spec-card .spec-list { list-style: none; margin: 0; }
+  .parent-spec-card .spec-list li { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #e8edf3; font-size: 0.85rem; }
+  .parent-spec-card .spec-list li:last-child { border-bottom: none; }
+  .parent-spec-card .spec-list .label { color: #64748b; }
+  .parent-spec-card .spec-list .value { font-weight: 600; color: #003366; }
+
   @media (max-width: 768px) {
     .variant-detail { grid-template-columns: 1fr; gap: 20px; }
     .variant-image-box { min-height: 150px; font-size: 1.2rem; }
@@ -67,6 +79,11 @@ const styles = `
     .quick-quote-inner { flex-direction: column; gap: 8px; }
     .quick-quote-actions { width: 100%; }
     .quick-quote-actions .btn { flex: 1; text-align: center; font-size: 0.78rem; }
+    .cta-btn-call, .cta-btn-line { width: 100%; justify-content: center; padding: 12px 20px; font-size: 0.9rem; }
+  }
+  @media (max-width: 480px) {
+    .variant-specs { grid-template-columns: 1fr; }
+    .spec-card .spec-value { font-size: 1rem; }
   }
 `
 
@@ -148,17 +165,20 @@ export default async function VariantDetailPage({ params }: { params: Promise<{ 
             )}
 
             {/* Parent product specs */}
-            {parent && (
-              <ul className="spec-list" style={{ marginTop: '16px' }}>
-                {parent.voltageRating && <li><span className="label">แรงดันใช้งาน</span><span className="value">{parent.voltageRating}</span></li>}
-                {parent.temperatureRange && <li><span className="label">ช่วงอุณหภูมิ</span><span className="value">{parent.temperatureRange}</span></li>}
-                {parent.standards && <li><span className="label">มาตรฐาน</span><span className="value">{parent.standards}</span></li>}
-              </ul>
+            {parent && (parent.voltageRating || parent.temperatureRange || parent.standards) && (
+              <div className="parent-spec-card">
+                <div className="spec-card-title">ข้อมูลจากสินค้าหลัก ({parent.title})</div>
+                <ul className="spec-list">
+                  {parent.voltageRating && <li><span className="label">แรงดันใช้งาน</span><span className="value">{parent.voltageRating}</span></li>}
+                  {parent.temperatureRange && <li><span className="label">ช่วงอุณหภูมิ</span><span className="value">{parent.temperatureRange}</span></li>}
+                  {parent.standards && <li><span className="label">มาตรฐาน</span><span className="value">{parent.standards}</span></li>}
+                </ul>
+              </div>
             )}
 
             <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', marginTop: '20px' }}>
-              <a href="tel:021115588" style={{ display: 'inline-flex', alignItems: 'center', padding: '14px 36px', background: 'linear-gradient(135deg, #1a3c6e, #2563eb)', color: '#fff', borderRadius: '50px', fontWeight: 700, fontSize: '1rem', textDecoration: 'none', boxShadow: '0 4px 14px rgba(37,99,235,0.25)' }}>สอบถามราคา</a>
-              <a href={`https://page.line.me/ubb9405u?text=${lineText}`} target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', padding: '14px 32px', background: 'linear-gradient(135deg, #06c755, #00b843)', color: '#fff', borderRadius: '50px', fontWeight: 700, fontSize: '0.95rem', textDecoration: 'none', boxShadow: '0 4px 14px rgba(6,199,85,0.25)' }}>แอด LINE</a>
+              <a href="tel:021115588" className="cta-btn-call">สอบถามราคา</a>
+              <a href={`https://page.line.me/ubb9405u?text=${lineText}`} target="_blank" rel="noopener noreferrer" className="cta-btn-line">แอด LINE</a>
             </div>
           </div>
         </div>
