@@ -703,7 +703,7 @@ export default async function HomePage() {
                 <a key={cat.slug} href={`/products/${cat.slug}`} className="category-card">
                   <div className="category-card-image">
                     {catProduct?.image ? (
-                      <Image src={sanityUrlFor(catProduct.image).width(400).height(280).url()} alt={cat.name} width={400} height={280} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                      <Image src={sanityUrlFor(catProduct.image).width(400).height(280).url()} alt={cat.name} width={400} height={280} style={{ width: '100%', height: '100%', objectFit: 'contain', padding: '8px' }} />
                     ) : (
                       cat.abbr
                     )}
