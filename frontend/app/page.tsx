@@ -695,16 +695,27 @@ export default async function HomePage() {
           </div>
 
           <div className="category-grid">
-            {categories.map((cat) => (
-              <a key={cat.slug} href={`/products/${cat.slug}`} className="category-card">
-                <div className="category-card-image">{cat.abbr}</div>
-                <div className="category-card-body">
-                  <h3>{cat.name}</h3>
-                  <p>{cat.desc}</p>
-                  <span className="product-count">{cat.count} รุ่น</span>
-                </div>
-              </a>
-            ))}
+            {categories.map((cat) => {
+              const catProduct = products.find((p: any) =>
+                p.categories?.some((c: any) => c.slug?.current === cat.slug) && p.image
+              );
+              return (
+                <a key={cat.slug} href={`/products/${cat.slug}`} className="category-card">
+                  <div className="category-card-image">
+                    {catProduct?.image ? (
+                      <Image src={sanityUrlFor(catProduct.image).width(400).height(280).url()} alt={cat.name} width={400} height={280} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                    ) : (
+                      cat.abbr
+                    )}
+                  </div>
+                  <div className="category-card-body">
+                    <h3>{cat.name}</h3>
+                    <p>{cat.desc}</p>
+                    <span className="product-count">{cat.count} รุ่น</span>
+                  </div>
+                </a>
+              );
+            })}
           </div>
         </div>
       </section>
