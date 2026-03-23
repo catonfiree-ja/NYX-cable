@@ -325,17 +325,6 @@ export default function AboutPage() {
         </div>
       </div>
 
-      {/* ─── CTA ─── */}
-      <section className="about-cta">
-        <div className="container">
-          <h2>พร้อมเลือกสายไฟคุณภาพยุโรป?</h2>
-          <p>สำรวจแคตตาล็อกสินค้ากว่า 150 รุ่น หรือปรึกษาทีมวิศวกรของเรา</p>
-          <div className="about-cta-buttons">
-            <a href="/products" className="about-cta-btn products">🔌 ดูสินค้าทั้งหมด</a>
-            <a href="/contact" className="about-cta-btn contact">📞 ติดต่อเรา</a>
-          </div>
-        </div>
-      </section>
     </>
   )
 }
