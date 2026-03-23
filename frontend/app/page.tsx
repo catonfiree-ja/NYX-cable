@@ -473,6 +473,25 @@ export default async function HomePage() {
       /* Delivery */
       .delivery-grid { grid-template-columns: 1fr; gap: 12px; }
       .delivery-section h2 { font-size: 1.3rem; }
+      .delivery-photos { grid-template-columns: repeat(2, 1fr) !important; gap: 8px; margin-top: 20px; }
+      .delivery-card { padding: 18px 14px; }
+      .delivery-card .dc-num { width: 40px; height: 40px; font-size: 1rem; }
+      .delivery-card h4 { font-size: 0.85rem; }
+      .delivery-card p { font-size: 0.72rem; }
+
+      /* Marquee logos smaller on mobile */
+      .client-logo { width: 110px; height: 50px; border-radius: 6px; }
+      .marquee-logos { gap: 8px; }
+
+      /* Comparison section */
+      .comparison-section { padding: 36px 0 !important; }
+      .comparison-section h2 { font-size: 1.3rem !important; }
+      .comparison-table { font-size: 0.8rem !important; }
+      .comparison-table th, .comparison-table td { padding: 8px 12px !important; }
+
+      /* Delivery info section */
+      .delivery-info-section { padding: 36px 0 !important; }
+      .delivery-info-section h2 { font-size: 1.3rem !important; }
     }
 
     @media (min-width: 769px) and (max-width: 1024px) {
@@ -482,6 +501,28 @@ export default async function HomePage() {
       .product-list-items { grid-template-columns: repeat(2, 1fr); }
       .why-nyx-grid { grid-template-columns: repeat(2, 1fr); }
       .articles-grid { grid-template-columns: repeat(2, 1fr); }
+      .delivery-photos { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    @media (max-width: 480px) {
+      .hero-v2 h1 { font-size: 1.2rem; }
+      .hero-v2 .subtitle { font-size: 0.8rem; }
+      .delivery-photos { grid-template-columns: 1fr !important; }
+      .why-nyx-grid { grid-template-columns: 1fr !important; }
+      .product-list-item .pli-model { font-size: 0.78rem; }
+      .product-list-item .pli-name { font-size: 0.72rem; }
+      .faq-item h3 { font-size: 0.82rem; }
+      .faq-item p { font-size: 0.75rem; }
+
+      /* Comparison & delivery-info on extra-small */
+      .comparison-section { padding: 28px 0 !important; }
+      .comparison-section h2 { font-size: 1.15rem !important; }
+      .comparison-table { font-size: 0.75rem !important; min-width: 360px !important; }
+      .comparison-table th, .comparison-table td { padding: 8px 10px !important; }
+      .delivery-info-section { padding: 28px 0 !important; }
+      .delivery-info-section h2 { font-size: 1.15rem !important; }
+      .delivery-info-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 10px !important; }
+      .delivery-info-grid > div { padding: 16px !important; }
     }
 
   `
@@ -792,12 +833,12 @@ export default async function HomePage() {
       </section>
 
       {/* ─── เปรียบเทียบ NYX Cable vs สายทั่วไป ─── */}
-      <section style={{ padding: '60px 0', background: 'linear-gradient(180deg, #f0f7ff, #fff)' }}>
+      <section className="comparison-section" style={{ padding: '60px 0', background: 'linear-gradient(180deg, #f0f7ff, #fff)' }}>
         <div className="container">
           <h2 style={{ textAlign: 'center', fontSize: '1.6rem', fontWeight: 800, color: '#003366', marginBottom: 8 }}>เปรียบเทียบ NYX Cable กับสายไฟทั่วไป</h2>
           <p className="section-sub" style={{ textAlign: 'center', marginBottom: 32 }}>ดูข้อแตกต่างที่ชัดเจน ทำไมโรงงานชั้นนำเลือก NYX Cable</p>
-          <div style={{ overflowX: 'auto' }}>
-            <table style={{ width: '100%', maxWidth: 800, margin: '0 auto', borderCollapse: 'collapse', fontSize: '0.9rem', borderRadius: 12, overflow: 'hidden', boxShadow: '0 2px 12px rgba(0,0,0,0.06)' }}>
+          <div style={{ overflowX: 'auto', WebkitOverflowScrolling: 'touch' }}>
+            <table className="comparison-table" style={{ width: '100%', maxWidth: 800, margin: '0 auto', borderCollapse: 'collapse', fontSize: '0.9rem', borderRadius: 12, overflow: 'hidden', boxShadow: '0 2px 12px rgba(0,0,0,0.06)', minWidth: 480 }}>
               <thead>
                 <tr>
                   <th style={{ background: '#003366', color: '#fff', padding: '12px 16px', textAlign: 'left', fontWeight: 600 }}>คุณสมบัติ</th>
@@ -831,11 +872,11 @@ export default async function HomePage() {
       </section>
 
       {/* ─── ภาพส่งสินค้าจริง ─── */}
-      <section style={{ padding: '60px 0', background: '#fff' }}>
+      <section className="delivery-info-section" style={{ padding: '60px 0', background: '#fff' }}>
         <div className="container">
           <h2 style={{ textAlign: 'center', fontSize: '1.6rem', fontWeight: 800, color: '#003366', marginBottom: 8 }}>ส่งสินค้าจริง ตรงเวลา ทั่วประเทศ</h2>
           <p className="section-sub" style={{ textAlign: 'center', marginBottom: 32 }}>ภาพจากการจัดส่งจริงถึงมือลูกค้าทั่วประเทศ</p>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: 16 }}>
+          <div className="delivery-info-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: 16 }}>
             {["ส่งด่วนจากโกดังบางนา", "สต็อกพร้อมส่งทุกขนาด", "บรรจุภัณฑ์แข็งแรง", "จัดส่งทั่วประเทศ"].map((label, i) => (
               <div key={i} style={{ background: 'linear-gradient(135deg, #f0f7ff, #e8f4fd)', borderRadius: 12, padding: 32, textAlign: 'center', border: '1px solid rgba(0,51,102,0.06)' }}>
                 <div style={{ fontSize: '2rem', marginBottom: 12 }}>{['🚚', '📦', '✅', '🇹🇭'][i]}</div>

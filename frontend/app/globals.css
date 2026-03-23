@@ -40,6 +40,27 @@
   box-shadow: 0 4px 16px rgba(240, 165, 0, 0.5);
 }
 
+@media (max-width: 768px) {
+  .corner-ribbon {
+    top: 12px;
+    right: -55px;
+    width: 180px;
+    padding: 5px 0;
+    font-size: 0.7rem;
+    letter-spacing: 1.5px;
+  }
+}
+
+@media (max-width: 480px) {
+  .corner-ribbon {
+    top: 8px;
+    right: -60px;
+    width: 170px;
+    padding: 4px 0;
+    font-size: 0.65rem;
+  }
+}
+
 /* ─── Accessibility ─── */
 .skip-nav {
   position: absolute;
@@ -1236,7 +1257,7 @@ a:hover {
 .prefooter-cta-sub {
   margin: 16px auto 0;
   font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.55);
+  color: #475569;
   font-weight: 500;
   letter-spacing: 0.3px;
 }
@@ -1348,6 +1369,25 @@ a:hover {
 
 .fab-top {
   background: linear-gradient(135deg, #374151, #1f2937);
+}
+
+@media (max-width: 768px) {
+  .floating-fab {
+    bottom: 16px;
+    right: 12px;
+    gap: 8px;
+  }
+
+  .fab-btn {
+    padding: 10px 14px;
+    font-size: 0.75rem;
+    gap: 6px;
+  }
+
+  .fab-btn svg {
+    width: 18px;
+    height: 18px;
+  }
 }
 
 /* ─── Header Logo with SVG ─── */
@@ -1603,5 +1643,26 @@ a:hover {
     display: none;
   }
 
-  /* Hide business hours on very small */
+  .services-grid {
+    gap: 20px !important;
+  }
+
+  /* Buttons full width */
+  .btn-lg {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.9rem;
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
+
+  /* Section headers smaller */
+  .section-header h2 {
+    font-size: 1.15rem;
+  }
+
+  /* Footer bottom wrap */
+  .footer-bottom span {
+    font-size: 0.75rem;
+  }
 }
