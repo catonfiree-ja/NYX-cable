@@ -162,17 +162,19 @@ export default function RootLayout({
               <div>
                 <h4>ติดต่อเรา</h4>
                 <div className="footer-contact-item">
-                  <span className="icon">Tel</span>
-                  <div>
-                    <div>02-111-5588</div>
-                  </div>
+                  <span className="icon">📞</span>
+                  <a href="tel:021115588" style={{ color: 'inherit', textDecoration: 'none' }}>02-111-5588</a>
                 </div>
                 <div className="footer-contact-item">
-                  <span className="icon">Mail</span>
-                  <span>sales@nyxcable.com</span>
+                  <span className="icon">✉️</span>
+                  <a href="mailto:sales@nyxcable.com" style={{ color: 'inherit', textDecoration: 'none' }}>sales@nyxcable.com</a>
                 </div>
                 <div className="footer-contact-item">
-                  <span className="icon">Loc</span>
+                  <span className="icon">💬</span>
+                  <a href="https://line.me/R/ti/p/@ubb9405u" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'none' }}>LINE: @nyxcable</a>
+                </div>
+                <div className="footer-contact-item">
+                  <span className="icon">📍</span>
                   <span>2098 หมู่ 1 ต.สำโรงเหนือ (ซ.สุขุมวิท 72) อ.เมือง สมุทรปราการ 10270</span>
                 </div>
               </div>
