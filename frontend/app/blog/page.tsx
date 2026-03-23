@@ -206,7 +206,10 @@ export default async function BlogPage() {
                     {getPostImage(post) ? (
                       <img src={getPostImage(post)!} alt={post.title} loading="lazy" />
                     ) : (
-                      'BLOG'
+                      <div style={{ width: '100%', height: '100%', background: 'linear-gradient(135deg, #003366, #0066cc)', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', color: '#fff', gap: 4 }}>
+                        <span style={{ fontSize: '1.5rem' }}>📖</span>
+                        <span style={{ fontSize: '0.75rem', fontWeight: 600, opacity: 0.8 }}>NYX Cable Blog</span>
+                      </div>
                     )}
                     <span className="date-badge">{formatDate(post.publishedAt)}</span>
                   </div>

@@ -29,12 +29,31 @@ export const metadata: Metadata = {
     "สายไฟคุณภาพยุโรป",
     "สาย VFD",
     "สายทนความร้อน",
+    "สายชีลด์",
+    "สายเครน",
+    "DIN VDE",
   ],
+  robots: {
+    index: true,
+    follow: true,
+  },
+  alternates: {
+    canonical: "https://www.nyxcable.com",
+    languages: { "th-TH": "https://www.nyxcable.com" },
+  },
   openGraph: {
     type: "website",
     locale: "th_TH",
     siteName: "NYX Cable",
-    images: [{ url: "/api/og", width: 1200, height: 630 }],
+    title: "NYX Cable — สายไฟอุตสาหกรรมคุณภาพยุโรป มาตรฐาน DIN VDE",
+    description: "ผู้นำด้านสายไฟอุตสาหกรรม สายคอนโทรล สาย VFD สายทนความร้อน สต็อกพร้อมส่ง ปรึกษาวิศวกรฟรี",
+    images: [{ url: "/images/gallery/profile.webp", width: 1200, height: 630, alt: "NYX Cable สำนักงานใหญ่" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "NYX Cable — สายไฟอุตสาหกรรมคุณภาพยุโรป",
+    description: "ผู้นำด้านสายไฟอุตสาหกรรม สต็อกพร้อมส่ง ปรึกษาวิศวกรฟรี โทร 02-111-5588",
+    images: ["/images/gallery/profile.webp"],
   },
 };
 

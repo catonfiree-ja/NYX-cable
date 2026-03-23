@@ -176,24 +176,39 @@ export default function ContactPage() {
     setError('')
 
     const formData = new FormData(e.currentTarget)
-    formData.append('access_key', 'YOUR_WEB3FORMS_KEY')
+    const name = formData.get('name') as string
+    const company = formData.get('company') as string
+    const phone = formData.get('phone') as string
+    const email = formData.get('email') as string
+    const product = formData.get('product') as string
+    const message = formData.get('message') as string
 
-    try {
-      const res = await fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
-        body: formData,
-      })
-      const data = await res.json()
-      if (data.success) {
-        setSubmitted(true)
-      } else {
-        setError('เกิดข้อผิดพลาด กรุณาลองใหม่อีกครั้ง')
-      }
-    } catch {
-      setError('ไม่สามารถส่งข้อความได้ กรุณาโทรหาเราที่ 02-111-5588')
-    } finally {
-      setLoading(false)
+    // Try Web3Forms if key is set, otherwise use mailto fallback
+    const web3Key = process.env.NEXT_PUBLIC_WEB3FORMS_KEY
+    if (web3Key && web3Key !== 'YOUR_WEB3FORMS_KEY') {
+      try {
+        formData.append('access_key', web3Key)
+        const res = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          body: formData,
+        })
+        const data = await res.json()
+        if (data.success) {
+          setSubmitted(true)
+          setLoading(false)
+          return
+        }
+      } catch { /* fallback to mailto */ }
     }
+
+    // Mailto fallback — always works
+    const subject = encodeURIComponent(`[เว็บไซต์] สอบถามจาก ${name}`)
+    const body = encodeURIComponent(
+      `ชื่อ: ${name}\nบริษัท: ${company || '-'}\nเบอร์โทร: ${phone}\nอีเมล: ${email || '-'}\nสินค้าที่สนใจ: ${product || '-'}\n\nรายละเอียด:\n${message}`
+    )
+    window.open(`mailto:sales@nyxcable.com?subject=${subject}&body=${body}`, '_self')
+    setSubmitted(true)
+    setLoading(false)
   }
 
   return (
