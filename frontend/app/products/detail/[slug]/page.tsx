@@ -100,10 +100,13 @@ const styles = `
     .quick-quote-actions { width: 100%; }
     .quick-quote-actions .btn { flex: 1; text-align: center; padding: 10px 12px; font-size: 0.78rem; }
     .blogs-grid { grid-template-columns: 1fr !important; gap: 12px; }
-    .op-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 12px; }
-    .op-card { padding: 16px 12px; min-height: auto; }
-    .op-card .op-name { font-size: 0.82rem; }
-    .op-card .op-code { font-size: 0.65rem; }
+    .blog-card-link { padding: 14px; }
+    .blog-card-link .bc-title { font-size: 0.85rem; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+    .blog-card-link .bc-excerpt { font-size: 0.75rem; -webkit-line-clamp: 2; }
+    .op-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 10px; }
+    .op-card { padding: 14px 10px; min-height: auto; }
+    .op-card .op-name { font-size: 0.75rem; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+    .op-card .op-code { font-size: 0.6rem; margin-bottom: 4px; }
     .related-grid { grid-template-columns: 1fr !important; }
     .product-info h1 { font-size: 1.3rem; }
     .product-actions { flex-direction: column; }
