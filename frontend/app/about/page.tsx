@@ -292,8 +292,7 @@ export default async function AboutPage() {
             </div>
           </div>
           <div className="about-image-box">
-            <div className="logo-display">NYX CABLE</div>
-            <div className="tagline">European Standard Industrial Cables</div>
+            <img src="/images/gallery/profile.webp" alt="สำนักงาน NYX Cable บางนา" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '20px' }} />
             <div className="exp-badge">
               <div className="big">10+</div>
               <div className="small">Years Experience</div>
