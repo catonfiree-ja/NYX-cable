@@ -150,32 +150,10 @@ export default function RootLayout({
                 <ul className="footer-links">
                   <li><a href="/">หน้าแรก</a></li>
                   <li><a href="/products">ผลิตภัณฑ์</a></li>
-                  <li><a href="/blog">บทความ</a></li>
-                  <li><a href="/about">เกี่ยวกับเรา</a></li>
-                  <li><a href="/contact">ติดต่อเรา</a></li>
-                </ul>
-              </div>
-
-              <div>
-                <h4>หมวดหมู่สินค้า</h4>
-                <ul className="footer-links">
-                  <li><a href="/products/control-cable">สายคอนโทรล</a></li>
-                  <li><a href="/products/shielded-cable">สายชีลด์</a></li>
-                  <li><a href="/products/instrument-cable">สาย Instrument</a></li>
-                  <li><a href="/products/high-flex-cable">High-Flex Cable</a></li>
-                  <li><a href="/products/industrial-bus-cable">Industrial Bus</a></li>
-                  <li><a href="/products">ดูหมวดหมู่ทั้งหมด →</a></li>
-                </ul>
-              </div>
-
-              {/* Quick Links */}
-              <div>
-                <h4>ลิงก์ด่วน</h4>
-                <ul className="footer-links">
                   <li><a href="/blog">บทความ & คู่มือ</a></li>
+                  <li><a href="/gallery">แกลเลอรี่</a></li>
                   <li><a href="/about">เกี่ยวกับเรา</a></li>
                   <li><a href="/contact">ติดต่อเรา</a></li>
-                  <li><a href="/products">แคตตาล็อกสินค้า</a></li>
                   <li><a href="/privacy-policy">นโยบายความเป็นส่วนตัว</a></li>
                 </ul>
               </div>
