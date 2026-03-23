@@ -668,7 +668,7 @@ export default async function HomePage() {
               </div>
             ))}
           </div>
-          <div style={{ textAlign: 'center', marginTop: 20 }}>
+          <div style={{ textAlign: 'center', marginTop: 20, position: 'relative', zIndex: 1 }}>
             <a href="/gallery" className="btn btn-secondary">ดูภาพทั้งหมดในแกลเลอรี่ →</a>
           </div>
         </div>
