@@ -126,7 +126,7 @@ export default async function ProductsPage() {
           <div className="all-products-title">สินค้าทั้งหมด {products.length} รุ่น</div>
           <div className="all-products-sub">คลิกเพื่อดูรายละเอียดและสั่งซื้อ</div>
           <div className="products-grid">
-            {products.slice(0, 24).map((prod: any) => (
+            {products.map((prod: any) => (
               <a key={prod._id} href={`/products/detail/${prod.slug?.current}`} className="product-mini">
                 <h4>{prod.title}</h4>
                 {prod.productCode && <div className="code">{prod.productCode}</div>}
@@ -134,13 +134,6 @@ export default async function ProductsPage() {
               </a>
             ))}
           </div>
-          {products.length > 24 && (
-            <div style={{ textAlign: 'center', marginTop: 32 }}>
-              <a href="#all" className="btn btn-primary" onClick={undefined}>
-                ดูสินค้าทั้งหมด {products.length} รุ่น
-              </a>
-            </div>
-          )}
         </div>
       </section>
     </>
