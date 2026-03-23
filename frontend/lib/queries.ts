@@ -310,3 +310,68 @@ export async function getGalleryAlbums() {
     }
   `)
 }
+
+// ─── Page Queries ────────────────────────────────────────
+
+export async function getHomePage() {
+  return client.fetch(`
+    *[_type == "homePage"][0] {
+      whyNyxHeading,
+      whyNyxSubheading,
+      whyNyxItems,
+      deliveryHeading,
+      deliverySubheading,
+      ctaHeading,
+      ctaSubheading,
+      ctaButtons,
+      metaTitle,
+      metaDescription,
+      ogImage
+    }
+  `)
+}
+
+export async function getAboutPage() {
+  return client.fetch(`
+    *[_type == "aboutPage"][0] {
+      heroHeading,
+      heroSubheading,
+      heroBadges,
+      storyHeading,
+      storyContent,
+      storyImage,
+      stats,
+      visionHeading,
+      visionContent,
+      whyNyxHeading,
+      whyNyxItems,
+      certificates,
+      metaTitle,
+      metaDescription
+    }
+  `)
+}
+
+export async function getContactPage() {
+  return client.fetch(`
+    *[_type == "contactPage"][0] {
+      heroHeading,
+      heroSubheading,
+      businessHours,
+      googleMapsEmbed,
+      additionalInfo,
+      metaTitle,
+      metaDescription
+    }
+  `)
+}
+
+export async function getGlobalSeo() {
+  return client.fetch(`
+    *[_type == "siteSettings"][0] {
+      seoTitle,
+      seoDescription,
+      ogImage
+    }
+  `)
+}
