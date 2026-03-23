@@ -1,6 +1,8 @@
 import { getVariant, getVariants } from '@/lib/queries'
+import { urlFor } from '@/lib/sanity'
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
+import Image from 'next/image'
 import SiblingVariants from './SiblingVariants'
 
 // ─── Static Params for SSG ───
@@ -28,7 +30,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 const styles = `
   .variant-hero { background: linear-gradient(135deg, #f8fbff, #eef4fb); padding: 16px 0; border-bottom: 1px solid #e2e8f0; }
   .variant-detail { display: grid; grid-template-columns: 300px 1fr; gap: 40px; padding: 32px 0; }
-  .variant-image-box { background: linear-gradient(145deg, #f0f4f8, #e8edf3); border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; font-weight: 900; color: #003366; letter-spacing: 2px; min-height: 250px; }
+  .variant-image-box { background: linear-gradient(145deg, #f0f4f8, #e8edf3); border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; font-weight: 900; color: #003366; letter-spacing: 2px; min-height: 250px; overflow: hidden; position: relative; }
+  .variant-image-box img { width: 100%; height: 100%; object-fit: contain; max-height: 350px; }
   .variant-info h1 { font-size: 1.6rem; font-weight: 800; color: #1a1a2e; margin-bottom: 12px; }
   .variant-parent-link { display: inline-flex; align-items: center; gap: 6px; color: #3b82f6; font-size: 0.85rem; margin-bottom: 16px; text-decoration: none; clear: both; }
   .variant-parent-link:hover { text-decoration: underline; }
@@ -101,7 +104,18 @@ export default async function VariantDetailPage({ params }: { params: Promise<{ 
       <div className="container">
         <div className="variant-detail">
           <div className="variant-image-box">
-            {variant.model || parent?.productCode || 'NYX'}
+            {(variant.image || parent?.image) ? (
+              <Image
+                src={urlFor(variant.image || parent.image).width(600).height(450).url()}
+                alt={variant.title}
+                width={600}
+                height={450}
+                style={{ objectFit: 'contain', width: '100%', height: 'auto', maxHeight: '350px', padding: '12px' }}
+                priority
+              />
+            ) : (
+              variant.model || parent?.productCode || 'NYX'
+            )}
           </div>
           <div className="variant-info">
             <h1>{variant.title}</h1>
