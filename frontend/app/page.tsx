@@ -625,17 +625,17 @@ export default async function HomePage() {
           <h2 style={{ fontSize: '1.9rem', fontWeight: 800, color: '#003366', marginBottom: 40 }}>บริการของเรา</h2>
           <div className="services-grid" style={{ display: 'grid', gap: 32, maxWidth: 900, margin: '0 auto' }}>
             <div>
-              <div style={{ fontSize: '3.5rem', marginBottom: 16 }}>👨‍💼</div>
+              <div style={{ marginBottom: 16 }}><img src="/images/icons/service-consult.svg" alt="ให้คำแนะนำ" width="64" height="64" style={{ margin: '0 auto' }} /></div>
               <h3 style={{ fontSize: '1.3rem', fontWeight: 700, color: '#0099ff', marginBottom: 12 }}>ให้คำแนะนำ</h3>
               <p style={{ fontSize: '0.9rem', color: '#475569', lineHeight: 1.7 }}>จาก<strong style={{ color: '#0099ff' }}>ผู้เชี่ยวชาญ</strong>ด้าน<br />สายไฟฟ้าคอนโทรลโดยเฉพาะ</p>
             </div>
             <div>
-              <div style={{ fontSize: '3.5rem', marginBottom: 16 }}>🔧</div>
+              <div style={{ marginBottom: 16 }}><img src="/images/icons/service-solve.svg" alt="แก้ไขปัญหา" width="64" height="64" style={{ margin: '0 auto' }} /></div>
               <h3 style={{ fontSize: '1.3rem', fontWeight: 700, color: '#0099ff', marginBottom: 12 }}>แก้ไขปัญหา</h3>
               <p style={{ fontSize: '0.9rem', color: '#475569', lineHeight: 1.7 }}>แก้ไขปัญหา<strong style={{ color: '#0099ff' }}>ตรงจุด</strong><br />กับปรึกษามืออาชีพ</p>
             </div>
             <div>
-              <div style={{ fontSize: '3.5rem', marginBottom: 16 }}>🚛</div>
+              <div style={{ marginBottom: 16 }}><img src="/images/icons/service-delivery.svg" alt="จัดส่งสินค้า" width="64" height="64" style={{ margin: '0 auto' }} /></div>
               <h3 style={{ fontSize: '1.3rem', fontWeight: 700, color: '#0099ff', marginBottom: 12 }}>จัดส่งสินค้า</h3>
               <p style={{ fontSize: '0.9rem', color: '#475569', lineHeight: 1.7 }}>ถึงที่หมายอย่างเป็นระบบ<br />และ<strong style={{ color: '#0099ff' }}>ตรงต่อเวลา</strong></p>
             </div>
@@ -889,7 +889,15 @@ export default async function HomePage() {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 20, maxWidth: 1000, margin: '0 auto' }}>
             {["ส่งด่วนจากโกดังบางนา", "สต็อกพร้อมส่งทุกขนาด", "บรรจุภัณฑ์แข็งแรง", "จัดส่งทั่วประเทศ"].map((label, i) => (
               <div key={i} style={{ background: 'linear-gradient(135deg, #f0f7ff, #e8f4fd)', borderRadius: 12, padding: 32, textAlign: 'center', border: '1px solid rgba(0,51,102,0.06)' }}>
-                <div style={{ fontSize: '2rem', marginBottom: 12 }}>{['🚚', '📦', '✅', '🇹🇭'][i]}</div>
+                <div style={{ marginBottom: 12 }}>
+                  <img
+                    src={['/images/icons/warehouse-express.svg', '/images/icons/stock-ready.svg', '/images/icons/packaging-check.svg', '/images/icons/nationwide.svg'][i]}
+                    alt={label}
+                    width="56"
+                    height="56"
+                    style={{ margin: '0 auto' }}
+                  />
+                </div>
                 <h4 style={{ fontSize: '0.95rem', fontWeight: 700, color: '#003366', marginBottom: 4 }}>{label}</h4>
                 <p style={{ fontSize: '0.8rem', color: '#64748b', lineHeight: 1.5 }}>
                   {['ส่งด่วน 2 ชม. ในกรุงเทพฯ-ปริมณฑล', 'สินค้า 60+ รุ่น 15,000+ ขนาด', 'แพ็คอย่างดี ป้องกันความเสียหาย', 'ขนส่งผ่านพาร์ทเนอร์ชั้นนำ'][i]}

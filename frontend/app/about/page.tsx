@@ -328,17 +328,17 @@ export default async function AboutPage() {
         </div>
         <div className="values-grid">
           <div className="value-card">
-            <div className="value-icon-wrap quality">🛡️</div>
+            <div className="value-icon-wrap quality"><img src="/images/icons/value-quality.svg" alt="คุณภาพ" width="40" height="40" /></div>
             <h3>คุณภาพ</h3>
             <p>คัดสรรเฉพาะสายไฟที่ผ่านมาตรฐาน DIN VDE ระดับสูงสุดจากยุโรป</p>
           </div>
           <div className="value-card">
-            <div className="value-icon-wrap speed">⚡</div>
+            <div className="value-icon-wrap speed"><img src="/images/icons/value-speed.svg" alt="รวดเร็ว" width="40" height="40" /></div>
             <h3>รวดเร็ว</h3>
             <p>สต็อกพร้อมส่งทันที จากคลังบางนา ลดเวลาหยุดเครื่องจักรให้น้อยที่สุด</p>
           </div>
           <div className="value-card">
-            <div className="value-icon-wrap service">🤝</div>
+            <div className="value-icon-wrap service"><img src="/images/icons/value-service.svg" alt="บริการ" width="40" height="40" /></div>
             <h3>บริการ</h3>
             <p>ทีมวิศวกรพร้อมให้คำปรึกษาทุกโปรเจกต์ ตลอดอายุการใช้งาน</p>
           </div>
