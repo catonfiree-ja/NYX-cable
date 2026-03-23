@@ -996,112 +996,123 @@ a:hover {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* ─── Pre-Footer CTA Buttons (Premium Compact) ─── */
+/* ─── Pre-Footer CTA — Original nyxcable.com Style ─── */
 .prefooter-cta {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-  max-width: 960px;
+  padding: 32px 24px 20px;
+  text-align: center;
+}
+
+.prefooter-cta-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  max-width: 1000px;
   margin: 0 auto;
-  padding: 40px 24px;
 }
 
 .cta-big {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 14px;
-  padding: 20px 24px;
+  gap: 16px;
+  padding: 22px 32px;
   text-decoration: none;
   color: var(--color-white);
-  transition: all 0.35s cubic-bezier(0.4,0,0.2,1);
-  min-height: 72px;
+  transition: all 0.3s ease;
+  border-radius: 14px;
+  flex: 1;
+  max-width: 310px;
   position: relative;
   overflow: hidden;
-  border-radius: 16px;
-  box-shadow: 0 6px 24px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.25);
 }
 .cta-big::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0) 50%);
-  transition: background 0.35s;
+  background: linear-gradient(180deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0) 60%);
   pointer-events: none;
-}
-.cta-big:hover::before {
-  background: linear-gradient(180deg, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0.04) 60%);
 }
 .cta-big:hover {
   color: #fff;
-  transform: translateY(-4px);
-  box-shadow: 0 12px 36px rgba(0,0,0,0.3);
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 8px 28px rgba(0,0,0,0.35);
 }
 
 .cta-big-icon {
-  width: 40px;
-  height: 40px;
+  width: 52px;
+  height: 52px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 12px;
-  background: rgba(255,255,255,0.18);
-  font-size: 1.3rem;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.2);
+  border: 2px solid rgba(255,255,255,0.3);
   flex-shrink: 0;
-  backdrop-filter: blur(4px);
-  border: 1px solid rgba(255,255,255,0.15);
+  color: #fff;
+}
+.cta-big-icon svg {
+  width: 26px;
+  height: 26px;
 }
 
 .cta-big-text {
   display: flex;
   flex-direction: column;
-  gap: 1px;
+  gap: 2px;
+  text-align: left;
 }
 
 .cta-big-text strong {
-  font-size: 0.95rem;
+  font-size: 1.15rem;
   font-weight: 800;
-  letter-spacing: 0.3px;
-}
-
-.cta-big-text small {
-  font-size: var(--font-size-xs);
-  opacity: 0.65;
+  letter-spacing: 0.5px;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.2);
 }
 
 .cta-blink-text {
-  animation: ctaBlink 1s ease-in-out infinite !important;
-  opacity: 1 !important;
-  font-weight: 700;
-  font-size: 0.8rem !important;
-  text-shadow: 0 1px 4px rgba(0,0,0,0.3);
+  animation: ctaBlink 0.8s ease-in-out infinite;
+  font-weight: 800;
+  font-size: 1.1rem;
+  color: #ffe100;
+  text-shadow: 0 1px 6px rgba(0,0,0,0.4);
 }
 
 .cta-call {
-  background: linear-gradient(145deg, #c0392b, #e74c3c);
+  background: linear-gradient(145deg, #1565c0, #1e88e5, #42a5f5);
 }
 
 .cta-line-big {
-  background: linear-gradient(145deg, #04a845, #06c755);
+  background: linear-gradient(145deg, #04a845, #06c755, #3dd67a);
 }
 
 .cta-email {
-  background: linear-gradient(145deg, #d48900, #f0a500);
+  background: linear-gradient(145deg, #d48900, #f0a500, #ffc107);
+}
+
+.prefooter-cta-sub {
+  margin: 16px auto 0;
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.55);
+  font-weight: 500;
+  letter-spacing: 0.3px;
 }
 
 @media (max-width: 768px) {
-  .prefooter-cta {
-    grid-template-columns: 1fr;
-    padding: 24px 16px;
-    gap: 10px;
+  .prefooter-cta-buttons {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
   }
   .cta-big {
-    padding: 16px 20px;
-    min-height: 56px;
-    border-radius: 14px;
+    max-width: 100%;
+    width: 100%;
+    padding: 18px 24px;
+    border-radius: 12px;
   }
-  .cta-big-icon { width: 36px; height: 36px; font-size: 1.1rem; }
-  .cta-big-text strong { font-size: 0.88rem; }
+  .cta-big-icon { width: 44px; height: 44px; }
+  .cta-big-icon svg { width: 22px; height: 22px; }
+  .cta-big-text strong { font-size: 1rem; }
+  .cta-blink-text { font-size: 0.95rem; }
 }
 
 /* Pulse animation for CTA buttons */
