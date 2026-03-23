@@ -34,7 +34,7 @@ const css = `
   }
   .sv-search input:focus { border-color: #3b82f6; background: #fff; box-shadow: 0 0 0 3px rgba(59,130,246,0.1); }
   .sv-search::before {
-    content: '🔍'; position: absolute; left: 12px; top: 50%; transform: translateY(-50%);
+    content: '⌕'; position: absolute; left: 12px; top: 50%; transform: translateY(-50%);
     font-size: 0.8rem; pointer-events: none;
   }
 
@@ -153,7 +153,7 @@ export default function SiblingVariants({ siblings, currentVariant, parentTitle 
       <div className="sv-grid-wrap">
         <div className="sv-grid">
           {filtered.length === 0 ? (
-            <div className="sv-empty">🔍 ไม่พบรุ่นที่ค้นหา</div>
+            <div className="sv-empty">ไม่พบรุ่นที่ค้นหา</div>
           ) : (
             filtered.map(s => {
               const isCurrent = s._id === currentVariant._id

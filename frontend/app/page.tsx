@@ -868,7 +868,7 @@ export default async function HomePage() {
                 ].map((row, i) => (
                   <tr key={i} style={{ background: i % 2 === 0 ? '#fff' : '#f8fafc' }}>
                     <td style={{ padding: '10px 16px', fontWeight: 600, color: '#334155', borderBottom: '1px solid #e8edf3' }}>{row[0]}</td>
-                    <td style={{ padding: '10px 16px', textAlign: 'center', color: '#003366', fontWeight: 700, borderBottom: '1px solid #e8edf3' }}>✅ {row[1]}</td>
+                    <td style={{ padding: '10px 16px', textAlign: 'center', color: '#003366', fontWeight: 700, borderBottom: '1px solid #e8edf3' }}>✓ {row[1]}</td>
                     <td style={{ padding: '10px 16px', textAlign: 'center', color: '#94a3b8', borderBottom: '1px solid #e8edf3' }}>{row[2]}</td>
                   </tr>
                 ))}

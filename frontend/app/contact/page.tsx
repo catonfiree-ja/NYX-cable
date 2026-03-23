@@ -221,9 +221,9 @@ export default function ContactPage() {
           <h1>ติดต่อเรา</h1>
           <p>ทีมวิศวกรพร้อมให้คำปรึกษา สอบถามราคาและสต็อกสินค้า</p>
           <div className="quick-ribbon">
-            <a href="tel:021115588" className="ribbon-btn call">📞 โทร 02-111-5588</a>
-            <a href="https://page.line.me/@ubb9405u" className="ribbon-btn line" target="_blank" rel="noopener noreferrer">💬 แอด LINE @nyxcable</a>
-            <a href="mailto:sales@nyxcable.com" className="ribbon-btn email">✉️ sales@nyxcable.com</a>
+            <a href="tel:021115588" className="ribbon-btn call">โทร 02-111-5588</a>
+            <a href="https://page.line.me/@ubb9405u" className="ribbon-btn line" target="_blank" rel="noopener noreferrer">แอด LINE @nyxcable</a>
+            <a href="mailto:sales@nyxcable.com" className="ribbon-btn email">sales@nyxcable.com</a>
           </div>
         </div>
       </section>
@@ -256,10 +256,10 @@ export default function ContactPage() {
 
           {/* ─── Form ─── */}
           <div className="contact-form-box">
-            <h2>📝 ส่งข้อความถึงเรา</h2>
+            <h2>ส่งข้อความถึงเรา</h2>
             {submitted ? (
               <div className="success-msg">
-                <div className="check">✅</div>
+                <div className="check">✓</div>
                 <h3>ส่งข้อความสำเร็จ!</h3>
                 <p>ทีมงานจะติดต่อกลับภายใน 1 ชั่วโมง</p>
               </div>
@@ -294,7 +294,7 @@ export default function ContactPage() {
                 </div>
                 <div className="form-group"><label htmlFor="message">รายละเอียด *</label><textarea id="message" name="message" placeholder="ระบุรุ่น ขนาด จำนวนที่ต้องการ" required></textarea></div>
                 <button type="submit" className="submit-btn-premium" disabled={loading}>
-                  {loading ? '⏳ กำลังส่ง...' : '📨 ส่งข้อความ'}
+                  {loading ? 'กำลังส่ง...' : 'ส่งข้อความ'}
                 </button>
               </form>
             )}
@@ -305,7 +305,7 @@ export default function ContactPage() {
       {/* ─── Map with overlay ─── */}
       <div className="container">
         <div className="map-section">
-          <h2>📍 แผนที่</h2>
+          <h2>แผนที่</h2>
           <div className="map-wrapper">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3877.5!2d100.5993!3d13.6581!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTPCsDM5JzI5LjIiTiAxMDDCsDM1JzU3LjYiRQ!5e0!3m2!1sth!2sth!4v1234567890"
@@ -318,7 +318,7 @@ export default function ContactPage() {
               <h3>NYX Cable สำนักงานใหญ่</h3>
               <p>2098 หมู่ 1 ต.สำโรงเหนือ<br />(ซ.สุขุมวิท 72) สมุทรปราการ</p>
               <a href="https://www.google.com/maps/dir/Current+Location/13.65811028970517,100.59934546581569" target="_blank" rel="noopener noreferrer">
-                📍 นำทาง Google Maps
+                นำทาง Google Maps
               </a>
             </div>
           </div>
@@ -328,7 +328,7 @@ export default function ContactPage() {
       {/* ─── Warehouse ─── */}
       <div className="container">
         <section className="warehouse-section">
-          <h2>🏭 สำนักงานและคลังสินค้า</h2>
+          <h2>สำนักงานและคลังสินค้า</h2>
           <div className="warehouse-grid">
             {[
               { src: 'https://nyxcable.com/wp-content/uploads/2024/12/LINE_ALBUM_201224_241220_1-scaled.jpg', alt: 'อาคารสำนักงาน NYX Cable' },

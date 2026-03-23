@@ -30,7 +30,7 @@ const css = `
   }
   .vt-search input:focus { border-color: #3b82f6; background: #fff; box-shadow: 0 0 0 3px rgba(59,130,246,0.1); }
   .vt-search::before {
-    content: '🔍'; position: absolute; left: 14px; top: 50%; transform: translateY(-50%);
+    content: '⌕'; position: absolute; left: 14px; top: 50%; transform: translateY(-50%);
     font-size: 0.9rem; pointer-events: none;
   }
 
@@ -175,7 +175,7 @@ export default function VariantTable({ variants }: { variants: Variant[] }) {
               <tr>
                 <td colSpan={9}>
                   <div className="vt-empty">
-                    <div className="icon">🔍</div>
+                    <div className="icon">⌕</div>
                     ไม่พบรุ่นที่ค้นหา
                   </div>
                 </td>

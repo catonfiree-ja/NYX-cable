@@ -181,19 +181,19 @@ export default function RootLayout({
               <div>
                 <h4>ติดต่อเรา</h4>
                 <div className="footer-contact-item">
-                  <span className="icon">📞</span>
+                  <span className="icon"><img src="/images/icons/contact-phone.svg" alt="" width="16" height="16" style={{ display: 'inline-block', verticalAlign: 'middle' }} /></span>
                   <a href="tel:021115588" style={{ color: 'inherit', textDecoration: 'none' }}>02-111-5588</a>
                 </div>
                 <div className="footer-contact-item">
-                  <span className="icon">✉️</span>
+                  <span className="icon"><img src="/images/icons/contact-email.svg" alt="" width="16" height="16" style={{ display: 'inline-block', verticalAlign: 'middle' }} /></span>
                   <a href="mailto:sales@nyxcable.com" style={{ color: 'inherit', textDecoration: 'none' }}>sales@nyxcable.com</a>
                 </div>
                 <div className="footer-contact-item">
-                  <span className="icon">💬</span>
+                  <span className="icon"><img src="/images/icons/contact-line.svg" alt="" width="16" height="16" style={{ display: 'inline-block', verticalAlign: 'middle' }} /></span>
                   <a href="https://line.me/R/ti/p/@ubb9405u" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'none' }}>LINE: @nyxcable</a>
                 </div>
                 <div className="footer-contact-item">
-                  <span className="icon">📍</span>
+                  <span className="icon"><img src="/images/icons/contact-location.svg" alt="" width="16" height="16" style={{ display: 'inline-block', verticalAlign: 'middle' }} /></span>
                   <span>2098 หมู่ 1 ต.สำโรงเหนือ (ซ.สุขุมวิท 72) อ.เมือง สมุทรปราการ 10270</span>
                 </div>
               </div>

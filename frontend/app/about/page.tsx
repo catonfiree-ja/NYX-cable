@@ -240,7 +240,7 @@ export default async function AboutPage() {
   const heroSub = aboutCms?.heroSubheading || 'ผู้นำด้านสายไฟอุตสาหกรรมคุณภาพสูง มาตรฐานยุโรป ส่งมอบความเชื่อมั่นให้อุตสาหกรรมไทยมากว่า 10 ปี'
   const heroBadges = aboutCms?.heroBadges?.length > 0
     ? aboutCms.heroBadges
-    : ['🏭 โรงงานนำเข้าตรง', '🇪🇺 มาตรฐาน DIN VDE', '🚚 ส่งด่วน 2 ชม.']
+    : ['นำเข้าโรงงานตรง', 'มาตรฐาน DIN VDE', 'ส่งด่วน 2 ชม.']
   const stats = aboutCms?.stats?.length > 0
     ? aboutCms.stats
     : [
