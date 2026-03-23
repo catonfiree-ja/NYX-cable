@@ -52,11 +52,11 @@ export default async function HomePage() {
   // Use CMS data if available, fallback to hardcoded
   const whyNyx = (homeCms?.whyNyxItems?.length > 0)
     ? homeCms.whyNyxItems.map((item: any, i: number) => ({
-        num: String(i + 1).padStart(2, '0'),
-        title: item.title,
-        desc: item.description,
-        stat: item.icon || '',
-      }))
+      num: String(i + 1).padStart(2, '0'),
+      title: item.title,
+      desc: item.description,
+      stat: item.icon || '',
+    }))
     : defaultWhyNyx;
   const whyNyxHeading = homeCms?.whyNyxHeading || 'ทำไมต้องเลือก NYX CABLE';
   const whyNyxSubheading = homeCms?.whyNyxSubheading || 'มั่นใจคุณภาพ + บริการรวดเร็วทันใจ + ราคาดี + ยืนยันจากผู้ใช้จริง';
@@ -554,17 +554,17 @@ export default async function HomePage() {
               { logos: Array.from({ length: 13 }, (_, i) => i + 41), dir: 'right' },
               { logos: Array.from({ length: 13 }, (_, i) => i + 54), dir: 'left' },
             ].map((row, rowIdx) => {
-              const ext = (n: number) => [4,5,6,8,10,12,13,14,18,19,20,31,33,35,38,40,49,65].includes(n) ? 'jpg' : 'png';
+              const ext = (n: number) => [4, 5, 6, 8, 10, 12, 13, 14, 18, 19, 20, 31, 33, 35, 38, 40, 49, 65].includes(n) ? 'jpg' : 'png';
               return (
                 <div key={rowIdx} className={`marquee-row dir-${row.dir}`}>
                   <div className="marquee-logos">
                     {row.logos.map(n => (
-                      <div key={`a-${n}`} className="client-logo" style={{ backgroundImage: `url(/client-logos/logo-${String(n).padStart(2,'0')}.${ext(n)})` }} title={`ลูกค้า NYX Cable #${n}`} />
+                      <div key={`a-${n}`} className="client-logo" style={{ backgroundImage: `url(/client-logos/logo-${String(n).padStart(2, '0')}.${ext(n)})` }} title={`ลูกค้า NYX Cable #${n}`} />
                     ))}
                   </div>
                   <div className="marquee-logos" aria-hidden="true">
                     {row.logos.map(n => (
-                      <div key={`b-${n}`} className="client-logo" style={{ backgroundImage: `url(/client-logos/logo-${String(n).padStart(2,'0')}.${ext(n)})` }} />
+                      <div key={`b-${n}`} className="client-logo" style={{ backgroundImage: `url(/client-logos/logo-${String(n).padStart(2, '0')}.${ext(n)})` }} />
                     ))}
                   </div>
                 </div>
@@ -579,21 +579,21 @@ export default async function HomePage() {
       <section style={{ padding: '60px 0', background: '#fff', textAlign: 'center' }}>
         <div className="container">
           <h2 style={{ fontSize: '1.9rem', fontWeight: 800, color: '#003366', marginBottom: 40 }}>บริการของเรา</h2>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 32, maxWidth: 900, margin: '0 auto' }}>
+          <div className="services-grid" style={{ display: 'grid', gap: 32, maxWidth: 900, margin: '0 auto' }}>
             <div>
               <div style={{ fontSize: '3.5rem', marginBottom: 16 }}>👨‍💼</div>
               <h3 style={{ fontSize: '1.3rem', fontWeight: 700, color: '#0099ff', marginBottom: 12 }}>ให้คำแนะนำ</h3>
-              <p style={{ fontSize: '0.9rem', color: '#475569', lineHeight: 1.7 }}>จาก<strong style={{ color: '#0099ff' }}>ผู้เชี่ยวชาญ</strong>ด้าน<br/>สายไฟฟ้าคอนโทรลโดยเฉพาะ</p>
+              <p style={{ fontSize: '0.9rem', color: '#475569', lineHeight: 1.7 }}>จาก<strong style={{ color: '#0099ff' }}>ผู้เชี่ยวชาญ</strong>ด้าน<br />สายไฟฟ้าคอนโทรลโดยเฉพาะ</p>
             </div>
             <div>
               <div style={{ fontSize: '3.5rem', marginBottom: 16 }}>🔧</div>
               <h3 style={{ fontSize: '1.3rem', fontWeight: 700, color: '#0099ff', marginBottom: 12 }}>แก้ไขปัญหา</h3>
-              <p style={{ fontSize: '0.9rem', color: '#475569', lineHeight: 1.7 }}>แก้ไขปัญหา<strong style={{ color: '#0099ff' }}>ตรงจุด</strong><br/>กับปรึกษามืออาชีพ</p>
+              <p style={{ fontSize: '0.9rem', color: '#475569', lineHeight: 1.7 }}>แก้ไขปัญหา<strong style={{ color: '#0099ff' }}>ตรงจุด</strong><br />กับปรึกษามืออาชีพ</p>
             </div>
             <div>
               <div style={{ fontSize: '3.5rem', marginBottom: 16 }}>🚛</div>
               <h3 style={{ fontSize: '1.3rem', fontWeight: 700, color: '#0099ff', marginBottom: 12 }}>จัดส่งสินค้า</h3>
-              <p style={{ fontSize: '0.9rem', color: '#475569', lineHeight: 1.7 }}>ถึงที่หมายอย่างเป็นระบบ<br/>และ<strong style={{ color: '#0099ff' }}>ตรงต่อเวลา</strong></p>
+              <p style={{ fontSize: '0.9rem', color: '#475569', lineHeight: 1.7 }}>ถึงที่หมายอย่างเป็นระบบ<br />และ<strong style={{ color: '#0099ff' }}>ตรงต่อเวลา</strong></p>
             </div>
           </div>
         </div>
@@ -604,7 +604,7 @@ export default async function HomePage() {
         <div className="prefooter-cta-buttons">
           <a href="tel:021115588" className="cta-big cta-call cta-pulse">
             <span className="cta-big-icon">
-              <svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.25 1.02l-2.2 2.2z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.25 1.02l-2.2 2.2z" /></svg>
             </span>
             <span className="cta-big-text">
               <strong>Call หาเราทันที</strong>
@@ -613,7 +613,7 @@ export default async function HomePage() {
           </a>
           <a href="https://line.me/R/ti/p/@ubb9405u" target="_blank" rel="noopener noreferrer" className="cta-big cta-line-big cta-pulse">
             <span className="cta-big-icon">
-              <svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.271.173-.51.43-.596.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.271.173-.51.43-.596.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314" /></svg>
             </span>
             <span className="cta-big-text">
               <strong>LINE ปรึกษาฟรี</strong>
@@ -622,7 +622,7 @@ export default async function HomePage() {
           </a>
           <a href="mailto:sales@nyxcable.com" className="cta-big cta-email cta-pulse">
             <span className="cta-big-icon">
-              <svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" /></svg>
             </span>
             <span className="cta-big-text">
               <strong>Email สอบถาม</strong>
@@ -694,9 +694,9 @@ export default async function HomePage() {
             </div>
           </div>
           <div className="delivery-photos">
-            {[1,2,3,4,5,6,7,8].map(n => (
+            {[1, 2, 3, 4, 5, 6, 7, 8].map(n => (
               <div key={n} className="delivery-photo">
-                <img src={`/delivery-2026/delivery-2026-${String(n).padStart(2,'0')}.jpg`} alt={`NYX Cable จัดส่งสินค้า #${n}`} loading="lazy" />
+                <img src={`/delivery-2026/delivery-2026-${String(n).padStart(2, '0')}.jpg`} alt={`NYX Cable จัดส่งสินค้า #${n}`} loading="lazy" />
               </div>
             ))}
           </div>
