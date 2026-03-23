@@ -432,25 +432,25 @@ export default async function HomePage() {
       .home-products .section-sub { font-size: 0.8rem; margin-bottom: 16px; }
       .home-product-grid { grid-template-columns: 1fr; gap: 8px; }
       .home-product-card {
-        padding: 12px 16px !important;
-        display: flex; align-items: center; gap: 12px;
-        border-radius: 10px; overflow: hidden;
+        padding: 14px !important;
+        display: flex; align-items: center; gap: 14px;
+        border-radius: 12px; overflow: hidden;
       }
       .home-product-card::before { display: none; }
       .home-product-card .product-abbr {
         font-size: 0.7rem; padding: 6px !important; margin-bottom: 0;
-        background: #f0f7ff; border-radius: 8px; flex-shrink: 0;
-        width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;
+        background: #f0f7ff; border-radius: 10px; flex-shrink: 0;
+        width: 50px; height: 50px; display: flex; align-items: center; justify-content: center;
         font-weight: 800; color: #003366; letter-spacing: 0.5px;
         border-bottom: none;
       }
       .home-product-card img.product-abbr {
-        width: 60px !important; height: 60px !important; min-width: 60px;
-        object-fit: cover; border-radius: 10px; flex-shrink: 0;
-        padding: 0 !important; background: #f0f7ff;
+        width: 90px !important; height: 90px !important; min-width: 90px;
+        object-fit: contain; border-radius: 10px; flex-shrink: 0;
+        padding: 4px !important; background: #f8fafc; border: 1px solid #e8edf3;
       }
-      .home-product-card h4 { font-size: 0.82rem; margin: 0; padding: 0 !important; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; flex: 1; }
-      .home-product-card p { display: none; }
+      .home-product-card h4 { font-size: 0.85rem; margin: 0 0 4px; padding: 0 !important; min-width: 0; flex: 1; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; white-space: normal; }
+      .home-product-card p { font-size: 0.72rem; color: #64748b; margin: 0; padding: 0 !important; display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; overflow: hidden; }
       .home-product-card .view-more { display: none; }
 
       /* Main product list */
