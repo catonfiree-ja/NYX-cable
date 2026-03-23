@@ -208,19 +208,25 @@ export default async function HomePage() {
     .hero-trust-badge .trust-text p { font-size: 0.78rem; margin: 4px 0 0; opacity: 0.55; line-height: 1.4; }
     .hero-v2 .cta-row { display: flex; gap: 14px; flex-wrap: wrap; animation: fadeInUp 0.8s ease 0.3s both; }
 
-    /* ─── Clients Marquee ─── */
+    /* ─── 5-Row Clients Marquee ─── */
     .clients-section { background: #fff; padding: 44px 0; border-bottom: none; position: relative; overflow: hidden; }
     .clients-section::after { content: ''; position: absolute; bottom: 0; left: 10%; right: 10%; height: 1px; background: linear-gradient(90deg, transparent, #e2e8f0, #f0a500, #e2e8f0, transparent); }
-    .clients-section h3 { text-align: center; font-size: 0.8rem; color: #94a3b8; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 24px; }
-    
-    @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-    /* The container holds 2 identical grids and translates by 50% (width of one grid) to loop smoothly */
-    .marquee-container { display: flex; width: max-content; animation: marquee 40s linear infinite; }
-    .marquee-container:hover { animation-play-state: paused; }
-    .clients-grid { display: flex; gap: 20px; padding: 0 10px; }
-    .client-logo { background: #fff; border: 1px solid #e2e8f0; border-radius: 10px; padding: 10px 16px; transition: all 0.3s cubic-bezier(0.4,0,0.2,1); width: 160px; display: flex; align-items: center; justify-content: center; height: 75px; flex-shrink: 0; }
+    .clients-section h3 { text-align: center; font-size: 0.8rem; color: #94a3b8; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 20px; }
+    .marquee-rows { display: flex; flex-direction: column; gap: 12px; overflow: hidden; }
+    @keyframes marqueeLeft { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+    @keyframes marqueeRight { 0% { transform: translateX(-50%); } 100% { transform: translateX(0); } }
+    .marquee-row { display: flex; width: max-content; }
+    .marquee-row:hover { animation-play-state: paused; }
+    .marquee-row.dir-left { animation: marqueeLeft 35s linear infinite; }
+    .marquee-row.dir-right { animation: marqueeRight 38s linear infinite; }
+    .marquee-row:nth-child(2) { animation-duration: 42s; }
+    .marquee-row:nth-child(3) { animation-duration: 36s; }
+    .marquee-row:nth-child(4) { animation-duration: 40s; }
+    .marquee-row:nth-child(5) { animation-duration: 34s; }
+    .marquee-logos { display: flex; gap: 16px; padding: 0 8px; }
+    .client-logo { background: #fff; border: 1px solid #e2e8f0; border-radius: 10px; padding: 8px 14px; transition: all 0.3s cubic-bezier(0.4,0,0.2,1); width: 140px; display: flex; align-items: center; justify-content: center; height: 62px; flex-shrink: 0; }
     .client-logo:hover { border-color: #003366; box-shadow: 0 4px 12px rgba(0,51,102,0.08); transform: translateY(-2px); }
-    .client-logo img { max-height: 45px; max-width: 120px; object-fit: contain; filter: grayscale(100%) opacity(0.55); transition: filter 0.3s; }
+    .client-logo img { max-height: 38px; max-width: 110px; object-fit: contain; filter: grayscale(100%) opacity(0.55); transition: filter 0.3s; }
     .client-logo:hover img { filter: grayscale(0%) opacity(1); }
 
     /* ─── Product Cards ─── */
@@ -534,26 +540,38 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* ─── Our Clients (Trust Section) ─── */}
+      {/* ─── Our Clients — 5-Row Alternating Marquee ─── */}
       <section className="clients-section">
-        <div className="container" style={{ maxWidth: '100vw', padding: 0 }}>
-          <h3 style={{ marginBottom: 32 }}>ลูกค้าที่ไว้วางใจเรา</h3>
-          <div className="marquee-container">
-            <div className="clients-grid">
-              {clients.map(c => (
-                <a key={`c1-${c.name}`} href="/gallery" className="client-logo" title={c.name} style={{ textDecoration: 'none' }}>
-                  <img src={sanityUrlFor({ _type: 'image', asset: { _type: 'reference', _ref: c.id } }).width(300).fit('max').auto('format').url()} alt={`${c.name} - ลูกค้า NYX Cable`} loading="lazy" />
-                </a>
-              ))}
-            </div>
-            {/* Duplicate grid for endless scroll effect */}
-            <div className="clients-grid" aria-hidden="true">
-              {clients.map(c => (
-                <a key={`c2-${c.name}`} href="/gallery" className="client-logo" title={c.name} tabIndex={-1} style={{ textDecoration: 'none' }}>
-                  <img src={sanityUrlFor({ _type: 'image', asset: { _type: 'reference', _ref: c.id } }).width(300).fit('max').auto('format').url()} alt={`${c.name} - ลูกค้า NYX Cable`} loading="lazy" />
-                </a>
-              ))}
-            </div>
+        <div style={{ maxWidth: '100vw', padding: 0, overflow: 'hidden' }}>
+          <h3 style={{ marginBottom: 20 }}>ลูกค้าที่ไว้วางใจเรา</h3>
+          <div className="marquee-rows">
+            {[
+              { logos: Array.from({ length: 14 }, (_, i) => i + 1), dir: 'left' },
+              { logos: Array.from({ length: 13 }, (_, i) => i + 15), dir: 'right' },
+              { logos: Array.from({ length: 13 }, (_, i) => i + 28), dir: 'left' },
+              { logos: Array.from({ length: 13 }, (_, i) => i + 41), dir: 'right' },
+              { logos: Array.from({ length: 13 }, (_, i) => i + 54), dir: 'left' },
+            ].map((row, rowIdx) => {
+              const ext = (n: number) => [4,5,6,8,10,12,13,14,18,19,20,31,33,35,38,40,49,65].includes(n) ? 'jpg' : 'png';
+              return (
+                <div key={rowIdx} className={`marquee-row dir-${row.dir}`}>
+                  <div className="marquee-logos">
+                    {row.logos.map(n => (
+                      <div key={`a-${n}`} className="client-logo">
+                        <img src={`/client-logos/logo-${String(n).padStart(2,'0')}.${ext(n)}`} alt={`ลูกค้า NYX Cable #${n}`} loading="lazy" />
+                      </div>
+                    ))}
+                  </div>
+                  <div className="marquee-logos" aria-hidden="true">
+                    {row.logos.map(n => (
+                      <div key={`b-${n}`} className="client-logo">
+                        <img src={`/client-logos/logo-${String(n).padStart(2,'0')}.${ext(n)}`} alt="" loading="lazy" />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
