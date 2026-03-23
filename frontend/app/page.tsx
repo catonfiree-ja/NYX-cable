@@ -751,25 +751,32 @@ export default async function HomePage() {
       </section>
 
       {/* ─── Products from Sanity ─── */}
-      <section className="home-products">
+      <section className="section" style={{ background: 'linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%)', padding: '70px 0' }}>
         <div className="container">
-          <h2>สินค้าแนะนำ</h2>
-          <p className="section-sub">สายไฟคุณภาพสูง มาตรฐานยุโรป — สต็อกพร้อมส่ง {products.length} รุ่น</p>
-          <div className="home-product-grid">
+          <div className="section-header">
+            <h2>สินค้าแนะนำ</h2>
+            <div className="accent-line"></div>
+            <p>สายไฟคุณภาพสูง มาตรฐานยุโรป — สต็อกพร้อมส่ง {products.length} รุ่น</p>
+          </div>
+          <div className="category-grid">
             {topProducts.map((p: any) => (
-              <a key={p._id} href={`/products/detail/${p.slug?.current}`} className="home-product-card">
-                {p.image ? (
-                  <Image src={sanityUrlFor(p.image).width(400).height(300).url()} alt={p.title} width={400} height={300} className="product-abbr" />
-                ) : (
-                  <span className="product-abbr">{(p.productCode || p.title || '').substring(0, 3).toUpperCase()}</span>
-                )}
-                <h4>{p.title}</h4>
-                <p>{p.shortDescription || p.categories?.[0]?.title || 'สายไฟอุตสาหกรรม'}</p>
-                <span className="view-more">ดูรายละเอียด →</span>
+              <a key={p._id} href={`/products/detail/${p.slug?.current}`} className="category-card">
+                <div className="category-card-image">
+                  {p.image ? (
+                    <Image src={sanityUrlFor(p.image).width(400).height(280).url()} alt={p.title} width={400} height={280} style={{ width: '100%', height: '100%', objectFit: 'contain', padding: '8px' }} />
+                  ) : (
+                    <span style={{ fontSize: '1.5rem', fontWeight: 800, color: '#003366', letterSpacing: '1px' }}>{(p.productCode || p.title || '').substring(0, 5).toUpperCase()}</span>
+                  )}
+                </div>
+                <div className="category-card-body">
+                  <h3>{p.title}</h3>
+                  <p>{p.shortDescription || p.categories?.[0]?.title || 'สายไฟอุตสาหกรรม'}</p>
+                  <span className="product-count">ดูรายละเอียด →</span>
+                </div>
               </a>
             ))}
           </div>
-          <div className="view-all-btn">
+          <div style={{ textAlign: 'center', marginTop: '36px' }}>
             <a href="/products" className="btn btn-primary btn-lg">ดูสินค้าทั้งหมด ({products.length} รุ่น) →</a>
           </div>
         </div>
@@ -875,11 +882,11 @@ export default async function HomePage() {
       </section>
 
       {/* ─── ภาพส่งสินค้าจริง ─── */}
-      <section className="delivery-info-section" style={{ padding: '60px 0', background: '#fff' }}>
+      <section style={{ padding: '60px 0', background: '#fff' }}>
         <div className="container">
           <h2 style={{ textAlign: 'center', fontSize: '1.6rem', fontWeight: 800, color: '#003366', marginBottom: 8 }}>ส่งสินค้าจริง ตรงเวลา ทั่วประเทศ</h2>
-          <p className="section-sub" style={{ textAlign: 'center', marginBottom: 32 }}>ภาพจากการจัดส่งจริงถึงมือลูกค้าทั่วประเทศ</p>
-          <div className="delivery-info-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: 16 }}>
+          <p style={{ textAlign: 'center', color: '#64748b', marginBottom: 32, fontSize: '0.95rem' }}>ภาพจากการจัดส่งจริงถึงมือลูกค้าทั่วประเทศ</p>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 20, maxWidth: 1000, margin: '0 auto' }}>
             {["ส่งด่วนจากโกดังบางนา", "สต็อกพร้อมส่งทุกขนาด", "บรรจุภัณฑ์แข็งแรง", "จัดส่งทั่วประเทศ"].map((label, i) => (
               <div key={i} style={{ background: 'linear-gradient(135deg, #f0f7ff, #e8f4fd)', borderRadius: 12, padding: 32, textAlign: 'center', border: '1px solid rgba(0,51,102,0.06)' }}>
                 <div style={{ fontSize: '2rem', marginBottom: 12 }}>{['🚚', '📦', '✅', '🇹🇭'][i]}</div>
