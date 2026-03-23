@@ -15,8 +15,8 @@ const styles = `
   .breadcrumb a { color: rgba(255,255,255,0.65); text-decoration: none; transition: color 0.2s; }
   .breadcrumb a:hover { color: #f0a500; }
   .product-detail { display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-3xl); padding: var(--spacing-3xl) 0; }
-  .product-image-box { background: linear-gradient(135deg, #f0f7ff, #e8f0fe); border-radius: var(--radius-xl); display: flex; align-items: center; justify-content: center; min-height: 400px; max-height: 550px; font-size: 1.4rem; font-weight: 800; color: var(--color-primary); letter-spacing: 2px; border: 1px solid rgba(0,51,102,0.06); position: sticky; top: 100px; align-self: start; overflow: hidden; padding: 16px; }
-  .product-image-box img { max-width: 100%; max-height: 500px; object-fit: contain; border-radius: var(--radius-lg); }
+  .product-image-box { background: linear-gradient(135deg, #f0f7ff, #e8f0fe); border-radius: var(--radius-xl); display: flex; align-items: center; justify-content: center; font-size: 1.4rem; font-weight: 800; color: var(--color-primary); letter-spacing: 2px; border: 1px solid rgba(0,51,102,0.06); position: sticky; top: 100px; align-self: start; overflow: hidden; padding: 20px; }
+  .product-image-box img, .product-image-box > span { max-width: 100%; max-height: 450px; object-fit: contain; border-radius: var(--radius-lg); }
   .product-info h1 { font-size: var(--font-size-3xl); font-weight: 800; color: var(--color-primary); margin-bottom: var(--spacing-sm); line-height: 1.3; letter-spacing: -0.3px; }
   .product-code { display: inline-flex; padding: 4px 14px; background: rgba(0,153,255,0.1); color: var(--color-secondary); font-size: var(--font-size-sm); font-weight: 600; border-radius: var(--radius-full); margin-bottom: var(--spacing-md); }
   .product-categories { display: flex; gap: var(--spacing-xs); flex-wrap: wrap; margin-bottom: var(--spacing-lg); }
