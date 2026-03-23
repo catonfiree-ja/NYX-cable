@@ -155,31 +155,6 @@ const styles = `
   }
   .warehouse-photo:hover::after { opacity: 1; }
 
-  /* ─── Bottom CTA ─── */
-  .contact-bottom-cta {
-    background: linear-gradient(135deg, #003366, #0066cc);
-    color: #fff; padding: 56px 0; text-align: center;
-    position: relative; overflow: hidden;
-  }
-  .contact-bottom-cta::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(circle at 30% 50%, rgba(0,153,255,0.15), transparent 60%);
-  }
-  .contact-bottom-cta h2 { font-size: 1.6rem; font-weight: 700; margin-bottom: 12px; position: relative; }
-  .contact-bottom-cta p { font-size: 0.95rem; opacity: 0.85; margin-bottom: 24px; position: relative; }
-  .contact-bottom-cta-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; position: relative; }
-  .cta-bottom-btn {
-    display: inline-flex; align-items: center; gap: 8px;
-    padding: 14px 32px; border-radius: 50px; font-weight: 700; font-size: 0.95rem;
-    text-decoration: none; transition: all 0.25s; color: #fff;
-  }
-  .cta-bottom-btn.products { background: linear-gradient(135deg, #f0a500, #d48900); box-shadow: 0 4px 14px rgba(240,165,0,0.3); }
-  .cta-bottom-btn.products:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(240,165,0,0.4); color: #fff; }
-  .cta-bottom-btn.blog { background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3); }
-  .cta-bottom-btn.blog:hover { background: rgba(255,255,255,0.25); color: #fff; }
-
   @media (max-width: 768px) {
     .contact-hero h1 { font-size: 1.6rem; }
     .quick-ribbon { flex-direction: column; align-items: center; padding: 16px 20px; }
@@ -187,8 +162,6 @@ const styles = `
     .form-row { grid-template-columns: 1fr; }
     .warehouse-grid { grid-template-columns: repeat(2, 1fr); }
     .map-overlay { position: relative; bottom: auto; left: auto; max-width: 100%; border-radius: 0 0 16px 16px; }
-    .contact-bottom-cta h2 { font-size: 1.3rem; }
-    .contact-bottom-cta-btns { flex-direction: column; align-items: center; }
   }
 `
 
@@ -360,17 +333,6 @@ export default function ContactPage() {
         </section>
       </div>
 
-      {/* ─── Bottom CTA ─── */}
-      <section className="contact-bottom-cta">
-        <div className="container">
-          <h2>ยังไม่แน่ใจรุ่นไหน? ดูแคตตาล็อกก่อน</h2>
-          <p>สำรวจสินค้ากว่า 150 รุ่น พร้อมสเปคและราคา</p>
-          <div className="contact-bottom-cta-btns">
-            <a href="/products" className="cta-bottom-btn products">🔌 ดูสินค้าทั้งหมด</a>
-            <a href="/blog" className="cta-bottom-btn blog">📖 อ่านบทความ & คู่มือ</a>
-          </div>
-        </div>
-      </section>
     </>
   )
 }
