@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect, useCallback } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import Image from 'next/image'
 import { urlFor } from '@/lib/sanity'
 
@@ -75,70 +75,72 @@ export default function LocalAlbumLightbox({
 
   return (
     <>
-      {/* Album Grid */}
+      {/* Album Grid — ordered: 2026 (Sanity), 2025 (local), 2024, 2023... */}
       <div className="album-grid">
-        {/* Sanity Albums — 2026 first */}
-        {sanityAlbums.map(album => (
-          <button
-            key={album._id}
-            className="album-card"
-            onClick={() => {
-              if (album.linkUrl) {
-                window.open(album.linkUrl, '_blank', 'noopener,noreferrer')
-                return
-              }
-              setActivePhoto(0)
-              setOpenItem({ type: 'sanity', album })
-            }}
-            type="button"
-          >
-            <div className="album-img">
-              {album.cover && (
-                <Image
-                  src={urlFor(album.cover).width(800).height(600).url()}
-                  alt={album.title}
-                  fill
-                  sizes="(max-width: 480px) 100vw, (max-width: 768px) 50vw, 33vw"
-                  style={{ objectFit: 'cover' }}
-                />
-              )}
-              <div className="album-overlay">
-                {album.linkUrl ? (
-                  <span className="album-icon">🔗 ดูเพิ่มเติม</span>
-                ) : (
-                  <span className="album-icon">
-                    📷 {(album.photos?.length || 0) + 1} ภาพ
-                  </span>
+        {sanityAlbums.map((album, idx) => (
+          <React.Fragment key={album._id}>
+            <button
+              className="album-card"
+              onClick={() => {
+                if (album.linkUrl) {
+                  window.open(album.linkUrl, '_blank', 'noopener,noreferrer')
+                  return
+                }
+                setActivePhoto(0)
+                setOpenItem({ type: 'sanity', album })
+              }}
+              type="button"
+            >
+              <div className="album-img">
+                {album.cover && (
+                  <Image
+                    src={urlFor(album.cover).width(800).height(600).url()}
+                    alt={album.title}
+                    fill
+                    sizes="(max-width: 480px) 100vw, (max-width: 768px) 50vw, 33vw"
+                    style={{ objectFit: 'cover' }}
+                  />
                 )}
+                <div className="album-overlay">
+                  {album.linkUrl ? (
+                    <span className="album-icon">🔗 ดูเพิ่มเติม</span>
+                  ) : (
+                    <span className="album-icon">
+                      📷 {(album.photos?.length || 0) + 1} ภาพ
+                    </span>
+                  )}
+                </div>
               </div>
-            </div>
-            <div className="album-title">{album.title}</div>
-          </button>
-        ))}
+              <div className="album-title">{album.title}</div>
+            </button>
 
-        {/* Local Delivery 2025 Album */}
-        <button
-          className="album-card"
-          onClick={() => {
-            setActivePhoto(0)
-            setOpenItem({ type: 'local', title, photos })
-          }}
-          type="button"
-        >
-          <div className="album-img">
-            <Image
-              src={photos[0]}
-              alt={title}
-              fill
-              sizes="(max-width: 480px) 100vw, (max-width: 768px) 50vw, 33vw"
-              style={{ objectFit: 'cover' }}
-            />
-            <div className="album-overlay">
-              <span className="album-icon">📷 {photos.length} ภาพ</span>
-            </div>
-          </div>
-          <div className="album-title">{title}</div>
-        </button>
+            {/* Insert local 2025 album after the first Sanity album (2026) */}
+            {idx === 0 && (
+              <button
+                className="album-card"
+                onClick={() => {
+                  setActivePhoto(0)
+                  setOpenItem({ type: 'local', title, photos })
+                }}
+                type="button"
+              >
+                <div className="album-img">
+                  <Image
+                    src={photos[0]}
+                    alt={title}
+                    fill
+                    sizes="(max-width: 480px) 100vw, (max-width: 768px) 50vw, 33vw"
+                    style={{ objectFit: 'cover' }}
+                  />
+                  <div className="album-overlay">
+                    <span className="album-icon">📷 {photos.length} ภาพ</span>
+                  </div>
+                </div>
+                <div className="album-title">{title}</div>
+              </button>
+            )}
+          </React.Fragment>
+        ))}
       </div>
 
       {/* Lightbox */}
