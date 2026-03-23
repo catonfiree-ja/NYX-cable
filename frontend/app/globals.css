@@ -1125,6 +1125,18 @@ a:hover {
   }
 }
 
+/* ─── Services Grid (บริการของเรา) ─── */
+.services-grid {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+@media (max-width: 768px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 24px !important;
+  }
+}
+
 /* ─── Pre-Footer CTA — Original nyxcable.com Style ─── */
 .prefooter-cta {
   padding: 32px 24px 20px;
