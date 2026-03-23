@@ -256,16 +256,21 @@ function autoLinkText(text: string, linkMap: ProductLinkMap, currentSlug: string
 }
 
 // Rewrite old WordPress URLs to new Next.js routes
+// WordPress slugs use periods (e.g. ysly-jz-3g0.5) but Sanity uses hyphens (ysly-jz-3g0-5)
+function normalizeSlug(slug: string): string {
+  return slug.replace(/\./g, '-').replace(/%20/g, '').trim()
+}
+
 function rewriteLinks(html: string): string {
   return html
     // /product/slug → /products/detail/slug
-    .replace(/https?:\/\/nyxcable\.com\/product\/([^/"'\s]+)\/?/g, '/products/detail/$1')
+    .replace(/https?:\/\/nyxcable\.com\/product\/([^/"'\s]+)\/?/g, (_, s) => `/products/detail/${normalizeSlug(s)}`)
     // /cat/slug → /products
     .replace(/https?:\/\/nyxcable\.com\/cat\/[^/"'\s]+\/?/g, '/products')
     // /shop/slug → /products
     .replace(/https?:\/\/nyxcable\.com\/shop\/[^/"'\s]+\/?/g, '/products')
-    // /สายคอนโทรล/variant-slug → /products/variant/variant-slug
-    .replace(/https?:\/\/nyxcable\.com\/%E0%B8%AA%E0%B8%B2%E0%B8%A2%E0%B8%84%E0%B8%AD%E0%B8%99%E0%B9%82%E0%B8%97%E0%B8%A3%E0%B8%A5\/([^/"'\s]+)\/?/g, '/products/variant/$1')
+    // /สายคอนโทรล/variant-slug → /products/variant/variant-slug (normalize periods to hyphens)
+    .replace(/https?:\/\/nyxcable\.com\/%E0%B8%AA%E0%B8%B2%E0%B8%A2%E0%B8%84%E0%B8%AD%E0%B8%99%E0%B9%82%E0%B8%97%E0%B8%A3%E0%B8%A5\/([^/"'\s]+)\/?/g, (_, s) => `/products/variant/${normalizeSlug(s)}`)
     // Any remaining nyxcable.com links → homepage
     .replace(/https?:\/\/nyxcable\.com\/?/g, '/')
 }

@@ -218,7 +218,7 @@ export default function ExcelSpecTable({ slug, data }: { slug: string; data: Pro
             ) : (
               filtered.map((item, idx) => {
                 const variantSlug = item.link
-                  ? item.link.replace(/https?:\/\/nyxcable\.com\/[^/]+\//, '').replace(/\/$/, '')
+                  ? item.link.replace(/https?:\/\/nyxcable\.com\/[^/]+\//, '').replace(/\/$/, '').replace(/\./g, '-')
                   : null
 
                 return (
