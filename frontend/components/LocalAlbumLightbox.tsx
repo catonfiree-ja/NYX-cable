@@ -87,7 +87,7 @@ export default function LocalAlbumLightbox({
           type="button"
         >
           <div className="album-img">
-            <span className="new-badge">NEW 2026</span>
+
             <Image
               src={photos[0]}
               alt={title}

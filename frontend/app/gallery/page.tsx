@@ -158,7 +158,7 @@ export default async function GalleryPage() {
           <a href="/">หน้าแรก</a> › แกลเลอรี่
         </div>
         <LocalAlbumLightbox
-          title="ส่งสินค้า 2026"
+          title="ส่งสินค้า 2025"
           photos={DELIVERY_2026_PHOTOS}
           sanityAlbums={albums}
         />
