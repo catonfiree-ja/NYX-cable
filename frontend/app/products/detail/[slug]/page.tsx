@@ -306,16 +306,43 @@ function renderDescription(body: any, shortDesc?: string, productTitle?: string,
     if (seenTexts.has(lower)) return false
     seenTexts.add(lower)
 
+    // Filter variant model link lines (e.g., "สายคอนโทรล YSLY-JZ 3G0.5")
+    // These are already in the Excel spec table
+    if (/^สาย\S*\s+YSLY/i.test(fullText) && fullText.length < 80) return false
+    if (/^YSLY-[A-Z]+\s+\d+/i.test(fullText) && fullText.length < 60) return false
+
+    // Filter short technical table remnant patterns (< 60 chars)
+    if (fullText.length < 60) {
+      // Table header/value patterns from WordPress comparison tables
+      const tablePatterns = [
+        /conductor/i, /resistance/i, /strand/i, /ohm\/km/i,
+        /cross\s*section/i, /current\s*rat/i, /bending\s*radius/i,
+        /weight\s*kg/i, /o\.?d\.?\s*mm/i, /outer\s*dia/i,
+        /core\s*x\s*conductor/i, /power\s*rating/i, /voltage/i,
+        /@\s*\d+\.?\d*mm/i, /@\s*\d+oC/i,
+        /bare\s*copper/i, /number\s*core/i,
+        /คะแนน/i,  // scoring labels
+      ]
+      if (tablePatterns.some(p => p.test(fullText))) return false
+
+      // Short blocks that are just adjectives/comparisons from table values
+      const comparisonPatterns = [
+        /^(อ่อนตัว|แข็ง|เล็ก|ใหญ่|สูง|ต่ำ|มาก|น้อย)/,
+        /กว่า\s*$/,  // ends with "กว่า" (comparative)
+        /ประหยัด.*%/,  // percentage comparisons
+        /มีจำนวน.*กว่า/,
+        /มีขนาด.*กว่า/,
+        /รับ(อุณหภูมิ|แรงดัน|กระแส).*กว่า/,
+      ]
+      if (comparisonPatterns.some(p => p.test(fullText))) return false
+    }
+
     // Keep text that is meaningful (> 15 chars, or Thai text > 10 chars)
     const hasThai = /[\u0E00-\u0E7F]/.test(fullText)
     const isRealContent = fullText.length > 15
     const isThaiContent = hasThai && fullText.length > 10
 
     if (!isRealContent && !isThaiContent) return false
-
-    // Skip broken table headers from WP import (no data rows)
-    const brokenHeaders = ['Cross Section', 'Current rating', 'Current Rating', 'Bending radius', 'Weight kg', 'O.D. mm', 'Outer Diameter']
-    if (brokenHeaders.some(h => fullText.includes(h) && fullText.length < 60)) return false
 
     return true
   })
