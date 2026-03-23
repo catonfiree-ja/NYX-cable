@@ -93,10 +93,26 @@ const styles = `
     .product-detail { grid-template-columns: 1fr; }
     .product-image-box { min-height: 250px; font-size: 1rem; position: static; }
     .variants-table { display: block; overflow-x: auto; }
+    .quick-quote-bar { max-width: 100vw; overflow: hidden; }
     .quick-quote-inner { flex-direction: column; gap: 8px; }
     .quick-quote-info { width: 100%; }
+    .quick-quote-name { font-size: 0.78rem; }
     .quick-quote-actions { width: 100%; }
     .quick-quote-actions .btn { flex: 1; text-align: center; padding: 10px 12px; font-size: 0.78rem; }
+    .blogs-grid { grid-template-columns: 1fr !important; gap: 12px; }
+    .op-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 12px; }
+    .op-card { padding: 16px 12px; min-height: auto; }
+    .op-card .op-name { font-size: 0.82rem; }
+    .op-card .op-code { font-size: 0.65rem; }
+    .related-grid { grid-template-columns: 1fr !important; }
+    .product-info h1 { font-size: 1.3rem; }
+    .product-actions { flex-direction: column; }
+    .product-actions .btn, .product-actions a { width: 100%; text-align: center; justify-content: center; }
+  }
+  @media (max-width: 480px) {
+    .op-grid { grid-template-columns: 1fr !important; }
+    .quick-quote-name { font-size: 0.72rem; }
+    .quick-quote-badge { width: 30px; height: 30px; font-size: 0.55rem; }
   }
 `
 
@@ -158,14 +174,14 @@ function buildProductLinkMap(products: any[], variants?: any[]): ProductLinkMap 
 // Auto-link product codes in text content
 function autoLinkText(text: string, linkMap: ProductLinkMap, currentSlug: string): React.ReactNode {
   if (!text || linkMap.length === 0) return text
-  
+
   const parts: React.ReactNode[] = []
   let remaining = text
   let keyIdx = 0
-  
+
   while (remaining.length > 0) {
     let bestMatch: { index: number; pattern: string; slug: string; label: string; prefix: string } | null = null
-    
+
     for (const entry of linkMap) {
       // Skip self-linking
       if (entry.slug === currentSlug) continue
@@ -174,28 +190,28 @@ function autoLinkText(text: string, linkMap: ProductLinkMap, currentSlug: string
         bestMatch = { index: idx, ...entry }
       }
     }
-    
+
     if (!bestMatch) {
       parts.push(remaining)
       break
     }
-    
+
     // Add text before the match
     if (bestMatch.index > 0) {
       parts.push(remaining.substring(0, bestMatch.index))
     }
-    
+
     // Add the linked product/variant
     parts.push(
-      <a key={`al-${keyIdx++}`} href={`${bestMatch.prefix}${bestMatch.slug}`} 
-         style={{ color: '#f0a500', textDecoration: 'underline', textUnderlineOffset: '3px', fontWeight: 600 }}>
+      <a key={`al-${keyIdx++}`} href={`${bestMatch.prefix}${bestMatch.slug}`}
+        style={{ color: '#f0a500', textDecoration: 'underline', textUnderlineOffset: '3px', fontWeight: 600 }}>
         {bestMatch.pattern}
       </a>
     )
-    
+
     remaining = remaining.substring(bestMatch.index + bestMatch.pattern.length)
   }
-  
+
   return parts.length === 1 && typeof parts[0] === 'string' ? parts[0] : <>{parts}</>
 }
 
@@ -236,16 +252,16 @@ function renderDescription(body: any, shortDesc?: string, productTitle?: string,
   const cleanBlocks = body.filter((block: any) => {
     if (block._type !== 'block') return true
     const children = block.children || []
-    
+
     // Multi-child blocks (mixed formatting) — check combined text
     const fullText = children.map((c: any) => c.text || '').join('').trim()
     if (!fullText) return false
-    
+
     const lower = fullText.toLowerCase()
 
     // Filter WordPress HTML tag names (single-word remnants like 'div', 'p', 'table')
     if (HTML_TAG_NAMES.has(lower)) return false
-    
+
     // Filter duplicate text
     if (seenTexts.has(lower)) return false
     seenTexts.add(lower)
@@ -254,13 +270,13 @@ function renderDescription(body: any, shortDesc?: string, productTitle?: string,
     const hasThai = /[\u0E00-\u0E7F]/.test(fullText)
     const isRealContent = fullText.length > 15
     const isThaiContent = hasThai && fullText.length > 10
-    
+
     if (!isRealContent && !isThaiContent) return false
 
     // Skip broken table headers from WP import (no data rows)
     const brokenHeaders = ['Cross Section', 'Current rating', 'Current Rating', 'Bending radius', 'Weight kg', 'O.D. mm', 'Outer Diameter']
     if (brokenHeaders.some(h => fullText.includes(h) && fullText.length < 60)) return false
-    
+
     return true
   })
 
@@ -277,17 +293,17 @@ function renderDescription(body: any, shortDesc?: string, productTitle?: string,
 
       const children = (block.children || []).map((child: any, j: number) => {
         const decoded = decodeHtmlEntities(child.text || '')
-        
+
         // Check for link marks first (from Portable Text markDefs)
         const linkMark = child.marks?.find((m: string) => markDefs[m]?.href)
         if (linkMark) {
           const href = rewriteLinks(markDefs[linkMark].href)
           return <a key={j} href={href} style={{ color: 'var(--nyx-orange)', textDecoration: 'underline' }}>{decoded}</a>
         }
-        
+
         // Apply auto-linking for product codes
         let content: React.ReactNode = linkMap && currentSlug ? autoLinkText(decoded, linkMap, currentSlug) : decoded
-        
+
         if (child.marks?.includes('strong')) {
           return <strong key={j}>{content}</strong>
         } else if (child.marks?.includes('em')) {
@@ -435,7 +451,7 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
                     </>
                   )
                   const cardStyle = { display: 'block', padding: '12px 16px', borderRadius: '8px', border: '1px solid #e2e8f0', textDecoration: 'none', color: '#1a1a2e', transition: 'all 0.2s', fontWeight: 600, fontSize: '0.85rem' } as const
-                  
+
                   if (v.slug?.current) {
                     return <a key={v._id} href={`/products/variant/${v.slug.current}`} style={cardStyle}>{content}</a>
                   }
@@ -528,30 +544,32 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
       </div>
 
       {/* ─── Schema.org Product + Organization JSON-LD ─── */}
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
-        '@context': 'https://schema.org',
-        '@type': 'Product',
-        name: product.title,
-        description: product.shortDescription ? decodeHtmlEntities(product.shortDescription) : undefined,
-        sku: product.productCode || undefined,
-        brand: { '@type': 'Brand', name: 'NYX Cable' },
-        manufacturer: { '@type': 'Organization', name: 'NYX Cable' },
-        category: categories.length > 0 ? categories.map((c: any) => c.title).join(', ') : 'สายไฟอุตสาหกรรม',
-        url: `https://nyx-cable.vercel.app/products/detail/${slug}`,
-        offers: {
-          '@type': 'AggregateOffer',
-          priceCurrency: 'THB',
-          availability: 'https://schema.org/InStock',
-          seller: {
-            '@type': 'Organization',
-            name: 'NYX Cable',
-            url: 'https://nyx-cable.vercel.app',
-            telephone: '02-111-5588',
-            email: 'sales@nyxcable.com',
-            address: { '@type': 'PostalAddress', addressLocality: 'บางนา', addressRegion: 'กรุงเทพฯ', addressCountry: 'TH' }
+      <script type="application/ld+json" dangerouslySetInnerHTML={{
+        __html: JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'Product',
+          name: product.title,
+          description: product.shortDescription ? decodeHtmlEntities(product.shortDescription) : undefined,
+          sku: product.productCode || undefined,
+          brand: { '@type': 'Brand', name: 'NYX Cable' },
+          manufacturer: { '@type': 'Organization', name: 'NYX Cable' },
+          category: categories.length > 0 ? categories.map((c: any) => c.title).join(', ') : 'สายไฟอุตสาหกรรม',
+          url: `https://nyx-cable.vercel.app/products/detail/${slug}`,
+          offers: {
+            '@type': 'AggregateOffer',
+            priceCurrency: 'THB',
+            availability: 'https://schema.org/InStock',
+            seller: {
+              '@type': 'Organization',
+              name: 'NYX Cable',
+              url: 'https://nyx-cable.vercel.app',
+              telephone: '02-111-5588',
+              email: 'sales@nyxcable.com',
+              address: { '@type': 'PostalAddress', addressLocality: 'บางนา', addressRegion: 'กรุงเทพฯ', addressCountry: 'TH' }
+            }
           }
-        }
-      }) }} />
+        })
+      }} />
     </>
   )
 }
