@@ -464,35 +464,6 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
           </section>
         )}
       </div>
-      <section className="cta-section">
-        <div className="container">
-          <h2>สนใจ {product.title}? ติดต่อเราวันนี้</h2>
-          <p>ทีมวิศวกรพร้อมให้คำปรึกษาเลือกขนาดที่เหมาะกับงาน</p>
-        </div>
-        <div className="cta-contact-bar">
-          <a href="tel:021115588" className="cta-contact-btn cta-contact-btn--call">
-            <span className="cta-btn-icon">📞</span>
-            <span className="cta-btn-text">
-              <span className="cta-btn-title">Call หาเราทันที</span>
-              <span className="cta-btn-blink">Click เลย !!!</span>
-            </span>
-          </a>
-          <a href={`https://page.line.me/ubb9405u?text=${encodeURIComponent(`สนใจสินค้า: ${product.title}${product.productCode ? ` (${product.productCode})` : ''} — ขอใบเสนอราคา`)}`} className="cta-contact-btn cta-contact-btn--line" target="_blank" rel="noopener noreferrer">
-            <span className="cta-btn-icon">💬</span>
-            <span className="cta-btn-text">
-              <span className="cta-btn-title">LINE ปรึกษาฟรี</span>
-              <span className="cta-btn-blink">Click เลย !!!</span>
-            </span>
-          </a>
-          <a href="mailto:sales@nyxcable.com" className="cta-contact-btn cta-contact-btn--email">
-            <span className="cta-btn-icon">✉️</span>
-            <span className="cta-btn-text">
-              <span className="cta-btn-title">Email สอบถาม</span>
-              <span className="cta-btn-blink">Click เลย !!!</span>
-            </span>
-          </a>
-        </div>
-      </section>
 
       {/* ─── Related Blog Posts ─── */}
       {(async () => {

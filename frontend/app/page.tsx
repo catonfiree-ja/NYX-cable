@@ -815,40 +815,6 @@ export default async function HomePage() {
           </div>
         </div>
       </section>
-
-      {/* ─── CTA Section ─── */}
-      <section className="cta-section" id="contact-cta">
-        <div className="container">
-          <h2>สนใจสินค้า? ติดต่อเราวันนี้</h2>
-          <p>
-            ทีมวิศวกรพร้อมให้คำปรึกษาเลือกสายไฟที่เหมาะกับงานของคุณ
-            สอบถามราคาและสต็อกได้ทุกวันทำการ
-          </p>
-        </div>
-        <div className="cta-contact-bar">
-          <a href="tel:021115588" className="cta-contact-btn cta-contact-btn--call">
-            <span className="cta-btn-icon">📞</span>
-            <span className="cta-btn-text">
-              <span className="cta-btn-title">Call หาเราทันที</span>
-              <span className="cta-btn-blink">Click เลย !!!</span>
-            </span>
-          </a>
-          <a href="https://page.line.me/ubb9405u" className="cta-contact-btn cta-contact-btn--line" target="_blank" rel="noopener noreferrer">
-            <span className="cta-btn-icon">💬</span>
-            <span className="cta-btn-text">
-              <span className="cta-btn-title">LINE ปรึกษาฟรี</span>
-              <span className="cta-btn-blink">Click เลย !!!</span>
-            </span>
-          </a>
-          <a href="mailto:sales@nyxcable.com" className="cta-contact-btn cta-contact-btn--email">
-            <span className="cta-btn-icon">✉️</span>
-            <span className="cta-btn-text">
-              <span className="cta-btn-title">Email สอบถาม</span>
-              <span className="cta-btn-blink">Click เลย !!!</span>
-            </span>
-          </a>
-        </div>
-      </section>
     </>
   );
 }
