@@ -402,17 +402,15 @@ export default async function HomePage() {
       .hero-v2 .cta-row { flex-direction: column; }
       .hero-v2 .cta-row a { text-align: center; width: 100%; padding: 12px 16px; font-size: 0.9rem; }
 
-      /* Trust badges — hide scrollbar */
+      /* Trust badges — vertical stack on mobile */
       .hero-v2-right {
-        flex-direction: row; overflow-x: auto; gap: 8px;
-        padding-bottom: 4px; -webkit-overflow-scrolling: touch;
-        scrollbar-width: none; -ms-overflow-style: none;
+        flex-direction: column; gap: 8px;
+        padding-bottom: 4px; overflow: hidden;
       }
-      .hero-v2-right::-webkit-scrollbar { display: none; }
-      .hero-trust-badge { flex-shrink: 0; padding: 8px 12px; min-width: 150px; }
+      .hero-trust-badge { flex-shrink: 0; padding: 10px 14px; min-width: 0; width: 100%; }
       .hero-trust-badge .trust-icon { font-size: 1.2rem; }
-      .hero-trust-badge .trust-text h4 { font-size: 0.75rem; }
-      .hero-trust-badge .trust-text p { font-size: 0.65rem; }
+      .hero-trust-badge .trust-text h4 { font-size: 0.8rem; }
+      .hero-trust-badge .trust-text p { font-size: 0.7rem; }
 
       /* Client logos */
       .clients-section { padding: 20px 0; }
