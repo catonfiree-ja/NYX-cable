@@ -8,6 +8,7 @@ import ExcelSpecTable from './ExcelSpecTable'
 import productSpecsData from '@/data/product-specs.json'
 
 const styles = `
+  /* ─── Hero ─── */
   .product-detail-hero { background: linear-gradient(160deg, #001a33 0%, #002d5c 35%, #003d7a 70%, #002244 100%); color: #fff; padding: 32px 0 48px; position: relative; overflow: hidden; }
   .product-detail-hero::before { content: ''; position: absolute; inset: 0; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 400'%3E%3Ccircle cx='200' cy='200' r='200' fill='rgba(0,153,255,0.06)'/%3E%3Ccircle cx='1200' cy='100' r='150' fill='rgba(240,165,0,0.04)'/%3E%3C/svg%3E") no-repeat center; background-size: cover; }
   .product-detail-hero .container { position: relative; z-index: 1; }
@@ -26,25 +27,45 @@ const styles = `
   .hero-cta { display: flex; gap: 12px; flex-wrap: wrap; }
   .hero-cta .cta-btn-call { padding: 12px 28px; font-size: 0.9rem; }
   .hero-cta .cta-btn-line { padding: 12px 24px; font-size: 0.85rem; }
-  .product-content { padding: 40px 0 32px; }
-  .content-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 32px; }
-  .content-grid.single { grid-template-columns: 1fr; }
-  .spec-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 16px; padding: 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.03); }
+
+  /* ─── Section Jump Navigation ─── */
+  .section-nav { background: #fff; border-bottom: 1px solid #e2e8f0; padding: 14px 0; position: sticky; top: 0; z-index: 80; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+  .section-nav-inner { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
+  .section-nav-pill { padding: 8px 20px; border-radius: 50px; font-size: 0.82rem; font-weight: 600; color: #475569; background: #f1f5f9; text-decoration: none; transition: all 0.2s; border: 1px solid transparent; white-space: nowrap; }
+  .section-nav-pill:hover { background: #e0f2fe; color: #0369a1; border-color: #bae6fd; }
+
+  /* ─── Content Sections ─── */
+  .product-content { padding-bottom: 80px; }
+  .section-block { padding: 40px 0; }
+  .section-block:nth-child(odd) { background: #fff; }
+  .section-block:nth-child(even) { background: #f8fafc; }
+  .section-block-title { font-size: 1.2rem; font-weight: 700; color: #003366; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #f0a500; display: inline-block; }
+
+  /* ─── Spec Card ─── */
+  .spec-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 16px; padding: 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.03); max-width: 640px; }
   .spec-card-title { font-size: 1rem; font-weight: 700; color: #003366; margin-bottom: 16px; padding-bottom: 12px; border-bottom: 2px solid #f0a500; display: inline-block; }
-  .spec-list { list-style: none; margin: 0; }
+  .spec-list { list-style: none; margin: 0; padding: 0; }
   .spec-list li { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #f1f5f9; font-size: 0.88rem; }
   .spec-list li:last-child { border-bottom: none; }
   .spec-list .label { color: #64748b; }
   .spec-list .value { font-weight: 600; color: #003366; }
-  .product-full-desc { background: #f8fafc; border-radius: 16px; padding: 28px; border: 1px solid #e2e8f0; margin-bottom: 32px; }
-  .product-full-desc h2, .product-full-desc h3 { color: #003366; font-weight: 700; margin: 20px 0 8px; font-size: 1.1rem; }
-  .product-full-desc p { color: #475569; line-height: 1.8; margin-bottom: 12px; font-size: 0.9rem; }
-  .product-full-desc ul { margin: 8px 0 16px 24px; color: #475569; line-height: 1.8; }
-  .product-full-desc li { margin-bottom: 4px; }
-  .product-full-desc table { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 16px 0; border-radius: 10px; overflow: hidden; border: 1px solid #e2e8f0; }
+
+  /* ─── Description ─── */
+  .product-full-desc { background: #f8fafc; border-radius: 16px; padding: 28px; border: 1px solid #e2e8f0; }
+  .product-full-desc h2, .product-full-desc h3 { color: #003366; font-weight: 700; margin: 24px 0 10px; font-size: 1.1rem; }
+  .product-full-desc h2:first-child, .product-full-desc h3:first-child { margin-top: 0; }
+  .product-full-desc p { color: #475569; line-height: 1.85; margin-bottom: 14px; font-size: 0.9rem; max-width: 800px; }
+  .product-full-desc ul { margin: 8px 0 16px 24px; color: #475569; line-height: 1.85; }
+  .product-full-desc li { margin-bottom: 6px; }
+  .product-full-desc a { color: #f0a500; font-weight: 600; text-decoration: underline; text-underline-offset: 3px; transition: color 0.2s; }
+  .product-full-desc a:hover { color: #d4940a; }
+  .product-full-desc strong, .product-full-desc b { color: #1e293b; font-weight: 700; }
+  .product-full-desc table { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 20px 0; border-radius: 10px; overflow: hidden; border: 1px solid #e2e8f0; }
   .product-full-desc table th { background: #003366; color: #fff; padding: 10px 14px; text-align: left; font-weight: 600; }
   .product-full-desc table td { padding: 10px 14px; border-bottom: 1px solid #f1f5f9; color: #334155; }
   .product-full-desc table tr:nth-child(even) td { background: #f8fafc; }
+
+  /* ─── Variants ─── */
   .product-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 24px; }
   .variants-section { padding: 32px 0; }
   .variants-section h2 { font-size: 1.4rem; font-weight: 700; color: #003366; margin-bottom: 20px; }
@@ -55,37 +76,39 @@ const styles = `
   .stock-badge { display: inline-flex; padding: 2px 10px; border-radius: var(--radius-full); font-size: var(--font-size-xs); font-weight: 600; }
   .stock-in { background: rgba(16,185,129,0.1); color: var(--color-success); }
   .stock-out { background: rgba(239,68,68,0.1); color: var(--color-danger); }
-  .related-products { padding: var(--spacing-3xl) 0; }
-  .related-products h2 { font-size: var(--font-size-2xl); font-weight: 700; color: var(--color-primary); margin-bottom: var(--spacing-xl); }
-  .related-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: var(--spacing-lg); }
-  .related-card { display: block; padding: var(--spacing-lg); background: var(--color-white); border: 1px solid var(--color-gray-200); border-radius: var(--radius-lg); text-decoration: none; transition: all var(--transition-normal); }
-  .related-card:hover { border-color: var(--color-secondary); box-shadow: var(--shadow-lg); transform: translateY(-2px); }
+
+  /* ─── Related Products ─── */
+  .related-products { padding: 32px 0; }
+  .related-products h2 { font-size: 1.2rem; font-weight: 700; color: var(--color-primary); margin-bottom: 16px; }
+  .related-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; }
+  .related-card { display: block; padding: 16px; background: var(--color-white); border: 1px solid var(--color-gray-200); border-radius: 12px; text-decoration: none; transition: all 0.2s; }
+  .related-card:hover { border-color: var(--color-secondary); box-shadow: 0 4px 16px rgba(0,0,0,0.08); transform: translateY(-2px); }
   .related-card h3 { font-size: var(--font-size-sm); font-weight: 600; color: var(--color-primary); }
-  .section-divider { background: linear-gradient(180deg, #f8fafc 0%, #fff 100%); padding: 56px 0; }
-  .section-divider:nth-child(even) { background: #fff; }
-  .section-title-center { font-size: 1.4rem; font-weight: 700; color: var(--color-primary); margin-bottom: 8px; text-align: center; }
-  .section-sub-center { font-size: 0.9rem; color: #64748b; text-align: center; margin-bottom: 32px; }
-  .related-blogs { padding: 56px 0; background: linear-gradient(180deg, #f0f7ff, #fff); }
-  .related-blogs .container { max-width: 1280px; margin: 0 auto; padding: 0 1.5rem; }
-  .related-blogs h2 { font-size: 1.4rem; font-weight: 700; color: var(--color-primary); margin-bottom: 20px; text-align: center; }
+
+  /* ─── Blogs & Other Products ─── */
+  .related-blogs { padding: 48px 0; background: linear-gradient(180deg, #f0f7ff, #fff); }
+  .related-blogs h2 { font-size: 1.2rem; font-weight: 700; color: var(--color-primary); margin-bottom: 20px; text-align: center; }
   .blogs-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
   .blog-card-link { display: block; text-decoration: none; border: 1px solid #e2e8f0; border-radius: 12px; padding: 20px; background: #fff; transition: all 0.25s; }
   .blog-card-link:hover { border-color: #2563eb; box-shadow: 0 4px 16px rgba(37,99,235,0.1); transform: translateY(-2px); }
   .blog-card-link .bc-title { font-size: 0.95rem; font-weight: 700; color: #1a3c6e; line-height: 1.4; margin-bottom: 6px; }
   .blog-card-link .bc-excerpt { font-size: 0.8rem; color: #64748b; line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
   .blog-card-link .bc-date { font-size: 0.7rem; color: #94a3b8; margin-top: 8px; }
-  .other-products { padding: 56px 0; background: #fff; }
-  .other-products .container { max-width: 1280px; margin: 0 auto; padding: 0 1.5rem; }
-  .other-products h2 { font-size: 1.4rem; font-weight: 700; color: var(--color-primary); margin-bottom: 20px; text-align: center; }
+  .other-products { padding: 48px 0; background: #fff; }
+  .other-products h2 { font-size: 1.2rem; font-weight: 700; color: var(--color-primary); margin-bottom: 20px; text-align: center; }
   .op-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
   .op-card { display: flex; flex-direction: column; align-items: center; justify-content: center; text-decoration: none; border: 1px solid #e2e8f0; border-radius: 12px; padding: 28px 16px; text-align: center; background: #fff; transition: all 0.25s; min-height: 100px; }
   .op-card:hover { border-color: #2563eb; box-shadow: 0 4px 16px rgba(37,99,235,0.1); transform: translateY(-2px); }
   .op-card .op-code { font-size: 0.7rem; color: #94a3b8; letter-spacing: 0.5px; margin-bottom: 6px; }
   .op-card .op-name { font-size: 0.95rem; font-weight: 700; color: #1a3c6e; line-height: 1.4; }
+
+  /* ─── CTA Buttons ─── */
   .cta-btn-call { display: inline-flex; align-items: center; gap: 8px; padding: 14px 36px; background: linear-gradient(135deg, #1a3c6e, #2563eb); color: #fff; border-radius: 50px; font-weight: 700; font-size: 1rem; text-decoration: none; box-shadow: 0 4px 14px rgba(37,99,235,0.25); transition: all 0.25s; }
   .cta-btn-call:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(37,99,235,0.35); color: #fff; }
   .cta-btn-line { display: inline-flex; align-items: center; gap: 8px; padding: 14px 32px; background: linear-gradient(135deg, #06c755, #00b843); color: #fff; border-radius: 50px; font-weight: 700; font-size: 0.95rem; text-decoration: none; box-shadow: 0 4px 14px rgba(6,199,85,0.25); transition: all 0.25s; }
   .cta-btn-line:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(6,199,85,0.35); color: #fff; }
+
+  /* ─── Quick Quote Floating Bar ─── */
   .quick-quote-bar { position: fixed; bottom: 0; left: 0; right: 0; z-index: 90; background: linear-gradient(160deg, #001a33, #003366); border-top: 2px solid rgba(251,176,59,0.4); padding: 12px 0; box-shadow: 0 -4px 20px rgba(0,0,0,0.15); backdrop-filter: blur(12px); }
   .quick-quote-inner { max-width: 1280px; margin: 0 auto; padding: 0 1.5rem; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
   .quick-quote-info { display: flex; align-items: center; gap: 12px; color: #fff; min-width: 0; }
@@ -94,10 +117,12 @@ const styles = `
   .quick-quote-code { font-size: 0.7rem; opacity: 0.5; }
   .quick-quote-actions { display: flex; gap: 10px; flex-shrink: 0; }
   .quick-quote-actions .btn { font-size: 0.82rem; padding: 8px 20px; border-radius: 8px; font-weight: 700; white-space: nowrap; }
+
+  /* ─── Responsive ─── */
   @media (max-width: 900px) {
     .hero-product-layout { grid-template-columns: 1fr; gap: 24px; }
     .hero-image-box { max-width: 320px; margin: 0 auto; min-height: 200px; }
-    .content-grid { grid-template-columns: 1fr; }
+    .section-nav-inner { justify-content: flex-start; overflow-x: auto; -webkit-overflow-scrolling: touch; flex-wrap: nowrap; padding: 0 1rem; }
   }
   @media (max-width: 768px) {
     .hero-product-info h1 { font-size: 1.3rem; }
@@ -122,6 +147,7 @@ const styles = `
     .related-grid { grid-template-columns: 1fr !important; }
     .product-full-desc { padding: 18px; }
     .spec-card { padding: 16px; }
+    .section-block { padding: 28px 0; }
   }
   @media (max-width: 480px) {
     .op-grid { grid-template-columns: 1fr !important; }
@@ -414,15 +440,29 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
         </div>
       </div>
 
-      {/* ─── Content Sections ─── */}
-      <div className="product-content">
+      {/* ─── Section Jump Navigation ─── */}
+      <nav className="section-nav">
         <div className="container">
+          <div className="section-nav-inner">
+            {(product.voltageRating || product.temperatureRange || product.standards || specs.length > 0) && <a href="#specs" className="section-nav-pill">ข้อมูลเทคนิค</a>}
+            {(productSpecsData as any)[slug] && <a href="#spec-table" className="section-nav-pill">ตารางสเปค</a>}
+            {(product.description || product.shortDescription) && <a href="#description" className="section-nav-pill">รายละเอียด</a>}
+            {variants.length > 0 && <a href="#variants" className="section-nav-pill">ขนาดสินค้า</a>}
+            {relatedProducts.length > 0 && <a href="#related" className="section-nav-pill">สินค้าที่เกี่ยวข้อง</a>}
+            <a href="#blogs" className="section-nav-pill">บทความ</a>
+          </div>
+        </div>
+      </nav>
 
-          {/* Specs + Excel table side by side */}
-          <div className={`content-grid${!(product.voltageRating || product.temperatureRange || product.standards || specs.length > 0) ? ' single' : ''}`}>
-            {(product.voltageRating || product.temperatureRange || product.standards || specs.length > 0) && (
+      {/* ─── Content Sections (stacked full-width) ─── */}
+      <div className="product-content">
+
+        {/* ── Technical Specs Card ── */}
+        {(product.voltageRating || product.temperatureRange || product.standards || specs.length > 0) && (
+          <div className="section-block" id="specs">
+            <div className="container">
+              <div className="section-block-title">ข้อมูลทางเทคนิค</div>
               <div className="spec-card">
-                <div className="spec-card-title">ข้อมูลทางเทคนิค</div>
                 <ul className="spec-list">
                   {product.voltageRating && <li><span className="label">แรงดันใช้งาน</span><span className="value">{product.voltageRating}</span></li>}
                   {product.temperatureRange && <li><span className="label">ช่วงอุณหภูมิ</span><span className="value">{product.temperatureRange}</span></li>}
@@ -432,129 +472,134 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
                   ))}
                 </ul>
               </div>
-            )}
-
-            {/* Excel Product Spec Table */}
-            {(() => {
-              const specData = (productSpecsData as any)[slug]
-              if (!specData) return null
-              return <ExcelSpecTable slug={slug} data={specData} />
-            })()}
+            </div>
           </div>
+        )}
 
-          {/* Full description from Portable Text */}
-          {renderDescription(product.description, product.shortDescription, product.title, linkMap, slug)}
+        {/* ── Excel Product Spec Table (full-width) ── */}
+        {(() => {
+          const specData = (productSpecsData as any)[slug]
+          if (!specData) return null
+          return (
+            <div className="section-block" id="spec-table">
+              <div className="container">
+                <ExcelSpecTable slug={slug} data={specData} />
+              </div>
+            </div>
+          )
+        })()}
 
-          {variants.length > 0 && (() => {
-            // Check if variants have actual spec data 
-            const hasSpecs = variants.some((v: any) => v.cores || v.crossSection)
+        {/* ── Full Description ── */}
+        {(product.description || product.shortDescription) && (
+          <div className="section-block" id="description">
+            <div className="container">
+              <div className="section-block-title">รายละเอียดสินค้า</div>
+              {renderDescription(product.description, product.shortDescription, product.title, linkMap, slug)}
+            </div>
+          </div>
+        )}
 
-            // Helper: render variant name as link or text
-            const VariantName = ({ v, fallback }: { v: any, fallback?: string }) => {
-              const name = v.model || v.title || fallback || 'ขนาด'
-              if (v.slug?.current) {
-                return <a href={`/products/variant/${v.slug.current}`} style={{ fontWeight: 700, color: '#f0a500', textDecoration: 'underline', textUnderlineOffset: '3px' }}>{name}</a>
-              }
-              return <span style={{ fontWeight: 600, color: 'var(--color-primary)' }}>{name}</span>
-            }
+        {/* ── Variants ── */}
+        {variants.length > 0 && (() => {
+          const hasSpecs = variants.some((v: any) => v.cores || v.crossSection)
+          const VariantName = ({ v, fallback }: { v: any, fallback?: string }) => {
+            const name = v.model || v.title || fallback || 'ขนาด'
+            if (v.slug?.current) return <a href={`/products/variant/${v.slug.current}`} style={{ fontWeight: 700, color: '#f0a500', textDecoration: 'underline', textUnderlineOffset: '3px' }}>{name}</a>
+            return <span style={{ fontWeight: 600, color: 'var(--color-primary)' }}>{name}</span>
+          }
+          if (hasSpecs) return <div className="section-block" id="variants"><div className="container"><VariantTable variants={variants} /></div></div>
+          return (
+            <div className="section-block" id="variants">
+              <div className="container">
+                <section className="variants-section">
+                  <h2>ขนาดสินค้าที่มี ({variants.length} รุ่น)</h2>
+                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: '8px', marginTop: '16px' }}>
+                    {variants.map((v: any, idx: number) => {
+                      const name = v.model || v.title?.replace(product.title, '').trim() || `ขนาดที่ ${idx + 1}`
+                      const content = (<>{name}{v.crossSection && <span style={{ display: 'block', fontSize: '0.72rem', color: '#64748b', marginTop: '2px' }}>{v.crossSection} mm²</span>}</>)
+                      const cardStyle = { display: 'block', padding: '12px 16px', borderRadius: '8px', border: '1px solid #e2e8f0', textDecoration: 'none', color: '#1a1a2e', transition: 'all 0.2s', fontWeight: 600, fontSize: '0.85rem' } as const
+                      if (v.slug?.current) return <a key={v._id} href={`/products/variant/${v.slug.current}`} style={cardStyle}>{content}</a>
+                      return <div key={v._id} style={cardStyle}>{content}</div>
+                    })}
+                  </div>
+                  <div className="cta-actions" style={{ justifyContent: 'flex-start', marginTop: '20px' }}>
+                    <a href={`https://page.line.me/ubb9405u?text=${encodeURIComponent(`สอบถามขนาด: ${product.title} (${variants.length} รุ่น)`)}`} className="btn btn-accent" target="_blank" rel="noopener noreferrer">สอบถามขนาดทาง LINE</a>
+                    <a href="tel:021115588" className="btn btn-primary">โทร 02-111-5588</a>
+                  </div>
+                </section>
+              </div>
+            </div>
+          )
+        })()}
 
-            if (hasSpecs) {
-              return <VariantTable variants={variants} />
-            }
-
-            // No specs — show card grid (linked if slug exists)
-            return (
-              <section className="variants-section">
-                <h2>ขนาดสินค้าที่มี ({variants.length} รุ่น)</h2>
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: '8px', marginTop: '16px' }}>
-                  {variants.map((v: any, idx: number) => {
-                    const name = v.model || v.title?.replace(product.title, '').trim() || `ขนาดที่ ${idx + 1}`
-                    const content = (
-                      <>
-                        {name}
-                        {v.crossSection && <span style={{ display: 'block', fontSize: '0.72rem', color: '#64748b', marginTop: '2px' }}>{v.crossSection} mm²</span>}
-                      </>
-                    )
-                    const cardStyle = { display: 'block', padding: '12px 16px', borderRadius: '8px', border: '1px solid #e2e8f0', textDecoration: 'none', color: '#1a1a2e', transition: 'all 0.2s', fontWeight: 600, fontSize: '0.85rem' } as const
-
-                    if (v.slug?.current) {
-                      return <a key={v._id} href={`/products/variant/${v.slug.current}`} style={cardStyle}>{content}</a>
-                    }
-                    return <div key={v._id} style={cardStyle}>{content}</div>
-                  })}
+        {/* ── Related Products ── */}
+        {relatedProducts.length > 0 && (
+          <div className="section-block" id="related">
+            <div className="container">
+              <section className="related-products">
+                <h2>สินค้าที่เกี่ยวข้อง</h2>
+                <div className="related-grid">
+                  {relatedProducts.map((rp: any) => (
+                    <a key={rp._id} href={`/products/detail/${rp.slug?.current}`} className="related-card">
+                      <h3>{rp.title}</h3>
+                      {rp.productCode && <span className="product-code" style={{ marginTop: '8px' }}>{rp.productCode}</span>}
+                    </a>
+                  ))}
                 </div>
-                <div className="cta-actions" style={{ justifyContent: 'flex-start', marginTop: '20px' }}>
-                  <a href={`https://page.line.me/ubb9405u?text=${encodeURIComponent(`สอบถามขนาด: ${product.title} (${variants.length} รุ่น)`)}`} className="btn btn-accent" target="_blank" rel="noopener noreferrer">สอบถามขนาดทาง LINE</a>
-                  <a href="tel:021115588" className="btn btn-primary">โทร 02-111-5588</a>
+              </section>
+            </div>
+          </div>
+        )}
+
+        {/* ─── Related Blog Posts ─── */}
+        {
+          (async () => {
+            const allBlogPosts = await getBlogPosts()
+            const blogPosts = allBlogPosts.slice(0, 3)
+            if (blogPosts.length === 0) return null
+            return (
+              <section className="related-blogs" id="blogs">
+                <div className="container">
+                  <h2>คู่มือ &amp; บทความที่เกี่ยวข้อง</h2>
+                  <div className="blogs-grid">
+                    {blogPosts.map((bp: any) => (
+                      <a key={bp._id} href={`/blog/${bp.slug?.current}`} className="blog-card-link">
+                        <div className="bc-title">{bp.title}</div>
+                        {bp.excerpt && <div className="bc-excerpt">{bp.excerpt}</div>}
+                        {bp.publishedAt && <div className="bc-date">{new Date(bp.publishedAt).toLocaleDateString('th-TH', { day: 'numeric', month: 'long', year: 'numeric' })}</div>}
+                      </a>
+                    ))}
+                  </div>
                 </div>
               </section>
             )
-          })()}
+          })()
+        }
 
-          {relatedProducts.length > 0 && (
-            <section className="related-products">
-              <h2>สินค้าที่เกี่ยวข้อง</h2>
-              <div className="related-grid">
-                {relatedProducts.map((rp: any) => (
-                  <a key={rp._id} href={`/products/detail/${rp.slug?.current}`} className="related-card">
-                    <h3>{rp.title}</h3>
-                    {rp.productCode && <span className="product-code" style={{ marginTop: '8px' }}>{rp.productCode}</span>}
-                  </a>
-                ))}
-              </div>
-            </section>
-          )}
-        </div>
+        {/* ─── Other Products ─── */}
+        {
+          (async () => {
+            const allProducts = await getProducts()
+            const otherProducts = allProducts.filter((p: any) => p.slug?.current !== slug).slice(0, 4)
+            if (otherProducts.length === 0) return null
+            return (
+              <section className="other-products">
+                <div className="container">
+                  <h2>สินค้าหมวดอื่นที่น่าสนใจ</h2>
+                  <div className="op-grid">
+                    {otherProducts.map((p: any) => (
+                      <a key={p._id} href={`/products/detail/${p.slug?.current}`} className="op-card">
+                        {p.productCode && <div className="op-code">{p.productCode}</div>}
+                        <div className="op-name">{p.title}</div>
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              </section>
+            )
+          })()
+        }
       </div>
-
-      {/* ─── Related Blog Posts ─── */}
-      {
-        (async () => {
-          const allBlogPosts = await getBlogPosts()
-          const blogPosts = allBlogPosts.slice(0, 3)
-          if (blogPosts.length === 0) return null
-          return (
-            <section className="related-blogs">
-              <div className="container">
-                <h2>คู่มือ & บทความที่เกี่ยวข้อง</h2>
-                <div className="blogs-grid">
-                  {blogPosts.map((bp: any) => (
-                    <a key={bp._id} href={`/blog/${bp.slug?.current}`} className="blog-card-link">
-                      <div className="bc-title">{bp.title}</div>
-                      {bp.excerpt && <div className="bc-excerpt">{bp.excerpt}</div>}
-                      {bp.publishedAt && <div className="bc-date">{new Date(bp.publishedAt).toLocaleDateString('th-TH', { day: 'numeric', month: 'long', year: 'numeric' })}</div>}
-                    </a>
-                  ))}
-                </div>
-              </div>
-            </section>
-          )
-        })()
-      }
-
-      {/* ─── Other Products ─── */}
-      {
-        (async () => {
-          const allProducts = await getProducts()
-          const otherProducts = allProducts.filter((p: any) => p.slug?.current !== slug).slice(0, 4)
-          if (otherProducts.length === 0) return null
-          return (
-            <section className="other-products">
-              <div className="container">
-                <h2>สินค้าหมวดอื่นที่น่าสนใจ</h2>
-                <div className="op-grid">
-                  {otherProducts.map((p: any) => (
-                    <a key={p._id} href={`/products/detail/${p.slug?.current}`} className="op-card">
-                      {p.productCode && <div className="op-code">{p.productCode}</div>}
-                      <div className="op-name">{p.title}</div>
-                    </a>
-                  ))}
-                </div>
-              </div>
-            </section>
-          )
-        })()
-      }
 
       {/* ─── Quick Quote Floating Bar ─── */}
       <div className="quick-quote-bar">
