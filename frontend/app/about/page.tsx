@@ -200,14 +200,35 @@ const styles = `
   .about-cta-btn.contact:hover { background: rgba(255,255,255,0.25); color: #fff; }
 
   @media (max-width: 768px) {
+    .about-hero { padding: 40px 0 32px; }
     .about-hero h1 { font-size: 1.6rem; }
-    .about-grid { grid-template-columns: 1fr; }
-    .about-stats { grid-template-columns: repeat(3, 1fr); }
-    .values-grid { grid-template-columns: 1fr; }
-    .cert-grid { gap: 12px; }
-    .cert-item { min-width: 80px; padding: 12px 16px; }
+    .about-hero .hero-sub { font-size: 0.9rem; padding: 0 8px; }
+    .about-content { padding: 32px 8px; }
+    .about-grid { grid-template-columns: 1fr; gap: 24px; margin-bottom: 40px; }
+    .about-text h2 { font-size: 1.3rem; }
+    .about-text p { font-size: 0.88rem; }
+    .about-stats { grid-template-columns: repeat(3, 1fr); gap: 8px; padding: 16px; }
+    .about-stat .num { font-size: 1.4rem; }
+    .about-stat .label { font-size: 0.68rem; }
+    .about-image-box { min-height: 200px; }
+    .values-grid { grid-template-columns: 1fr; gap: 14px; }
+    .value-card { padding: 20px 16px; }
+    .value-card h3 { font-size: 0.95rem; }
+    .value-card p { font-size: 0.8rem; }
+    .section-title h2 { font-size: 1.3rem; }
+    .section-title p { font-size: 0.85rem; }
+    .cert-grid { gap: 10px; }
+    .cert-item { min-width: 70px; padding: 10px 12px; }
+    .cert-name { font-size: 0.95rem; }
+    .cert-desc { font-size: 0.6rem; }
+    .timeline { padding-left: 32px; margin-bottom: 40px; }
+    .tl-item h3 { font-size: 0.9rem; }
+    .tl-item p { font-size: 0.8rem; }
+    .about-cta { padding: 36px 0; }
     .about-cta h2 { font-size: 1.3rem; }
+    .about-cta p { font-size: 0.88rem; }
     .about-cta-buttons { flex-direction: column; align-items: center; }
+    .about-cta-btn { padding: 12px 28px; font-size: 0.88rem; }
   }
 `
 
@@ -223,10 +244,10 @@ export default async function AboutPage() {
   const stats = aboutCms?.stats?.length > 0
     ? aboutCms.stats
     : [
-        { number: '10+', label: 'ปีประสบการณ์' },
-        { number: '150+', label: 'รุ่นสินค้า' },
-        { number: '50+', label: 'องค์กรลูกค้า' },
-      ]
+      { number: '10+', label: 'ปีประสบการณ์' },
+      { number: '150+', label: 'รุ่นสินค้า' },
+      { number: '50+', label: 'องค์กรลูกค้า' },
+    ]
   const storyHeading = aboutCms?.storyHeading || null
   const storyContent = aboutCms?.storyContent || null
 
