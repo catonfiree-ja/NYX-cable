@@ -1,3 +1,4 @@
+import type { Metadata } from 'next'
 import { getProducts, getCategories } from '@/lib/queries'
 import { urlFor } from '@/lib/sanity'
 import Image from 'next/image'
@@ -54,7 +55,7 @@ const catIcons: Record<string, string> = {
   'special-cable': 'SPL',
 }
 
-export const metadata = {
+export const metadata: Metadata = {
   title: 'ผลิตภัณฑ์สายไฟอุตสาหกรรม | แบ่งตามหมวดหมู่',
   description: 'สายไฟอุตสาหกรรมคุณภาพสูง มาตรฐานยุโรป — สายคอนโทรล สาย VFD สายทนความร้อน สายชีลด์ สายเครน แบ่งตามหมวดหมู่ เลือกง่าย',
 }

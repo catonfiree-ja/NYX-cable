@@ -1,6 +1,15 @@
+import type { Metadata } from 'next'
 import { getProducts, getBlogPosts, getFAQs, getHomePage } from '@/lib/queries'
 import Image from 'next/image'
 import { urlFor as sanityUrlFor } from '@/lib/sanity'
+
+export async function generateMetadata(): Promise<Metadata> {
+  const homeCms = await getHomePage()
+  return {
+    title: homeCms?.metaTitle || 'NYX Cable — ผู้เชี่ยวชาญสายไฟอุตสาหกรรมคุณภาพยุโรป',
+    description: homeCms?.metaDescription || 'NYX Cable ผู้นำด้านสายไฟอุตสาหกรรมคุณภาพสูง มาตรฐานยุโรป สายคอนโทรล สาย VFD สายทนความร้อน สายชีลด์ ส่งตรงจากโรงงาน',
+  }
+}
 
 export default async function HomePage() {
   // Fetch real data from Sanity
@@ -34,32 +43,23 @@ export default async function HomePage() {
   ];
 
   // ─── ข้อมูลจากต้นฉบับ — ทำไมต้องเลือก NYX CABLE ───
-  const whyNyx = [
-    {
-      num: "01",
-      title: "มั่นใจคุณภาพ",
-      desc: "ด้วยเทคโนโลยีการผลิตล่าสุดจากยุโรป",
-      stat: "DIN VDE Standard"
-    },
-    {
-      num: "02",
-      title: "บริการรวดเร็วทันใจ",
-      desc: "สินค้าพร้อมส่งด่วนจากโกดังบางนา เพียง 2 ชม.",
-      stat: "ส่งด่วน 2 ชั่วโมง"
-    },
-    {
-      num: "03",
-      title: "ราคาดี",
-      desc: "เราเป็นโรงงาน นำเข้าสายไฟฟ้าเองโดยตรง",
-      stat: "โรงงานผู้นำเข้าตรง"
-    },
-    {
-      num: "04",
-      title: "ยืนยันจากผู้ใช้จริง",
-      desc: "ลูกค้ากว่า 99% กลับมาซื้อซ้ำ",
-      stat: "99% ซื้อซ้ำ"
-    },
+  const defaultWhyNyx = [
+    { num: "01", title: "มั่นใจคุณภาพ", desc: "ด้วยเทคโนโลยีการผลิตล่าสุดจากยุโรป", stat: "DIN VDE Standard" },
+    { num: "02", title: "บริการรวดเร็วทันใจ", desc: "สินค้าพร้อมส่งด่วนจากโกดังบางนา เพียง 2 ชม.", stat: "ส่งด่วน 2 ชั่วโมง" },
+    { num: "03", title: "ราคาดี", desc: "เราเป็นโรงงาน นำเข้าสายไฟฟ้าเองโดยตรง", stat: "โรงงานผู้นำเข้าตรง" },
+    { num: "04", title: "ยืนยันจากผู้ใช้จริง", desc: "ลูกค้ากว่า 99% กลับมาซื้อซ้ำ", stat: "99% ซื้อซ้ำ" },
   ];
+  // Use CMS data if available, fallback to hardcoded
+  const whyNyx = (homeCms?.whyNyxItems?.length > 0)
+    ? homeCms.whyNyxItems.map((item: any, i: number) => ({
+        num: String(i + 1).padStart(2, '0'),
+        title: item.title,
+        desc: item.description,
+        stat: item.icon || '',
+      }))
+    : defaultWhyNyx;
+  const whyNyxHeading = homeCms?.whyNyxHeading || 'ทำไมต้องเลือก NYX CABLE';
+  const whyNyxSubheading = homeCms?.whyNyxSubheading || 'มั่นใจคุณภาพ + บริการรวดเร็วทันใจ + ราคาดี + ยืนยันจากผู้ใช้จริง';
 
   // ─── รายชื่อสินค้าหลักพร้อมคำอธิบายไทย (จากต้นฉบับ) ───
   const mainProducts = [
@@ -605,11 +605,11 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* ─── Why NYX Cable (ข้อมูลจากต้นฉบับ) ─── */}
+      {/* ─── Why NYX Cable (CMS or fallback) ─── */}
       <section className="why-nyx" id="features">
         <div className="container">
-          <h2>ทำไมต้องเลือก NYX CABLE</h2>
-          <p className="section-sub">มั่นใจคุณภาพ + บริการรวดเร็วทันใจ + ราคาดี + ยืนยันจากผู้ใช้จริง</p>
+          <h2>{whyNyxHeading}</h2>
+          <p className="section-sub">{whyNyxSubheading}</p>
           <div className="why-nyx-grid">
             {whyNyx.map((item, i) => (
               <a key={i} href="/contact" className="why-nyx-card" style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}>
@@ -623,11 +623,11 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* ─── Delivery Section (from original) ─── */}
+      {/* ─── Delivery Section (CMS or fallback) ─── */}
       <section className="delivery-section">
         <div className="container">
-          <h2>การส่งสินค้า</h2>
-          <p className="section-sub">จัดส่งถึงที่หมายอย่างรวดเร็ว ปลอดภัย ตรงต่อเวลา</p>
+          <h2>{homeCms?.deliveryHeading || 'การส่งสินค้า'}</h2>
+          <p className="section-sub">{homeCms?.deliverySubheading || 'จัดส่งถึงที่หมายอย่างรวดเร็ว ปลอดภัย ตรงต่อเวลา'}</p>
           <div className="delivery-grid">
             <div className="delivery-card">
               <div className="dc-num">01</div>

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { getAboutPage } from '@/lib/queries'
+import { PortableText } from '@portabletext/react'
 
 export async function generateMetadata(): Promise<Metadata> {
   const about = await getAboutPage()
@@ -210,35 +211,63 @@ const styles = `
   }
 `
 
-export default function AboutPage() {
+export default async function AboutPage() {
+  const aboutCms = await getAboutPage()
+
+  // CMS data with fallbacks
+  const heroHeading = aboutCms?.heroHeading || 'เกี่ยวกับ NYX Cable'
+  const heroSub = aboutCms?.heroSubheading || 'ผู้นำด้านสายไฟอุตสาหกรรมคุณภาพสูง มาตรฐานยุโรป ส่งมอบความเชื่อมั่นให้อุตสาหกรรมไทยมากว่า 10 ปี'
+  const heroBadges = aboutCms?.heroBadges?.length > 0
+    ? aboutCms.heroBadges
+    : ['🏭 โรงงานนำเข้าตรง', '🇪🇺 มาตรฐาน DIN VDE', '🚚 ส่งด่วน 2 ชม.']
+  const stats = aboutCms?.stats?.length > 0
+    ? aboutCms.stats
+    : [
+        { number: '10+', label: 'ปีประสบการณ์' },
+        { number: '150+', label: 'รุ่นสินค้า' },
+        { number: '50+', label: 'องค์กรลูกค้า' },
+      ]
+  const storyHeading = aboutCms?.storyHeading || null
+  const storyContent = aboutCms?.storyContent || null
+
   return (
     <>
       <style dangerouslySetInnerHTML={{ __html: styles }} />
 
-      {/* ─── Corporate Hero ─── */}
+      {/* ─── Corporate Hero (CMS or fallback) ─── */}
       <section className="about-hero">
         <div className="container">
-          <h1>เกี่ยวกับ NYX Cable</h1>
-          <p className="hero-sub">ผู้นำด้านสายไฟอุตสาหกรรมคุณภาพสูง มาตรฐานยุโรป ส่งมอบความเชื่อมั่นให้อุตสาหกรรมไทยมากว่า 10 ปี</p>
+          <h1>{heroHeading}</h1>
+          <p className="hero-sub">{heroSub}</p>
           <div className="hero-badges">
-            <span className="hero-badge">🏭 โรงงานนำเข้าตรง</span>
-            <span className="hero-badge">🇪🇺 มาตรฐาน DIN VDE</span>
-            <span className="hero-badge">🚚 ส่งด่วน 2 ชม.</span>
+            {heroBadges.map((badge: string, i: number) => (
+              <span key={i} className="hero-badge">{badge}</span>
+            ))}
           </div>
         </div>
       </section>
 
       <div className="container about-content">
-        {/* ─── Split Layout ─── */}
+        {/* ─── Split Layout (CMS or fallback) ─── */}
         <div className="about-grid">
           <div className="about-text">
-            <h2>เราคือผู้เชี่ยวชาญ<br /><span>สายไฟอุตสาหกรรม</span></h2>
-            <p>NYX Cable เป็นผู้นำเข้าและจำหน่ายสายไฟอุตสาหกรรมคุณภาพสูง ผลิตด้วยเทคโนโลยีขั้นสูงจากยุโรป ผ่านมาตรฐาน DIN VDE ทุกรุ่น</p>
-            <p>เรามุ่งมั่นส่งมอบสายไฟที่มีคุณภาพสูงสุดให้กับโรงงานอุตสาหกรรมในประเทศไทย พร้อมทีมวิศวกรที่พร้อมให้คำปรึกษาตลอดเวลา</p>
+            {storyHeading ? (
+              <h2>{storyHeading}</h2>
+            ) : (
+              <h2>เราคือผู้เชี่ยวชาญ<br /><span>สายไฟอุตสาหกรรม</span></h2>
+            )}
+            {storyContent ? (
+              <div className="portable-text"><PortableText value={storyContent} /></div>
+            ) : (
+              <>
+                <p>NYX Cable เป็นผู้นำเข้าและจำหน่ายสายไฟอุตสาหกรรมคุณภาพสูง ผลิตด้วยเทคโนโลยีขั้นสูงจากยุโรป ผ่านมาตรฐาน DIN VDE ทุกรุ่น</p>
+                <p>เรามุ่งมั่นส่งมอบสายไฟที่มีคุณภาพสูงสุดให้กับโรงงานอุตสาหกรรมในประเทศไทย พร้อมทีมวิศวกรที่พร้อมให้คำปรึกษาตลอดเวลา</p>
+              </>
+            )}
             <div className="about-stats">
-              <div className="about-stat"><div className="num">10+</div><div className="label">ปีประสบการณ์</div></div>
-              <div className="about-stat"><div className="num">150+</div><div className="label">รุ่นสินค้า</div></div>
-              <div className="about-stat"><div className="num">50+</div><div className="label">องค์กรลูกค้า</div></div>
+              {stats.map((s: any, i: number) => (
+                <div key={i} className="about-stat"><div className="num">{s.number}</div><div className="label">{s.label}</div></div>
+              ))}
             </div>
           </div>
           <div className="about-image-box">

@@ -1,3 +1,4 @@
+import type { Metadata } from 'next'
 import { getBlogPosts } from '@/lib/queries'
 import { urlFor as sanityUrlFor } from '@/lib/sanity'
 import blogImages from '@/data/blog-images.json'
@@ -143,7 +144,7 @@ function getPostImage(post: any): string | null {
   return null
 }
 
-export const metadata = {
+export const metadata: Metadata = {
   title: 'บทความ & ความรู้สายไฟอุตสาหกรรม | NYX Cable',
   description: 'บทความให้ความรู้เกี่ยวกับสายไฟอุตสาหกรรม วิธีเลือกสายไฟ มาตรฐาน DIN VDE จากทีมวิศวกร NYX Cable',
 }
