@@ -6,6 +6,7 @@ import { notFound } from 'next/navigation'
 import VariantTable from './VariantTable'
 import ExcelSpecTable from './ExcelSpecTable'
 import productSpecsData from '@/data/product-specs.json'
+import { productContentMap } from '@/data/product-content'
 
 const styles = `
   /* ─── Hero ─── */
@@ -148,6 +149,29 @@ const styles = `
     .product-full-desc { padding: 18px; }
     .spec-card { padding: 16px; }
     .section-block { padding: 28px 0; }
+  }
+
+  /* ─── Hardcoded Content Sections ─── */
+  .hc-section { margin-bottom: 28px; }
+  .hc-section h3 { font-size: 1.05rem; font-weight: 700; color: #003366; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid #e2e8f0; }
+  .hc-section p { color: #475569; line-height: 1.85; margin-bottom: 12px; font-size: 0.9rem; }
+  .hc-section ul, .hc-section ol { margin: 8px 0 16px 24px; color: #475569; line-height: 1.85; font-size: 0.9rem; }
+  .hc-section li { margin-bottom: 8px; }
+  .hc-section strong { color: #1e293b; }
+  .hc-section a { color: #f0a500; font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+  .hc-section a:hover { color: #d4940a; }
+
+  /* ─── FAQ Accordion ─── */
+  .faq-section { margin-top: 0; }
+  .faq-item { border: 1px solid #e2e8f0; border-radius: 10px; margin-bottom: 10px; overflow: hidden; background: #fff; }
+  .faq-item summary { padding: 14px 20px; font-size: 0.92rem; font-weight: 600; color: #003366; cursor: pointer; list-style: none; display: flex; align-items: center; gap: 10px; transition: background 0.2s; }
+  .faq-item summary:hover { background: #f0f7ff; }
+  .faq-item summary::before { content: '▸'; font-size: 0.8rem; color: #f0a500; transition: transform 0.2s; }
+  .faq-item[open] summary::before { transform: rotate(90deg); }
+  .faq-item .faq-answer { padding: 0 20px 14px; font-size: 0.88rem; color: #475569; line-height: 1.75; }
+  @media (max-width: 768px) {
+    .faq-item summary { font-size: 0.85rem; padding: 12px 14px; }
+    .faq-item .faq-answer { padding: 0 14px 12px; font-size: 0.82rem; }
   }
   @media (max-width: 480px) {
     .op-grid { grid-template-columns: 1fr !important; }
@@ -481,6 +505,7 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
             {(product.description || product.shortDescription) && <a href="#description" className="section-nav-pill">รายละเอียด</a>}
             {variants.length > 0 && <a href="#variants" className="section-nav-pill">ขนาดสินค้า</a>}
             {relatedProducts.length > 0 && <a href="#related" className="section-nav-pill">สินค้าที่เกี่ยวข้อง</a>}
+            {productContentMap[slug]?.faqs && <a href="#faqs" className="section-nav-pill">FAQs</a>}
             <a href="#blogs" className="section-nav-pill">บทความ</a>
           </div>
         </div>
@@ -530,6 +555,41 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
             </div>
           </div>
         )}
+
+        {/* ── Hardcoded Content Sections (from original site) ── */}
+        {(() => {
+          const hcData = productContentMap[slug]
+          if (!hcData) return null
+          return (
+            <>
+              {hcData.sections.map((section) => (
+                <div className="section-block" key={section.id} id={section.id}>
+                  <div className="container">
+                    <div className="hc-section">
+                      <h3>{section.title}</h3>
+                      {section.content}
+                    </div>
+                  </div>
+                </div>
+              ))}
+              {hcData.faqs && hcData.faqs.length > 0 && (
+                <div className="section-block" id="faqs">
+                  <div className="container">
+                    <div className="section-block-title">คำถามที่พบบ่อย (FAQs)</div>
+                    <div className="faq-section">
+                      {hcData.faqs.map((faq, idx) => (
+                        <details key={idx} className="faq-item">
+                          <summary>{faq.q}</summary>
+                          <div className="faq-answer">{faq.a}</div>
+                        </details>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              )}
+            </>
+          )
+        })()}
 
         {/* ── Variants ── */}
         {variants.length > 0 && (() => {
