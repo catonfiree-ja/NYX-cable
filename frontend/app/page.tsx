@@ -476,27 +476,6 @@ export default async function HomePage() {
       .articles-grid { grid-template-columns: repeat(2, 1fr); }
     }
 
-    /* ─── CTA Section ─── */
-    .cta-section {
-      padding: 70px 0;
-      background: linear-gradient(160deg, #001a33, #003366, #002d5c);
-      color: #fff;
-      text-align: center;
-      position: relative;
-    }
-    .cta-section::before {
-      content: ''; position: absolute; inset: 0;
-      background: radial-gradient(ellipse at 50% 50%, rgba(251,176,59,0.06), transparent 70%);
-    }
-    .cta-section h2 { font-size: 2rem; font-weight: 800; margin-bottom: 14px; position: relative; letter-spacing: -0.3px; }
-    .cta-section p { font-size: 0.95rem; opacity: 0.6; max-width: 500px; margin: 0 auto 32px; line-height: 1.7; position: relative; }
-    .cta-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; position: relative; }
-    .cta-actions .btn { min-width: 180px; justify-content: center; border-radius: 10px; font-weight: 700; letter-spacing: 0.3px; }
-    .cta-actions .btn-accent { box-shadow: 0 4px 20px rgba(240,165,0,0.25); }
-    .cta-actions .btn-accent:hover { box-shadow: 0 6px 28px rgba(240,165,0,0.35); }
-    .cta-actions .btn-line { box-shadow: 0 4px 20px rgba(6,199,85,0.2); }
-    .cta-actions .btn-secondary { border-color: rgba(255,255,255,0.2); }
-    .cta-actions .btn-secondary:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.4); }
   `
 
   return (
