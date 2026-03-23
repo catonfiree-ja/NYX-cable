@@ -167,17 +167,6 @@ export default async function GalleryPage() {
         />
       </div>
 
-      {/* ─── CTA ─── */}
-      <section className="gallery-cta">
-        <div className="container">
-          <h2>สนใจสินค้า? ติดต่อเราวันนี้</h2>
-          <p>ทีมวิศวกรพร้อมให้คำปรึกษาเลือกสายไฟที่เหมาะกับงานของคุณ</p>
-          <div className="gallery-cta-btns">
-            <a href="tel:021115588" className="gallery-cta-btn call">📞 โทร 02-111-5588</a>
-            <a href="https://page.line.me/@ubb9405u" className="gallery-cta-btn line" target="_blank" rel="noopener noreferrer">💬 แอด LINE</a>
-          </div>
-        </div>
-      </section>
     </>
   )
 }
