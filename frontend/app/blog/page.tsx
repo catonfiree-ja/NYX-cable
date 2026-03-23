@@ -147,6 +147,11 @@ function getPostImage(post: any): string | null {
 export const metadata: Metadata = {
   title: 'บทความ & ความรู้สายไฟอุตสาหกรรม | NYX Cable',
   description: 'บทความให้ความรู้เกี่ยวกับสายไฟอุตสาหกรรม วิธีเลือกสายไฟ มาตรฐาน DIN VDE จากทีมวิศวกร NYX Cable',
+  openGraph: {
+    title: 'บทความ & ความรู้สายไฟอุตสาหกรรม | NYX Cable',
+    description: 'ความรู้สายไฟอุตสาหกรรม วิธีเลือกสายไฟ มาตรฐาน DIN VDE เคล็ดลับจากวิศวกร NYX Cable',
+    images: [{ url: '/images/gallery/profile.webp', width: 1200, height: 630, alt: 'NYX Cable บทความ' }],
+  },
 }
 
 export default async function BlogPage() {

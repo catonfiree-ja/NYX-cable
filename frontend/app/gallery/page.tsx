@@ -5,6 +5,11 @@ import GalleryLightbox from '@/components/GalleryLightbox'
 export const metadata: Metadata = {
   title: 'แกลเลอรี่ ผลงาน & การจัดส่ง | NYX Cable',
   description: 'ภาพผลงานจริงจากลูกค้าและการจัดส่งสายไฟ NYX Cable ทั่วประเทศ รูปภาพกว่า 50+ ภาพ',
+  openGraph: {
+    title: 'แกลเลอรี่ ผลงาน & การจัดส่ง | NYX Cable',
+    description: 'ภาพผลงานจัดส่งสินค้าจริง สายไฟอุตสาหกรรม NYX Cable ถึงมือลูกค้าทั่วประเทศ',
+    images: [{ url: '/images/gallery/profile.webp', width: 1200, height: 630, alt: 'NYX Cable แกลเลอรี่' }],
+  },
 }
 
 const styles = `

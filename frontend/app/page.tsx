@@ -718,7 +718,7 @@ export default async function HomePage() {
       {/* ─── Delivery Section (CMS or fallback) ─── */}
       <section className="delivery-section">
         <div className="container">
-          <h2>{homeCms?.deliveryHeading || 'การส่งสินค้า'}</h2>
+          <h2>{(homeCms?.deliveryHeading || 'การส่งสินค้า').replace(/[\u{1F300}-\u{1F9FF}\u{2600}-\u{2B55}\u{FE0F}\u{200D}\u{20E3}]/gu, '').trim()}</h2>
           <p className="section-sub">{homeCms?.deliverySubheading || 'จัดส่งถึงที่หมายอย่างรวดเร็ว ปลอดภัย ตรงต่อเวลา'}</p>
           <div className="delivery-grid">
             <div className="delivery-card">
