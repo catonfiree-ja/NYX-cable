@@ -243,7 +243,7 @@ function autoLinkText(text: string, linkMap: ProductLinkMap, currentSlug: string
 
     // Add the linked product/variant
     parts.push(
-      <a key={`al - ${keyIdx++} `} href={`${bestMatch.prefix}${bestMatch.slug} `}
+      <a key={`al-${keyIdx++}`} href={`${bestMatch.prefix}${bestMatch.slug}`}
         style={{ color: '#f0a500', textDecoration: 'underline', textUnderlineOffset: '3px', fontWeight: 600 }}>
         {bestMatch.pattern}
       </a>
