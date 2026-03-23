@@ -114,6 +114,32 @@ export default defineType({
       type: 'string',
       description: 'เช่น G-XXXXXXXXXX',
     }),
+
+    // ─── Global SEO ───
+    defineField({
+      name: 'seoTitle',
+      title: 'Default SEO Title',
+      type: 'string',
+      description: 'Title ที่ใช้เป็นค่า default สำหรับทุกหน้า',
+      group: 'seo',
+    }),
+    defineField({
+      name: 'seoDescription',
+      title: 'Default Meta Description',
+      type: 'text',
+      rows: 3,
+      group: 'seo',
+    }),
+    defineField({
+      name: 'ogImage',
+      title: 'OG Image (รูปแชร์ Social)',
+      type: 'image',
+      description: 'รูปที่แสดงเมื่อแชร์ลิงก์ในโซเชียล',
+      group: 'seo',
+    }),
+  ],
+  groups: [
+    { name: 'seo', title: 'SEO' },
   ],
   preview: {
     prepare() {
