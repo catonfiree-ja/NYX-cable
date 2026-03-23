@@ -623,7 +623,7 @@ export default async function HomePage() {
       <section style={{ padding: '60px 0', background: '#fff', textAlign: 'center' }}>
         <div className="container">
           <h2 style={{ fontSize: '1.9rem', fontWeight: 800, color: '#003366', marginBottom: 40 }}>บริการของเรา</h2>
-          <div className="services-grid" style={{ display: 'grid', gap: 32, maxWidth: 900, margin: '0 auto' }}>
+          <div className="services-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 32, maxWidth: 900, margin: '0 auto' }}>
             <div>
               <div style={{ marginBottom: 16 }}><img src="/images/icons/service-consult.svg" alt="ให้คำแนะนำ" width="64" height="64" style={{ margin: '0 auto' }} /></div>
               <h3 style={{ fontSize: '1.3rem', fontWeight: 700, color: '#0099ff', marginBottom: 12 }}>ให้คำแนะนำ</h3>

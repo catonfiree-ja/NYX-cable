@@ -124,7 +124,7 @@ const styles = `
   }
   .value-card:hover { border-color: #0066cc; box-shadow: 0 8px 30px rgba(0,51,102,0.08); transform: translateY(-4px); }
   .value-icon-wrap {
-    width: 56px; height: 56px; border-radius: 14px;
+    width: 64px; height: 64px; border-radius: 14px;
     display: flex; align-items: center; justify-content: center;
     margin: 0 auto 16px; font-size: 1.5rem;
   }
