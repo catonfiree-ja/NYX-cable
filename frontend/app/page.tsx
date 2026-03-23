@@ -740,7 +740,7 @@ export default async function HomePage() {
           <div className="delivery-photos">
             {[1, 2, 3, 4, 5, 6, 7, 8].map(n => (
               <div key={n} className="delivery-photo">
-                <img src={`/delivery-2026/delivery-2026-${String(n).padStart(2, '0')}.jpg`} alt={`NYX Cable จัดส่งสินค้า #${n}`} loading="lazy" />
+                <Image src={`/delivery-2026/delivery-2026-${String(n).padStart(2, '0')}.jpg`} alt={`NYX Cable จัดส่งสินค้า #${n}`} width={400} height={300} loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
               </div>
             ))}
           </div>

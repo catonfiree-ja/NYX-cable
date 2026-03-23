@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { getProducts, getCategories } from '@/lib/queries'
 import { urlFor } from '@/lib/sanity'
-import Image from 'next/image'
+import ProductSearch from '@/components/ProductSearch'
 
 const styles = `
   .products-hero { background: linear-gradient(135deg, var(--color-primary-dark), var(--color-primary)); color: var(--color-white); padding: var(--spacing-3xl) 0; text-align: center; }
@@ -125,15 +125,7 @@ export default async function ProductsPage() {
         <div className="container">
           <div className="all-products-title">สินค้าทั้งหมด {products.length} รุ่น</div>
           <div className="all-products-sub">คลิกเพื่อดูรายละเอียดและสั่งซื้อ</div>
-          <div className="products-grid">
-            {products.map((prod: any) => (
-              <a key={prod._id} href={`/products/detail/${prod.slug?.current}`} className="product-mini">
-                <h4>{prod.title}</h4>
-                {prod.productCode && <div className="code">{prod.productCode}</div>}
-                {prod.shortDescription && <p>{prod.shortDescription}</p>}
-              </a>
-            ))}
-          </div>
+          <ProductSearch products={products.map((p: any) => ({ _id: p._id, title: p.title, productCode: p.productCode, shortDescription: p.shortDescription, slug: p.slug }))} />
         </div>
       </section>
     </>

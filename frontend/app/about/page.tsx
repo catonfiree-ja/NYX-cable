@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { getAboutPage } from '@/lib/queries'
 import { PortableText } from '@portabletext/react'
+import Image from 'next/image'
 
 export async function generateMetadata(): Promise<Metadata> {
   const about = await getAboutPage()
@@ -292,7 +293,7 @@ export default async function AboutPage() {
             </div>
           </div>
           <div className="about-image-box">
-            <img src="/images/gallery/profile.webp" alt="สำนักงาน NYX Cable บางนา" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '20px' }} />
+            <Image src="/images/gallery/profile.webp" alt="สำนักงาน NYX Cable บางนา" width={600} height={400} style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '20px' }} />
             <div className="exp-badge">
               <div className="big">10+</div>
               <div className="small">Years Experience</div>
