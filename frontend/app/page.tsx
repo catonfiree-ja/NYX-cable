@@ -34,12 +34,12 @@ export default async function HomePage() {
   } : null
 
   const categories = [
-    { name: "สายคอนโทรล (Control Cable)", slug: "control-cable", abbr: "CC", desc: "YSLY-JZ, YSLY-JB สายคอนโทรลประสิทธิภาพสูง มาตรฐาน DIN VDE", count: 12, fallbackImg: "https://nyxcable.com/wp-content/uploads/2019/10/ysly-jz-2.jpg" },
-    { name: "สาย VFD / Servo Cable", slug: "vfd-servo-cable", abbr: "VFD", desc: "สายไฟสำหรับระบบ VFD และ Servo Motor ชีลด์ป้องกัน EMI", count: 8, fallbackImg: "https://nyxcable.com/wp-content/uploads/2019/10/2yslcy-jz.jpg" },
-    { name: "สายทนความร้อน", slug: "heat-resistant-cable", abbr: "HRC", desc: "SiHF, SiLi ทนความร้อนสูงถึง 180°C สำหรับงานที่ต้องทนอุณหภูมิ", count: 6, fallbackImg: "https://nyxcable.com/wp-content/uploads/2020/02/SiHF_NYX-1.jpg" },
-    { name: "สายชีลด์ (Shielded Cable)", slug: "shielded-cable", abbr: "SHD", desc: "สายไฟมีชีลด์ป้องกันคลื่นแม่เหล็กไฟฟ้า สำหรับระบบอัตโนมัติ", count: 7, fallbackImg: "https://nyxcable.com/wp-content/uploads/2019/10/liycy-1.jpg" },
-    { name: "สายเครน (Crane Cable)", slug: "crane-cable", abbr: "CRN", desc: "สายไฟทนแรงดึง สำหรับเครนและระบบขนถ่ายสินค้า", count: 5, fallbackImg: "https://nyxcable.com/wp-content/uploads/2019/10/nshtou.jpg" },
-    { name: "สาย Bus / Data Cable", slug: "bus-data-cable", abbr: "BUS", desc: "Profibus, DeviceNet สายสื่อสารข้อมูลอุตสาหกรรม", count: 4, fallbackImg: "https://nyxcable.com/wp-content/uploads/2019/10/profibus-1.jpg" },
+    { name: "สายคอนโทรล (Control Cable)", slug: "control-cable", abbr: "CC", desc: "YSLY-JZ, YSLY-JB สายคอนโทรลประสิทธิภาพสูง มาตรฐาน DIN VDE", count: 12, fallbackImg: "/images/categories/control-cable.jpg" },
+    { name: "สาย VFD / Servo Cable", slug: "vfd-servo-cable", abbr: "VFD", desc: "สายไฟสำหรับระบบ VFD และ Servo Motor ชีลด์ป้องกัน EMI", count: 8, fallbackImg: "/images/categories/vfd-servo-cable.jpg" },
+    { name: "สายทนความร้อน", slug: "heat-resistant-cable", abbr: "HRC", desc: "SiHF, SiLi ทนความร้อนสูงถึง 180°C สำหรับงานที่ต้องทนอุณหภูมิ", count: 6, fallbackImg: "/images/categories/heat-resistant-cable.jpg" },
+    { name: "สายชีลด์ (Shielded Cable)", slug: "shielded-cable", abbr: "SHD", desc: "สายไฟมีชีลด์ป้องกันคลื่นแม่เหล็กไฟฟ้า สำหรับระบบอัตโนมัติ", count: 7, fallbackImg: "/images/categories/shielded-cable.jpg" },
+    { name: "สายเครน (Crane Cable)", slug: "crane-cable", abbr: "CRN", desc: "สายไฟทนแรงดึง สำหรับเครนและระบบขนถ่ายสินค้า", count: 5, fallbackImg: "/images/categories/crane-cable.jpg" },
+    { name: "สาย Bus / Data Cable", slug: "bus-data-cable", abbr: "BUS", desc: "Profibus, DeviceNet สายสื่อสารข้อมูลอุตสาหกรรม", count: 4, fallbackImg: "/images/categories/bus-data-cable.jpg" },
   ];
 
   // ─── ข้อมูลจากต้นฉบับ — ทำไมต้องเลือก NYX CABLE ───
