@@ -233,23 +233,23 @@ export default function ContactPage() {
         <div className="contact-grid">
           <div className="contact-info-cards">
             <div className="contact-card">
-              <div className="contact-card-icon icon-tel">📞</div>
+              <div className="contact-card-icon icon-tel"><img src="/images/icons/contact-phone.svg" alt="โทรศัพท์" width="32" height="32" /></div>
               <div><h3>โทรศัพท์</h3><p><a href="tel:021115588">02-111-5588</a><br />ตอบทันที ในเวลาทำการ</p></div>
             </div>
             <div className="contact-card">
-              <div className="contact-card-icon icon-line">💬</div>
+              <div className="contact-card-icon icon-line"><img src="/images/icons/contact-line.svg" alt="LINE" width="32" height="32" /></div>
               <div><h3>LINE Official</h3><p><a href="https://page.line.me/@ubb9405u" target="_blank" rel="noopener noreferrer">@nyxcable</a><br />ตอบไว 5 นาที</p></div>
             </div>
             <div className="contact-card">
-              <div className="contact-card-icon icon-mail">✉️</div>
+              <div className="contact-card-icon icon-mail"><img src="/images/icons/contact-email.svg" alt="อีเมล" width="32" height="32" /></div>
               <div><h3>อีเมล</h3><p><a href="mailto:sales@nyxcable.com">sales@nyxcable.com</a><br />ตอบกลับภายใน 1 ชม.</p></div>
             </div>
             <div className="contact-card">
-              <div className="contact-card-icon icon-loc">📍</div>
+              <div className="contact-card-icon icon-loc"><img src="/images/icons/contact-location.svg" alt="ที่อยู่" width="32" height="32" /></div>
               <div><h3>ที่อยู่</h3><p>2098 หมู่ 1 ต.สำโรงเหนือ (ซ.สุขุมวิท 72)<br />อ.เมือง สมุทรปราการ 10270</p></div>
             </div>
             <div className="contact-card">
-              <div className="contact-card-icon icon-time">🕐</div>
+              <div className="contact-card-icon icon-time"><img src="/images/icons/contact-clock.svg" alt="เวลาทำการ" width="32" height="32" /></div>
               <div><h3>เวลาทำการ</h3><p>จันทร์ - ศุกร์ 8:30 - 17:30<br />เสาร์-อาทิตย์ ปิดทำการ</p></div>
             </div>
           </div>
