@@ -7,6 +7,9 @@ import postCategory from './postCategory'
 import faq from './faq'
 import galleryAlbum from './galleryAlbum'
 import siteSettings from './siteSettings'
+import aboutPage from './aboutPage'
+import contactPage from './contactPage'
+import homePage from './homePage'
 
 export const schemaTypes = [
   // Products
@@ -23,6 +26,12 @@ export const schemaTypes = [
   // Gallery
   galleryAlbum,
 
+  // Pages (Singleton)
+  homePage,
+  aboutPage,
+  contactPage,
+
   // Settings
   siteSettings,
 ]
+
