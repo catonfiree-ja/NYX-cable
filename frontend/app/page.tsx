@@ -434,7 +434,7 @@ export default async function HomePage() {
       .home-product-card {
         padding: 12px 16px !important;
         display: flex; align-items: center; gap: 12px;
-        border-radius: 10px;
+        border-radius: 10px; overflow: hidden;
       }
       .home-product-card::before { display: none; }
       .home-product-card .product-abbr {
@@ -444,7 +444,12 @@ export default async function HomePage() {
         font-weight: 800; color: #003366; letter-spacing: 0.5px;
         border-bottom: none;
       }
-      .home-product-card h4 { font-size: 0.82rem; margin: 0; padding: 0 !important; }
+      .home-product-card img.product-abbr {
+        width: 60px !important; height: 60px !important; min-width: 60px;
+        object-fit: cover; border-radius: 10px; flex-shrink: 0;
+        padding: 0 !important; background: #f0f7ff;
+      }
+      .home-product-card h4 { font-size: 0.82rem; margin: 0; padding: 0 !important; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; flex: 1; }
       .home-product-card p { display: none; }
       .home-product-card .view-more { display: none; }
 
