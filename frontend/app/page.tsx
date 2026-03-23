@@ -386,6 +386,10 @@ export default async function HomePage() {
     }
     .delivery-card h4 { font-size: 0.95rem; font-weight: 600; margin-bottom: 6px; letter-spacing: 0.2px; }
     .delivery-card p { font-size: 0.8rem; opacity: 0.6; line-height: 1.5; }
+    .delivery-photos { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 32px; position: relative; }
+    .delivery-photo { border-radius: 12px; overflow: hidden; aspect-ratio: 4/3; }
+    .delivery-photo img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
+    .delivery-photo:hover img { transform: scale(1.05); }
 
     @media (max-width: 768px) {
       /* Hero mobile */
