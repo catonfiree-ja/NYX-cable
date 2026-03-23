@@ -611,7 +611,7 @@ export default async function HomePage() {
           <h2>{whyNyxHeading}</h2>
           <p className="section-sub">{whyNyxSubheading}</p>
           <div className="why-nyx-grid">
-            {whyNyx.map((item, i) => (
+            {whyNyx.map((item: { num: string; title: string; desc: string; stat: string }, i: number) => (
               <a key={i} href="/contact" className="why-nyx-card" style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}>
                 <div className="wnc-num">{item.num}</div>
                 <h3>{item.title}</h3>
