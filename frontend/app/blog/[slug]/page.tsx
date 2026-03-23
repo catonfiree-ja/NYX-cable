@@ -57,9 +57,17 @@ const styles = `
   .rp-card .rp-desc { font-size: 0.75rem; color: #64748b; margin-top: 6px; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
 
   @media (max-width: 768px) {
-    .blog-detail-hero h1 { font-size: 1.5rem; }
+    .blog-detail-hero h1 { font-size: 1.3rem; }
     .blog-detail-hero { padding: 36px 0 28px; }
-    .related-products-grid { grid-template-columns: repeat(2, 1fr); }
+    .blog-detail-hero .meta { flex-wrap: wrap; gap: 8px; font-size: 0.78rem; }
+    .blog-content { padding: 28px 1rem; }
+    .blog-content h2 { font-size: 1.2rem; }
+    .blog-content h3 { font-size: 1rem; }
+    .blog-content p { font-size: 0.9rem; }
+    .blog-share { flex-wrap: wrap; gap: 8px; }
+    .related-products-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+    .rp-card { padding: 14px 12px; }
+    .rp-card .rp-name { font-size: 0.82rem; }
   }
 `
 
