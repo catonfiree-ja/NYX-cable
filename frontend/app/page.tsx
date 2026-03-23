@@ -574,6 +574,31 @@ export default async function HomePage() {
         </div>
       </section>
 
+
+      {/* ─── บริการของเรา ─── */}
+      <section style={{ padding: '60px 0', background: '#fff', textAlign: 'center' }}>
+        <div className="container">
+          <h2 style={{ fontSize: '1.9rem', fontWeight: 800, color: '#003366', marginBottom: 40 }}>บริการของเรา</h2>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 32, maxWidth: 900, margin: '0 auto' }}>
+            <div>
+              <div style={{ fontSize: '3.5rem', marginBottom: 16 }}>👨‍💼</div>
+              <h3 style={{ fontSize: '1.3rem', fontWeight: 700, color: '#0099ff', marginBottom: 12 }}>ให้คำแนะนำ</h3>
+              <p style={{ fontSize: '0.9rem', color: '#475569', lineHeight: 1.7 }}>จาก<strong style={{ color: '#0099ff' }}>ผู้เชี่ยวชาญ</strong>ด้าน<br/>สายไฟฟ้าคอนโทรลโดยเฉพาะ</p>
+            </div>
+            <div>
+              <div style={{ fontSize: '3.5rem', marginBottom: 16 }}>🔧</div>
+              <h3 style={{ fontSize: '1.3rem', fontWeight: 700, color: '#0099ff', marginBottom: 12 }}>แก้ไขปัญหา</h3>
+              <p style={{ fontSize: '0.9rem', color: '#475569', lineHeight: 1.7 }}>แก้ไขปัญหา<strong style={{ color: '#0099ff' }}>ตรงจุด</strong><br/>กับปรึกษามืออาชีพ</p>
+            </div>
+            <div>
+              <div style={{ fontSize: '3.5rem', marginBottom: 16 }}>🚛</div>
+              <h3 style={{ fontSize: '1.3rem', fontWeight: 700, color: '#0099ff', marginBottom: 12 }}>จัดส่งสินค้า</h3>
+              <p style={{ fontSize: '0.9rem', color: '#475569', lineHeight: 1.7 }}>ถึงที่หมายอย่างเป็นระบบ<br/>และ<strong style={{ color: '#0099ff' }}>ตรงต่อเวลา</strong></p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ─── Stats Bar ─── */}
       <section className="stats-bar">
         <div className="container">
