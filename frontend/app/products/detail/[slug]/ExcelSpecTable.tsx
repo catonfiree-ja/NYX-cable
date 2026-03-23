@@ -36,7 +36,7 @@ const css = `
   }
   .excel-spec-search input:focus { border-color: #f0a500; background: #fff; box-shadow: 0 0 0 3px rgba(240,165,0,0.1); }
   .excel-spec-search::before {
-    content: '🔍'; position: absolute; left: 14px; top: 50%; transform: translateY(-50%);
+    content: '⌕'; position: absolute; left: 14px; top: 50%; transform: translateY(-50%);
     font-size: 0.9rem; pointer-events: none;
   }
 
@@ -210,7 +210,7 @@ export default function ExcelSpecTable({ slug, data }: { slug: string; data: Pro
               <tr>
                 <td colSpan={hasPrice ? 9 : 8}>
                   <div className="excel-spec-empty">
-                    <div className="icon">🔍</div>
+                    <div className="icon">⌕</div>
                     ไม่พบรุ่นที่ค้นหา
                   </div>
                 </td>
@@ -252,7 +252,7 @@ export default function ExcelSpecTable({ slug, data }: { slug: string; data: Pro
 
       {hasPrice && (
         <div className="excel-spec-note">
-          💡 ราคาที่แสดงเป็นราคาต่อเมตร (บาท/ม.) — สำหรับราคาขายส่งหรือสั่งจำนวนมากกรุณาติดต่อฝ่ายขาย
+          ราคาที่แสดงเป็นราคาต่อเมตร (บาท/ม.) — สำหรับราคาขายส่งหรือสั่งจำนวนมากกรุณาติดต่อฝ่ายขาย
         </div>
       )}
     </section>

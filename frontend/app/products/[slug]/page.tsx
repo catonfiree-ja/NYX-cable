@@ -94,7 +94,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
           </div>
           <h1>{category.title}</h1>
           {category.shortDescription && <p>{category.shortDescription}</p>}
-          {products.length > 0 && <div className="product-count-badge">📦 {products.length} รุ่นในหมวดนี้</div>}
+          {products.length > 0 && <div className="product-count-badge">{products.length} รุ่นในหมวดนี้</div>}
         </div>
       </section>
 
@@ -243,10 +243,10 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
 
             <h3 style={{ fontSize: '1.2rem', fontWeight: 700, color: '#003366', margin: '28px 0 12px' }}>การใช้งานในอุตสาหกรรม</h3>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 12, marginBottom: 24 }}>
-              <div style={{ background: '#fff', padding: '12px 16px', borderRadius: 8, border: '1px solid #e2e8f0', fontSize: '0.9rem' }}>🏭 ระบบ PLC — ป้องกัน EMI จาก VFD</div>
-              <div style={{ background: '#fff', padding: '12px 16px', borderRadius: 8, border: '1px solid #e2e8f0', fontSize: '0.9rem' }}>📡 เครือข่ายเซ็นเซอร์ — สัญญาณ 4-20mA</div>
-              <div style={{ background: '#fff', padding: '12px 16px', borderRadius: 8, border: '1px solid #e2e8f0', fontSize: '0.9rem' }}>⚡ ระบบ Servo Drive — ป้องกัน Noise</div>
-              <div style={{ background: '#fff', padding: '12px 16px', borderRadius: 8, border: '1px solid #e2e8f0', fontSize: '0.9rem' }}>🔬 อุปกรณ์วัดคุม — ต้องการความแม่นยำสูง</div>
+              <div style={{ background: '#fff', padding: '12px 16px', borderRadius: 8, border: '1px solid #e2e8f0', fontSize: '0.9rem' }}>ระบบ PLC — ป้องกัน EMI จาก VFD</div>
+              <div style={{ background: '#fff', padding: '12px 16px', borderRadius: 8, border: '1px solid #e2e8f0', fontSize: '0.9rem' }}>เครือข่ายเซ็นเซอร์ — สัญญาณ 4-20mA</div>
+              <div style={{ background: '#fff', padding: '12px 16px', borderRadius: 8, border: '1px solid #e2e8f0', fontSize: '0.9rem' }}>ระบบ Servo Drive — ป้องกัน Noise</div>
+              <div style={{ background: '#fff', padding: '12px 16px', borderRadius: 8, border: '1px solid #e2e8f0', fontSize: '0.9rem' }}>อุปกรณ์วัดคุม — ต้องการความแม่นยำสูง</div>
             </div>
 
             <h3 style={{ fontSize: '1.2rem', fontWeight: 700, color: '#003366', margin: '28px 0 12px' }}>คำถามที่พบบ่อยเกี่ยวกับสายชีลด์ (FAQ)</h3>

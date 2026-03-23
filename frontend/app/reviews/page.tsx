@@ -217,7 +217,7 @@ export default function ReviewsPage() {
 
       <section className="reviews-hero">
         <div className="container">
-          <div className="trust-badge">⭐ คะแนนเฉลี่ย {avgRating}/5 จากผู้ใช้งานจริงกว่า 50+ องค์กร</div>
+          <div className="trust-badge">★ คะแนนเฉลี่ย {avgRating}/5 จากผู้ใช้งานจริงกว่า 50+ องค์กร</div>
           <h1>รีวิวจากลูกค้า</h1>
           <p>ความคิดเห็นจากวิศวกรและช่างไฟฟ้าที่ไว้วางใจสายไฟ NYX Cable</p>
         </div>
@@ -254,7 +254,7 @@ export default function ReviewsPage() {
         <div className="reviews-grid">
           {reviews.map((review, idx) => (
             <div key={idx} className="review-card">
-              <div className="verified-badge">☑ ผู้ซื้อจริง</div>
+              <div className="verified-badge">✓ ผู้ซื้อจริง</div>
               <div className="review-header">
                 <div className="review-avatar" style={{ background: avatarColors[idx % avatarColors.length] }}>{review.initial}</div>
                 <div>
@@ -269,7 +269,7 @@ export default function ReviewsPage() {
               </div>
               <div className="review-text">&ldquo;{review.text}&rdquo;</div>
               <a href={`/products/detail/${review.slug}`} className="review-product">
-                🔌 สินค้าที่ใช้: {review.product}
+                สินค้าที่ใช้: {review.product}
               </a>
             </div>
           ))}

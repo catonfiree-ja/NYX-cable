@@ -177,9 +177,9 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ slu
           </div>
           <h1>{post.title}</h1>
           <div className="meta">
-            {post.publishedAt && <span>📅 {formatDate(post.publishedAt)}</span>}
-            <span>✍️ NYX Cable Team</span>
-            <span>📖 อ่าน ~3 นาที</span>
+            {post.publishedAt && <span>{formatDate(post.publishedAt)}</span>}
+            <span>NYX Cable Team</span>
+            <span>อ่าน ~3 นาที</span>
           </div>
           {(post.tags || post.categories) && (
             <div className="tags">
