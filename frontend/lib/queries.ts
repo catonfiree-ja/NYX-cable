@@ -291,7 +291,7 @@ export async function getPage(slug: string) {
 
 export async function getGalleryAlbums() {
   return client.fetch(`
-    *[_type == "galleryAlbum"] | order(year desc) {
+    *[_type == "galleryAlbum"] | order(orderRank asc) {
       _id,
       title,
       slug,
