@@ -276,16 +276,7 @@ export default function ReviewsPage() {
         </div>
       </div>
 
-      <section className="reviews-cta">
-        <div className="container">
-          <h2>พร้อมใช้สายไฟคุณภาพยุโรป?</h2>
-          <p>สอบถามราคาและสั่งซื้อสายไฟ NYX Cable วันนี้</p>
-          <div className="reviews-cta-buttons">
-            <a href="tel:021115588" className="reviews-cta-btn call">📞 โทร 02-111-5588</a>
-            <a href="https://page.line.me/ubb9405u" className="reviews-cta-btn line" target="_blank" rel="noopener noreferrer">💬 แอด LINE</a>
-          </div>
-        </div>
-      </section>
+
     </>
   )
 }
