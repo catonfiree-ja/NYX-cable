@@ -1,19 +1,11 @@
 import type { Metadata } from 'next'
 import { getGalleryAlbums } from '@/lib/queries'
 import GalleryLightbox from '@/components/GalleryLightbox'
-import LocalAlbumLightbox from '@/components/LocalAlbumLightbox'
 
 export const metadata: Metadata = {
   title: 'แกลเลอรี่ ผลงาน & การจัดส่ง | NYX Cable',
   description: 'ภาพผลงานจริงจากลูกค้าและการจัดส่งสายไฟ NYX Cable ทั่วประเทศ รูปภาพกว่า 50+ ภาพ',
 }
-
-const DELIVERY_2026_PHOTOS = [
-  '/delivery-2026/delivery-2026-00.jpg',
-  ...Array.from({ length: 54 }, (_, i) =>
-    `/delivery-2026/delivery-2026-${String(i + 1).padStart(2, '0')}.jpg`
-  )
-]
 
 const styles = `
   /* ─── Gallery Hero ─── */
@@ -166,11 +158,7 @@ export default async function GalleryPage() {
         <div className="album-breadcrumb">
           <a href="/">หน้าแรก</a> › แกลเลอรี่
         </div>
-        <LocalAlbumLightbox
-          title="ส่งสินค้า 2025"
-          photos={DELIVERY_2026_PHOTOS}
-          sanityAlbums={albums}
-        />
+        <GalleryLightbox albums={albums} />
       </div>
 
     </>
