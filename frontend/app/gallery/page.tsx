@@ -86,15 +86,15 @@ const styles = `
   .lightbox-close { all: unset; cursor: pointer; font-size: 1.5rem; color: #fff; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border-radius: 50%; transition: background 0.2s; }
   .lightbox-close:hover { background: rgba(255,255,255,0.15); }
   .lightbox-main { flex: 1; display: flex; align-items: center; position: relative; min-height: 0; }
-  .lightbox-photo { flex: 1; position: relative; height: 65vh; }
+  .lightbox-photo { flex: 1; position: relative; height: 55vh; }
   .lightbox-nav { all: unset; cursor: pointer; font-size: 2.5rem; color: #fff; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; border-radius: 50%; transition: background 0.2s; flex-shrink: 0; }
   .lightbox-nav:hover:not(:disabled) { background: rgba(255,255,255,0.15); }
   .lightbox-nav:disabled { opacity: 0.25; cursor: default; }
-  .lightbox-thumbs { display: flex; gap: 6px; padding: 8px 0; overflow-x: auto; max-height: 80px; flex-wrap: nowrap; }
-  .lightbox-thumb { all: unset; cursor: pointer; border: 2px solid transparent; border-radius: 6px; overflow: hidden; opacity: 0.5; transition: all 0.2s; }
+  .lightbox-thumbs { display: flex; gap: 6px; padding: 8px 0; overflow-x: auto; flex-wrap: nowrap; }
+  .lightbox-thumb { all: unset; cursor: pointer; border: 2px solid transparent; border-radius: 6px; overflow: hidden; opacity: 0.5; transition: all 0.2s; flex-shrink: 0; }
   .lightbox-thumb.active { border-color: var(--color-secondary, #f0c040); opacity: 1; }
   .lightbox-thumb:hover { opacity: 0.8; }
-  .lightbox-thumb img { display: block; }
+  .lightbox-thumb img { display: block; width: 60px; height: 45px; object-fit: cover; }
 
   /* ─── Bottom CTA ─── */
   .gallery-cta {
