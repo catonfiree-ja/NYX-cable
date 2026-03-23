@@ -10,6 +10,7 @@ import siteSettings from './siteSettings'
 import aboutPage from './aboutPage'
 import contactPage from './contactPage'
 import homePage from './homePage'
+import privacyPage from './privacyPage'
 
 export const schemaTypes = [
   // Products
@@ -30,6 +31,7 @@ export const schemaTypes = [
   homePage,
   aboutPage,
   contactPage,
+  privacyPage,
 
   // Settings
   siteSettings,
