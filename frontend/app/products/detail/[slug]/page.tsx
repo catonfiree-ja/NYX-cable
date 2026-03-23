@@ -22,13 +22,20 @@ const styles = `
   .product-categories { display: flex; gap: var(--spacing-xs); flex-wrap: wrap; margin-bottom: var(--spacing-lg); }
   .product-cat-tag { font-size: var(--font-size-xs); background: var(--color-gray-100); color: var(--color-gray-600); padding: 4px 12px; border-radius: var(--radius-full); }
   .product-desc { font-size: var(--font-size-base); color: var(--color-gray-600); line-height: 1.8; margin-bottom: var(--spacing-xl); }
-  .product-full-desc { margin-bottom: var(--spacing-2xl); }
-  .product-full-desc h2, .product-full-desc h3 { color: var(--color-primary); font-weight: 600; margin: var(--spacing-xl) 0 var(--spacing-sm); }
-  .product-full-desc p { color: var(--color-gray-600); line-height: 1.8; margin-bottom: var(--spacing-md); }
+  .product-full-desc { margin-bottom: var(--spacing-2xl); background: #f8fafc; border-radius: 16px; padding: 28px; border: 1px solid #e2e8f0; }
+  .product-full-desc h2, .product-full-desc h3 { color: var(--color-primary); font-weight: 700; margin: var(--spacing-lg) 0 var(--spacing-sm); font-size: 1.1rem; }
+  .product-full-desc p { color: var(--color-gray-600); line-height: 1.8; margin-bottom: var(--spacing-md); font-size: 0.9rem; }
   .product-full-desc ul { margin: var(--spacing-sm) 0 var(--spacing-lg) var(--spacing-xl); color: var(--color-gray-600); line-height: 1.8; }
   .product-full-desc li { margin-bottom: var(--spacing-xs); }
-  .spec-list { list-style: none; margin-bottom: var(--spacing-2xl); }
+  .product-full-desc table { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 16px 0; border-radius: 10px; overflow: hidden; border: 1px solid #e2e8f0; }
+  .product-full-desc table th { background: #003366; color: #fff; padding: 10px 14px; text-align: left; font-weight: 600; }
+  .product-full-desc table td { padding: 10px 14px; border-bottom: 1px solid #f1f5f9; color: #334155; }
+  .product-full-desc table tr:nth-child(even) td { background: #f8fafc; }
+  .spec-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 16px; padding: 24px; margin-bottom: var(--spacing-xl); box-shadow: 0 2px 8px rgba(0,0,0,0.03); }
+  .spec-card-title { font-size: 1rem; font-weight: 700; color: var(--color-primary); margin-bottom: 16px; padding-bottom: 12px; border-bottom: 2px solid #f0a500; display: inline-block; }
+  .spec-list { list-style: none; margin: 0; }
   .spec-list li { display: flex; justify-content: space-between; padding: 0.75rem 0; border-bottom: 1px solid var(--color-gray-100); font-size: var(--font-size-sm); }
+  .spec-list li:last-child { border-bottom: none; }
   .spec-list .label { color: var(--color-gray-500); }
   .spec-list .value { font-weight: 600; color: var(--color-primary); }
   .product-actions { display: flex; gap: var(--spacing-md); flex-wrap: wrap; margin-bottom: var(--spacing-xl); }
@@ -48,7 +55,13 @@ const styles = `
   .related-card:hover { border-color: var(--color-secondary); box-shadow: var(--shadow-lg); transform: translateY(-2px); }
   .related-card h3 { font-size: var(--font-size-sm); font-weight: 600; color: var(--color-primary); }
 
-  .related-blogs { padding: var(--spacing-2xl) 0; max-width: 1280px; margin: 0 auto; padding-left: var(--container-padding); padding-right: var(--container-padding); }
+  .section-divider { background: linear-gradient(180deg, #f8fafc 0%, #fff 100%); padding: 56px 0; }
+  .section-divider:nth-child(even) { background: #fff; }
+  .section-title-center { font-size: 1.4rem; font-weight: 700; color: var(--color-primary); margin-bottom: 8px; text-align: center; }
+  .section-sub-center { font-size: 0.9rem; color: #64748b; text-align: center; margin-bottom: 32px; }
+
+  .related-blogs { padding: 56px 0; background: linear-gradient(180deg, #f0f7ff, #fff); }
+  .related-blogs .container { max-width: 1280px; margin: 0 auto; padding: 0 1.5rem; }
   .related-blogs h2 { font-size: 1.4rem; font-weight: 700; color: var(--color-primary); margin-bottom: 20px; text-align: center; }
   .blogs-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
   .blog-card-link { display: block; text-decoration: none; border: 1px solid #e2e8f0; border-radius: 12px; padding: 20px; background: #fff; transition: all 0.25s; }
@@ -57,13 +70,19 @@ const styles = `
   .blog-card-link .bc-excerpt { font-size: 0.8rem; color: #64748b; line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
   .blog-card-link .bc-date { font-size: 0.7rem; color: #94a3b8; margin-top: 8px; }
 
-  .other-products { padding: var(--spacing-xl) 0 var(--spacing-3xl); max-width: 1280px; margin: 0 auto; padding-left: var(--container-padding); padding-right: var(--container-padding); }
+  .other-products { padding: 56px 0; background: #fff; }
+  .other-products .container { max-width: 1280px; margin: 0 auto; padding: 0 1.5rem; }
   .other-products h2 { font-size: 1.4rem; font-weight: 700; color: var(--color-primary); margin-bottom: 20px; text-align: center; }
   .op-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
   .op-card { display: flex; flex-direction: column; align-items: center; justify-content: center; text-decoration: none; border: 1px solid #e2e8f0; border-radius: 12px; padding: 28px 16px; text-align: center; background: #fff; transition: all 0.25s; min-height: 100px; }
   .op-card:hover { border-color: #2563eb; box-shadow: 0 4px 16px rgba(37,99,235,0.1); transform: translateY(-2px); }
   .op-card .op-code { font-size: 0.7rem; color: #94a3b8; letter-spacing: 0.5px; margin-bottom: 6px; }
   .op-card .op-name { font-size: 0.95rem; font-weight: 700; color: #1a3c6e; line-height: 1.4; }
+
+  .cta-btn-call { display: inline-flex; align-items: center; gap: 8px; padding: 14px 36px; background: linear-gradient(135deg, #1a3c6e, #2563eb); color: #fff; border-radius: 50px; font-weight: 700; font-size: 1rem; text-decoration: none; box-shadow: 0 4px 14px rgba(37,99,235,0.25); transition: all 0.25s; }
+  .cta-btn-call:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(37,99,235,0.35); color: #fff; }
+  .cta-btn-line { display: inline-flex; align-items: center; gap: 8px; padding: 14px 32px; background: linear-gradient(135deg, #06c755, #00b843); color: #fff; border-radius: 50px; font-weight: 700; font-size: 0.95rem; text-decoration: none; box-shadow: 0 4px 14px rgba(6,199,85,0.25); transition: all 0.25s; }
+  .cta-btn-line:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(6,199,85,0.35); color: #fff; }
 
   /* ─── Quick Quote Floating Bar ─── */
   .quick-quote-bar {
@@ -384,7 +403,7 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
         <div className="product-detail">
           <div className="product-image-box">
             {product.images?.[0] ? (
-              <img src={urlFor(product.images[0]).width(600).height(500).url()} alt={product.title} style={{ width: '100%', height: 'auto', objectFit: 'contain' }} />
+              <Image src={urlFor(product.images[0]).width(600).height(500).url()} alt={product.title} width={600} height={500} style={{ width: '100%', height: 'auto', objectFit: 'contain' }} priority />
             ) : (product.productCode || 'NYX')}
           </div>
           <div className="product-info">
@@ -399,17 +418,26 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
             )}
             <p className="product-desc">{decodeHtmlEntities(product.shortDescription)}</p>
 
-            {/* Full description from Portable Text */}
-            {renderDescription(product.description, product.shortDescription, product.title, linkMap, slug)}
+            {/* ─── Specifications Card ─── */}
+            {(product.voltageRating || product.temperatureRange || product.standards || specs.length > 0) && (
+              <div className="spec-card">
+                <div className="spec-card-title">ข้อมูลทางเทคนิค</div>
+                <ul className="spec-list">
+                  {product.voltageRating && <li><span className="label">แรงดันใช้งาน</span><span className="value">{product.voltageRating}</span></li>}
+                  {product.temperatureRange && <li><span className="label">ช่วงอุณหภูมิ</span><span className="value">{product.temperatureRange}</span></li>}
+                  {product.standards && <li><span className="label">มาตรฐาน</span><span className="value">{product.standards}</span></li>}
+                  {specs.map((s: any, i: number) => (
+                    <li key={i}><span className="label">{s.key}</span><span className="value">{s.value}</span></li>
+                  ))}
+                </ul>
+              </div>
+            )}
 
-            <ul className="spec-list">
-              {product.voltageRating && <li><span className="label">แรงดันใช้งาน</span><span className="value">{product.voltageRating}</span></li>}
-              {product.temperatureRange && <li><span className="label">ช่วงอุณหภูมิ</span><span className="value">{product.temperatureRange}</span></li>}
-              {product.standards && <li><span className="label">มาตรฐาน</span><span className="value">{product.standards}</span></li>}
-              {specs.map((s: any, i: number) => (
-                <li key={i}><span className="label">{s.key}</span><span className="value">{s.value}</span></li>
-              ))}
-            </ul>
+            {/* ─── CTA Buttons ─── */}
+            <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', marginBottom: '24px' }}>
+              <a href="tel:021115588" className="cta-btn-call">สอบถามราคา</a>
+              <a href={`https://page.line.me/ubb9405u?text=${encodeURIComponent(`สนใจสินค้า: ${product.title}${product.productCode ? ` (${product.productCode})` : ''} — ขอใบเสนอราคา`)}`} target="_blank" rel="noopener noreferrer" className="cta-btn-line">แอด LINE</a>
+            </div>
 
             {/* ─── Excel Product Spec Table (from client Excel file) ─── */}
             {(() => {
@@ -417,10 +445,9 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
               if (!specData) return null
               return <ExcelSpecTable slug={slug} data={specData} />
             })()}
-            <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', marginBottom: '24px' }}>
-              <a href="tel:021115588" style={{ display: 'inline-flex', alignItems: 'center', padding: '14px 36px', background: 'linear-gradient(135deg, #1a3c6e, #2563eb)', color: '#fff', borderRadius: '50px', fontWeight: 700, fontSize: '1rem', textDecoration: 'none', boxShadow: '0 4px 14px rgba(37,99,235,0.25)', transition: 'all 0.25s' }}>สอบถามราคา</a>
-              <a href={`https://page.line.me/ubb9405u?text=${encodeURIComponent(`สนใจสินค้า: ${product.title}${product.productCode ? ` (${product.productCode})` : ''} — ขอใบเสนอราคา`)}`} target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', padding: '14px 32px', background: 'linear-gradient(135deg, #06c755, #00b843)', color: '#fff', borderRadius: '50px', fontWeight: 700, fontSize: '0.95rem', textDecoration: 'none', boxShadow: '0 4px 14px rgba(6,199,85,0.25)', transition: 'all 0.25s' }}>แอด LINE</a>
-            </div>
+
+            {/* Full description from Portable Text */}
+            {renderDescription(product.description, product.shortDescription, product.title, linkMap, slug)}
           </div>
         </div>
 
