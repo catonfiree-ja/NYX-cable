@@ -82,8 +82,6 @@ export default function RootLayout({
             </a>
             <NavLinks />
           </div>
-          {/* Corner Product Ribbon */}
-          <a href="/products" className="corner-ribbon">PRODUCTS</a>
         </header>
 
         {/* Main Content */}

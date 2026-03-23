@@ -1180,55 +1180,6 @@ a:hover {
   flex-shrink: 0;
 }
 
-/* ─── Corner Product Ribbon ─── */
-.corner-ribbon {
-  position: absolute;
-  top: -6px;
-  right: -6px;
-  width: 130px;
-  height: 130px;
-  overflow: hidden;
-  z-index: 10;
-  text-decoration: none;
-  display: block;
-  color: transparent;
-}
-.corner-ribbon::before {
-  content: 'PRODUCTS';
-  position: absolute;
-  top: 28px;
-  right: -32px;
-  width: 170px;
-  padding: 6px 0;
-  background: linear-gradient(135deg, #003366, #0066cc);
-  color: #fff;
-  font-size: 0.72rem;
-  font-weight: 800;
-  letter-spacing: 2px;
-  text-align: center;
-  transform: rotate(45deg);
-  box-shadow: 0 2px 8px rgba(0,51,102,0.3);
-}
-.corner-ribbon::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 0;
-  height: 0;
-  border-style: solid;
-  border-width: 0 130px 130px 0;
-  border-color: transparent rgba(0,102,51,0.15) transparent transparent;
-  z-index: -1;
-}
-.corner-ribbon:hover::before {
-  background: linear-gradient(135deg, #0066cc, #0099ff);
-  color: #fff;
-}
-@media (max-width: 768px) {
-  .corner-ribbon { display: none; }
-}
-
 /* ─── Enhanced Product Card Hover ─── */
 .product-card:hover {
   transform: translateY(-6px);
