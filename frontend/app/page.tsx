@@ -1,12 +1,15 @@
-import { getProducts, getBlogPosts, getFAQs } from '@/lib/queries'
+import { getProducts, getBlogPosts, getFAQs, getHomePage } from '@/lib/queries'
 import Image from 'next/image'
 import { urlFor as sanityUrlFor } from '@/lib/sanity'
 
 export default async function HomePage() {
   // Fetch real data from Sanity
-  const products = await getProducts()
-  const blogPosts = await getBlogPosts()
-  const faqs = await getFAQs()
+  const [products, blogPosts, faqs, homeCms] = await Promise.all([
+    getProducts(),
+    getBlogPosts(),
+    getFAQs(),
+    getHomePage(),
+  ])
   const topProducts = products.slice(0, 8)
   const latestPosts = blogPosts.slice(0, 3)
 
