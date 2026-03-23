@@ -42,22 +42,7 @@
 
 @media (max-width: 768px) {
   .corner-ribbon {
-    top: 12px;
-    right: -55px;
-    width: 180px;
-    padding: 5px 0;
-    font-size: 0.7rem;
-    letter-spacing: 1.5px;
-  }
-}
-
-@media (max-width: 480px) {
-  .corner-ribbon {
-    top: 8px;
-    right: -60px;
-    width: 170px;
-    padding: 4px 0;
-    font-size: 0.65rem;
+    display: none;
   }
 }
 
