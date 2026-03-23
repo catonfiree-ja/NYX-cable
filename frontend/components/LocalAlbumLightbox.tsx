@@ -77,32 +77,7 @@ export default function LocalAlbumLightbox({
     <>
       {/* Album Grid */}
       <div className="album-grid">
-        {/* Local Delivery 2026 Album — shown first with NEW badge */}
-        <button
-          className="album-card"
-          onClick={() => {
-            setActivePhoto(0)
-            setOpenItem({ type: 'local', title, photos })
-          }}
-          type="button"
-        >
-          <div className="album-img">
-
-            <Image
-              src={photos[0]}
-              alt={title}
-              fill
-              sizes="(max-width: 480px) 100vw, (max-width: 768px) 50vw, 33vw"
-              style={{ objectFit: 'cover' }}
-            />
-            <div className="album-overlay">
-              <span className="album-icon">📷 {photos.length} ภาพ</span>
-            </div>
-          </div>
-          <div className="album-title">{title}</div>
-        </button>
-
-        {/* Sanity Albums */}
+        {/* Sanity Albums — 2026 first */}
         {sanityAlbums.map(album => (
           <button
             key={album._id}
@@ -140,6 +115,30 @@ export default function LocalAlbumLightbox({
             <div className="album-title">{album.title}</div>
           </button>
         ))}
+
+        {/* Local Delivery 2025 Album */}
+        <button
+          className="album-card"
+          onClick={() => {
+            setActivePhoto(0)
+            setOpenItem({ type: 'local', title, photos })
+          }}
+          type="button"
+        >
+          <div className="album-img">
+            <Image
+              src={photos[0]}
+              alt={title}
+              fill
+              sizes="(max-width: 480px) 100vw, (max-width: 768px) 50vw, 33vw"
+              style={{ objectFit: 'cover' }}
+            />
+            <div className="album-overlay">
+              <span className="album-icon">📷 {photos.length} ภาพ</span>
+            </div>
+          </div>
+          <div className="album-title">{title}</div>
+        </button>
       </div>
 
       {/* Lightbox */}
