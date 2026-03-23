@@ -2,9 +2,12 @@ import { getGalleryAlbums } from '@/lib/queries'
 import GalleryLightbox from '@/components/GalleryLightbox'
 import LocalAlbumLightbox from '@/components/LocalAlbumLightbox'
 
-const DELIVERY_2026_PHOTOS = Array.from({ length: 54 }, (_, i) =>
-  `/delivery-2026/delivery-2026-${String(i + 1).padStart(2, '0')}.jpg`
-)
+const DELIVERY_2026_PHOTOS = [
+  '/delivery-2026/delivery-2026-00.jpg',
+  ...Array.from({ length: 54 }, (_, i) =>
+    `/delivery-2026/delivery-2026-${String(i + 1).padStart(2, '0')}.jpg`
+  )
+]
 
 const styles = `
   /* ─── Gallery Hero ─── */
