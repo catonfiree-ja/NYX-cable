@@ -1,8 +1,12 @@
 import type { Metadata } from 'next'
+import { getAboutPage } from '@/lib/queries'
 
-export const metadata: Metadata = {
-  title: 'เกี่ยวกับ NYX Cable | ผู้นำสายไฟอุตสาหกรรมมาตรฐานยุโรป',
-  description: 'NYX Cable ผู้นำด้านสายไฟอุตสาหกรรมมาตรฐาน DIN VDE จากยุโรป ประสบการณ์กว่า 10 ปี ส่งตรงจากโกดังบางนา',
+export async function generateMetadata(): Promise<Metadata> {
+  const about = await getAboutPage()
+  return {
+    title: about?.metaTitle || 'เกี่ยวกับ NYX Cable | ผู้นำสายไฟอุตสาหกรรมมาตรฐานยุโรป',
+    description: about?.metaDescription || 'NYX Cable ผู้นำด้านสายไฟอุตสาหกรรมมาตรฐาน DIN VDE จากยุโรป ประสบการณ์กว่า 10 ปี ส่งตรงจากโกดังบางนา',
+  }
 }
 
 const styles = `
