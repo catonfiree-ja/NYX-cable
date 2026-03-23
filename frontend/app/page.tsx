@@ -657,6 +657,16 @@ export default async function HomePage() {
               <p>แจ้งเลขพัสดุและสถานะจัดส่งผ่าน LINE ทุกออเดอร์</p>
             </div>
           </div>
+          <div className="delivery-photos">
+            {[1,2,3,4,5,6,7,8].map(n => (
+              <div key={n} className="delivery-photo">
+                <img src={`/delivery-2026/delivery-2026-${String(n).padStart(2,'0')}.jpg`} alt={`NYX Cable จัดส่งสินค้า #${n}`} loading="lazy" />
+              </div>
+            ))}
+          </div>
+          <div style={{ textAlign: 'center', marginTop: 20 }}>
+            <a href="/gallery" className="btn btn-secondary">ดูภาพทั้งหมดในแกลเลอรี่ →</a>
+          </div>
         </div>
       </section>
 
