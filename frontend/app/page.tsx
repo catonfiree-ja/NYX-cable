@@ -230,9 +230,9 @@ export default async function HomePage() {
     .marquee-row:nth-child(4) { animation-duration: 40s; }
     .marquee-row:nth-child(5) { animation-duration: 34s; }
     .marquee-logos { display: flex; gap: 16px; padding: 0 8px; }
-    .client-logo { width: 100px; height: 72px; flex-shrink: 0; border-radius: 10px; overflow: hidden; transition: all 0.3s cubic-bezier(0.4,0,0.2,1); filter: grayscale(100%) opacity(0.6); }
-    .client-logo img { width: 100%; height: 100%; object-fit: contain; display: block; }
-    .client-logo:hover { box-shadow: 0 4px 12px rgba(0,51,102,0.08); transform: translateY(-2px); filter: grayscale(0%) opacity(1); }
+    .client-logo { flex-shrink: 0; padding: 8px 16px; transition: all 0.3s cubic-bezier(0.4,0,0.2,1); filter: grayscale(100%) opacity(0.55); }
+    .client-logo img { height: 50px; width: auto; max-width: 140px; display: block; object-fit: contain; }
+    .client-logo:hover { filter: grayscale(0%) opacity(1); transform: translateY(-2px); }
 
     /* ─── Product Cards ─── */
     .home-products { padding: 70px 0; background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%); }
@@ -595,7 +595,8 @@ export default async function HomePage() {
 
       {/* ─── Our Clients — 5-Row Alternating Marquee ─── */}
       {(() => {
-        // All 66 logos pre-cropped to 100×72px PNG with padding baked in
+        // Uniform height (50px), auto width — industry standard
+        const ext = (n: number) => [4,5,6,8,10,12,13,14,18,19,20,31,33,35,38,40,49,65].includes(n) ? 'jpg' : 'png';
         const rows = [
           { logos: Array.from({ length: 14 }, (_, i) => i + 1), dir: 'left' },
           { logos: Array.from({ length: 13 }, (_, i) => i + 15), dir: 'right' },
@@ -613,14 +614,14 @@ export default async function HomePage() {
                     <div className="marquee-logos">
                       {row.logos.map(n => (
                         <div key={`a-${n}`} className="client-logo">
-                          <img src={`/client-logos/logo-${String(n).padStart(2, '0')}.png`} alt={`ลูกค้า NYX Cable #${n}`} width={100} height={72} loading="lazy" />
+                          <img src={`/client-logos/logo-${String(n).padStart(2, '0')}.${ext(n)}`} alt={`ลูกค้า NYX Cable #${n}`} loading="lazy" />
                         </div>
                       ))}
                     </div>
                     <div className="marquee-logos" aria-hidden="true">
                       {row.logos.map(n => (
                         <div key={`b-${n}`} className="client-logo">
-                          <img src={`/client-logos/logo-${String(n).padStart(2, '0')}.png`} alt="" width={100} height={72} loading="lazy" />
+                          <img src={`/client-logos/logo-${String(n).padStart(2, '0')}.${ext(n)}`} alt="" loading="lazy" />
                         </div>
                       ))}
                     </div>
