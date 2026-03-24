@@ -125,6 +125,25 @@ export const productContentMap: Record<string, ProductContent> = {
                     </>
                 ),
             },
+            {
+                id: 'product-list',
+                title: 'สินค้าในหมวดสายคอนโทรล — ดูตารางรายละเอียดและสเปก',
+                content: (
+                    <>
+                        <p>เลือกรุ่นสายคอนโทรลที่ต้องการ เพื่อดูตารางขนาด-สเปก และราคา:</p>
+                        <ul>
+                            <li><a href="/products/detail/ysly-jz"><strong>YSLY-JZ</strong></a> — สายคอนโทรลยอดนิยม มีสายกราวนด์ (153 ขนาด)</li>
+                            <li><a href="/products/detail/opvc-jz"><strong>OPVC-JZ</strong></a> — สเปกเหมือน YSLY-JZ 100% (153 ขนาด)</li>
+                            <li><a href="/products/detail/jz-500"><strong>JZ-500</strong></a> — สเปกเหมือน YSLY-JZ 100% (153 ขนาด)</li>
+                            <li><a href="/products/detail/olflex-classic-110"><strong>OLFLEX CLASSIC 110</strong></a> — สเปกเหมือน YSLY-JZ 100% (153 ขนาด)</li>
+                            <li><a href="/products/detail/flex-jz"><strong>Flex-JZ</strong></a> — สเปกเหมือน YSLY-JZ 100% (153 ขนาด)</li>
+                            <li><a href="/products/detail/vct"><strong>สายไฟ VCT</strong></a> — สายอ่อน ทนกระแส รับแรงดัน 450/750V</li>
+                            <li><a href="/products/detail/h05v-k"><strong>H05V-K</strong></a> — สาย Wiring ตู้คอนโทรล 500V (0.5–1 mm²)</li>
+                            <li><a href="/products/detail/h07v-k"><strong>H07V-K</strong></a> — สาย Wiring ตู้คอนโทรล 750V (1.5–240 mm²)</li>
+                        </ul>
+                    </>
+                ),
+            },
         ],
         faqs: [
             {
