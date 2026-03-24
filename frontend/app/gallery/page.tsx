@@ -144,7 +144,18 @@ const styles = `
 export const revalidate = 60
 
 export default async function GalleryPage() {
-  const albums = await getGalleryAlbums()
+  const rawAlbums = await getGalleryAlbums()
+
+  // Sort: delivery albums by year DESC first, then non-delivery albums at end
+  const albums = [...rawAlbums].sort((a: any, b: any) => {
+    const yearA = a.year || parseInt(a.title?.match(/\d{4}/)?.[0]) || 0
+    const yearB = b.year || parseInt(b.title?.match(/\d{4}/)?.[0]) || 0
+    // Albums with year come first, sorted descending
+    if (yearA && !yearB) return -1
+    if (!yearA && yearB) return 1
+    if (yearA !== yearB) return yearB - yearA
+    return 0
+  })
 
   return (
     <>
