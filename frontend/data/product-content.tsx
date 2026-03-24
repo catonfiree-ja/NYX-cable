@@ -975,33 +975,59 @@ export const productContentMap: Record<string, ProductContent> = {
     },
     'ngflgou': {
         sections: [
-            { id: 'overview', title: 'NGFLGou สายไฟแบนฉนวนยางสำหรับ Cable Trolley', content: (<><p>NGFLGou เป็นสายไฟแบน (Flat Cable) ฉนวนทำจากยาง สำหรับ Cable Trolley โดยเฉพาะ ทนต่อสภาพอากาศ UV ความชื้น เหมาะสำหรับใช้งานภายนอกอาคาร</p><p>รับแรงดึงสูง ทนการโค้งงอซ้ำๆ ใช้กับงาน Crane, Cable Trolley, Hoist</p></>) },
+            { id: 'overview', title: 'NGFLGou สายไฟแบนฉนวนยาง คืออะไร ?', content: (<><p>NGFLGou เป็นสายไฟแบน (Flat Cable) ฉนวนยาง สำหรับ Cable Trolley โดยเฉพาะ ทนสภาพอากาศ UV ความชื้น เหมาะภายนอกอาคาร</p><p>รับแรงดึงสูง ทนการโค้งงอซ้ำๆ ใช้กับงาน Crane, Cable Trolley, Hoist</p></>) },
+            { id: 'structure', title: 'โครงสร้าง NGFLGou', content: (<ul><li><strong>ตัวนำ</strong> — ทองแดงฝอยอ่อนตัว</li><li><strong>ฉนวน</strong> — ยางคุณภาพสูง ทน UV ความชื้น สภาพอากาศ</li><li><strong>โครงสร้างแบน</strong> — แบนสำหรับวางบน Cable Trolley</li></ul>) },
+            { id: 'applications', title: 'การใช้งาน', content: (<ul><li>Cable Trolley สำหรับ Crane ภายนอกอาคาร</li><li>Hoist และระบบยก</li><li>งานที่ต้องทน UV และสภาพอากาศ</li></ul>) },
         ],
-        faqs: [{ q: 'NGFLGou เหมาะกับงานอะไร ?', a: 'งาน Cable Trolley, Crane สำหรับใช้งานภายนอกอาคาร ทน UV และสภาพอากาศ' }],
+        faqs: [
+            { q: 'NGFLGou เหมาะกับงานอะไร ?', a: 'งาน Cable Trolley, Crane ภายนอกอาคาร ทน UV และสภาพอากาศ' },
+            { q: 'NGFLGou ทำไมเป็นฉนวนยาง ?', a: 'เพราะยางทน UV ความชื้น สภาพอากาศได้ดีกว่า PVC' },
+            { q: 'NGFLGou รับแรงดึงได้ไหม ?', a: 'ได้ครับ ออกแบบให้รับแรงดึงจากน้ำหนักตัวสาย' },
+        ],
     },
     'nsgafou': {
         sections: [
-            { id: 'overview', title: 'NSGAFou สายไฟรับแรงดึงฉนวนยาง', content: (<><p>NSGAFou เป็นสายไฟรับแรงดึงฉนวนยาง สำหรับ Cable Reel และ Cable Trolley ออกแบบให้ทนแรงดึงและโค้งงอในงานอุตสาหกรรมหนัก เช่น เครน ท่าเรือ เหมืองแร่</p></>) },
+            { id: 'overview', title: 'NSGAFou สายไฟรับแรงดึง คืออะไร ?', content: (<><p>NSGAFou เป็นสายไฟรับแรงดึงฉนวนยาง สำหรับ Cable Reel และ Cable Trolley ทนแรงดึงและโค้งงอในงานอุตสาหกรรมหนัก</p></>) },
+            { id: 'applications', title: 'การใช้งาน', content: (<ul><li>Cable Reel สำหรับเครน</li><li>ท่าเรือ เหมืองแร่ อุตสาหกรรมหนัก</li><li>งานภายนอกที่ต้องทน UV</li></ul>) },
         ],
-        faqs: [{ q: 'NSGAFou เหมาะกับงานอะไร ?', a: 'งาน Cable Reel, Crane ในงานท่าเรือ เหมืองแร่ อุตสาหกรรมหนัก' }],
+        faqs: [
+            { q: 'NSGAFou เหมาะกับงานอะไร ?', a: 'งาน Cable Reel, Crane ในงานท่าเรือ เหมืองแร่ อุตสาหกรรมหนัก' },
+            { q: 'NSGAFou ต่างจาก NSHTOU อย่างไร ?', a: 'NSGAFou เหมาะกับ Cable Reel/Cable Trolley ทั่วไป ส่วน NSHTOU ออกแบบสำหรับเครนโดยเฉพาะ' },
+            { q: 'NSGAFou รับแรงดึงได้ดีแค่ไหน ?', a: 'รับแรงดึงสูง ฉนวนยางทนแรงกระแทกและขูดขีดดี' },
+        ],
     },
     'nshtou': {
         sections: [
-            { id: 'overview', title: 'NSHTOU สายไฟรับแรงดึงสำหรับ Cable Reel Crane', content: (<><p>NSHTOU เป็นสายไฟรับแรงดึงสำหรับ Cable Reel Crane ฉนวนยาง ออกแบบสำหรับรับแรงดึงและโค้งงอในงานเครนโดยเฉพาะ ทน UV ความชื้น สภาพอากาศ</p><p>เหมาะสำหรับ Overhead Crane, Gantry Crane, Port Crane</p></>) },
+            { id: 'overview', title: 'NSHTOU สายไฟ Cable Reel Crane คืออะไร ?', content: (<><p>NSHTOU เป็นสายไฟรับแรงดึงสำหรับ Cable Reel Crane ฉนวนยาง ออกแบบสำหรับรับแรงดึงและโค้งงอในงานเครน ทน UV ความชื้น สภาพอากาศ</p><p>เหมาะสำหรับ Overhead Crane, Gantry Crane, Port Crane</p></>) },
+            { id: 'applications', title: 'การใช้งาน', content: (<ul><li>Overhead Crane (เครนเหนือศีรษะ)</li><li>Gantry Crane (เครนขาหยั่ง)</li><li>Port Crane (เครนท่าเรือ)</li></ul>) },
         ],
-        faqs: [{ q: 'NSHTOU เหมาะกับเครนประเภทไหน ?', a: 'ใช้ได้กับ Overhead Crane, Gantry Crane, Port Crane' }],
+        faqs: [
+            { q: 'NSHTOU เหมาะกับเครนประเภทไหน ?', a: 'ใช้ได้กับ Overhead Crane, Gantry Crane, Port Crane' },
+            { q: 'NSHTOU ต่างจาก NSGAFou อย่างไร ?', a: 'NSHTOU ออกแบบสำหรับงานเครนโดยเฉพาะ รับแรงดึงได้สูงกว่า' },
+            { q: 'NSHTOU ทน UV ได้ไหม ?', a: 'ได้ครับ ฉนวนยางทน UV ความชื้น สภาพอากาศได้ดี' },
+        ],
     },
     'nsshoeu': {
         sections: [
-            { id: 'overview', title: 'NSSHOeu สายไฟรับแรงดึงพิเศษ', content: (<><p>NSSHOeu เป็นสายไฟรับแรงดึงพิเศษ ฉนวนยาง สำหรับ Cable Reel ในงานอุตสาหกรรมหนักที่ต้องการความทนทานสูง ทนแรงกระแทก การขูดขีด และสภาพอากาศรุนแรง</p></>) },
+            { id: 'overview', title: 'NSSHOeu สายไฟรับแรงดึงพิเศษ คืออะไร ?', content: (<><p>NSSHOeu เป็นสายไฟรับแรงดึงพิเศษ ฉนวนยาง สำหรับ Cable Reel ในงานอุตสาหกรรมหนัก ทนแรงกระแทก ขูดขีด สภาพอากาศรุนแรง</p></>) },
+            { id: 'applications', title: 'การใช้งาน', content: (<ul><li>Cable Reel ในงานอุตสาหกรรมหนัก</li><li>เหมืองแร่ ท่าเรือ</li><li>งานที่ต้องการความทนทานสูงสุด</li></ul>) },
         ],
-        faqs: [{ q: 'NSSHOeu เหมาะกับงานอะไร ?', a: 'งาน Cable Reel ในอุตสาหกรรมหนัก เหมืองแร่ ท่าเรือ' }],
+        faqs: [
+            { q: 'NSSHOeu เหมาะกับงานอะไร ?', a: 'งาน Cable Reel ในอุตสาหกรรมหนัก เหมืองแร่ ท่าเรือ' },
+            { q: 'NSSHOeu ต่างจาก NSGAFou อย่างไร ?', a: 'NSSHOeu ทนแรงกระแทกและสภาพอากาศรุนแรงได้ดีกว่า' },
+            { q: 'NSSHOeu ทนแรงกระแทกได้ไหม ?', a: 'ได้ครับ ฉนวนยางทนแรงกระแทก ขูดขีด และสภาพอากาศรุนแรงได้ดี' },
+        ],
     },
     'ntscgewoeu': {
         sections: [
-            { id: 'overview', title: 'NTSCGEWOEU สายไฟรับแรงดึงสำหรับงานเหมือง', content: (<><p>NTSCGEWOEU เป็นสายไฟรับแรงดึงสำหรับ Cable Reel ที่ใช้ในงานเหมืองโดยเฉพาะ ออกแบบให้ทนแรงดึง แรงกระแทก และสภาพแวดล้อมที่รุนแรงมาก</p><p>ฉนวนยางชนิดพิเศษ ทนน้ำ ฝุ่น ความชื้น UV เหมาะสำหรับงานเหมืองแร่ งานขุดเจาะ</p></>) },
+            { id: 'overview', title: 'NTSCGEWOEU สายไฟสำหรับงานเหมืองคืออะไร ?', content: (<><p>NTSCGEWOEU เป็นสายไฟรับแรงดึงสำหรับ Cable Reel ในงานเหมืองโดยเฉพาะ ทนแรงดึง แรงกระแทก สภาพแวดล้อมรุนแรงมาก</p><p>ฉนวนยางชนิดพิเศษ ทนน้ำ ฝุ่น ความชื้น UV</p></>) },
+            { id: 'applications', title: 'การใช้งาน', content: (<ul><li>เหมืองแร่และงานขุดเจาะ</li><li>Cable Reel ในสภาพแวดล้อมรุนแรง</li><li>งานที่ต้องการความทนทานสูงสุด</li></ul>) },
         ],
-        faqs: [{ q: 'NTSCGEWOEU ต่างจากสายรับแรงดึงรุ่นอื่นอย่างไร ?', a: 'ออกแบบสำหรับงานเหมืองโดยเฉพาะ ทนสภาพแวดล้อมรุนแรงที่สุด' }],
+        faqs: [
+            { q: 'NTSCGEWOEU ต่างจากสายรับแรงดึงรุ่นอื่นอย่างไร ?', a: 'ออกแบบสำหรับงานเหมืองโดยเฉพาะ ทนสภาพแวดล้อมรุนแรงที่สุด' },
+            { q: 'NTSCGEWOEU ใช้กับงานอะไร ?', a: 'งานเหมืองแร่ งานขุดเจาะ Cable Reel ในสภาพแวดล้อมรุนแรง' },
+            { q: 'NTSCGEWOEU ทนอะไรได้บ้าง ?', a: 'ทนน้ำ ฝุ่น ความชื้น UV แรงกระแทก และสภาพแวดล้อมรุนแรงที่สุด' },
+        ],
     },
     'multicore-cable': {
         sections: [
