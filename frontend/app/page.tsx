@@ -230,7 +230,7 @@ export default async function HomePage() {
     .marquee-row:nth-child(4) { animation-duration: 40s; }
     .marquee-row:nth-child(5) { animation-duration: 34s; }
     .marquee-logos { display: flex; gap: 16px; padding: 0 8px; }
-    .client-logo { background: #fff; border: 1px solid #e2e8f0; border-radius: 10px; transition: all 0.3s cubic-bezier(0.4,0,0.2,1); width: 160px; height: 72px; flex-shrink: 0; background-size: 88% 78%; background-repeat: no-repeat; background-position: center; filter: grayscale(100%) opacity(0.6); padding: 4px; }
+    .client-logo { background: #fff; border: 1px solid #e2e8f0; border-radius: 10px; transition: all 0.3s cubic-bezier(0.4,0,0.2,1); width: 160px; height: 72px; flex-shrink: 0; background-size: contain; background-repeat: no-repeat; background-position: center; filter: grayscale(100%) opacity(0.6); }
     .client-logo:hover { border-color: #003366; box-shadow: 0 4px 12px rgba(0,51,102,0.08); transform: translateY(-2px); filter: grayscale(0%) opacity(1); }
 
     /* ─── Product Cards ─── */
@@ -593,36 +593,54 @@ export default async function HomePage() {
       </section>
 
       {/* ─── Our Clients — 5-Row Alternating Marquee ─── */}
-      <section className="clients-section">
-        <div style={{ maxWidth: '100vw', padding: 0, overflow: 'hidden' }}>
-          <h3 style={{ marginBottom: 20 }}>ลูกค้าที่ไว้วางใจเรา</h3>
-          <div className="marquee-rows">
-            {[
-              { logos: Array.from({ length: 14 }, (_, i) => i + 1), dir: 'left' },
-              { logos: Array.from({ length: 13 }, (_, i) => i + 15), dir: 'right' },
-              { logos: Array.from({ length: 13 }, (_, i) => i + 28), dir: 'left' },
-              { logos: Array.from({ length: 13 }, (_, i) => i + 41), dir: 'right' },
-              { logos: Array.from({ length: 13 }, (_, i) => i + 54), dir: 'left' },
-            ].map((row, rowIdx) => {
-              const ext = (n: number) => [4, 5, 6, 8, 10, 12, 13, 14, 18, 19, 20, 31, 33, 35, 38, 40, 49, 65].includes(n) ? 'jpg' : 'png';
-              return (
-                <div key={rowIdx} className={`marquee-row dir-${row.dir}`}>
-                  <div className="marquee-logos">
-                    {row.logos.map(n => (
-                      <div key={`a-${n}`} className="client-logo" style={{ backgroundImage: `url(/client-logos/logo-${String(n).padStart(2, '0')}.${ext(n)})` }} title={`ลูกค้า NYX Cable #${n}`} />
-                    ))}
+      {(() => {
+        // Per-logo backgroundSize — generated from actual image dimensions
+        // Box: 160x72 (ratio 2.22). Wide logos fill width, tall/square logos fill height.
+        const logoBgSize: Record<number, string> = {
+          1:'95% auto',2:'auto 85%',3:'auto 85%',4:'95% auto',5:'auto 90%',6:'auto 85%',
+          7:'auto 90%',8:'auto 85%',9:'auto 85%',10:'95% auto',11:'auto 85%',12:'auto 85%',
+          13:'95% auto',14:'95% auto',15:'auto 85%',16:'95% auto',17:'95% auto',18:'auto 85%',
+          19:'auto 85%',20:'auto 85%',21:'auto 90%',22:'auto 85%',23:'auto 85%',24:'auto 85%',
+          25:'auto 90%',26:'auto 90%',27:'auto 90%',28:'auto 90%',29:'auto 90%',30:'auto 90%',
+          31:'92% auto',32:'95% auto',33:'auto 85%',34:'95% auto',35:'auto 85%',36:'95% auto',
+          37:'95% auto',38:'auto 85%',39:'auto 85%',40:'auto 85%',41:'95% auto',42:'auto 90%',
+          43:'auto 85%',44:'95% auto',45:'auto 90%',46:'auto 90%',47:'95% auto',48:'auto 85%',
+          49:'auto 85%',50:'auto 85%',51:'auto 85%',52:'auto 85%',53:'auto 85%',54:'95% auto',
+          55:'auto 85%',56:'auto 85%',57:'auto 85%',58:'auto 90%',59:'auto 85%',60:'auto 85%',
+          61:'auto 85%',62:'auto 90%',63:'auto 90%',64:'auto 85%',65:'auto 85%',66:'92% auto',
+        };
+        const ext = (n: number) => [4,5,6,8,10,12,13,14,18,19,20,31,33,35,38,40,49,65].includes(n) ? 'jpg' : 'png';
+        const rows = [
+          { logos: Array.from({ length: 14 }, (_, i) => i + 1), dir: 'left' },
+          { logos: Array.from({ length: 13 }, (_, i) => i + 15), dir: 'right' },
+          { logos: Array.from({ length: 13 }, (_, i) => i + 28), dir: 'left' },
+          { logos: Array.from({ length: 13 }, (_, i) => i + 41), dir: 'right' },
+          { logos: Array.from({ length: 13 }, (_, i) => i + 54), dir: 'left' },
+        ];
+        return (
+          <section className="clients-section">
+            <div style={{ maxWidth: '100vw', padding: 0, overflow: 'hidden' }}>
+              <h3 style={{ marginBottom: 20 }}>ลูกค้าที่ไว้วางใจเรา</h3>
+              <div className="marquee-rows">
+                {rows.map((row, rowIdx) => (
+                  <div key={rowIdx} className={`marquee-row dir-${row.dir}`}>
+                    <div className="marquee-logos">
+                      {row.logos.map(n => (
+                        <div key={`a-${n}`} className="client-logo" style={{ backgroundImage: `url(/client-logos/logo-${String(n).padStart(2, '0')}.${ext(n)})`, backgroundSize: logoBgSize[n] }} title={`ลูกค้า NYX Cable #${n}`} />
+                      ))}
+                    </div>
+                    <div className="marquee-logos" aria-hidden="true">
+                      {row.logos.map(n => (
+                        <div key={`b-${n}`} className="client-logo" style={{ backgroundImage: `url(/client-logos/logo-${String(n).padStart(2, '0')}.${ext(n)})`, backgroundSize: logoBgSize[n] }} />
+                      ))}
+                    </div>
                   </div>
-                  <div className="marquee-logos" aria-hidden="true">
-                    {row.logos.map(n => (
-                      <div key={`b-${n}`} className="client-logo" style={{ backgroundImage: `url(/client-logos/logo-${String(n).padStart(2, '0')}.${ext(n)})` }} />
-                    ))}
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
+                ))}
+              </div>
+            </div>
+          </section>
+        );
+      })()}
 
 
       {/* ─── บริการของเรา ─── */}
