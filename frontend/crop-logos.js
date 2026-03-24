@@ -1,6 +1,5 @@
-// COVER logos: cover to 92×64 (4px padding), center on 100×72 canvas
-// INSIDE logos: fit inside 92×64, center on 100×72 canvas
-// All logos have 4px breathing room from edges
+// Back to 100×72 — ALL INSIDE, no crop
+// This is the version where wide logos were confirmed "OK"
 
 const sharp = require('sharp');
 const fs = require('fs');
@@ -12,10 +11,6 @@ const outDir = path.resolve('public/client-logos');
 async function main() {
   const files = fs.readdirSync(origDir).filter(f => /^logo-\d+/.test(f)).sort();
   const W = 100, H = 72;
-  const PAD = 4;
-  const IW = W - PAD * 2; // 92
-  const IH = H - PAD * 2; // 64
-  const boxRatio = IW / IH; // 1.44
 
   let count = 0;
   for (const f of files) {
@@ -25,44 +20,30 @@ async function main() {
 
     try {
       const meta = await sharp(srcPath).metadata();
-      const r = meta.width / meta.height;
-      let strategy, innerW, innerH;
+      
+      // ALL inside — no crop at all
+      const resized = await sharp(srcPath)
+        .resize(W - 8, H - 8, { fit: 'inside', withoutEnlargement: false })
+        .flatten({ background: { r: 255, g: 255, b: 255 } })
+        .png().toBuffer();
+      
+      const rm = await sharp(resized).metadata();
+      const left = Math.round((W - rm.width) / 2);
+      const top = Math.round((H - rm.height) / 2);
+      
+      await sharp({
+        create: { width: W, height: H, channels: 4, background: { r: 255, g: 255, b: 255, alpha: 1 } }
+      })
+        .composite([{ input: resized, left, top }])
+        .png().toFile(outPath);
 
-      if (r < boxRatio) {
-        // Square/tall: COVER to fill 92×64, center on canvas
-        strategy = 'COVER+pad';
-        const covered = await sharp(srcPath)
-          .resize(IW, IH, { fit: 'cover', position: 'centre' })
-          .flatten({ background: { r: 255, g: 255, b: 255 } })
-          .png().toBuffer();
-        
-        await sharp({ create: { width: W, height: H, channels: 4, background: { r: 255, g: 255, b: 255, alpha: 1 } } })
-          .composite([{ input: covered, left: PAD, top: PAD }])
-          .png().toFile(outPath);
-        innerW = IW; innerH = IH;
-      } else {
-        // Wide: INSIDE to fit 92×64, center on canvas
-        strategy = 'INSIDE+pad';
-        const resized = await sharp(srcPath)
-          .resize(IW, IH, { fit: 'inside', withoutEnlargement: false })
-          .flatten({ background: { r: 255, g: 255, b: 255 } })
-          .png().toBuffer();
-        const rm = await sharp(resized).metadata();
-        innerW = rm.width; innerH = rm.height;
-        const left = Math.round((W - rm.width) / 2);
-        const top = Math.round((H - rm.height) / 2);
-        await sharp({ create: { width: W, height: H, channels: 4, background: { r: 255, g: 255, b: 255, alpha: 1 } } })
-          .composite([{ input: resized, left, top }])
-          .png().toFile(outPath);
-      }
-
-      console.log(`#${n}: r=${r.toFixed(2)} → ${strategy} (${innerW}x${innerH}) ✓`);
+      console.log(`#${n}: r=${(meta.width/meta.height).toFixed(2)} → ${rm.width}x${rm.height} ✓`);
       count++;
     } catch (err) {
       console.error(`#${n}: FAILED - ${err.message}`);
     }
   }
-  console.log(`\nDone! ${count} logos — all 100×72px with 4px padding from edges.`);
+  console.log(`\nDone! ${count} logos — all 100×72px, INSIDE, NO crop.`);
 }
 
 main().catch(console.error);
