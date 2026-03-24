@@ -172,6 +172,9 @@ const styles = `
   @media (max-width: 768px) {
     .faq-item summary { font-size: 0.85rem; padding: 12px 14px; }
     .faq-item .faq-answer { padding: 0 14px 12px; font-size: 0.82rem; }
+    .hc-section h3 { font-size: 0.95rem; }
+    .hc-section p, .hc-section ul, .hc-section ol { font-size: 0.84rem; line-height: 1.75; }
+    .hc-section ul, .hc-section ol { margin-left: 18px; }
   }
   @media (max-width: 480px) {
     .op-grid { grid-template-columns: 1fr !important; }
