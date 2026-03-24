@@ -496,11 +496,22 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
               <div className="hero-cta">
                 <a href="tel:021115588" className="cta-btn-call">สอบถามราคา</a>
                 <a href={`https://page.line.me/ubb9405u?text=${encodeURIComponent(`สนใจสินค้า: ${product.title}${product.productCode ? ` (${product.productCode})` : ''} — ขอใบเสนอราคา`)}`} target="_blank" rel="noopener noreferrer" className="cta-btn-line">แอด LINE</a>
-                {slug === 'control-cable' && (
-                  <a href="/products/detail/ysly-jz" className="cta-btn-detail">
-                    ดูรายละเอียดเพิ่ม
-                  </a>
-                )}
+                {(() => {
+                  const detailLinks: Record<string, { href: string; label: string }> = {
+                    'control-cable': { href: '/products/detail/ysly-jz', label: 'ดูสเปก YSLY-JZ' },
+                    'multicore-cable': { href: '/products/detail/ysly-jz', label: 'ดูสเปก YSLY-JZ' },
+                    'opvc-jz': { href: '/products/detail/ysly-jz', label: 'เทียบสเปก YSLY-JZ' },
+                    'jz-500': { href: '/products/detail/ysly-jz', label: 'เทียบสเปก YSLY-JZ' },
+                    'olflex-classic-110': { href: '/products/detail/ysly-jz', label: 'เทียบสเปก YSLY-JZ' },
+                    'flex-jz': { href: '/products/detail/ysly-jz', label: 'เทียบสเปก YSLY-JZ' },
+                    'h05v-k': { href: '/products/detail/h07v-k', label: 'ดู H07V-K (750V)' },
+                    'h07v-k': { href: '/products/detail/h05v-k', label: 'ดู H05V-K (500V)' },
+                    'vct': { href: '/products/detail/control-cable', label: 'ดูสายคอนโทรลทั้งหมด' },
+                  }
+                  const link = detailLinks[slug]
+                  if (!link) return null
+                  return <a href={link.href} className="cta-btn-detail">{link.label}</a>
+                })()}
               </div>
             </div>
           </div>
