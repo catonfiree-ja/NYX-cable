@@ -30,10 +30,10 @@ body {
   font-size: 0.85rem;
   font-weight: 800;
   letter-spacing: 2px;
-  color: #fff;
+  color: #ffd600;
   text-decoration: none;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-  background: linear-gradient(135deg, #f0a500, #ffc233);
+  background: linear-gradient(135deg, #0d47a1, #1565c0);
   transform: rotate(45deg);
   z-index: 9998;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
@@ -1259,15 +1259,15 @@ a:hover {
 }
 
 .cta-call {
-  background: linear-gradient(145deg, #1565c0, #1e88e5, #42a5f5);
+  background: linear-gradient(145deg, #0d47a1, #1565c0, #1976d2);
 }
 
 .cta-line-big {
-  background: linear-gradient(145deg, #04a845, #06c755, #3dd67a);
+  background: linear-gradient(145deg, #038c3e, #04a845, #06c755);
 }
 
 .cta-email {
-  background: linear-gradient(145deg, #d48900, #f0a500, #ffc107);
+  background: linear-gradient(145deg, #b87400, #d48900, #e69500);
 }
 
 .prefooter-cta-sub {
@@ -1330,11 +1330,11 @@ a:hover {
   animation: ctaPulse 2.5s ease-in-out infinite;
 }
 
-/* ─── Floating Contact FAB (bottom-right) ─── */
+/* ─── Floating Contact FAB (bottom-left) ─── */
 .floating-fab {
   position: fixed;
   bottom: 24px;
-  right: 24px;
+  left: 24px;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -1373,6 +1373,7 @@ a:hover {
 .fab-btn:hover {
   transform: scale(1.08);
   box-shadow: 0 6px 28px rgba(0, 0, 0, 0.35);
+  color: #fff;
 }
 
 .fab-line {
@@ -1380,17 +1381,13 @@ a:hover {
 }
 
 .fab-call {
-  background: linear-gradient(135deg, #1976d2, #0d47a1);
-}
-
-.fab-top {
-  background: linear-gradient(135deg, #374151, #1f2937);
+  background: linear-gradient(135deg, #f57c00, #e65100);
 }
 
 @media (max-width: 768px) {
   .floating-fab {
     bottom: 16px;
-    right: 12px;
+    left: 12px;
     gap: 8px;
   }
 
