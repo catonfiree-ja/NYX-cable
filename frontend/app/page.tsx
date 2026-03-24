@@ -594,20 +594,75 @@ export default async function HomePage() {
 
       {/* ─── Our Clients — 5-Row Alternating Marquee ─── */}
       {(() => {
-        // Per-logo backgroundSize — generated from actual image dimensions
-        // Box: 160x72 (ratio 2.22). Wide logos fill width, tall/square logos fill height.
+        // Per-logo backgroundSize — sized to FILL the 160×72 box
+        // Wide (r≥2.0) → 100% auto | Med (1.3-2.0) → auto 98% | Square (1.0-1.3) → auto 95% | Tall (<1.0) → auto 90%
         const logoBgSize: Record<number, string> = {
-          1:'95% auto',2:'auto 85%',3:'auto 85%',4:'95% auto',5:'auto 90%',6:'auto 85%',
-          7:'auto 90%',8:'auto 85%',9:'auto 85%',10:'95% auto',11:'auto 85%',12:'auto 85%',
-          13:'95% auto',14:'95% auto',15:'auto 85%',16:'95% auto',17:'95% auto',18:'auto 85%',
-          19:'auto 85%',20:'auto 85%',21:'auto 90%',22:'auto 85%',23:'auto 85%',24:'auto 85%',
-          25:'auto 90%',26:'auto 90%',27:'auto 90%',28:'auto 90%',29:'auto 90%',30:'auto 90%',
-          31:'92% auto',32:'95% auto',33:'auto 85%',34:'95% auto',35:'auto 85%',36:'95% auto',
-          37:'95% auto',38:'auto 85%',39:'auto 85%',40:'auto 85%',41:'95% auto',42:'auto 90%',
-          43:'auto 85%',44:'95% auto',45:'auto 90%',46:'auto 90%',47:'95% auto',48:'auto 85%',
-          49:'auto 85%',50:'auto 85%',51:'auto 85%',52:'auto 85%',53:'auto 85%',54:'95% auto',
-          55:'auto 85%',56:'auto 85%',57:'auto 85%',58:'auto 90%',59:'auto 85%',60:'auto 85%',
-          61:'auto 85%',62:'auto 90%',63:'auto 90%',64:'auto 85%',65:'auto 85%',66:'92% auto',
+          1:'100% auto',  // 581x261 r=2.23 wide
+          2:'auto 95%',   // 3466x2827 r=1.23 square
+          3:'auto 95%',   // 400x400 r=1.00 square
+          4:'100% auto',  // 166x82 r=2.02 wide
+          5:'auto 98%',   // 155x109 r=1.42 med
+          6:'auto 95%',   // 221x215 r=1.03 square
+          7:'auto 98%',   // 965x705 r=1.37 med
+          8:'auto 95%',   // 131x118 r=1.11 square
+          9:'auto 90%',   // 124x134 r=0.93 tall
+          10:'100% auto', // 595x192 r=3.10 wide
+          11:'auto 90%',  // 146x161 r=0.91 tall
+          12:'auto 95%',  // 326x270 r=1.21 square
+          13:'100% auto', // 177x75 r=2.36 wide
+          14:'100% auto', // 131x58 r=2.26 wide
+          15:'auto 95%',  // 102x84 r=1.21 square
+          16:'100% auto', // 187x62 r=3.02 wide
+          17:'100% auto', // 331x149 r=2.22 wide
+          18:'auto 95%',  // 348x333 r=1.05 square
+          19:'auto 95%',  // 391x391 r=1.00 square
+          20:'auto 95%',  // 450x450 r=1.00 square
+          21:'auto 98%',  // 354x213 r=1.66 med
+          22:'auto 95%',  // 247x222 r=1.11 square
+          23:'auto 95%',  // 225x200 r=1.13 square
+          24:'auto 95%',  // 251x236 r=1.06 square
+          25:'auto 98%',  // 261x185 r=1.41 med
+          26:'auto 98%',  // 240x138 r=1.74 med
+          27:'auto 98%',  // 236x156 r=1.51 med
+          28:'100% auto', // 408x207 r=1.97 ~wide
+          29:'auto 98%',  // 364x213 r=1.71 med
+          30:'auto 98%',  // 292x203 r=1.44 med
+          31:'95% auto',  // 400x93 r=4.30 ultra-wide
+          32:'100% auto', // 258x114 r=2.26 wide
+          33:'auto 95%',  // 225x225 r=1.00 square
+          34:'100% auto', // 363x139 r=2.61 wide
+          35:'auto 95%',  // 247x204 r=1.21 square
+          36:'100% auto', // 402x125 r=3.22 wide
+          37:'100% auto', // 359x140 r=2.56 wide
+          38:'auto 95%',  // 224x225 r=1.00 square
+          39:'auto 95%',  // 135x135 r=1.00 square
+          40:'auto 95%',  // 225x225 r=1.00 square
+          41:'100% auto', // 122x43 r=2.84 wide
+          42:'auto 98%',  // 236x125 r=1.89 med
+          43:'auto 95%',  // 224x224 r=1.00 square
+          44:'100% auto', // 466x200 r=2.33 wide
+          45:'auto 98%',  // 313x160 r=1.96 med
+          46:'auto 98%',  // 254x182 r=1.40 med
+          47:'100% auto', // 293x129 r=2.27 wide
+          48:'auto 95%',  // 225x225 r=1.00 square
+          49:'auto 95%',  // 225x225 r=1.00 square
+          50:'auto 90%',  // 225x237 r=0.95 tall
+          51:'auto 90%',  // 225x327 r=0.69 very tall
+          52:'auto 95%',  // 225x202 r=1.11 square
+          53:'auto 95%',  // 225x225 r=1.00 square
+          54:'100% auto', // 225x83 r=2.71 wide
+          55:'auto 95%',  // 225x225 r=1.00 square
+          56:'auto 95%',  // 230x219 r=1.05 square
+          57:'auto 90%',  // 187x208 r=0.90 tall
+          58:'auto 98%',  // 222x129 r=1.72 med
+          59:'auto 90%',  // 197x200 r=0.98 tall
+          60:'auto 95%',  // 212x200 r=1.06 square
+          61:'auto 95%',  // 214x208 r=1.03 square
+          62:'auto 98%',  // 281x150 r=1.87 med
+          63:'auto 98%',  // 229x143 r=1.60 med
+          64:'auto 95%',  // 225x225 r=1.00 square
+          65:'auto 95%',  // 224x225 r=1.00 square
+          66:'95% auto',  // 225x30 r=7.50 ultra-wide
         };
         const ext = (n: number) => [4,5,6,8,10,12,13,14,18,19,20,31,33,35,38,40,49,65].includes(n) ? 'jpg' : 'png';
         const rows = [
