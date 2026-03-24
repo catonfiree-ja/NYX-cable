@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { getProducts, getBlogPosts, getFAQs, getHomePage } from '@/lib/queries'
 import Image from 'next/image'
 import { urlFor as sanityUrlFor } from '@/lib/sanity'
+import { decodeHtmlEntities } from '@/lib/decode-html'
 
 export async function generateMetadata(): Promise<Metadata> {
   const homeCms = await getHomePage()
@@ -770,7 +771,7 @@ export default async function HomePage() {
                 </div>
                 <div className="category-card-body">
                   <h3>{p.title}</h3>
-                  <p>{p.shortDescription || p.categories?.[0]?.title || 'สายไฟอุตสาหกรรม'}</p>
+                  <p>{decodeHtmlEntities(p.shortDescription || p.categories?.[0]?.title || 'สายไฟอุตสาหกรรม')}</p>
                   <span className="product-count">ดูรายละเอียด →</span>
                 </div>
               </a>

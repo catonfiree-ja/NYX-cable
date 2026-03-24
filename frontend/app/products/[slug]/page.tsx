@@ -2,6 +2,7 @@ import { getCategory, getCategories, getProducts } from '@/lib/queries'
 import { urlFor } from '@/lib/sanity'
 import Image from 'next/image'
 import { notFound } from 'next/navigation'
+import { decodeHtmlEntities } from '@/lib/decode-html'
 
 const styles = `
   .cat-hero {
@@ -93,7 +94,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
             <a href="/">หน้าแรก</a> › <a href="/products">ผลิตภัณฑ์</a> › {category.title}
           </div>
           <h1>{category.title}</h1>
-          {category.shortDescription && <p>{category.shortDescription}</p>}
+          {category.shortDescription && <p>{decodeHtmlEntities(category.shortDescription)}</p>}
           {products.length > 0 && <div className="product-count-badge">{products.length} รุ่นในหมวดนี้</div>}
         </div>
       </section>
@@ -111,7 +112,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
                 <div className="cat-product-body">
                   <h3>{product.title}</h3>
                   {product.productCode && <div className="code">{product.productCode}</div>}
-                  {product.shortDescription && <p>{product.shortDescription}</p>}
+                  {product.shortDescription && <p>{decodeHtmlEntities(product.shortDescription)}</p>}
                 </div>
               </a>
             ))}
