@@ -1,4 +1,15 @@
 /**
+    'nsgafou': {
+        sections: [
+            { id: 'overview', title: 'NSGAFou สายไฟรับแรงดึง คืออะไร ?', content: (<><p>NSGAFou เป็นสายไฟรับแรงดึงฉนวนยาง สำหรับ Cable Reel และ Cable Trolley ทนแรงดึงและโค้งงอในงานอุตสาหกรรมหนัก</p><p>รับแรงดัน 0.6/1 kV อุณหภูมิ -25°C ถึง 60°C ตามมาตรฐาน VDE 0250</p></>)},
+            { id: 'structure', title: 'โครงสร้าง NSGAFou', content: (<ul><li><strong>ตัวนำ</strong> — ทองแดงฝอยอ่อนตัว Class 5 ทนแรงดึง</li><li><strong>ฉนวนภายใน</strong> — ยาง EPR ทนอุณหภูมิ ทน UV</li><li><strong>เสริมแรงดึง</strong> — เส้นใยรับแรงดึงในโครงสร้าง</li><li><strong>ฉนวนภายนอก</strong> — ยาง Neoprene สีดำ ทนแรงกระแทก ขูดขีด UV</li></ul>)},
+            { id: 'applications', title: 'การใช้งาน', content: (<ul><li>Cable Reel สำหรับเครน ท่าเรือ</li><li>เหมืองแร่ อุตสาหกรรมหนัก</li><li>งานภายนอกที่ต้องทน UV และสภาพอากาศ</li></ul>)},
+        ],
+        faqs: [
+            { q: 'NSGAFou เหมาะกับงานอะไร ?', a: 'งาน Cable Reel, Crane ในงานท่าเรือ เหมืองแร่ อุตสาหกรรมหนัก' },
+            { q: 'NSGAFou ต่างจาก NSHTOU อย่างไร ?', a: 'NSGAFou เหมาะกับ Cable Reel/Cable Trolley ทั่วไป ส่วน NSHTOU ออกแบบสำหรับเครนโดยเฉพาะ' },
+            { q: 'NSGAFou รับแรงดึงได้ดีแค่ไหน ?', a: 'รับแรงดึงสูง รับแรงดัน 0.6/1 kV ฉนวน Neoprene ทนแรงกระแทกและขูดขีดดี' },
+        ],
  * Hardcoded product content scraped from original nyxcable.com
  * Used when Sanity CMS description is missing or too short
  */
@@ -985,14 +996,16 @@ export const productContentMap: Record<string, ProductContent> = {
             { q: 'NGFLGou รับแรงดึงได้ไหม ?', a: 'ได้ครับ ออกแบบให้รับแรงดึงจากน้ำหนักตัวสาย' },
         ],
     },
-    <p>รับแรงดัน 0.6/1 kV อุณหภูมิ -25°C ถึง 60°C ตามมาตรฐาน VDE 0250</p></>)},
-            { id: structure, title: โครงสร้าง NSGAFou, content: (<ul><li><strong>ตัวนำ</strong> — ทองแดงฝอยอ่อนตัว Class 5</li><li><strong>ฉนวนภายใน</strong> — ยาง EPR ทนอุณหภูมิ UV</li><li><strong>เสริมแรงดึง</strong> — เส้นใยรับแรงดึง</li><li><strong>ฉนวนภายนอก</strong> — ยาง Neoprene สีดำ ทนแรงกระแทก ขูดขีด UV</li></ul>)},
-            { id: 'applications', title: 'การใช้งาน', content: (<ul><li>Cable Reel สำหรับเครน</li><li>ท่าเรือ เหมืองแร่ อุตสาหกรรมหนัก</li><li>งานภายนอกที่ต้องทน UV</li></ul>) },
+    'nsgafou': {
+        sections: [
+            { id: 'overview', title: 'NSGAFou สายไฟรับแรงดึง คืออะไร ?', content: (<><p>NSGAFou เป็นสายไฟรับแรงดึงฉนวนยาง สำหรับ Cable Reel และ Cable Trolley ทนแรงดึงและโค้งงอในงานอุตสาหกรรมหนัก</p><p>รับแรงดัน 0.6/1 kV อุณหภูมิ -25°C ถึง 60°C ตามมาตรฐาน VDE 0250</p></>)},
+            { id: 'structure', title: 'โครงสร้าง NSGAFou', content: (<ul><li><strong>ตัวนำ</strong> — ทองแดงฝอยอ่อนตัว Class 5 ทนแรงดึง</li><li><strong>ฉนวนภายใน</strong> — ยาง EPR ทนอุณหภูมิ ทน UV</li><li><strong>เสริมแรงดึง</strong> — เส้นใยรับแรงดึงในโครงสร้าง</li><li><strong>ฉนวนภายนอก</strong> — ยาง Neoprene สีดำ ทนแรงกระแทก ขูดขีด UV</li></ul>)},
+            { id: 'applications', title: 'การใช้งาน', content: (<ul><li>Cable Reel สำหรับเครน ท่าเรือ</li><li>เหมืองแร่ อุตสาหกรรมหนัก</li><li>งานภายนอกที่ต้องทน UV และสภาพอากาศ</li></ul>)},
         ],
         faqs: [
             { q: 'NSGAFou เหมาะกับงานอะไร ?', a: 'งาน Cable Reel, Crane ในงานท่าเรือ เหมืองแร่ อุตสาหกรรมหนัก' },
             { q: 'NSGAFou ต่างจาก NSHTOU อย่างไร ?', a: 'NSGAFou เหมาะกับ Cable Reel/Cable Trolley ทั่วไป ส่วน NSHTOU ออกแบบสำหรับเครนโดยเฉพาะ' },
-            { q: 'NSGAFou รับแรงดึงได้ดีแค่ไหน ?', a: 'รับแรงดึงสูง ฉนวนยางทนแรงกระแทกและขูดขีดดี' },
+            { q: 'NSGAFou รับแรงดึงได้ดีแค่ไหน ?', a: 'รับแรงดึงสูง รับแรงดัน 0.6/1 kV ฉนวน Neoprene ทนแรงกระแทกและขูดขีดดี' },
         ],
     },
     'nshtou': {
