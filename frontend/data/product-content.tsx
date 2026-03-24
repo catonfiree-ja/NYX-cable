@@ -34,10 +34,10 @@ export const productContentMap: Record<string, ProductContent> = {
                 title: 'ประเภทของสายคอนโทรลที่ NYX Cable จำหน่าย',
                 content: (
                     <ol>
-                        <li><a href="/products">สายมัลติคอร์ (Multicore Cable)</a></li>
-                        <li><a href="/products">สายไฟอ่อนสำหรับเดินงาน Control และ Power</a></li>
-                        <li><a href="/products">สายคู่บิดเกลียว ไม่มีชีลด์</a></li>
-                        <li><a href="/products">สาย Wiring ตู้คอนโทรล</a></li>
+                        <li><a href="/products/detail/multicore-cable">สายมัลติคอร์ (Multicore Cable)</a></li>
+                        <li><a href="/products/control-cable">สายไฟอ่อนสำหรับเดินงาน Control และ Power</a></li>
+                        <li><a href="/products/twisted-pair-cable">สายคู่บิดเกลียว ไม่มีชีลด์</a></li>
+                        <li><a href="/products/vsf">สาย Wiring ตู้คอนโทรล</a></li>
                     </ol>
                 ),
             },
