@@ -53,48 +53,24 @@ const styles = `
   .about-stat .num { font-size: 1.8rem; font-weight: 800; color: #003366; line-height: 1; }
   .about-stat .label { font-size: 0.75rem; color: #6b7280; margin-top: 4px; }
 
-  /* Image placeholder → premium styled box */
-  .about-image-box {
+  /* Video embed box */
+  .about-video-box {
     position: relative;
-    background: linear-gradient(135deg, #f0f4f8, #e2e8f0);
     border-radius: 20px;
-    min-height: 380px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
     overflow: hidden;
     border: 1px solid #e5e7eb;
+    box-shadow: 0 8px 30px rgba(0,51,102,0.1);
+    aspect-ratio: 16 / 9;
   }
-  .about-image-box::before {
-    content: '';
+  .about-video-box iframe {
     position: absolute;
-    inset: 0;
-    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'%3E%3Cpath d='M100,200 Q200,50 300,200 Q200,350 100,200' fill='none' stroke='rgba(0,51,102,0.05)' stroke-width='2'/%3E%3Ccircle cx='200' cy='200' r='100' fill='none' stroke='rgba(0,51,102,0.04)' stroke-width='2'/%3E%3C/svg%3E") no-repeat center;
-    background-size: cover;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    border-radius: 20px;
   }
-  .about-image-box .logo-display {
-    font-size: 2rem; font-weight: 800; color: #003366; letter-spacing: 3px;
-    position: relative; z-index: 1;
-  }
-  .about-image-box .tagline {
-    font-size: 0.8rem; color: #6b7280; margin-top: 8px; position: relative; z-index: 1;
-  }
-  /* Floating experience badge */
-  .exp-badge {
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
-    background: linear-gradient(135deg, #003366, #0066cc);
-    color: #fff;
-    padding: 12px 20px;
-    border-radius: 14px;
-    text-align: center;
-    box-shadow: 0 4px 20px rgba(0,51,102,0.25);
-    z-index: 2;
-  }
-  .exp-badge .big { font-size: 1.6rem; font-weight: 800; line-height: 1; }
-  .exp-badge .small { font-size: 0.7rem; opacity: 0.8; }
 
   /* ─── Certifications ─── */
   .cert-section { padding: 48px 0; background: #f8fafc; margin-bottom: 64px; }
@@ -211,7 +187,8 @@ const styles = `
     .about-stats { grid-template-columns: repeat(3, 1fr); gap: 8px; padding: 16px; }
     .about-stat .num { font-size: 1.4rem; }
     .about-stat .label { font-size: 0.68rem; }
-    .about-image-box { min-height: 200px; }
+    .about-video-box { border-radius: 14px; }
+    .about-video-box iframe { border-radius: 14px; }
     .values-grid { grid-template-columns: 1fr; gap: 14px; }
     .value-card { padding: 20px 16px; }
     .value-card h3 { font-size: 0.95rem; }
@@ -292,12 +269,13 @@ export default async function AboutPage() {
               ))}
             </div>
           </div>
-          <div className="about-image-box">
-            <Image src="/images/gallery/profile.webp" alt="สำนักงาน NYX Cable บางนา" width={600} height={400} style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '20px' }} />
-            <div className="exp-badge">
-              <div className="big">10+</div>
-              <div className="small">Years Experience</div>
-            </div>
+          <div className="about-video-box">
+            <iframe
+              src="https://www.youtube.com/embed/IEu9jZBH3qQ?rel=0&modestbranding=1"
+              title="NYX Cable - สายไฟอุตสาหกรรมคุณภาพสูง"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
           </div>
         </div>
       </div>
