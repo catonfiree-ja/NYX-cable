@@ -1,84 +1,68 @@
-// Crop all 66 logo images to uniform 160×72px
-// Each logo: resize to fit 148×64 (with 6px padding), center on white 160×72 canvas
-// Saves as PNG for consistency
+// Re-crop all 66 logos: FILL the entire 160×72 frame
+// Uses sharp fit:'cover' — zoom to fill, center-crop excess
+// Result: every logo file IS exactly 160×72px, no CSS tricks needed
 
 const sharp = require('sharp');
 const fs = require('fs');
 const path = require('path');
 
-const dir = path.resolve('public/client-logos');
-const backupDir = path.resolve('public/client-logos-original');
+const origDir = path.resolve('public/client-logos-original');
+const outDir = path.resolve('public/client-logos');
 
 async function main() {
-  // Create backup if not exists
-  if (!fs.existsSync(backupDir)) {
-    fs.mkdirSync(backupDir, { recursive: true });
-    const files = fs.readdirSync(dir).filter(f => /^logo-\d+/.test(f));
-    for (const f of files) {
-      fs.copyFileSync(path.join(dir, f), path.join(backupDir, f));
-    }
-    console.log(`Backed up ${files.length} logos to ${backupDir}`);
-  }
-
-  const files = fs.readdirSync(backupDir).filter(f => /^logo-\d+/.test(f)).sort();
+  const files = fs.readdirSync(origDir).filter(f => /^logo-\d+/.test(f)).sort();
   
-  const TARGET_W = 160;
-  const TARGET_H = 72;
-  const PAD = 6; // padding inside the box
-  const INNER_W = TARGET_W - PAD * 2; // 148
-  const INNER_H = TARGET_H - PAD * 2; // 60
-
   let count = 0;
   for (const f of files) {
     const n = parseInt(f.match(/\d+/)[0]);
-    const srcPath = path.join(backupDir, f);
-    const outPath = path.join(dir, `logo-${String(n).padStart(2, '0')}.png`);
+    const srcPath = path.join(origDir, f);
+    const outPath = path.join(outDir, `logo-${String(n).padStart(2, '0')}.png`);
     
     try {
-      // Read original
-      const img = sharp(srcPath);
-      const meta = await img.metadata();
+      const meta = await sharp(srcPath).metadata();
+      const ratio = meta.width / meta.height;
       
-      // Resize to fit within INNER_W × INNER_H (contain mode)
-      const resized = await img
-        .resize(INNER_W, INNER_H, { fit: 'inside', withoutEnlargement: false })
-        .png()
-        .toBuffer();
+      // For very wide logos (ratio > 3.0), use 'inside' to avoid heavy side-crop
+      // For everything else, use 'cover' to fill the frame
+      const fitMode = ratio > 3.0 ? 'inside' : 'cover';
       
-      // Get resized dimensions
-      const resizedMeta = await sharp(resized).metadata();
-      
-      // Calculate position to center on canvas
-      const left = Math.round((TARGET_W - resizedMeta.width) / 2);
-      const top = Math.round((TARGET_H - resizedMeta.height) / 2);
-      
-      // Create white canvas and composite the logo centered
-      await sharp({
-        create: {
-          width: TARGET_W,
-          height: TARGET_H,
-          channels: 4,
-          background: { r: 255, g: 255, b: 255, alpha: 1 }
-        }
-      })
-        .composite([{ input: resized, left, top }])
-        .png()
-        .toFile(outPath);
-      
-      // Remove old jpg if it was jpg
-      const oldJpg = path.join(dir, `logo-${String(n).padStart(2, '0')}.jpg`);
-      if (f.endsWith('.jpg') && fs.existsSync(oldJpg)) {
-        fs.unlinkSync(oldJpg);
+      if (fitMode === 'inside') {
+        // Wide logos: resize to fit inside, then composite on white canvas
+        const resized = await sharp(srcPath)
+          .resize(160, 72, { fit: 'inside', withoutEnlargement: false })
+          .png()
+          .toBuffer();
+        
+        const resizedMeta = await sharp(resized).metadata();
+        const left = Math.round((160 - resizedMeta.width) / 2);
+        const top = Math.round((72 - resizedMeta.height) / 2);
+        
+        await sharp({
+          create: { width: 160, height: 72, channels: 4, background: { r: 255, g: 255, b: 255, alpha: 1 } }
+        })
+          .composite([{ input: resized, left, top }])
+          .png()
+          .toFile(outPath);
+        
+        console.log(`#${n}: ${meta.width}x${meta.height} r=${ratio.toFixed(1)} → INSIDE (ultra-wide) → ${resizedMeta.width}x${resizedMeta.height} on 160x72 ✓`);
+      } else {
+        // Normal & square logos: COVER — zoom to fill, center-crop
+        await sharp(srcPath)
+          .resize(160, 72, { fit: 'cover', position: 'centre' })
+          .flatten({ background: { r: 255, g: 255, b: 255 } }) // white bg for transparency
+          .png()
+          .toFile(outPath);
+        
+        console.log(`#${n}: ${meta.width}x${meta.height} r=${ratio.toFixed(1)} → COVER (fill+crop) → 160x72 ✓`);
       }
       
       count++;
-      console.log(`#${n}: ${meta.width}x${meta.height} → ${resizedMeta.width}x${resizedMeta.height} → 160x72 canvas ✓`);
     } catch (err) {
       console.error(`#${n}: FAILED - ${err.message}`);
     }
   }
   
-  console.log(`\nDone! Processed ${count} logos. All are now 160×72px PNG.`);
+  console.log(`\nDone! ${count} logos — all exactly 160×72px.`);
 }
 
 main().catch(console.error);
