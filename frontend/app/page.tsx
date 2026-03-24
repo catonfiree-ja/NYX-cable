@@ -230,8 +230,9 @@ export default async function HomePage() {
     .marquee-row:nth-child(4) { animation-duration: 40s; }
     .marquee-row:nth-child(5) { animation-duration: 34s; }
     .marquee-logos { display: flex; gap: 16px; padding: 0 8px; }
-    .client-logo { background: #fff; border: 1px solid #e2e8f0; border-radius: 10px; transition: all 0.3s cubic-bezier(0.4,0,0.2,1); width: 100px; height: 72px; flex-shrink: 0; background-size: 100% 100%; background-repeat: no-repeat; background-position: center; filter: grayscale(100%) opacity(0.6); box-sizing: border-box; overflow: hidden; }
-    .client-logo:hover { border-color: #003366; box-shadow: 0 4px 12px rgba(0,51,102,0.08); transform: translateY(-2px); filter: grayscale(0%) opacity(1); }
+    .client-logo { width: 100px; height: 72px; flex-shrink: 0; border-radius: 10px; overflow: hidden; transition: all 0.3s cubic-bezier(0.4,0,0.2,1); filter: grayscale(100%) opacity(0.6); }
+    .client-logo img { width: 100%; height: 100%; object-fit: contain; display: block; }
+    .client-logo:hover { box-shadow: 0 4px 12px rgba(0,51,102,0.08); transform: translateY(-2px); filter: grayscale(0%) opacity(1); }
 
     /* ─── Product Cards ─── */
     .home-products { padding: 70px 0; background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%); }
@@ -594,7 +595,7 @@ export default async function HomePage() {
 
       {/* ─── Our Clients — 5-Row Alternating Marquee ─── */}
       {(() => {
-        // All 66 logos pre-cropped to exactly 160×72px PNG
+        // All 66 logos pre-cropped to 100×72px PNG with padding baked in
         const rows = [
           { logos: Array.from({ length: 14 }, (_, i) => i + 1), dir: 'left' },
           { logos: Array.from({ length: 13 }, (_, i) => i + 15), dir: 'right' },
@@ -611,12 +612,16 @@ export default async function HomePage() {
                   <div key={rowIdx} className={`marquee-row dir-${row.dir}`}>
                     <div className="marquee-logos">
                       {row.logos.map(n => (
-                        <div key={`a-${n}`} className="client-logo" style={{ backgroundImage: `url(/client-logos/logo-${String(n).padStart(2, '0')}.png)` }} title={`ลูกค้า NYX Cable #${n}`} />
+                        <div key={`a-${n}`} className="client-logo">
+                          <img src={`/client-logos/logo-${String(n).padStart(2, '0')}.png`} alt={`ลูกค้า NYX Cable #${n}`} width={100} height={72} loading="lazy" />
+                        </div>
                       ))}
                     </div>
                     <div className="marquee-logos" aria-hidden="true">
                       {row.logos.map(n => (
-                        <div key={`b-${n}`} className="client-logo" style={{ backgroundImage: `url(/client-logos/logo-${String(n).padStart(2, '0')}.png)` }} />
+                        <div key={`b-${n}`} className="client-logo">
+                          <img src={`/client-logos/logo-${String(n).padStart(2, '0')}.png`} alt="" width={100} height={72} loading="lazy" />
+                        </div>
                       ))}
                     </div>
                   </div>
