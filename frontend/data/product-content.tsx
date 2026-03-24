@@ -23,7 +23,7 @@ export const productContentMap: Record<string, ProductContent> = {
                 title: 'YSLY-JZ สายคอนโทรลคุณภาพสูงสำหรับโรงงานอุตสาหกรรม',
                 content: (
                     <>
-                        <img src="https://nyxcable.com/wp-content/uploads/2025/01/Compare-Multi-Core-Cable-2-1024x576.jpg" alt="สายคอนโทรล YSLY-JZ สำหรับโรงงานอุตสาหกรรม" style={{ width: '100%', borderRadius: '12px', marginBottom: '16px' }} onError={(e: any) => { e.target.style.display = 'none' }} />
+                        <img src="https://nyxcable.com/wp-content/uploads/2025/01/Compare-Multi-Core-Cable-2-1024x576.jpg" alt="สายคอนโทรล YSLY-JZ สำหรับโรงงานอุตสาหกรรม" style={{ width: '100%', borderRadius: '12px', marginBottom: '16px' }} />
                         <p>สายไฟคอนโทรล ถือเป็นหัวใจสำคัญของงานระบบไฟฟ้าในโรงงานอุตสาหกรรมและระบบอัตโนมัติ (Automation System) เพราะเป็นสายที่ใช้ควบคุมการทำงานของเครื่องจักร การส่งสัญญาณ และการเชื่อมต่ออุปกรณ์ไฟฟ้าหลายชนิดเข้าด้วยกันอย่างมีประสิทธิภาพ รวมถึงต้องมีความทนทาน ความแม่นยำในการส่งสัญญาณ และความปลอดภัย ซึ่งเป็นคุณสมบัติหลักที่ไม่อาจมองข้ามได้</p>
                     </>
                 ),
