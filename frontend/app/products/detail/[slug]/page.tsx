@@ -492,7 +492,7 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
                   ))}
                 </div>
               )}
-              {product.shortDescription && <p className="hero-desc">{decodeHtmlEntities(product.shortDescription)}</p>}
+              {product.shortDescription && !productContentMap[slug] && <p className="hero-desc">{decodeHtmlEntities(product.shortDescription)}</p>}
               <div className="hero-cta">
                 <a href="tel:021115588" className="cta-btn-call">สอบถามราคา</a>
                 <a href={`https://page.line.me/ubb9405u?text=${encodeURIComponent(`สนใจสินค้า: ${product.title}${product.productCode ? ` (${product.productCode})` : ''} — ขอใบเสนอราคา`)}`} target="_blank" rel="noopener noreferrer" className="cta-btn-line">แอด LINE</a>
@@ -529,7 +529,7 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
           <div className="section-nav-inner">
             {(product.voltageRating || product.temperatureRange || product.standards || specs.length > 0) && <a href="#specs" className="section-nav-pill">ข้อมูลเทคนิค</a>}
             {(productSpecsData as any)[slug] && <a href="#spec-table" className="section-nav-pill">ตารางสเปค</a>}
-            {(product.description || product.shortDescription) && <a href="#description" className="section-nav-pill">รายละเอียด</a>}
+            {!productContentMap[slug] && (product.description || product.shortDescription) && <a href="#description" className="section-nav-pill">รายละเอียด</a>}
             {variants.length > 0 && <a href="#variants" className="section-nav-pill">ขนาดสินค้า</a>}
             {relatedProducts.length > 0 && <a href="#related" className="section-nav-pill">สินค้าที่เกี่ยวข้อง</a>}
             {productContentMap[slug]?.faqs && <a href="#faqs" className="section-nav-pill">FAQs</a>}
