@@ -1009,7 +1009,8 @@ export const productContentMap: Record<string, ProductContent> = {
     },
     'nsshoeu': {
         sections: [
-            { id: 'overview', title: 'NSSHOeu สายไฟรับแรงดึงพิเศษ คืออะไร ?', content: (<><p>NSSHOeu เป็นสายไฟรับแรงดึงพิเศษ ฉนวนยาง สำหรับ Cable Reel ในงานอุตสาหกรรมหนัก ทนแรงกระแทก ขูดขีด สภาพอากาศรุนแรง</p></>) },
+            { id: 'overview', title: 'NSSHOeu สายไฟรับแรงดึงพิเศษ คืออะไร ?', content: (<><p>NSSHOeu เป็นสายไฟรับแรงดึงพิเศษ ฉนวนยาง สำหรับ Cable Reel ในงานอุตสาหกรรมหนัก ทนแรงกระแทก ขูดขีด สภาพอากาศรุนแรง</p><p>รับแรงดัน 0.6/1 kV อุณหภูมิ -25°C ถึง 60°C ตามมาตรฐาน VDE 0250 Part 809</p></>) },
+            { id: 'structure', title: 'โครงสร้าง NSSHOeu', content: (<ul><li><strong>ตัวนำ</strong> — ทองแดงฝอยอ่อนตัว Class 5 ทนแรงดึงสูง</li><li><strong>ฉนวนภายใน</strong> — ยาง EPR ทนอุณหภูมิและ UV</li><li><strong>เสริมแรง</strong> — Textile Braid เส้นใยถักรับแรงดึง</li><li><strong>ฉนวนภายนอก</strong> — ยาง Neoprene พิเศษ สีดำ ทนแรงกระแทก ขูดขีด UV สภาพอากาศรุนแรง</li></ul>) },
             { id: 'applications', title: 'การใช้งาน', content: (<ul><li>Cable Reel ในงานอุตสาหกรรมหนัก</li><li>เหมืองแร่ ท่าเรือ</li><li>งานที่ต้องการความทนทานสูงสุด</li></ul>) },
         ],
         faqs: [
