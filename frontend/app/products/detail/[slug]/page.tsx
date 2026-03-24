@@ -493,6 +493,11 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
               <div className="hero-cta">
                 <a href="tel:021115588" className="cta-btn-call">สอบถามราคา</a>
                 <a href={`https://page.line.me/ubb9405u?text=${encodeURIComponent(`สนใจสินค้า: ${product.title}${product.productCode ? ` (${product.productCode})` : ''} — ขอใบเสนอราคา`)}`} target="_blank" rel="noopener noreferrer" className="cta-btn-line">แอด LINE</a>
+                {slug === 'control-cable' && (
+                  <a href="/products/detail/ysly-jz" style={{ padding: '12px 24px', fontSize: '0.85rem', fontWeight: 700, borderRadius: '50px', background: 'linear-gradient(135deg, #f0a500, #e89400)', color: '#fff', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '6px', boxShadow: '0 4px 15px rgba(240,165,0,0.3)', transition: 'all 0.2s' }}>
+                    📋 ดูรายละเอียดเพิ่ม
+                  </a>
+                )}
               </div>
             </div>
           </div>
