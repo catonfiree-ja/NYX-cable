@@ -218,19 +218,8 @@ export default async function HomePage() {
     .clients-section { background: #fff; padding: 44px 0; border-bottom: none; position: relative; overflow: hidden; }
     .clients-section::after { content: ''; position: absolute; bottom: 0; left: 10%; right: 10%; height: 1px; background: linear-gradient(90deg, transparent, #e2e8f0, #f0a500, #e2e8f0, transparent); }
     .clients-section h3 { text-align: center; font-size: 0.8rem; color: #94a3b8; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 20px; }
-    .marquee-rows { display: flex; flex-direction: column; gap: 12px; overflow: hidden; }
-    @keyframes marqueeLeft { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-    @keyframes marqueeRight { 0% { transform: translateX(-50%); } 100% { transform: translateX(0); } }
-    .marquee-row { display: flex; width: max-content; }
-    .marquee-row:hover { animation-play-state: paused; }
-    .marquee-row.dir-left { animation: marqueeLeft 35s linear infinite; }
-    .marquee-row.dir-right { animation: marqueeRight 38s linear infinite; }
-    .marquee-row:nth-child(2) { animation-duration: 42s; }
-    .marquee-row:nth-child(3) { animation-duration: 36s; }
-    .marquee-row:nth-child(4) { animation-duration: 40s; }
-    .marquee-row:nth-child(5) { animation-duration: 34s; }
-    .marquee-logos { display: flex; gap: 16px; padding: 0 8px; }
-    .client-logo { background: #fff; border: 1px solid #e2e8f0; border-radius: 10px; transition: all 0.3s cubic-bezier(0.4,0,0.2,1); width: 160px; height: 72px; flex-shrink: 0; background-size: contain; background-repeat: no-repeat; background-position: center; filter: grayscale(100%) opacity(0.6); }
+    .logo-static-grid { display: grid; grid-template-columns: repeat(11, 1fr); gap: 8px; padding: 0 16px; }
+    .client-logo { background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; transition: all 0.3s cubic-bezier(0.4,0,0.2,1); aspect-ratio: 2.2/1; background-size: 80% auto; background-repeat: no-repeat; background-position: center; filter: grayscale(100%) opacity(0.6); }
     .client-logo:hover { border-color: #003366; box-shadow: 0 4px 12px rgba(0,51,102,0.08); transform: translateY(-2px); filter: grayscale(0%) opacity(1); }
 
     /* ─── Product Cards ─── */
@@ -421,8 +410,7 @@ export default async function HomePage() {
       /* Client logos */
       .clients-section { padding: 20px 0; }
       .clients-section h3 { font-size: 0.75rem; margin-bottom: 12px; }
-      .clients-grid { gap: 6px; }
-      .client-logo { min-width: 70px; padding: 6px 10px; font-size: 0.7rem; }
+      .logo-static-grid { grid-template-columns: repeat(6, 1fr); gap: 4px; padding: 0 8px; }
 
       /* Stats */
       .stats-bar { padding: 20px 0; }
@@ -488,9 +476,8 @@ export default async function HomePage() {
       .delivery-card h4 { font-size: 0.85rem; }
       .delivery-card p { font-size: 0.72rem; }
 
-      /* Marquee logos smaller on mobile */
-      .client-logo { width: 110px; height: 50px; border-radius: 6px; }
-      .marquee-logos { gap: 8px; }
+      /* Logo grid on small screens */
+      .logo-static-grid { grid-template-columns: repeat(4, 1fr); gap: 4px; }
 
       /* Comparison section */
       .comparison-section { padding: 36px 0 !important; }
@@ -592,32 +579,15 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* ─── Our Clients — 5-Row Alternating Marquee ─── */}
+      {/* ─── Our Clients — Static 66 Logo Grid ─── */}
       <section className="clients-section">
-        <div style={{ maxWidth: '100vw', padding: 0, overflow: 'hidden' }}>
+        <div className="container">
           <h3 style={{ marginBottom: 20 }}>ลูกค้าที่ไว้วางใจเรา</h3>
-          <div className="marquee-rows">
-            {[
-              { logos: Array.from({ length: 14 }, (_, i) => i + 1), dir: 'left' },
-              { logos: Array.from({ length: 13 }, (_, i) => i + 15), dir: 'right' },
-              { logos: Array.from({ length: 13 }, (_, i) => i + 28), dir: 'left' },
-              { logos: Array.from({ length: 13 }, (_, i) => i + 41), dir: 'right' },
-              { logos: Array.from({ length: 13 }, (_, i) => i + 54), dir: 'left' },
-            ].map((row, rowIdx) => {
-              const ext = (n: number) => [4, 5, 6, 8, 10, 12, 13, 14, 18, 19, 20, 31, 33, 35, 38, 40, 49, 65].includes(n) ? 'jpg' : 'png';
+          <div className="logo-static-grid">
+            {Array.from({ length: 66 }, (_, i) => i + 1).map(n => {
+              const ext = [4, 5, 6, 8, 10, 12, 13, 14, 18, 19, 20, 31, 33, 35, 38, 40, 49, 65].includes(n) ? 'jpg' : 'png';
               return (
-                <div key={rowIdx} className={`marquee-row dir-${row.dir}`}>
-                  <div className="marquee-logos">
-                    {row.logos.map(n => (
-                      <div key={`a-${n}`} className="client-logo" style={{ backgroundImage: `url(/client-logos/logo-${String(n).padStart(2, '0')}.${ext(n)})` }} title={`ลูกค้า NYX Cable #${n}`} />
-                    ))}
-                  </div>
-                  <div className="marquee-logos" aria-hidden="true">
-                    {row.logos.map(n => (
-                      <div key={`b-${n}`} className="client-logo" style={{ backgroundImage: `url(/client-logos/logo-${String(n).padStart(2, '0')}.${ext(n)})` }} />
-                    ))}
-                  </div>
-                </div>
+                <div key={n} className="client-logo" style={{ backgroundImage: `url(/client-logos/logo-${String(n).padStart(2, '0')}.${ext})` }} title={`ลูกค้า NYX Cable #${n}`} />
               );
             })}
           </div>
