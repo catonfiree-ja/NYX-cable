@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { decodeHtmlEntities } from '@/lib/decode-html'
 
 const styles = `
   .product-search {
@@ -81,7 +82,7 @@ export default function ProductSearch({ products }: ProductSearchProps) {
                     <a key={prod._id} href={`/products/detail/${prod.slug?.current}`} className="product-mini">
                         <h4>{prod.title}</h4>
                         {prod.productCode && <div className="code">{prod.productCode}</div>}
-                        {prod.shortDescription && <p>{prod.shortDescription}</p>}
+                        {prod.shortDescription && <p>{decodeHtmlEntities(prod.shortDescription)}</p>}
                     </a>
                 ))}
                 {filtered.length === 0 && (

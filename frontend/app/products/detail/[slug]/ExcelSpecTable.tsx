@@ -217,20 +217,12 @@ export default function ExcelSpecTable({ slug, data }: { slug: string; data: Pro
               </tr>
             ) : (
               filtered.map((item, idx) => {
-                const variantSlug = item.link
-                  ? item.link.replace(/https?:\/\/nyxcable\.com\/[^/]+\//, '').replace(/\/$/, '').replace(/\./g, '-')
-                  : null
-
                 return (
                   <tr key={idx}>
                     <td style={{ fontSize: '0.75rem', color: '#94a3b8' }}>{item.partNo || '-'}</td>
                     <td style={{ fontWeight: 600, color: '#003366' }}>{item.coreSize || '-'}</td>
                     <td className="excel-spec-model">
-                      {variantSlug ? (
-                        <a href={`/products/variant/${variantSlug}`}>{item.model || '-'}</a>
-                      ) : (
-                        item.model || '-'
-                      )}
+                      {item.model || '-'}
                     </td>
                     <td>{item.strands || '-'}</td>
                     <td>{item.outerDia || '-'}</td>

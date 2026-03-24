@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { getProducts, getCategories } from '@/lib/queries'
 import { urlFor } from '@/lib/sanity'
 import ProductSearch from '@/components/ProductSearch'
+import { decodeHtmlEntities } from '@/lib/decode-html'
 
 const styles = `
   .products-hero { background: linear-gradient(135deg, var(--color-primary-dark), var(--color-primary)); color: var(--color-white); padding: var(--spacing-3xl) 0; text-align: center; }
@@ -107,7 +108,7 @@ export default async function ProductsPage() {
                     </div>
                   </div>
                   {cat.shortDescription && (
-                    <div className="cat-card-desc">{cat.shortDescription}</div>
+                    <div className="cat-card-desc">{decodeHtmlEntities(cat.shortDescription)}</div>
                   )}
                   <div className="cat-card-footer">
                     <span>ดูสินค้าในหมวดนี้</span>

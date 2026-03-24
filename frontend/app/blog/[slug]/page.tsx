@@ -1,5 +1,6 @@
 import { getBlogPost, getBlogPosts, getProducts } from '@/lib/queries'
 import { notFound } from 'next/navigation'
+import { decodeHtmlEntities } from '@/lib/decode-html'
 
 const styles = `
   .blog-detail-hero {
@@ -213,7 +214,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ slu
               <a key={p._id} href={`/products/detail/${p.slug?.current}`} className="rp-card">
                 {p.productCode && <div className="rp-code">{p.productCode}</div>}
                 <div className="rp-name">{p.title}</div>
-                {p.shortDescription && <div className="rp-desc">{p.shortDescription}</div>}
+                {p.shortDescription && <div className="rp-desc">{decodeHtmlEntities(p.shortDescription)}</div>}
               </a>
             ))}
           </div>
