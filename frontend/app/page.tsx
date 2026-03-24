@@ -39,11 +39,13 @@ export default async function HomePage() {
 
   const categories = [
     { name: "สายคอนโทรล (Control Cable)", slug: "control-cable", abbr: "CC", desc: "YSLY-JZ, YSLY-JB สายคอนโทรลประสิทธิภาพสูง มาตรฐาน DIN VDE", count: 12, fallbackImg: "/images/categories/control-cable.jpg" },
-    { name: "สายทนน้ำมัน (Oil Resistant)", slug: "oil-resistant-cable", abbr: "OIL", desc: "Y11Y-JZ, YC11Y-JZ สายไฟทนน้ำมันสำหรับงานเครื่องจักร CNC", count: 8, fallbackImg: "/images/categories/oil-resistant-cable.jpg" },
-    { name: "สายทนความร้อน", slug: "heat-resistant-cable", abbr: "HRC", desc: "SiHF, SiLi ทนความร้อนสูงถึง 180°C สำหรับงานที่ต้องทนอุณหภูมิ", count: 6, fallbackImg: "/images/categories/heat-resistant-cable.jpg" },
     { name: "สายชีลด์ (Shielded Cable)", slug: "shielded-cable", abbr: "SHD", desc: "สายไฟมีชีลด์ป้องกันคลื่นแม่เหล็กไฟฟ้า สำหรับระบบอัตโนมัติ", count: 7, fallbackImg: "/images/categories/shielded-cable.jpg" },
-    { name: "สายกันน้ำ (Water Resistant)", slug: "water-resistant-cable", abbr: "WRC", desc: "H07RN-F สายไฟกันน้ำ ทนแดด สำหรับงานกลางแจ้งและใต้น้ำ", count: 5, fallbackImg: "/images/categories/water-resistant-cable.jpg" },
-    { name: "สาย Bus อุตสาหกรรม", slug: "industrial-bus-cable", abbr: "BUS", desc: "Profibus, DeviceNet, CC-Link สายสื่อสารข้อมูลอุตสาหกรรม", count: 4, fallbackImg: "/images/categories/bus-data-cable.jpg" },
+    { name: "สายคู่บิดเกลียว RS485 / RS422", slug: "rs485-rs422-cable", abbr: "RS", desc: "สายสัญญาณ RS485/RS422 สำหรับระบบ SCADA และ PLC", count: 4, fallbackImg: "/images/categories/bus-data-cable.jpg" },
+    { name: "สายไฟฉนวนยาง/กันน้ำ", slug: "water-resistant-cable", abbr: "WRC", desc: "H07RN-F สายไฟกันน้ำ ทนแดด สำหรับงานกลางแจ้งและใต้น้ำ", count: 5, fallbackImg: "/images/categories/water-resistant-cable.jpg" },
+    { name: "สายวายริ่งตู้ (VSF)", slug: "wiring-cable", abbr: "VSF", desc: "H07V-K, H05V-K สายเดี่ยวสำหรับ Wiring ตู้คอนโทรล", count: 6, fallbackImg: "/images/categories/control-cable.jpg" },
+    { name: "สายเคเบิลสำหรับงานเคลื่อนที่", slug: "high-flex-cable", abbr: "FLX", desc: "Multiflex, NSHTÖU สายไฟทนแรงดึง สายไฟหุ่นยนต์", count: 5, fallbackImg: "/images/categories/control-cable.jpg" },
+    { name: "สายฟิลด์บัส (Industrial Bus)", slug: "industrial-bus-cable", abbr: "BUS", desc: "Profibus, DeviceNet, CC-Link สายสื่อสารข้อมูลอุตสาหกรรม", count: 4, fallbackImg: "/images/categories/bus-data-cable.jpg" },
+    { name: "สายทนความร้อน ทนสารเคมี", slug: "heat-resistant-cable", abbr: "HRC", desc: "SiHF, SiLi ทนความร้อนสูงถึง 180°C ทนน้ำมันและสารเคมี", count: 6, fallbackImg: "/images/categories/heat-resistant-cable.jpg" },
   ];
 
   // ─── ข้อมูลจากต้นฉบับ — ทำไมต้องเลือก NYX CABLE ───
