@@ -1069,7 +1069,8 @@ export const productContentMap: Record<string, ProductContent> = {
     'rs485-rs422-sttp': {
         sections: [
             { id: 'overview', title: 'สาย RS485/RS422 STTP มีชีลด์ คืออะไร ?', content: (<><p>สาย STTP เป็นสายสัญญาณ RS485, RS422 แบบมีชีลด์ฟอยล์ คู่สายบิดเกลียวพร้อมชีลด์ ป้องกัน EMI/RFI ได้ดีเยี่ยม</p></>) },
-            { id: 'applications', title: 'การใช้งาน', content: (<ul><li>สัญญาณ RS485/RS422 ในสภาพแวดล้อมที่มีสัญญาณรบกวน</li><li>เชื่อมต่อ PLC, SCADA ที่ต้องการความเสถียร</li></ul>) },
+            { id: 'structure', title: 'โครงสร้างสาย STTP', content: (<ul><li><strong>ตัวนำ</strong> — ทองแดงฝอยเคลือบดีบุก ทนความชื้นและออกไซด์</li><li><strong>คู่สาย</strong> — บิดเกลียว (Twisted Pair) ลด Crosstalk</li><li><strong>ชีลด์</strong> — ฟอยล์อลูมิเนียมหุ้มแต่ละคู่สาย ป้องกัน EMI/RFI</li><li><strong>ฉนวนภายนอก</strong> — PVC สีเทา</li></ul>)},
+                        { id: 'applications', title: 'การใช้งาน', content: (<ul><li>สัญญาณ RS485/RS422 ในสภาพแวดล้อมที่มีสัญญาณรบกวน</li><li>เชื่อมต่อ PLC, SCADA ที่ต้องการความเสถียร</li></ul>) },
         ],
         faqs: [
             { q: 'STTP ต่างจาก ST-TP อย่างไร ?', a: 'STTP มีชีลด์ฟอยล์เพิ่ม ป้องกัน EMI ได้ดีกว่า' },
@@ -1080,7 +1081,8 @@ export const productContentMap: Record<string, ProductContent> = {
     'rs485-rs422-belden': {
         sections: [
             { id: 'overview', title: 'สาย RS485/RS422 Belden คืออะไร ?', content: (<><p>สาย Belden สำหรับ RS485, RS422 คุณภาพระดับโลก ชีลด์หลายชั้น เหมาะงานความเสถียรสูงสุด</p></>) },
-            { id: 'applications', title: 'การใช้งาน', content: (<ul><li>ระบบ SCADA, PLC ที่ต้องการความเสถียรสูงสุด</li><li>งานระยะทางไกลที่สัญญาณไม่ขาดหาย</li></ul>) },
+            { id: 'structure', title: 'โครงสร้างสาย Belden RS485', content: (<ul><li><strong>ตัวนำ</strong> — ทองแดงเคลือบดีบุก คุณภาพสูง</li><li><strong>คู่สาย</strong> — บิดเกลียว Impedance 120Ω ตามมาตรฐาน RS485</li><li><strong>ชีลด์</strong> — ฟอยล์ + ทองแดงเคลือบดีบุกถัก 2 ชั้น (Dual Shield)</li><li><strong>ฉนวนภายนอก</strong> — PVC คุณภาพสูง</li></ul>)},
+                        { id: 'applications', title: 'การใช้งาน', content: (<ul><li>ระบบ SCADA, PLC ที่ต้องการความเสถียรสูงสุด</li><li>งานระยะทางไกลที่สัญญาณไม่ขาดหาย</li></ul>) },
         ],
         faqs: [
             { q: 'สาย Belden RS485 เหมาะกับงานอะไร ?', a: 'งานที่ต้องการความเสถียรสูงสุด เช่น SCADA, PLC' },
@@ -1091,7 +1093,8 @@ export const productContentMap: Record<string, ProductContent> = {
     'rs485-rs422-hosiwell': {
         sections: [
             { id: 'overview', title: 'สาย RS485/RS422 Hosiwell คืออะไร ?', content: (<><p>สาย Hosiwell สำหรับ RS485, RS422 คุณภาพสูง ราคาคุ้มค่า มีชีลด์ป้องกันสัญญาณรบกวน เหมาะงานทั่วไปในอุตสาหกรรม</p></>) },
-            { id: 'applications', title: 'การใช้งาน', content: (<ul><li>งานทั่วไปในอุตสาหกรรม</li><li>ทดแทน Belden ในงานที่ไม่ต้องการคุณภาพสูงสุด</li></ul>) },
+            { id: 'structure', title: 'โครงสร้างสาย Hosiwell RS485', content: (<ul><li><strong>ตัวนำ</strong> — ทองแดงเคลือบดีบุก</li><li><strong>คู่สาย</strong> — บิดเกลียว Impedance 120Ω</li><li><strong>ชีลด์</strong> — ฟอยล์อลูมิเนียม + Drain Wire</li><li><strong>ฉนวนภายนอก</strong> — PVC สีเทา</li></ul>)},
+                        { id: 'applications', title: 'การใช้งาน', content: (<ul><li>งานทั่วไปในอุตสาหกรรม</li><li>ทดแทน Belden ในงานที่ไม่ต้องการคุณภาพสูงสุด</li></ul>) },
         ],
         faqs: [
             { q: 'สาย Hosiwell RS485 ต่างจาก Belden อย่างไร ?', a: 'คุณภาพดี ราคาคุ้มค่ากว่า เหมาะกับงานทั่วไป' },
@@ -1102,7 +1105,8 @@ export const productContentMap: Record<string, ProductContent> = {
     'rs485-rs422-liycy-tp': {
         sections: [
             { id: 'overview', title: 'สาย RS485/RS422 LiYCY-TP คืออะไร ?', content: (<><p>LiYCY-TP เป็นสายคู่บิดเกลียวมีชีลด์ทองแดงเคลือบดีบุกถัก สำหรับ RS485, RS422, RS232 ป้องกัน EMI/RFI ได้ดีเยี่ยม อ่อนตัวสูง</p></>) },
-            { id: 'applications', title: 'การใช้งาน', content: (<ul><li>RS485, RS422, RS232</li><li>งานที่ต้องการชีลด์ป้องกัน EMI</li><li>ทดแทนสายสัญญาณยุโรปในระบบอุตสาหกรรม</li></ul>) },
+            { id: 'structure', title: 'โครงสร้างสาย LiYCY-TP', content: (<ul><li><strong>ตัวนำ</strong> — ทองแดงฝอยอ่อนตัว Class 5</li><li><strong>คู่สาย</strong> — บิดเกลียว (Twisted Pair)</li><li><strong>ชีลด์</strong> — ทองแดงเคลือบดีบุกถัก (Braided Shield) อ่อนตัวสูง ป้องกัน EMI ดีเยี่ยม</li><li><strong>ฉนวนภายนอก</strong> — PVC สีเทา อ่อนตัว</li></ul>)},
+                        { id: 'applications', title: 'การใช้งาน', content: (<ul><li>RS485, RS422, RS232</li><li>งานที่ต้องการชีลด์ป้องกัน EMI</li><li>ทดแทนสายสัญญาณยุโรปในระบบอุตสาหกรรม</li></ul>) },
         ],
         faqs: [
             { q: 'LiYCY-TP เหมาะกับสัญญาณอะไร ?', a: 'RS485, RS422, RS232 ที่ต้องการชีลด์ป้องกันสัญญาณรบกวน' },
@@ -1125,7 +1129,8 @@ export const productContentMap: Record<string, ProductContent> = {
     'profibus-connector-90': {
         sections: [
             { id: 'overview', title: 'Profibus Connector 90° คืออะไร ?', content: (<><p>หัวต่อ Profibus Connector แบบ 90 องศา ติดตั้งง่ายในพื้นที่จำกัด มี Terminating Resistor สวิตช์เปิด-ปิดในตัว</p></>) },
-        ],
+            { id: 'specs', title: 'คุณสมบัติ Profibus Connector 90°', content: (<ul><li><strong>มุมเสียบ</strong> — 90 องศา สำหรับพื้นที่จำกัด</li><li><strong>Terminating Resistor</strong> — มีในตัว สวิตช์เปิด-ปิด</li><li><strong>การเชื่อมต่อ</strong> — แบบ Screw Terminal ไม่ต้องบัดกรี</li><li><strong>มาตรฐาน</strong> — Sub-D 9 Pin ตามมาตรฐาน Profibus</li></ul>)},
+                ],
         faqs: [
             { q: 'หัวต่อ Profibus 90° มี Terminator ในตัวไหม ?', a: 'มีครับ มี Terminating Resistor สวิตช์เปิด-ปิดในตัว' },
             { q: 'ทำไมต้องเป็น 90 องศา ?', a: 'เพื่อติดตั้งในพื้นที่จำกัดที่สายตรงเสียบไม่ได้' },
@@ -1135,7 +1140,8 @@ export const productContentMap: Record<string, ProductContent> = {
     'profibus-connector-90pg': {
         sections: [
             { id: 'overview', title: 'Profibus Connector 90° PG คืออะไร ?', content: (<><p>หัวต่อ Profibus 90° แบบ PG เพิ่มตัวรัดสาย (Cable Gland) ยึดสายแน่น ป้องกันสายหลุด เหมาะงานที่มีแรงสั่นสะเทือน</p></>) },
-        ],
+            { id: 'specs', title: 'คุณสมบัติ Profibus Connector 90° PG', content: (<ul><li><strong>มุมเสียบ</strong> — 90 องศา สำหรับพื้นที่จำกัด</li><li><strong>Cable Gland (PG)</strong> — ตัวรัดสายป้องกันหลุด ทนแรงสั่นสะเทือน</li><li><strong>Terminating Resistor</strong> — มีในตัว สวิตช์เปิด-ปิด</li><li><strong>มาตรฐาน</strong> — Sub-D 9 Pin ตามมาตรฐาน Profibus</li></ul>)},
+                ],
         faqs: [
             { q: 'PG ต่างจากแบบปกติอย่างไร ?', a: 'มี Cable Gland เพิ่มเพื่อรัดสายให้แน่น เหมาะงานที่มีแรงสั่น' },
             { q: 'PG ต้องใช้คู่กับสายอะไร ?', a: 'ใช้คู่กับสาย Profibus ทุกรุ่น' },
@@ -1145,7 +1151,8 @@ export const productContentMap: Record<string, ProductContent> = {
     'profibus-drag-chain': {
         sections: [
             { id: 'overview', title: 'สาย Profibus Drag Chain คืออะไร ?', content: (<><p>สาย Profibus สำหรับรางกระดูกงู (Drag Chain) ตัวนำฝอยละเอียดพิเศษ ทนโค้งงอซ้ำๆ เหมาะกับรางกระดูกงูที่เคลื่อนที่ตลอดเวลา</p></>) },
-        ],
+            { id: 'structure', title: 'โครงสร้างสาย Profibus Drag Chain', content: (<ul><li><strong>ตัวนำ</strong> — ทองแดงฝอยละเอียดพิเศษ Class 6 ทนโค้งงอซ้ำๆ</li><li><strong>ฉนวน</strong> — PE Foam ทนสัญญาณความถี่สูง</li><li><strong>ชีลด์</strong> — ฟอยล์ + ทองแดงถักอ่อนตัว ป้องกัน EMI</li><li><strong>ฉนวนภายนอก</strong> — PUR สีม่วง ทนน้ำมัน ทนขูดขีด เหมาะรางกระดูกงู</li></ul>)},
+                ],
         faqs: [
             { q: 'Profibus Drag Chain ต่างจาก Profibus ปกติอย่างไร ?', a: 'ออกแบบสำหรับรางกระดูกงู ทนโค้งงอซ้ำๆ ได้ดีกว่า' },
             { q: 'Profibus Drag Chain ใช้กับอะไร ?', a: 'รางกระดูกงูที่ต้องการสาย Profibus' },
@@ -1155,7 +1162,8 @@ export const productContentMap: Record<string, ProductContent> = {
     'profibus-outdoor': {
         sections: [
             { id: 'overview', title: 'สาย Profibus Outdoor คืออะไร ?', content: (<><p>สาย Profibus สำหรับใช้งานภายนอกอาคาร ฉนวนชนิดพิเศษทน UV ความชื้น สภาพอากาศ เหมาะเดินสายภายนอกโรงงาน</p></>) },
-        ],
+            { id: 'structure', title: 'โครงสร้างสาย Profibus Outdoor', content: (<ul><li><strong>ตัวนำ</strong> — ทองแดงแข็ง (Solid) ตามมาตรฐาน Profibus</li><li><strong>ฉนวน</strong> — PE Foam ทนสัญญาณความถี่สูง</li><li><strong>ชีลด์</strong> — ฟอยล์ + ทองแดงถัก ป้องกัน EMI</li><li><strong>ฉนวนภายนอก</strong> — PE สีม่วงออกดำ ทน UV ความชื้น สภาพอากาศ เหมาะภายนอก</li></ul>)},
+                ],
         faqs: [
             { q: 'Profibus Outdoor ใช้กลางแจ้งได้เลยหรือ ?', a: 'ได้ครับ ฉนวนทน UV ความชื้น สภาพอากาศ ออกแบบสำหรับภายนอกโดยเฉพาะ' },
             { q: 'Profibus Outdoor ต่างจาก Profibus ปกติอย่างไร ?', a: 'ฉนวนพิเศษทน UV และสภาพอากาศได้ดีกว่า' },
@@ -1165,7 +1173,8 @@ export const productContentMap: Record<string, ProductContent> = {
     'profinet-connector-180': {
         sections: [
             { id: 'overview', title: 'Profinet Connector 180° คืออะไร ?', content: (<><p>หัวต่อ Profinet Connector แบบ 180 องศา (ตรง) ใช้ RJ45 มาตรฐาน ติดตั้งง่าย สำหรับสาย Profinet Type A</p></>) },
-        ],
+            { id: 'specs', title: 'คุณสมบัติ Profinet Connector 180°', content: (<ul><li><strong>มุมเสียบ</strong> — 180 องศา (ตรง) สำหรับพื้นที่กว้าง</li><li><strong>ขั้วต่อ</strong> — RJ45 มาตรฐาน Cat 5e</li><li><strong>การเชื่อมต่อ</strong> — แบบ IDC ติดตั้งง่าย ไม่ต้องใช้เครื่องมือพิเศษ</li><li><strong>IP Rating</strong> — IP20 สำหรับใช้ในตู้คอนโทรล</li></ul>)},
+                ],
         faqs: [
             { q: 'Profinet Connector 180° ใช้กับสายอะไร ?', a: 'ใช้กับสาย Profinet Type A มาตรฐาน RJ45' },
             { q: 'ทำไมต้องเป็น 180° ?', a: 'สำหรับติดตั้งตรงๆ ในพื้นที่กว้าง' },
@@ -1187,7 +1196,8 @@ export const productContentMap: Record<string, ProductContent> = {
     'cc-link': {
         sections: [
             { id: 'overview', title: 'สาย CC-Link คืออะไร ?', content: (<><p>สาย CC-Link สำหรับระบบสื่อสาร CC-Link ของ Mitsubishi เชื่อมต่อ PLC กับอุปกรณ์ในระบบอัตโนมัติ ฉนวนสีฟ้าตามมาตรฐาน</p></>) },
-            { id: 'applications', title: 'การใช้งาน', content: (<ul><li>ระบบ CC-Link ของ Mitsubishi</li><li>Factory Automation ที่ใช้ PLC Mitsubishi</li></ul>) },
+            { id: 'structure', title: 'โครงสร้างสาย CC-Link', content: (<ul><li><strong>ตัวนำ</strong> — ทองแดงแข็ง 3 คู่ ตามมาตรฐาน CC-Link</li><li><strong>ฉนวน</strong> — PE คู่สายบิดเกลียว Impedance 110Ω</li><li><strong>ชีลด์</strong> — ฟอยล์ + ทองแดงถัก ป้องกัน EMI</li><li><strong>ฉนวนภายนอก</strong> — PVC สีฟ้า ตามมาตรฐาน CC-Link</li></ul>)},
+                        { id: 'applications', title: 'การใช้งาน', content: (<ul><li>ระบบ CC-Link ของ Mitsubishi</li><li>Factory Automation ที่ใช้ PLC Mitsubishi</li></ul>) },
         ],
         faqs: [
             { q: 'สาย CC-Link ใช้กับระบบอะไร ?', a: 'ระบบ CC-Link ของ Mitsubishi สำหรับ Factory Automation' },
@@ -1198,7 +1208,8 @@ export const productContentMap: Record<string, ProductContent> = {
     'devicenet-thick': {
         sections: [
             { id: 'overview', title: 'สาย DeviceNet Thick คืออะไร ?', content: (<><p>สาย DeviceNet Thick (สายหนา) สำหรับระบบ DeviceNet เส้นหลัก (Trunk Line) ส่งทั้งข้อมูลและไฟเลี้ยง 24V ในสายเดียวกัน ระยะสูงสุด 500 เมตร</p></>) },
-        ],
+            { id: 'structure', title: 'โครงสร้างสาย DeviceNet Thick', content: (<ul><li><strong>สายข้อมูล</strong> — ทองแดง 1 คู่บิดเกลียว สำหรับส่งข้อมูล CAN</li><li><strong>สายไฟเลี้ยง</strong> — ทองแดง 1 คู่ สำหรับจ่ายไฟ 24V DC</li><li><strong>ชีลด์</strong> — ฟอยล์ + Drain Wire ป้องกัน EMI</li><li><strong>ฉนวนภายนอก</strong> — PVC สีเทา หนา ทนทาน</li></ul>)},
+                ],
         faqs: [
             { q: 'DeviceNet Thick ใช้ระยะทางได้เท่าไร ?', a: 'สูงสุด 500 เมตร สำหรับ Trunk Line หลัก' },
             { q: 'DeviceNet Thick ต่างจาก Thin อย่างไร ?', a: 'Thick เป็น Trunk Line (ระยะไกล 500 ม.) ส่วน Thin เป็น Drop Line (ระยะสั้น 6 ม.)' },
@@ -1208,7 +1219,8 @@ export const productContentMap: Record<string, ProductContent> = {
     'devicenet-thin': {
         sections: [
             { id: 'overview', title: 'สาย DeviceNet Thin คืออะไร ?', content: (<><p>สาย DeviceNet Thin (สายบาง) สำหรับระบบ DeviceNet เส้นแยก (Drop Line) เชื่อมจาก Trunk Line ไปยังอุปกรณ์ ระยะสูงสุด 6 เมตร อ่อนตัวกว่า Thick</p></>) },
-        ],
+            { id: 'structure', title: 'โครงสร้างสาย DeviceNet Thin', content: (<ul><li><strong>สายข้อมูล</strong> — ทองแดง 1 คู่บิดเกลียว สำหรับส่งข้อมูล CAN</li><li><strong>สายไฟเลี้ยง</strong> — ทองแดง 1 คู่ สำหรับจ่ายไฟ 24V DC</li><li><strong>ชีลด์</strong> — ฟอยล์ + Drain Wire</li><li><strong>ฉนวนภายนอก</strong> — PVC สีเทา บาง อ่อนตัวกว่า Thick</li></ul>)},
+                ],
         faqs: [
             { q: 'DeviceNet Thin ต่างจาก Thick อย่างไร ?', a: 'Thin ใช้เป็น Drop Line (ระยะสั้น 6 ม.) ส่วน Thick ใช้เป็น Trunk Line (ระยะยาว 500 ม.)' },
             { q: 'DeviceNet Thin ใช้ระยะทางได้เท่าไร ?', a: 'สูงสุด 6 เมตร สำหรับ Drop Line' },
@@ -1218,7 +1230,8 @@ export const productContentMap: Record<string, ProductContent> = {
     'eib-bus-knx': {
         sections: [
             { id: 'overview', title: 'สาย EIB Bus / KNX คืออะไร ?', content: (<><p>สาย EIB Bus / KNX สำหรับระบบอาคารอัจฉริยะ (Building Automation) เชื่อมต่ออุปกรณ์ในระบบ KNX เช่น สวิตช์ เซ็นเซอร์ ระบบ HVAC</p><p>ฉนวนสีเขียวตามมาตรฐาน KNX มีชีลด์ป้องกันสัญญาณรบกวน</p></>) },
-            { id: 'applications', title: 'การใช้งาน', content: (<ul><li>ระบบอาคารอัจฉริยะ (Smart Building)</li><li>ควบคุมแสงสว่าง HVAC กล้องวงจรปิด</li><li>โรงแรม โรงพยาบาล อาคารสำนักงาน</li></ul>) },
+            { id: 'structure', title: 'โครงสร้างสาย EIB/KNX', content: (<ul><li><strong>ตัวนำ</strong> — ทองแดงแข็ง 2 คู่ (4 เส้น) สำหรับ Bus + Power</li><li><strong>ฉนวน</strong> — PVC คู่สายบิดเกลียว</li><li><strong>ชีลด์</strong> — ฟอยล์อลูมิเนียม ป้องกันสัญญาณรบกวน</li><li><strong>ฉนวนภายนอก</strong> — PVC สีเขียว ตามมาตรฐาน KNX/EIB</li></ul>)},
+                        { id: 'applications', title: 'การใช้งาน', content: (<ul><li>ระบบอาคารอัจฉริยะ (Smart Building)</li><li>ควบคุมแสงสว่าง HVAC กล้องวงจรปิด</li><li>โรงแรม โรงพยาบาล อาคารสำนักงาน</li></ul>) },
         ],
         faqs: [
             { q: 'สาย EIB/KNX เหมาะกับงานอะไร ?', a: 'ระบบอาคารอัจฉริยะ Smart Building ควบคุมแสงสว่าง HVAC' },
