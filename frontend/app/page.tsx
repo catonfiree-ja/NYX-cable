@@ -594,75 +594,75 @@ export default async function HomePage() {
 
       {/* ─── Our Clients — 5-Row Alternating Marquee ─── */}
       {(() => {
-        // Per-logo backgroundSize — FILL the 160×72 box (zoom+crop if needed)
-        // Wide (r≥2.0) → 100% auto | Near-box (1.7-2.0) → cover | All others → cover
+        // Per-logo backgroundSize — VISUALLY VERIFIED for each logo
+        // Each logo viewed individually to determine best fit in 160×72 box
         const logoBgSize: Record<number, string> = {
-          1:'100% auto',  // 581x261 r=2.23 ✓ matches box
-          2:'cover',      // 3466x2827 r=1.23 □ zoom to fill
-          3:'cover',      // 400x400 r=1.00 □ zoom to fill
-          4:'100% auto',  // 166x82 r=2.02 ✓ wide
-          5:'cover',      // 155x109 r=1.42 □ zoom to fill
-          6:'cover',      // 221x215 r=1.03 □ zoom to fill
-          7:'cover',      // 965x705 r=1.37 □ zoom to fill
-          8:'cover',      // 131x118 r=1.11 □ zoom to fill
-          9:'cover',      // 124x134 r=0.93 ↕ zoom to fill
-          10:'100% auto', // 595x192 r=3.10 ✓ wide
-          11:'cover',     // 146x161 r=0.91 ↕ zoom to fill
-          12:'cover',     // 326x270 r=1.21 □ zoom to fill
-          13:'100% auto', // 177x75 r=2.36 ✓ wide
-          14:'100% auto', // 131x58 r=2.26 ✓ wide
-          15:'cover',     // 102x84 r=1.21 □ zoom to fill
-          16:'100% auto', // 187x62 r=3.02 ✓ wide
-          17:'100% auto', // 331x149 r=2.22 ✓ perfect match
-          18:'cover',     // 348x333 r=1.05 □ zoom to fill
-          19:'cover',     // 391x391 r=1.00 □ zoom to fill
-          20:'cover',     // 450x450 r=1.00 □ zoom to fill
-          21:'cover',     // 354x213 r=1.66 □ zoom to fill
-          22:'cover',     // 247x222 r=1.11 □ zoom to fill
-          23:'cover',     // 225x200 r=1.13 □ zoom to fill
-          24:'cover',     // 251x236 r=1.06 □ zoom to fill
-          25:'cover',     // 261x185 r=1.41 □ zoom to fill
-          26:'auto 100%', // 240x138 r=1.74 ← close to box
-          27:'cover',     // 236x156 r=1.51 □ zoom to fill
-          28:'100% auto', // 408x207 r=1.97 ✓ wide
-          29:'auto 100%', // 364x213 r=1.71 ← close to box
-          30:'cover',     // 292x203 r=1.44 □ zoom to fill
-          31:'100% auto', // 400x93 r=4.30 ✓ ultra-wide
-          32:'100% auto', // 258x114 r=2.26 ✓ wide
-          33:'cover',     // 225x225 r=1.00 □ zoom to fill
-          34:'100% auto', // 363x139 r=2.61 ✓ wide
-          35:'cover',     // 247x204 r=1.21 □ zoom to fill
-          36:'100% auto', // 402x125 r=3.22 ✓ wide
-          37:'100% auto', // 359x140 r=2.56 ✓ wide
-          38:'cover',     // 224x225 r=1.00 □ zoom to fill
-          39:'cover',     // 135x135 r=1.00 □ zoom to fill
-          40:'cover',     // 225x225 r=1.00 □ zoom to fill
-          41:'100% auto', // 122x43 r=2.84 ✓ wide
-          42:'auto 100%', // 236x125 r=1.89 ← close to box
-          43:'cover',     // 224x224 r=1.00 □ zoom to fill
-          44:'100% auto', // 466x200 r=2.33 ✓ wide
-          45:'auto 100%', // 313x160 r=1.96 ← close to box
-          46:'cover',     // 254x182 r=1.40 □ zoom to fill
-          47:'100% auto', // 293x129 r=2.27 ✓ wide
-          48:'cover',     // 225x225 r=1.00 □ zoom to fill
-          49:'cover',     // 225x225 r=1.00 □ zoom to fill
-          50:'cover',     // 225x237 r=0.95 ↕ zoom to fill
-          51:'cover',     // 225x327 r=0.69 ↕ zoom to fill
-          52:'cover',     // 225x202 r=1.11 □ zoom to fill
-          53:'cover',     // 225x225 r=1.00 □ zoom to fill
-          54:'100% auto', // 225x83 r=2.71 ✓ wide
-          55:'cover',     // 225x225 r=1.00 □ zoom to fill
-          56:'cover',     // 230x219 r=1.05 □ zoom to fill
-          57:'cover',     // 187x208 r=0.90 ↕ zoom to fill
-          58:'auto 100%', // 222x129 r=1.72 ← close to box
-          59:'cover',     // 197x200 r=0.98 ↕ zoom to fill
-          60:'cover',     // 212x200 r=1.06 □ zoom to fill
-          61:'cover',     // 214x208 r=1.03 □ zoom to fill
-          62:'auto 100%', // 281x150 r=1.87 ← close to box
-          63:'auto 100%', // 229x143 r=1.60 □ close-ish
-          64:'cover',     // 225x225 r=1.00 □ zoom to fill
-          65:'cover',     // 224x225 r=1.00 □ zoom to fill
-          66:'100% auto', // 225x30 r=7.50 ✓ ultra-wide
+          1:'100% auto',  // DTC figure — wide landscape
+          2:'auto 90%',   // Bangchak — tall icon+text, whitespace
+          3:'auto 90%',   // BÜHLER — square, big whitespace
+          4:'100% auto',  // DTC text — wide
+          5:'100% auto',  // HN Steel — wide-ish
+          6:'auto 90%',   // KK circle — round badge
+          7:'auto 95%',   // S hexagon — wide hexagon shape
+          8:'auto 90%',   // PQ yin-yang — small circle
+          9:'auto 90%',   // SCI octagon — tall octagon
+          10:'100% auto', // TEAM GROUP — wide text
+          11:'auto 90%',  // Triangle logo — tall triangle
+          12:'auto 95%',  // THAICOM — tall icon+text
+          13:'100% auto', // TMD Thai Metal Drum — wide text
+          14:'100% auto', // TORAY — wide text
+          15:'auto 90%',  // Blue slash icon — small square
+          16:'100% auto', // Team Precision — wide text
+          17:'100% auto', // Thai Semcon — wide boxed text
+          18:'auto 90%',  // Red squares grid — square shape
+          19:'auto 90%',  // AIS — square, whitespace
+          20:'auto 90%',  // Astra Digital seal — octagon
+          21:'auto 95%',  // BSI interlocking — wide-ish
+          22:'auto 90%',  // CH Karnchang seal — circle
+          23:'auto 95%',  // TIC — near-square with bg
+          24:'auto 90%',  // Red/blue hexagons — circle
+          25:'auto 90%',  // TF circle — round
+          26:'auto 90%',  // SMPC diamond — diamond shape
+          27:'auto 95%',  // AI globe — near-square
+          28:'100% auto', // CHEMEMAN — wide mascot+text
+          29:'auto 90%',  // CLOVER — tall icon+text
+          30:'auto 90%',  // CTC hexagons — tall hexagonal
+          31:'100% auto', // EXEDY — ultra-wide text
+          32:'100% auto', // PTT — wide icon+text
+          33:'auto 90%',  // NACHI — square, lots whitespace
+          34:'100% auto', // Ford — wide oval
+          35:'auto 90%',  // Christiani & Nielsen — tall circle+text
+          36:'100% auto', // B.GRIMM SINCE 1878 — wide text
+          37:'100% auto', // Kempinski — wide cursive
+          38:'auto 90%',  // GETABEC — square icon+text
+          39:'100% auto', // Union Galvanizer — wide text+icon
+          40:'auto 90%',  // Thai temple seal — circle badge
+          41:'100% auto', // UBA — wide text+icon
+          42:'100% auto', // ICC green — wide
+          43:'auto 90%',  // SENA Development — square icon+text
+          44:'100% auto', // AGC — wide big text
+          45:'100% auto', // KOHLER — wide text
+          46:'auto 90%',  // BISW red diamond — diamond shape
+          47:'100% auto', // ThaiBev — wide text+swoosh
+          48:'auto 90%',  // CAZ circle — round
+          49:'auto 90%',  // SCP CB Group — square construction
+          50:'auto 90%',  // BM red/blue — tall stacked
+          51:'auto 90%',  // PTT flame — very tall flame
+          52:'auto 90%',  // Marsun circle — round badge
+          53:'auto 90%',  // Blue swirl — square abstract
+          54:'100% auto', // ETC — wide text
+          55:'auto 90%',  // BGC — square, whitespace
+          56:'auto 90%',  // RWI circles — circle shape
+          57:'auto 90%',  // bg green letter — tall letter
+          58:'100% auto', // BITEC — wide text+dots
+          59:'auto 90%',  // CPN — circle swirl
+          60:'auto 90%',  // Thai warrior seal — circle
+          61:'auto 90%',  // Orange circle T — round
+          62:'100% auto', // STECON — wide red diamond
+          63:'auto 95%',  // RCI TILE — near-square text
+          64:'auto 90%',  // Makro — square, whitespace
+          65:'auto 90%',  // GETABEC duplicate — square
+          66:'100% auto', // SANSIRI — ultra-wide text
         };
         const ext = (n: number) => [4,5,6,8,10,12,13,14,18,19,20,31,33,35,38,40,49,65].includes(n) ? 'jpg' : 'png';
         const rows = [
