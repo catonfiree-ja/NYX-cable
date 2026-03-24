@@ -594,75 +594,76 @@ export default async function HomePage() {
 
       {/* ─── Our Clients — 5-Row Alternating Marquee ─── */}
       {(() => {
-        // Per-logo backgroundSize — VISUALLY VERIFIED for each logo
-        // Each logo viewed individually to determine best fit in 160×72 box
-        const logoBgSize: Record<number, string> = {
-          1:'100% auto',  // DTC figure — wide landscape
-          2:'auto 90%',   // Bangchak — tall icon+text, whitespace
-          3:'auto 90%',   // BÜHLER — square, big whitespace
-          4:'100% auto',  // DTC text — wide
-          5:'100% auto',  // HN Steel — wide-ish
-          6:'auto 90%',   // KK circle — round badge
-          7:'auto 95%',   // S hexagon — wide hexagon shape
-          8:'auto 90%',   // PQ yin-yang — small circle
-          9:'auto 90%',   // SCI octagon — tall octagon
-          10:'100% auto', // TEAM GROUP — wide text
-          11:'auto 90%',  // Triangle logo — tall triangle
-          12:'auto 95%',  // THAICOM — tall icon+text
-          13:'100% auto', // TMD Thai Metal Drum — wide text
-          14:'100% auto', // TORAY — wide text
-          15:'auto 90%',  // Blue slash icon — small square
-          16:'100% auto', // Team Precision — wide text
-          17:'100% auto', // Thai Semcon — wide boxed text
-          18:'auto 90%',  // Red squares grid — square shape
-          19:'auto 90%',  // AIS — square, whitespace
-          20:'auto 90%',  // Astra Digital seal — octagon
-          21:'auto 95%',  // BSI interlocking — wide-ish
-          22:'auto 90%',  // CH Karnchang seal — circle
-          23:'auto 95%',  // TIC — near-square with bg
-          24:'auto 90%',  // Red/blue hexagons — circle
-          25:'auto 90%',  // TF circle — round
-          26:'auto 90%',  // SMPC diamond — diamond shape
-          27:'auto 95%',  // AI globe — near-square
-          28:'100% auto', // CHEMEMAN — wide mascot+text
-          29:'auto 90%',  // CLOVER — tall icon+text
-          30:'auto 90%',  // CTC hexagons — tall hexagonal
-          31:'100% auto', // EXEDY — ultra-wide text
-          32:'100% auto', // PTT — wide icon+text
-          33:'auto 90%',  // NACHI — square, lots whitespace
-          34:'100% auto', // Ford — wide oval
-          35:'auto 90%',  // Christiani & Nielsen — tall circle+text
-          36:'100% auto', // B.GRIMM SINCE 1878 — wide text
-          37:'100% auto', // Kempinski — wide cursive
-          38:'auto 90%',  // GETABEC — square icon+text
-          39:'100% auto', // Union Galvanizer — wide text+icon
-          40:'auto 90%',  // Thai temple seal — circle badge
-          41:'100% auto', // UBA — wide text+icon
-          42:'100% auto', // ICC green — wide
-          43:'auto 90%',  // SENA Development — square icon+text
-          44:'100% auto', // AGC — wide big text
-          45:'100% auto', // KOHLER — wide text
-          46:'auto 90%',  // BISW red diamond — diamond shape
-          47:'100% auto', // ThaiBev — wide text+swoosh
-          48:'auto 90%',  // CAZ circle — round
-          49:'auto 90%',  // SCP CB Group — square construction
-          50:'auto 90%',  // BM red/blue — tall stacked
-          51:'auto 90%',  // PTT flame — very tall flame
-          52:'auto 90%',  // Marsun circle — round badge
-          53:'auto 90%',  // Blue swirl — square abstract
-          54:'100% auto', // ETC — wide text
-          55:'auto 90%',  // BGC — square, whitespace
-          56:'auto 90%',  // RWI circles — circle shape
-          57:'auto 90%',  // bg green letter — tall letter
-          58:'100% auto', // BITEC — wide text+dots
-          59:'auto 90%',  // CPN — circle swirl
-          60:'auto 90%',  // Thai warrior seal — circle
-          61:'auto 90%',  // Orange circle T — round
-          62:'100% auto', // STECON — wide red diamond
-          63:'auto 95%',  // RCI TILE — near-square text
-          64:'auto 90%',  // Makro — square, whitespace
-          65:'auto 90%',  // GETABEC duplicate — square
-          66:'100% auto', // SANSIRI — ultra-wide text
+        // Dynamic box WIDTH per logo — based on actual image aspect ratio
+        // Height fixed at 72px. Width = clamp(80, 72 × ratio, 180)
+        // This guarantees each logo fills its box perfectly with contain
+        const logoData: Record<number, { w: number; r: number; name: string }> = {
+          1:{w:160,r:2.23,name:'DTC figure'},
+          2:{w:90,r:1.23,name:'Bangchak'},
+          3:{w:80,r:1.00,name:'BÜHLER'},
+          4:{w:146,r:2.02,name:'DTC text'},
+          5:{w:102,r:1.42,name:'HN Steel'},
+          6:{w:80,r:1.03,name:'KK'},
+          7:{w:99,r:1.37,name:'S hexagon'},
+          8:{w:80,r:1.11,name:'PQ'},
+          9:{w:80,r:0.93,name:'SCI'},
+          10:{w:180,r:3.10,name:'TEAM GROUP'},
+          11:{w:80,r:0.91,name:'Triangle'},
+          12:{w:88,r:1.21,name:'THAICOM'},
+          13:{w:170,r:2.36,name:'TMD'},
+          14:{w:163,r:2.26,name:'TORAY'},
+          15:{w:88,r:1.21,name:'Blue icon'},
+          16:{w:180,r:3.02,name:'Team Precision'},
+          17:{w:160,r:2.22,name:'Thai Semcon'},
+          18:{w:80,r:1.05,name:'Red squares'},
+          19:{w:80,r:1.00,name:'AIS'},
+          20:{w:80,r:1.00,name:'Astra Digital'},
+          21:{w:120,r:1.66,name:'BSI'},
+          22:{w:80,r:1.11,name:'CH Karnchang'},
+          23:{w:82,r:1.13,name:'TIC'},
+          24:{w:80,r:1.06,name:'Hexagons circle'},
+          25:{w:102,r:1.41,name:'TF circle'},
+          26:{w:126,r:1.74,name:'SMPC'},
+          27:{w:109,r:1.51,name:'AI globe'},
+          28:{w:142,r:1.97,name:'CHEMEMAN'},
+          29:{w:123,r:1.71,name:'CLOVER'},
+          30:{w:104,r:1.44,name:'CTC'},
+          31:{w:180,r:4.30,name:'EXEDY'},
+          32:{w:163,r:2.26,name:'PTT'},
+          33:{w:80,r:1.00,name:'NACHI'},
+          34:{w:180,r:2.61,name:'Ford'},
+          35:{w:88,r:1.21,name:'Christiani Nielsen'},
+          36:{w:180,r:3.22,name:'B.GRIMM'},
+          37:{w:180,r:2.56,name:'Kempinski'},
+          38:{w:80,r:1.00,name:'GETABEC'},
+          39:{w:80,r:1.00,name:'Union Galvanizer'},
+          40:{w:80,r:1.00,name:'Temple seal'},
+          41:{w:180,r:2.84,name:'UBA'},
+          42:{w:136,r:1.89,name:'ICC'},
+          43:{w:80,r:1.00,name:'SENA'},
+          44:{w:168,r:2.33,name:'AGC'},
+          45:{w:141,r:1.96,name:'KOHLER'},
+          46:{w:101,r:1.40,name:'BISW'},
+          47:{w:163,r:2.27,name:'ThaiBev'},
+          48:{w:80,r:1.00,name:'CAZ'},
+          49:{w:80,r:1.00,name:'SCP CB'},
+          50:{w:80,r:0.95,name:'BM'},
+          51:{w:80,r:0.69,name:'PTT flame'},
+          52:{w:80,r:1.11,name:'Marsun'},
+          53:{w:80,r:1.00,name:'Blue swirl'},
+          54:{w:180,r:2.71,name:'ETC'},
+          55:{w:80,r:1.00,name:'BGC'},
+          56:{w:80,r:1.05,name:'RWI'},
+          57:{w:80,r:0.90,name:'bg letter'},
+          58:{w:124,r:1.72,name:'BITEC'},
+          59:{w:80,r:0.98,name:'CPN'},
+          60:{w:80,r:1.06,name:'Warrior seal'},
+          61:{w:80,r:1.03,name:'Orange T'},
+          62:{w:135,r:1.87,name:'STECON'},
+          63:{w:115,r:1.60,name:'RCI TILE'},
+          64:{w:80,r:1.00,name:'Makro'},
+          65:{w:80,r:1.00,name:'GETABEC2'},
+          66:{w:180,r:7.50,name:'SANSIRI'},
         };
         const ext = (n: number) => [4,5,6,8,10,12,13,14,18,19,20,31,33,35,38,40,49,65].includes(n) ? 'jpg' : 'png';
         const rows = [
@@ -681,12 +682,12 @@ export default async function HomePage() {
                   <div key={rowIdx} className={`marquee-row dir-${row.dir}`}>
                     <div className="marquee-logos">
                       {row.logos.map(n => (
-                        <div key={`a-${n}`} className="client-logo" style={{ backgroundImage: `url(/client-logos/logo-${String(n).padStart(2, '0')}.${ext(n)})`, backgroundSize: logoBgSize[n] }} title={`ลูกค้า NYX Cable #${n}`} />
+                        <div key={`a-${n}`} className="client-logo" style={{ backgroundImage: `url(/client-logos/logo-${String(n).padStart(2, '0')}.${ext(n)})`, width: logoData[n]?.w || 120 }} title={`ลูกค้า NYX Cable #${n}`} />
                       ))}
                     </div>
                     <div className="marquee-logos" aria-hidden="true">
                       {row.logos.map(n => (
-                        <div key={`b-${n}`} className="client-logo" style={{ backgroundImage: `url(/client-logos/logo-${String(n).padStart(2, '0')}.${ext(n)})`, backgroundSize: logoBgSize[n] }} />
+                        <div key={`b-${n}`} className="client-logo" style={{ backgroundImage: `url(/client-logos/logo-${String(n).padStart(2, '0')}.${ext(n)})`, width: logoData[n]?.w || 120 }} />
                       ))}
                     </div>
                   </div>
