@@ -85,10 +85,10 @@ export default function RootLayout({
         <div className="top-bar">
           <div className="container">
             <div className="top-bar-contact">
-              <span style={{ color: '#ffc107', fontWeight: 700 }}>Hot Line :</span>
-              <a href="tel:021115588" style={{ color: '#fff', fontWeight: 700 }}>02-111-5588</a>
-              <span style={{ color: 'rgba(255,255,255,0.5)' }}>|</span>
-              <a href="mailto:sales@nyxcable.com" style={{ color: '#fff' }}>sales@nyxcable.com</a>
+              <span style={{ color: '#fff', fontWeight: 700 }}>Hot Line :</span>
+              <a href="tel:021115588" style={{ color: '#ffc107', fontWeight: 700 }}>02-111-5588</a>
+              <span style={{ color: '#ffc107' }}>|</span>
+              <a href="mailto:sales@nyxcable.com" style={{ color: '#ffc107', fontWeight: 700 }}>sales@nyxcable.com</a>
             </div>
             <div className="top-bar-contact">
               <span>จ-ศ 8:30-17:30</span>
