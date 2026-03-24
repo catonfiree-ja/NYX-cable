@@ -100,11 +100,11 @@ const styles = `
   .blog-card-link .bc-date { font-size: 0.7rem; color: #94a3b8; margin-top: 8px; }
   .other-products { padding: 48px 0; background: #fff; }
   .other-products h2 { font-size: 1.2rem; font-weight: 700; color: var(--color-primary); margin-bottom: 20px; text-align: center; }
-  .op-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
-  .op-card { display: flex; flex-direction: column; align-items: center; justify-content: center; text-decoration: none; border: 1px solid #e2e8f0; border-radius: 12px; padding: 28px 16px; text-align: center; background: #fff; transition: all 0.25s; min-height: 100px; }
+  .op-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px; }
+  .op-card { display: flex; flex-direction: column; align-items: center; justify-content: center; text-decoration: none; border: 1px solid #e2e8f0; border-radius: 12px; padding: 28px 24px; text-align: center; background: #fff; transition: all 0.25s; min-height: 100px; }
   .op-card:hover { border-color: #2563eb; box-shadow: 0 4px 16px rgba(37,99,235,0.1); transform: translateY(-2px); }
   .op-card .op-code { font-size: 0.7rem; color: #94a3b8; letter-spacing: 0.5px; margin-bottom: 6px; }
-  .op-card .op-name { font-size: 0.95rem; font-weight: 700; color: #1a3c6e; line-height: 1.4; }
+  .op-card .op-name { font-size: 0.88rem; font-weight: 700; color: #1a3c6e; line-height: 1.5; text-wrap: balance; }
 
   /* ─── CTA Buttons ─── */
   .cta-btn-call { display: inline-flex; align-items: center; gap: 8px; padding: 14px 36px; background: linear-gradient(135deg, #1a3c6e, #2563eb); color: #fff; border-radius: 50px; font-weight: 700; font-size: 1rem; text-decoration: none; box-shadow: 0 4px 14px rgba(37,99,235,0.25); transition: all 0.25s; }
