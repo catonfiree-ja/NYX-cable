@@ -21,7 +21,10 @@ export default async function HomePage() {
     getHomePage(),
   ])
   const topProducts = products.slice(0, 8)
-  const latestPosts = blogPosts.slice(0, 3)
+  // Client feedback #14: exclude 10 articles unrelated to cables
+  const excludeTitles = ['ไอเดียรถเข็นไฟฟ้า', 'สนามบินรักษ์โลก', 'ไอเดียรถสาธารณะพลังงานแสงอาทิตย์', 'ลาก่อนนิวเคลียร์', 'Stella', 'เสาไฟฟ้าแรงสูง', 'โซล่าฟาร์ม ดีจริงหรือไม่', 'กระทรวงพลังงาน ร่วม การไฟฟ้า', 'ขายไฟฟ้า คืนกำไรกลับมา', 'Solar Roof ของระบบโซล่าเซลล์']
+  const filteredPosts = blogPosts.filter((p: any) => !excludeTitles.some(t => (p.title || '').includes(t)))
+  const latestPosts = filteredPosts.slice(0, 3)
 
   // FAQPage Schema.org
   const faqSchema = faqs.length > 0 ? {
