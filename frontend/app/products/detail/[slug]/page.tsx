@@ -507,6 +507,11 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
                     'h05v-k': { href: '/products/detail/h07v-k', label: 'ดู H07V-K (750V)' },
                     'h07v-k': { href: '/products/detail/h05v-k', label: 'ดู H05V-K (500V)' },
                     'vct': { href: '/products/detail/control-cable', label: 'ดูสายคอนโทรลทั้งหมด' },
+                    'cvv': { href: '/products/detail/vct', label: 'เทียบสเปก VCT' },
+                    'liycy': { href: '/products/detail/liycy-jz', label: 'ดู LiYCY-JZ' },
+                    'liycy-jz': { href: '/products/detail/liycy', label: 'ดู LiYCY' },
+                    'ysly-jz-1kv': { href: '/products/detail/ysly-jz', label: 'ดู YSLY-JZ (500V)' },
+                    'olflex-classic-115-cy': { href: '/products/detail/liycy', label: 'เทียบสเปก LiYCY' },
                   }
                   const link = detailLinks[slug]
                   if (!link) return null
