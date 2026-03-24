@@ -39,6 +39,18 @@ const styles = `
   }
   .blog-content strong { color: #003366; }
   .blog-content a:not(.btn) { color: #0066cc; text-decoration: underline; text-underline-offset: 3px; }
+  .blog-content table {
+    width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 0.9rem;
+    border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  }
+  .blog-content table th {
+    background: #003366; color: #fff; padding: 10px 14px; text-align: left; font-weight: 600; font-size: 0.85rem;
+  }
+  .blog-content table td {
+    padding: 8px 14px; border-bottom: 1px solid #e8edf3; color: #374151; font-size: 0.85rem;
+  }
+  .blog-content table tr:nth-child(even) { background: #f8fafc; }
+  .blog-content table tr:hover { background: #f0f7ff; }
   .blog-share {
     display: flex; gap: 12px; align-items: center;
     padding: 24px 0; border-top: 2px solid #e5e7eb;
@@ -65,6 +77,8 @@ const styles = `
     .blog-content h2 { font-size: 1.2rem; }
     .blog-content h3 { font-size: 1rem; }
     .blog-content p { font-size: 0.9rem; }
+    .blog-content table { font-size: 0.8rem; }
+    .blog-content table th, .blog-content table td { padding: 6px 10px; }
     .blog-share { flex-wrap: wrap; gap: 8px; }
     .related-products-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
     .rp-card { padding: 14px 12px; }
@@ -78,7 +92,7 @@ function formatDate(dateStr: string) {
   return d.toLocaleDateString('th-TH', { day: 'numeric', month: 'long', year: 'numeric' })
 }
 
-// HTML tag names that WordPress migration stored as separate text blocks
+// ALL HTML tag names to filter out from WordPress migration
 const HTML_TAG_NAMES = new Set([
   'div', 'p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6',
   'blockquote', 'ul', 'ol', 'li', 'table', 'thead',
@@ -86,56 +100,200 @@ const HTML_TAG_NAMES = new Set([
   'a', 'br', 'hr', 'img', 'figure', 'figcaption',
   'section', 'article', 'header', 'footer', 'nav',
   'pre', 'code', 'sup', 'sub', 'b', 'i', 'u',
+  '/div', '/p', '/h1', '/h2', '/h3', '/h4', '/h5', '/h6',
+  '/blockquote', '/ul', '/ol', '/li', '/table', '/thead',
+  '/tbody', '/tr', '/th', '/td', '/span', '/strong', '/em',
+  '/a', '/figure', '/figcaption', '/section', '/article',
+  '/header', '/footer', '/nav', '/pre', '/code', '/b', '/i', '/u',
 ])
 
-// Render Portable Text — handles WordPress-imported content
+// Check if text is just an HTML tag artifact
+function isHtmlTagJunk(text: string): boolean {
+  const t = text.trim().toLowerCase()
+  if (HTML_TAG_NAMES.has(t)) return true
+  // Match patterns like </div>, <table>, <tr class="...">, etc
+  if (/^<\/?[a-z][a-z0-9]*[\s>\/]/.test(t)) return true
+  if (/^<\/?[a-z]+>?$/.test(t)) return true
+  return false
+}
+
+// Decode HTML entities
+function decodeEntities(text: string): string {
+  if (!text) return text
+  return text
+    .replace(/&amp;/g, '&')
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&quot;/g, '"')
+    .replace(/&#039;/g, "'")
+    .replace(/&#8230;/g, '…')
+    .replace(/&#8211;/g, '–')
+    .replace(/&#8212;/g, '—')
+    .replace(/&#8216;/g, '\u2018')
+    .replace(/&#8217;/g, '\u2019')
+    .replace(/&#8220;/g, '\u201C')
+    .replace(/&#8221;/g, '\u201D')
+    .replace(/&#(\d+);/g, (_, n) => String.fromCharCode(parseInt(n)))
+}
+
+// Detect if a sequence of blocks looks like table data
+function detectTableBlocks(blocks: any[]): { start: number; end: number; cols: number }[] {
+  const tables: { start: number; end: number; cols: number }[] = []
+  let i = 0
+
+  while (i < blocks.length) {
+    const b = blocks[i]
+    if (b._type !== 'block') { i++; continue }
+
+    const text = (b.children || []).map((c: any) => c.text || '').join('').trim()
+
+    // Short text block (< 20 chars, no sentence-like content)
+    if (text.length > 0 && text.length < 20 && !text.includes('. ') && !isHtmlTagJunk(text)) {
+      // Count consecutive short blocks
+      let j = i
+      const cells: string[] = []
+      while (j < blocks.length) {
+        const bj = blocks[j]
+        if (bj._type !== 'block') break
+        const t = (bj.children || []).map((c: any) => c.text || '').join('').trim()
+        if (t.length === 0 || isHtmlTagJunk(t)) { j++; continue }
+        if (t.length >= 25 || t.includes('. ')) break
+        cells.push(t)
+        j++
+      }
+
+      // Need at least 4 cells to be a table
+      if (cells.length >= 4) {
+        // Try to detect column count: check if first 2 cells look like headers
+        // Common patterns: 2 cols, 3 cols, 4 cols
+        let cols = 2 // default
+        // Heuristic: if total cells divisible by 3 or 4 and makes sense
+        if (cells.length % 3 === 0 && cells.length % 2 !== 0) cols = 3
+        else if (cells.length % 4 === 0) cols = 4
+        else if (cells.length % 3 === 0) cols = 3
+        else if (cells.length % 2 === 0) cols = 2
+        else cols = 2
+
+        tables.push({ start: i, end: j - 1, cols })
+        i = j
+        continue
+      }
+    }
+    i++
+  }
+  return tables
+}
+
+// Render Portable Text — handles WordPress-imported content with table reconstruction
 function renderBody(body: any) {
-  // If body is a raw HTML string
   if (typeof body === 'string') {
     return <div dangerouslySetInnerHTML={{ __html: body }} />
   }
-
-  // If body is not an array
   if (!body || !Array.isArray(body)) return <p>ไม่มีเนื้อหา</p>
 
-  // Filter out blocks that are just HTML tag names (WordPress migration artifacts)
+  // Step 1: Filter out HTML tag junk blocks
   const cleanBlocks = body.filter((block: any) => {
     if (block._type !== 'block') return true
     const children = block.children || []
-    if (children.length !== 1) return true
-    const text = children[0]?.text?.trim()?.toLowerCase()
-    return !text || !HTML_TAG_NAMES.has(text)
+    const text = children.map((c: any) => c.text || '').join('').trim()
+    if (!text) return false // drop empty blocks
+    return !isHtmlTagJunk(text)
   })
 
-  return cleanBlocks.map((block: any, i: number) => {
+  // Step 2: Trim trailing junk (blocks that are just tag names at the end)
+  while (cleanBlocks.length > 0) {
+    const last = cleanBlocks[cleanBlocks.length - 1]
+    if (last._type !== 'block') break
+    const text = (last.children || []).map((c: any) => c.text || '').join('').trim()
+    if (isHtmlTagJunk(text) || !text) {
+      cleanBlocks.pop()
+    } else break
+  }
+
+  // Step 3: Detect table regions  
+  const tableRegions = detectTableBlocks(cleanBlocks)
+  const inTable = new Set<number>()
+  tableRegions.forEach(t => { for (let k = t.start; k <= t.end; k++) inTable.add(k) })
+
+  // Step 4: Render
+  const elements: React.ReactNode[] = []
+  let blockIdx = 0
+
+  while (blockIdx < cleanBlocks.length) {
+    // Check if this block is in a table region
+    const tableRegion = tableRegions.find(t => t.start === blockIdx)
+    if (tableRegion) {
+      // Collect all cells
+      const cells: string[] = []
+      for (let k = tableRegion.start; k <= tableRegion.end; k++) {
+        const b = cleanBlocks[k]
+        if (b._type !== 'block') continue
+        const text = (b.children || []).map((c: any) => c.text || '').join('').trim()
+        if (text && !isHtmlTagJunk(text)) {
+          cells.push(decodeEntities(text))
+        }
+      }
+
+      if (cells.length >= 4) {
+        const cols = tableRegion.cols
+        const rows: string[][] = []
+        for (let c = 0; c < cells.length; c += cols) {
+          rows.push(cells.slice(c, c + cols))
+        }
+
+        elements.push(
+          <div key={`table-${blockIdx}`} style={{ overflowX: 'auto', WebkitOverflowScrolling: 'touch' as any, margin: '24px 0' }}>
+            <table>
+              <thead>
+                <tr>{rows[0]?.map((cell, ci) => <th key={ci}>{cell}</th>)}</tr>
+              </thead>
+              <tbody>
+                {rows.slice(1).map((row, ri) => (
+                  <tr key={ri}>{row.map((cell, ci) => <td key={ci}>{cell}</td>)}</tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        )
+      }
+      blockIdx = tableRegion.end + 1
+      continue
+    }
+
+    // Skip if part of a table
+    if (inTable.has(blockIdx)) { blockIdx++; continue }
+
+    const block = cleanBlocks[blockIdx]
+
     if (block._type === 'block') {
       const children = (block.children || []).map((child: any, j: number) => {
-        let text: React.ReactNode = child.text || ''
-        if (child.marks?.includes('strong')) text = <strong key={j}>{text}</strong>
-        else if (child.marks?.includes('em')) text = <em key={j}>{text}</em>
-        else text = <span key={j}>{text}</span>
+        const rawText = decodeEntities(child.text || '')
+        let text: React.ReactNode = rawText
+        if (child.marks?.includes('strong')) text = <strong key={j}>{rawText}</strong>
+        else if (child.marks?.includes('em')) text = <em key={j}>{rawText}</em>
+        else text = <span key={j}>{rawText}</span>
         return text
       })
 
       const textContent = (block.children || []).map((c: any) => c.text || '').join('')
-      if (!textContent.trim()) return null
+      if (!textContent.trim()) { blockIdx++; continue }
 
       switch (block.style) {
-        case 'h1': return <h2 key={i}>{children}</h2>
-        case 'h2': return <h2 key={i}>{children}</h2>
-        case 'h3': return <h3 key={i}>{children}</h3>
-        case 'h4': return <h4 key={i}>{children}</h4>
-        case 'blockquote': return <blockquote key={i}>{children}</blockquote>
-        default: return <p key={i}>{children}</p>
+        case 'h1': elements.push(<h2 key={blockIdx}>{children}</h2>); break
+        case 'h2': elements.push(<h2 key={blockIdx}>{children}</h2>); break
+        case 'h3': elements.push(<h3 key={blockIdx}>{children}</h3>); break
+        case 'h4': elements.push(<h4 key={blockIdx}>{children}</h4>); break
+        case 'blockquote': elements.push(<blockquote key={blockIdx}>{children}</blockquote>); break
+        default: elements.push(<p key={blockIdx}>{children}</p>)
       }
+    } else if (block._type === 'html' && block.code) {
+      elements.push(<div key={blockIdx} dangerouslySetInnerHTML={{ __html: block.code }} />)
     }
 
-    if (block._type === 'html' && block.code) {
-      return <div key={i} dangerouslySetInnerHTML={{ __html: block.code }} />
-    }
+    blockIdx++
+  }
 
-    return null // Skip unknown types silently
-  })
+  return elements
 }
 
 export async function generateStaticParams() {
