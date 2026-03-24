@@ -549,8 +549,8 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
           )
         })()}
 
-        {/* ── Full Description ── */}
-        {(product.description || product.shortDescription) && (
+        {/* ── Full Description (skip if hardcoded content exists) ── */}
+        {!productContentMap[slug] && (product.description || product.shortDescription) && (
           <div className="section-block" id="description">
             <div className="container">
               <div className="section-block-title">รายละเอียดสินค้า</div>
