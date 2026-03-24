@@ -1,49 +1,28 @@
-// Back to 100×72 — ALL INSIDE, no crop
-// This is the version where wide logos were confirmed "OK"
+// Restore original images back to client-logos folder
+// The CSS will handle sizing with fixed height, auto width
 
-const sharp = require('sharp');
 const fs = require('fs');
 const path = require('path');
 
 const origDir = path.resolve('public/client-logos-original');
 const outDir = path.resolve('public/client-logos');
 
-async function main() {
-  const files = fs.readdirSync(origDir).filter(f => /^logo-\d+/.test(f)).sort();
-  const W = 100, H = 72;
+const files = fs.readdirSync(origDir).filter(f => /^logo-\d+/.test(f)).sort();
 
-  let count = 0;
-  for (const f of files) {
-    const n = parseInt(f.match(/\d+/)[0]);
-    const srcPath = path.join(origDir, f);
-    const outPath = path.join(outDir, `logo-${String(n).padStart(2, '0')}.png`);
+// First clean out all current PNGs in outDir
+const currentFiles = fs.readdirSync(outDir).filter(f => /^logo-\d+/.test(f));
+currentFiles.forEach(f => fs.unlinkSync(path.join(outDir, f)));
 
-    try {
-      const meta = await sharp(srcPath).metadata();
-      
-      // ALL inside — no crop at all
-      const resized = await sharp(srcPath)
-        .resize(W - 8, H - 8, { fit: 'inside', withoutEnlargement: false })
-        .flatten({ background: { r: 255, g: 255, b: 255 } })
-        .png().toBuffer();
-      
-      const rm = await sharp(resized).metadata();
-      const left = Math.round((W - rm.width) / 2);
-      const top = Math.round((H - rm.height) / 2);
-      
-      await sharp({
-        create: { width: W, height: H, channels: 4, background: { r: 255, g: 255, b: 255, alpha: 1 } }
-      })
-        .composite([{ input: resized, left, top }])
-        .png().toFile(outPath);
+// Copy originals back
+files.forEach(f => {
+  fs.copyFileSync(path.join(origDir, f), path.join(outDir, f));
+});
 
-      console.log(`#${n}: r=${(meta.width/meta.height).toFixed(2)} → ${rm.width}x${rm.height} ✓`);
-      count++;
-    } catch (err) {
-      console.error(`#${n}: FAILED - ${err.message}`);
-    }
-  }
-  console.log(`\nDone! ${count} logos — all 100×72px, INSIDE, NO crop.`);
-}
+console.log(`Restored ${files.length} original logos.`);
 
-main().catch(console.error);
+// List them with extensions
+files.forEach(f => {
+  const n = parseInt(f.match(/\d+/)[0]);
+  const ext = path.extname(f);
+  console.log(`#${n}: ${ext}`);
+});
