@@ -751,74 +751,9 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* ─── Products from Sanity ─── */}
-      <section className="section" style={{ background: 'linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%)', padding: '70px 0' }}>
-        <div className="container">
-          <div className="section-header">
-            <h2>สินค้าแนะนำ</h2>
-            <div className="accent-line"></div>
-            <p>สายไฟคุณภาพสูง มาตรฐานยุโรป — สต็อกพร้อมส่ง {products.length} รุ่น</p>
-          </div>
-          <div className="category-grid">
-            {topProducts.map((p: any) => (
-              <a key={p._id} href={`/products/detail/${p.slug?.current}`} className="category-card">
-                <div className="category-card-image">
-                  {p.image ? (
-                    <Image src={sanityUrlFor(p.image).width(400).height(280).url()} alt={p.title} width={400} height={280} style={{ width: '100%', height: '100%', objectFit: 'contain', padding: '8px' }} />
-                  ) : (
-                    <span style={{ fontSize: '1.5rem', fontWeight: 800, color: '#003366', letterSpacing: '1px' }}>{(p.productCode || p.title || '').substring(0, 5).toUpperCase()}</span>
-                  )}
-                </div>
-                <div className="category-card-body">
-                  <h3>{p.title}</h3>
-                  <p>{decodeHtmlEntities(p.shortDescription || p.categories?.[0]?.title || 'สายไฟอุตสาหกรรม')}</p>
-                  <span className="product-count">ดูรายละเอียด →</span>
-                </div>
-              </a>
-            ))}
-          </div>
-          <div style={{ textAlign: 'center', marginTop: '36px' }}>
-            <a href="/products" className="btn btn-primary btn-lg">ดูสินค้าทั้งหมด ({products.length} รุ่น) →</a>
-          </div>
-        </div>
-      </section>
 
-      {/* ─── Product Categories ─── */}
-      <section className="section" id="categories">
-        <div className="container">
-          <div className="section-header">
-            <h2>หมวดหมู่ผลิตภัณฑ์</h2>
-            <div className="accent-line"></div>
-            <p>สายไฟอุตสาหกรรมคุณภาพสูง ครบทุกประเภทสำหรับทุกระบบงาน</p>
-          </div>
+      {/* Sections "สินค้าแนะนำ" and "หมวดหมู่ผลิตภัณฑ์" removed per client feedback #9 — ซ้ำกับด้านบน */}
 
-          <div className="category-grid">
-            {categories.map((cat) => {
-              const catProduct = products.find((p: any) =>
-                p.categories?.some((c: any) => c.slug?.current === cat.slug) && p.image
-              );
-              return (
-                <a key={cat.slug} href={`/products/${cat.slug}`} className="category-card">
-                  <div className="category-card-image">
-                    {catProduct?.image ? (
-                      <Image src={sanityUrlFor(catProduct.image).width(400).height(280).url()} alt={cat.name} width={400} height={280} style={{ width: '100%', height: '100%', objectFit: 'contain', padding: '8px' }} />
-                    ) : cat.fallbackImg ? (
-                      <img src={cat.fallbackImg} alt={cat.name} style={{ width: '100%', height: '100%', objectFit: 'contain', padding: '8px' }} loading="lazy" />
-                    ) : (
-                      cat.abbr
-                    )}
-                  </div>
-                  <div className="category-card-body">
-                    <h3>{cat.name}</h3>
-                    <p>{cat.desc}</p>
-                    <span className="product-count">{cat.count} รุ่น</span>
-                  </div>
-                </a>
-              );
-            })}
-          </div>
-        </div>
-      </section>
 
       {/* ─── Latest Articles (from original) ─── */}
       <section className="latest-articles">
