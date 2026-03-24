@@ -594,35 +594,7 @@ export default async function HomePage() {
 
       {/* ─── Our Clients — 5-Row Alternating Marquee ─── */}
       {(() => {
-        // Balanced zoom: geometric mean between contain & cover
-        // Square logos ~107px (67% fill, mild 35px crop)
-        // Wide logos ~160px (near-perfect, no/minimal crop)
-        // Ultra-wide clamped to 160px width
-        const logoBgSize: Record<number, string> = {
-          1:'160px 72px',   2:'119px 97px',   3:'107px 107px',
-          4:'153px 75px',   5:'128px 90px',   6:'109px 106px',
-          7:'126px 92px',   8:'113px 102px',  9:'103px 112px',
-          10:'160px 52px',  11:'102px 113px', 12:'118px 98px',
-          13:'160px 68px',  14:'160px 71px',  15:'118px 97px',
-          16:'160px 53px',  17:'160px 72px',  18:'110px 105px',
-          19:'107px 107px', 20:'107px 107px', 21:'138px 83px',
-          22:'113px 102px', 23:'114px 101px', 24:'111px 104px',
-          25:'127px 90px',  26:'142px 81px',  27:'132px 87px',
-          28:'151px 76px',  29:'140px 82px',  30:'129px 89px',
-          31:'160px 37px',  32:'160px 71px',  33:'107px 107px',
-          34:'160px 61px',  35:'118px 98px',  36:'160px 50px',
-          37:'160px 62px',  38:'107px 108px', 39:'107px 107px',
-          40:'107px 107px', 41:'160px 56px',  42:'147px 78px',
-          43:'107px 107px', 44:'160px 69px',  45:'150px 77px',
-          46:'127px 91px',  47:'160px 70px',  48:'107px 107px',
-          49:'107px 107px', 50:'105px 110px', 51:'89px 129px',
-          52:'113px 102px', 53:'107px 107px', 54:'160px 59px',
-          55:'107px 107px', 56:'110px 105px', 57:'102px 113px',
-          58:'141px 82px',  59:'107px 108px', 60:'111px 104px',
-          61:'109px 106px', 62:'147px 78px',  63:'136px 85px',
-          64:'107px 107px', 65:'107px 108px', 66:'160px 21px',
-        };
-        const ext = (n: number) => [4,5,6,8,10,12,13,14,18,19,20,31,33,35,38,40,49,65].includes(n) ? 'jpg' : 'png';
+        // All 66 logos pre-cropped to exactly 160×72px PNG
         const rows = [
           { logos: Array.from({ length: 14 }, (_, i) => i + 1), dir: 'left' },
           { logos: Array.from({ length: 13 }, (_, i) => i + 15), dir: 'right' },
@@ -639,12 +611,12 @@ export default async function HomePage() {
                   <div key={rowIdx} className={`marquee-row dir-${row.dir}`}>
                     <div className="marquee-logos">
                       {row.logos.map(n => (
-                        <div key={`a-${n}`} className="client-logo" style={{ backgroundImage: `url(/client-logos/logo-${String(n).padStart(2, '0')}.${ext(n)})`, backgroundSize: logoBgSize[n] }} title={`ลูกค้า NYX Cable #${n}`} />
+                        <div key={`a-${n}`} className="client-logo" style={{ backgroundImage: `url(/client-logos/logo-${String(n).padStart(2, '0')}.png)` }} title={`ลูกค้า NYX Cable #${n}`} />
                       ))}
                     </div>
                     <div className="marquee-logos" aria-hidden="true">
                       {row.logos.map(n => (
-                        <div key={`b-${n}`} className="client-logo" style={{ backgroundImage: `url(/client-logos/logo-${String(n).padStart(2, '0')}.${ext(n)})`, backgroundSize: logoBgSize[n] }} />
+                        <div key={`b-${n}`} className="client-logo" style={{ backgroundImage: `url(/client-logos/logo-${String(n).padStart(2, '0')}.png)` }} />
                       ))}
                     </div>
                   </div>
