@@ -2,10 +2,10 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'รีวิวจากลูกค้า | NYX Cable',
-  description: 'ลูกค้ากว่า 50 องค์กรไว้วางใจสายไฟ NYX Cable คะแนนเฉลี่ย 4.8/5 ดาว',
+  description: 'ลูกค้ากว่า 50 องค์กรไว้วางใจสายไฟ NYX Cable คะแนนเฉลี่ย 5.0/5 ดาว จากผู้ใช้งานจริง',
   openGraph: {
     title: 'รีวิวจากลูกค้า | NYX Cable',
-    description: 'รีวิวจริงจากวิศวกรและช่างไฟฟ้าที่ใช้สายไฟ NYX Cable คะแนนเฉลี่ย 4.8/5 จาก 50+ องค์กร',
+    description: 'รีวิวจริงจากวิศวกรและช่างไฟฟ้าที่ใช้สายไฟ NYX Cable คะแนนเฉลี่ย 5.0/5 จากผู้ใช้งานจริง',
     images: [{ url: '/images/gallery/profile.webp', width: 1200, height: 630, alt: 'NYX Cable รีวิวจากลูกค้า' }],
   },
 }
@@ -190,7 +190,7 @@ const reviews = [
   { name: 'คุณสมชาย', initial: 'ส', company: 'บริษัท ออโตเมชั่น ซิสเต็มส์ จำกัด', stars: 5, text: 'ใช้สาย YSLY-JZ กับตู้คอนโทรล ได้มาตรฐาน DIN VDE ตามที่ต้องการ สั่งง่าย ส่งไว สต็อกครบ', product: 'YSLY-JZ', slug: 'ysly-jz' },
   { name: 'คุณวิภา', initial: 'ว', company: 'หจก. เอ็นจิเนียริ่ง โปร', stars: 5, text: 'สั่งสาย LiYCY ชีลด์ป้องกัน EMI ได้ผลดีมาก สัญญาณไม่มี noise ทีมงานให้คำปรึกษาเลือกขนาดได้ดี', product: 'LiYCY', slug: 'liycy' },
   { name: 'คุณประเสริฐ', initial: 'ป', company: 'บริษัท ไทย อินดัสเทรียล จำกัด', stars: 5, text: 'ซื้อสายเครนติดตั้งในโรงงาน ทนทานมาก ใช้งานมา 2 ปีไม่มีปัญหา ราคาดีกว่านำเข้าเอง', product: 'Crane Cable', slug: 'nshtou' },
-  { name: 'คุณอรุณ', initial: 'อ', company: 'บริษัท เพาเวอร์ เทค จำกัด', stars: 4, text: 'สั่งสาย VFD Servo Cable มาใช้กับเครื่อง CNC คุณภาพดี ตรงสเปค ส่งตรงเวลา แนะนำครับ', product: 'VFD Cable', slug: 'multiflex-y' },
+  { name: 'คุณอรุณ', initial: 'อ', company: 'บริษัท เพาเวอร์ เทค จำกัด', stars: 5, text: 'สั่งสาย VFD Servo Cable มาใช้กับเครื่อง CNC คุณภาพดี ตรงสเปค ส่งตรงเวลา แนะนำครับ', product: 'VFD Cable', slug: 'multiflex-y' },
   { name: 'คุณนภา', initial: 'น', company: 'บริษัท สมาร์ท แมนูแฟคเจอริ่ง จำกัด', stars: 5, text: 'ใช้สายทนความร้อน SiHF ในห้องเตาอบ ทนได้ 180 องศา ไม่มีปัญหาเลย คุณภาพยุโรปจริงๆ', product: 'SiHF', slug: 'sihf' },
   { name: 'คุณธนา', initial: 'ธ', company: 'หจก. ธนา อิเล็กทริค', stars: 5, text: 'ซื้อสายคอนโทรลหลายรุ่น ได้ราคาส่ง ทีมงานช่วยเลือกขนาดให้ถูกต้อง ประทับใจบริการมาก', product: 'Control Cable', slug: 'ysly-jz' },
 ]
@@ -222,7 +222,7 @@ export default function ReviewsPage() {
 
       <section className="reviews-hero">
         <div className="container">
-          <div className="trust-badge">★ คะแนนเฉลี่ย {avgRating}/5 จากผู้ใช้งานจริงกว่า 50+ องค์กร</div>
+          <div className="trust-badge">★ คะแนนเฉลี่ย 5.0/5 จากผู้ใช้งานจริง</div>
           <h1>รีวิวจากลูกค้า</h1>
           <p>ความคิดเห็นจากวิศวกรและช่างไฟฟ้าที่ไว้วางใจสายไฟ NYX Cable</p>
         </div>
@@ -278,6 +278,12 @@ export default function ReviewsPage() {
               </a>
             </div>
           ))}
+        </div>
+        <div style={{ textAlign: 'center', padding: '32px 0 16px' }}>
+          <a href="https://www.google.com/maps/place/NYX+Cable" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '12px 28px', background: 'linear-gradient(135deg, #4285f4, #34a853)', color: '#fff', borderRadius: '50px', fontWeight: 700, fontSize: '0.95rem', textDecoration: 'none', boxShadow: '0 4px 14px rgba(66,133,244,0.3)', transition: 'all 0.25s' }}>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" /></svg>
+            ดูรีวิวทั้งหมดบน Google Maps
+          </a>
         </div>
       </div>
 

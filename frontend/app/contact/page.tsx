@@ -292,7 +292,7 @@ export default function ContactPage() {
                     <option>อื่นๆ</option>
                   </select>
                 </div>
-                <div className="form-group"><label htmlFor="message">รายละเอียด *</label><textarea id="message" name="message" placeholder="ระบุรุ่น ขนาด จำนวนที่ต้องการ" required></textarea></div>
+                <div className="form-group"><label htmlFor="message">รายละเอียด *</label><textarea id="message" name="message" placeholder="ระบุจำนวนคอร์ / ขนาด mm2 / ความยาวที่ต้องการ เช่น 3G2.5 500m" required></textarea></div>
                 <button type="submit" className="submit-btn-premium" disabled={loading}>
                   {loading ? 'กำลังส่ง...' : 'ส่งข้อความ'}
                 </button>
