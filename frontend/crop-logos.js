@@ -1,7 +1,7 @@
-// FINAL crop: tiered approach per aspect ratio
-// - Square/tall (r < 1.5): COVER — zoom to fill (they were too small before)
-// - Already-wide (r 1.5-3.0): INSIDE with 4px padding (they fit fine, don't over-zoom)
-// - Ultra-wide (r > 3.0): INSIDE with more padding
+// FINAL v2: COVER logos get 4px breathing room too
+// - Square/tall (r < 1.5): COVER to 152×64 → on 160×72 canvas (4px padding)
+// - Already-wide (r 1.5-3.0): INSIDE to 152×64 → same padding
+// - Ultra-wide (r > 3.0): INSIDE to 148×60
 
 const sharp = require('sharp');
 const fs = require('fs');
@@ -13,6 +13,9 @@ const outDir = path.resolve('public/client-logos');
 async function main() {
   const files = fs.readdirSync(origDir).filter(f => /^logo-\d+/.test(f)).sort();
   const W = 160, H = 72;
+  const PAD = 4;
+  const IW = W - PAD * 2; // 152
+  const IH = H - PAD * 2; // 64
 
   let count = 0;
   for (const f of files) {
@@ -26,19 +29,22 @@ async function main() {
       let strategy;
 
       if (r < 1.5) {
-        // Square/tall logos: COVER to fill entire frame
-        strategy = 'COVER';
-        await sharp(srcPath)
-          .resize(W, H, { fit: 'cover', position: 'centre' })
+        // Square/tall: COVER to fill inner area (152×64), then center on canvas
+        strategy = 'COVER+pad';
+        const covered = await sharp(srcPath)
+          .resize(IW, IH, { fit: 'cover', position: 'centre' })
           .flatten({ background: { r: 255, g: 255, b: 255 } })
+          .png().toBuffer();
+        
+        await sharp({ create: { width: W, height: H, channels: 4, background: { r: 255, g: 255, b: 255, alpha: 1 } } })
+          .composite([{ input: covered, left: PAD, top: PAD }])
           .png().toFile(outPath);
 
       } else if (r <= 3.0) {
-        // Already-wide logos: INSIDE with 4px padding (don't over-zoom)
-        strategy = 'INSIDE-4px';
-        const innerW = W - 8, innerH = H - 8; // 152×64
+        // Wide: INSIDE to fit in inner area
+        strategy = 'INSIDE+pad';
         const resized = await sharp(srcPath)
-          .resize(innerW, innerH, { fit: 'inside', withoutEnlargement: false })
+          .resize(IW, IH, { fit: 'inside', withoutEnlargement: false })
           .png().toBuffer();
         const rm = await sharp(resized).metadata();
         const left = Math.round((W - rm.width) / 2);
@@ -48,11 +54,10 @@ async function main() {
           .png().toFile(outPath);
 
       } else {
-        // Ultra-wide: INSIDE with wider padding
-        strategy = 'INSIDE-wide';
-        const innerW = W - 12, innerH = H - 12; // 148×60
+        // Ultra-wide
+        strategy = 'INSIDE-uw';
         const resized = await sharp(srcPath)
-          .resize(innerW, innerH, { fit: 'inside', withoutEnlargement: false })
+          .resize(W - 12, H - 12, { fit: 'inside', withoutEnlargement: false })
           .png().toBuffer();
         const rm = await sharp(resized).metadata();
         const left = Math.round((W - rm.width) / 2);
@@ -62,14 +67,13 @@ async function main() {
           .png().toFile(outPath);
       }
 
-      console.log(`#${n}: ${meta.width}x${meta.height} r=${r.toFixed(2)} → ${strategy} ✓`);
+      console.log(`#${n}: r=${r.toFixed(2)} → ${strategy} ✓`);
       count++;
     } catch (err) {
       console.error(`#${n}: FAILED - ${err.message}`);
     }
   }
-
-  console.log(`\nDone! ${count} logos all 160×72px.`);
+  console.log(`\nDone! ${count} logos all 160×72px with 4px padding.`);
 }
 
 main().catch(console.error);
