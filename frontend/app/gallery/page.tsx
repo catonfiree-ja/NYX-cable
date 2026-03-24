@@ -147,9 +147,10 @@ export default async function GalleryPage() {
   const rawAlbums = await getGalleryAlbums()
 
   // Sort: delivery albums by year DESC first, then non-delivery albums at end
+  // Prefer year from title over CMS year field (CMS has wrong value for 2026 album)
   const albums = [...rawAlbums].sort((a: any, b: any) => {
-    const yearA = a.year || parseInt(a.title?.match(/\d{4}/)?.[0]) || 0
-    const yearB = b.year || parseInt(b.title?.match(/\d{4}/)?.[0]) || 0
+    const yearA = parseInt(a.title?.match(/\d{4}/)?.[0]) || a.year || 0
+    const yearB = parseInt(b.title?.match(/\d{4}/)?.[0]) || b.year || 0
     // Albums with year come first, sorted descending
     if (yearA && !yearB) return -1
     if (!yearA && yearB) return 1
