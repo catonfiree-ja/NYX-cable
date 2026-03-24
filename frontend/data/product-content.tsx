@@ -1054,98 +1054,171 @@ export const productContentMap: Record<string, ProductContent> = {
     },
     'rs485-rs422': {
         sections: [
-            { id: 'overview', title: 'สาย RS485/RS422 (ST-TP)', content: (<><p>สาย ST-TP ออกแบบสำหรับสัญญาณ RS485, RS422 และ 4-20mA โดยเฉพาะ ตัวนำทองแดงฝอยเคลือบดีบุก ทนความชื้น คู่สายบิดเกลียวลดการรบกวนระหว่างสัญญาณ</p></>) },
+            { id: 'overview', title: 'สาย RS485/RS422 (ST-TP) คืออะไร ?', content: (<><p>สาย ST-TP ออกแบบสำหรับสัญญาณ RS485, RS422 และ 4-20mA โดยเฉพาะ ตัวนำทองแดงฝอยเคลือบดีบุก ทนความชื้น คู่สายบิดเกลียวลดการรบกวนระหว่างสัญญาณ</p></>) },
+            { id: 'applications', title: 'การใช้งาน', content: (<ul><li>สัญญาณ RS485, RS422</li><li>สัญญาณ 4-20mA</li><li>เชื่อมต่อ PLC, Sensor, Inverter</li></ul>) },
         ],
-        faqs: [{ q: 'สาย ST-TP เหมาะกับสัญญาณอะไร ?', a: 'RS485, RS422, สัญญาณ 4-20mA' }],
+        faqs: [
+            { q: 'สาย ST-TP เหมาะกับสัญญาณอะไร ?', a: 'RS485, RS422, สัญญาณ 4-20mA' },
+            { q: 'ST-TP มีชีลด์ไหม ?', a: 'ไม่มีชีลด์ ถ้าต้องการชีลด์ให้เลือกรุ่น STTP' },
+            { q: 'ST-TP ต่างจาก STTP อย่างไร ?', a: 'ST-TP ไม่มีชีลด์ ส่วน STTP มีชีลด์ฟอยล์ป้องกัน EMI' },
+        ],
     },
     'rs485-rs422-sttp': {
         sections: [
-            { id: 'overview', title: 'สาย RS485/RS422 STTP มีชีลด์', content: (<><p>สาย STTP เป็นสายสัญญาณ RS485, RS422 แบบมีชีลด์ คู่สายบิดเกลียวพร้อมชีลด์ฟอยล์ ป้องกันสัญญาณรบกวน EMI/RFI ได้ดีเยี่ยม</p></>) },
+            { id: 'overview', title: 'สาย RS485/RS422 STTP มีชีลด์ คืออะไร ?', content: (<><p>สาย STTP เป็นสายสัญญาณ RS485, RS422 แบบมีชีลด์ฟอยล์ คู่สายบิดเกลียวพร้อมชีลด์ ป้องกัน EMI/RFI ได้ดีเยี่ยม</p></>) },
+            { id: 'applications', title: 'การใช้งาน', content: (<ul><li>สัญญาณ RS485/RS422 ในสภาพแวดล้อมที่มีสัญญาณรบกวน</li><li>เชื่อมต่อ PLC, SCADA ที่ต้องการความเสถียร</li></ul>) },
         ],
-        faqs: [{ q: 'STTP ต่างจาก ST-TP อย่างไร ?', a: 'STTP มีชีลด์ฟอยล์เพิ่ม ป้องกัน EMI ได้ดีกว่า' }],
+        faqs: [
+            { q: 'STTP ต่างจาก ST-TP อย่างไร ?', a: 'STTP มีชีลด์ฟอยล์เพิ่ม ป้องกัน EMI ได้ดีกว่า' },
+            { q: 'STTP ป้องกัน EMI ได้ดีแค่ไหน ?', a: 'ชีลด์ฟอยล์หุ้มคู่สายป้องกัน EMI/RFI ได้ดี' },
+            { q: 'STTP เหมาะกับงานอะไร ?', a: 'งานที่มี EMI รบกวนสูง เช่น ใกล้ Inverter หรือ Motor' },
+        ],
     },
     'rs485-rs422-belden': {
         sections: [
-            { id: 'overview', title: 'สาย RS485/RS422 Belden', content: (<><p>สาย Belden สำหรับสัญญาณ RS485, RS422 คุณภาพระดับโลก มีชีลด์ป้องกันสัญญาณรบกวนหลายชั้น เหมาะสำหรับงานที่ต้องการความเสถียรสูงสุด</p></>) },
+            { id: 'overview', title: 'สาย RS485/RS422 Belden คืออะไร ?', content: (<><p>สาย Belden สำหรับ RS485, RS422 คุณภาพระดับโลก ชีลด์หลายชั้น เหมาะงานความเสถียรสูงสุด</p></>) },
+            { id: 'applications', title: 'การใช้งาน', content: (<ul><li>ระบบ SCADA, PLC ที่ต้องการความเสถียรสูงสุด</li><li>งานระยะทางไกลที่สัญญาณไม่ขาดหาย</li></ul>) },
         ],
-        faqs: [{ q: 'สาย Belden RS485 เหมาะกับงานอะไร ?', a: 'งานที่ต้องการความเสถียรของสัญญาณสูงสุด เช่น ระบบ SCADA, PLC' }],
+        faqs: [
+            { q: 'สาย Belden RS485 เหมาะกับงานอะไร ?', a: 'งานที่ต้องการความเสถียรสูงสุด เช่น SCADA, PLC' },
+            { q: 'Belden แพงกว่ายี่ห้ออื่นไหม ?', a: 'แพงกว่า แต่คุ้มค่าสำหรับงานที่ต้องการคุณภาพ' },
+            { q: 'Belden ต่างจาก Hosiwell อย่างไร ?', a: 'Belden คุณภาพสูงกว่า ชีลด์หลายชั้น ราคาสูงกว่า Hosiwell' },
+        ],
     },
     'rs485-rs422-hosiwell': {
         sections: [
-            { id: 'overview', title: 'สาย RS485/RS422 Hosiwell', content: (<><p>สาย Hosiwell สำหรับสัญญาณ RS485, RS422 คุณภาพสูง ราคาคุ้มค่า มีชีลด์ป้องกันสัญญาณรบกวน เหมาะสำหรับงานทั่วไปในอุตสาหกรรม</p></>) },
+            { id: 'overview', title: 'สาย RS485/RS422 Hosiwell คืออะไร ?', content: (<><p>สาย Hosiwell สำหรับ RS485, RS422 คุณภาพสูง ราคาคุ้มค่า มีชีลด์ป้องกันสัญญาณรบกวน เหมาะงานทั่วไปในอุตสาหกรรม</p></>) },
+            { id: 'applications', title: 'การใช้งาน', content: (<ul><li>งานทั่วไปในอุตสาหกรรม</li><li>ทดแทน Belden ในงานที่ไม่ต้องการคุณภาพสูงสุด</li></ul>) },
         ],
-        faqs: [{ q: 'สาย Hosiwell RS485 ต่างจาก Belden อย่างไร ?', a: 'คุณภาพดี ราคาคุ้มค่ากว่า เหมาะกับงานทั่วไป' }],
+        faqs: [
+            { q: 'สาย Hosiwell RS485 ต่างจาก Belden อย่างไร ?', a: 'คุณภาพดี ราคาคุ้มค่ากว่า เหมาะกับงานทั่วไป' },
+            { q: 'Hosiwell มีชีลด์ไหม ?', a: 'มีครับ มีชีลด์ป้องกันสัญญาณรบกวน' },
+            { q: 'Hosiwell เหมาะกับงานอะไร ?', a: 'งานทั่วไปที่ไม่ต้องการคุณภาพระดับ Belden' },
+        ],
     },
     'rs485-rs422-liycy-tp': {
         sections: [
-            { id: 'overview', title: 'สาย RS485/RS422 LiYCY-TP', content: (<><p>LiYCY-TP เป็นสายคู่บิดเกลียวมีชีลด์ทองแดงเคลือบดีบุกถัก สำหรับ RS485, RS422 ป้องกัน EMI/RFI ได้ดีเยี่ยม อ่อนตัวสูง</p></>) },
+            { id: 'overview', title: 'สาย RS485/RS422 LiYCY-TP คืออะไร ?', content: (<><p>LiYCY-TP เป็นสายคู่บิดเกลียวมีชีลด์ทองแดงเคลือบดีบุกถัก สำหรับ RS485, RS422, RS232 ป้องกัน EMI/RFI ได้ดีเยี่ยม อ่อนตัวสูง</p></>) },
+            { id: 'applications', title: 'การใช้งาน', content: (<ul><li>RS485, RS422, RS232</li><li>งานที่ต้องการชีลด์ป้องกัน EMI</li><li>ทดแทนสายสัญญาณยุโรปในระบบอุตสาหกรรม</li></ul>) },
         ],
-        faqs: [{ q: 'LiYCY-TP เหมาะกับสัญญาณอะไร ?', a: 'RS485, RS422, RS232 ที่ต้องการชีลด์ป้องกันสัญญาณรบกวน' }],
+        faqs: [
+            { q: 'LiYCY-TP เหมาะกับสัญญาณอะไร ?', a: 'RS485, RS422, RS232 ที่ต้องการชีลด์ป้องกันสัญญาณรบกวน' },
+            { q: 'LiYCY-TP ต่างจาก STTP อย่างไร ?', a: 'LiYCY-TP ชีลด์ทองแดงถักอ่อนตัวกว่าและป้องกัน EMI ได้ดีกว่า STTP ที่เป็นชีลด์ฟอยล์' },
+            { q: 'LiYCY-TP อ่อนตัวไหม ?', a: 'อ่อนตัวสูง เดินสายง่ายในโรงงาน' },
+        ],
     },
     'profibus-cable': {
         sections: [
-            { id: 'overview', title: 'สาย Profibus Cable', content: (<><p>สาย Profibus สำหรับระบบสื่อสาร Profibus DP/PA ในอุตสาหกรรม ออกแบบตามมาตรฐาน IEC 61158 มีชีลด์ป้องกันสัญญาณรบกวน ฉนวนสีม่วงตามมาตรฐาน Profibus</p></>) },
+            { id: 'overview', title: 'สาย Profibus Cable คืออะไร ?', content: (<><p>สาย Profibus สำหรับระบบสื่อสาร Profibus DP/PA ในอุตสาหกรรม ตามมาตรฐาน IEC 61158 ฉนวนสีม่วงตามมาตรฐาน Profibus</p></>) },
+            { id: 'applications', title: 'การใช้งาน', content: (<ul><li>ระบบ Profibus DP/PA</li><li>เชื่อมต่อ PLC Siemens กับอุปกรณ์</li><li>Factory Automation ทั่วไป</li></ul>) },
         ],
-        faqs: [{ q: 'สาย Profibus เหมาะกับงานอะไร ?', a: 'ระบบสื่อสาร Profibus DP/PA เชื่อมต่อ PLC กับอุปกรณ์ในโรงงาน' }],
+        faqs: [
+            { q: 'สาย Profibus เหมาะกับงานอะไร ?', a: 'ระบบ Profibus DP/PA เชื่อมต่อ PLC กับอุปกรณ์ในโรงงาน' },
+            { q: 'สาย Profibus สีอะไร ?', a: 'สีม่วงตามมาตรฐาน Profibus' },
+            { q: 'มีรุ่น Drag Chain ไหม ?', a: 'มีครับ รุ่น Profibus Drag Chain สำหรับรางกระดูกงู' },
+        ],
     },
     'profibus-connector-90': {
         sections: [
-            { id: 'overview', title: 'Profibus Connector 90° (หัวต่อ Profibus)', content: (<><p>หัวต่อ Profibus Connector แบบ 90 องศา สำหรับเชื่อมต่อสาย Profibus เข้ากับอุปกรณ์ ออกแบบให้ติดตั้งง่ายในพื้นที่จำกัด มี Terminating Resistor ในตัว</p></>) },
+            { id: 'overview', title: 'Profibus Connector 90° คืออะไร ?', content: (<><p>หัวต่อ Profibus Connector แบบ 90 องศา ติดตั้งง่ายในพื้นที่จำกัด มี Terminating Resistor สวิตช์เปิด-ปิดในตัว</p></>) },
         ],
-        faqs: [{ q: 'หัวต่อ Profibus 90° มี Terminator ในตัวไหม ?', a: 'มีครับ มี Terminating Resistor สวิตช์เปิด-ปิดในตัว' }],
+        faqs: [
+            { q: 'หัวต่อ Profibus 90° มี Terminator ในตัวไหม ?', a: 'มีครับ มี Terminating Resistor สวิตช์เปิด-ปิดในตัว' },
+            { q: 'ทำไมต้องเป็น 90 องศา ?', a: 'เพื่อติดตั้งในพื้นที่จำกัดที่สายตรงเสียบไม่ได้' },
+            { q: 'ใช้กับสายอะไร ?', a: 'ใช้กับสาย Profibus ทุกรุ่น' },
+        ],
     },
     'profibus-connector-90pg': {
         sections: [
-            { id: 'overview', title: 'Profibus Connector 90° PG (แบบรัดสาย)', content: (<><p>หัวต่อ Profibus Connector 90° แบบ PG เพิ่มตัวรัดสาย (Cable Gland) ช่วยยึดสายให้แน่น ป้องกันสายหลุด เหมาะสำหรับงานที่มีแรงสั่นสะเทือน</p></>) },
+            { id: 'overview', title: 'Profibus Connector 90° PG คืออะไร ?', content: (<><p>หัวต่อ Profibus 90° แบบ PG เพิ่มตัวรัดสาย (Cable Gland) ยึดสายแน่น ป้องกันสายหลุด เหมาะงานที่มีแรงสั่นสะเทือน</p></>) },
         ],
-        faqs: [{ q: 'PG ต่างจากแบบปกติอย่างไร ?', a: 'มี Cable Gland เพิ่มเพื่อรัดสายให้แน่น เหมาะกับงานที่มีแรงสั่น' }],
+        faqs: [
+            { q: 'PG ต่างจากแบบปกติอย่างไร ?', a: 'มี Cable Gland เพิ่มเพื่อรัดสายให้แน่น เหมาะงานที่มีแรงสั่น' },
+            { q: 'PG ต้องใช้คู่กับสายอะไร ?', a: 'ใช้คู่กับสาย Profibus ทุกรุ่น' },
+            { q: 'PG มี Terminator ไหม ?', a: 'มีครับ มี Terminating Resistor สวิตช์เปิด-ปิดในตัว' },
+        ],
     },
     'profibus-drag-chain': {
         sections: [
-            { id: 'overview', title: 'สาย Profibus Drag Chain', content: (<><p>สาย Profibus สำหรับรางกระดูกงู (Drag Chain) ออกแบบให้ทนต่อการโค้งงอซ้ำ ตัวนำฝอยละเอียดพิเศษ เหมาะกับรางกระดูกงูที่เคลื่อนที่ตลอดเวลา</p></>) },
+            { id: 'overview', title: 'สาย Profibus Drag Chain คืออะไร ?', content: (<><p>สาย Profibus สำหรับรางกระดูกงู (Drag Chain) ตัวนำฝอยละเอียดพิเศษ ทนโค้งงอซ้ำๆ เหมาะกับรางกระดูกงูที่เคลื่อนที่ตลอดเวลา</p></>) },
         ],
-        faqs: [{ q: 'Profibus Drag Chain ต่างจาก Profibus ปกติอย่างไร ?', a: 'ออกแบบสำหรับรางกระดูกงู ทนโค้งงอซ้ำๆ ได้ดีกว่า' }],
+        faqs: [
+            { q: 'Profibus Drag Chain ต่างจาก Profibus ปกติอย่างไร ?', a: 'ออกแบบสำหรับรางกระดูกงู ทนโค้งงอซ้ำๆ ได้ดีกว่า' },
+            { q: 'Profibus Drag Chain ใช้กับอะไร ?', a: 'รางกระดูกงูที่ต้องการสาย Profibus' },
+            { q: 'Profibus Drag Chain สีอะไร ?', a: 'สีม่วงตามมาตรฐาน Profibus' },
+        ],
     },
     'profibus-outdoor': {
         sections: [
-            { id: 'overview', title: 'สาย Profibus Outdoor', content: (<><p>สาย Profibus สำหรับใช้งานภายนอกอาคาร ฉนวนชนิดพิเศษทน UV ความชื้น สภาพอากาศ เหมาะสำหรับเดินสายภายนอกโรงงาน</p></>) },
+            { id: 'overview', title: 'สาย Profibus Outdoor คืออะไร ?', content: (<><p>สาย Profibus สำหรับใช้งานภายนอกอาคาร ฉนวนชนิดพิเศษทน UV ความชื้น สภาพอากาศ เหมาะเดินสายภายนอกโรงงาน</p></>) },
         ],
-        faqs: [{ q: 'Profibus Outdoor ใช้กลางแจ้งได้เลยหรือ ?', a: 'ได้ครับ ฉนวนทน UV ความชื้น สภาพอากาศ ออกแบบสำหรับภายนอกโดยเฉพาะ' }],
+        faqs: [
+            { q: 'Profibus Outdoor ใช้กลางแจ้งได้เลยหรือ ?', a: 'ได้ครับ ฉนวนทน UV ความชื้น สภาพอากาศ ออกแบบสำหรับภายนอกโดยเฉพาะ' },
+            { q: 'Profibus Outdoor ต่างจาก Profibus ปกติอย่างไร ?', a: 'ฉนวนพิเศษทน UV และสภาพอากาศได้ดีกว่า' },
+            { q: 'Profibus Outdoor สีอะไร ?', a: 'สีม่วงออกดำ เพื่อความทนทาน' },
+        ],
     },
     'profinet-connector-180': {
         sections: [
-            { id: 'overview', title: 'Profinet Connector 180°', content: (<><p>หัวต่อ Profinet Connector แบบ 180 องศา (ตรง) สำหรับเชื่อมต่อสาย Profinet Type A เข้ากับอุปกรณ์ ใช้ RJ45 มาตรฐาน ติดตั้งง่าย</p></>) },
+            { id: 'overview', title: 'Profinet Connector 180° คืออะไร ?', content: (<><p>หัวต่อ Profinet Connector แบบ 180 องศา (ตรง) ใช้ RJ45 มาตรฐาน ติดตั้งง่าย สำหรับสาย Profinet Type A</p></>) },
         ],
-        faqs: [{ q: 'Profinet Connector 180° ใช้กับสายอะไร ?', a: 'ใช้กับสาย Profinet Type A มาตรฐาน RJ45' }],
+        faqs: [
+            { q: 'Profinet Connector 180° ใช้กับสายอะไร ?', a: 'ใช้กับสาย Profinet Type A มาตรฐาน RJ45' },
+            { q: 'ทำไมต้องเป็น 180° ?', a: 'สำหรับติดตั้งตรงๆ ในพื้นที่กว้าง' },
+            { q: 'ติดตั้งง่ายไหม ?', a: 'ติดตั้งง่าย ไม่ต้องใช้เครื่องมือพิเศษ' },
+        ],
     },
     'profinet-type-a': {
         sections: [
-            { id: 'overview', title: 'สาย Profinet Type A', content: (<><p>สาย Profinet Type A สำหรับระบบสื่อสาร Profinet ในอุตสาหกรรม ใช้พอร์ต RJ45 มาตรฐาน รองรับ 100 Mbps มีชีลด์ป้องกันสัญญาณรบกวน ฉนวนสีเขียวตามมาตรฐาน Profinet</p></>) },
+            { id: 'overview', title: 'สาย Profinet Type A คืออะไร ?', content: (<><p>สาย Profinet Type A สำหรับระบบ Profinet ในอุตสาหกรรม รองรับ 100 Mbps มีชีลด์ป้องกันสัญญาณรบกวน ฉนวนสีเขียวตามมาตรฐาน Profinet</p></>) },
+            { id: 'applications', title: 'การใช้งาน', content: (<ul><li>ระบบ Profinet เชื่อมต่อ PLC Siemens</li><li>รองรับ 100 Mbps ตามมาตรฐาน</li><li>Factory Automation ที่ใช้ Ethernet</li></ul>) },
         ],
-        faqs: [{ q: 'Profinet Type A รองรับความเร็วเท่าไร ?', a: 'รองรับ 100 Mbps ตามมาตรฐาน Profinet' }],
+        faqs: [
+            { q: 'Profinet Type A รองรับความเร็วเท่าไร ?', a: 'รองรับ 100 Mbps ตามมาตรฐาน Profinet' },
+            { q: 'Profinet Type A สีอะไร ?', a: 'สีเขียวตามมาตรฐาน Profinet' },
+            { q: 'Profinet ต่างจาก Profibus อย่างไร ?', a: 'Profinet ใช้ Ethernet เร็วกว่า (100 Mbps) ส่วน Profibus ใช้ Serial' },
+        ],
     },
     'cc-link': {
         sections: [
-            { id: 'overview', title: 'สาย CC-Link', content: (<><p>สาย CC-Link สำหรับระบบสื่อสาร CC-Link ของ Mitsubishi ใช้เชื่อมต่อ PLC กับอุปกรณ์ในระบบอัตโนมัติ มีชีลด์ป้องกันสัญญาณรบกวน ฉนวนสีฟ้าตามมาตรฐาน</p></>) },
+            { id: 'overview', title: 'สาย CC-Link คืออะไร ?', content: (<><p>สาย CC-Link สำหรับระบบสื่อสาร CC-Link ของ Mitsubishi เชื่อมต่อ PLC กับอุปกรณ์ในระบบอัตโนมัติ ฉนวนสีฟ้าตามมาตรฐาน</p></>) },
+            { id: 'applications', title: 'การใช้งาน', content: (<ul><li>ระบบ CC-Link ของ Mitsubishi</li><li>Factory Automation ที่ใช้ PLC Mitsubishi</li></ul>) },
         ],
-        faqs: [{ q: 'สาย CC-Link ใช้กับระบบอะไร ?', a: 'ระบบสื่อสาร CC-Link ของ Mitsubishi สำหรับ Factory Automation' }],
+        faqs: [
+            { q: 'สาย CC-Link ใช้กับระบบอะไร ?', a: 'ระบบ CC-Link ของ Mitsubishi สำหรับ Factory Automation' },
+            { q: 'CC-Link สีอะไร ?', a: 'สีฟ้าตามมาตรฐาน CC-Link' },
+            { q: 'CC-Link ใช้กับ PLC ยี่ห้ออื่นได้ไหม ?', a: 'ออกแบบมาสำหรับ Mitsubishi โดยเฉพาะ อาจใช้ได้กับยี่ห้ออื่นที่รองรับ CC-Link' },
+        ],
     },
     'devicenet-thick': {
         sections: [
-            { id: 'overview', title: 'สาย DeviceNet Thick', content: (<><p>สาย DeviceNet Thick (สายหนา) สำหรับระบบสื่อสาร DeviceNet เส้นหลัก (Trunk Line) ส่งทั้งข้อมูลและไฟเลี้ยง 24V ในสายเดียวกัน ระยะทางสูงสุด 500 เมตร</p></>) },
+            { id: 'overview', title: 'สาย DeviceNet Thick คืออะไร ?', content: (<><p>สาย DeviceNet Thick (สายหนา) สำหรับระบบ DeviceNet เส้นหลัก (Trunk Line) ส่งทั้งข้อมูลและไฟเลี้ยง 24V ในสายเดียวกัน ระยะสูงสุด 500 เมตร</p></>) },
         ],
-        faqs: [{ q: 'DeviceNet Thick ใช้ระยะทางได้เท่าไร ?', a: 'สูงสุด 500 เมตร สำหรับเป็น Trunk Line หลัก' }],
+        faqs: [
+            { q: 'DeviceNet Thick ใช้ระยะทางได้เท่าไร ?', a: 'สูงสุด 500 เมตร สำหรับ Trunk Line หลัก' },
+            { q: 'DeviceNet Thick ต่างจาก Thin อย่างไร ?', a: 'Thick เป็น Trunk Line (ระยะไกล 500 ม.) ส่วน Thin เป็น Drop Line (ระยะสั้น 6 ม.)' },
+            { q: 'DeviceNet Thick ส่งไฟเลี้ยงได้ด้วยไหม ?', a: 'ได้ครับ ส่งทั้งข้อมูลและไฟเลี้ยง 24V ในสายเดียวกัน' },
+        ],
     },
     'devicenet-thin': {
         sections: [
-            { id: 'overview', title: 'สาย DeviceNet Thin', content: (<><p>สาย DeviceNet Thin (สายบาง) สำหรับระบบสื่อสาร DeviceNet เส้นแยก (Drop Line) เชื่อมต่อจาก Trunk Line ไปยังอุปกรณ์ ระยะทางสูงสุด 6 เมตร อ่อนตัวกว่ารุ่น Thick</p></>) },
+            { id: 'overview', title: 'สาย DeviceNet Thin คืออะไร ?', content: (<><p>สาย DeviceNet Thin (สายบาง) สำหรับระบบ DeviceNet เส้นแยก (Drop Line) เชื่อมจาก Trunk Line ไปยังอุปกรณ์ ระยะสูงสุด 6 เมตร อ่อนตัวกว่า Thick</p></>) },
         ],
-        faqs: [{ q: 'DeviceNet Thin ต่างจาก Thick อย่างไร ?', a: 'Thin ใช้เป็น Drop Line (ระยะสั้น 6 ม.) ส่วน Thick ใช้เป็น Trunk Line (ระยะยาว 500 ม.)' }],
+        faqs: [
+            { q: 'DeviceNet Thin ต่างจาก Thick อย่างไร ?', a: 'Thin ใช้เป็น Drop Line (ระยะสั้น 6 ม.) ส่วน Thick ใช้เป็น Trunk Line (ระยะยาว 500 ม.)' },
+            { q: 'DeviceNet Thin ใช้ระยะทางได้เท่าไร ?', a: 'สูงสุด 6 เมตร สำหรับ Drop Line' },
+            { q: 'DeviceNet Thin อ่อนตัวกว่า Thick ไหม ?', a: 'อ่อนตัวกว่าครับ เดินสายง่ายกว่า' },
+        ],
     },
     'eib-bus-knx': {
         sections: [
-            { id: 'overview', title: 'สาย EIB Bus / KNX', content: (<><p>สาย EIB Bus / KNX สำหรับระบบอาคารอัจฉริยะ (Building Automation) ใช้เชื่อมต่ออุปกรณ์ในระบบ KNX เช่น สวิตช์ เซ็นเซอร์ ตัวควบคุมแสงสว่าง ระบบ HVAC</p><p>ฉนวนสีเขียวตามมาตรฐาน KNX มีชีลด์ป้องกันสัญญาณรบกวน</p></>) },
+            { id: 'overview', title: 'สาย EIB Bus / KNX คืออะไร ?', content: (<><p>สาย EIB Bus / KNX สำหรับระบบอาคารอัจฉริยะ (Building Automation) เชื่อมต่ออุปกรณ์ในระบบ KNX เช่น สวิตช์ เซ็นเซอร์ ระบบ HVAC</p><p>ฉนวนสีเขียวตามมาตรฐาน KNX มีชีลด์ป้องกันสัญญาณรบกวน</p></>) },
+            { id: 'applications', title: 'การใช้งาน', content: (<ul><li>ระบบอาคารอัจฉริยะ (Smart Building)</li><li>ควบคุมแสงสว่าง HVAC กล้องวงจรปิด</li><li>โรงแรม โรงพยาบาล อาคารสำนักงาน</li></ul>) },
         ],
-        faqs: [{ q: 'สาย EIB/KNX เหมาะกับงานอะไร ?', a: 'ระบบอาคารอัจฉริยะ (Smart Building) ระบบ KNX สำหรับควบคุมแสงสว่าง HVAC ฯลฯ' }],
+        faqs: [
+            { q: 'สาย EIB/KNX เหมาะกับงานอะไร ?', a: 'ระบบอาคารอัจฉริยะ Smart Building ควบคุมแสงสว่าง HVAC' },
+            { q: 'EIB/KNX สีอะไร ?', a: 'สีเขียวตามมาตรฐาน KNX' },
+            { q: 'EIB/KNX มีชีลด์ไหม ?', a: 'มีครับ มีชีลด์ป้องกันสัญญาณรบกวน' },
+        ],
     },
 }
