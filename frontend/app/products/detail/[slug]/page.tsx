@@ -28,6 +28,9 @@ const styles = `
   .hero-cta { display: flex; gap: 12px; flex-wrap: wrap; }
   .hero-cta .cta-btn-call { padding: 12px 28px; font-size: 0.9rem; }
   .hero-cta .cta-btn-line { padding: 12px 24px; font-size: 0.85rem; }
+  .hero-cta .cta-btn-detail { padding: 12px 24px; font-size: 0.85rem; font-weight: 700; border-radius: 50px; background: linear-gradient(135deg, #f0a500, #e89400); color: #fff; text-decoration: none; display: inline-flex; align-items: center; box-shadow: 0 4px 15px rgba(240,165,0,0.3); transition: all 0.2s; }
+  .hero-cta .cta-btn-detail:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(240,165,0,0.45); }
+  .hero-cta a:hover { transform: translateY(-2px); }
 
   /* ─── Section Jump Navigation ─── */
   .section-nav { background: #fff; border-bottom: 1px solid #e2e8f0; padding: 14px 0; position: sticky; top: 0; z-index: 80; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
@@ -494,8 +497,8 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
                 <a href="tel:021115588" className="cta-btn-call">สอบถามราคา</a>
                 <a href={`https://page.line.me/ubb9405u?text=${encodeURIComponent(`สนใจสินค้า: ${product.title}${product.productCode ? ` (${product.productCode})` : ''} — ขอใบเสนอราคา`)}`} target="_blank" rel="noopener noreferrer" className="cta-btn-line">แอด LINE</a>
                 {slug === 'control-cable' && (
-                  <a href="/products/detail/ysly-jz" style={{ padding: '12px 24px', fontSize: '0.85rem', fontWeight: 700, borderRadius: '50px', background: 'linear-gradient(135deg, #f0a500, #e89400)', color: '#fff', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '6px', boxShadow: '0 4px 15px rgba(240,165,0,0.3)', transition: 'all 0.2s' }}>
-                    📋 ดูรายละเอียดเพิ่ม
+                  <a href="/products/detail/ysly-jz" className="cta-btn-detail">
+                    ดูรายละเอียดเพิ่ม
                   </a>
                 )}
               </div>
