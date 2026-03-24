@@ -35,11 +35,11 @@ export default async function HomePage() {
 
   const categories = [
     { name: "สายคอนโทรล (Control Cable)", slug: "control-cable", abbr: "CC", desc: "YSLY-JZ, YSLY-JB สายคอนโทรลประสิทธิภาพสูง มาตรฐาน DIN VDE", count: 12, fallbackImg: "/images/categories/control-cable.jpg" },
-    { name: "สาย VFD / Servo Cable", slug: "vfd-servo-cable", abbr: "VFD", desc: "สายไฟสำหรับระบบ VFD และ Servo Motor ชีลด์ป้องกัน EMI", count: 8, fallbackImg: "/images/categories/vfd-servo-cable.jpg" },
+    { name: "สายทนน้ำมัน (Oil Resistant)", slug: "oil-resistant-cable", abbr: "OIL", desc: "Y11Y-JZ, YC11Y-JZ สายไฟทนน้ำมันสำหรับงานเครื่องจักร CNC", count: 8, fallbackImg: "/images/categories/oil-resistant-cable.jpg" },
     { name: "สายทนความร้อน", slug: "heat-resistant-cable", abbr: "HRC", desc: "SiHF, SiLi ทนความร้อนสูงถึง 180°C สำหรับงานที่ต้องทนอุณหภูมิ", count: 6, fallbackImg: "/images/categories/heat-resistant-cable.jpg" },
     { name: "สายชีลด์ (Shielded Cable)", slug: "shielded-cable", abbr: "SHD", desc: "สายไฟมีชีลด์ป้องกันคลื่นแม่เหล็กไฟฟ้า สำหรับระบบอัตโนมัติ", count: 7, fallbackImg: "/images/categories/shielded-cable.jpg" },
-    { name: "สายเครน (Crane Cable)", slug: "crane-cable", abbr: "CRN", desc: "สายไฟทนแรงดึง สำหรับเครนและระบบขนถ่ายสินค้า", count: 5, fallbackImg: "/images/categories/crane-cable.jpg" },
-    { name: "สาย Bus / Data Cable", slug: "bus-data-cable", abbr: "BUS", desc: "Profibus, DeviceNet สายสื่อสารข้อมูลอุตสาหกรรม", count: 4, fallbackImg: "/images/categories/bus-data-cable.jpg" },
+    { name: "สายกันน้ำ (Water Resistant)", slug: "water-resistant-cable", abbr: "WRC", desc: "H07RN-F สายไฟกันน้ำ ทนแดด สำหรับงานกลางแจ้งและใต้น้ำ", count: 5, fallbackImg: "/images/categories/water-resistant-cable.jpg" },
+    { name: "สาย Bus อุตสาหกรรม", slug: "industrial-bus-cable", abbr: "BUS", desc: "Profibus, DeviceNet, CC-Link สายสื่อสารข้อมูลอุตสาหกรรม", count: 4, fallbackImg: "/images/categories/bus-data-cable.jpg" },
   ];
 
   // ─── ข้อมูลจากต้นฉบับ — ทำไมต้องเลือก NYX CABLE ───
@@ -65,13 +65,13 @@ export default async function HomePage() {
   const mainProducts = [
     { name: "YSLY-JZ", thaiName: "สายคอนโทรล", slug: "ysly-jz" },
     { name: "LiYCY", thaiName: "สายคอนโทรลมีชีลด์", slug: "liycy" },
-    { name: "ST-TP", thaiName: "สายชีลด์ สำหรับ RS485/RS422 โดยเฉพาะ", slug: "st-tp" },
+    { name: "ST-TP", thaiName: "สายชีลด์ สำหรับ RS485/RS422 โดยเฉพาะ", slug: "rs485-rs422" },
     { name: "H07RN-F", thaiName: "สายไฟกันน้ำ สายไฟใต้น้ำ", slug: "h07rn-f" },
     { name: "NSHTÖU", thaiName: "สายไฟทนแรงดึงงาน Cable Reel", slug: "nshtou" },
     { name: "H07V-K", thaiName: "สายเดี่ยวสำหรับ Wiring ขนาด 0.5–240 mm²", slug: "h07v-k" },
     { name: "H07VVH6-F", thaiName: "สายไฟแบนสำหรับ Crane", slug: "h07vvh6-f" },
     { name: "SiHF", thaiName: "สายไฟทนความร้อน", slug: "sihf" },
-    { name: "Multiflex", thaiName: "สายไฟรางกระดูกงู สายไฟหุ่นยนต์", slug: "multiflex" },
+    { name: "Multiflex", thaiName: "สายไฟรางกระดูกงู สายไฟหุ่นยนต์", slug: "robot-cable" },
   ];
 
   // ─── FAQ ความรู้จากต้นฉบับ ───
