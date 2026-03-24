@@ -985,9 +985,8 @@ export const productContentMap: Record<string, ProductContent> = {
             { q: 'NGFLGou รับแรงดึงได้ไหม ?', a: 'ได้ครับ ออกแบบให้รับแรงดึงจากน้ำหนักตัวสาย' },
         ],
     },
-    'nsgafou': {
-        sections: [
-            { id: 'overview', title: 'NSGAFou สายไฟรับแรงดึง คืออะไร ?', content: (<><p>NSGAFou เป็นสายไฟรับแรงดึงฉนวนยาง สำหรับ Cable Reel และ Cable Trolley ทนแรงดึงและโค้งงอในงานอุตสาหกรรมหนัก</p></>) },
+    <p>รับแรงดัน 0.6/1 kV อุณหภูมิ -25°C ถึง 60°C ตามมาตรฐาน VDE 0250</p></>)},
+            { id: structure, title: โครงสร้าง NSGAFou, content: (<ul><li><strong>ตัวนำ</strong> — ทองแดงฝอยอ่อนตัว Class 5</li><li><strong>ฉนวนภายใน</strong> — ยาง EPR ทนอุณหภูมิ UV</li><li><strong>เสริมแรงดึง</strong> — เส้นใยรับแรงดึง</li><li><strong>ฉนวนภายนอก</strong> — ยาง Neoprene สีดำ ทนแรงกระแทก ขูดขีด UV</li></ul>)},
             { id: 'applications', title: 'การใช้งาน', content: (<ul><li>Cable Reel สำหรับเครน</li><li>ท่าเรือ เหมืองแร่ อุตสาหกรรมหนัก</li><li>งานภายนอกที่ต้องทน UV</li></ul>) },
         ],
         faqs: [
@@ -998,8 +997,9 @@ export const productContentMap: Record<string, ProductContent> = {
     },
     'nshtou': {
         sections: [
-            { id: 'overview', title: 'NSHTOU สายไฟ Cable Reel Crane คืออะไร ?', content: (<><p>NSHTOU เป็นสายไฟรับแรงดึงสำหรับ Cable Reel Crane ฉนวนยาง ออกแบบสำหรับรับแรงดึงและโค้งงอในงานเครน ทน UV ความชื้น สภาพอากาศ</p><p>เหมาะสำหรับ Overhead Crane, Gantry Crane, Port Crane</p></>) },
-            { id: 'applications', title: 'การใช้งาน', content: (<ul><li>Overhead Crane (เครนเหนือศีรษะ)</li><li>Gantry Crane (เครนขาหยั่ง)</li><li>Port Crane (เครนท่าเรือ)</li></ul>) },
+            { id: 'overview', title: 'NSHTOU สายไฟ Cable Reel Crane คืออะไร ?', content: (<><p>NSHTOU เป็นสายไฟรับแรงดึงสำหรับ Cable Reel Crane ฉนวนยาง ออกแบบสำหรับรับแรงดึงและโค้งงอในงานเครน ทน UV ความชื้น สภาพอากาศ</p><p>รับแรงดัน 0.6/1 kV อุณหภูมิ -40°C ถึง 60°C ตามมาตรฐาน VDE 0250</p><p>เหมาะสำหรับ Overhead Crane, Gantry Crane, Port Crane</p></>) },
+            { id: 'structure', title: 'โครงสร้าง NSHTOU', content: (<ul><li><strong>ตัวนำ</strong> — ทองแดงฝอยอ่อนตัว Class 5 ทนแรงดึงสูงพิเศษ</li><li><strong>ฉนวนภายใน</strong> — ยาง EPR ทน -40°C ถึง 60°C</li><li><strong>เสริมแรง</strong> — เส้นใยถักรับแรงดึงพิเศษสำหรับเครน</li><li><strong>ฉนวนภายนอก</strong> — ยาง Neoprene Heavy Duty ทน UV ความชื้น แรงกระแทก สีดำ</li></ul>)},
+                        { id: 'applications', title: 'การใช้งาน', content: (<ul><li>Overhead Crane (เครนเหนือศีรษะ)</li><li>Gantry Crane (เครนขาหยั่ง)</li><li>Port Crane (เครนท่าเรือ)</li></ul>) },
         ],
         faqs: [
             { q: 'NSHTOU เหมาะกับเครนประเภทไหน ?', a: 'ใช้ได้กับ Overhead Crane, Gantry Crane, Port Crane' },
@@ -1021,8 +1021,9 @@ export const productContentMap: Record<string, ProductContent> = {
     },
     'ntscgewoeu': {
         sections: [
-            { id: 'overview', title: 'NTSCGEWOEU สายไฟสำหรับงานเหมืองคืออะไร ?', content: (<><p>NTSCGEWOEU เป็นสายไฟรับแรงดึงสำหรับ Cable Reel ในงานเหมืองโดยเฉพาะ ทนแรงดึง แรงกระแทก สภาพแวดล้อมรุนแรงมาก</p><p>ฉนวนยางชนิดพิเศษ ทนน้ำ ฝุ่น ความชื้น UV</p></>) },
-            { id: 'applications', title: 'การใช้งาน', content: (<ul><li>เหมืองแร่และงานขุดเจาะ</li><li>Cable Reel ในสภาพแวดล้อมรุนแรง</li><li>งานที่ต้องการความทนทานสูงสุด</li></ul>) },
+            { id: 'overview', title: 'NTSCGEWOEU สายไฟสำหรับงานเหมืองคืออะไร ?', content: (<><p>NTSCGEWOEU เป็นสายไฟรับแรงดึงสำหรับ Cable Reel ในงานเหมืองโดยเฉพาะ ทนแรงดึง แรงกระแทก สภาพแวดล้อมรุนแรงมาก</p><p>รับแรงดัน 0.6/1 kV อุณหภูมิ -40°C ถึง 60°C ตามมาตรฐาน DIN VDE</p><p>ฉนวนยางชนิดพิเศษ ทนน้ำ ฝุ่น ความชื้น UV</p></>) },
+            { id: 'structure', title: 'โครงสร้าง NTSCGEWOEU', content: (<ul><li><strong>ตัวนำ</strong> — ทองแดงฝอยอ่อนตัว Class 5 ทนแรงดึงสูงสุด</li><li><strong>ฉนวนภายใน</strong> — ยาง EPR ชนิดพิเศษ ทน -40°C ถึง 60°C</li><li><strong>เสริมแรง</strong> — เส้นเหล็กกล้า (Steel Wire) รับแรงดึงระดับเหมือง</li><li><strong>ฉนวนภายนอก</strong> — ยาง Neoprene Extra Heavy Duty ทนน้ำ ฝุ่น UV แรงกระแทกรุนแรง สีดำ</li></ul>)},
+                        { id: 'applications', title: 'การใช้งาน', content: (<ul><li>เหมืองแร่และงานขุดเจาะ</li><li>Cable Reel ในสภาพแวดล้อมรุนแรง</li><li>งานที่ต้องการความทนทานสูงสุด</li></ul>) },
         ],
         faqs: [
             { q: 'NTSCGEWOEU ต่างจากสายรับแรงดึงรุ่นอื่นอย่างไร ?', a: 'ออกแบบสำหรับงานเหมืองโดยเฉพาะ ทนสภาพแวดล้อมรุนแรงที่สุด' },
@@ -1056,7 +1057,8 @@ export const productContentMap: Record<string, ProductContent> = {
     'rs485-rs422': {
         sections: [
             { id: 'overview', title: 'สาย RS485/RS422 (ST-TP) คืออะไร ?', content: (<><p>สาย ST-TP ออกแบบสำหรับสัญญาณ RS485, RS422 และ 4-20mA โดยเฉพาะ ตัวนำทองแดงฝอยเคลือบดีบุก ทนความชื้น คู่สายบิดเกลียวลดการรบกวนระหว่างสัญญาณ</p></>) },
-            { id: 'applications', title: 'การใช้งาน', content: (<ul><li>สัญญาณ RS485, RS422</li><li>สัญญาณ 4-20mA</li><li>เชื่อมต่อ PLC, Sensor, Inverter</li></ul>) },
+            { id: 'structure', title: 'โครงสร้างสาย ST-TP', content: (<ul><li><strong>ตัวนำ</strong> — ทองแดงฝอยเคลือบดีบุก ทนความชื้น ทนออกไซด์</li><li><strong>คู่สาย</strong> — บิดเกลียว (Twisted Pair) ลด Crosstalk</li><li><strong>ฉนวน</strong> — PVC สีดำ</li></ul>)},
+                        { id: 'applications', title: 'การใช้งาน', content: (<ul><li>สัญญาณ RS485, RS422</li><li>สัญญาณ 4-20mA</li><li>เชื่อมต่อ PLC, Sensor, Inverter</li></ul>) },
         ],
         faqs: [
             { q: 'สาย ST-TP เหมาะกับสัญญาณอะไร ?', a: 'RS485, RS422, สัญญาณ 4-20mA' },
@@ -1111,7 +1113,8 @@ export const productContentMap: Record<string, ProductContent> = {
     'profibus-cable': {
         sections: [
             { id: 'overview', title: 'สาย Profibus Cable คืออะไร ?', content: (<><p>สาย Profibus สำหรับระบบสื่อสาร Profibus DP/PA ในอุตสาหกรรม ตามมาตรฐาน IEC 61158 ฉนวนสีม่วงตามมาตรฐาน Profibus</p></>) },
-            { id: 'applications', title: 'การใช้งาน', content: (<ul><li>ระบบ Profibus DP/PA</li><li>เชื่อมต่อ PLC Siemens กับอุปกรณ์</li><li>Factory Automation ทั่วไป</li></ul>) },
+            { id: 'structure', title: 'โครงสร้างสาย Profibus', content: (<ul><li><strong>ตัวนำ</strong> — ทองแดงแข็ง (Solid) ตามมาตรฐาน Profibus</li><li><strong>ฉนวน</strong> — PE Foam ทนสัญญาณความถี่สูง</li><li><strong>ชีลด์</strong> — ฟอยล์อลูมิเนียม + ทองแดงถัก ป้องกัน EMI</li><li><strong>ฉนวนภายนอก</strong> — PVC สีม่วง ตามมาตรฐาน Profibus</li></ul>)},
+                        { id: 'applications', title: 'การใช้งาน', content: (<ul><li>ระบบ Profibus DP/PA</li><li>เชื่อมต่อ PLC Siemens กับอุปกรณ์</li><li>Factory Automation ทั่วไป</li></ul>) },
         ],
         faqs: [
             { q: 'สาย Profibus เหมาะกับงานอะไร ?', a: 'ระบบ Profibus DP/PA เชื่อมต่อ PLC กับอุปกรณ์ในโรงงาน' },
@@ -1172,7 +1175,8 @@ export const productContentMap: Record<string, ProductContent> = {
     'profinet-type-a': {
         sections: [
             { id: 'overview', title: 'สาย Profinet Type A คืออะไร ?', content: (<><p>สาย Profinet Type A สำหรับระบบ Profinet ในอุตสาหกรรม รองรับ 100 Mbps มีชีลด์ป้องกันสัญญาณรบกวน ฉนวนสีเขียวตามมาตรฐาน Profinet</p></>) },
-            { id: 'applications', title: 'การใช้งาน', content: (<ul><li>ระบบ Profinet เชื่อมต่อ PLC Siemens</li><li>รองรับ 100 Mbps ตามมาตรฐาน</li><li>Factory Automation ที่ใช้ Ethernet</li></ul>) },
+            { id: 'structure', title: 'โครงสร้างสาย Profinet Type A', content: (<ul><li><strong>ตัวนำ</strong> — ทองแดงแข็ง 4 คู่ (4-pair) ตามมาตรฐาน Cat 5e</li><li><strong>ฉนวน</strong> — PE คู่สายบิดเกลียว</li><li><strong>ชีลด์</strong> — ฟอยล์ + ถักทองแดง ป้องกัน EMI สำหรับโรงงาน</li><li><strong>ฉนวนภายนอก</strong> — PVC สีเขียว ตามมาตรฐาน Profinet</li></ul>)},
+                        { id: 'applications', title: 'การใช้งาน', content: (<ul><li>ระบบ Profinet เชื่อมต่อ PLC Siemens</li><li>รองรับ 100 Mbps ตามมาตรฐาน</li><li>Factory Automation ที่ใช้ Ethernet</li></ul>) },
         ],
         faqs: [
             { q: 'Profinet Type A รองรับความเร็วเท่าไร ?', a: 'รองรับ 100 Mbps ตามมาตรฐาน Profinet' },
