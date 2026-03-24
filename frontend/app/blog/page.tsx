@@ -162,6 +162,21 @@ export default async function BlogPage() {
     console.error('Failed to fetch blog posts:', e)
   }
 
+  // Client feedback #14: exclude 10 articles unrelated to cables
+  const excludeTitles = [
+    'ไอเดียรถเข็นไฟฟ้า',
+    'สนามบินรักษ์โลก',
+    'ไอเดียรถสาธารณะพลังงานแสงอาทิตย์',
+    'ลาก่อนนิวเคลียร์',
+    'Stella',
+    'เสาไฟฟ้าแรงสูง',
+    'โซล่าฟาร์ม ดีจริงหรือไม่',
+    'กระทรวงพลังงาน ร่วม การไฟฟ้า',
+    'ขายไฟฟ้า คืนกำไรกลับมา',
+    'Solar Roof ของระบบโซล่าเซลล์',
+  ]
+  posts = posts.filter((p: any) => !excludeTitles.some(t => (p.title || '').includes(t)))
+
   const featuredPost = posts.length > 0 ? posts[0] : null
   const remainingPosts = posts.length > 1 ? posts.slice(1) : []
 
