@@ -331,14 +331,14 @@ export default function ContactPage() {
           <h2>สำนักงานและคลังสินค้า</h2>
           <div className="warehouse-grid">
             {[
-              { src: 'https://nyxcable.com/wp-content/uploads/2024/12/LINE_ALBUM_201224_241220_1-scaled.jpg', alt: 'อาคารสำนักงาน NYX Cable' },
-              { src: 'https://nyxcable.com/wp-content/uploads/2024/09/61778.jpg', alt: 'ทางเข้าสำนักงาน NYX Cable' },
-              { src: 'https://nyxcable.com/wp-content/uploads/2024/09/61777.jpg', alt: 'ประตูสำนักงาน NYX Cable' },
-              { src: 'https://nyxcable.com/wp-content/uploads/2024/12/LINE_ALBUM_201224_241220_6-scaled.jpg', alt: 'คลังสินค้าสายไฟ NYX Cable' },
-              { src: 'https://nyxcable.com/wp-content/uploads/2024/12/86205.jpg', alt: 'ม้วนสายไฟพร้อมส่ง NYX Cable' },
-              { src: 'https://nyxcable.com/wp-content/uploads/2024/09/61766.jpg', alt: 'ชั้นวางสินค้าสายไฟ NYX Cable' },
-              { src: 'https://nyxcable.com/wp-content/uploads/2024/12/LINE_ALBUM_201224_241220_7-scaled.jpg', alt: 'ห้องประชุม NYX Cable' },
-              { src: 'https://nyxcable.com/wp-content/uploads/2024/12/S__4472836.jpg', alt: 'เครื่องตัดสายไฟ NYX Cable' },
+              { src: '/images/office/office-building.jpg', alt: 'อาคารสำนักงาน NYX Cable' },
+              { src: '/images/office/office-entrance.jpg', alt: 'ทางเข้าสำนักงาน NYX Cable' },
+              { src: '/images/office/office-door.jpg', alt: 'ประตูสำนักงาน NYX Cable' },
+              { src: '/images/office/warehouse.jpg', alt: 'คลังสินค้าสายไฟ NYX Cable' },
+              { src: '/images/office/cable-rolls.jpg', alt: 'ม้วนสายไฟพร้อมส่ง NYX Cable' },
+              { src: '/images/office/cable-shelves.jpg', alt: 'ชั้นวางสินค้าสายไฟ NYX Cable' },
+              { src: '/images/office/meeting-room.jpg', alt: 'ห้องประชุม NYX Cable' },
+              { src: '/images/office/cable-cutting.jpg', alt: 'เครื่องตัดสายไฟ NYX Cable' },
             ].map((photo, i) => (
               <div key={i} className="warehouse-photo">
                 <img src={photo.src} alt={photo.alt} loading="lazy" />
