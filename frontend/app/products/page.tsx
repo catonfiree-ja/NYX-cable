@@ -71,10 +71,41 @@ export default async function ProductsPage() {
     console.error('Failed to fetch from Sanity:', e)
   }
 
-  // Sort categories: ones with products first, then by productCount desc
+  // Custom display order and title overrides per client
+  const categoryOrder: Record<string, number> = {
+    'control-cable': 1,
+    'shielded-cable': 2,
+    'twisted-pair-cable': 3,
+    'rubber-cable': 4,
+    'wiring-cable': 5,
+    'high-flex-cable': 6,
+    'industrial-bus-cable': 7,
+    'resistant-cable': 8,
+  }
+
+  const titleOverrides: Record<string, string> = {
+    'control-cable': 'สายคอนโทรล',
+    'shielded-cable': 'สายชีลด์ (Shielded Cable)',
+    'twisted-pair-cable': 'สายคู่บิดเกลียว RS485 / RS422',
+    'rubber-cable': 'สายไฟฉนวนทำจากยาง/กันน้ำ',
+    'wiring-cable': 'สายวายริ่งตู้ (VSF)',
+    'high-flex-cable': 'สายเคเบิลสำหรับงานเคลื่อนที่',
+    'industrial-bus-cable': 'สายฟิลด์บัส (Industrial Bus Cables)',
+    'resistant-cable': 'สายทนความร้อน ทนสารเคมี',
+  }
+
+  // Sort categories by custom order (unordered ones go to end)
   const sortedCategories = categories
     .filter((c: any) => !c.parent)
-    .sort((a: any, b: any) => (b.productCount || 0) - (a.productCount || 0))
+    .sort((a: any, b: any) => {
+      const orderA = categoryOrder[a.slug?.current] ?? 99
+      const orderB = categoryOrder[b.slug?.current] ?? 99
+      return orderA - orderB
+    })
+    .map((c: any) => ({
+      ...c,
+      title: titleOverrides[c.slug?.current] || c.title,
+    }))
 
   return (
     <>
