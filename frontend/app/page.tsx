@@ -633,25 +633,53 @@ export default async function HomePage() {
       })()}
 
 
-      {/* ─── บริการของเรา ─── */}
-      <section style={{ padding: '60px 0', background: '#fff', textAlign: 'center' }}>
+      {/* ─── บริการของเรา (Exact Original Style) ─── */}
+      <section style={{ paddingTop: 80, paddingBottom: 20, background: '#fff', textAlign: 'center' }}>
         <div className="container">
-          <h2 style={{ fontSize: '1.9rem', fontWeight: 800, color: '#003366', marginBottom: 40 }}>บริการของเรา</h2>
-          <div className="services-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 32, maxWidth: 900, margin: '0 auto' }}>
-            <div>
-              <div style={{ marginBottom: 16 }}><img src="/images/icons/service-consult.svg" alt="ให้คำแนะนำ" width="64" height="64" style={{ margin: '0 auto' }} /></div>
-              <h3 style={{ fontSize: '1.3rem', fontWeight: 700, color: '#0099ff', marginBottom: 12 }}>ให้คำแนะนำ</h3>
-              <p style={{ fontSize: '0.9rem', color: '#475569', lineHeight: 1.7 }}>จาก<strong style={{ color: '#0099ff' }}>ผู้เชี่ยวชาญ</strong>ด้าน<br />สายไฟฟ้าคอนโทรลโดยเฉพาะ</p>
+          <div style={{ marginBottom: 30, borderTop: '1px solid #e5e5e5', width: '100%' }}></div>
+          <h2 style={{ fontSize: '2rem', fontWeight: 700, color: '#000000', marginBottom: 0, lineHeight: 1, textAlign: 'center' }}>บริการของเรา</h2>
+          <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', margin: '0 auto', maxWidth: 960 }}>
+            {/* ให้คำแนะนำ */}
+            <div style={{ flex: '1 1 30%', padding: 50, textAlign: 'center' }}>
+              <div style={{ marginBottom: 30 }}>
+                <img src="/images/icons/service-consult.png" alt="ให้คำแนะนำ" width="80" height="80" style={{ display: 'block', margin: '0 auto' }} />
+              </div>
+              <div style={{ marginBottom: 30, borderTop: '1px solid #e5e5e5', width: '100%' }}></div>
+              <h2 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#000000', marginBottom: 16, textAlign: 'center' }}>ให้คำแนะนำ</h2>
+              <h4 style={{ fontSize: '1rem', fontWeight: 400, color: '#000000', lineHeight: 1.8, textAlign: 'center', margin: 0 }}>
+                จาก<span style={{ color: '#0e76bd' }}>ผู้เชี่ยวชาญ</span>ด้าน
+              </h4>
+              <h4 style={{ fontSize: '1rem', fontWeight: 400, color: '#000000', lineHeight: 1.8, textAlign: 'center', margin: 0 }}>
+                สายไฟฟ้าคอนโทรลโดยเฉพาะ
+              </h4>
             </div>
-            <div>
-              <div style={{ marginBottom: 16 }}><img src="/images/icons/service-solve.svg" alt="แก้ไขปัญหา" width="64" height="64" style={{ margin: '0 auto' }} /></div>
-              <h3 style={{ fontSize: '1.3rem', fontWeight: 700, color: '#0099ff', marginBottom: 12 }}>แก้ไขปัญหา</h3>
-              <p style={{ fontSize: '0.9rem', color: '#475569', lineHeight: 1.7 }}>แก้ไขปัญหา<strong style={{ color: '#0099ff' }}>ตรงจุด</strong><br />กับปรึกษามืออาชีพ</p>
+            {/* แก้ไขปัญหา */}
+            <div style={{ flex: '1 1 30%', padding: 50, textAlign: 'center' }}>
+              <div style={{ marginBottom: 30 }}>
+                <img src="/images/icons/service-solve.png" alt="แก้ไขปัญหา" width="80" height="80" style={{ display: 'block', margin: '0 auto' }} />
+              </div>
+              <div style={{ marginBottom: 30, borderTop: '1px solid #e5e5e5', width: '100%' }}></div>
+              <h2 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#000000', marginBottom: 16, textAlign: 'center' }}>แก้ไขปัญหา</h2>
+              <h4 style={{ fontSize: '1rem', fontWeight: 400, color: '#000000', lineHeight: 1.8, textAlign: 'center', margin: 0 }}>
+                แก้ไขปัญหา<span style={{ color: '#0e76bd' }}>ตรงจุด</span>
+              </h4>
+              <h4 style={{ fontSize: '1rem', fontWeight: 400, color: '#000000', lineHeight: 1.8, textAlign: 'center', margin: 0 }}>
+                กับปรึกษามืออาชีพ
+              </h4>
             </div>
-            <div>
-              <div style={{ marginBottom: 16 }}><img src="/images/icons/service-delivery.svg" alt="จัดส่งสินค้า" width="64" height="64" style={{ margin: '0 auto' }} /></div>
-              <h3 style={{ fontSize: '1.3rem', fontWeight: 700, color: '#0099ff', marginBottom: 12 }}>จัดส่งสินค้า</h3>
-              <p style={{ fontSize: '0.9rem', color: '#475569', lineHeight: 1.7 }}>ถึงที่หมายอย่างเป็นระบบ<br />และ<strong style={{ color: '#0099ff' }}>ตรงต่อเวลา</strong></p>
+            {/* จัดส่งสินค้า */}
+            <div style={{ flex: '1 1 30%', padding: 50, textAlign: 'center' }}>
+              <div style={{ marginBottom: 30 }}>
+                <img src="/images/icons/service-delivery.png" alt="จัดส่งสินค้า" width="80" height="80" style={{ display: 'block', margin: '0 auto' }} />
+              </div>
+              <div style={{ marginBottom: 30, borderTop: '1px solid #e5e5e5', width: '100%' }}></div>
+              <h2 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#000000', marginBottom: 16, textAlign: 'center' }}>จัดส่งสินค้า</h2>
+              <h4 style={{ fontSize: '1rem', fontWeight: 400, color: '#000000', lineHeight: 1.8, textAlign: 'center', margin: 0 }}>
+                ถึงที่หมายอย่างเป็นระบบ
+              </h4>
+              <h4 style={{ fontSize: '1rem', fontWeight: 400, color: '#000000', lineHeight: 1.8, textAlign: 'center', margin: 0 }}>
+                และ<span style={{ color: '#0e76bd' }}>ตรงต่อเวลา</span>
+              </h4>
             </div>
           </div>
         </div>
