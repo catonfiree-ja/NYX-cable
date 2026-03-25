@@ -24,6 +24,9 @@ export default defineType({
       title: 'ภาพปก',
       type: 'image',
       options: { hotspot: true },
+      fields: [
+        { name: 'alt', type: 'string', title: 'Alt Text', description: 'เช่น "ภาพส่งสินค้าสายไฟ NYX Cable 2025"' },
+      ],
       validation: (Rule) => Rule.required(),
     }),
     defineField({
@@ -39,6 +42,12 @@ export default defineType({
               name: 'caption',
               title: 'คำอธิบาย',
               type: 'string',
+            },
+            {
+              name: 'alt',
+              title: 'Alt Text',
+              type: 'string',
+              description: 'ถ้าไม่กรอก ระบบจะใช้คำอธิบายแทน',
             },
           ],
         },
@@ -63,6 +72,26 @@ export default defineType({
       type: 'url',
       description: 'ถ้าใส่ URL จะลิงก์ไปหน้านั้นแทนการเปิดแกลเลอรี่ (เช่น Facebook)',
     }),
+
+    // ─── SEO ───
+    defineField({
+      name: 'metaTitle',
+      title: 'SEO Title',
+      type: 'string',
+      group: 'seo',
+      description: 'แนะนำ 50-60 ตัวอักษร',
+    }),
+    defineField({
+      name: 'metaDescription',
+      title: 'SEO Description',
+      type: 'text',
+      rows: 3,
+      group: 'seo',
+      description: 'แนะนำ 120-160 ตัวอักษร',
+    }),
+  ],
+  groups: [
+    { name: 'seo', title: 'SEO' },
   ],
   orderings: [
     {

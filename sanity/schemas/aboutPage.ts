@@ -56,6 +56,9 @@ export default defineType({
       title: 'รูปประกอบเรื่องราว',
       type: 'image',
       options: { hotspot: true },
+      fields: [
+        { name: 'alt', type: 'string', title: 'Alt Text', description: 'เช่น "โรงงานผลิตสายไฟ NYX Cable"' },
+      ],
       group: 'content',
     }),
 
@@ -134,7 +137,7 @@ export default defineType({
           type: 'object',
           fields: [
             { name: 'name', type: 'string', title: 'ชื่อมาตรฐาน' },
-            { name: 'image', type: 'image', title: 'รูปใบรับรอง', options: { hotspot: true } },
+            { name: 'image', type: 'image', title: 'รูปใบรับรอง', options: { hotspot: true }, fields: [{ name: 'alt', type: 'string', title: 'Alt Text' }] },
           ],
           preview: {
             select: { title: 'name', media: 'image' },
@@ -157,6 +160,17 @@ export default defineType({
       type: 'text',
       rows: 3,
       group: 'seo',
+      description: 'แนะนำ 120-160 ตัวอักษร',
+    }),
+    defineField({
+      name: 'ogImage',
+      title: 'OG Image (รูปแชร์ Social)',
+      type: 'image',
+      group: 'seo',
+      fields: [
+        { name: 'alt', type: 'string', title: 'Alt Text' },
+      ],
+      description: 'รูปที่แสดงเมื่อแชร์หน้า About ในโซเชียล (แนะนำ 1200×630px)',
     }),
   ],
   groups: [

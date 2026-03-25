@@ -25,5 +25,25 @@ export default defineType({
       type: 'text',
       rows: 3,
     }),
+
+    // ─── SEO ───
+    defineField({
+      name: 'metaTitle',
+      title: 'SEO Title',
+      type: 'string',
+      group: 'seo',
+      description: 'แนะนำ 50-60 ตัวอักษร',
+    }),
+    defineField({
+      name: 'metaDescription',
+      title: 'SEO Description',
+      type: 'text',
+      rows: 3,
+      group: 'seo',
+      description: 'แนะนำ 120-160 ตัวอักษร',
+    }),
+  ],
+  groups: [
+    { name: 'seo', title: 'SEO' },
   ],
 })

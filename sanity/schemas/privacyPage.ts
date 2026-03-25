@@ -45,6 +45,16 @@ export default defineType({
       type: 'text',
       rows: 3,
       group: 'seo',
+      description: 'แนะนำ 120-160 ตัวอักษร',
+    }),
+    defineField({
+      name: 'ogImage',
+      title: 'OG Image (รูปแชร์ Social)',
+      type: 'image',
+      group: 'seo',
+      fields: [
+        { name: 'alt', type: 'string', title: 'Alt Text' },
+      ],
     }),
   ],
   groups: [
