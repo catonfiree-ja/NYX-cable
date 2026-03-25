@@ -726,8 +726,8 @@ export default async function HomePage() {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20, maxWidth: 960, margin: '0 auto' }}>
             {mainProducts.map(p => (
               <a key={p.slug} href={`/products/detail/${p.slug}`} style={{ display: 'block', textDecoration: 'none', color: 'inherit', background: '#fff', border: '1px solid #e8edf3', borderRadius: 14, overflow: 'hidden', transition: 'all 0.3s ease', boxShadow: '0 2px 8px rgba(0,0,0,0.04)' }}>
-                <div style={{ padding: 16, display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#f8fafc', minHeight: 200 }}>
-                  <img src={p.img} alt={`${p.name} ${p.thaiName}`} style={{ maxWidth: '100%', maxHeight: 180, objectFit: 'contain' }} loading="lazy" />
+                <div style={{ background: '#f8fafc' }}>
+                  <img src={p.img} alt={`${p.name} ${p.thaiName}`} style={{ width: '100%', height: 'auto', display: 'block' }} loading="lazy" />
                 </div>
                 <div style={{ padding: '14px 16px', borderTop: '1px solid #e8edf3', textAlign: 'center' }}>
                   <h4 style={{ fontSize: '0.9rem', fontWeight: 700, color: '#003366', margin: 0 }}>
