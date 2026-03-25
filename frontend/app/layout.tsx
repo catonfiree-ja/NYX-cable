@@ -57,14 +57,15 @@ export const metadata: Metadata = {
   },
 };
 
-function NyxLogo() {
+function NyxLogo({ size = 50 }: { size?: number }) {
   return (
-    <svg width="50" height="50" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="60" cy="60" r="55" stroke="#3b82f6" strokeWidth="6" fill="none" />
-      <circle cx="60" cy="60" r="45" stroke="#1e40af" strokeWidth="2" fill="none" />
-      <text x="60" y="55" textAnchor="middle" dominantBaseline="middle" fontFamily="Arial, sans-serif" fontWeight="900" fontSize="32" fill="#1e3a5f">NYX</text>
-      <text x="60" y="80" textAnchor="middle" dominantBaseline="middle" fontFamily="Arial, sans-serif" fontWeight="700" fontSize="14" fill="#3b82f6" letterSpacing="4">CABLE</text>
-    </svg>
+    <img
+      src="/images/nyx-logo.svg"
+      alt="NYX Cable Logo"
+      width={size}
+      height={size}
+      style={{ display: 'block' }}
+    />
   );
 }
 
@@ -100,8 +101,7 @@ export default function RootLayout({
         <header className="header">
           <div className="container">
             <a href="/" className="header-logo">
-              <NyxLogo />
-              <span>NYX CABLE</span>
+              <img src="/images/nyx-logo.svg" alt="NYX Cable" width="180" height="66" style={{ display: 'block' }} />
             </a>
             <NavLinks />
           </div>
@@ -150,9 +150,8 @@ export default function RootLayout({
             <div className="footer-grid">
               {/* Brand */}
               <div className="footer-brand">
-                <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px' }}>
-                  <NyxLogo />
-                  <h3 style={{ margin: 0 }}>NYX CABLE</h3>
+                <div style={{ marginBottom: '16px' }}>
+                  <img src="/images/nyx-logo.svg" alt="NYX Cable" width="160" height="59" style={{ display: 'block' }} />
                 </div>
                 <p>
                   ผู้เชี่ยวชาญด้านสายไฟอุตสาหกรรมคุณภาพสูง
