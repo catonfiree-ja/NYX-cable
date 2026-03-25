@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect, useCallback, useRef } from 'react'
 import Image from 'next/image'
 import { urlFor } from '@/lib/sanity'
 
@@ -18,6 +18,7 @@ interface Album {
 export default function GalleryLightbox({ albums }: { albums: Album[] }) {
   const [openAlbum, setOpenAlbum] = useState<Album | null>(null)
   const [activePhoto, setActivePhoto] = useState(0)
+  const mainRef = useRef<HTMLDivElement>(null)
 
   const handleAlbumClick = (album: Album) => {
     if (album.linkUrl) {
@@ -43,6 +44,12 @@ export default function GalleryLightbox({ albums }: { albums: Album[] }) {
 
   const prevPhoto = useCallback(() => {
     setActivePhoto((p) => Math.max(p - 1, 0))
+  }, [])
+
+  const handleThumbClick = useCallback((i: number) => {
+    setActivePhoto(i)
+    // Scroll back to main photo when clicking a thumbnail
+    mainRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
   }, [])
 
   // Keyboard navigation
@@ -103,31 +110,84 @@ export default function GalleryLightbox({ albums }: { albums: Album[] }) {
         ))}
       </div>
 
-      {/* Lightbox */}
+      {/* Lightbox — vertical scroll layout */}
       {openAlbum && allPhotos.length > 0 && (
-        <div className="lightbox-backdrop" onClick={closeLightbox}>
-          <div className="lightbox-content" onClick={(e) => e.stopPropagation()}>
-            {/* Header */}
-            <div className="lightbox-header">
-              <h3>{openAlbum.title}</h3>
-              <span className="lightbox-counter">
+        <div
+          className="lightbox-backdrop"
+          style={{
+            position: 'fixed', inset: 0, zIndex: 9999,
+            background: 'rgba(0,0,0,0.95)',
+            overflowY: 'auto',
+            display: 'block',
+          }}
+        >
+          <div
+            style={{
+              maxWidth: 1000, margin: '0 auto', padding: '0 16px',
+              minHeight: '100vh',
+            }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Header — sticky */}
+            <div
+              ref={mainRef}
+              style={{
+                position: 'sticky', top: 0, zIndex: 10,
+                display: 'flex', alignItems: 'center', gap: 12,
+                padding: '14px 0', color: '#fff',
+                background: 'rgba(0,0,0,0.9)',
+                backdropFilter: 'blur(8px)',
+              }}
+            >
+              <h3 style={{ flex: 1, fontSize: '1.1rem', fontWeight: 500, margin: 0 }}>
+                {openAlbum.title}
+              </h3>
+              <span style={{ fontSize: '0.85rem', opacity: 0.7 }}>
                 {activePhoto + 1} / {allPhotos.length}
               </span>
-              <button className="lightbox-close" onClick={closeLightbox} type="button">✕</button>
+              <button
+                onClick={closeLightbox}
+                type="button"
+                style={{
+                  all: 'unset', cursor: 'pointer', fontSize: '1.5rem', color: '#fff',
+                  width: 40, height: 40, display: 'flex', alignItems: 'center',
+                  justifyContent: 'center', borderRadius: '50%',
+                  transition: 'background 0.2s',
+                }}
+                onMouseEnter={(e) => (e.currentTarget.style.background = 'rgba(255,255,255,0.15)')}
+                onMouseLeave={(e) => (e.currentTarget.style.background = 'none')}
+              >
+                ✕
+              </button>
             </div>
 
-            {/* Main Photo */}
-            <div className="lightbox-main">
+            {/* Main Photo with nav arrows */}
+            <div style={{
+              position: 'relative', display: 'flex', alignItems: 'center',
+              justifyContent: 'center', marginBottom: 24,
+              background: 'rgba(0,0,0,0.3)', borderRadius: 12,
+              minHeight: '60vh',
+            }}>
+              {/* Prev */}
               <button
-                className="lightbox-nav lightbox-prev"
                 onClick={prevPhoto}
                 disabled={activePhoto === 0}
                 type="button"
+                style={{
+                  all: 'unset', cursor: activePhoto === 0 ? 'default' : 'pointer',
+                  position: 'absolute', left: 8, top: '50%', transform: 'translateY(-50%)',
+                  fontSize: '2.5rem', color: '#fff', width: 50, height: 50,
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  borderRadius: '50%', transition: 'background 0.2s', zIndex: 2,
+                  opacity: activePhoto === 0 ? 0.25 : 1,
+                  background: 'rgba(0,0,0,0.3)',
+                }}
               >
                 ‹
               </button>
 
-              <div className="lightbox-photo">
+              {/* Photo */}
+              <div style={{ position: 'relative', width: '100%', height: '65vh' }}>
                 <Image
                   src={urlFor(allPhotos[activePhoto]).width(1200).height(800).url()}
                   alt={allPhotos[activePhoto]?.caption || `${openAlbum.title} - ภาพที่ ${activePhoto + 1}`}
@@ -138,31 +198,53 @@ export default function GalleryLightbox({ albums }: { albums: Album[] }) {
                 />
               </div>
 
+              {/* Next */}
               <button
-                className="lightbox-nav lightbox-next"
                 onClick={nextPhoto}
                 disabled={activePhoto === allPhotos.length - 1}
                 type="button"
+                style={{
+                  all: 'unset', cursor: activePhoto === allPhotos.length - 1 ? 'default' : 'pointer',
+                  position: 'absolute', right: 8, top: '50%', transform: 'translateY(-50%)',
+                  fontSize: '2.5rem', color: '#fff', width: 50, height: 50,
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  borderRadius: '50%', transition: 'background 0.2s', zIndex: 2,
+                  opacity: activePhoto === allPhotos.length - 1 ? 0.25 : 1,
+                  background: 'rgba(0,0,0,0.3)',
+                }}
               >
                 ›
               </button>
             </div>
 
-            {/* Thumbnails */}
+            {/* Thumbnail Grid — wrapping, scroll down */}
             {allPhotos.length > 1 && (
-              <div className="lightbox-thumbs">
+              <div style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fill, minmax(90px, 1fr))',
+                gap: 6,
+                paddingBottom: 40,
+              }}>
                 {allPhotos.map((photo: any, i: number) => (
                   <button
                     key={i}
-                    className={`lightbox-thumb ${i === activePhoto ? 'active' : ''}`}
-                    onClick={() => setActivePhoto(i)}
+                    onClick={() => handleThumbClick(i)}
                     type="button"
+                    style={{
+                      all: 'unset', cursor: 'pointer',
+                      aspectRatio: '4/3',
+                      borderRadius: 6, overflow: 'hidden',
+                      border: i === activePhoto ? '3px solid #f0a500' : '3px solid transparent',
+                      opacity: i === activePhoto ? 1 : 0.5,
+                      transition: 'all 0.2s',
+                      position: 'relative',
+                    }}
                   >
                     <Image
-                      src={urlFor(photo).width(120).height(90).url()}
+                      src={urlFor(photo).width(180).height(135).url()}
                       alt={photo?.caption || `${openAlbum.title} - ภาพที่ ${i + 1}`}
-                      width={80}
-                      height={60}
+                      fill
+                      sizes="90px"
                       style={{ objectFit: 'cover' }}
                     />
                   </button>
