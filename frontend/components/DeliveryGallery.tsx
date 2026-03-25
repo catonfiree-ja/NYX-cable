@@ -70,168 +70,146 @@ export default function DeliveryGallery({ photos }: { photos: DeliveryPhoto[] })
                 ))}
             </div>
 
-            {/* Lightbox */}
+            {/* Lightbox — vertical scroll layout (same as Gallery) */}
             {activeIndex !== null && (
                 <div
                     style={{
-                        position: 'fixed',
-                        inset: 0,
-                        zIndex: 10000,
-                        background: 'rgba(0,0,0,0.92)',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        backdropFilter: 'blur(8px)',
+                        position: 'fixed', inset: 0, zIndex: 10000,
+                        background: 'rgba(0,0,0,0.95)',
+                        overflowY: 'auto',
+                        display: 'block',
                     }}
                     onClick={close}
                 >
                     <div
-                        style={{ position: 'relative', maxWidth: '90vw', maxHeight: '90vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
-                        onClick={(e) => e.stopPropagation()}
-                    >
-                        {/* Close */}
-                        <button
-                            onClick={close}
-                            style={{
-                                position: 'absolute',
-                                top: -44,
-                                right: 0,
-                                background: 'none',
-                                border: 'none',
-                                color: '#fff',
-                                fontSize: '2rem',
-                                cursor: 'pointer',
-                                padding: '4px 12px',
-                                lineHeight: 1,
-                                zIndex: 2,
-                            }}
-                            type="button"
-                        >
-                            ✕
-                        </button>
-
-                        {/* Counter */}
-                        <div style={{ position: 'absolute', top: -40, left: 0, color: 'rgba(255,255,255,0.7)', fontSize: '0.9rem' }}>
-                            {activeIndex + 1} / {photos.length}
-                        </div>
-
-                        {/* Prev */}
-                        {activeIndex > 0 && (
-                            <button
-                                onClick={prev}
-                                style={{
-                                    position: 'absolute',
-                                    left: -60,
-                                    top: '50%',
-                                    transform: 'translateY(-50%)',
-                                    background: 'rgba(255,255,255,0.1)',
-                                    border: '1px solid rgba(255,255,255,0.2)',
-                                    borderRadius: '50%',
-                                    width: 48,
-                                    height: 48,
-                                    color: '#fff',
-                                    fontSize: '1.5rem',
-                                    cursor: 'pointer',
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    justifyContent: 'center',
-                                    transition: 'all 0.2s',
-                                }}
-                                onMouseEnter={(e) => (e.currentTarget.style.background = 'rgba(255,255,255,0.2)')}
-                                onMouseLeave={(e) => (e.currentTarget.style.background = 'rgba(255,255,255,0.1)')}
-                                type="button"
-                            >
-                                ‹
-                            </button>
-                        )}
-
-                        {/* Image */}
-                        <img
-                            src={photos[activeIndex].src}
-                            alt={photos[activeIndex].alt}
-                            style={{
-                                maxWidth: '90vw',
-                                maxHeight: '85vh',
-                                objectFit: 'contain',
-                                borderRadius: 8,
-                                boxShadow: '0 8px 40px rgba(0,0,0,0.5)',
-                            }}
-                        />
-
-                        {/* Next */}
-                        {activeIndex < photos.length - 1 && (
-                            <button
-                                onClick={next}
-                                style={{
-                                    position: 'absolute',
-                                    right: -60,
-                                    top: '50%',
-                                    transform: 'translateY(-50%)',
-                                    background: 'rgba(255,255,255,0.1)',
-                                    border: '1px solid rgba(255,255,255,0.2)',
-                                    borderRadius: '50%',
-                                    width: 48,
-                                    height: 48,
-                                    color: '#fff',
-                                    fontSize: '1.5rem',
-                                    cursor: 'pointer',
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    justifyContent: 'center',
-                                    transition: 'all 0.2s',
-                                }}
-                                onMouseEnter={(e) => (e.currentTarget.style.background = 'rgba(255,255,255,0.2)')}
-                                onMouseLeave={(e) => (e.currentTarget.style.background = 'rgba(255,255,255,0.1)')}
-                                type="button"
-                            >
-                                ›
-                            </button>
-                        )}
-                    </div>
-
-                    {/* Thumbnail strip */}
-                    <div
                         style={{
-                            position: 'fixed',
-                            bottom: 20,
-                            left: '50%',
-                            transform: 'translateX(-50%)',
-                            display: 'flex',
-                            gap: 6,
-                            padding: '8px 12px',
-                            background: 'rgba(0,0,0,0.6)',
-                            borderRadius: 12,
-                            maxWidth: '90vw',
-                            overflowX: 'auto',
+                            maxWidth: 1000, margin: '0 auto', padding: '0 16px',
+                            minHeight: '100vh',
                         }}
                         onClick={(e) => e.stopPropagation()}
                     >
-                        {photos.map((photo, i) => (
+                        {/* Sticky Header */}
+                        <div
+                            id="delivery-lightbox-top"
+                            style={{
+                                position: 'sticky', top: 0, zIndex: 10,
+                                display: 'flex', alignItems: 'center', gap: 12,
+                                padding: '14px 0', color: '#fff',
+                                background: 'rgba(0,0,0,0.9)',
+                                backdropFilter: 'blur(8px)',
+                            }}
+                        >
+                            <span style={{ flex: 1, fontSize: '1.1rem', fontWeight: 500 }}>
+                                การส่งสินค้า
+                            </span>
+                            <span style={{ fontSize: '0.85rem', opacity: 0.7 }}>
+                                {activeIndex + 1} / {photos.length}
+                            </span>
                             <button
-                                key={i}
-                                onClick={() => setActiveIndex(i)}
+                                onClick={close}
                                 type="button"
                                 style={{
-                                    flexShrink: 0,
-                                    width: 60,
-                                    height: 45,
-                                    borderRadius: 6,
-                                    overflow: 'hidden',
-                                    border: i === activeIndex ? '2px solid #fbb03b' : '2px solid transparent',
-                                    cursor: 'pointer',
-                                    opacity: i === activeIndex ? 1 : 0.5,
-                                    transition: 'all 0.2s',
-                                    padding: 0,
-                                    background: 'none',
+                                    all: 'unset', cursor: 'pointer', fontSize: '1.5rem', color: '#fff',
+                                    width: 40, height: 40, display: 'flex', alignItems: 'center',
+                                    justifyContent: 'center', borderRadius: '50%',
+                                    transition: 'background 0.2s',
+                                }}
+                                onMouseEnter={(e) => (e.currentTarget.style.background = 'rgba(255,255,255,0.15)')}
+                                onMouseLeave={(e) => (e.currentTarget.style.background = 'none')}
+                            >
+                                ✕
+                            </button>
+                        </div>
+
+                        {/* Main Photo with nav arrows */}
+                        <div style={{
+                            position: 'relative', display: 'flex', alignItems: 'center',
+                            justifyContent: 'center', marginBottom: 24,
+                            background: 'rgba(0,0,0,0.3)', borderRadius: 12,
+                            minHeight: '60vh',
+                        }}>
+                            {/* Prev */}
+                            <button
+                                onClick={prev}
+                                disabled={activeIndex === 0}
+                                type="button"
+                                style={{
+                                    all: 'unset', cursor: activeIndex === 0 ? 'default' : 'pointer',
+                                    position: 'absolute', left: 8, top: '50%', transform: 'translateY(-50%)',
+                                    fontSize: '2.5rem', color: '#fff', width: 50, height: 50,
+                                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                                    borderRadius: '50%', zIndex: 2,
+                                    opacity: activeIndex === 0 ? 0.25 : 1,
+                                    background: 'rgba(0,0,0,0.3)',
                                 }}
                             >
-                                <img
-                                    src={photo.src}
-                                    alt=""
-                                    style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
-                                />
+                                ‹
                             </button>
-                        ))}
+
+                            {/* Photo */}
+                            <div style={{ position: 'relative', width: '100%', height: '65vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                                <img
+                                    src={photos[activeIndex].src}
+                                    alt={photos[activeIndex].alt}
+                                    style={{
+                                        maxWidth: '100%', maxHeight: '65vh',
+                                        objectFit: 'contain', borderRadius: 8,
+                                    }}
+                                />
+                            </div>
+
+                            {/* Next */}
+                            <button
+                                onClick={next}
+                                disabled={activeIndex === photos.length - 1}
+                                type="button"
+                                style={{
+                                    all: 'unset', cursor: activeIndex === photos.length - 1 ? 'default' : 'pointer',
+                                    position: 'absolute', right: 8, top: '50%', transform: 'translateY(-50%)',
+                                    fontSize: '2.5rem', color: '#fff', width: 50, height: 50,
+                                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                                    borderRadius: '50%', zIndex: 2,
+                                    opacity: activeIndex === photos.length - 1 ? 0.25 : 1,
+                                    background: 'rgba(0,0,0,0.3)',
+                                }}
+                            >
+                                ›
+                            </button>
+                        </div>
+
+                        {/* Thumbnail Grid — wrapping, scroll down */}
+                        <div style={{
+                            display: 'grid',
+                            gridTemplateColumns: 'repeat(auto-fill, minmax(90px, 1fr))',
+                            gap: 6,
+                            paddingBottom: 40,
+                        }}>
+                            {photos.map((photo, i) => (
+                                <button
+                                    key={i}
+                                    onClick={() => {
+                                        setActiveIndex(i)
+                                        document.getElementById('delivery-lightbox-top')?.scrollIntoView({ behavior: 'smooth' })
+                                    }}
+                                    type="button"
+                                    style={{
+                                        all: 'unset', cursor: 'pointer',
+                                        aspectRatio: '4/3',
+                                        borderRadius: 6, overflow: 'hidden',
+                                        border: i === activeIndex ? '3px solid #f0a500' : '3px solid transparent',
+                                        opacity: i === activeIndex ? 1 : 0.5,
+                                        transition: 'all 0.2s',
+                                        position: 'relative',
+                                    }}
+                                >
+                                    <img
+                                        src={photo.src}
+                                        alt=""
+                                        style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+                                    />
+                                </button>
+                            ))}
+                        </div>
                     </div>
                 </div>
             )}
