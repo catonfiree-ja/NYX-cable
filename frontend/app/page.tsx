@@ -615,14 +615,14 @@ export default async function HomePage() {
                     <div className="marquee-logos">
                       {row.logos.map(n => (
                         <div key={`a-${n}`} className="client-logo">
-                          <img src={`/client-logos/logo-${String(n).padStart(2, '0')}.png`} alt={`ลูกค้า NYX Cable #${n}`} loading="lazy" style={n === 20 ? { height: '64px', width: '64px' } : undefined} />
+                          <img src={`/client-logos/logo-${String(n).padStart(2, '0')}.png`} alt={`ลูกค้า NYX Cable #${n}`} loading="lazy" width="100" height="45" style={n === 20 ? { height: '64px', width: '64px' } : undefined} />
                         </div>
                       ))}
                     </div>
                     <div className="marquee-logos" aria-hidden="true">
                       {row.logos.map(n => (
                         <div key={`b-${n}`} className="client-logo">
-                          <img src={`/client-logos/logo-${String(n).padStart(2, '0')}.png`} alt="" loading="lazy" style={n === 20 ? { height: '64px', width: '64px' } : undefined} />
+                          <img src={`/client-logos/logo-${String(n).padStart(2, '0')}.png`} alt="" loading="lazy" width="100" height="45" style={n === 20 ? { height: '64px', width: '64px' } : undefined} />
                         </div>
                       ))}
                     </div>
@@ -644,44 +644,44 @@ export default async function HomePage() {
             {/* ให้คำแนะนำ */}
             <div style={{ flex: '1 1 30%', padding: 50, textAlign: 'center' }}>
               <div style={{ marginBottom: 30 }}>
-                <img src="/images/icons/service-consult.png" alt="ให้คำแนะนำ" width="80" height="80" style={{ display: 'block', margin: '0 auto' }} />
+                <Image src="/images/icons/service-consult.png" alt="ให้คำแนะนำ" width={80} height={80} style={{ display: 'block', margin: '0 auto' }} />
               </div>
               <div style={{ marginBottom: 30, borderTop: '1px solid #e5e5e5', width: '100%' }}></div>
-              <h2 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#000000', marginBottom: 16, textAlign: 'center' }}>ให้คำแนะนำ</h2>
-              <h4 style={{ fontSize: '1rem', fontWeight: 400, color: '#000000', lineHeight: 1.8, textAlign: 'center', margin: 0 }}>
+              <h3 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#000000', marginBottom: 16, textAlign: 'center' }}>ให้คำแนะนำ</h3>
+              <p style={{ fontSize: '1rem', fontWeight: 400, color: '#000000', lineHeight: 1.8, textAlign: 'center', margin: 0 }}>
                 จาก<span style={{ color: '#0e76bd' }}>ผู้เชี่ยวชาญ</span>ด้าน
-              </h4>
-              <h4 style={{ fontSize: '1rem', fontWeight: 400, color: '#000000', lineHeight: 1.8, textAlign: 'center', margin: 0 }}>
+              </p>
+              <p style={{ fontSize: '1rem', fontWeight: 400, color: '#000000', lineHeight: 1.8, textAlign: 'center', margin: 0 }}>
                 สายไฟฟ้าคอนโทรลโดยเฉพาะ
-              </h4>
+              </p>
             </div>
             {/* แก้ไขปัญหา */}
             <div style={{ flex: '1 1 30%', padding: 50, textAlign: 'center' }}>
               <div style={{ marginBottom: 30 }}>
-                <img src="/images/icons/service-solve.png" alt="แก้ไขปัญหา" width="80" height="80" style={{ display: 'block', margin: '0 auto' }} />
+                <Image src="/images/icons/service-solve.png" alt="แก้ไขปัญหา" width={80} height={80} style={{ display: 'block', margin: '0 auto' }} />
               </div>
               <div style={{ marginBottom: 30, borderTop: '1px solid #e5e5e5', width: '100%' }}></div>
-              <h2 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#000000', marginBottom: 16, textAlign: 'center' }}>แก้ไขปัญหา</h2>
-              <h4 style={{ fontSize: '1rem', fontWeight: 400, color: '#000000', lineHeight: 1.8, textAlign: 'center', margin: 0 }}>
+              <h3 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#000000', marginBottom: 16, textAlign: 'center' }}>แก้ไขปัญหา</h3>
+              <p style={{ fontSize: '1rem', fontWeight: 400, color: '#000000', lineHeight: 1.8, textAlign: 'center', margin: 0 }}>
                 แก้ไขปัญหา<span style={{ color: '#0e76bd' }}>ตรงจุด</span>
-              </h4>
-              <h4 style={{ fontSize: '1rem', fontWeight: 400, color: '#000000', lineHeight: 1.8, textAlign: 'center', margin: 0 }}>
+              </p>
+              <p style={{ fontSize: '1rem', fontWeight: 400, color: '#000000', lineHeight: 1.8, textAlign: 'center', margin: 0 }}>
                 กับปรึกษามืออาชีพ
-              </h4>
+              </p>
             </div>
             {/* จัดส่งสินค้า */}
             <div style={{ flex: '1 1 30%', padding: 50, textAlign: 'center' }}>
               <div style={{ marginBottom: 30 }}>
-                <img src="/images/icons/service-delivery.png" alt="จัดส่งสินค้า" width="80" height="80" style={{ display: 'block', margin: '0 auto' }} />
+                <Image src="/images/icons/service-delivery.png" alt="จัดส่งสินค้า" width={80} height={80} style={{ display: 'block', margin: '0 auto' }} />
               </div>
               <div style={{ marginBottom: 30, borderTop: '1px solid #e5e5e5', width: '100%' }}></div>
-              <h2 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#000000', marginBottom: 16, textAlign: 'center' }}>จัดส่งสินค้า</h2>
-              <h4 style={{ fontSize: '1rem', fontWeight: 400, color: '#000000', lineHeight: 1.8, textAlign: 'center', margin: 0 }}>
+              <h3 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#000000', marginBottom: 16, textAlign: 'center' }}>จัดส่งสินค้า</h3>
+              <p style={{ fontSize: '1rem', fontWeight: 400, color: '#000000', lineHeight: 1.8, textAlign: 'center', margin: 0 }}>
                 ถึงที่หมายอย่างเป็นระบบ
-              </h4>
-              <h4 style={{ fontSize: '1rem', fontWeight: 400, color: '#000000', lineHeight: 1.8, textAlign: 'center', margin: 0 }}>
+              </p>
+              <p style={{ fontSize: '1rem', fontWeight: 400, color: '#000000', lineHeight: 1.8, textAlign: 'center', margin: 0 }}>
                 และ<span style={{ color: '#0e76bd' }}>ตรงต่อเวลา</span>
-              </h4>
+              </p>
             </div>
           </div>
         </div>
@@ -723,7 +723,7 @@ export default async function HomePage() {
       <section style={{ padding: '60px 0', background: '#fff', position: 'relative' }}>
         <div className="container">
           <h2 style={{ fontSize: '2rem', fontWeight: 800, color: '#000', textAlign: 'center', marginBottom: 8 }}>สายคอนโทรล</h2>
-          <p style={{ textAlign: 'center', color: '#64748b', marginBottom: 36 }}>สายไฟที่ลูกค้าเลือกใช้มากที่สุด — คลิกเพื่อดูรายละเอียด</p>
+          <p style={{ textAlign: 'center', color: '#475569', marginBottom: 36 }}>สายไฟที่ลูกค้าเลือกใช้มากที่สุด — คลิกเพื่อดูรายละเอียด</p>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20 }}>
             {mainProducts.map(p => (
               <a key={p.slug} href={`/products/detail/${p.slug}`} className="card-hover" style={{ display: 'block', textDecoration: 'none', color: 'inherit', background: '#fff', border: '1px solid #e8edf3', borderRadius: 14, overflow: 'hidden', boxShadow: '0 2px 8px rgba(0,0,0,0.04)' }}>
@@ -776,7 +776,7 @@ export default async function HomePage() {
             {/* ราคาดี */}
             <div style={{ display: 'flex', alignItems: 'flex-start', gap: 20 }}>
               <div style={{ flexShrink: 0 }}>
-                <img src="/images/icons/why-piggy.png" alt="ราคาดี" width="80" height="80" style={{ display: 'block' }} />
+                <Image src="/images/icons/why-piggy.png" alt="ราคาดี" width={80} height={80} style={{ display: 'block' }} />
               </div>
               <div>
                 <h3 style={{ fontSize: '1.25rem', fontWeight: 700, color: '#fff', marginBottom: 8, marginTop: 0 }}>ราคาดี</h3>
@@ -788,7 +788,7 @@ export default async function HomePage() {
             {/* ยืนยันจากผู้ใช้จริง */}
             <div style={{ display: 'flex', alignItems: 'flex-start', gap: 20 }}>
               <div style={{ flexShrink: 0 }}>
-                <img src="/images/icons/why-heart.png" alt="ยืนยันจากผู้ใช้จริง" width="80" height="80" style={{ display: 'block' }} />
+                <Image src="/images/icons/why-heart.png" alt="ยืนยันจากผู้ใช้จริง" width={80} height={80} style={{ display: 'block' }} />
               </div>
               <div>
                 <h3 style={{ fontSize: '1.25rem', fontWeight: 700, color: '#fff', marginBottom: 8, marginTop: 0 }}>ยืนยันจากผู้ใช้จริง</h3>
