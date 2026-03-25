@@ -1414,6 +1414,12 @@ a:hover {
   flex-shrink: 0;
 }
 
+.header-logo img {
+  height: 40px !important;
+  width: auto !important;
+  max-height: 40px !important;
+}
+
 /* ─── Enhanced Product Card Hover ─── */
 .product-card:hover {
   transform: translateY(-6px);
