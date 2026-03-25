@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 225 83" fill="none">
+  <!-- Outer ellipse ring -->
+  <ellipse cx="41.5" cy="41.5" rx="38" ry="38" stroke="#1a6cb4" stroke-width="4" fill="none"/>
+  <!-- Inner arc swoosh -->
+  <path d="M15 55 Q41.5 -5 68 55" stroke="#2196F3" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+  <!-- NYX text -->
+  <text x="41.5" y="44" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-weight="900" font-size="26" fill="#003366" letter-spacing="2">NYX</text>
+  <!-- CABLE text inside circle -->
+  <text x="41.5" y="62" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="10" fill="#1a6cb4" letter-spacing="3">CABLE</text>
+  <!-- NYX CABLE text next to logo -->
+  <text x="95" y="38" font-family="Arial, Helvetica, sans-serif" font-weight="800" font-size="28" fill="#003366" letter-spacing="1">NYX</text>
+  <text x="152" y="38" font-family="Arial, Helvetica, sans-serif" font-weight="800" font-size="28" fill="#1a6cb4" letter-spacing="1"> CABLE</text>
+</svg>
