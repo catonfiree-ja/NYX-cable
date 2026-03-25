@@ -799,66 +799,71 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* ─── ภาพส่งสินค้าจริง (Pixel-Perfect Original) ─── */}
-      <section style={{ background: '#2d3a4f', padding: '60px 0' }}>
+      {/* ─── ภาพส่งสินค้าจริง (Pixel-Perfect from nyxcable.com) ─── */}
+      <section style={{ background: '#f5f5f5', padding: '60px 0' }}>
         <div className="container">
-          <h2 style={{ fontSize: '2.2rem', fontWeight: 800, color: '#fff', textAlign: 'center', marginBottom: 8, fontFamily: "'Sarabun', 'Noto Sans Thai', sans-serif" }}>ภาพส่งสินค้าจริง</h2>
-          <p style={{ textAlign: 'center', color: 'rgba(255,255,255,0.55)', marginBottom: 36, fontSize: '0.95rem' }}>จัดส่งถึงที่หมายอย่างรวดเร็ว ปลอดภัย ตรงต่อเวลา</p>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gridTemplateRows: '200px 200px 200px', gap: 8, maxWidth: 1000, margin: '0 auto' }}>
-            {/* Row 1, Col 1: Workers in warehouse */}
-            <div style={{ gridColumn: '1', gridRow: '1', borderRadius: 10, overflow: 'hidden' }}>
-              <img src="/delivery-orig/delivery-orig-01.jpg" alt="NYX Cable คนงานในโกดังสายไฟ" loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+          <h2 style={{ fontSize: '2.2rem', fontWeight: 800, color: '#1a2744', textAlign: 'center', marginBottom: 8 }}>ภาพส่งสินค้าจริง</h2>
+          <p style={{ textAlign: 'center', color: '#64748b', marginBottom: 36, fontSize: '0.95rem' }}>จัดส่งถึงที่หมายอย่างรวดเร็ว ปลอดภัย ตรงต่อเวลา</p>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gridTemplateRows: '200px 200px 200px 200px', gap: 6, maxWidth: 1000, margin: '0 auto' }}>
+            {/* === Row 1 === */}
+            {/* R1-C1: Workers in warehouse (1x1) */}
+            <div style={{ gridColumn: '1', gridRow: '1', borderRadius: 8, overflow: 'hidden' }}>
+              <img src="/delivery-orig/delivery-orig-01.jpg" alt="NYX Cable คนงานในโกดัง" loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
             </div>
-            {/* Row 1, Col 2: Truck back with cable spool */}
-            <div style={{ gridColumn: '2', gridRow: '1', borderRadius: 10, overflow: 'hidden' }}>
+            {/* R1-R2 C2: Truck back view (TALL - spans 2 rows) */}
+            <div style={{ gridColumn: '2', gridRow: '1 / 3', borderRadius: 8, overflow: 'hidden' }}>
               <img src="/delivery-orig/delivery-orig-02.jpg" alt="NYX Cable สายไฟบนรถบรรทุก" loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
             </div>
-            {/* Row 1-2, Col 3: Yard with cable spools and trees (TALL - spans 2 rows) */}
-            <div style={{ gridColumn: '3', gridRow: '1 / 3', borderRadius: 10, overflow: 'hidden' }}>
-              <img src="/delivery-orig/delivery-orig-03.jpg" alt="NYX Cable สายไฟพร้อมส่ง ลานจัดเก็บ" loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+            {/* R1-C3: Yard with cable spools and trees (1x1) */}
+            <div style={{ gridColumn: '3', gridRow: '1', borderRadius: 8, overflow: 'hidden' }}>
+              <img src="/delivery-orig/delivery-orig-03.jpg" alt="NYX Cable ลานจัดเก็บสายไฟ" loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
             </div>
-            {/* Row 1, Col 4: Forklift loading */}
-            <div style={{ gridColumn: '4', gridRow: '1', borderRadius: 10, overflow: 'hidden' }}>
+            {/* R1-C4: Forklift loading (1x1) */}
+            <div style={{ gridColumn: '4', gridRow: '1', borderRadius: 8, overflow: 'hidden' }}>
               <img src="/delivery-orig/delivery-orig-04.jpg" alt="NYX Cable โฟร์คลิฟท์ขนสายไฟ" loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
             </div>
-            {/* Row 2-3, Col 1: Warehouse floor with cable spools (TALL - spans 2 rows) */}
-            <div style={{ gridColumn: '1', gridRow: '2 / 4', borderRadius: 10, overflow: 'hidden' }}>
+            {/* === Row 2 === */}
+            {/* R2-R3 C1: Warehouse floor (TALL - spans 2 rows) */}
+            <div style={{ gridColumn: '1', gridRow: '2 / 4', borderRadius: 8, overflow: 'hidden' }}>
               <img src="/delivery-orig/delivery-orig-05.jpg" alt="NYX Cable โกดังสายไฟ" loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
             </div>
-            {/* Row 2, Col 2: Woman smiling with cable in car */}
-            <div style={{ gridColumn: '2', gridRow: '2', borderRadius: 10, overflow: 'hidden' }}>
+            {/* R2-R3 C3: Wooden cable spools warehouse (TALL - spans 2 rows) */}
+            <div style={{ gridColumn: '3', gridRow: '2 / 4', borderRadius: 8, overflow: 'hidden' }}>
+              <img src="/delivery-orig/delivery-orig-06.jpg" alt="NYX Cable ม้วนสายไฟไม้ในคลัง" loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+            </div>
+            {/* R2-C4: Truck flatbed on road (1x1) */}
+            <div style={{ gridColumn: '4', gridRow: '2', borderRadius: 8, overflow: 'hidden' }}>
+              <img src="/delivery-orig/delivery-orig-07.jpg" alt="NYX Cable รถบรรทุกสายไฟ" loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+            </div>
+            {/* === Row 3 === */}
+            {/* R3-C2: Woman smiling with cable in car (1x1) */}
+            <div style={{ gridColumn: '2', gridRow: '3', borderRadius: 8, overflow: 'hidden' }}>
               <img src="/delivery-orig/delivery-orig-08.jpg" alt="ลูกค้ายิ้มรับสายไฟ NYX Cable" loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
             </div>
-            {/* Row 2, Col 4: Man with car trunk */}
-            <div style={{ gridColumn: '4', gridRow: '2', borderRadius: 10, overflow: 'hidden' }}>
+            {/* R3-C4: Man with car trunk (1x1) */}
+            <div style={{ gridColumn: '4', gridRow: '3', borderRadius: 8, overflow: 'hidden' }}>
               <img src="/delivery-orig/delivery-orig-09.jpg" alt="ลูกค้ารับสายไฟเอง NYX Cable" loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
             </div>
-            {/* Row 3, Col 2: Man holding cables */}
-            <div style={{ gridColumn: '2', gridRow: '3', borderRadius: 10, overflow: 'hidden' }}>
+            {/* === Row 4: 4 unique images === */}
+            {/* R4-C1: Man holding cables */}
+            <div style={{ gridColumn: '1', gridRow: '4', borderRadius: 8, overflow: 'hidden' }}>
               <img src="/delivery-orig/delivery-orig-10.jpg" alt="ลูกค้าถือสายไฟ NYX Cable" loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
             </div>
-            {/* Row 3, Col 3-4: Cable spools warehouse (WIDE - spans 2 cols) */}
-            <div style={{ gridColumn: '3 / 5', gridRow: '3', borderRadius: 10, overflow: 'hidden' }}>
-              <img src="/delivery-orig/delivery-orig-06.jpg" alt="NYX Cable คลังสายไฟพร้อมจัดส่ง" loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+            {/* R4-C2: Cable spools near van */}
+            <div style={{ gridColumn: '2', gridRow: '4', borderRadius: 8, overflow: 'hidden' }}>
+              <img src="/delivery-2026/delivery-2026-20.jpg" alt="NYX Cable สายไฟพร้อมขนส่ง" loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
             </div>
-          </div>
-          {/* Row 4: Additional delivery photos */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gridTemplateRows: '200px', gap: 8, maxWidth: 1000, margin: '8px auto 0' }}>
-            <div style={{ borderRadius: 10, overflow: 'hidden' }}>
-              <img src="/delivery-orig/delivery-orig-10.jpg" alt="พนักงาน NYX Cable ส่งสินค้า" loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+            {/* R4-C3: Cable spools at delivery site */}
+            <div style={{ gridColumn: '3', gridRow: '4', borderRadius: 8, overflow: 'hidden' }}>
+              <img src="/delivery-2026/delivery-2026-30.jpg" alt="NYX Cable จัดส่งสายไฟให้ลูกค้า" loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
             </div>
-            <div style={{ borderRadius: 10, overflow: 'hidden' }}>
-              <img src="/delivery-orig/delivery-orig-07.jpg" alt="NYX Cable จัดส่งสายไฟ" loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
-            </div>
-            <div style={{ borderRadius: 10, overflow: 'hidden' }}>
-              <img src="/delivery-orig/delivery-orig-03.jpg" alt="NYX Cable สายไฟในรถ" loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
-            </div>
-            <div style={{ borderRadius: 10, overflow: 'hidden' }}>
-              <img src="/delivery-orig/delivery-orig-01.jpg" alt="NYX Cable คลังสินค้า" loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+            {/* R4-C4: Cable spools in warehouse */}
+            <div style={{ gridColumn: '4', gridRow: '4', borderRadius: 8, overflow: 'hidden' }}>
+              <img src="/delivery-2026/delivery-2026-40.jpg" alt="NYX Cable คลังสินค้าสายไฟ" loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
             </div>
           </div>
           <div style={{ textAlign: 'center', marginTop: 32, position: 'relative', zIndex: 1 }}>
-            <a href="/gallery" style={{ display: 'inline-block', padding: '14px 48px', border: '1px solid rgba(255,255,255,0.35)', borderRadius: 8, color: '#fff', textDecoration: 'none', fontSize: '0.95rem', fontWeight: 500, transition: 'all 0.3s ease', letterSpacing: '0.3px' }}>ดูภาพทั้งหมดในแกลเลอรี่ →</a>
+            <a href="/gallery" style={{ display: 'inline-block', padding: '14px 48px', border: '1px solid #cbd5e1', borderRadius: 8, color: '#1a2744', textDecoration: 'none', fontSize: '0.95rem', fontWeight: 500, transition: 'all 0.3s ease', letterSpacing: '0.3px' }}>ดูภาพทั้งหมดในแกลเลอรี่ →</a>
           </div>
         </div>
       </section>
