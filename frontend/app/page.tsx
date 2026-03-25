@@ -799,12 +799,11 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* ─── ภาพส่งสินค้าจริง (Pixel-Perfect from nyxcable.com) ─── */}
+      {/* ─── การส่งสินค้า (Pixel-Perfect from nyxcable.com) ─── */}
       <section style={{ background: '#f5f5f5', padding: '60px 0' }}>
         <div className="container">
-          <h2 style={{ fontSize: '2.2rem', fontWeight: 800, color: '#1a2744', textAlign: 'center', marginBottom: 8 }}>ภาพส่งสินค้าจริง</h2>
-          <p style={{ textAlign: 'center', color: '#64748b', marginBottom: 36, fontSize: '0.95rem' }}>จัดส่งถึงที่หมายอย่างรวดเร็ว ปลอดภัย ตรงต่อเวลา</p>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gridTemplateRows: '200px 200px 200px 200px', gap: 6, maxWidth: 1000, margin: '0 auto' }}>
+          <h2 style={{ fontSize: '2rem', fontWeight: 700, color: '#000000', textAlign: 'center', marginBottom: 36 }}>การส่งสินค้า</h2>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gridTemplateRows: '200px 200px 200px 300px', gap: 6, maxWidth: 1000, margin: '0 auto' }}>
             {/* === Row 1 === */}
             {/* R1-C1: Workers in warehouse (1x1) */}
             <div style={{ gridColumn: '1', gridRow: '1', borderRadius: 8, overflow: 'hidden' }}>
@@ -845,19 +844,15 @@ export default async function HomePage() {
               <img src="/delivery-orig/delivery-orig-09.jpg" alt="ลูกค้ารับสายไฟเอง NYX Cable" loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
             </div>
             {/* === Row 4: 4 unique images === */}
-            {/* R4-C1: Man holding cables */}
             <div style={{ gridColumn: '1', gridRow: '4', borderRadius: 8, overflow: 'hidden' }}>
               <img src="/delivery-orig/delivery-orig-10.jpg" alt="ลูกค้าถือสายไฟ NYX Cable" loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
             </div>
-            {/* R4-C2: Cable spools near van */}
             <div style={{ gridColumn: '2', gridRow: '4', borderRadius: 8, overflow: 'hidden' }}>
               <img src="/delivery-2026/delivery-2026-20.jpg" alt="NYX Cable สายไฟพร้อมขนส่ง" loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
             </div>
-            {/* R4-C3: Cable spools at delivery site */}
             <div style={{ gridColumn: '3', gridRow: '4', borderRadius: 8, overflow: 'hidden' }}>
               <img src="/delivery-2026/delivery-2026-30.jpg" alt="NYX Cable จัดส่งสายไฟให้ลูกค้า" loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
             </div>
-            {/* R4-C4: Cable spools in warehouse */}
             <div style={{ gridColumn: '4', gridRow: '4', borderRadius: 8, overflow: 'hidden' }}>
               <img src="/delivery-2026/delivery-2026-40.jpg" alt="NYX Cable คลังสินค้าสายไฟ" loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
             </div>
