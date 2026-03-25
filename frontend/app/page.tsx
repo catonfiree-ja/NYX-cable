@@ -69,15 +69,15 @@ export default async function HomePage() {
 
   // ─── รายชื่อสินค้าหลักพร้อมคำอธิบายไทย (จากต้นฉบับ) ───
   const mainProducts = [
-    { name: "YSLY-JZ", thaiName: "สายคอนโทรล", slug: "ysly-jz" },
-    { name: "LiYCY", thaiName: "สายคอนโทรลมีชีลด์", slug: "liycy" },
-    { name: "ST-TP", thaiName: "สายชีลด์ สำหรับ RS485/RS422 โดยเฉพาะ", slug: "rs485-rs422" },
-    { name: "H07RN-F", thaiName: "สายไฟกันน้ำ สายไฟใต้น้ำ", slug: "h07rn-f" },
-    { name: "NSHTÖU", thaiName: "สายไฟทนแรงดึงงาน Cable Reel", slug: "nshtou" },
-    { name: "H07V-K", thaiName: "สายเดี่ยวสำหรับ Wiring ขนาด 0.5–240 mm²", slug: "h07v-k" },
-    { name: "H07VVH6-F", thaiName: "สายไฟแบนสำหรับ Crane", slug: "h07vvh6-f" },
-    { name: "SiHF", thaiName: "สายไฟทนความร้อน", slug: "sihf" },
-    { name: "Multiflex", thaiName: "สายไฟรางกระดูกงู สายไฟหุ่นยนต์", slug: "robot-cable" },
+    { name: "YSLY-JZ", thaiName: "สายคอนโทรล", slug: "ysly-jz", img: "/images/products/ysly-jz.jpg" },
+    { name: "LiYCY", thaiName: "สายคอนโทรลมีชีลด์", slug: "liycy", img: "/images/products/liycy.jpg" },
+    { name: "ST-TP", thaiName: "สายชีลด์ สำหรับ RS485/RS422 โดยเฉพาะ", slug: "rs485-rs422", img: "/images/products/st-tp.jpg" },
+    { name: "H07RN-F", thaiName: "สายไฟกันน้ำ สายไฟใต้น้ำ", slug: "h07rn-f", img: "/images/products/h07rn-f.jpg" },
+    { name: "NSHTÖU", thaiName: "สายไฟทนแรงดึงงาน Cable Reel", slug: "nshtou", img: "/images/products/nshtou.jpg" },
+    { name: "H07V-K", thaiName: "สายเดี่ยวสำหรับ Wiring ขนาด 0.5–240 mm²", slug: "h07v-k", img: "/images/products/h07v-k.jpg" },
+    { name: "H07VVH6-F", thaiName: "สายไฟแบนสำหรับ Crane", slug: "h07vvh6-f", img: "/images/products/h07vvh6-f.jpg" },
+    { name: "SiHF", thaiName: "สายไฟทนความร้อน", slug: "sihf", img: "/images/products/sihf.jpg" },
+    { name: "Multiflex", thaiName: "สายไฟรางกระดูกงู สายไฟหุ่นยนต์", slug: "robot-cable", img: "/images/products/multiflex.jpg" },
   ];
 
   // ─── FAQ ความรู้จากต้นฉบับ ───
@@ -718,23 +718,26 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <section className="main-product-list">
+      <section style={{ padding: '60px 0', background: '#fff', position: 'relative' }}>
         <div className="container">
-          <h2>สินค้ายอดนิยม</h2>
-          <p className="section-sub">สายไฟที่ลูกค้าเลือกใช้มากที่สุด — คลิกเพื่อดูรายละเอียด</p>
-          <div className="product-list-items">
+          <h2 style={{ fontSize: '2rem', fontWeight: 800, color: '#000', textAlign: 'center', marginBottom: 8 }}>สายคอนโทรล</h2>
+          <p style={{ textAlign: 'center', color: '#64748b', marginBottom: 36 }}>สายไฟที่ลูกค้าเลือกใช้มากที่สุด — คลิกเพื่อดูรายละเอียด</p>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20, maxWidth: 960, margin: '0 auto' }}>
             {mainProducts.map(p => (
-              <a key={p.slug} href={`/products/detail/${p.slug}`} className="product-list-item">
-                <span className="pli-model">{p.name}</span>
-                <span className="pli-sep">:</span>
-                <span className="pli-name">{p.thaiName}</span>
+              <a key={p.slug} href={`/products/detail/${p.slug}`} style={{ display: 'block', textDecoration: 'none', color: 'inherit', background: '#fff', border: '1px solid #e8edf3', borderRadius: 14, overflow: 'hidden', transition: 'all 0.3s ease', boxShadow: '0 2px 8px rgba(0,0,0,0.04)' }}>
+                <div style={{ padding: 16, display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#f8fafc', minHeight: 200 }}>
+                  <img src={p.img} alt={`${p.name} ${p.thaiName}`} style={{ maxWidth: '100%', maxHeight: 180, objectFit: 'contain' }} loading="lazy" />
+                </div>
+                <div style={{ padding: '14px 16px', borderTop: '1px solid #e8edf3', textAlign: 'center' }}>
+                  <h4 style={{ fontSize: '0.9rem', fontWeight: 700, color: '#003366', margin: 0 }}>
+                    {p.name} : <span style={{ fontWeight: 400, color: '#475569' }}>{p.thaiName}</span>
+                  </h4>
+                </div>
               </a>
             ))}
           </div>
-          <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap', justifyContent: 'center', marginTop: '24px' }}>
-            <a href="/products" className="btn btn-primary">ดูหมวดหมู่ทั้งหมด →</a>
-            <a href="/products/control-cable" className="btn btn-outline" style={{ border: '2px solid var(--color-primary)', color: 'var(--color-primary)' }}>สายคอนโทรล</a>
-            <a href="/products/shielded-cable" className="btn btn-outline" style={{ border: '2px solid var(--color-primary)', color: 'var(--color-primary)' }}>สายชีลด์</a>
+          <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap', justifyContent: 'center', marginTop: 32 }}>
+            <a href="/products" className="btn btn-primary">ดูสินค้าเพิ่มเติม →</a>
           </div>
         </div>
       </section>
