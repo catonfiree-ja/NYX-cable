@@ -230,8 +230,8 @@ export default async function HomePage() {
     .marquee-row:nth-child(4) { animation-duration: 40s; }
     .marquee-row:nth-child(5) { animation-duration: 34s; }
     .marquee-logos { display: flex; gap: 16px; padding: 0 8px; }
-    .client-logo { flex-shrink: 0; padding: 4px 8px; transition: all 0.3s cubic-bezier(0.4,0,0.2,1); filter: grayscale(100%) opacity(0.55); }
-    .client-logo img { width: 120px; height: 54px; display: block; object-fit: contain; }
+    .client-logo { flex-shrink: 0; padding: 4px 10px; transition: all 0.3s cubic-bezier(0.4,0,0.2,1); filter: grayscale(100%) opacity(0.55); }
+    .client-logo img { height: 48px; width: auto; display: block; }
     .client-logo:hover { filter: grayscale(0%) opacity(1); transform: translateY(-2px); }
 
     /* ─── Product Cards ─── */
@@ -490,7 +490,7 @@ export default async function HomePage() {
       .delivery-card p { font-size: 0.72rem; }
 
       /* Marquee logos smaller on mobile */
-      .client-logo img { width: 90px; height: 40px; }
+      .client-logo img { height: 32px; }
       .marquee-logos { gap: 6px; }
 
       /* Comparison section */
