@@ -113,8 +113,8 @@ const styles = `
   }
   .team-avatar img { width: 100%; height: 100%; object-fit: cover; }
   .team-info { padding: 14px 12px; }
-  .team-info h4 { font-size: 0.9rem; font-weight: 700; color: #1a1a2e; margin-bottom: 2px; }
-  .team-info p { font-size: 0.72rem; color: #9ca3af; }
+  .team-info h3 { font-size: 0.9rem; font-weight: 700; color: #1a1a2e; margin-bottom: 2px; }
+  .team-info p { font-size: 0.72rem; color: #6b7280; }
 
   /* ─── Atmosphere Gallery ─── */
   .atmosphere-section { padding: 64px 0; }
@@ -255,12 +255,19 @@ export default async function AboutPage() {
             </div>
           </div>
           <div className="about-video-box">
-            <iframe
-              src="https://www.youtube.com/embed/IEu9jZBH3qQ?rel=0&modestbranding=1"
-              title="NYX Cable - สายไฟอุตสาหกรรมคุณภาพสูง"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            />
+            <a href="https://www.youtube.com/watch?v=IEu9jZBH3qQ" target="_blank" rel="noopener noreferrer" style={{ display: 'block', position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}>
+              <img
+                src="https://i.ytimg.com/vi/IEu9jZBH3qQ/hqdefault.jpg"
+                alt="NYX Cable - สายไฟอุตสาหกรรมคุณภาพสูง"
+                loading="lazy"
+                width="800"
+                height="450"
+                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+              />
+              <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: 68, height: 48, background: 'rgba(255,0,0,0.85)', borderRadius: 14, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <svg viewBox="0 0 24 24" fill="#fff" width="28" height="28"><path d="M8 5v14l11-7z" /></svg>
+              </div>
+            </a>
           </div>
         </div>
       </div>
@@ -330,7 +337,7 @@ export default async function AboutPage() {
                   {member.initial}
                 </div>
                 <div className="team-info">
-                  <h4>{member.name}</h4>
+                  <h3>{member.name}</h3>
                   <p>{member.role}</p>
                 </div>
               </div>
