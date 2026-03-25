@@ -723,7 +723,7 @@ export default async function HomePage() {
         <div className="container">
           <h2 style={{ fontSize: '2rem', fontWeight: 800, color: '#000', textAlign: 'center', marginBottom: 8 }}>สายคอนโทรล</h2>
           <p style={{ textAlign: 'center', color: '#64748b', marginBottom: 36 }}>สายไฟที่ลูกค้าเลือกใช้มากที่สุด — คลิกเพื่อดูรายละเอียด</p>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20, maxWidth: 960, margin: '0 auto' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20 }}>
             {mainProducts.map(p => (
               <a key={p.slug} href={`/products/detail/${p.slug}`} style={{ display: 'block', textDecoration: 'none', color: 'inherit', background: '#fff', border: '1px solid #e8edf3', borderRadius: 14, overflow: 'hidden', transition: 'all 0.3s ease', boxShadow: '0 2px 8px rgba(0,0,0,0.04)' }}>
                 <div style={{ background: '#f8fafc' }}>
