@@ -167,7 +167,7 @@ export default async function GalleryPage() {
         <div className="container">
           <h1>แกลเลอรี่ ผลงาน & การจัดส่ง</h1>
           <p>ภาพผลงานจริงจากลูกค้าและการจัดส่งสินค้าทั่วประเทศ</p>
-          <div className="photo-count">รูปภาพกว่า 50+ ภาพ</div>
+
         </div>
       </section>
 
