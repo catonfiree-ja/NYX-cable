@@ -799,31 +799,48 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* ─── Delivery Section (Original Photos - Masonry Grid) ─── */}
-      <section className="delivery-section">
+      {/* ─── ภาพส่งสินค้าจริง (Pixel-Perfect Original) ─── */}
+      <section style={{ background: '#1a2744', padding: '60px 0' }}>
         <div className="container">
-          <h2>ภาพส่งสินค้าจริง</h2>
-          <p className="section-sub">จัดส่งถึงที่หมายอย่างรวดเร็ว ปลอดภัย ตรงต่อเวลา</p>
-          <div style={{ columnCount: 4, columnGap: 10, maxWidth: 1000, margin: '0 auto' }}>
-            {[
-              '/delivery-orig/delivery-orig-01.jpg',
-              '/delivery-orig/delivery-orig-02.jpg',
-              '/delivery-orig/delivery-orig-03.jpg',
-              '/delivery-orig/delivery-orig-04.jpg',
-              '/delivery-orig/delivery-orig-05.jpg',
-              '/delivery-orig/delivery-orig-06.jpg',
-              '/delivery-orig/delivery-orig-07.jpg',
-              '/delivery-orig/delivery-orig-08.jpg',
-              '/delivery-orig/delivery-orig-09.jpg',
-              '/delivery-orig/delivery-orig-10.jpg',
-            ].map((src, i) => (
-              <div key={i} style={{ breakInside: 'avoid', marginBottom: 10, borderRadius: 6, overflow: 'hidden' }}>
-                <img src={src} alt={`NYX Cable ส่งสินค้าจริง #${i + 1}`} loading="lazy" style={{ width: '100%', display: 'block', borderRadius: 6 }} />
-              </div>
-            ))}
+          <h2 style={{ fontSize: '2rem', fontWeight: 800, color: '#fff', textAlign: 'center', marginBottom: 8 }}>ภาพส่งสินค้าจริง</h2>
+          <p style={{ textAlign: 'center', color: 'rgba(255,255,255,0.6)', marginBottom: 36 }}>จัดส่งถึงที่หมายอย่างรวดเร็ว ปลอดภัย ตรงต่อเวลา</p>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gridAutoRows: '180px', gap: 8, maxWidth: 1000, margin: '0 auto' }}>
+            {/* Row 1 */}
+            <div style={{ gridColumn: '1', gridRow: '1', borderRadius: 8, overflow: 'hidden' }}>
+              <img src="/delivery-orig/delivery-orig-01.jpg" alt="NYX Cable ส่งสินค้า" loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+            </div>
+            <div style={{ gridColumn: '2', gridRow: '1', borderRadius: 8, overflow: 'hidden' }}>
+              <img src="/delivery-orig/delivery-orig-04.jpg" alt="NYX Cable โฟร์คลิฟท์" loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+            </div>
+            <div style={{ gridColumn: '3', gridRow: '1 / span 2', borderRadius: 8, overflow: 'hidden' }}>
+              <img src="/delivery-orig/delivery-orig-03.jpg" alt="NYX Cable สายไฟพร้อมส่ง" loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+            </div>
+            <div style={{ gridColumn: '4', gridRow: '1', borderRadius: 8, overflow: 'hidden' }}>
+              <img src="/delivery-orig/delivery-orig-08.jpg" alt="ลูกค้ายิ้มรับสินค้า" loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+            </div>
+            {/* Row 2 */}
+            <div style={{ gridColumn: '1', gridRow: '2', borderRadius: 8, overflow: 'hidden' }}>
+              <img src="/delivery-orig/delivery-orig-05.jpg" alt="NYX Cable โกดัง" loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+            </div>
+            <div style={{ gridColumn: '2', gridRow: '2', borderRadius: 8, overflow: 'hidden' }}>
+              <img src="/delivery-orig/delivery-orig-07.jpg" alt="NYX Cable ม้วนสาย" loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+            </div>
+            <div style={{ gridColumn: '4', gridRow: '2', borderRadius: 8, overflow: 'hidden' }}>
+              <img src="/delivery-orig/delivery-orig-09.jpg" alt="ลูกค้ารับสินค้าเอง" loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+            </div>
+            {/* Row 3 */}
+            <div style={{ gridColumn: '1', gridRow: '3', borderRadius: 8, overflow: 'hidden' }}>
+              <img src="/delivery-orig/delivery-orig-02.jpg" alt="NYX Cable ส่งสินค้าบนรถ" loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+            </div>
+            <div style={{ gridColumn: '2 / span 2', gridRow: '3', borderRadius: 8, overflow: 'hidden' }}>
+              <img src="/delivery-orig/delivery-orig-06.jpg" alt="NYX Cable จัดส่ง" loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+            </div>
+            <div style={{ gridColumn: '4', gridRow: '3', borderRadius: 8, overflow: 'hidden' }}>
+              <img src="/delivery-orig/delivery-orig-10.jpg" alt="ลูกค้ายิ้มรับสินค้า" loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+            </div>
           </div>
-          <div style={{ textAlign: 'center', marginTop: 20, position: 'relative', zIndex: 1 }}>
-            <a href="/gallery" className="btn btn-secondary">ดูภาพทั้งหมดในแกลเลอรี่ →</a>
+          <div style={{ textAlign: 'center', marginTop: 24, position: 'relative', zIndex: 1 }}>
+            <a href="/gallery" className="btn btn-secondary" style={{ borderColor: 'rgba(255,255,255,0.3)', color: '#fff' }}>ดูภาพทั้งหมดในแกลเลอรี่ →</a>
           </div>
         </div>
       </section>
