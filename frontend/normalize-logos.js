@@ -1,13 +1,10 @@
-// Normalize v3: trim whitespace + fixed height, auto width
-// Each logo gets same visual height, width varies naturally
-// This ensures square logos look as big as wide logos
+// Normalize v4: TRIM whitespace only, keep original aspect ratio
+// CSS will handle display with fixed box + object-fit: contain
+// This ensures consistent visual sizing regardless of source dimensions
 
 const sharp = require('sharp');
 const fs = require('fs');
 const path = require('path');
-
-const TARGET_H = 60; // normalised height (displayed at ~48px via CSS)
-const MAX_W = 240;   // cap extremely wide logos
 
 const srcDir = path.resolve('public/client-logos-original');
 const outDir = path.resolve('public/client-logos');
@@ -17,7 +14,7 @@ async function main() {
     .filter(f => /^logo-\d+/i.test(f))
     .sort();
 
-  console.log(`Processing ${files.length} logos — fixed height ${TARGET_H}px, auto width (max ${MAX_W}px)\n`);
+  console.log(`Processing ${files.length} logos — trim whitespace only\n`);
 
   // Clean output
   const existing = fs.readdirSync(outDir).filter(f => /^logo-\d+/i.test(f));
@@ -30,51 +27,51 @@ async function main() {
 
     try {
       const origMeta = await sharp(srcPath).metadata();
-
-      // Step 1: Trim whitespace by flattening to white bg + trim
-      let trimInfo;
+      
+      // Trim whitespace: flatten to white bg, trim near-white pixels
+      let trimmed;
       try {
-        const trimResult = await sharp(srcPath)
+        trimmed = await sharp(srcPath)
           .flatten({ background: { r: 255, g: 255, b: 255 } })
-          .trim({ threshold: 20 })
+          .trim({ threshold: 15 })
           .toBuffer({ resolveWithObject: true });
-        trimInfo = { w: trimResult.info.width, h: trimResult.info.height };
       } catch (e) {
-        // trim can fail on some images, use original dimensions
-        trimInfo = { w: origMeta.width, h: origMeta.height };
+        // If trim fails, use original
+        trimmed = await sharp(srcPath)
+          .toBuffer({ resolveWithObject: true });
       }
 
-      const ratio = trimInfo.w / trimInfo.h;
+      const tW = trimmed.info.width;
+      const tH = trimmed.info.height;
 
-      // Step 2: Calculate target dimensions
-      // Primary: fix height to TARGET_H, calculate width from ratio
-      let targetW = Math.round(TARGET_H * ratio);
-      let targetH = TARGET_H;
-
-      // Cap extremely wide logos
-      if (targetW > MAX_W) {
-        targetW = MAX_W;
-        targetH = Math.round(MAX_W / ratio);
+      // Now re-read original and extract only the trimmed region
+      // Since we can't get trim offsets easily, just trim the original directly
+      let output;
+      try {
+        output = await sharp(srcPath)
+          .trim({ threshold: 15 })
+          .png()
+          .toBuffer({ resolveWithObject: true });
+      } catch (e) {
+        output = await sharp(srcPath)
+          .png()
+          .toBuffer({ resolveWithObject: true });
       }
 
-      // Step 3: Resize original (not trimmed — keep original content) 
-      // with contain to avoid distortion
-      await sharp(srcPath)
-        .resize(targetW, targetH, {
-          fit: 'contain',
-          background: { r: 0, g: 0, b: 0, alpha: 0 },
-        })
-        .png()
-        .toFile(path.join(outDir, outName));
+      fs.writeFileSync(path.join(outDir, outName), output.data);
 
-      console.log(`✓ #${num.padStart(2,'0')} (${origMeta.width}x${origMeta.height}) trim=${trimInfo.w}x${trimInfo.h} r=${ratio.toFixed(1)} → ${targetW}x${targetH}`);
+      const oW = output.info.width;
+      const oH = output.info.height;
+      const ratio = (oW / oH).toFixed(1);
+      
+      console.log(`✓ #${num.padStart(2,'0')} orig=${origMeta.width}x${origMeta.height} → trimmed=${oW}x${oH} r=${ratio}`);
 
     } catch (err) {
       console.error(`✗ ${file}: ${err.message}`);
     }
   }
 
-  console.log('\nDone!');
+  console.log('\nDone! CSS will handle sizing with object-fit: contain in fixed box.');
 }
 
 main();
