@@ -5,8 +5,7 @@ import Image from "next/image";
 import { OrganizationSchema } from "@/components/StructuredData";
 import NavLinks from "@/components/NavLinks";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
-import CookieConsent from "@/components/CookieConsent";
-import FloatingContactFAB from "@/components/FloatingContactFAB";
+import LazyWidgets from "@/components/LazyWidgets";
 
 const prompt = Prompt({
   subsets: ["thai", "latin"],
@@ -221,9 +220,8 @@ export default function RootLayout({
           </div>
         </footer>
 
-        {/* Floating Contact FAB — appears after 60s, bottom-left */}
-        <FloatingContactFAB />
-        <CookieConsent />
+        {/* Lazy-loaded: CookieConsent + FloatingContactFAB */}
+        <LazyWidgets />
         <script dangerouslySetInnerHTML={{
           __html: `
           (function(){
