@@ -799,32 +799,32 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* ─── Delivery Section (CMS or fallback) ─── */}
+      {/* ─── Delivery Section (Original Photos) ─── */}
       <section className="delivery-section">
         <div className="container">
-          <h2>{(homeCms?.deliveryHeading || 'การส่งสินค้า').replace(/[\u{1F300}-\u{1F9FF}\u{2600}-\u{2B55}\u{FE0F}\u{200D}\u{20E3}]/gu, '').trim()}</h2>
-          <p className="section-sub">{homeCms?.deliverySubheading || 'จัดส่งถึงที่หมายอย่างรวดเร็ว ปลอดภัย ตรงต่อเวลา'}</p>
-          <div className="delivery-grid">
-            <div className="delivery-card">
-              <div className="dc-num">01</div>
-              <h4>ส่งตรงจากโกดังบางนา</h4>
-              <p>สต็อกพร้อมส่งด่วนเพียง 2 ชม. ในกรุงเทพฯ</p>
-            </div>
-            <div className="delivery-card">
-              <div className="dc-num">02</div>
-              <h4>จัดส่งทั่วประเทศ</h4>
-              <p>ขนส่งปลอดภัย พร้อมแพ็คกิ้งมาตรฐานโรงงาน</p>
-            </div>
-            <div className="delivery-card">
-              <div className="dc-num">03</div>
-              <h4>ติดตามสถานะได้</h4>
-              <p>แจ้งเลขพัสดุและสถานะจัดส่งผ่าน LINE ทุกออเดอร์</p>
-            </div>
-          </div>
-          <div className="delivery-photos">
-            {[1, 2, 3, 4, 5, 6, 7, 8].map(n => (
-              <div key={n} className="delivery-photo">
-                <Image src={`/delivery-2026/delivery-2026-${String(n).padStart(2, '0')}.jpg`} alt={`NYX Cable จัดส่งสินค้า #${n}`} width={400} height={300} loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+          <h2>ภาพส่งสินค้าจริง</h2>
+          <p className="section-sub">จัดส่งถึงที่หมายอย่างรวดเร็ว ปลอดภัย ตรงต่อเวลา</p>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 10, maxWidth: 1000, margin: '0 auto' }}>
+            {[
+              { src: '/delivery-orig/delivery-orig-01.jpg', face: true },
+              { src: '/delivery-orig/delivery-orig-02.jpg', face: false },
+              { src: '/delivery-orig/delivery-orig-03.jpg', face: false },
+              { src: '/delivery-orig/delivery-orig-04.jpg', face: true },
+              { src: '/delivery-orig/delivery-orig-05.jpg', face: false },
+              { src: '/delivery-orig/delivery-orig-06.jpg', face: false },
+              { src: '/delivery-orig/delivery-orig-07.jpg', face: false },
+              { src: '/delivery-orig/delivery-orig-08.jpg', face: true },
+              { src: '/delivery-orig/delivery-orig-09.jpg', face: true },
+              { src: '/delivery-orig/delivery-orig-10.jpg', face: true },
+              { src: '/delivery-orig/delivery-orig-11.jpg', face: false },
+              { src: '/delivery-orig/delivery-orig-12.jpg', face: false },
+              { src: '/delivery-orig/delivery-orig-13.jpg', face: false },
+              { src: '/delivery-orig/delivery-orig-14.jpg', face: true },
+              { src: '/delivery-orig/delivery-orig-15.jpg', face: false },
+              { src: '/delivery-orig/delivery-orig-16.jpg', face: true },
+            ].map((photo, i) => (
+              <div key={i} style={{ borderRadius: 6, overflow: 'hidden', border: photo.face ? '3px solid #dc2626' : '1px solid #e5e7eb', aspectRatio: '1' }}>
+                <img src={photo.src} alt={`NYX Cable จัดส่งสินค้า #${i + 1}`} loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
               </div>
             ))}
           </div>
