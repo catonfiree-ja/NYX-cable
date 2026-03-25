@@ -187,12 +187,48 @@ const styles = `
 `
 
 const reviews = [
-  { name: 'คุณสมชาย', initial: 'ส', company: 'บริษัท ออโตเมชั่น ซิสเต็มส์ จำกัด', stars: 5, text: 'ใช้สาย YSLY-JZ กับตู้คอนโทรล ได้มาตรฐาน DIN VDE ตามที่ต้องการ สั่งง่าย ส่งไว สต็อกครบ', product: 'YSLY-JZ', slug: 'ysly-jz' },
-  { name: 'คุณวิภา', initial: 'ว', company: 'หจก. เอ็นจิเนียริ่ง โปร', stars: 5, text: 'สั่งสาย LiYCY ชีลด์ป้องกัน EMI ได้ผลดีมาก สัญญาณไม่มี noise ทีมงานให้คำปรึกษาเลือกขนาดได้ดี', product: 'LiYCY', slug: 'liycy' },
-  { name: 'คุณประเสริฐ', initial: 'ป', company: 'บริษัท ไทย อินดัสเทรียล จำกัด', stars: 5, text: 'ซื้อสายเครนติดตั้งในโรงงาน ทนทานมาก ใช้งานมา 2 ปีไม่มีปัญหา ราคาดีกว่านำเข้าเอง', product: 'Crane Cable', slug: 'nshtou' },
-  { name: 'คุณอรุณ', initial: 'อ', company: 'บริษัท เพาเวอร์ เทค จำกัด', stars: 5, text: 'สั่งสาย VFD Servo Cable มาใช้กับเครื่อง CNC คุณภาพดี ตรงสเปค ส่งตรงเวลา แนะนำครับ', product: 'VFD Cable', slug: 'multiflex-y' },
-  { name: 'คุณนภา', initial: 'น', company: 'บริษัท สมาร์ท แมนูแฟคเจอริ่ง จำกัด', stars: 5, text: 'ใช้สายทนความร้อน SiHF ในห้องเตาอบ ทนได้ 180 องศา ไม่มีปัญหาเลย คุณภาพยุโรปจริงๆ', product: 'SiHF', slug: 'sihf' },
-  { name: 'คุณธนา', initial: 'ธ', company: 'หจก. ธนา อิเล็กทริค', stars: 5, text: 'ซื้อสายคอนโทรลหลายรุ่น ได้ราคาส่ง ทีมงานช่วยเลือกขนาดให้ถูกต้อง ประทับใจบริการมาก', product: 'Control Cable', slug: 'ysly-jz' },
+  {
+    name: 'Waterford Diamond',
+    initial: 'W',
+    stars: 5,
+    text: 'ลองติดต่อสอบถามข้อมูลกับ NYX Cable แล้วประทับใจมากค่ะ ทางบริษัทให้ข้อมูลชัดเจนและแนะนำรายละเอียดสินค้าได้ดีมาก ติดต่อสอบถามง่าย ตอบคำถามรวดเร็ว แม้จะเป็นวันหยุดนักขัตฤกษ์ก็ยังมีพนักงานรับโทรศัพท์และให้ข้อมูลอยู่ ทำให้รู้สึกว่าดูแลลูกค้าดีจริง ๆ สินค้ากดีมีมาตรฐานและเชื่อถือได้ อีกทั้งยังมีบริการจัดส่งด่วน ได้ของเร็วทันใช้งาน อยู่ไกลก็ส่งประทับใจค่ะ',
+    time: '2 สัปดาห์ที่แล้ว',
+  },
+  {
+    name: 'ธัญนภัทร์ นะเทศ',
+    initial: 'ธ',
+    stars: 5,
+    text: 'สั่ง สาย ST-TP เดินสัญญาณ RS485 ประจำ มีให้เลือกหลายขนาด ไม่ต้องรอของนานเลยค่ะ',
+    time: '3 เดือนที่แล้ว',
+  },
+  {
+    name: 'Typspossi Sskksjs',
+    initial: 'T',
+    stars: 5,
+    text: 'ใช้ของด่วน ขับมารับเอง พนักงานช่วยเช็กให้ครบ มีห้องรับรอง บริการดีเลย',
+    time: '3 เดือนที่แล้ว',
+  },
+  {
+    name: 'Na Na',
+    initial: 'N',
+    stars: 5,
+    text: 'ได้ดีจริง สมคำรีวิว แนะนำ ของตรงตามสเปคเลยค่ะ',
+    time: '3 เดือนที่แล้ว',
+  },
+  {
+    name: 'Somchettana chaiyalap',
+    initial: 'S',
+    stars: 5,
+    text: 'งานด่วนจบได้สบายมาก คุณภาพ + สามารถแบ่งขายได้ด้วย...บริการสุดประทับใจ',
+    time: 'เดือนที่แล้ว',
+  },
+  {
+    name: 'Nuss Chonticha Champasee',
+    initial: 'N',
+    stars: 5,
+    text: 'NYX CABLE ส่งไวเหมือนเดิมเลยย บริการดีมากกก ที่นี่ไม่ทำให้เสียใจเลยค่ะ 💜💜💜',
+    time: '4 เดือนที่แล้ว',
+  },
 ]
 
 const avatarColors = [
@@ -212,6 +248,17 @@ function StarSVG({ filled }: { filled: boolean }) {
   )
 }
 
+function GoogleIcon() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24">
+      <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4" />
+      <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853" />
+      <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05" />
+      <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335" />
+    </svg>
+  )
+}
+
 export default function ReviewsPage() {
   const avgRating = (reviews.reduce((sum, r) => sum + r.stars, 0) / reviews.length).toFixed(1)
   const starCounts = [5, 4, 3, 2, 1].map(s => reviews.filter(r => r.stars === s).length)
@@ -222,9 +269,9 @@ export default function ReviewsPage() {
 
       <section className="reviews-hero">
         <div className="container">
-          <div className="trust-badge">★ คะแนนเฉลี่ย 5.0/5 จากผู้ใช้งานจริง</div>
+          <div className="trust-badge">★ คะแนนเฉลี่ย 5.0/5 จาก Google Maps</div>
           <h1>รีวิวจากลูกค้า</h1>
-          <p>ความคิดเห็นจากวิศวกรและช่างไฟฟ้าที่ไว้วางใจสายไฟ NYX Cable</p>
+          <p>รีวิวจริงจากลูกค้าที่ไว้วางใจสายไฟ NYX Cable บน Google Maps</p>
         </div>
       </section>
 
@@ -238,7 +285,7 @@ export default function ReviewsPage() {
                 <StarSVG key={i} filled={i <= Math.round(Number(avgRating))} />
               ))}
             </div>
-            <div className="count">{reviews.length} รีวิว</div>
+            <div className="count">{reviews.length} รีวิวจาก Google Maps</div>
           </div>
           <div className="reviews-bars">
             {[5, 4, 3, 2, 1].map((star, i) => (
@@ -259,12 +306,14 @@ export default function ReviewsPage() {
         <div className="reviews-grid">
           {reviews.map((review, idx) => (
             <div key={idx} className="review-card">
-              <div className="verified-badge">✓ ผู้ซื้อจริง</div>
+              <div className="verified-badge" style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
+                <GoogleIcon /> Google Review
+              </div>
               <div className="review-header">
                 <div className="review-avatar" style={{ background: avatarColors[idx % avatarColors.length] }}>{review.initial}</div>
                 <div>
                   <div className="review-name">{review.name}</div>
-                  <div className="review-company">{review.company}</div>
+                  <div className="review-company">{review.time}</div>
                   <div className="review-card-stars">
                     {[1, 2, 3, 4, 5].map(i => (
                       <StarSVG key={i} filled={i <= review.stars} />
@@ -273,14 +322,11 @@ export default function ReviewsPage() {
                 </div>
               </div>
               <div className="review-text">&ldquo;{review.text}&rdquo;</div>
-              <a href={`/products/detail/${review.slug}`} className="review-product">
-                สินค้าที่ใช้: {review.product}
-              </a>
             </div>
           ))}
         </div>
         <div style={{ textAlign: 'center', padding: '32px 0 16px' }}>
-          <a href="https://www.google.com/maps/place/NYX+Cable" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '12px 28px', background: 'linear-gradient(135deg, #4285f4, #34a853)', color: '#fff', borderRadius: '50px', fontWeight: 700, fontSize: '0.95rem', textDecoration: 'none', boxShadow: '0 4px 14px rgba(66,133,244,0.3)', transition: 'all 0.25s' }}>
+          <a href="https://www.google.com/maps/place/NYX+Cable,+%E0%B8%AA%E0%B8%B2%E0%B8%A2%E0%B8%84%E0%B8%AD%E0%B8%99%E0%B9%82%E0%B8%97%E0%B8%A3%E0%B8%A5,+OPVC-JZ,+CVV,+VCT/@13.6581099,100.5967715,17z/data=!4m8!3m7!1s0x311d5f937a0d75c5:0x1a6f99f75d845ed0!8m2!3d13.6581099!4d100.5993464!9m1!1b1!16s%2Fg%2F11c4jd40c2" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '12px 28px', background: 'linear-gradient(135deg, #4285f4, #34a853)', color: '#fff', borderRadius: '50px', fontWeight: 700, fontSize: '0.95rem', textDecoration: 'none', boxShadow: '0 4px 14px rgba(66,133,244,0.3)', transition: 'all 0.25s' }}>
             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" /></svg>
             ดูรีวิวทั้งหมดบน Google Maps
           </a>
