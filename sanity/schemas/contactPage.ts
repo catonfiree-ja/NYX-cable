@@ -65,6 +65,7 @@ export default defineType({
       title: 'SEO Title',
       type: 'string',
       group: 'seo',
+      description: 'แนะนำ 50-60 ตัวอักษร เช่น "ติดต่อเรา | NYX Cable"',
     }),
     defineField({
       name: 'metaDescription',
@@ -72,6 +73,17 @@ export default defineType({
       type: 'text',
       rows: 3,
       group: 'seo',
+      description: 'แนะนำ 120-160 ตัวอักษร',
+    }),
+    defineField({
+      name: 'ogImage',
+      title: 'OG Image (รูปแชร์ Social)',
+      type: 'image',
+      group: 'seo',
+      fields: [
+        { name: 'alt', type: 'string', title: 'Alt Text' },
+      ],
+      description: 'แนะนำ 1200×630px',
     }),
   ],
   groups: [

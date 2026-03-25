@@ -59,7 +59,7 @@ export default defineType({
         {
           type: 'object',
           fields: [
-            { name: 'image', type: 'image', title: 'รูป', options: { hotspot: true } },
+            { name: 'image', type: 'image', title: 'รูป', options: { hotspot: true }, fields: [{ name: 'alt', type: 'string', title: 'Alt Text' }] },
             { name: 'heading', type: 'string', title: 'หัวข้อ' },
             { name: 'subheading', type: 'string', title: 'หัวข้อย่อย' },
             { name: 'ctaText', type: 'string', title: 'ข้อความปุ่ม' },
@@ -87,6 +87,7 @@ export default defineType({
           type: 'image',
           fields: [
             { name: 'name', type: 'string', title: 'ชื่อบริษัท' },
+            { name: 'alt', type: 'string', title: 'Alt Text', description: 'ถ้าไม่กรอก ระบบจะใช้ชื่อบริษัทแทน' },
           ],
         },
       ],
@@ -134,8 +135,11 @@ export default defineType({
       name: 'ogImage',
       title: 'OG Image (รูปแชร์ Social)',
       type: 'image',
-      description: 'รูปที่แสดงเมื่อแชร์ลิงก์ในโซเชียล',
+      description: 'รูปที่แสดงเมื่อแชร์ลิงก์ในโซเชียล (แนะนำ 1200×630px)',
       group: 'seo',
+      fields: [
+        { name: 'alt', type: 'string', title: 'Alt Text' },
+      ],
     }),
   ],
   groups: [

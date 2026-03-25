@@ -81,6 +81,7 @@ export default defineType({
       title: 'SEO Title',
       type: 'string',
       group: 'seo',
+      description: 'แนะนำ 50-60 ตัวอักษร ถ้าไม่กรอก ระบบจะใช้หัวข้อบทความแทน',
     }),
     defineField({
       name: 'metaDescription',
@@ -88,6 +89,17 @@ export default defineType({
       type: 'text',
       rows: 3,
       group: 'seo',
+      description: 'แนะนำ 120-160 ตัวอักษร ถ้าไม่กรอก ระบบจะใช้บทนำ (Excerpt) แทน',
+    }),
+    defineField({
+      name: 'ogImage',
+      title: 'OG Image (รูปแชร์ Social)',
+      type: 'image',
+      group: 'seo',
+      fields: [
+        { name: 'alt', type: 'string', title: 'Alt Text' },
+      ],
+      description: 'ถ้าไม่ใส่ ระบบจะใช้รูปปกบทความแทน (แนะนำ 1200×630px)',
     }),
   ],
   groups: [
