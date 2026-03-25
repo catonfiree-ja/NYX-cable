@@ -799,32 +799,26 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* ─── Delivery Section (Original Photos) ─── */}
+      {/* ─── Delivery Section (Original Photos - Masonry Grid) ─── */}
       <section className="delivery-section">
         <div className="container">
           <h2>ภาพส่งสินค้าจริง</h2>
           <p className="section-sub">จัดส่งถึงที่หมายอย่างรวดเร็ว ปลอดภัย ตรงต่อเวลา</p>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 10, maxWidth: 1000, margin: '0 auto' }}>
+          <div style={{ columnCount: 4, columnGap: 10, maxWidth: 1000, margin: '0 auto' }}>
             {[
-              { src: '/delivery-orig/delivery-orig-01.jpg', face: true },
-              { src: '/delivery-orig/delivery-orig-02.jpg', face: false },
-              { src: '/delivery-orig/delivery-orig-03.jpg', face: false },
-              { src: '/delivery-orig/delivery-orig-04.jpg', face: true },
-              { src: '/delivery-orig/delivery-orig-05.jpg', face: false },
-              { src: '/delivery-orig/delivery-orig-06.jpg', face: false },
-              { src: '/delivery-orig/delivery-orig-07.jpg', face: false },
-              { src: '/delivery-orig/delivery-orig-08.jpg', face: true },
-              { src: '/delivery-orig/delivery-orig-09.jpg', face: true },
-              { src: '/delivery-orig/delivery-orig-10.jpg', face: true },
-              { src: '/delivery-orig/delivery-orig-11.jpg', face: false },
-              { src: '/delivery-orig/delivery-orig-12.jpg', face: false },
-              { src: '/delivery-orig/delivery-orig-13.jpg', face: false },
-              { src: '/delivery-orig/delivery-orig-14.jpg', face: true },
-              { src: '/delivery-orig/delivery-orig-15.jpg', face: false },
-              { src: '/delivery-orig/delivery-orig-16.jpg', face: true },
-            ].map((photo, i) => (
-              <div key={i} style={{ borderRadius: 6, overflow: 'hidden', border: photo.face ? '3px solid #dc2626' : '1px solid #e5e7eb', aspectRatio: '1' }}>
-                <img src={photo.src} alt={`NYX Cable จัดส่งสินค้า #${i + 1}`} loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+              '/delivery-orig/delivery-orig-01.jpg',
+              '/delivery-orig/delivery-orig-02.jpg',
+              '/delivery-orig/delivery-orig-03.jpg',
+              '/delivery-orig/delivery-orig-04.jpg',
+              '/delivery-orig/delivery-orig-05.jpg',
+              '/delivery-orig/delivery-orig-06.jpg',
+              '/delivery-orig/delivery-orig-07.jpg',
+              '/delivery-orig/delivery-orig-08.jpg',
+              '/delivery-orig/delivery-orig-09.jpg',
+              '/delivery-orig/delivery-orig-10.jpg',
+            ].map((src, i) => (
+              <div key={i} style={{ breakInside: 'avoid', marginBottom: 10, borderRadius: 6, overflow: 'hidden' }}>
+                <img src={src} alt={`NYX Cable ส่งสินค้าจริง #${i + 1}`} loading="lazy" style={{ width: '100%', display: 'block', borderRadius: 6 }} />
               </div>
             ))}
           </div>
