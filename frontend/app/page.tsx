@@ -230,8 +230,8 @@ export default async function HomePage() {
     .marquee-row:nth-child(4) { animation-duration: 40s; }
     .marquee-row:nth-child(5) { animation-duration: 34s; }
     .marquee-logos { display: flex; gap: 16px; padding: 0 8px; }
-    .client-logo { flex-shrink: 0; padding: 8px 16px; transition: all 0.3s cubic-bezier(0.4,0,0.2,1); filter: grayscale(100%) opacity(0.55); }
-    .client-logo img { height: 50px; width: auto; max-width: 140px; display: block; object-fit: contain; }
+    .client-logo { flex-shrink: 0; padding: 4px 8px; transition: all 0.3s cubic-bezier(0.4,0,0.2,1); filter: grayscale(100%) opacity(0.55); }
+    .client-logo img { width: 120px; height: 54px; display: block; object-fit: contain; }
     .client-logo:hover { filter: grayscale(0%) opacity(1); transform: translateY(-2px); }
 
     /* ─── Product Cards ─── */
@@ -490,8 +490,8 @@ export default async function HomePage() {
       .delivery-card p { font-size: 0.72rem; }
 
       /* Marquee logos smaller on mobile */
-      .client-logo { width: 110px; height: 50px; border-radius: 6px; }
-      .marquee-logos { gap: 8px; }
+      .client-logo img { width: 90px; height: 40px; }
+      .marquee-logos { gap: 6px; }
 
       /* Comparison section */
       .comparison-section { padding: 36px 0 !important; }
@@ -595,8 +595,7 @@ export default async function HomePage() {
 
       {/* ─── Our Clients — 5-Row Alternating Marquee ─── */}
       {(() => {
-        // Uniform height (50px), auto width — industry standard
-        const ext = (n: number) => [4,5,6,8,10,12,13,14,18,19,20,31,33,35,38,40,49,65].includes(n) ? 'jpg' : 'png';
+        // All logos normalized to 160x72 PNG canvas
         const rows = [
           { logos: Array.from({ length: 14 }, (_, i) => i + 1), dir: 'left' },
           { logos: Array.from({ length: 13 }, (_, i) => i + 15), dir: 'right' },
@@ -614,14 +613,14 @@ export default async function HomePage() {
                     <div className="marquee-logos">
                       {row.logos.map(n => (
                         <div key={`a-${n}`} className="client-logo">
-                          <img src={`/client-logos/logo-${String(n).padStart(2, '0')}.${ext(n)}`} alt={`ลูกค้า NYX Cable #${n}`} loading="lazy" />
+                          <img src={`/client-logos/logo-${String(n).padStart(2, '0')}.png`} alt={`ลูกค้า NYX Cable #${n}`} loading="lazy" />
                         </div>
                       ))}
                     </div>
                     <div className="marquee-logos" aria-hidden="true">
                       {row.logos.map(n => (
                         <div key={`b-${n}`} className="client-logo">
-                          <img src={`/client-logos/logo-${String(n).padStart(2, '0')}.${ext(n)}`} alt="" loading="lazy" />
+                          <img src={`/client-logos/logo-${String(n).padStart(2, '0')}.png`} alt="" loading="lazy" />
                         </div>
                       ))}
                     </div>
