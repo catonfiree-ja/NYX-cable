@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Prompt } from "next/font/google";
 import "./globals.css";
+import Image from "next/image";
 import { OrganizationSchema } from "@/components/StructuredData";
 import NavLinks from "@/components/NavLinks";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
@@ -101,7 +102,7 @@ export default function RootLayout({
         <header className="header">
           <div className="container">
             <a href="/" className="header-logo">
-              <img src="/images/NYXcable-Logo.png" alt="NYX Cable" style={{ display: 'block', height: '40px', width: 'auto', maxHeight: '40px' }} />
+              <Image src="/images/NYXcable-Logo.png" alt="NYX Cable สายไฟอุตสาหกรรมคุณภาพยุโรป" width={160} height={40} style={{ display: 'block', height: '40px', width: 'auto' }} priority />
             </a>
             <NavLinks />
           </div>
@@ -151,7 +152,7 @@ export default function RootLayout({
               {/* Brand */}
               <div className="footer-brand">
                 <div style={{ marginBottom: '16px' }}>
-                  <img src="/images/NYXcable-Logo.png" alt="NYX Cable" style={{ display: 'block', height: '45px', width: 'auto', maxHeight: '45px' }} />
+                  <Image src="/images/NYXcable-Logo.png" alt="NYX Cable โลโก้" width={180} height={45} style={{ display: 'block', height: '45px', width: 'auto' }} />
                 </div>
                 <p>
                   ผู้เชี่ยวชาญด้านสายไฟอุตสาหกรรมคุณภาพสูง

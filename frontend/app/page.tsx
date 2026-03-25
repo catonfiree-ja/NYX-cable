@@ -728,7 +728,7 @@ export default async function HomePage() {
             {mainProducts.map(p => (
               <a key={p.slug} href={`/products/detail/${p.slug}`} className="card-hover" style={{ display: 'block', textDecoration: 'none', color: 'inherit', background: '#fff', border: '1px solid #e8edf3', borderRadius: 14, overflow: 'hidden', boxShadow: '0 2px 8px rgba(0,0,0,0.04)' }}>
                 <div style={{ background: '#f8fafc' }}>
-                  <img src={p.img} alt={`${p.name} ${p.thaiName}`} style={{ width: '100%', height: 'auto', display: 'block' }} loading="lazy" />
+                  <Image src={p.img} alt={`${p.name} ${p.thaiName}`} width={400} height={400} style={{ width: '100%', height: 'auto', display: 'block' }} loading="lazy" />
                 </div>
                 <div style={{ padding: '14px 16px', borderTop: '1px solid #e8edf3', textAlign: 'center' }}>
                   <h4 style={{ fontSize: '0.9rem', fontWeight: 700, color: '#003366', margin: 0 }}>
@@ -752,7 +752,7 @@ export default async function HomePage() {
             {/* มั่นใจคุณภาพ */}
             <div style={{ display: 'flex', alignItems: 'flex-start', gap: 20 }}>
               <div style={{ flexShrink: 0 }}>
-                <img src="/images/icons/why-shield.png" alt="มั่นใจคุณภาพ" width="80" height="80" style={{ display: 'block' }} />
+                <Image src="/images/icons/why-shield.png" alt="มั่นใจคุณภาพ" width={80} height={80} style={{ display: 'block' }} />
               </div>
               <div>
                 <h3 style={{ fontSize: '1.25rem', fontWeight: 700, color: '#fff', marginBottom: 8, marginTop: 0 }}>มั่นใจคุณภาพ</h3>
@@ -764,7 +764,7 @@ export default async function HomePage() {
             {/* บริการรวดเร็วทันใจ */}
             <div style={{ display: 'flex', alignItems: 'flex-start', gap: 20 }}>
               <div style={{ flexShrink: 0 }}>
-                <img src="/images/icons/why-truck.png" alt="บริการรวดเร็วทันใจ" width="80" height="80" style={{ display: 'block' }} />
+                <Image src="/images/icons/why-truck.png" alt="บริการรวดเร็วทันใจ" width={80} height={80} style={{ display: 'block' }} />
               </div>
               <div>
                 <h3 style={{ fontSize: '1.25rem', fontWeight: 700, color: '#fff', marginBottom: 8, marginTop: 0 }}>บริการรวดเร็วทันใจ</h3>
