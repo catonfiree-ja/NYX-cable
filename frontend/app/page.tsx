@@ -3,6 +3,7 @@ import { getProducts, getBlogPosts, getFAQs, getHomePage } from '@/lib/queries'
 import Image from 'next/image'
 import { urlFor as sanityUrlFor } from '@/lib/sanity'
 import { decodeHtmlEntities } from '@/lib/decode-html'
+import DeliveryGallery from '@/components/DeliveryGallery'
 
 export async function generateMetadata(): Promise<Metadata> {
   const homeCms = await getHomePage()
@@ -803,60 +804,21 @@ export default async function HomePage() {
       <section style={{ background: '#f5f5f5', padding: '60px 0' }}>
         <div className="container">
           <h2 style={{ fontSize: '2rem', fontWeight: 700, color: '#000000', textAlign: 'center', marginBottom: 36 }}>การส่งสินค้า</h2>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gridTemplateRows: '200px 200px 200px 300px', gap: 6, maxWidth: 1000, margin: '0 auto' }}>
-            {/* === Row 1 === */}
-            {/* R1-C1: Workers in warehouse (1x1) */}
-            <div style={{ gridColumn: '1', gridRow: '1', borderRadius: 8, overflow: 'hidden' }}>
-              <img src="/delivery-orig/delivery-orig-01.jpg" alt="NYX Cable คนงานในโกดัง" loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
-            </div>
-            {/* R1-R2 C2: Truck back view (TALL - spans 2 rows) */}
-            <div style={{ gridColumn: '2', gridRow: '1 / 3', borderRadius: 8, overflow: 'hidden' }}>
-              <img src="/delivery-orig/delivery-orig-02.jpg" alt="NYX Cable สายไฟบนรถบรรทุก" loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
-            </div>
-            {/* R1-C3: Yard with cable spools and trees (1x1) */}
-            <div style={{ gridColumn: '3', gridRow: '1', borderRadius: 8, overflow: 'hidden' }}>
-              <img src="/delivery-orig/delivery-orig-03.jpg" alt="NYX Cable ลานจัดเก็บสายไฟ" loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
-            </div>
-            {/* R1-C4: Forklift loading (1x1) */}
-            <div style={{ gridColumn: '4', gridRow: '1', borderRadius: 8, overflow: 'hidden' }}>
-              <img src="/delivery-orig/delivery-orig-04.jpg" alt="NYX Cable โฟร์คลิฟท์ขนสายไฟ" loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
-            </div>
-            {/* === Row 2 === */}
-            {/* R2-R3 C1: Warehouse floor (TALL - spans 2 rows) */}
-            <div style={{ gridColumn: '1', gridRow: '2 / 4', borderRadius: 8, overflow: 'hidden' }}>
-              <img src="/delivery-orig/delivery-orig-05.jpg" alt="NYX Cable โกดังสายไฟ" loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
-            </div>
-            {/* R2-R3 C3: Wooden cable spools warehouse (TALL - spans 2 rows) */}
-            <div style={{ gridColumn: '3', gridRow: '2 / 4', borderRadius: 8, overflow: 'hidden' }}>
-              <img src="/delivery-orig/delivery-orig-06.jpg" alt="NYX Cable ม้วนสายไฟไม้ในคลัง" loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
-            </div>
-            {/* R2-C4: Truck flatbed on road (1x1) */}
-            <div style={{ gridColumn: '4', gridRow: '2', borderRadius: 8, overflow: 'hidden' }}>
-              <img src="/delivery-orig/delivery-orig-07.jpg" alt="NYX Cable รถบรรทุกสายไฟ" loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
-            </div>
-            {/* === Row 3 === */}
-            {/* R3-C2: Woman smiling with cable in car (1x1) */}
-            <div style={{ gridColumn: '2', gridRow: '3', borderRadius: 8, overflow: 'hidden' }}>
-              <img src="/delivery-orig/delivery-orig-08.jpg" alt="ลูกค้ายิ้มรับสายไฟ NYX Cable" loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
-            </div>
-            {/* R3-C4: Man with car trunk (1x1) */}
-            <div style={{ gridColumn: '4', gridRow: '3', borderRadius: 8, overflow: 'hidden' }}>
-              <img src="/delivery-orig/delivery-orig-09.jpg" alt="ลูกค้ารับสายไฟเอง NYX Cable" loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
-            </div>
-            {/* === Row 4: 4 unique images === */}
-            <div style={{ gridColumn: '1', gridRow: '4', borderRadius: 8, overflow: 'hidden' }}>
-              <img src="/delivery-orig/delivery-orig-10.jpg" alt="ลูกค้าถือสายไฟ NYX Cable" loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
-            </div>
-            <div style={{ gridColumn: '2', gridRow: '4', borderRadius: 8, overflow: 'hidden' }}>
-              <img src="/delivery-2026/delivery-2026-20.jpg" alt="NYX Cable สายไฟพร้อมขนส่ง" loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
-            </div>
-            <div style={{ gridColumn: '3', gridRow: '4', borderRadius: 8, overflow: 'hidden' }}>
-              <img src="/delivery-2026/delivery-2026-30.jpg" alt="NYX Cable จัดส่งสายไฟให้ลูกค้า" loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
-            </div>
-            <div style={{ gridColumn: '4', gridRow: '4', borderRadius: 8, overflow: 'hidden' }}>
-              <img src="/delivery-2026/delivery-2026-40.jpg" alt="NYX Cable คลังสินค้าสายไฟ" loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
-            </div>
-          </div>
+          <DeliveryGallery photos={[
+            { src: '/delivery-orig/delivery-orig-01.jpg', alt: 'NYX Cable คนงานในโกดัง', gridColumn: '1', gridRow: '1' },
+            { src: '/delivery-orig/delivery-orig-02.jpg', alt: 'NYX Cable สายไฟบนรถบรรทุก', gridColumn: '2', gridRow: '1 / 3' },
+            { src: '/delivery-orig/delivery-orig-03.jpg', alt: 'NYX Cable ลานจัดเก็บสายไฟ', gridColumn: '3', gridRow: '1' },
+            { src: '/delivery-orig/delivery-orig-04.jpg', alt: 'NYX Cable โฟร์คลิฟท์ขนสายไฟ', gridColumn: '4', gridRow: '1' },
+            { src: '/delivery-orig/delivery-orig-05.jpg', alt: 'NYX Cable โกดังสายไฟ', gridColumn: '1', gridRow: '2 / 4' },
+            { src: '/delivery-orig/delivery-orig-06.jpg', alt: 'NYX Cable ม้วนสายไฟไม้ในคลัง', gridColumn: '3', gridRow: '2 / 4' },
+            { src: '/delivery-orig/delivery-orig-07.jpg', alt: 'NYX Cable รถบรรทุกสายไฟ', gridColumn: '4', gridRow: '2' },
+            { src: '/delivery-orig/delivery-orig-08.jpg', alt: 'ลูกค้ายิ้มรับสายไฟ NYX Cable', gridColumn: '2', gridRow: '3' },
+            { src: '/delivery-orig/delivery-orig-09.jpg', alt: 'ลูกค้ารับสายไฟเอง NYX Cable', gridColumn: '4', gridRow: '3' },
+            { src: '/delivery-orig/delivery-orig-10.jpg', alt: 'ลูกค้าถือสายไฟ NYX Cable', gridColumn: '1', gridRow: '4' },
+            { src: '/delivery-2026/delivery-2026-20.jpg', alt: 'NYX Cable สายไฟพร้อมขนส่ง', gridColumn: '2', gridRow: '4' },
+            { src: '/delivery-2026/delivery-2026-30.jpg', alt: 'NYX Cable จัดส่งสายไฟให้ลูกค้า', gridColumn: '3', gridRow: '4' },
+            { src: '/delivery-2026/delivery-2026-40.jpg', alt: 'NYX Cable คลังสินค้าสายไฟ', gridColumn: '4', gridRow: '4' },
+          ]} />
           <div style={{ textAlign: 'center', marginTop: 32, position: 'relative', zIndex: 1 }}>
             <a href="/gallery" className="btn btn-primary">ดูภาพทั้งหมดในแกลเลอรี่ →</a>
           </div>
