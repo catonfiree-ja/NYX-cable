@@ -345,8 +345,8 @@ export default async function HomePage() {
     .article-card:hover { transform: translateY(-4px); box-shadow: 0 12px 36px rgba(0,51,102,0.1); }
     .article-card .ac-badge { display: inline-block; background: linear-gradient(135deg, #e8f4ff, #dbeafe); color: #0055aa; font-size: 0.7rem; font-weight: 700; padding: 4px 12px; border-radius: 6px; margin: 20px 20px 12px; letter-spacing: 0.3px; }
     .article-card h3 { font-size: 1rem; color: #003366; font-weight: 600; margin-bottom: 8px; line-height: 1.5; padding: 0 20px; }
-    .article-card p { font-size: 0.82rem; color: #64748b; line-height: 1.6; margin-bottom: 12px; padding: 0 20px; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
-    .article-card .read-more { font-size: 0.78rem; color: #0099ff; font-weight: 600; padding: 0 20px 20px; display: block; }
+    .article-card p { font-size: 0.82rem; color: #475569; line-height: 1.6; margin-bottom: 12px; padding: 0 20px; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+    .article-card .read-more { font-size: 0.78rem; color: #0066cc; font-weight: 600; padding: 0 20px 20px; display: block; }
 
     /* ─── FAQ ─── */
     .knowledge-section { padding: 70px 0; background: #fff; }
@@ -363,7 +363,7 @@ export default async function HomePage() {
     .faq-item h3 { font-size: 1rem; color: #003366; font-weight: 700; margin-bottom: 8px; }
     .faq-item h3::before { content: 'Q. '; color: #0099ff; font-weight: 800; }
     .faq-item p { font-size: 0.86rem; color: #475569; line-height: 1.7; }
-    .faq-item .faq-link { display: inline-block; margin-top: 10px; font-size: 0.8rem; color: #0099ff; font-weight: 600; text-decoration: none; transition: color 0.2s; }
+    .faq-item .faq-link { display: inline-block; margin-top: 10px; font-size: 0.8rem; color: #0066cc; font-weight: 600; text-decoration: none; transition: color 0.2s; }
     .faq-item .faq-link:hover { color: #003366; }
 
     /* ─── Delivery ─── */
@@ -608,21 +608,21 @@ export default async function HomePage() {
         return (
           <section className="clients-section">
             <div style={{ maxWidth: '100vw', padding: 0, overflow: 'hidden' }}>
-              <h3 style={{ marginBottom: 20 }}>ลูกค้าที่ไว้วางใจเรา</h3>
+              <h3 style={{ marginBottom: 20, color: '#1a1a2e' }}>ลูกค้าที่ไว้วางใจเรา</h3>
               <div className="marquee-rows">
                 {rows.map((row, rowIdx) => (
                   <div key={rowIdx} className={`marquee-row dir-${row.dir}`}>
                     <div className="marquee-logos">
                       {row.logos.map(n => (
                         <div key={`a-${n}`} className="client-logo">
-                          <img src={`/client-logos/logo-${String(n).padStart(2, '0')}.png`} alt={`ลูกค้า NYX Cable #${n}`} loading="lazy" width="100" height="45" style={n === 20 ? { height: '64px', width: '64px' } : undefined} />
+                          <img src={`/client-logos/logo-${String(n).padStart(2, '0')}.webp`} alt={`ลูกค้า NYX Cable #${n}`} loading="lazy" width="100" height="45" style={n === 20 ? { height: '64px', width: '64px' } : undefined} />
                         </div>
                       ))}
                     </div>
                     <div className="marquee-logos" aria-hidden="true">
                       {row.logos.map(n => (
                         <div key={`b-${n}`} className="client-logo">
-                          <img src={`/client-logos/logo-${String(n).padStart(2, '0')}.png`} alt="" loading="lazy" width="100" height="45" style={n === 20 ? { height: '64px', width: '64px' } : undefined} />
+                          <img src={`/client-logos/logo-${String(n).padStart(2, '0')}.webp`} alt="" loading="lazy" width="100" height="45" style={n === 20 ? { height: '64px', width: '64px' } : undefined} />
                         </div>
                       ))}
                     </div>
@@ -728,12 +728,12 @@ export default async function HomePage() {
             {mainProducts.map(p => (
               <a key={p.slug} href={`/products/detail/${p.slug}`} className="card-hover" style={{ display: 'block', textDecoration: 'none', color: 'inherit', background: '#fff', border: '1px solid #e8edf3', borderRadius: 14, overflow: 'hidden', boxShadow: '0 2px 8px rgba(0,0,0,0.04)' }}>
                 <div style={{ background: '#f8fafc' }}>
-                  <Image src={p.img} alt={`${p.name} ${p.thaiName}`} width={400} height={400} style={{ width: '100%', height: 'auto', display: 'block' }} loading="lazy" />
+                  <Image src={p.img} alt={`${p.name} ${p.thaiName}`} width={400} height={400} sizes="(max-width: 768px) 50vw, 200px" style={{ width: '100%', height: 'auto', display: 'block' }} loading="lazy" />
                 </div>
                 <div style={{ padding: '14px 16px', borderTop: '1px solid #e8edf3', textAlign: 'center' }}>
-                  <h4 style={{ fontSize: '0.9rem', fontWeight: 700, color: '#003366', margin: 0 }}>
+                  <h3 style={{ fontSize: '0.9rem', fontWeight: 700, color: '#003366', margin: 0 }}>
                     {p.name} : <span style={{ fontWeight: 400, color: '#475569' }}>{p.thaiName}</span>
-                  </h4>
+                  </h3>
                 </div>
               </a>
             ))}
@@ -880,7 +880,7 @@ export default async function HomePage() {
                   <tr key={i} style={{ background: i % 2 === 0 ? '#fff' : '#f8fafc' }}>
                     <td style={{ padding: '10px 16px', fontWeight: 600, color: '#334155', borderBottom: '1px solid #e8edf3' }}>{row[0]}</td>
                     <td style={{ padding: '10px 16px', textAlign: 'center', color: '#003366', fontWeight: 700, borderBottom: '1px solid #e8edf3' }}>✓ {row[1]}</td>
-                    <td style={{ padding: '10px 16px', textAlign: 'center', color: '#94a3b8', borderBottom: '1px solid #e8edf3' }}>{row[2]}</td>
+                    <td style={{ padding: '10px 16px', textAlign: 'center', color: '#64748b', borderBottom: '1px solid #e8edf3' }}>{row[2]}</td>
                   </tr>
                 ))}
               </tbody>
@@ -892,19 +892,25 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* ─── วิดีโอแนะนำ NYX Cable ─── */}
+      {/* ─── วิดีโอแนะนำ NYX Cable (Lazy Facade) ─── */}
       <section style={{ padding: '60px 0', background: '#fff' }}>
         <div className="container">
           <h2 style={{ textAlign: 'center', fontSize: '1.6rem', fontWeight: 800, color: '#003366', marginBottom: 8 }}>แนะนำ NYX Cable</h2>
-          <p style={{ textAlign: 'center', color: '#64748b', marginBottom: 32, fontSize: '0.95rem' }}>ทำความรู้จักกับเราผ่านวิดีโอ</p>
-          <div style={{ maxWidth: 800, margin: '0 auto', borderRadius: 20, overflow: 'hidden', boxShadow: '0 8px 30px rgba(0,51,102,0.1)', border: '1px solid #e5e7eb', aspectRatio: '16 / 9', position: 'relative' }}>
-            <iframe
-              src="https://www.youtube.com/embed/IEu9jZBH3qQ?rel=0&modestbranding=1"
-              title="NYX Cable - สายไฟอุตสาหกรรมคุณภาพสูง"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-              style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', border: 0 }}
-            />
+          <p style={{ textAlign: 'center', color: '#475569', marginBottom: 32, fontSize: '0.95rem' }}>ทำความรู้จักกับเราผ่านวิดีโอ</p>
+          <div style={{ maxWidth: 800, margin: '0 auto', borderRadius: 20, overflow: 'hidden', boxShadow: '0 8px 30px rgba(0,51,102,0.1)', border: '1px solid #e5e7eb', aspectRatio: '16 / 9', position: 'relative', background: '#000', cursor: 'pointer' }}>
+            <a href="https://www.youtube.com/watch?v=IEu9jZBH3qQ" target="_blank" rel="noopener noreferrer" style={{ display: 'block', width: '100%', height: '100%', position: 'absolute', top: 0, left: 0 }}>
+              <img
+                src="https://i.ytimg.com/vi/IEu9jZBH3qQ/hqdefault.jpg"
+                alt="NYX Cable - สายไฟอุตสาหกรรมคุณภาพสูง"
+                loading="lazy"
+                width="800"
+                height="450"
+                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+              />
+              <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: 68, height: 48, background: 'rgba(255,0,0,0.85)', borderRadius: 14, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <svg viewBox="0 0 24 24" fill="#fff" width="28" height="28"><path d="M8 5v14l11-7z" /></svg>
+              </div>
+            </a>
           </div>
         </div>
       </section>
