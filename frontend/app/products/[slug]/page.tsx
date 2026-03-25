@@ -39,7 +39,7 @@ const styles = `
   .cat-product-card:hover { transform: translateY(-6px); box-shadow: 0 12px 36px rgba(0,51,102,0.12); border-color: rgba(0,153,255,0.3); }
   .cat-product-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #003366, #0099ff); opacity: 0; transition: opacity 0.3s; z-index: 1; }
   .cat-product-card:hover::before { opacity: 1; }
-  .cat-product-img { aspect-ratio: 4/3; background: #f8fafc; display: flex; align-items: center; justify-content: center; font-size: 0.95rem; font-weight: 700; color: #003366; letter-spacing: 0.3px; overflow: hidden; padding: 12px; text-align: center; line-height: 1.5; word-break: break-word; }
+  .cat-product-img { aspect-ratio: 1/1; background: #f8fafc; display: flex; align-items: center; justify-content: center; font-size: 0.95rem; font-weight: 700; color: #003366; letter-spacing: 0.3px; overflow: hidden; text-align: center; line-height: 1.5; word-break: break-word; }
   .cat-product-img img { width: 100%; height: 100%; object-fit: contain; transition: transform 0.4s cubic-bezier(0.4,0,0.2,1); }
   .cat-product-card:hover .cat-product-img img { transform: scale(1.05); }
   .cat-product-body { padding: 20px; }
