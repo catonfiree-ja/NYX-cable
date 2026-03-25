@@ -30,7 +30,7 @@ export default function NavLinks() {
             <li key={link.href}>
               <a
                 href={link.href}
-                className={isActive ? 'active' : ''}
+                className={`nav-link-animate ${isActive ? 'active' : ''}`}
                 onClick={() => setIsOpen(false)}
               >
                 {link.label}

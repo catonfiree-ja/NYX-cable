@@ -1747,6 +1747,197 @@ a:hover {
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
+/* ═══════════════════════════════════════════════════════════
+   MOTION & ANIMATION SYSTEM (Plan 3)
+   GPU-accelerated: uses only transform + opacity
+   ═══════════════════════════════════════════════════════════ */
+
+/* ─── 1. Scroll Reveal (Fade Up) ─── */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger delays for grid children */
+.reveal-stagger>.reveal:nth-child(1) {
+  transition-delay: 0s;
+}
+
+.reveal-stagger>.reveal:nth-child(2) {
+  transition-delay: 0.08s;
+}
+
+.reveal-stagger>.reveal:nth-child(3) {
+  transition-delay: 0.16s;
+}
+
+.reveal-stagger>.reveal:nth-child(4) {
+  transition-delay: 0.24s;
+}
+
+.reveal-stagger>.reveal:nth-child(5) {
+  transition-delay: 0.32s;
+}
+
+.reveal-stagger>.reveal:nth-child(6) {
+  transition-delay: 0.40s;
+}
+
+.reveal-stagger>.reveal:nth-child(7) {
+  transition-delay: 0.48s;
+}
+
+.reveal-stagger>.reveal:nth-child(8) {
+  transition-delay: 0.56s;
+}
+
+.reveal-stagger>.reveal:nth-child(9) {
+  transition-delay: 0.64s;
+}
+
+/* ─── 2. Hero Entrance ─── */
+@keyframes heroFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes heroZoomOut {
+  from {
+    transform: scale(1.06);
+  }
+
+  to {
+    transform: scale(1);
+  }
+}
+
+.hero-animate-text {
+  animation: heroFadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.hero-animate-text-delay-1 {
+  animation-delay: 0.1s;
+}
+
+.hero-animate-text-delay-2 {
+  animation-delay: 0.2s;
+}
+
+.hero-animate-text-delay-3 {
+  animation-delay: 0.35s;
+}
+
+.hero-animate-image {
+  animation: heroZoomOut 2.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* ─── 3. Card Hover Effects ─── */
+.card-hover {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-hover:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 40px rgba(0, 34, 68, 0.12);
+}
+
+/* Image zoom inside card on hover */
+.card-hover .card-img {
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-hover:hover .card-img {
+  transform: scale(1.05);
+}
+
+/* ─── 4. Button Hover Glow ─── */
+.btn-glow {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.btn-glow:hover {
+  transform: scale(1.03);
+  box-shadow: 0 4px 20px rgba(0, 102, 204, 0.35);
+}
+
+.btn-glow:active {
+  transform: scale(0.98);
+}
+
+/* ─── 5. Navbar Link Underline Animation ─── */
+.nav-link-animate {
+  position: relative;
+}
+
+.nav-link-animate::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: #0066cc;
+  transition: width 0.3s ease, left 0.3s ease;
+  border-radius: 1px;
+}
+
+.nav-link-animate:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+/* ─── 6. Lightbox Pop-In ─── */
+@keyframes popIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+
+  70% {
+    transform: scale(1.02);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.lightbox-animate {
+  animation: popIn 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+/* ─── 7. Fade In (Generic) ─── */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease both;
+}
+
 /* ─── Reduced Motion ─── */
 @media (prefers-reduced-motion: reduce) {
 
