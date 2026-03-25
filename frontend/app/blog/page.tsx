@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { getBlogPosts } from '@/lib/queries'
 import { urlFor as sanityUrlFor } from '@/lib/sanity'
 import blogImages from '@/data/blog-images.json'
+import Image from 'next/image'
 
 const styles = `
   /* ─── Blog Hero ─── */
@@ -203,7 +204,7 @@ export default async function BlogPage() {
                 <div className="featured-img">
                   <span className="featured-badge">★ บทความแนะนำ</span>
                   {getPostImage(featuredPost) ? (
-                    <img src={getPostImage(featuredPost)!} alt={featuredPost.title} loading="eager" />
+                    <Image src={getPostImage(featuredPost)!} alt={featuredPost.title} fill style={{ objectFit: 'cover' }} sizes="(max-width: 768px) 100vw, 60vw" priority />
                   ) : (
                     <div style={{ width: '100%', height: '100%', background: 'linear-gradient(135deg, #f0f4f8, #e2e8f0)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.5rem', fontWeight: 800, color: '#003366' }}>NYX CABLE</div>
                   )}
@@ -224,7 +225,7 @@ export default async function BlogPage() {
                 <a key={post._id} href={`/blog/${post.slug?.current}`} className="blog-card">
                   <div className="blog-card-image">
                     {getPostImage(post) ? (
-                      <img src={getPostImage(post)!} alt={post.title} loading="lazy" />
+                      <Image src={getPostImage(post)!} alt={post.title} fill style={{ objectFit: 'cover' }} sizes="(max-width: 768px) 100vw, 33vw" loading="lazy" />
                     ) : (
                       <div style={{ width: '100%', height: '100%', background: 'linear-gradient(135deg, #003366, #0066cc)', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', color: '#fff', gap: 4 }}>
                         <span style={{ fontSize: '1.5rem', color: '#fff', fontWeight: 700 }}>NYX</span>
