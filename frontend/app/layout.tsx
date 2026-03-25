@@ -101,7 +101,7 @@ export default function RootLayout({
         <header className="header">
           <div className="container">
             <a href="/" className="header-logo">
-              <img src="/images/nyx-logo.svg" alt="NYX Cable" width="180" height="66" style={{ display: 'block' }} />
+              <img src="/images/NYXcable-Logo.png" alt="NYX Cable" height="50" style={{ display: 'block', width: 'auto' }} />
             </a>
             <NavLinks />
           </div>
@@ -151,7 +151,7 @@ export default function RootLayout({
               {/* Brand */}
               <div className="footer-brand">
                 <div style={{ marginBottom: '16px' }}>
-                  <img src="/images/nyx-logo.svg" alt="NYX Cable" width="160" height="59" style={{ display: 'block' }} />
+                  <img src="/images/NYXcable-Logo.png" alt="NYX Cable" height="50" style={{ display: 'block', width: 'auto' }} />
                 </div>
                 <p>
                   ผู้เชี่ยวชาญด้านสายไฟอุตสาหกรรมคุณภาพสูง
