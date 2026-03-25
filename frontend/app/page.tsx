@@ -613,14 +613,14 @@ export default async function HomePage() {
                     <div className="marquee-logos">
                       {row.logos.map(n => (
                         <div key={`a-${n}`} className="client-logo">
-                          <img src={`/client-logos/logo-${String(n).padStart(2, '0')}.png`} alt={`ลูกค้า NYX Cable #${n}`} loading="lazy" />
+                          <img src={`/client-logos/logo-${String(n).padStart(2, '0')}.png`} alt={`ลูกค้า NYX Cable #${n}`} loading="lazy" style={n === 20 ? { height: '64px', width: '64px' } : undefined} />
                         </div>
                       ))}
                     </div>
                     <div className="marquee-logos" aria-hidden="true">
                       {row.logos.map(n => (
                         <div key={`b-${n}`} className="client-logo">
-                          <img src={`/client-logos/logo-${String(n).padStart(2, '0')}.png`} alt="" loading="lazy" />
+                          <img src={`/client-logos/logo-${String(n).padStart(2, '0')}.png`} alt="" loading="lazy" style={n === 20 ? { height: '64px', width: '64px' } : undefined} />
                         </div>
                       ))}
                     </div>
