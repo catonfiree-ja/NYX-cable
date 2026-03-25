@@ -858,7 +858,7 @@ export default async function HomePage() {
             </div>
           </div>
           <div style={{ textAlign: 'center', marginTop: 32, position: 'relative', zIndex: 1 }}>
-            <a href="/gallery" style={{ display: 'inline-block', padding: '14px 48px', border: '1px solid #cbd5e1', borderRadius: 8, color: '#1a2744', textDecoration: 'none', fontSize: '0.95rem', fontWeight: 500, transition: 'all 0.3s ease', letterSpacing: '0.3px' }}>ดูภาพทั้งหมดในแกลเลอรี่ →</a>
+            <a href="/gallery" className="btn btn-primary">ดูภาพทั้งหมดในแกลเลอรี่ →</a>
           </div>
         </div>
       </section>
