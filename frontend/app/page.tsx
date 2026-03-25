@@ -742,55 +742,55 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* ─── ทำไมต้องเลือก NYX CABLE (Original Style) ─── */}
-      <section style={{ background: 'linear-gradient(rgba(0,30,60,0.88), rgba(0,30,60,0.88)), url("/images/hero-bg.jpg") center/cover no-repeat', padding: '70px 0', color: '#fff' }}>
+      {/* ─── ทำไมต้องเลือก NYX CABLE (Pixel-Perfect Original) ─── */}
+      <section style={{ background: 'linear-gradient(rgba(0,20,50,0.82), rgba(0,20,50,0.82)), url("/images/why-nyx-bg.jpg") center/cover no-repeat fixed', padding: '60px 0', color: '#fff' }}>
         <div className="container">
           <h2 style={{ fontSize: '2rem', fontWeight: 800, color: '#fff', textAlign: 'center', marginBottom: 48 }}>ทำไมต้องเลือก NYX CABLE</h2>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '40px 60px', maxWidth: 800, margin: '0 auto' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '40px 80px', maxWidth: 820, margin: '0 auto' }}>
             {/* มั่นใจคุณภาพ */}
             <div style={{ display: 'flex', alignItems: 'flex-start', gap: 20 }}>
-              <div style={{ flexShrink: 0, width: 60 }}>
-                <img src="/images/icons/why-shield.png" alt="มั่นใจคุณภาพ" width="64" height="64" style={{ display: 'block' }} />
+              <div style={{ flexShrink: 0 }}>
+                <img src="/images/icons/why-shield.png" alt="มั่นใจคุณภาพ" width="80" height="80" style={{ display: 'block' }} />
               </div>
               <div>
-                <h3 style={{ fontSize: '1.3rem', fontWeight: 700, color: '#fff', marginBottom: 8, marginTop: 0 }}>มั่นใจคุณภาพ</h3>
-                <p style={{ fontSize: '0.9rem', color: 'rgba(255,255,255,0.8)', lineHeight: 1.7, margin: 0 }}>
+                <h3 style={{ fontSize: '1.25rem', fontWeight: 700, color: '#fff', marginBottom: 8, marginTop: 0 }}>มั่นใจคุณภาพ</h3>
+                <p style={{ fontSize: '0.9rem', color: 'rgba(255,255,255,0.75)', lineHeight: 1.7, margin: 0 }}>
                   ด้วยเทคโนโลยีการผลิตล่าสุด<br /><span style={{ color: '#fbbf24' }}>จากยุโรป</span>
                 </p>
               </div>
             </div>
             {/* บริการรวดเร็วทันใจ */}
             <div style={{ display: 'flex', alignItems: 'flex-start', gap: 20 }}>
-              <div style={{ flexShrink: 0, width: 60 }}>
-                <img src="/images/icons/why-truck.png" alt="บริการรวดเร็วทันใจ" width="64" height="64" style={{ display: 'block' }} />
+              <div style={{ flexShrink: 0 }}>
+                <img src="/images/icons/why-truck.png" alt="บริการรวดเร็วทันใจ" width="80" height="80" style={{ display: 'block' }} />
               </div>
               <div>
-                <h3 style={{ fontSize: '1.3rem', fontWeight: 700, color: '#fff', marginBottom: 8, marginTop: 0 }}>บริการรวดเร็วทันใจ</h3>
-                <p style={{ fontSize: '0.9rem', color: 'rgba(255,255,255,0.8)', lineHeight: 1.7, margin: 0 }}>
+                <h3 style={{ fontSize: '1.25rem', fontWeight: 700, color: '#fff', marginBottom: 8, marginTop: 0 }}>บริการรวดเร็วทันใจ</h3>
+                <p style={{ fontSize: '0.9rem', color: 'rgba(255,255,255,0.75)', lineHeight: 1.7, margin: 0 }}>
                   สินค้าพร้อมส่งด่วนจากโกดังบางนา<br /><span style={{ color: '#fbbf24' }}>เพียง 2 ชม.</span>
                 </p>
               </div>
             </div>
             {/* ราคาดี */}
             <div style={{ display: 'flex', alignItems: 'flex-start', gap: 20 }}>
-              <div style={{ flexShrink: 0, width: 60 }}>
-                <img src="/images/icons/why-piggy.png" alt="ราคาดี" width="64" height="64" style={{ display: 'block' }} />
+              <div style={{ flexShrink: 0 }}>
+                <img src="/images/icons/why-piggy.png" alt="ราคาดี" width="80" height="80" style={{ display: 'block' }} />
               </div>
               <div>
-                <h3 style={{ fontSize: '1.3rem', fontWeight: 700, color: '#fff', marginBottom: 8, marginTop: 0 }}>ราคาดี</h3>
-                <p style={{ fontSize: '0.9rem', color: 'rgba(255,255,255,0.8)', lineHeight: 1.7, margin: 0 }}>
+                <h3 style={{ fontSize: '1.25rem', fontWeight: 700, color: '#fff', marginBottom: 8, marginTop: 0 }}>ราคาดี</h3>
+                <p style={{ fontSize: '0.9rem', color: 'rgba(255,255,255,0.75)', lineHeight: 1.7, margin: 0 }}>
                   เราเป็นโรงงาน<br />นำเข้าสายไฟฟ้าเองโดยตรง
                 </p>
               </div>
             </div>
             {/* ยืนยันจากผู้ใช้จริง */}
             <div style={{ display: 'flex', alignItems: 'flex-start', gap: 20 }}>
-              <div style={{ flexShrink: 0, width: 60 }}>
-                <img src="/images/icons/why-heart.png" alt="ยืนยันจากผู้ใช้จริง" width="64" height="64" style={{ display: 'block' }} />
+              <div style={{ flexShrink: 0 }}>
+                <img src="/images/icons/why-heart.png" alt="ยืนยันจากผู้ใช้จริง" width="80" height="80" style={{ display: 'block' }} />
               </div>
               <div>
-                <h3 style={{ fontSize: '1.3rem', fontWeight: 700, color: '#fff', marginBottom: 8, marginTop: 0 }}>ยืนยันจากผู้ใช้จริง</h3>
-                <p style={{ fontSize: '0.9rem', color: 'rgba(255,255,255,0.8)', lineHeight: 1.7, margin: 0 }}>
+                <h3 style={{ fontSize: '1.25rem', fontWeight: 700, color: '#fff', marginBottom: 8, marginTop: 0 }}>ยืนยันจากผู้ใช้จริง</h3>
+                <p style={{ fontSize: '0.9rem', color: 'rgba(255,255,255,0.75)', lineHeight: 1.7, margin: 0 }}>
                   ลูกค้ากว่า 99% กลับมาซื้อซ้ำ
                 </p>
               </div>
