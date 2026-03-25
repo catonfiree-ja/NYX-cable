@@ -750,7 +750,7 @@ export default async function HomePage() {
             {/* มั่นใจคุณภาพ */}
             <div style={{ display: 'flex', alignItems: 'flex-start', gap: 20 }}>
               <div style={{ flexShrink: 0, width: 60 }}>
-                <img src="/images/icons/why-shield.png" alt="มั่นใจคุณภาพ" width="60" height="60" style={{ display: 'block', filter: 'brightness(0) invert(1)', opacity: 0.9 }} />
+                <img src="/images/icons/why-shield.png" alt="มั่นใจคุณภาพ" width="64" height="64" style={{ display: 'block' }} />
               </div>
               <div>
                 <h3 style={{ fontSize: '1.3rem', fontWeight: 700, color: '#fff', marginBottom: 8, marginTop: 0 }}>มั่นใจคุณภาพ</h3>
@@ -762,7 +762,7 @@ export default async function HomePage() {
             {/* บริการรวดเร็วทันใจ */}
             <div style={{ display: 'flex', alignItems: 'flex-start', gap: 20 }}>
               <div style={{ flexShrink: 0, width: 60 }}>
-                <img src="/images/icons/why-truck.png" alt="บริการรวดเร็วทันใจ" width="60" height="60" style={{ display: 'block', filter: 'brightness(0) invert(1)', opacity: 0.9 }} />
+                <img src="/images/icons/why-truck.png" alt="บริการรวดเร็วทันใจ" width="64" height="64" style={{ display: 'block' }} />
               </div>
               <div>
                 <h3 style={{ fontSize: '1.3rem', fontWeight: 700, color: '#fff', marginBottom: 8, marginTop: 0 }}>บริการรวดเร็วทันใจ</h3>
@@ -774,7 +774,7 @@ export default async function HomePage() {
             {/* ราคาดี */}
             <div style={{ display: 'flex', alignItems: 'flex-start', gap: 20 }}>
               <div style={{ flexShrink: 0, width: 60 }}>
-                <img src="/images/icons/why-piggy.png" alt="ราคาดี" width="60" height="60" style={{ display: 'block', filter: 'brightness(0) invert(1)', opacity: 0.9 }} />
+                <img src="/images/icons/why-piggy.png" alt="ราคาดี" width="64" height="64" style={{ display: 'block' }} />
               </div>
               <div>
                 <h3 style={{ fontSize: '1.3rem', fontWeight: 700, color: '#fff', marginBottom: 8, marginTop: 0 }}>ราคาดี</h3>
@@ -786,7 +786,7 @@ export default async function HomePage() {
             {/* ยืนยันจากผู้ใช้จริง */}
             <div style={{ display: 'flex', alignItems: 'flex-start', gap: 20 }}>
               <div style={{ flexShrink: 0, width: 60 }}>
-                <img src="/images/icons/why-heart.png" alt="ยืนยันจากผู้ใช้จริง" width="60" height="60" style={{ display: 'block', filter: 'brightness(0) invert(1)', opacity: 0.9 }} />
+                <img src="/images/icons/why-heart.png" alt="ยืนยันจากผู้ใช้จริง" width="64" height="64" style={{ display: 'block' }} />
               </div>
               <div>
                 <h3 style={{ fontSize: '1.3rem', fontWeight: 700, color: '#fff', marginBottom: 8, marginTop: 0 }}>ยืนยันจากผู้ใช้จริง</h3>
