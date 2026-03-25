@@ -256,7 +256,7 @@ export default async function HomePage() {
       border-bottom: 1px solid rgba(0,51,102,0.06);
     }
     .home-product-card img.product-abbr {
-      padding: 0; height: 140px; object-fit: contain; border-radius: 12px 12px 0 0;
+      padding: 0; height: 200px; object-fit: cover; border-radius: 12px 12px 0 0;
       background: #fff; width: 100%; display: block;
     }
     .home-product-card h4 { font-size: 0.88rem; font-weight: 600; color: #003366; margin-bottom: 6px; line-height: 1.4; padding: 16px 16px 0; }
