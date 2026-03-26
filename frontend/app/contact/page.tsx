@@ -247,7 +247,7 @@ export default function ContactPage() {
             </div>
             <div className="contact-card">
               <div className="contact-card-icon icon-loc"><Image src="/images/icons/contact-location.svg" alt="ที่อยู่" width={32} height={32} /></div>
-              <div><h3>ที่อยู่</h3><p>2098 หมู่ 1 ต.สำโรงเหนือ (ซ.สุขุมวิท 72)<br />อ.เมือง สมุทรปราการ 10270</p></div>
+              <div><h3>ที่อยู่</h3><p><a href="https://maps.app.goo.gl/ovpmCTPfoeTeNRwV8" target="_blank" rel="noopener noreferrer">2098 หมู่ 1 ต.สำโรงเหนือ (ซ.สุขุมวิท 72)<br />อ.เมือง สมุทรปราการ 10270</a></p></div>
             </div>
             <div className="contact-card">
               <div className="contact-card-icon icon-time"><Image src="/images/icons/contact-clock.svg" alt="เวลาทำการ" width={32} height={32} /></div>
