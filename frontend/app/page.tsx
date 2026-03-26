@@ -572,21 +572,21 @@ export default async function HomePage() {
               <a href="/contact" className="hero-trust-badge" style={{ textDecoration: 'none', color: 'inherit' }}>
                 <span className="trust-icon">01</span>
                 <div className="trust-text">
-                  <h4>ให้คำแนะนำ</h4>
+                  <p style={{ fontWeight: 700, margin: 0 }}>ให้คำแนะนำ</p>
                   <p>จากผู้เชี่ยวชาญด้านสายไฟฟ้าคอนโทรลโดยเฉพาะ</p>
                 </div>
               </a>
               <a href="/contact" className="hero-trust-badge" style={{ textDecoration: 'none', color: 'inherit' }}>
                 <span className="trust-icon">02</span>
                 <div className="trust-text">
-                  <h4>แก้ไขปัญหา</h4>
+                  <p style={{ fontWeight: 700, margin: 0 }}>แก้ไขปัญหา</p>
                   <p>แก้ไขปัญหาตรงจุดกับปรึกษามืออาชีพ</p>
                 </div>
               </a>
               <a href="/gallery" className="hero-trust-badge" style={{ textDecoration: 'none', color: 'inherit' }}>
                 <span className="trust-icon">03</span>
                 <div className="trust-text">
-                  <h4>จัดส่งสินค้า</h4>
+                  <p style={{ fontWeight: 700, margin: 0 }}>จัดส่งสินค้า</p>
                   <p>ถึงที่หมายอย่างเป็นระบบและตรงต่อเวลา</p>
                 </div>
               </a>

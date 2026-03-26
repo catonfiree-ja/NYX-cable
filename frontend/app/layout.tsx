@@ -215,7 +215,7 @@ export default function RootLayout({
 
             <div className="footer-bottom">
               <span>© {new Date().getFullYear()} NYX Cable. All Rights Reserved.</span>
-              <span><a href="/privacy-policy" style={{ color: 'inherit', textDecoration: 'underline', opacity: 0.85 }}>Privacy Policy</a> · สายไฟอุตสาหกรรมคุณภาพสูง มาตรฐานยุโรป</span>
+              <span><a href="/privacy-policy" style={{ color: 'rgba(255,255,255,0.9)', textDecoration: 'underline' }}>Privacy Policy</a> · สายไฟอุตสาหกรรมคุณภาพสูง มาตรฐานยุโรป</span>
             </div>
           </div>
         </footer>
