@@ -30,9 +30,9 @@ body {
   font-size: 0.85rem;
   font-weight: 800;
   letter-spacing: 2px;
-  color: #ffd600;
+  color: #fff;
   text-decoration: none;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
   background: linear-gradient(135deg, #0d47a1, #1565c0);
   transform: rotate(45deg);
   z-index: 9998;
