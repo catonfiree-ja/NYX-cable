@@ -218,7 +218,7 @@ const avatarGradients = [
 export default async function AboutPage() {
   const aboutCms = await getAboutPage()
   const heroHeading = aboutCms?.heroHeading || 'เกี่ยวกับ NYX Cable'
-  const heroSub = aboutCms?.heroSubheading || 'ผู้จัดจำหน่ายและผู้เชี่ยวชาญด้านสายไฟคุณภาพสูงสำหรับอุตสาหกรรม ประสบการณ์กว่า 20 ปี'
+  const heroSub = 'ผู้นำด้านสายไฟอุตสาหกรรมมาตรฐานยุโรป ลูกค้ากว่า 99% กลับมาซื้อซ้ำ'
 
   return (
     <>
