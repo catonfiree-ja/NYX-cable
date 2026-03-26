@@ -644,7 +644,7 @@ export default async function HomePage() {
                 <Image src="/images/icons/service-delivery.png" alt="ส่งด่วนจากโกดังบางนา" width={80} height={80} style={{ display: 'block', margin: '0 auto' }} />
               </div>
               <div style={{ marginBottom: 30, borderTop: '1px solid #e5e5e5', width: '100%' }}></div>
-              <h3 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#000000', marginBottom: 16, textAlign: 'center' }}>ส่งด่วนจากโกดังบางนา</h3>
+              <h3 style={{ fontSize: '1.15rem', fontWeight: 700, color: '#000000', marginBottom: 16, textAlign: 'center', whiteSpace: 'nowrap' }}>ส่งด่วนจากโกดังบางนา</h3>
               <p style={{ fontSize: '1rem', fontWeight: 400, color: '#000000', lineHeight: 1.8, textAlign: 'center', margin: 0 }}>
                 ส่งด่วน <span style={{ color: '#0e76bd' }}>2 ชม.</span>
               </p>
@@ -658,7 +658,7 @@ export default async function HomePage() {
                 <Image src="/images/icons/service-consult.png" alt="สต็อกพร้อมส่งทุกขนาด" width={80} height={80} style={{ display: 'block', margin: '0 auto' }} />
               </div>
               <div style={{ marginBottom: 30, borderTop: '1px solid #e5e5e5', width: '100%' }}></div>
-              <h3 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#000000', marginBottom: 16, textAlign: 'center' }}>สต็อกพร้อมส่งทุกขนาด</h3>
+              <h3 style={{ fontSize: '1.15rem', fontWeight: 700, color: '#000000', marginBottom: 16, textAlign: 'center', whiteSpace: 'nowrap' }}>สต็อกพร้อมส่งทุกขนาด</h3>
               <p style={{ fontSize: '1rem', fontWeight: 400, color: '#000000', lineHeight: 1.8, textAlign: 'center', margin: 0 }}>
                 สินค้า <span style={{ color: '#0e76bd' }}>60+</span> รุ่น
               </p>
@@ -672,7 +672,7 @@ export default async function HomePage() {
                 <Image src="/images/icons/service-solve.png" alt="บรรจุภัณฑ์แข็งแรง" width={80} height={80} style={{ display: 'block', margin: '0 auto' }} />
               </div>
               <div style={{ marginBottom: 30, borderTop: '1px solid #e5e5e5', width: '100%' }}></div>
-              <h3 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#000000', marginBottom: 16, textAlign: 'center' }}>บรรจุภัณฑ์แข็งแรง</h3>
+              <h3 style={{ fontSize: '1.15rem', fontWeight: 700, color: '#000000', marginBottom: 16, textAlign: 'center', whiteSpace: 'nowrap' }}>บรรจุภัณฑ์แข็งแรง</h3>
               <p style={{ fontSize: '1rem', fontWeight: 400, color: '#000000', lineHeight: 1.8, textAlign: 'center', margin: 0 }}>
                 แพ็คอย่างดี
               </p>
@@ -686,7 +686,7 @@ export default async function HomePage() {
                 <Image src="/images/icons/service-nationwide.png" alt="จัดส่งทั่วประเทศ" width={80} height={80} style={{ display: 'block', margin: '0 auto' }} />
               </div>
               <div style={{ marginBottom: 30, borderTop: '1px solid #e5e5e5', width: '100%' }}></div>
-              <h3 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#000000', marginBottom: 16, textAlign: 'center' }}>จัดส่งทั่วประเทศ</h3>
+              <h3 style={{ fontSize: '1.15rem', fontWeight: 700, color: '#000000', marginBottom: 16, textAlign: 'center', whiteSpace: 'nowrap' }}>จัดส่งทั่วประเทศ</h3>
               <p style={{ fontSize: '1rem', fontWeight: 400, color: '#000000', lineHeight: 1.8, textAlign: 'center', margin: 0 }}>
                 ขนส่งผ่าน
               </p>
