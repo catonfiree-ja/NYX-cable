@@ -224,9 +224,9 @@ export default function GalleryLightbox({ albums }: { albums: Album[] }) {
                 style={{
                   flex: 1, minHeight: 0, overflowY: 'auto',
                   display: 'grid',
-                  gridTemplateColumns: 'repeat(auto-fill, minmax(90px, 1fr))',
-                  gap: 6, alignContent: 'start',
-                  padding: '10px 0 20px',
+                  gridTemplateColumns: 'repeat(10, 1fr)',
+                  gap: 4, alignContent: 'start',
+                  padding: '8px 0 16px',
                   touchAction: 'pan-y',
                   overscrollBehavior: 'contain',
                 }}>
@@ -237,20 +237,20 @@ export default function GalleryLightbox({ albums }: { albums: Album[] }) {
                     type="button"
                     style={{
                       all: 'unset', cursor: 'pointer',
-                      aspectRatio: '4/3',
-                      borderRadius: 6, overflow: 'hidden',
-                      border: i === activePhoto ? '3px solid #f0a500' : '3px solid transparent',
+                      borderRadius: 4, overflow: 'hidden',
+                      border: i === activePhoto ? '2px solid #f0a500' : '2px solid transparent',
                       opacity: i === activePhoto ? 1 : 0.5,
                       transition: 'all 0.2s',
-                      position: 'relative',
+                      lineHeight: 0,
                     }}
                   >
-                    <Image
+                    <img
                       src={urlFor(photo).width(180).height(135).url()}
                       alt={photo?.caption || `${openAlbum.title} - ภาพที่ ${i + 1}`}
-                      fill
-                      sizes="90px"
-                      style={{ objectFit: 'cover' }}
+                      width={90}
+                      height={68}
+                      loading="lazy"
+                      style={{ width: '100%', height: 'auto', objectFit: 'cover', display: 'block' }}
                     />
                   </button>
                 ))}
