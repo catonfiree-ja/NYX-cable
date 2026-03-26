@@ -419,7 +419,7 @@ a:hover {
   background: linear-gradient(135deg, var(--color-primary-dark), var(--color-primary));
   color: rgba(255, 255, 255, 0.9);
   font-size: var(--font-size-sm);
-  padding: var(--spacing-sm) 0;
+  padding: 2px 0;
 }
 
 .top-bar .container {
@@ -439,7 +439,7 @@ a:hover {
 
 .top-bar-contact {
   display: flex;
-  gap: var(--spacing-lg);
+  gap: 8px;
   align-items: center;
 }
 
