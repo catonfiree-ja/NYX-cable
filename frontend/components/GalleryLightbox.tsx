@@ -222,7 +222,7 @@ export default function GalleryLightbox({ albums }: { albums: Album[] }) {
               <div
                 onWheel={(e) => e.stopPropagation()}
                 style={{
-                  flex: 1, minHeight: 0, overflowY: 'auto',
+                  maxHeight: 230, overflowY: 'scroll',
                   display: 'grid',
                   gridTemplateColumns: 'repeat(10, 1fr)',
                   gap: 4, alignContent: 'start',
