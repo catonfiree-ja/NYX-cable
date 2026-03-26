@@ -320,13 +320,6 @@ export default function ContactPage() {
               referrerPolicy="no-referrer-when-downgrade"
               title="แผนที่ NYX Cable - บางนา สมุทรปราการ"
             />
-            <div className="map-overlay">
-              <h3>NYX Cable สำนักงานใหญ่</h3>
-              <p>2098 หมู่ 1 ต.สำโรงเหนือ<br />(ซ.สุขุมวิท 72) สมุทรปราการ</p>
-              <a href="https://www.google.com/maps/dir/Current+Location/13.65811028970517,100.59934546581569" target="_blank" rel="noopener noreferrer">
-                นำทาง Google Maps
-              </a>
-            </div>
           </div>
         </div>
       </div>
