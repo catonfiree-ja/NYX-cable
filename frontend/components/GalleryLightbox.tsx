@@ -112,11 +112,13 @@ export default function GalleryLightbox({ albums }: { albums: Album[] }) {
       {openAlbum && allPhotos.length > 0 && (
         <div
           className="lightbox-backdrop"
+          onWheel={(e) => e.stopPropagation()}
           style={{
             position: 'fixed', inset: 0, zIndex: 9999,
             background: 'rgba(0,0,0,0.95)',
             overflow: 'hidden',
             display: 'flex', alignItems: 'stretch', justifyContent: 'center',
+            touchAction: 'none',
           }}
         >
           <div
@@ -217,13 +219,17 @@ export default function GalleryLightbox({ albums }: { albums: Album[] }) {
 
             {/* Thumbnail Grid — fills remaining space, scrolls internally */}
             {allPhotos.length > 1 && (
-              <div style={{
-                flex: 1, minHeight: 0, overflowY: 'auto',
-                display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fill, minmax(90px, 1fr))',
-                gap: 6, alignContent: 'start',
-                padding: '10px 0 20px',
-              }}>
+              <div
+                onWheel={(e) => e.stopPropagation()}
+                style={{
+                  flex: 1, minHeight: 0, overflowY: 'auto',
+                  display: 'grid',
+                  gridTemplateColumns: 'repeat(auto-fill, minmax(90px, 1fr))',
+                  gap: 6, alignContent: 'start',
+                  padding: '10px 0 20px',
+                  touchAction: 'pan-y',
+                  overscrollBehavior: 'contain',
+                }}>
                 {allPhotos.map((photo: any, i: number) => (
                   <button
                     key={i}
