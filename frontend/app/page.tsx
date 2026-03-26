@@ -777,7 +777,7 @@ export default async function HomePage() {
               </div>
               <div>
                 <h3 style={{ fontSize: '1.25rem', fontWeight: 700, color: '#fbbf24', marginBottom: 8, marginTop: 0 }}>ราคาดี</h3>
-                <p style={{ fontSize: '0.9rem', color: 'rgba(255,255,255,0.75)', lineHeight: 1.7, margin: 0 }}>
+                <p style={{ fontSize: '0.9rem', color: '#fbbf24', lineHeight: 1.7, margin: 0 }}>
                   เราเป็นโรงงาน<br />นำเข้าสายไฟฟ้าเองโดยตรง
                 </p>
               </div>
@@ -789,7 +789,7 @@ export default async function HomePage() {
               </div>
               <div>
                 <h3 style={{ fontSize: '1.25rem', fontWeight: 700, color: '#fbbf24', marginBottom: 8, marginTop: 0 }}>ยืนยันจากผู้ใช้จริง</h3>
-                <p style={{ fontSize: '0.9rem', color: 'rgba(255,255,255,0.75)', lineHeight: 1.7, margin: 0 }}>
+                <p style={{ fontSize: '0.9rem', color: '#fbbf24', lineHeight: 1.7, margin: 0 }}>
                   ลูกค้ากว่า 99% กลับมาซื้อซ้ำ
                 </p>
               </div>
