@@ -305,24 +305,26 @@ export default function ReviewsPage() {
 
         <div className="reviews-grid">
           {reviews.map((review, idx) => (
-            <div key={idx} className="review-card">
-              <div className="verified-badge" style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
-                <GoogleIcon /> Google Review
-              </div>
-              <div className="review-header">
-                <div className="review-avatar" style={{ background: avatarColors[idx % avatarColors.length] }}>{review.initial}</div>
-                <div>
-                  <div className="review-name">{review.name}</div>
-                  <div className="review-company">{review.time}</div>
-                  <div className="review-card-stars">
-                    {[1, 2, 3, 4, 5].map(i => (
-                      <StarSVG key={i} filled={i <= review.stars} />
-                    ))}
+            <a key={idx} href="https://www.google.com/maps/place/NYX+Cable,+%E0%B8%AA%E0%B8%B2%E0%B8%A2%E0%B8%84%E0%B8%AD%E0%B8%99%E0%B9%82%E0%B8%97%E0%B8%A3%E0%B8%A5,+OPVC-JZ,+CVV,+VCT/@13.6581099,100.5967715,17z/data=!4m8!3m7!1s0x311d5f937a0d75c5:0x1a6f99f75d845ed0!8m2!3d13.6581099!4d100.5993464!9m1!1b1!16s%2Fg%2F11c4jd40c2?entry=ttu&g_ep=EgoyMDI2MDMxOC4xIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}>
+              <div className="review-card">
+                <div className="verified-badge" style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
+                  <GoogleIcon /> Google Review
+                </div>
+                <div className="review-header">
+                  <div className="review-avatar" style={{ background: avatarColors[idx % avatarColors.length] }}>{review.initial}</div>
+                  <div>
+                    <div className="review-name">{review.name}</div>
+                    <div className="review-company">{review.time}</div>
+                    <div className="review-card-stars">
+                      {[1, 2, 3, 4, 5].map(i => (
+                        <StarSVG key={i} filled={i <= review.stars} />
+                      ))}
+                    </div>
                   </div>
                 </div>
+                <div className="review-text">&ldquo;{review.text}&rdquo;</div>
               </div>
-              <div className="review-text">&ldquo;{review.text}&rdquo;</div>
-            </div>
+            </a>
           ))}
         </div>
         <div style={{ textAlign: 'center', padding: '32px 0 16px' }}>
