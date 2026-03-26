@@ -117,15 +117,13 @@ const styles = `
   .team-info p { font-size: 0.72rem; color: #6b7280; }
 
   /* ─── Atmosphere Gallery ─── */
-  .atmosphere-section { padding: 64px 0; }
+  .atmosphere-section { padding: 0; }
   .atmosphere-grid {
-    display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px;
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 0;
   }
   .atmosphere-photo {
-    border-radius: 14px; overflow: hidden; aspect-ratio: 4/3;
-    transition: all 0.3s;
+    overflow: hidden; aspect-ratio: 4/3;
   }
-  .atmosphere-photo:hover { transform: scale(1.02); box-shadow: 0 8px 24px rgba(0,51,102,0.1); }
   .atmosphere-photo img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
   .atmosphere-photo:hover img { transform: scale(1.05); }
 
@@ -172,7 +170,7 @@ const styles = `
     .section-title h2 { font-size: 1.3rem; }
     .team-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
     .team-info h4 { font-size: 0.82rem; }
-    .atmosphere-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+    .atmosphere-grid { grid-template-columns: repeat(2, 1fr); gap: 0; }
     .about-cta { padding: 36px 0; }
     .about-cta h2 { font-size: 1.3rem; }
     .about-cta-buttons { flex-direction: column; align-items: center; }
@@ -346,28 +344,21 @@ export default async function AboutPage() {
         </div>
       </section>
 
-      {/* ─── บรรยากาศของเรา (Company Atmosphere) ─── */}
+      {/* ─── บรรยากาศของเรา (Full-frame Gallery) ─── */}
       <section className="atmosphere-section">
-        <div className="container">
-          <div className="section-title">
-            <h2>บรรยากาศของเรา</h2>
-            <p>คลังสินค้าและการจัดส่ง — ดูแลทุกขั้นตอนอย่างมืออาชีพ</p>
-            <div className="accent-bar" />
-          </div>
-          <div className="atmosphere-grid">
-            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map(n => (
-              <div key={n} className="atmosphere-photo">
-                <Image
-                  src={`/delivery-2026/delivery-2026-${String(n).padStart(2, '0')}.jpg`}
-                  alt={`บรรยากาศ NYX Cable #${n}`}
-                  width={400}
-                  height={300}
-                  loading="lazy"
-                  style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                />
-              </div>
-            ))}
-          </div>
+        <div className="atmosphere-grid">
+          {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map(n => (
+            <div key={n} className="atmosphere-photo">
+              <Image
+                src={`/delivery-2026/delivery-2026-${String(n).padStart(2, '0')}.jpg`}
+                alt={`บรรยากาศ NYX Cable #${n}`}
+                width={400}
+                height={300}
+                loading="lazy"
+                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+              />
+            </div>
+          ))}
         </div>
       </section>
 
