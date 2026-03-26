@@ -306,7 +306,10 @@ export default function ContactPage() {
       {/* ─── Map with overlay ─── */}
       <div className="container">
         <div className="map-section">
-          <h2>แผนที่</h2>
+          <a href="https://maps.app.goo.gl/eiNSyf1Rqcwnh58M7" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '10px 24px', background: '#4285f4', color: '#fff', borderRadius: 50, fontWeight: 700, fontSize: '0.95rem', textDecoration: 'none', marginBottom: 16 }}>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" /></svg>
+            นำทาง Google Maps
+          </a>
           <div className="map-wrapper">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3877.5!2d100.5993!3d13.6581!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTPCsDM5JzI5LjIiTiAxMDDCsDM1JzU3LjYiRQ!5e0!3m2!1sth!2sth!4v1234567890"
