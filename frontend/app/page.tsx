@@ -646,10 +646,10 @@ export default async function HomePage() {
               <div style={{ marginBottom: 30, borderTop: '1px solid #e5e5e5', width: '100%' }}></div>
               <h3 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#000000', marginBottom: 16, textAlign: 'center' }}>ส่งด่วนจากโกดังบางนา</h3>
               <p style={{ fontSize: '1rem', fontWeight: 400, color: '#000000', lineHeight: 1.8, textAlign: 'center', margin: 0 }}>
-                ส่งด่วน <span style={{ color: '#0e76bd' }}>2 ชม.</span> ในกรุงเทพฯ-
+                ส่งด่วน <span style={{ color: '#0e76bd' }}>2 ชม.</span>
               </p>
               <p style={{ fontSize: '1rem', fontWeight: 400, color: '#000000', lineHeight: 1.8, textAlign: 'center', margin: 0 }}>
-                ปริมณฑล
+                ในกรุงเทพฯ-ปริมณฑล
               </p>
             </div>
             {/* สต็อกพร้อมส่งทุกขนาด */}
@@ -660,10 +660,10 @@ export default async function HomePage() {
               <div style={{ marginBottom: 30, borderTop: '1px solid #e5e5e5', width: '100%' }}></div>
               <h3 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#000000', marginBottom: 16, textAlign: 'center' }}>สต็อกพร้อมส่งทุกขนาด</h3>
               <p style={{ fontSize: '1rem', fontWeight: 400, color: '#000000', lineHeight: 1.8, textAlign: 'center', margin: 0 }}>
-                สินค้า <span style={{ color: '#0e76bd' }}>60+ รุ่น</span>
+                สินค้า <span style={{ color: '#0e76bd' }}>60+</span> รุ่น
               </p>
               <p style={{ fontSize: '1rem', fontWeight: 400, color: '#000000', lineHeight: 1.8, textAlign: 'center', margin: 0 }}>
-                15,000+ ขนาด
+                <span style={{ color: '#0e76bd' }}>15,000+</span> ขนาด
               </p>
             </div>
             {/* บรรจุภัณฑ์แข็งแรง */}
@@ -674,18 +674,24 @@ export default async function HomePage() {
               <div style={{ marginBottom: 30, borderTop: '1px solid #e5e5e5', width: '100%' }}></div>
               <h3 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#000000', marginBottom: 16, textAlign: 'center' }}>บรรจุภัณฑ์แข็งแรง</h3>
               <p style={{ fontSize: '1rem', fontWeight: 400, color: '#000000', lineHeight: 1.8, textAlign: 'center', margin: 0 }}>
-                แพ็คอย่างดี <span style={{ color: '#0e76bd' }}>ป้องกันความเสียหาย</span>
+                แพ็คอย่างดี
+              </p>
+              <p style={{ fontSize: '1rem', fontWeight: 400, color: '#000000', lineHeight: 1.8, textAlign: 'center', margin: 0 }}>
+                <span style={{ color: '#0e76bd' }}>ป้องกันความเสียหาย</span>
               </p>
             </div>
             {/* จัดส่งทั่วประเทศ */}
             <div style={{ flex: '1 1 22%', padding: 50, textAlign: 'center' }}>
               <div style={{ marginBottom: 30 }}>
-                <Image src="/images/icons/service-delivery.png" alt="จัดส่งทั่วประเทศ" width={80} height={80} style={{ display: 'block', margin: '0 auto' }} />
+                <Image src="/images/icons/service-nationwide.png" alt="จัดส่งทั่วประเทศ" width={80} height={80} style={{ display: 'block', margin: '0 auto' }} />
               </div>
               <div style={{ marginBottom: 30, borderTop: '1px solid #e5e5e5', width: '100%' }}></div>
               <h3 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#000000', marginBottom: 16, textAlign: 'center' }}>จัดส่งทั่วประเทศ</h3>
               <p style={{ fontSize: '1rem', fontWeight: 400, color: '#000000', lineHeight: 1.8, textAlign: 'center', margin: 0 }}>
-                ขนส่งผ่าน<span style={{ color: '#0e76bd' }}>พาร์ทเนอร์ชั้นนำ</span>
+                ขนส่งผ่าน
+              </p>
+              <p style={{ fontSize: '1rem', fontWeight: 400, color: '#000000', lineHeight: 1.8, textAlign: 'center', margin: 0 }}>
+                <span style={{ color: '#0e76bd' }}>พาร์ทเนอร์ชั้นนำ</span>
               </p>
             </div>
           </div>
