@@ -608,7 +608,7 @@ export default async function HomePage() {
         return (
           <section className="clients-section">
             <div style={{ maxWidth: '100vw', padding: 0, overflow: 'hidden' }}>
-              <h3 style={{ marginBottom: 20, color: '#1a1a2e' }}>ลูกค้าที่ไว้วางใจเรา</h3>
+              <h2 style={{ marginBottom: 20, color: '#1a1a2e', fontSize: '1.3rem' }}>ลูกค้าที่ไว้วางใจเรา</h2>
               <div className="marquee-rows">
                 {rows.map((row, rowIdx) => (
                   <div key={rowIdx} className={`marquee-row dir-${row.dir}`}>
