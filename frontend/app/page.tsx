@@ -219,7 +219,7 @@ export default async function HomePage() {
     /* ─── 5-Row Clients Marquee ─── */
     .clients-section { background: #fff; padding: 44px 0; border-bottom: none; position: relative; overflow: hidden; }
     .clients-section::after { content: ''; position: absolute; bottom: 0; left: 10%; right: 10%; height: 1px; background: linear-gradient(90deg, transparent, #e2e8f0, #f0a500, #e2e8f0, transparent); }
-    .clients-section h3 { text-align: center; font-size: 0.8rem; color: #94a3b8; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 20px; }
+    .clients-section h2 { text-align: center; font-size: 0.8rem; color: #94a3b8; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 20px; }
     .marquee-rows { display: flex; flex-direction: column; gap: 12px; overflow: hidden; }
     @keyframes marqueeLeft { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
     @keyframes marqueeRight { 0% { transform: translateX(-50%); } 100% { transform: translateX(0); } }
@@ -423,7 +423,7 @@ export default async function HomePage() {
 
       /* Client logos */
       .clients-section { padding: 20px 0; }
-      .clients-section h3 { font-size: 0.75rem; margin-bottom: 12px; }
+      .clients-section h2 { font-size: 0.75rem; margin-bottom: 12px; }
       .clients-grid { gap: 6px; }
       .client-logo { min-width: 70px; padding: 6px 10px; font-size: 0.7rem; }
 
@@ -608,7 +608,7 @@ export default async function HomePage() {
         return (
           <section className="clients-section">
             <div style={{ maxWidth: '100vw', padding: 0, overflow: 'hidden' }}>
-              <h2 style={{ marginBottom: 20, color: '#1a1a2e', fontSize: '1.3rem' }}>ลูกค้าที่ไว้วางใจเรา</h2>
+              <h2 style={{ marginBottom: 20, color: '#1a1a2e', fontSize: '1.3rem', textAlign: 'center' }}>ลูกค้าที่ไว้วางใจเรา</h2>
               <div className="marquee-rows">
                 {rows.map((row, rowIdx) => (
                   <div key={rowIdx} className={`marquee-row dir-${row.dir}`}>
