@@ -637,7 +637,7 @@ export default async function HomePage() {
         <div className="container">
           <div style={{ marginBottom: 30, borderTop: '1px solid #e5e5e5', width: '100%' }}></div>
           <h2 style={{ fontSize: '2rem', fontWeight: 700, color: '#000000', marginBottom: 0, lineHeight: 1, textAlign: 'center' }}>บริการของเรา</h2>
-          <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', margin: '0 auto', maxWidth: 1060 }}>
+          <div style={{ display: 'flex', flexWrap: 'nowrap', justifyContent: 'center', margin: '0 auto' }}>
             {/* ส่งด่วนจากโกดังบางนา */}
             <div style={{ flex: '1 1 22%', padding: 50, textAlign: 'center' }}>
               <div style={{ marginBottom: 30 }}>
