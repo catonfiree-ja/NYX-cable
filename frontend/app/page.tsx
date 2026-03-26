@@ -190,11 +190,11 @@ export default async function HomePage() {
       z-index: 0;
     }
     .hero-v2 .container { position: relative; z-index: 1; }
-    .hero-v2 h1 { font-size: 3.5rem; font-weight: 800; line-height: 1.15; margin-bottom: 16px; letter-spacing: -0.5px; animation: fadeInUp 0.8s ease; }
-    .hero-v2 h1 .blue { color: #7ab8ff; }
-    .hero-v2 h1 .yellow { color: #fbb03b; text-shadow: 0 0 30px rgba(251,176,59,0.3); }
+    .hero-v2 h1 { font-size: 3.5rem; font-weight: 400; line-height: 1.15; margin-bottom: 16px; letter-spacing: -0.5px; color: #ffffff; animation: fadeInUp 0.8s ease; }
+    .hero-v2 h1 .blue { color: #ffffff; }
+    .hero-v2 h1 .yellow { color: #ffffff; }
     .hero-v2 .subtitle { font-size: 1.5rem; font-weight: 300; margin-bottom: 10px; color: #93c5fd; animation: fadeInUp 0.8s ease 0.1s both; }
-    .hero-v2 .tagline { font-size: 1.05rem; color: rgba(255,255,255,0.6); line-height: 1.8; max-width: 560px; margin-bottom: 32px; animation: fadeInUp 0.8s ease 0.2s both; }
+    .hero-v2 .tagline { font-size: 1.35rem; color: #fbb03b; line-height: 1.8; max-width: 560px; margin-bottom: 32px; animation: fadeInUp 0.8s ease 0.2s both; }
     .hero-v2-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 48px; align-items: center; }
     .hero-v2-right { display: flex; flex-direction: column; gap: 14px; }
     .hero-trust-badge {
@@ -563,10 +563,7 @@ export default async function HomePage() {
                 ใช้เทคโนโลยีการผลิตขั้นสูงจากยุโรปทุกขั้นตอน มั่นใจในคุณภาพ
                 สายไฟคุณภาพมาตรฐาน DIN VDE สต็อกพร้อมส่งทุกขนาด บริการจัดส่งทั่วประเทศ
               </p>
-              <div className="cta-row">
-                <a href="/products" className="btn btn-accent btn-lg">ดูผลิตภัณฑ์ทั้งหมด →</a>
-                <a href="https://page.line.me/ubb9405u" className="btn btn-secondary btn-lg" target="_blank" rel="noopener noreferrer">LINE สอบถาม</a>
-              </div>
+
             </div>
             <div className="hero-v2-right">
               <a href="/contact" className="hero-trust-badge" style={{ textDecoration: 'none', color: 'inherit' }}>
@@ -608,7 +605,7 @@ export default async function HomePage() {
         return (
           <section className="clients-section">
             <div style={{ maxWidth: '100vw', padding: 0, overflow: 'hidden' }}>
-              <h2 style={{ marginBottom: 20, color: '#1a1a2e', fontSize: '1.3rem', textAlign: 'center' }}>ลูกค้าที่ไว้วางใจเรา</h2>
+
               <div className="marquee-rows">
                 {rows.map((row, rowIdx) => (
                   <div key={rowIdx} className={`marquee-row dir-${row.dir}`}>
