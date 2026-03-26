@@ -753,7 +753,7 @@ export default async function HomePage() {
               </div>
               <div>
                 <h3 style={{ fontSize: '1.25rem', fontWeight: 700, color: '#fbbf24', marginBottom: 8, marginTop: 0 }}>มั่นใจคุณภาพ</h3>
-                <p style={{ fontSize: '0.9rem', color: 'rgba(255,255,255,0.75)', lineHeight: 1.7, margin: 0 }}>
+                <p style={{ fontSize: '0.9rem', color: '#fff', lineHeight: 1.7, margin: 0 }}>
                   ด้วยเทคโนโลยีการผลิตล่าสุด<br /><span style={{ color: '#fbbf24' }}>จากยุโรป</span>
                 </p>
               </div>
@@ -765,7 +765,7 @@ export default async function HomePage() {
               </div>
               <div>
                 <h3 style={{ fontSize: '1.25rem', fontWeight: 700, color: '#fbbf24', marginBottom: 8, marginTop: 0 }}>บริการรวดเร็วทันใจ</h3>
-                <p style={{ fontSize: '0.9rem', color: 'rgba(255,255,255,0.75)', lineHeight: 1.7, margin: 0 }}>
+                <p style={{ fontSize: '0.9rem', color: '#fff', lineHeight: 1.7, margin: 0 }}>
                   สินค้าพร้อมส่งด่วนจากโกดังบางนา<br /><span style={{ color: '#fbbf24' }}>เพียง 2 ชม.</span>
                 </p>
               </div>
