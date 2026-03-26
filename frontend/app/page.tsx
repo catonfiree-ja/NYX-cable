@@ -632,50 +632,91 @@ export default async function HomePage() {
       })()}
 
 
-      {/* ─── บริการของเรา (4 Cards) ─── */}
-      <section style={{ paddingTop: 80, paddingBottom: 40, background: '#fff', textAlign: 'center' }}>
+      {/* ─── บริการของเรา (Original Theme, 4 Items) ─── */}
+      <section style={{ paddingTop: 80, paddingBottom: 20, background: '#fff', textAlign: 'center' }}>
         <div className="container">
           <div style={{ marginBottom: 30, borderTop: '1px solid #e5e5e5', width: '100%' }}></div>
-          <h2 style={{ fontSize: '2rem', fontWeight: 700, color: '#000000', marginBottom: 40, lineHeight: 1, textAlign: 'center' }}>บริการของเรา</h2>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 24, maxWidth: 1000, margin: '0 auto' }}>
+          <h2 style={{ fontSize: '2rem', fontWeight: 700, color: '#000000', marginBottom: 0, lineHeight: 1, textAlign: 'center' }}>บริการของเรา</h2>
+          <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', margin: '0 auto', maxWidth: 1060 }}>
             {/* ส่งด่วนจากโกดังบางนา */}
-            <div style={{ background: '#f0f4fa', borderRadius: 16, padding: '36px 20px 28px', textAlign: 'center' }}>
-              <div style={{ width: 64, height: 64, borderRadius: 14, background: 'linear-gradient(135deg, #1a3a6b, #234e8e)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 20px' }}>
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M3 9h4V5H3v4zm0 0l2 12h2l1-6h4l1 6h2l2-12" /><rect x="1" y="3" width="8" height="6" rx="1" /><path d="M16 3v6h6l-2 4h-4" /><circle cx="7" cy="19" r="2" /><circle cx="17" cy="19" r="2" /><path d="M14 17H10" /><path d="M9 5h6v8H9z" /><path d="M15 5h5l3 4v8h-4" /></svg>
+            <div style={{ flex: '1 1 22%', padding: '50px 24px', textAlign: 'center' }}>
+              <div style={{ marginBottom: 30 }}>
+                <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="8" y="28" width="30" height="22" rx="3" stroke="#1a8fcb" strokeWidth="2.5" fill="none" />
+                  <path d="M38 34h14l8 10v6H38V34z" stroke="#1a8fcb" strokeWidth="2.5" fill="none" strokeLinejoin="round" />
+                  <circle cx="22" cy="56" r="5" stroke="#1a8fcb" strokeWidth="2.5" fill="none" />
+                  <circle cx="50" cy="56" r="5" stroke="#1a8fcb" strokeWidth="2.5" fill="none" />
+                  <path d="M27 56h18" stroke="#1a8fcb" strokeWidth="2.5" />
+                  <path d="M8 56h9" stroke="#1a8fcb" strokeWidth="2.5" />
+                  <path d="M55 56h5" stroke="#1a8fcb" strokeWidth="2.5" />
+                  <path d="M20 18l4-6h12l4 6" stroke="#1a8fcb" strokeWidth="2" strokeLinecap="round" fill="none" />
+                  <path d="M28 12v-2" stroke="#1a8fcb" strokeWidth="2" strokeLinecap="round" />
+                </svg>
               </div>
-              <h3 style={{ fontSize: '1.1rem', fontWeight: 700, color: '#1a3a6b', marginBottom: 10, marginTop: 0 }}>ส่งด่วนจากโกดังบางนา</h3>
-              <p style={{ fontSize: '0.85rem', color: '#475569', lineHeight: 1.6, margin: 0 }}>
-                ส่งด่วน 2 ชม. ในกรุงเทพฯ-<br />ปริมณฑล
+              <div style={{ marginBottom: 30, borderTop: '1px solid #e5e5e5', width: '100%' }}></div>
+              <h3 style={{ fontSize: '1.35rem', fontWeight: 700, color: '#000000', marginBottom: 16, textAlign: 'center' }}>ส่งด่วนจากโกดังบางนา</h3>
+              <p style={{ fontSize: '1rem', fontWeight: 400, color: '#000000', lineHeight: 1.8, textAlign: 'center', margin: 0 }}>
+                ส่งด่วน <span style={{ color: '#0e76bd' }}>2 ชม.</span> ในกรุงเทพฯ-
+              </p>
+              <p style={{ fontSize: '1rem', fontWeight: 400, color: '#000000', lineHeight: 1.8, textAlign: 'center', margin: 0 }}>
+                ปริมณฑล
               </p>
             </div>
             {/* สต็อกพร้อมส่งทุกขนาด */}
-            <div style={{ background: '#f0f4fa', borderRadius: 16, padding: '36px 20px 28px', textAlign: 'center' }}>
-              <div style={{ width: 64, height: 64, borderRadius: 14, background: 'linear-gradient(135deg, #1a3a6b, #234e8e)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 20px' }}>
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" /><path d="M3 9h18" /><path d="M9 21V9" /><path d="M13 13l2 2 4-4" /></svg>
+            <div style={{ flex: '1 1 22%', padding: '50px 24px', textAlign: 'center' }}>
+              <div style={{ marginBottom: 30 }}>
+                <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="16" y="12" width="48" height="56" rx="4" stroke="#1a8fcb" strokeWidth="2.5" fill="none" />
+                  <path d="M28 28h24" stroke="#1a8fcb" strokeWidth="2.5" strokeLinecap="round" />
+                  <path d="M28 38h24" stroke="#1a8fcb" strokeWidth="2.5" strokeLinecap="round" />
+                  <path d="M28 48h16" stroke="#1a8fcb" strokeWidth="2.5" strokeLinecap="round" />
+                  <path d="M16 22h48" stroke="#1a8fcb" strokeWidth="2" />
+                  <circle cx="56" cy="56" r="10" stroke="#1a8fcb" strokeWidth="2.5" fill="none" />
+                  <path d="M52 56l3 3 6-6" stroke="#1a8fcb" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
               </div>
-              <h3 style={{ fontSize: '1.1rem', fontWeight: 700, color: '#1a3a6b', marginBottom: 10, marginTop: 0 }}>สต็อกพร้อมส่งทุกขนาด</h3>
-              <p style={{ fontSize: '0.85rem', color: '#475569', lineHeight: 1.6, margin: 0 }}>
-                สินค้า 60+ รุ่น 15,000+ ขนาด
+              <div style={{ marginBottom: 30, borderTop: '1px solid #e5e5e5', width: '100%' }}></div>
+              <h3 style={{ fontSize: '1.35rem', fontWeight: 700, color: '#000000', marginBottom: 16, textAlign: 'center' }}>สต็อกพร้อมส่งทุกขนาด</h3>
+              <p style={{ fontSize: '1rem', fontWeight: 400, color: '#000000', lineHeight: 1.8, textAlign: 'center', margin: 0 }}>
+                สินค้า <span style={{ color: '#0e76bd' }}>60+ รุ่น</span>
+              </p>
+              <p style={{ fontSize: '1rem', fontWeight: 400, color: '#000000', lineHeight: 1.8, textAlign: 'center', margin: 0 }}>
+                15,000+ ขนาด
               </p>
             </div>
             {/* บรรจุภัณฑ์แข็งแรง */}
-            <div style={{ background: '#f0f4fa', borderRadius: 16, padding: '36px 20px 28px', textAlign: 'center' }}>
-              <div style={{ width: 64, height: 64, borderRadius: 14, background: 'linear-gradient(135deg, #1a3a6b, #234e8e)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 20px' }}>
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M9 12l2 2 4-4" /><circle cx="12" cy="12" r="9" /><path d="M12 3a9 9 0 110 18 9 9 0 010-18z" /></svg>
+            <div style={{ flex: '1 1 22%', padding: '50px 24px', textAlign: 'center' }}>
+              <div style={{ marginBottom: 30 }}>
+                <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M40 10L12 24v32l28 14 28-14V24L40 10z" stroke="#1a8fcb" strokeWidth="2.5" fill="none" strokeLinejoin="round" />
+                  <path d="M40 38v32" stroke="#1a8fcb" strokeWidth="2.5" />
+                  <path d="M12 24l28 14 28-14" stroke="#1a8fcb" strokeWidth="2.5" />
+                  <path d="M30 42l6 6 14-14" stroke="#1a8fcb" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
               </div>
-              <h3 style={{ fontSize: '1.1rem', fontWeight: 700, color: '#1a3a6b', marginBottom: 10, marginTop: 0 }}>บรรจุภัณฑ์แข็งแรง</h3>
-              <p style={{ fontSize: '0.85rem', color: '#475569', lineHeight: 1.6, margin: 0 }}>
-                แพ็คอย่างดี ป้องกันความเสีย<br />หาย
+              <div style={{ marginBottom: 30, borderTop: '1px solid #e5e5e5', width: '100%' }}></div>
+              <h3 style={{ fontSize: '1.35rem', fontWeight: 700, color: '#000000', marginBottom: 16, textAlign: 'center' }}>บรรจุภัณฑ์แข็งแรง</h3>
+              <p style={{ fontSize: '1rem', fontWeight: 400, color: '#000000', lineHeight: 1.8, textAlign: 'center', margin: 0 }}>
+                แพ็คอย่างดี <span style={{ color: '#0e76bd' }}>ป้องกันความเสียหาย</span>
               </p>
             </div>
             {/* จัดส่งทั่วประเทศ */}
-            <div style={{ background: '#f0f4fa', borderRadius: 16, padding: '36px 20px 28px', textAlign: 'center' }}>
-              <div style={{ width: 64, height: 64, borderRadius: 14, background: 'linear-gradient(135deg, #1a3a6b, #234e8e)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 20px' }}>
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10" /><path d="M12 2a14.5 14.5 0 000 20 14.5 14.5 0 000-20" /><path d="M2 12h20" /><path d="M12 2c3 3 4.73 7.26 4.73 10S15 19 12 22c-3-3-4.73-7.26-4.73-10S9 5 12 2" /></svg>
+            <div style={{ flex: '1 1 22%', padding: '50px 24px', textAlign: 'center' }}>
+              <div style={{ marginBottom: 30 }}>
+                <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="40" cy="40" r="28" stroke="#1a8fcb" strokeWidth="2.5" fill="none" />
+                  <ellipse cx="40" cy="40" rx="12" ry="28" stroke="#1a8fcb" strokeWidth="2" fill="none" />
+                  <path d="M12 40h56" stroke="#1a8fcb" strokeWidth="2" />
+                  <path d="M16 26h48" stroke="#1a8fcb" strokeWidth="1.5" />
+                  <path d="M16 54h48" stroke="#1a8fcb" strokeWidth="1.5" />
+                  <circle cx="40" cy="18" r="4" stroke="#1a8fcb" strokeWidth="2" fill="none" />
+                  <path d="M40 14v-2" stroke="#1a8fcb" strokeWidth="2" strokeLinecap="round" />
+                </svg>
               </div>
-              <h3 style={{ fontSize: '1.1rem', fontWeight: 700, color: '#1a3a6b', marginBottom: 10, marginTop: 0 }}>จัดส่งทั่วประเทศ</h3>
-              <p style={{ fontSize: '0.85rem', color: '#475569', lineHeight: 1.6, margin: 0 }}>
-                ขนส่งผ่านพาร์ทเนอร์ชั้นนำ
+              <div style={{ marginBottom: 30, borderTop: '1px solid #e5e5e5', width: '100%' }}></div>
+              <h3 style={{ fontSize: '1.35rem', fontWeight: 700, color: '#000000', marginBottom: 16, textAlign: 'center' }}>จัดส่งทั่วประเทศ</h3>
+              <p style={{ fontSize: '1rem', fontWeight: 400, color: '#000000', lineHeight: 1.8, textAlign: 'center', margin: 0 }}>
+                ขนส่งผ่าน<span style={{ color: '#0e76bd' }}>พาร์ทเนอร์ชั้นนำ</span>
               </p>
             </div>
           </div>
