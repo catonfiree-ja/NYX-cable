@@ -115,7 +115,7 @@ export default function GalleryLightbox({ albums }: { albums: Album[] }) {
           onWheel={(e) => e.stopPropagation()}
           style={{
             position: 'fixed', inset: 0, zIndex: 9999,
-            background: 'rgba(0,0,0,0.95)',
+            background: '#000',
             overflow: 'hidden',
             display: 'flex', alignItems: 'stretch', justifyContent: 'center',
             touchAction: 'none',
@@ -217,43 +217,46 @@ export default function GalleryLightbox({ albums }: { albums: Album[] }) {
               </button>
             </div>
 
-            {/* Thumbnail Grid — fills remaining space, scrolls internally */}
+            {/* Thumbnail Scroll Container — exactly 3 rows visible */}
             {allPhotos.length > 1 && (
               <div
-                onWheel={(e) => e.stopPropagation()}
+                onWheel={(e) => { e.stopPropagation(); }}
                 style={{
-                  maxHeight: 225, overflowY: 'scroll',
-                  display: 'grid',
-                  gridTemplateColumns: 'repeat(10, 1fr)',
-                  gap: 4, alignContent: 'start',
-                  padding: '8px 0 16px',
+                  height: 210,
+                  overflowY: 'scroll',
+                  marginTop: 8,
                   touchAction: 'pan-y',
                   overscrollBehavior: 'contain',
+                }}
+              >
+                <div style={{
+                  display: 'grid',
+                  gridTemplateColumns: 'repeat(10, 1fr)',
+                  gap: 4,
                 }}>
-                {allPhotos.map((photo: any, i: number) => (
-                  <button
-                    key={i}
-                    onClick={() => handleThumbClick(i)}
-                    type="button"
-                    style={{
-                      all: 'unset', cursor: 'pointer',
-                      borderRadius: 4, overflow: 'hidden',
-                      border: i === activePhoto ? '2px solid #f0a500' : '2px solid transparent',
-                      opacity: i === activePhoto ? 1 : 0.5,
-                      transition: 'all 0.2s',
-                      lineHeight: 0,
-                    }}
-                  >
-                    <img
-                      src={urlFor(photo).width(180).height(135).url()}
-                      alt={photo?.caption || `${openAlbum.title} - ภาพที่ ${i + 1}`}
-                      width={90}
-                      height={68}
-                      loading="lazy"
-                      style={{ width: '100%', height: 65, objectFit: 'cover', display: 'block' }}
-                    />
-                  </button>
-                ))}
+                  {allPhotos.map((photo: any, i: number) => (
+                    <button
+                      key={i}
+                      onClick={() => handleThumbClick(i)}
+                      type="button"
+                      style={{
+                        all: 'unset', cursor: 'pointer',
+                        borderRadius: 4, overflow: 'hidden',
+                        border: i === activePhoto ? '2px solid #f0a500' : '2px solid transparent',
+                        opacity: i === activePhoto ? 1 : 0.5,
+                        transition: 'all 0.2s',
+                        lineHeight: 0,
+                      }}
+                    >
+                      <img
+                        src={urlFor(photo).width(180).height(135).url()}
+                        alt={photo?.caption || `${openAlbum.title} - ภาพที่ ${i + 1}`}
+                        loading="lazy"
+                        style={{ width: '100%', height: 60, objectFit: 'cover', display: 'block' }}
+                      />
+                    </button>
+                  ))}
+                </div>
               </div>
             )}
           </div>
