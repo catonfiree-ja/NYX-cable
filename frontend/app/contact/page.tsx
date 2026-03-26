@@ -332,7 +332,7 @@ export default function ContactPage() {
       {/* ─── Warehouse ─── */}
       <div className="container">
         <section className="warehouse-section">
-          <h2>สำนักงานและคลังสินค้า</h2>
+          <h2 style={{ fontSize: '2.5rem', fontWeight: 800 }}>สำนักงานและคลังสินค้า</h2>
           <div className="warehouse-grid">
             {[
               { src: '/images/office/office-building.jpg', alt: 'อาคารสำนักงาน NYX Cable' },
