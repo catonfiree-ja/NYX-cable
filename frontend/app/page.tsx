@@ -560,8 +560,8 @@ export default async function HomePage() {
               </h1>
               <div className="subtitle">สายไฟฟ้าสำหรับโรงงานอุตสาหกรรม</div>
               <p className="tagline">
-                ใช้เทคโนโลยีการผลิตขั้นสูงจากยุโรปทุกขั้นตอน มั่นใจในคุณภาพ
-                สายไฟคุณภาพมาตรฐาน DIN VDE สต็อกพร้อมส่งทุกขนาด บริการจัดส่งทั่วประเทศ
+                <span style={{ color: '#fbb03b', fontSize: '1.5rem', display: 'block', marginBottom: '8px' }}>ใช้เทคโนโลยีการผลิตขั้นสูงจากยุโรป</span>
+                <span style={{ color: 'rgba(255,255,255,0.85)' }}>ทุกขั้นตอน มั่นใจในคุณภาพ สายไฟคุณภาพมาตรฐาน DIN VDE สต็อกพร้อมส่งทุกขนาด บริการจัดส่งทั่วประเทศ</span>
               </p>
 
             </div>
