@@ -84,19 +84,19 @@ const styles = `
   }
 
   /* ─── Lightbox ─── */
-  .lightbox-backdrop { position: fixed; inset: 0; background: rgba(0,0,0,0.92); z-index: 9999; display: flex; align-items: center; justify-content: center; }
-  .lightbox-content { width: 95vw; max-width: 1100px; max-height: 95vh; display: flex; flex-direction: column; }
+  .lightbox-backdrop { position: fixed; inset: 0; background: rgba(0,0,0,0.92); z-index: 9999; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+  .lightbox-content { width: 95vw; max-width: 1100px; height: 95vh; display: flex; flex-direction: column; overflow: hidden; }
   .lightbox-header { display: flex; align-items: center; gap: 12px; padding: 12px 0; color: #fff; }
   .lightbox-header h3 { flex: 1; font-size: 1.1rem; font-weight: 500; margin: 0; }
   .lightbox-counter { font-size: 0.85rem; opacity: 0.7; }
   .lightbox-close { all: unset; cursor: pointer; font-size: 1.5rem; color: #fff; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border-radius: 50%; transition: background 0.2s; }
   .lightbox-close:hover { background: rgba(255,255,255,0.15); }
-  .lightbox-main { flex: 1; display: flex; align-items: center; position: relative; min-height: 0; }
-  .lightbox-photo { flex: 1; position: relative; height: 55vh; }
+  .lightbox-main { flex: 0 0 auto; display: flex; align-items: center; position: relative; }
+  .lightbox-photo { flex: 1; position: relative; height: 50vh; }
   .lightbox-nav { all: unset; cursor: pointer; font-size: 2.5rem; color: #fff; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; border-radius: 50%; transition: background 0.2s; flex-shrink: 0; }
   .lightbox-nav:hover:not(:disabled) { background: rgba(255,255,255,0.15); }
   .lightbox-nav:disabled { opacity: 0.25; cursor: default; }
-  .lightbox-thumbs { display: grid; grid-template-columns: repeat(10, 1fr); gap: 6px; padding: 8px 0; max-height: 168px; overflow-y: auto; }
+  .lightbox-thumbs { flex: 1; min-height: 0; display: grid; grid-template-columns: repeat(10, 1fr); gap: 6px; padding: 8px 0; overflow-y: auto; }
   .lightbox-thumb { all: unset; cursor: pointer; border: 2px solid transparent; border-radius: 6px; overflow: hidden; opacity: 0.5; transition: all 0.2s; flex-shrink: 0; }
   .lightbox-thumb.active { border-color: var(--color-secondary, #f0c040); opacity: 1; }
   .lightbox-thumb:hover { opacity: 0.8; }

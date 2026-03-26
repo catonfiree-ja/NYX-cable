@@ -48,8 +48,6 @@ export default function GalleryLightbox({ albums }: { albums: Album[] }) {
 
   const handleThumbClick = useCallback((i: number) => {
     setActivePhoto(i)
-    // Scroll back to main photo when clicking a thumbnail
-    mainRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
   }, [])
 
   // Keyboard navigation
@@ -110,33 +108,33 @@ export default function GalleryLightbox({ albums }: { albums: Album[] }) {
         ))}
       </div>
 
-      {/* Lightbox — vertical scroll layout */}
+      {/* Lightbox — fixed viewport, only thumbs scroll */}
       {openAlbum && allPhotos.length > 0 && (
         <div
           className="lightbox-backdrop"
           style={{
             position: 'fixed', inset: 0, zIndex: 9999,
             background: 'rgba(0,0,0,0.95)',
-            overflowY: 'auto',
-            display: 'block',
+            overflow: 'hidden',
+            display: 'flex', alignItems: 'stretch', justifyContent: 'center',
           }}
         >
           <div
             style={{
-              maxWidth: 1000, margin: '0 auto', padding: '0 16px',
-              minHeight: '100vh',
+              maxWidth: 1000, width: '100%', padding: '0 16px',
+              height: '100vh',
+              display: 'flex', flexDirection: 'column',
+              overflow: 'hidden',
             }}
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Header — sticky */}
+            {/* Header */}
             <div
               ref={mainRef}
               style={{
-                position: 'sticky', top: 0, zIndex: 10,
+                flexShrink: 0,
                 display: 'flex', alignItems: 'center', gap: 12,
                 padding: '14px 0', color: '#fff',
-                background: 'rgba(0,0,0,0.9)',
-                backdropFilter: 'blur(8px)',
               }}
             >
               <h3 style={{ flex: 1, fontSize: '1.1rem', fontWeight: 500, margin: 0 }}>
@@ -161,12 +159,12 @@ export default function GalleryLightbox({ albums }: { albums: Album[] }) {
               </button>
             </div>
 
-            {/* Main Photo with nav arrows */}
+            {/* Main Photo with nav arrows — fixed height */}
             <div style={{
               position: 'relative', display: 'flex', alignItems: 'center',
-              justifyContent: 'center', marginBottom: 24,
+              justifyContent: 'center', flexShrink: 0,
               background: 'rgba(0,0,0,0.3)', borderRadius: 12,
-              minHeight: '60vh',
+              height: '55vh',
             }}>
               {/* Prev */}
               <button
@@ -187,7 +185,7 @@ export default function GalleryLightbox({ albums }: { albums: Album[] }) {
               </button>
 
               {/* Photo */}
-              <div style={{ position: 'relative', width: '100%', height: '65vh' }}>
+              <div style={{ position: 'relative', width: '100%', height: '100%' }}>
                 <Image
                   src={urlFor(allPhotos[activePhoto]).width(1200).height(800).url()}
                   alt={allPhotos[activePhoto]?.caption || `${openAlbum.title} - ภาพที่ ${activePhoto + 1}`}
@@ -217,13 +215,14 @@ export default function GalleryLightbox({ albums }: { albums: Album[] }) {
               </button>
             </div>
 
-            {/* Thumbnail Grid — wrapping, scroll down */}
+            {/* Thumbnail Grid — fills remaining space, scrolls internally */}
             {allPhotos.length > 1 && (
               <div style={{
+                flex: 1, minHeight: 0, overflowY: 'auto',
                 display: 'grid',
                 gridTemplateColumns: 'repeat(auto-fill, minmax(90px, 1fr))',
-                gap: 6,
-                paddingBottom: 40,
+                gap: 6, alignContent: 'start',
+                padding: '10px 0 20px',
               }}>
                 {allPhotos.map((photo: any, i: number) => (
                   <button
