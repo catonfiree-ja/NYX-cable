@@ -320,6 +320,24 @@ export default async function AboutPage() {
         </div>
       </div>
 
+      {/* ─── Team Grid (no heading) ─── */}
+      <section className="team-section">
+        <div className="container">
+          <div className="team-grid">
+            {teamMembers.map((member, i) => (
+              <div key={i} className="team-card">
+                <div className="team-avatar" style={{ background: avatarGradients[i % avatarGradients.length] }}>
+                  {member.initial}
+                </div>
+                <div className="team-info">
+                  <h3>{member.name}</h3>
+                  <p>{member.role}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* ─── บรรยากาศของเรา (Full-frame Gallery) ─── */}
       <section className="atmosphere-section">
