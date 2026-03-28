@@ -3,7 +3,7 @@ import { getProducts, getCategories } from '@/lib/queries'
 import { urlFor } from '@/lib/sanity'
 import ProductSearch from '@/components/ProductSearch'
 import { decodeHtmlEntities } from '@/lib/decode-html'
-import { BreadcrumbSchema } from '@/components/StructuredData'
+import { BreadcrumbSchema, FAQSchema } from '@/components/StructuredData'
 
 const styles = `
   .products-hero { background: linear-gradient(135deg, var(--color-primary-dark), var(--color-primary)); color: var(--color-white); padding: var(--spacing-3xl) 0; text-align: center; }
@@ -164,6 +164,34 @@ export default async function ProductsPage() {
           <div className="all-products-title">สินค้าทั้งหมด {products.length} รุ่น</div>
           <div className="all-products-sub">คลิกเพื่อดูรายละเอียดและสั่งซื้อ</div>
           <ProductSearch products={products.map((p: any) => ({ _id: p._id, title: p.title, productCode: p.productCode, shortDescription: p.shortDescription, slug: p.slug }))} />
+        </div>
+      </section>
+
+      {/* ─── FAQ Section ─── */}
+      <FAQSchema faqs={[
+        { question: 'สายคอนโทรล YSLY-JZ กับ YSLY-JB ต่างกันอย่างไร?', answer: 'YSLY-JZ เหมาะสำหรับเดินสายในตู้คอนโทรลและภายในอาคาร ส่วน YSLY-JB มีเปลือกนอกหนากว่า ฝังดินได้ ทนความชื้นและแรงกดทับ' },
+        { question: 'เลือกขนาดสายไฟอย่างไรให้เหมาะกับงาน?', answer: 'ต้องพิจารณากระแสไฟที่ใช้ ระยะทาง และจำนวนแกนที่ต้องการ สอบถามทีมวิศวกร NYX Cable ฟรี โทร 02-111-5588' },
+        { question: 'สายไฟ NYX Cable มาตรฐานอะไร?', answer: 'ผลิตตามมาตรฐาน DIN VDE ยุโรป (DIN VDE 0281, 0282) ผ่าน IEC 60502, IEC 60332, CE Marking และ RoHS' },
+        { question: 'มีสต็อกพร้อมส่งหรือต้องรอนานแค่ไหน?', answer: 'สต็อกพร้อมส่งกว่า 150 ขนาดจากโกดังบางนา จัดส่งภายใน 1-2 วันทำการทั่วประเทศ' },
+        { question: 'ราคาสายไฟ NYX Cable เท่าไหร่?', answer: 'ราคาขึ้นอยู่กับรุ่น ขนาด และจำนวน สอบถามราคาตรงได้ที่ 02-111-5588 หรือ LINE @nyxcable ราคาขายส่งโรงงาน ไม่ผ่านคนกลาง' },
+      ]} />
+      <section style={{ background: '#f8fafc', padding: '48px 0' }}>
+        <div className="container">
+          <h2 style={{ textAlign: 'center', fontSize: '1.5rem', fontWeight: 700, color: 'var(--color-primary)', marginBottom: 32 }}>คำถามที่พบบ่อย</h2>
+          <div style={{ maxWidth: 800, margin: '0 auto', display: 'flex', flexDirection: 'column', gap: 16 }}>
+            {[
+              { q: 'สายคอนโทรล YSLY-JZ กับ YSLY-JB ต่างกันอย่างไร?', a: 'YSLY-JZ เหมาะสำหรับเดินสายในตู้คอนโทรลและภายในอาคาร ส่วน YSLY-JB มีเปลือกนอกหนากว่า ฝังดินได้ ทนความชื้นและแรงกดทับ' },
+              { q: 'เลือกขนาดสายไฟอย่างไรให้เหมาะกับงาน?', a: 'ต้องพิจารณากระแสไฟที่ใช้ ระยะทาง และจำนวนแกนที่ต้องการ สอบถามทีมวิศวกร NYX Cable ฟรี โทร 02-111-5588' },
+              { q: 'สายไฟ NYX Cable มาตรฐานอะไร?', a: 'ผลิตตามมาตรฐาน DIN VDE ยุโรป (DIN VDE 0281, 0282) ผ่าน IEC 60502, IEC 60332, CE Marking และ RoHS' },
+              { q: 'มีสต็อกพร้อมส่งหรือต้องรอนานแค่ไหน?', a: 'สต็อกพร้อมส่งกว่า 150 ขนาดจากโกดังบางนา จัดส่งภายใน 1-2 วันทำการทั่วประเทศ' },
+              { q: 'ราคาสายไฟ NYX Cable เท่าไหร่?', a: 'ราคาขึ้นอยู่กับรุ่น ขนาด และจำนวน สอบถามราคาตรงได้ที่ 02-111-5588 หรือ LINE @nyxcable ราคาขายส่งโรงงาน ไม่ผ่านคนกลาง' },
+            ].map((item, i) => (
+              <details key={i} style={{ background: '#fff', borderRadius: 12, border: '1px solid #e2e8f0', overflow: 'hidden' }}>
+                <summary style={{ padding: '16px 20px', fontWeight: 600, fontSize: '0.95rem', color: 'var(--color-primary)', cursor: 'pointer' }}>{item.q}</summary>
+                <div style={{ padding: '0 20px 16px', fontSize: '0.9rem', color: '#64748b', lineHeight: 1.7 }}>{item.a}</div>
+              </details>
+            ))}
+          </div>
         </div>
       </section>
     </>
