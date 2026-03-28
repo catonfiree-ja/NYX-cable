@@ -1,12 +1,14 @@
 import type { Metadata } from 'next'
 import { getAboutPage } from '@/lib/queries'
 import Image from 'next/image'
+import { BreadcrumbSchema } from '@/components/StructuredData'
 
 export async function generateMetadata(): Promise<Metadata> {
   const about = await getAboutPage()
   return {
     title: about?.metaTitle || 'เกี่ยวกับ NYX Cable | ผู้เชี่ยวชาญสายไฟอุตสาหกรรม 20 ปี',
     description: about?.metaDescription || 'บริษัท นิกซ์ เคเบิ้ล จำกัด ผู้เชี่ยวชาญสายไฟคอนโทรลและสายไฟฟ้าพิเศษ ประสบการณ์ 20 ปี ลูกค้ากว่า 5,000 บริษัท สินค้า 15,000 SKU',
+    alternates: { canonical: 'https://www.nyxcable.com/about' },
   }
 }
 
@@ -228,6 +230,10 @@ export default async function AboutPage() {
 
   return (
     <>
+      <BreadcrumbSchema items={[
+        { name: 'หน้าแรก', url: 'https://www.nyxcable.com' },
+        { name: 'เกี่ยวกับเรา', url: 'https://www.nyxcable.com/about' },
+      ]} />
       <style dangerouslySetInnerHTML={{ __html: styles }} />
 
       {/* ─── Hero ─── */}

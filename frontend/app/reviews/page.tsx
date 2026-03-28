@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { BreadcrumbSchema } from '@/components/StructuredData'
 
 export const metadata: Metadata = {
   title: 'รีวิวจากลูกค้า | NYX Cable',
@@ -8,6 +9,7 @@ export const metadata: Metadata = {
     description: 'รีวิวจริงจากวิศวกรและช่างไฟฟ้าที่ใช้สายไฟ NYX Cable คะแนนเฉลี่ย 5.0/5 จากผู้ใช้งานจริง',
     images: [{ url: '/images/gallery/profile.webp', width: 1200, height: 630, alt: 'NYX Cable รีวิวจากลูกค้า' }],
   },
+  alternates: { canonical: 'https://www.nyxcable.com/reviews' },
 }
 
 const styles = `
@@ -279,6 +281,10 @@ export default function ReviewsPage() {
 
   return (
     <>
+      <BreadcrumbSchema items={[
+        { name: 'หน้าแรก', url: 'https://www.nyxcable.com' },
+        { name: 'รีวิว', url: 'https://www.nyxcable.com/reviews' },
+      ]} />
       <style dangerouslySetInnerHTML={{ __html: styles }} />
 
       <section className="reviews-hero">

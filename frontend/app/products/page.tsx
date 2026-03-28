@@ -3,6 +3,7 @@ import { getProducts, getCategories } from '@/lib/queries'
 import { urlFor } from '@/lib/sanity'
 import ProductSearch from '@/components/ProductSearch'
 import { decodeHtmlEntities } from '@/lib/decode-html'
+import { BreadcrumbSchema } from '@/components/StructuredData'
 
 const styles = `
   .products-hero { background: linear-gradient(135deg, var(--color-primary-dark), var(--color-primary)); color: var(--color-white); padding: var(--spacing-3xl) 0; text-align: center; }
@@ -59,6 +60,7 @@ const catIcons: Record<string, string> = {
 export const metadata: Metadata = {
   title: 'ผลิตภัณฑ์สายไฟอุตสาหกรรม | แบ่งตามหมวดหมู่',
   description: 'สายไฟอุตสาหกรรมคุณภาพสูง มาตรฐานยุโรป — สายคอนโทรล สาย VFD สายทนความร้อน สายชีลด์ สายเครน แบ่งตามหมวดหมู่ เลือกง่าย',
+  alternates: { canonical: 'https://www.nyxcable.com/products' },
 }
 
 export default async function ProductsPage() {
@@ -109,6 +111,10 @@ export default async function ProductsPage() {
 
   return (
     <>
+      <BreadcrumbSchema items={[
+        { name: 'หน้าแรก', url: 'https://www.nyxcable.com' },
+        { name: 'ผลิตภัณฑ์', url: 'https://www.nyxcable.com/products' },
+      ]} />
       <style dangerouslySetInnerHTML={{ __html: styles }} />
 
       {/* Hero */}
