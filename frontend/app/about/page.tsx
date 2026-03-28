@@ -175,6 +175,14 @@ const styles = `
     .about-cta h2 { font-size: 1.3rem; }
     .about-cta-buttons { flex-direction: column; align-items: center; }
   }
+  @media (max-width: 480px) {
+    .about-hero h1 { font-size: 1.3rem; }
+    .hero-badge { font-size: 0.72rem; padding: 6px 12px; }
+    .team-grid { grid-template-columns: repeat(3, 1fr); gap: 8px; }
+    .team-info h3 { font-size: 0.75rem; }
+    .team-info p { font-size: 0.65rem; }
+    .about-stat .num { font-size: 1.2rem; }
+  }
 `
 
 const teamMembers = [

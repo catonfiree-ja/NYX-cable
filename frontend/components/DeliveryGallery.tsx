@@ -38,8 +38,31 @@ export default function DeliveryGallery({ photos }: { photos: DeliveryPhoto[] })
 
     return (
         <>
+            <style dangerouslySetInnerHTML={{
+                __html: `
+                .delivery-gallery-grid {
+                    display: grid;
+                    grid-template-columns: repeat(4, 1fr);
+                    grid-template-rows: 200px 200px 200px 300px;
+                    gap: 6px;
+                    max-width: 1000px;
+                    margin: 0 auto;
+                }
+                @media (max-width: 768px) {
+                    .delivery-gallery-grid {
+                        grid-template-columns: 1fr !important;
+                        grid-template-rows: auto !important;
+                        gap: 4px;
+                    }
+                    .delivery-gallery-grid > div {
+                        grid-column: auto !important;
+                        grid-row: auto !important;
+                        aspect-ratio: auto;
+                    }
+                }
+            ` }} />
             {/* Grid */}
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gridTemplateRows: '200px 200px 200px 300px', gap: 6, maxWidth: 1000, margin: '0 auto' }}>
+            <div className="delivery-gallery-grid">
                 {photos.map((photo, i) => (
                     <div
                         key={i}
@@ -58,7 +81,7 @@ export default function DeliveryGallery({ photos }: { photos: DeliveryPhoto[] })
                             loading="lazy"
                             style={{
                                 width: '100%',
-                                height: '100%',
+                                height: 'auto',
                                 objectFit: 'cover',
                                 display: 'block',
                                 transition: 'transform 0.3s ease',

@@ -102,9 +102,26 @@ const css = `
 
   @media (max-width: 768px) {
     .excel-spec-search input { width: 100%; }
-    .excel-spec-header { flex-direction: column; align-items: flex-start; }
-    .excel-spec-table { font-size: 0.78rem; }
-    .excel-spec-table thead th, .excel-spec-table tbody td { padding: 8px 10px; }
+    .excel-spec-header { flex-direction: column; align-items: flex-start; gap: 8px; }
+    .excel-spec-header h2 { font-size: 1.1rem; }
+    .excel-spec-table { font-size: 0.75rem; }
+    .excel-spec-table thead th { padding: 8px 6px; font-size: 0.7rem; }
+    .excel-spec-table tbody td { padding: 6px 6px; }
+    .excel-spec-tabs { flex-wrap: nowrap; overflow-x: auto; -webkit-overflow-scrolling: touch; padding-bottom: 4px; gap: 4px; }
+    .excel-spec-tab { white-space: nowrap; flex-shrink: 0; padding: 6px 12px; font-size: 0.75rem; }
+    .excel-spec-scroll { max-height: 500px; border-radius: 8px; }
+    /* Hide less important columns on mobile */
+    .excel-spec-table .col-partno,
+    .excel-spec-table .col-cuweight,
+    .excel-spec-table .col-strands { display: none; }
+    .excel-spec-note { font-size: 0.75rem; padding: 10px 12px; }
+  }
+  @media (max-width: 480px) {
+    .excel-spec-table { font-size: 0.7rem; }
+    .excel-spec-table thead th { padding: 6px 4px; font-size: 0.65rem; }
+    .excel-spec-table tbody td { padding: 5px 4px; }
+    /* Also hide weight column on very small screens */
+    .excel-spec-table .col-weight { display: none; }
   }
 `
 
@@ -194,13 +211,13 @@ export default function ExcelSpecTable({ slug, data }: { slug: string; data: Pro
         <table className="excel-spec-table">
           <thead>
             <tr>
-              <th>Part No.</th>
+              <th className="col-partno">Part No.</th>
               <th>ขนาด</th>
               <th>Model</th>
-              <th>Strands × Dia.</th>
+              <th className="col-strands">Strands × Dia.</th>
               <th>OD (mm)</th>
-              <th>Cu Wt. (kg/km)</th>
-              <th>น้ำหนัก (kg/km)</th>
+              <th className="col-cuweight">Cu Wt. (kg/km)</th>
+              <th className="col-weight">น้ำหนัก (kg/km)</th>
               <th>Resistance (Ω/km)</th>
               {hasPrice && <th>ราคา (฿/ม.)</th>}
             </tr>
@@ -219,15 +236,15 @@ export default function ExcelSpecTable({ slug, data }: { slug: string; data: Pro
               filtered.map((item, idx) => {
                 return (
                   <tr key={idx}>
-                    <td style={{ fontSize: '0.75rem', color: '#94a3b8' }}>{item.partNo || '-'}</td>
+                    <td className="col-partno" style={{ fontSize: '0.75rem', color: '#94a3b8' }}>{item.partNo || '-'}</td>
                     <td style={{ fontWeight: 600, color: '#003366' }}>{item.coreSize || '-'}</td>
                     <td className="excel-spec-model">
                       {item.model || '-'}
                     </td>
-                    <td>{item.strands || '-'}</td>
+                    <td className="col-strands">{item.strands || '-'}</td>
                     <td>{item.outerDia || '-'}</td>
-                    <td>{item.cuWeight || '-'}</td>
-                    <td>{item.weight || '-'}</td>
+                    <td className="col-cuweight">{item.cuWeight || '-'}</td>
+                    <td className="col-weight">{item.weight || '-'}</td>
                     <td>{item.resistance || '-'}</td>
                     {hasPrice && (
                       <td className={`excel-spec-price ${isValidPrice(item.price) ? '' : 'no-price'}`}>

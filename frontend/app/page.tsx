@@ -425,7 +425,7 @@ export default async function HomePage() {
       .clients-section { padding: 20px 0; }
       .clients-section h2 { font-size: 0.75rem; margin-bottom: 12px; }
       .clients-grid { gap: 6px; }
-      .client-logo { min-width: 70px; padding: 6px 10px; font-size: 0.7rem; }
+      .client-logo { min-width: 70px; padding: 4px 6px; font-size: 0.7rem; }
 
       /* Stats */
       .stats-bar { padding: 20px 0; }
@@ -494,6 +494,7 @@ export default async function HomePage() {
       /* Marquee logos smaller on mobile */
       .client-logo img { width: 70px; height: 34px; }
       .marquee-logos { gap: 4px; }
+      .marquee-rows { gap: 6px; }
 
       /* Comparison section */
       .comparison-section { padding: 36px 0 !important; }
@@ -504,6 +505,47 @@ export default async function HomePage() {
       /* Delivery info section */
       .delivery-info-section { padding: 36px 0 !important; }
       .delivery-info-section h2 { font-size: 1.3rem !important; }
+    }
+
+    @media (max-width: 768px) {
+      /* Services grid mobile */
+      .services-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 12px !important; }
+      .service-item { padding: 16px !important; }
+      .service-item h3 { font-size: 0.88rem !important; }
+      .service-item p { font-size: 0.82rem !important; }
+      .service-item img { width: 56px !important; height: 56px !important; }
+    }
+    @media (max-width: 480px) {
+      .services-grid { grid-template-columns: 1fr !important; gap: 10px !important; }
+      .service-item h3 { font-size: 0.85rem !important; }
+    }
+
+    /* Services grid base */
+    .services-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; text-align: center; }
+    .service-item { padding: 40px 24px; text-align: center; }
+    .service-item h3 { font-size: 1.15rem; font-weight: 700; color: #000; margin-bottom: 12px; }
+    .service-item p { font-size: 1rem; color: #000; line-height: 1.8; margin: 0; }
+
+    /* Why NYX section */
+    .why-nyx-title { font-size: 2rem; font-weight: 800; color: #fff; text-align: center; margin-bottom: 48px; }
+    .why-nyx-items { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px 80px; max-width: 820px; margin: 0 auto; }
+    .why-nyx-item { display: flex; align-items: flex-start; gap: 20px; }
+    .why-nyx-icon { flex-shrink: 0; display: block; }
+    .why-nyx-item h3 { font-size: 1.25rem; font-weight: 700; color: #fff; margin: 0 0 8px; }
+    .why-nyx-item p { font-size: 0.9rem; color: #fff; line-height: 1.7; margin: 0; }
+
+    @media (max-width: 768px) {
+      .why-nyx-title { font-size: 1.4rem; margin-bottom: 28px; }
+      .why-nyx-items { grid-template-columns: 1fr; gap: 24px; }
+      .why-nyx-item { gap: 14px; }
+      .why-nyx-icon { width: 48px !important; height: 48px !important; }
+      .why-nyx-item h3 { font-size: 1rem; }
+      .why-nyx-item p { font-size: 0.85rem; }
+      .why-nyx-section { padding: 40px 0 !important; }
+      /* Delivery section mobile */
+      .delivery-section-custom { padding: 40px 0 !important; }
+      .delivery-section-custom h2 { font-size: 1.4rem !important; margin-bottom: 20px !important; }
+      .control-cable-grid { grid-template-columns: 1fr !important; gap: 12px !important; }
     }
 
     @media (min-width: 769px) and (max-width: 1024px) {
@@ -612,14 +654,14 @@ export default async function HomePage() {
                     <div className="marquee-logos">
                       {row.logos.map(n => (
                         <div key={`a-${n}`} className="client-logo">
-                          <img src={`/client-logos/logo-${String(n).padStart(2, '0')}.webp`} alt={`ลูกค้า NYX Cable #${n}`} loading="lazy" width="100" height="45" style={n === 20 ? { height: '64px', width: '64px' } : undefined} />
+                          <img src={`/client-logos/logo-${String(n).padStart(2, '0')}.webp`} alt={`ลูกค้า NYX Cable #${n}`} loading="lazy" width="100" height="45" />
                         </div>
                       ))}
                     </div>
                     <div className="marquee-logos" aria-hidden="true">
                       {row.logos.map(n => (
                         <div key={`b-${n}`} className="client-logo">
-                          <img src={`/client-logos/logo-${String(n).padStart(2, '0')}.webp`} alt="" loading="lazy" width="100" height="45" style={n === 20 ? { height: '64px', width: '64px' } : undefined} />
+                          <img src={`/client-logos/logo-${String(n).padStart(2, '0')}.webp`} alt="" loading="lazy" width="100" height="45" />
                         </div>
                       ))}
                     </div>
@@ -633,66 +675,50 @@ export default async function HomePage() {
 
 
       {/* ─── บริการของเรา (Pixel-Perfect Original Theme, 4 Items) ─── */}
-      <section style={{ paddingTop: 80, paddingBottom: 20, background: '#fff', textAlign: 'center' }}>
+      <section style={{ paddingTop: 48, paddingBottom: 20, background: '#fff', textAlign: 'center' }}>
         <div className="container">
-          <div style={{ marginBottom: 30, borderTop: '1px solid #e5e5e5', width: '100%' }}></div>
+          <div style={{ marginBottom: 24, borderTop: '1px solid #e5e5e5', width: '100%' }}></div>
           <h2 style={{ fontSize: '2rem', fontWeight: 700, color: '#000000', marginBottom: 0, lineHeight: 1, textAlign: 'center' }}>บริการของเรา</h2>
-          <div style={{ display: 'flex', flexWrap: 'nowrap', justifyContent: 'center', margin: '0 auto' }}>
+          <div className="services-grid">
             {/* ส่งด่วนจากโกดังบางนา */}
-            <div style={{ flex: '1 1 22%', padding: 50, textAlign: 'center' }}>
-              <div style={{ marginBottom: 30 }}>
+            <div className="service-item">
+              <div style={{ marginBottom: 20 }}>
                 <Image src="/images/icons/service-delivery.png" alt="ส่งด่วนจากโกดังบางนา" width={80} height={80} style={{ display: 'block', margin: '0 auto' }} />
               </div>
-              <div style={{ marginBottom: 30, borderTop: '1px solid #e5e5e5', width: '100%' }}></div>
-              <h3 style={{ fontSize: '1.15rem', fontWeight: 700, color: '#000000', marginBottom: 16, textAlign: 'center', whiteSpace: 'nowrap' }}>ส่งด่วนจากโกดังบางนา</h3>
-              <p style={{ fontSize: '1rem', fontWeight: 400, color: '#000000', lineHeight: 1.8, textAlign: 'center', margin: 0 }}>
-                ส่งด่วน <span style={{ color: '#0e76bd' }}>2 ชม.</span>
-              </p>
-              <p style={{ fontSize: '1rem', fontWeight: 400, color: '#000000', lineHeight: 1.8, textAlign: 'center', margin: 0 }}>
-                ในกรุงเทพฯ-ปริมณฑล
-              </p>
+              <div style={{ marginBottom: 20, borderTop: '1px solid #e5e5e5', width: '100%' }}></div>
+              <h3>ส่งด่วนจากโกดังบางนา</h3>
+              <p>ส่งด่วน <span style={{ color: '#0e76bd' }}>2 ชม.</span></p>
+              <p>ในกรุงเทพฯ-ปริมณฑล</p>
             </div>
             {/* สต็อกพร้อมส่งทุกขนาด */}
-            <div style={{ flex: '1 1 22%', padding: 50, textAlign: 'center' }}>
-              <div style={{ marginBottom: 30 }}>
+            <div className="service-item">
+              <div style={{ marginBottom: 20 }}>
                 <Image src="/images/icons/service-consult.png" alt="สต็อกพร้อมส่งทุกขนาด" width={80} height={80} style={{ display: 'block', margin: '0 auto' }} />
               </div>
-              <div style={{ marginBottom: 30, borderTop: '1px solid #e5e5e5', width: '100%' }}></div>
-              <h3 style={{ fontSize: '1.15rem', fontWeight: 700, color: '#000000', marginBottom: 16, textAlign: 'center', whiteSpace: 'nowrap' }}>สต็อกพร้อมส่งทุกขนาด</h3>
-              <p style={{ fontSize: '1rem', fontWeight: 400, color: '#000000', lineHeight: 1.8, textAlign: 'center', margin: 0 }}>
-                สินค้า <span style={{ color: '#0e76bd' }}>60+</span> รุ่น
-              </p>
-              <p style={{ fontSize: '1rem', fontWeight: 400, color: '#000000', lineHeight: 1.8, textAlign: 'center', margin: 0 }}>
-                <span style={{ color: '#0e76bd' }}>15,000+</span> ขนาด
-              </p>
+              <div style={{ marginBottom: 20, borderTop: '1px solid #e5e5e5', width: '100%' }}></div>
+              <h3>สต็อกพร้อมส่งทุกขนาด</h3>
+              <p>สินค้า <span style={{ color: '#0e76bd' }}>60+</span> รุ่น</p>
+              <p><span style={{ color: '#0e76bd' }}>15,000+</span> ขนาด</p>
             </div>
             {/* บรรจุภัณฑ์แข็งแรง */}
-            <div style={{ flex: '1 1 22%', padding: 50, textAlign: 'center' }}>
-              <div style={{ marginBottom: 30 }}>
+            <div className="service-item">
+              <div style={{ marginBottom: 20 }}>
                 <Image src="/images/icons/service-solve.png" alt="บรรจุภัณฑ์แข็งแรง" width={80} height={80} style={{ display: 'block', margin: '0 auto' }} />
               </div>
-              <div style={{ marginBottom: 30, borderTop: '1px solid #e5e5e5', width: '100%' }}></div>
-              <h3 style={{ fontSize: '1.15rem', fontWeight: 700, color: '#000000', marginBottom: 16, textAlign: 'center', whiteSpace: 'nowrap' }}>บรรจุภัณฑ์แข็งแรง</h3>
-              <p style={{ fontSize: '1rem', fontWeight: 400, color: '#000000', lineHeight: 1.8, textAlign: 'center', margin: 0 }}>
-                แพ็คอย่างดี
-              </p>
-              <p style={{ fontSize: '1rem', fontWeight: 400, color: '#000000', lineHeight: 1.8, textAlign: 'center', margin: 0 }}>
-                <span style={{ color: '#0e76bd' }}>ป้องกันความเสียหาย</span>
-              </p>
+              <div style={{ marginBottom: 20, borderTop: '1px solid #e5e5e5', width: '100%' }}></div>
+              <h3>บรรจุภัณฑ์แข็งแรง</h3>
+              <p>แพ็คอย่างดี</p>
+              <p><span style={{ color: '#0e76bd' }}>ป้องกันความเสียหาย</span></p>
             </div>
             {/* จัดส่งทั่วประเทศ */}
-            <div style={{ flex: '1 1 22%', padding: 50, textAlign: 'center' }}>
-              <div style={{ marginBottom: 30 }}>
+            <div className="service-item">
+              <div style={{ marginBottom: 20 }}>
                 <Image src="/images/icons/service-nationwide.png" alt="จัดส่งทั่วประเทศ" width={80} height={80} style={{ display: 'block', margin: '0 auto' }} />
               </div>
-              <div style={{ marginBottom: 30, borderTop: '1px solid #e5e5e5', width: '100%' }}></div>
-              <h3 style={{ fontSize: '1.15rem', fontWeight: 700, color: '#000000', marginBottom: 16, textAlign: 'center', whiteSpace: 'nowrap' }}>จัดส่งทั่วประเทศ</h3>
-              <p style={{ fontSize: '1rem', fontWeight: 400, color: '#000000', lineHeight: 1.8, textAlign: 'center', margin: 0 }}>
-                ขนส่งผ่าน
-              </p>
-              <p style={{ fontSize: '1rem', fontWeight: 400, color: '#000000', lineHeight: 1.8, textAlign: 'center', margin: 0 }}>
-                <span style={{ color: '#0e76bd' }}>พาร์ทเนอร์ชั้นนำ</span>
-              </p>
+              <div style={{ marginBottom: 20, borderTop: '1px solid #e5e5e5', width: '100%' }}></div>
+              <h3>จัดส่งทั่วประเทศ</h3>
+              <p>ขนส่งผ่าน</p>
+              <p><span style={{ color: '#0e76bd' }}>พาร์ทเนอร์ชั้นนำ</span></p>
             </div>
           </div>
         </div>
@@ -735,7 +761,7 @@ export default async function HomePage() {
         <div className="container">
           <h2 style={{ fontSize: '2rem', fontWeight: 800, color: '#000', textAlign: 'center', marginBottom: 8 }}>สายคอนโทรล</h2>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20 }}>
+          <div className="control-cable-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20 }}>
             {mainProducts.map(p => (
               <a key={p.slug} href={`/products/detail/${p.slug}`} className="card-hover" style={{ display: 'block', textDecoration: 'none', color: 'inherit', background: '#fff', border: '1px solid #e8edf3', borderRadius: 14, overflow: 'hidden', boxShadow: '0 2px 8px rgba(0,0,0,0.04)' }}>
                 <div style={{ background: '#f8fafc' }}>
@@ -756,56 +782,40 @@ export default async function HomePage() {
       </section>
 
       {/* ─── ทำไมต้องเลือก NYX CABLE (Pixel-Perfect Original) ─── */}
-      <section style={{ background: 'linear-gradient(rgba(0,20,50,0.82), rgba(0,20,50,0.82)), url("/images/why-nyx-bg.jpg") center/cover no-repeat fixed', padding: '60px 0', color: '#fff' }}>
+      <section className="why-nyx-section" style={{ background: 'linear-gradient(rgba(0,20,50,0.82), rgba(0,20,50,0.82)), url("/images/why-nyx-bg.jpg") center/cover no-repeat fixed', padding: '60px 0', color: '#fff' }}>
         <div className="container">
-          <h2 style={{ fontSize: '2rem', fontWeight: 800, color: '#fff', textAlign: 'center', marginBottom: 48 }}>ทำไมต้องเลือก NYX CABLE</h2>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '40px 80px', maxWidth: 820, margin: '0 auto' }}>
+          <h2 className="why-nyx-title">ทำไมต้องเลือก NYX CABLE</h2>
+          <div className="why-nyx-items">
             {/* มั่นใจคุณภาพ */}
-            <div style={{ display: 'flex', alignItems: 'flex-start', gap: 20 }}>
-              <div style={{ flexShrink: 0 }}>
-                <Image src="/images/icons/why-shield.png" alt="มั่นใจคุณภาพ" width={80} height={80} style={{ display: 'block' }} />
-              </div>
+            <div className="why-nyx-item">
+              <Image src="/images/icons/why-shield.png" alt="มั่นใจคุณภาพ" width={80} height={80} className="why-nyx-icon" />
               <div>
-                <h3 style={{ fontSize: '1.25rem', fontWeight: 700, color: '#fff', marginBottom: 8, marginTop: 0 }}>มั่นใจคุณภาพ</h3>
-                <p style={{ fontSize: '0.9rem', color: '#fff', lineHeight: 1.7, margin: 0 }}>
-                  ด้วยเทคโนโลยีการผลิตล่าสุด<br /><span style={{ color: '#fbbf24' }}>จากยุโรป</span>
-                </p>
+                <h3>มั่นใจคุณภาพ</h3>
+                <p>ด้วยเทคโนโลยีการผลิตล่าสุด<br /><span style={{ color: '#fbbf24' }}>จากยุโรป</span></p>
               </div>
             </div>
             {/* บริการรวดเร็วทันใจ */}
-            <div style={{ display: 'flex', alignItems: 'flex-start', gap: 20 }}>
-              <div style={{ flexShrink: 0 }}>
-                <Image src="/images/icons/why-truck.png" alt="บริการรวดเร็วทันใจ" width={80} height={80} style={{ display: 'block' }} />
-              </div>
+            <div className="why-nyx-item">
+              <Image src="/images/icons/why-truck.png" alt="บริการรวดเร็วทันใจ" width={80} height={80} className="why-nyx-icon" />
               <div>
-                <h3 style={{ fontSize: '1.25rem', fontWeight: 700, color: '#fff', marginBottom: 8, marginTop: 0 }}>บริการรวดเร็วทันใจ</h3>
-                <p style={{ fontSize: '0.9rem', color: '#fff', lineHeight: 1.7, margin: 0 }}>
-                  สินค้าพร้อมส่งด่วนจากโกดังบางนา<br /><span style={{ color: '#fbbf24' }}>เพียง 2 ชม.</span>
-                </p>
+                <h3>บริการรวดเร็วทันใจ</h3>
+                <p>สินค้าพร้อมส่งด่วนจากโกดังบางนา<br /><span style={{ color: '#fbbf24' }}>เพียง 2 ชม.</span></p>
               </div>
             </div>
             {/* ราคาดี */}
-            <div style={{ display: 'flex', alignItems: 'flex-start', gap: 20 }}>
-              <div style={{ flexShrink: 0 }}>
-                <Image src="/images/icons/why-piggy.png" alt="ราคาดี" width={80} height={80} style={{ display: 'block' }} />
-              </div>
+            <div className="why-nyx-item">
+              <Image src="/images/icons/why-piggy.png" alt="ราคาดี" width={80} height={80} className="why-nyx-icon" />
               <div>
-                <h3 style={{ fontSize: '1.25rem', fontWeight: 700, color: '#fff', marginBottom: 8, marginTop: 0 }}>ราคาดี</h3>
-                <p style={{ fontSize: '0.9rem', color: '#fff', lineHeight: 1.7, margin: 0 }}>
-                  <span style={{ color: '#fbbf24' }}>เราเป็นโรงงาน</span><br />นำเข้าสายไฟฟ้าเองโดยตรง
-                </p>
+                <h3>ราคาดี</h3>
+                <p><span style={{ color: '#fbbf24' }}>เราเป็นโรงงาน</span><br />นำเข้าสายไฟฟ้าเองโดยตรง</p>
               </div>
             </div>
             {/* ยืนยันจากผู้ใช้จริง */}
-            <div style={{ display: 'flex', alignItems: 'flex-start', gap: 20 }}>
-              <div style={{ flexShrink: 0 }}>
-                <Image src="/images/icons/why-heart.png" alt="ยืนยันจากผู้ใช้จริง" width={80} height={80} style={{ display: 'block' }} />
-              </div>
+            <div className="why-nyx-item">
+              <Image src="/images/icons/why-heart.png" alt="ยืนยันจากผู้ใช้จริง" width={80} height={80} className="why-nyx-icon" />
               <div>
-                <h3 style={{ fontSize: '1.25rem', fontWeight: 700, color: '#fff', marginBottom: 8, marginTop: 0 }}>ยืนยันจากผู้ใช้จริง</h3>
-                <p style={{ fontSize: '0.9rem', color: '#fbbf24', lineHeight: 1.7, margin: 0 }}>
-                  ลูกค้ากว่า 99% กลับมาซื้อซ้ำ
-                </p>
+                <h3>ยืนยันจากผู้ใช้จริง</h3>
+                <p style={{ color: '#fbbf24' }}>ลูกค้ากว่า 99% กลับมาซื้อซ้ำ</p>
               </div>
             </div>
           </div>
@@ -813,7 +823,7 @@ export default async function HomePage() {
       </section>
 
       {/* ─── การส่งสินค้า (Pixel-Perfect from nyxcable.com) ─── */}
-      <section style={{ background: '#f5f5f5', padding: '60px 0' }}>
+      <section className="delivery-section-custom" style={{ background: '#f5f5f5', padding: '60px 0' }}>
         <div className="container">
           <h2 style={{ fontSize: '2rem', fontWeight: 700, color: '#000000', textAlign: 'center', marginBottom: 36 }}>การส่งสินค้า</h2>
           <DeliveryGallery photos={[

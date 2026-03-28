@@ -92,9 +92,22 @@ const css = `
 
   @media (max-width: 768px) {
     .vt-search input { width: 100%; }
-    .vt-header { flex-direction: column; align-items: flex-start; }
-    .vt-table { font-size: 0.78rem; }
-    .vt-table thead th, .vt-table tbody td { padding: 8px 10px; }
+    .vt-header { flex-direction: column; align-items: flex-start; gap: 8px; }
+    .vt-header h2 { font-size: 1.1rem; }
+    .vt-table { font-size: 0.75rem; }
+    .vt-table thead th { padding: 8px 6px; font-size: 0.7rem; }
+    .vt-table tbody td { padding: 6px 6px; }
+    .vt-tabs { flex-wrap: nowrap; overflow-x: auto; -webkit-overflow-scrolling: touch; padding-bottom: 4px; gap: 4px; }
+    .vt-tab { white-space: nowrap; flex-shrink: 0; padding: 6px 12px; font-size: 0.75rem; }
+    .vt-scroll { max-height: 500px; border-radius: 8px; }
+    .vt-table .col-strands,
+    .vt-table .col-cuweight,
+    .vt-table .col-weight { display: none; }
+  }
+  @media (max-width: 480px) {
+    .vt-table { font-size: 0.7rem; }
+    .vt-table thead th { padding: 6px 4px; font-size: 0.65rem; }
+    .vt-table tbody td { padding: 5px 4px; }
   }
 `
 
@@ -162,10 +175,10 @@ export default function VariantTable({ variants }: { variants: Variant[] }) {
               <th>รุ่น</th>
               <th>แกน</th>
               <th>พท.หน้าตัด (mm²)</th>
-              <th>Strands × Dia.</th>
+              <th className="col-strands">Strands × Dia.</th>
               <th>OD (mm)</th>
-              <th>Cu Wt. (kg/km)</th>
-              <th>น้ำหนัก (kg/km)</th>
+              <th className="col-cuweight">Cu Wt. (kg/km)</th>
+              <th className="col-weight">น้ำหนัก (kg/km)</th>
               <th>Resistance (Ω/km)</th>
               <th>สต็อก</th>
             </tr>
@@ -192,10 +205,10 @@ export default function VariantTable({ variants }: { variants: Variant[] }) {
                   </td>
                   <td>{v.cores || '-'}</td>
                   <td>{v.crossSection || '-'}</td>
-                  <td>{v.strandsInfo || '-'}</td>
+                  <td className="col-strands">{v.strandsInfo || '-'}</td>
                   <td>{v.outerDiameter || '-'}</td>
-                  <td>{v.copperWeight || '-'}</td>
-                  <td>{v.totalWeight || '-'}</td>
+                  <td className="col-cuweight">{v.copperWeight || '-'}</td>
+                  <td className="col-weight">{v.totalWeight || '-'}</td>
                   <td>{v.conductorResistance || '-'}</td>
                   <td>
                     <span className={`vt-stock ${v.inStock !== false ? 'in' : 'out'}`}>

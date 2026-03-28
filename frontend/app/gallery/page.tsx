@@ -129,15 +129,24 @@ const styles = `
 
   @media (max-width: 768px) {
     .gallery-hero h1 { font-size: 1.6rem; }
-    .album-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
-    .lightbox-photo { height: 50vh; }
-    .lightbox-nav { width: 36px; height: 36px; font-size: 2rem; }
+    .gallery-hero { padding: 48px 0 40px; }
+    .album-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+    .album-title { font-size: 0.85rem; }
+    .lightbox-photo { height: 45vh; }
+    .lightbox-nav { width: 44px; height: 44px; font-size: 1.8rem; }
+    .lightbox-thumbs { grid-template-columns: repeat(5, 1fr); gap: 4px; }
+    .lightbox-thumb img { height: 40px; }
+    .lightbox-header h3 { font-size: 0.9rem; }
     .gallery-cta h2 { font-size: 1.3rem; }
     .gallery-cta-btns { flex-direction: column; align-items: center; }
+    .gallery-cta-btn { width: 100%; max-width: 300px; justify-content: center; min-height: 48px; }
   }
   @media (max-width: 480px) {
-    .album-grid { grid-template-columns: 1fr; }
-    .lightbox-photo { height: 40vh; }
+    .gallery-hero h1 { font-size: 1.3rem; }
+    .album-grid { grid-template-columns: 1fr; gap: 16px; }
+    .lightbox-photo { height: 35vh; }
+    .lightbox-nav { width: 36px; height: 36px; font-size: 1.5rem; }
+    .lightbox-thumbs { grid-template-columns: repeat(4, 1fr); }
   }
 `
 

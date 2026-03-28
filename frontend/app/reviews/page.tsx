@@ -76,7 +76,7 @@ const styles = `
   /* ─── Review Cards ─── */
   .reviews-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 24px;
     padding: 48px 0;
   }
@@ -178,11 +178,25 @@ const styles = `
 
   @media (max-width: 768px) {
     .reviews-hero h1 { font-size: 1.6rem; }
-    .reviews-summary { flex-direction: column; gap: 32px; }
+    .reviews-hero { padding: 48px 0 40px; }
+    .reviews-summary { flex-direction: column; gap: 24px; padding: 32px 0; }
     .reviews-bars { max-width: 100%; width: 100%; }
-    .reviews-grid { grid-template-columns: 1fr; }
+    .reviews-grid { grid-template-columns: 1fr; gap: 16px; padding: 32px 0; }
+    .review-card { padding: 20px; }
+    .review-avatar { width: 42px; height: 42px; font-size: 1rem; }
+    .review-name { font-size: 0.88rem; }
+    .review-text { font-size: 0.85rem; }
     .reviews-cta h2 { font-size: 1.3rem; }
+    .reviews-cta { padding: 40px 0; }
     .reviews-cta-buttons { flex-direction: column; align-items: center; }
+    .reviews-cta-btn { width: 100%; max-width: 300px; justify-content: center; min-height: 48px; }
+    .trust-badge { font-size: 0.75rem; padding: 6px 14px; }
+  }
+  @media (max-width: 480px) {
+    .reviews-hero h1 { font-size: 1.3rem; }
+    .reviews-score .big-number { font-size: 3.5rem; }
+    .review-card { padding: 16px; }
+    .review-text { font-size: 0.82rem; line-height: 1.7; }
   }
 `
 

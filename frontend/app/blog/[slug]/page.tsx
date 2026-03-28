@@ -51,6 +51,11 @@ const styles = `
   }
   .blog-content table tr:nth-child(even) { background: #f8fafc; }
   .blog-content table tr:hover { background: #f0f7ff; }
+  .table-scroll-wrapper {
+    overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 24px 0;
+    border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  }
+  .table-scroll-wrapper table { margin: 0; box-shadow: none; }
   .blog-share {
     display: flex; gap: 12px; align-items: center;
     padding: 24px 0; border-top: 2px solid #e5e7eb;
@@ -77,8 +82,17 @@ const styles = `
     .blog-content h2 { font-size: 1.2rem; }
     .blog-content h3 { font-size: 1rem; }
     .blog-content p { font-size: 0.9rem; }
-    .blog-content table { font-size: 0.8rem; }
-    .blog-content table th, .blog-content table td { padding: 6px 10px; }
+    .blog-content table {
+      font-size: 0.78rem; table-layout: fixed !important;
+      display: table !important; overflow: visible !important;
+    }
+    .blog-content table th { padding: 10px 12px; font-size: 0.75rem; text-align: center !important; }
+    .blog-content table td { padding: 8px 12px; font-size: 0.78rem; text-align: center !important; }
+    .table-scroll-wrapper {
+      margin: 16px 0; border-radius: 8px;
+      overflow-x: auto; -webkit-overflow-scrolling: touch;
+    }
+    .blog-content > div { overflow-x: auto; -webkit-overflow-scrolling: touch; max-width: 100%; }
     .blog-share { flex-wrap: wrap; gap: 8px; }
     .related-products-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
     .rp-card { padding: 14px 12px; }
@@ -187,7 +201,7 @@ function detectTableBlocks(blocks: any[]): { start: number; end: number; cols: n
 // Render Portable Text — handles WordPress-imported content with table reconstruction
 function renderBody(body: any) {
   if (typeof body === 'string') {
-    return <div dangerouslySetInnerHTML={{ __html: body }} />
+    return <div style={{ overflowX: 'auto', WebkitOverflowScrolling: 'touch' as any }} dangerouslySetInnerHTML={{ __html: body }} />
   }
   if (!body || !Array.isArray(body)) return <p>ไม่มีเนื้อหา</p>
 
@@ -242,14 +256,17 @@ function renderBody(body: any) {
         }
 
         elements.push(
-          <div key={`table-${blockIdx}`} style={{ overflowX: 'auto', WebkitOverflowScrolling: 'touch' as any, margin: '24px 0' }}>
-            <table>
+          <div key={`table-${blockIdx}`} className="table-scroll-wrapper">
+            <table style={{ tableLayout: 'fixed', width: '100%' }}>
+              <colgroup>
+                {rows[0]?.map((_, ci) => <col key={ci} style={{ width: `${100 / (rows[0]?.length || 1)}%` }} />)}
+              </colgroup>
               <thead>
-                <tr>{rows[0]?.map((cell, ci) => <th key={ci}>{cell}</th>)}</tr>
+                <tr>{rows[0]?.map((cell, ci) => <th key={ci} style={{ textAlign: 'center' }}>{cell}</th>)}</tr>
               </thead>
               <tbody>
                 {rows.slice(1).map((row, ri) => (
-                  <tr key={ri}>{row.map((cell, ci) => <td key={ci}>{cell}</td>)}</tr>
+                  <tr key={ri}>{row.map((cell, ci) => <td key={ci} style={{ textAlign: 'center' }}>{cell}</td>)}</tr>
                 ))}
               </tbody>
             </table>
@@ -287,7 +304,7 @@ function renderBody(body: any) {
         default: elements.push(<p key={blockIdx}>{children}</p>)
       }
     } else if (block._type === 'html' && block.code) {
-      elements.push(<div key={blockIdx} dangerouslySetInnerHTML={{ __html: block.code }} />)
+      elements.push(<div key={blockIdx} style={{ overflowX: 'auto', WebkitOverflowScrolling: 'touch' as any }} dangerouslySetInnerHTML={{ __html: block.code }} />)
     }
 
     blockIdx++
