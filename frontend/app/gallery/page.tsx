@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { getGalleryAlbums } from '@/lib/queries'
+import Link from 'next/link'
 import GalleryLightbox from '@/components/GalleryLightbox'
 import { BreadcrumbSchema } from '@/components/StructuredData'
 
@@ -155,7 +156,12 @@ const styles = `
 export const revalidate = 60
 
 export default async function GalleryPage() {
-  const rawAlbums = await getGalleryAlbums()
+  let rawAlbums: any[] = []
+  try {
+    rawAlbums = await getGalleryAlbums()
+  } catch (e) {
+    console.error('[GalleryPage] Failed to fetch albums:', e)
+  }
 
   // Sort: delivery albums by year DESC first, then non-delivery albums at end
   // Prefer year from title over CMS year field (CMS has wrong value for 2026 album)
@@ -188,7 +194,7 @@ export default async function GalleryPage() {
 
       <div className="container">
         <div className="album-breadcrumb">
-          <a href="/">หน้าแรก</a> › แกลเลอรี่
+          <Link href="/">หน้าแรก</Link> › แกลเลอรี่
         </div>
         <GalleryLightbox albums={albums} />
       </div>

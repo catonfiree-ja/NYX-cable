@@ -1,3 +1,45 @@
+/*
+ * ═══════════════════════════════════════════════════════════
+ * NYX Cable — Global Stylesheet
+ * ═══════════════════════════════════════════════════════════
+ *
+ * TABLE OF CONTENTS
+ * -----------------
+ *   1. Overflow Prevention & Corner Ribbon ........  ~10
+ *   2. Accessibility (skip-nav, focus) ............  ~56
+ *   3. CSS Custom Properties (Design Tokens) ......  ~82
+ *   4. Reset & Base Styles ........................ ~158
+ *   5. Utility Classes (container, text-*) ........ ~197
+ *   6. Section Headers ............................ ~229
+ *   7. Buttons (btn-*, pulse animations) .......... ~257
+ *   8. Cards ...................................... ~404
+ *   9. Top Bar .................................... ~418
+ *  10. Header / Navigation ........................ ~447
+ *  11. Hero Section ............................... ~527
+ *  12. Product Category Grid ...................... ~618
+ *  13. Features / Why Us Grid ..................... ~716
+ *  14. CTA Section & Contact Bar .................. ~761
+ *  15. Footer ..................................... ~946
+ *  16. Floating Elements (LINE, FAB) .............. ~1020
+ *  17. Responsive: 1024px ......................... ~1059
+ *  18. Responsive: 768px (Mobile) ................. ~1078
+ *  19. Services Grid .............................. ~1204
+ *  20. Pre-Footer CTA (Click เลย !!!) ............ ~1216
+ *  21. Floating Contact FAB ....................... ~1372
+ *  22. Product Card Hover & Hero Services ......... ~1462
+ *  23. Comprehensive Mobile Fixes ................. ~1522
+ *  24. Mobile Tables .............................. ~1750
+ *  25. Accessibility: Focus States ................ ~1787
+ *  26. Motion & Animation System .................. ~1810
+ *  27. Reduced Motion ............................. ~2001
+ *
+ * NOTE: Page-specific CSS lives in inline <style> tags
+ * within each page component (blog, products, contact,
+ * reviews, about, gallery). This file contains only
+ * shared layout and component styles.
+ * ═══════════════════════════════════════════════════════════
+ */
+
 /* Font is self-hosted via next/font/google in layout.tsx */
 
 /* ─── Global overflow prevention ─── */

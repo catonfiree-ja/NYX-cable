@@ -1,5 +1,6 @@
 import { getBlogPost, getBlogPosts, getProducts } from '@/lib/queries'
 import { notFound } from 'next/navigation'
+import Link from 'next/link'
 import { decodeHtmlEntities } from '@/lib/decode-html'
 import { BreadcrumbSchema, ArticleSchema } from '@/components/StructuredData'
 
@@ -107,6 +108,23 @@ function formatDate(dateStr: string) {
   return d.toLocaleDateString('th-TH', { day: 'numeric', month: 'long', year: 'numeric' })
 }
 
+// Simple server-safe HTML sanitizer: strip dangerous tags (script, iframe, on* attributes)
+function sanitizeHtml(html: string): string {
+  if (!html) return ''
+  return html
+    .replace(/<script[^>]*>[\s\S]*?<\/script>/gi, '')
+    .replace(/<iframe[^>]*>[\s\S]*?<\/iframe>/gi, '')
+    .replace(/<object[^>]*>[\s\S]*?<\/object>/gi, '')
+    .replace(/<embed[^>]*>/gi, '')
+    .replace(/<link[^>]*>/gi, '')
+    .replace(/<meta[^>]*>/gi, '')
+    .replace(/<style[^>]*>[\s\S]*?<\/style>/gi, '')
+    .replace(/\son\w+\s*=\s*["'][^"']*["']/gi, '')
+    .replace(/\son\w+\s*=\s*\S+/gi, '')
+    .replace(/javascript\s*:/gi, 'blocked:')
+    .replace(/data\s*:/gi, 'blocked:')
+}
+
 // ALL HTML tag names to filter out from WordPress migration
 const HTML_TAG_NAMES = new Set([
   'div', 'p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6',
@@ -202,7 +220,7 @@ function detectTableBlocks(blocks: any[]): { start: number; end: number; cols: n
 // Render Portable Text — handles WordPress-imported content with table reconstruction
 function renderBody(body: any) {
   if (typeof body === 'string') {
-    return <div style={{ overflowX: 'auto', WebkitOverflowScrolling: 'touch' as any }} dangerouslySetInnerHTML={{ __html: body }} />
+    return <div style={{ overflowX: 'auto', WebkitOverflowScrolling: 'touch' as any }} dangerouslySetInnerHTML={{ __html: sanitizeHtml(body) }} />
   }
   if (!body || !Array.isArray(body)) return <p>ไม่มีเนื้อหา</p>
 
@@ -305,7 +323,7 @@ function renderBody(body: any) {
         default: elements.push(<p key={blockIdx}>{children}</p>)
       }
     } else if (block._type === 'html' && block.code) {
-      elements.push(<div key={blockIdx} style={{ overflowX: 'auto', WebkitOverflowScrolling: 'touch' as any }} dangerouslySetInnerHTML={{ __html: block.code }} />)
+      elements.push(<div key={blockIdx} style={{ overflowX: 'auto', WebkitOverflowScrolling: 'touch' as any }} dangerouslySetInnerHTML={{ __html: sanitizeHtml(block.code) }} />)
     }
 
     blockIdx++
@@ -341,8 +359,10 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ slu
   let relatedProducts = post.relatedProducts || []
   if (relatedProducts.length === 0) {
     const allProducts = await getProducts()
-    // Shuffle and pick 4
-    relatedProducts = allProducts.sort(() => Math.random() - 0.5).slice(0, 4)
+    // Deterministic fallback: sort by _id for consistent CDN caching
+    relatedProducts = allProducts
+      .sort((a: any, b: any) => (a._id || '').localeCompare(b._id || ''))
+      .slice(0, 4)
   }
 
   return (
@@ -357,7 +377,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ slu
       <section className="blog-detail-hero">
         <div className="container">
           <div className="breadcrumb">
-            <a href="/">หน้าแรก</a> › <a href="/blog">บทความ</a> › {post.title.length > 40 ? post.title.substring(0, 40) + '…' : post.title}
+            <Link href="/">หน้าแรก</Link> › <Link href="/blog">บทความ</Link> › {post.title.length > 40 ? post.title.substring(0, 40) + '…' : post.title}
           </div>
           <h1>{post.title}</h1>
           <div className="meta">

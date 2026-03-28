@@ -3,6 +3,8 @@ import { getBlogPosts } from '@/lib/queries'
 import { urlFor as sanityUrlFor } from '@/lib/sanity'
 import blogImages from '@/data/blog-images.json'
 import Image from 'next/image'
+import Link from 'next/link'
+import { filterBlogPosts } from '@/lib/blog-utils'
 import { BreadcrumbSchema } from '@/components/StructuredData'
 
 const styles = `
@@ -165,20 +167,7 @@ export default async function BlogPage() {
     console.error('Failed to fetch blog posts:', e)
   }
 
-  // Client feedback #14: exclude 10 articles unrelated to cables
-  const excludeTitles = [
-    'ไอเดียรถเข็นไฟฟ้า',
-    'สนามบินรักษ์โลก',
-    'ไอเดียรถสาธารณะพลังงานแสงอาทิตย์',
-    'ลาก่อนนิวเคลียร์',
-    'Stella',
-    'เสาไฟฟ้าแรงสูง',
-    'โซล่าฟาร์ม ดีจริงหรือไม่',
-    'กระทรวงพลังงาน ร่วม การไฟฟ้า',
-    'ขายไฟฟ้า คืนกำไรกลับมา',
-    'Solar Roof ของระบบโซล่าเซลล์',
-  ]
-  posts = posts.filter((p: any) => !excludeTitles.some(t => (p.title || '').includes(t)))
+  posts = filterBlogPosts(posts)
 
   const featuredPost = posts.length > 0 ? posts[0] : null
   const remainingPosts = posts.length > 1 ? posts.slice(1) : []
@@ -270,8 +259,8 @@ export default async function BlogPage() {
           <h2>สนใจสายไฟสำหรับโรงงาน?</h2>
           <p>ดูแคตตาล็อกสินค้ากว่า 150 รุ่น หรือปรึกษาทีมวิศวกรเลย</p>
           <div className="blog-cta-btns">
-            <a href="/products" className="blog-cta-btn products">ดูสินค้าทั้งหมด</a>
-            <a href="/contact" className="blog-cta-btn contact">ติดต่อเรา</a>
+            <Link href="/products" className="blog-cta-btn products">ดูสินค้าทั้งหมด</Link>
+            <Link href="/contact" className="blog-cta-btn contact">ติดต่อเรา</Link>
           </div>
         </div>
       </section>

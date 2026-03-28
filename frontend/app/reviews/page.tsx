@@ -276,7 +276,8 @@ function GoogleIcon() {
 }
 
 export default function ReviewsPage() {
-  const avgRating = (reviews.reduce((sum, r) => sum + r.stars, 0) / reviews.length).toFixed(1)
+  const totalReviews = reviews.length
+  const avgRating = (reviews.reduce((sum, r) => sum + r.stars, 0) / totalReviews).toFixed(1)
   const starCounts = [5, 4, 3, 2, 1].map(s => reviews.filter(r => r.stars === s).length)
 
   return (
@@ -289,7 +290,7 @@ export default function ReviewsPage() {
 
       <section className="reviews-hero">
         <div className="container">
-          <div className="trust-badge">★ คะแนนเฉลี่ย 5.0/5 จากผู้ใช้งานจริง 360 รีวิว</div>
+          <div className="trust-badge">★ คะแนนเฉลี่ย {avgRating}/5 จากผู้ใช้งานจริง {totalReviews} รีวิว</div>
           <h1>รีวิวจากลูกค้า</h1>
           <p>รีวิวจริงจากลูกค้าที่ไว้วางใจสายไฟ NYX Cable บน Google Maps</p>
         </div>
@@ -305,7 +306,7 @@ export default function ReviewsPage() {
                 <StarSVG key={i} filled={i <= Math.round(Number(avgRating))} />
               ))}
             </div>
-            <div className="count">360 รีวิวจาก Google Maps</div>
+            <div className="count">{totalReviews} รีวิวจาก Google Maps</div>
           </div>
           <div className="reviews-bars">
             {[5, 4, 3, 2, 1].map((star, i) => (
@@ -317,7 +318,7 @@ export default function ReviewsPage() {
                     style={{ width: `${reviews.length > 0 ? (starCounts[i] / reviews.length) * 100 : 0}%` }}
                   />
                 </div>
-                <span className="bar-count">{star === 5 ? 360 : starCounts[i]}</span>
+                <span className="bar-count">{starCounts[i]}</span>
               </div>
             ))}
           </div>

@@ -3,6 +3,7 @@ import { urlFor } from '@/lib/sanity'
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Image from 'next/image'
+import Link from 'next/link'
 import SiblingVariants from './SiblingVariants'
 
 // ─── Static Params for SSG ───
@@ -114,7 +115,7 @@ export default async function VariantDetailPage({ params }: { params: Promise<{ 
       <div className="variant-hero">
         <div className="container">
           <div className="breadcrumb">
-            <a href="/">หน้าแรก</a> / <a href="/products">ผลิตภัณฑ์</a> / {parent && <><a href={`/products/detail/${parent.slug?.current}`}>{parent.title}</a> / </>}{variant.title}
+            <Link href="/">หน้าแรก</Link> / <Link href="/products">ผลิตภัณฑ์</Link> / {parent && <><Link href={`/products/detail/${parent.slug?.current}`}>{parent.title}</Link> / </>}{variant.title}
           </div>
         </div>
       </div>
@@ -137,9 +138,9 @@ export default async function VariantDetailPage({ params }: { params: Promise<{ 
           <div className="variant-info">
             <h1>{variant.title}</h1>
             {parent && (
-              <a href={`/products/detail/${parent.slug?.current}`} className="variant-parent-link" style={{ display: 'block', marginBottom: '12px' }}>
+              <Link href={`/products/detail/${parent.slug?.current}`} className="variant-parent-link" style={{ display: 'block', marginBottom: '12px' }}>
                 ← ดูสินค้าหลัก: {parent.title}
-              </a>
+              </Link>
             )}
             {variant.model && <span className="product-code" style={{ display: 'inline-block', marginBottom: '8px' }}>{variant.model}</span>}
 
@@ -223,12 +224,12 @@ export default async function VariantDetailPage({ params }: { params: Promise<{ 
             brand: { "@type": "Brand", name: "NYX Cable" },
             manufacturer: { "@type": "Organization", name: "NYX Cable" },
             category: "สายไฟอุตสาหกรรม",
-            url: `https://nyx-cable.vercel.app/products/variant/${variant.slug?.current}`,
+            url: `https://www.nyxcable.com/products/variant/${variant.slug?.current}`,
             offers: {
               "@type": "AggregateOffer",
               priceCurrency: "THB",
               availability: variant.inStock !== false ? "https://schema.org/InStock" : "https://schema.org/PreOrder",
-              seller: { "@type": "Organization", name: "NYX Cable", url: "https://nyx-cable.vercel.app", telephone: "021115588" }
+              seller: { "@type": "Organization", name: "NYX Cable", url: "https://www.nyxcable.com", telephone: "021115588" }
             },
           })
         }}
