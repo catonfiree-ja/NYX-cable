@@ -7,6 +7,7 @@ import VariantTable from './VariantTable'
 import ExcelSpecTable from './ExcelSpecTable'
 import productSpecsData from '@/data/product-specs.json'
 import { productContentMap } from '@/data/product-content'
+import { BreadcrumbSchema } from '@/components/StructuredData'
 
 const styles = `
   /* ─── Hero ─── */
@@ -455,6 +456,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return {
     title: product.metaTitle || product.title,
     description: product.metaDescription || decodeHtmlEntities(product.shortDescription),
+    alternates: { canonical: `https://www.nyxcable.com/products/detail/${slug}` },
   }
 }
 
@@ -470,11 +472,17 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
   const relatedProducts = product.relatedProducts || []
 
   // Build auto-link map from all products + ALL variants (parentProduct refs not set in Sanity)
-  const [allProducts, allVariants] = await Promise.all([getProducts(), getVariants()])
+  const [allProducts, allVariants, blogPosts] = await Promise.all([getProducts(), getVariants(), getBlogPosts()])
   const linkMap = buildProductLinkMap(allProducts, allVariants)
+  const relatedArticles = blogPosts.slice(0, 3)
 
   return (
     <>
+      <BreadcrumbSchema items={[
+        { name: 'หน้าแรก', url: 'https://www.nyxcable.com' },
+        { name: 'ผลิตภัณฑ์', url: 'https://www.nyxcable.com/products' },
+        { name: product.title, url: `https://www.nyxcable.com/products/detail/${slug}` },
+      ]} />
       <style dangerouslySetInnerHTML={{ __html: styles }} />
       <div className="product-detail-hero">
         <div className="container">
@@ -743,6 +751,23 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
       </div>
 
       {/* ─── Schema.org Product + Organization JSON-LD ─── */}
+      {/* ─── Related Articles ─── */}
+      {relatedArticles.length > 0 && (
+        <section style={{ background: '#f8fafc', padding: '48px 0' }}>
+          <div className="container">
+            <h2 style={{ fontSize: '1.3rem', fontWeight: 700, color: 'var(--color-primary)', marginBottom: 24, textAlign: 'center' }}>บทความที่เกี่ยวข้อง</h2>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: 16 }}>
+              {relatedArticles.map((article: any) => (
+                <a key={article._id} href={`/blog/${article.slug?.current}`} style={{ background: '#fff', borderRadius: 12, border: '1px solid #e2e8f0', padding: 20, textDecoration: 'none', color: 'inherit', transition: 'all 0.25s' }}>
+                  <h3 style={{ fontSize: '0.95rem', fontWeight: 600, color: 'var(--color-primary)', marginBottom: 8, lineHeight: 1.4 }}>{article.title}</h3>
+                  {article.excerpt && <p style={{ fontSize: '0.85rem', color: '#64748b', lineHeight: 1.6, display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>{article.excerpt}</p>}
+                </a>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       <script type="application/ld+json" dangerouslySetInnerHTML={{
         __html: JSON.stringify({
           '@context': 'https://schema.org',
@@ -753,7 +778,7 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
           brand: { '@type': 'Brand', name: 'NYX Cable' },
           manufacturer: { '@type': 'Organization', name: 'NYX Cable' },
           category: categories.length > 0 ? categories.map((c: any) => c.title).join(', ') : 'สายไฟอุตสาหกรรม',
-          url: `https://nyx-cable.vercel.app/products/detail/${slug}`,
+          url: `https://www.nyxcable.com/products/detail/${slug}`,
           offers: {
             '@type': 'AggregateOffer',
             priceCurrency: 'THB',
@@ -761,7 +786,7 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
             seller: {
               '@type': 'Organization',
               name: 'NYX Cable',
-              url: 'https://nyx-cable.vercel.app',
+              url: 'https://www.nyxcable.com',
               telephone: '02-111-5588',
               email: 'sales@nyxcable.com',
               address: { '@type': 'PostalAddress', addressLocality: 'บางนา', addressRegion: 'กรุงเทพฯ', addressCountry: 'TH' }
