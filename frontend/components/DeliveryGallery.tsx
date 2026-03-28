@@ -59,6 +59,9 @@ export default function DeliveryGallery({ photos }: { photos: DeliveryPhoto[] })
                         grid-row: auto !important;
                         aspect-ratio: auto;
                     }
+                    .delivery-gallery-grid > div img {
+                        height: auto !important;
+                    }
                 }
             ` }} />
             {/* Grid */}
@@ -81,7 +84,7 @@ export default function DeliveryGallery({ photos }: { photos: DeliveryPhoto[] })
                             loading="lazy"
                             style={{
                                 width: '100%',
-                                height: 'auto',
+                                height: '100%',
                                 objectFit: 'cover',
                                 display: 'block',
                                 transition: 'transform 0.3s ease',
