@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { getGalleryAlbums } from '@/lib/queries'
 import GalleryLightbox from '@/components/GalleryLightbox'
+import { BreadcrumbSchema } from '@/components/StructuredData'
 
 export const metadata: Metadata = {
   title: 'แกลเลอรี่ ผลงาน & การจัดส่ง | NYX Cable',
@@ -10,6 +11,7 @@ export const metadata: Metadata = {
     description: 'ภาพผลงานจัดส่งสินค้าจริง สายไฟอุตสาหกรรม NYX Cable ถึงมือลูกค้าทั่วประเทศ',
     images: [{ url: '/images/gallery/profile.webp', width: 1200, height: 630, alt: 'NYX Cable แกลเลอรี่' }],
   },
+  alternates: { canonical: 'https://www.nyxcable.com/gallery' },
 }
 
 const styles = `
@@ -169,6 +171,10 @@ export default async function GalleryPage() {
 
   return (
     <>
+      <BreadcrumbSchema items={[
+        { name: 'หน้าแรก', url: 'https://www.nyxcable.com' },
+        { name: 'แกลเลอรี่', url: 'https://www.nyxcable.com/gallery' },
+      ]} />
       <style dangerouslySetInnerHTML={{ __html: styles }} />
 
       {/* ─── Hero ─── */}

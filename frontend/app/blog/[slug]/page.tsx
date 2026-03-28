@@ -1,6 +1,7 @@
 import { getBlogPost, getBlogPosts, getProducts } from '@/lib/queries'
 import { notFound } from 'next/navigation'
 import { decodeHtmlEntities } from '@/lib/decode-html'
+import { BreadcrumbSchema, ArticleSchema } from '@/components/StructuredData'
 
 const styles = `
   .blog-detail-hero {
@@ -326,6 +327,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return {
     title: post.metaTitle || post.title,
     description: post.metaDescription || post.excerpt,
+    alternates: { canonical: `https://www.nyxcable.com/blog/${slug}` },
   }
 }
 
@@ -345,6 +347,12 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ slu
 
   return (
     <>
+      <BreadcrumbSchema items={[
+        { name: 'หน้าแรก', url: 'https://www.nyxcable.com' },
+        { name: 'บทความ', url: 'https://www.nyxcable.com/blog' },
+        { name: post.title, url: `https://www.nyxcable.com/blog/${slug}` },
+      ]} />
+      <ArticleSchema post={post} />
       <style dangerouslySetInnerHTML={{ __html: styles }} />
       <section className="blog-detail-hero">
         <div className="container">

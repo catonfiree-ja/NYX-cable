@@ -3,6 +3,7 @@ import { getBlogPosts } from '@/lib/queries'
 import { urlFor as sanityUrlFor } from '@/lib/sanity'
 import blogImages from '@/data/blog-images.json'
 import Image from 'next/image'
+import { BreadcrumbSchema } from '@/components/StructuredData'
 
 const styles = `
   /* ─── Blog Hero ─── */
@@ -153,6 +154,7 @@ export const metadata: Metadata = {
     description: 'ความรู้สายไฟอุตสาหกรรม วิธีเลือกสายไฟ มาตรฐาน DIN VDE เคล็ดลับจากวิศวกร NYX Cable',
     images: [{ url: '/images/gallery/profile.webp', width: 1200, height: 630, alt: 'NYX Cable บทความ' }],
   },
+  alternates: { canonical: 'https://www.nyxcable.com/blog' },
 }
 
 export default async function BlogPage() {
@@ -183,6 +185,10 @@ export default async function BlogPage() {
 
   return (
     <>
+      <BreadcrumbSchema items={[
+        { name: 'หน้าแรก', url: 'https://www.nyxcable.com' },
+        { name: 'บทความ', url: 'https://www.nyxcable.com/blog' },
+      ]} />
       <style dangerouslySetInnerHTML={{ __html: styles }} />
 
       {/* ─── Hero ─── */}
