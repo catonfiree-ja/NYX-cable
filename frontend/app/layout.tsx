@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Prompt } from "next/font/google";
 import "./globals.css";
 import Image from "next/image";
+import Link from "next/link";
 import { OrganizationSchema } from "@/components/StructuredData";
 import NavLinks from "@/components/NavLinks";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
@@ -81,7 +82,7 @@ export default function RootLayout({
         <OrganizationSchema />
         <GoogleAnalytics />
         {/* Corner Ribbon — PRODUCTS */}
-        <a href="/products" className="corner-ribbon">PRODUCTS</a>
+        <Link href="/products" className="corner-ribbon">PRODUCTS</Link>
         {/* Top Info Bar */}
         <div className="top-bar">
           <div className="container">
@@ -100,9 +101,9 @@ export default function RootLayout({
         {/* Header */}
         <header className="header">
           <div className="container">
-            <a href="/" className="header-logo">
+            <Link href="/" className="header-logo">
               <Image src="/images/NYXcable-Logo.png" alt="NYX Cable สายไฟอุตสาหกรรมคุณภาพยุโรป" width={160} height={40} style={{ display: 'block', height: '40px', width: 'auto' }} priority />
-            </a>
+            </Link>
             <NavLinks />
           </div>
         </header>
@@ -180,13 +181,13 @@ export default function RootLayout({
               <div>
                 <h4>เมนู</h4>
                 <ul className="footer-links">
-                  <li><a href="/">หน้าแรก</a></li>
-                  <li><a href="/products">ผลิตภัณฑ์</a></li>
-                  <li><a href="/blog">บทความ & คู่มือ</a></li>
-                  <li><a href="/gallery">แกลเลอรี่</a></li>
-                  <li><a href="/about">เกี่ยวกับเรา</a></li>
-                  <li><a href="/contact">ติดต่อเรา</a></li>
-                  <li><a href="/privacy-policy">นโยบายความเป็นส่วนตัว</a></li>
+                  <li><Link href="/">หน้าแรก</Link></li>
+                  <li><Link href="/products">ผลิตภัณฑ์</Link></li>
+                  <li><Link href="/blog">บทความ & คู่มือ</Link></li>
+                  <li><Link href="/gallery">แกลเลอรี่</Link></li>
+                  <li><Link href="/about">เกี่ยวกับเรา</Link></li>
+                  <li><Link href="/contact">ติดต่อเรา</Link></li>
+                  <li><Link href="/privacy-policy">นโยบายความเป็นส่วนตัว</Link></li>
                 </ul>
               </div>
 
@@ -215,7 +216,7 @@ export default function RootLayout({
 
             <div className="footer-bottom">
               <span>© {new Date().getFullYear()} NYX Cable. All Rights Reserved.</span>
-              <span><a href="/privacy-policy" style={{ color: 'rgba(255,255,255,0.9)', textDecoration: 'underline' }}>Privacy Policy</a> · สายไฟอุตสาหกรรมคุณภาพสูง มาตรฐานยุโรป</span>
+              <span><Link href="/privacy-policy" style={{ color: 'rgba(255,255,255,0.9)', textDecoration: 'underline' }}>Privacy Policy</Link> · สายไฟอุตสาหกรรมคุณภาพสูง มาตรฐานยุโรป</span>
             </div>
           </div>
         </footer>
@@ -225,12 +226,17 @@ export default function RootLayout({
         <script dangerouslySetInnerHTML={{
           __html: `
           (function(){
+            if('ontouchstart' in window || navigator.maxTouchPoints>0) return;
             var sel='.btn-primary,.btn-line,.btn-accent,[style*="border-radius: 50px"]';
-            document.addEventListener('mousemove',function(e){
-              document.querySelectorAll(sel).forEach(function(btn){
+            var ticking=false;
+            var mx=0, my=0;
+            function update(){
+              var btns=document.querySelectorAll(sel);
+              for(var i=0;i<btns.length;i++){
+                var btn=btns[i];
                 var r=btn.getBoundingClientRect();
                 var cx=r.left+r.width/2, cy=r.top+r.height/2;
-                var dx=e.clientX-cx, dy=e.clientY-cy;
+                var dx=mx-cx, dy=my-cy;
                 var dist=Math.sqrt(dx*dx+dy*dy);
                 if(dist<100){
                   var pull=Math.min((100-dist)/100*0.35,0.35);
@@ -240,7 +246,12 @@ export default function RootLayout({
                   btn.style.transform='';
                   btn.style.transition='transform 0.4s ease-out';
                 }
-              });
+              }
+              ticking=false;
+            }
+            document.addEventListener('mousemove',function(e){
+              mx=e.clientX; my=e.clientY;
+              if(!ticking){ ticking=true; requestAnimationFrame(update); }
             });
             document.addEventListener('mouseleave',function(){
               document.querySelectorAll(sel).forEach(function(btn){

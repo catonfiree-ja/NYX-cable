@@ -1,9 +1,11 @@
 import type { Metadata } from 'next'
 import { getProducts, getBlogPosts, getFAQs, getHomePage } from '@/lib/queries'
 import Image from 'next/image'
+import Link from 'next/link'
 import { urlFor as sanityUrlFor } from '@/lib/sanity'
 import { decodeHtmlEntities } from '@/lib/decode-html'
 import DeliveryGallery from '@/components/DeliveryGallery'
+import { filterBlogPosts } from '@/lib/blog-utils'
 import RevealOnScroll from '@/app/components/RevealOnScroll'
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -15,17 +17,23 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function HomePage() {
-  // Fetch real data from Sanity
-  const [products, blogPosts, faqs, homeCms] = await Promise.all([
-    getProducts(),
-    getBlogPosts(),
-    getFAQs(),
-    getHomePage(),
-  ])
+  // Fetch real data from Sanity — with error resilience
+  let products: any[] = []
+  let blogPosts: any[] = []
+  let faqs: any[] = []
+  let homeCms: any = null
+  try {
+    ;[products, blogPosts, faqs, homeCms] = await Promise.all([
+      getProducts().catch(() => []),
+      getBlogPosts().catch(() => []),
+      getFAQs().catch(() => []),
+      getHomePage().catch(() => null),
+    ])
+  } catch (e) {
+    console.error('[HomePage] Failed to fetch CMS data:', e)
+  }
   const topProducts = products.slice(0, 8)
-  // Client feedback #14: exclude 10 articles unrelated to cables
-  const excludeTitles = ['ไอเดียรถเข็นไฟฟ้า', 'สนามบินรักษ์โลก', 'ไอเดียรถสาธารณะพลังงานแสงอาทิตย์', 'ลาก่อนนิวเคลียร์', 'Stella', 'เสาไฟฟ้าแรงสูง', 'โซล่าฟาร์ม ดีจริงหรือไม่', 'กระทรวงพลังงาน ร่วม การไฟฟ้า', 'ขายไฟฟ้า คืนกำไรกลับมา', 'Solar Roof ของระบบโซล่าเซลล์']
-  const filteredPosts = blogPosts.filter((p: any) => !excludeTitles.some(t => (p.title || '').includes(t)))
+  const filteredPosts = filterBlogPosts(blogPosts)
   const latestPosts = filteredPosts.slice(0, 3)
 
   // FAQPage Schema.org
@@ -608,27 +616,27 @@ export default async function HomePage() {
 
             </div>
             <div className="hero-v2-right">
-              <a href="/contact" className="hero-trust-badge" style={{ textDecoration: 'none', color: 'inherit' }}>
+              <Link href="/contact" className="hero-trust-badge" style={{ textDecoration: 'none', color: 'inherit' }}>
                 <span className="trust-icon">01</span>
                 <div className="trust-text">
                   <p style={{ fontWeight: 700, margin: 0 }}>ให้คำแนะนำ</p>
                   <p>จากผู้เชี่ยวชาญด้านสายไฟฟ้าคอนโทรลโดยเฉพาะ</p>
                 </div>
-              </a>
-              <a href="/contact" className="hero-trust-badge" style={{ textDecoration: 'none', color: 'inherit' }}>
+              </Link>
+              <Link href="/contact" className="hero-trust-badge" style={{ textDecoration: 'none', color: 'inherit' }}>
                 <span className="trust-icon">02</span>
                 <div className="trust-text">
                   <p style={{ fontWeight: 700, margin: 0 }}>แก้ไขปัญหา</p>
                   <p>แก้ไขปัญหาตรงจุดกับปรึกษามืออาชีพ</p>
                 </div>
-              </a>
-              <a href="/gallery" className="hero-trust-badge" style={{ textDecoration: 'none', color: 'inherit' }}>
+              </Link>
+              <Link href="/gallery" className="hero-trust-badge" style={{ textDecoration: 'none', color: 'inherit' }}>
                 <span className="trust-icon">03</span>
                 <div className="trust-text">
                   <p style={{ fontWeight: 700, margin: 0 }}>จัดส่งสินค้า</p>
                   <p>ถึงที่หมายอย่างเป็นระบบและตรงต่อเวลา</p>
                 </div>
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -776,7 +784,7 @@ export default async function HomePage() {
             ))}
           </div>
           <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap', justifyContent: 'center', marginTop: 32 }}>
-            <a href="/products" className="btn btn-primary">ดูสินค้าเพิ่มเติม →</a>
+            <Link href="/products" className="btn btn-primary">ดูสินค้าเพิ่มเติม →</Link>
           </div>
         </div>
       </section>
@@ -842,7 +850,7 @@ export default async function HomePage() {
             { src: '/delivery-2026/delivery-2026-40.jpg', alt: 'NYX Cable คลังสินค้าสายไฟ', gridColumn: '4', gridRow: '4' },
           ]} />
           <div style={{ textAlign: 'center', marginTop: 32, position: 'relative', zIndex: 1 }}>
-            <a href="/gallery" className="btn btn-primary">ดูภาพทั้งหมดในแกลเลอรี่ →</a>
+            <Link href="/gallery" className="btn btn-primary">ดูภาพทั้งหมดในแกลเลอรี่ →</Link>
           </div>
         </div>
       </section>
@@ -869,7 +877,7 @@ export default async function HomePage() {
             ))}
           </div>
           <div className="view-all-btn" style={{ marginTop: '24px' }}>
-            <a href="/blog" className="btn btn-primary">ดูบทความทั้งหมด ({blogPosts.length} บทความ) →</a>
+            <Link href="/blog" className="btn btn-primary">ดูบทความทั้งหมด ({blogPosts.length} บทความ) →</Link>
           </div>
         </div>
       </section>
@@ -908,7 +916,7 @@ export default async function HomePage() {
             </table>
           </div>
           <div style={{ textAlign: 'center', marginTop: 24 }}>
-            <a href="/products" className="btn btn-primary">ดูผลิตภัณฑ์ทั้งหมด →</a>
+            <Link href="/products" className="btn btn-primary">ดูผลิตภัณฑ์ทั้งหมด →</Link>
           </div>
         </div>
       </section>
@@ -920,12 +928,12 @@ export default async function HomePage() {
           <p style={{ textAlign: 'center', color: '#475569', marginBottom: 32, fontSize: '0.95rem' }}>ทำความรู้จักกับเราผ่านวิดีโอ</p>
           <div style={{ maxWidth: 800, margin: '0 auto', borderRadius: 20, overflow: 'hidden', boxShadow: '0 8px 30px rgba(0,51,102,0.1)', border: '1px solid #e5e7eb', aspectRatio: '16 / 9', position: 'relative', background: '#000', cursor: 'pointer' }}>
             <a href="https://www.youtube.com/watch?v=IEu9jZBH3qQ" target="_blank" rel="noopener noreferrer" style={{ display: 'block', width: '100%', height: '100%', position: 'absolute', top: 0, left: 0 }}>
-              <img
+              <Image
                 src="https://i.ytimg.com/vi/IEu9jZBH3qQ/hqdefault.jpg"
                 alt="NYX Cable - สายไฟอุตสาหกรรมคุณภาพสูง"
                 loading="lazy"
-                width="800"
-                height="450"
+                width={800}
+                height={450}
                 style={{ width: '100%', height: '100%', objectFit: 'cover' }}
               />
               <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: 68, height: 48, background: 'rgba(255,0,0,0.85)', borderRadius: 14, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>

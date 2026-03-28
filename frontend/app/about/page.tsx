@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { getAboutPage } from '@/lib/queries'
 import Image from 'next/image'
+import Link from 'next/link'
 import { BreadcrumbSchema } from '@/components/StructuredData'
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -268,12 +269,12 @@ export default async function AboutPage() {
           </div>
           <div className="about-video-box">
             <a href="https://www.youtube.com/watch?v=IEu9jZBH3qQ" target="_blank" rel="noopener noreferrer" style={{ display: 'block', position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}>
-              <img
+              <Image
                 src="https://i.ytimg.com/vi/IEu9jZBH3qQ/hqdefault.jpg"
                 alt="NYX Cable - สายไฟอุตสาหกรรมคุณภาพสูง"
                 loading="lazy"
-                width="800"
-                height="450"
+                width={800}
+                height={450}
                 style={{ width: '100%', height: '100%', objectFit: 'cover' }}
               />
               <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: 68, height: 48, background: 'rgba(255,0,0,0.85)', borderRadius: 14, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
@@ -377,8 +378,8 @@ export default async function AboutPage() {
           <h2>พร้อมให้บริการคุณ</h2>
           <p>ติดต่อเราวันนี้ เพื่อรับคำปรึกษาจากผู้เชี่ยวชาญ</p>
           <div className="about-cta-buttons">
-            <a href="/products" className="about-cta-btn products">ดูผลิตภัณฑ์ →</a>
-            <a href="/contact" className="about-cta-btn contact">ติดต่อเรา</a>
+            <Link href="/products" className="about-cta-btn products">ดูผลิตภัณฑ์ →</Link>
+            <Link href="/contact" className="about-cta-btn contact">ติดต่อเรา</Link>
           </div>
         </div>
       </section>

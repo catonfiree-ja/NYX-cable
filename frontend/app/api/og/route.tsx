@@ -5,8 +5,8 @@ export const runtime = 'edge'
 
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url)
-  const title = searchParams.get('title') || 'NYX Cable — สายไฟอุตสาหกรรมคุณภาพยุโรป'
-  const subtitle = searchParams.get('subtitle') || 'มาตรฐาน DIN VDE | สต็อกพร้อมส่ง 150+ ขนาด'
+  const title = (searchParams.get('title') || 'NYX Cable — สายไฟอุตสาหกรรมคุณภาพยุโรป').slice(0, 120)
+  const subtitle = (searchParams.get('subtitle') || 'มาตรฐาน DIN VDE | สต็อกพร้อมส่ง 150+ ขนาด').slice(0, 200)
 
   return new ImageResponse(
     (

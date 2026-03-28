@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { getProducts, getCategories } from '@/lib/queries'
 import { urlFor } from '@/lib/sanity'
+import Link from 'next/link'
 import ProductSearch from '@/components/ProductSearch'
 import { decodeHtmlEntities } from '@/lib/decode-html'
 import { BreadcrumbSchema, FAQSchema } from '@/components/StructuredData'
@@ -120,7 +121,7 @@ export default async function ProductsPage() {
       {/* Hero */}
       <section className="products-hero">
         <div className="container">
-          <div className="breadcrumb"><a href="/">หน้าแรก</a> / ผลิตภัณฑ์</div>
+          <div className="breadcrumb"><Link href="/">หน้าแรก</Link> / ผลิตภัณฑ์</div>
           <h1>ผลิตภัณฑ์สายไฟอุตสาหกรรม</h1>
           <p>เลือกตามหมวดหมู่ — {categories.filter((c: any) => !c.parent).length} หมวดหมู่ / {products.length} รุ่น</p>
         </div>

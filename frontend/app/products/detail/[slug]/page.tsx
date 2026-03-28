@@ -2,6 +2,7 @@ import React from 'react'
 import { getProduct, getProducts, getVariants, getBlogPosts } from '@/lib/queries'
 import { urlFor } from '@/lib/sanity'
 import Image from 'next/image'
+import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import VariantTable from './VariantTable'
 import ExcelSpecTable from './ExcelSpecTable'
@@ -487,7 +488,7 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
       <div className="product-detail-hero">
         <div className="container">
           <div className="breadcrumb">
-            <a href="/">หน้าแรก</a> › <a href="/products">ผลิตภัณฑ์</a> › {product.title}
+            <Link href="/">หน้าแรก</Link> › <Link href="/products">ผลิตภัณฑ์</Link> › {product.title}
           </div>
           <div className="hero-product-layout">
             <div className="hero-image-box">

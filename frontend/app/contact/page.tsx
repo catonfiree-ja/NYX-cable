@@ -184,8 +184,16 @@ export default function ContactPage() {
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
-    setLoading(true)
     setError('')
+
+    // Rate limiting: prevent rapid re-submissions (3s cooldown)
+    const lastSubmit = sessionStorage.getItem('nyx-form-last-submit')
+    if (lastSubmit && Date.now() - parseInt(lastSubmit) < 3000) {
+      setError('กรุณารอสักครู่ก่อนส่งอีกครั้ง')
+      return
+    }
+
+    setLoading(true)
 
     const formData = new FormData(e.currentTarget)
     const name = formData.get('name') as string
@@ -194,6 +202,14 @@ export default function ContactPage() {
     const email = formData.get('email') as string
     const product = formData.get('product') as string
     const message = formData.get('message') as string
+
+    // Honeypot check — bots fill hidden fields
+    const botCheck = formData.get('botcheck') as string
+    if (botCheck) {
+      setSubmitted(true)
+      setLoading(false)
+      return
+    }
 
     // Try Web3Forms if key is set, otherwise use mailto fallback
     const web3Key = process.env.NEXT_PUBLIC_WEB3FORMS_KEY
@@ -206,6 +222,7 @@ export default function ContactPage() {
         })
         const data = await res.json()
         if (data.success) {
+          sessionStorage.setItem('nyx-form-last-submit', Date.now().toString())
           setSubmitted(true)
           setLoading(false)
           return
@@ -218,7 +235,8 @@ export default function ContactPage() {
     const body = encodeURIComponent(
       `ชื่อ: ${name}\nบริษัท: ${company || '-'}\nเบอร์โทร: ${phone}\nอีเมล: ${email || '-'}\nสินค้าที่สนใจ: ${product || '-'}\n\nรายละเอียด:\n${message}`
     )
-    window.open(`mailto:sales@nyxcable.com?subject=${subject}&body=${body}`, '_self')
+    window.location.href = `mailto:sales@nyxcable.com?subject=${subject}&body=${body}`
+    sessionStorage.setItem('nyx-form-last-submit', Date.now().toString())
     setSubmitted(true)
     setLoading(false)
   }
