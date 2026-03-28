@@ -519,7 +519,6 @@ a:hover {
   cursor: pointer;
   min-width: 48px;
   min-height: 48px;
-  display: flex;
   align-items: center;
   justify-content: center;
   -webkit-tap-highlight-color: transparent;
@@ -1092,7 +1091,7 @@ a:hover {
   }
 
   .mobile-menu-btn {
-    display: block;
+    display: flex;
   }
 
   .hero {
