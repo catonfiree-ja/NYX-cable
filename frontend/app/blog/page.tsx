@@ -59,7 +59,7 @@ const styles = `
   .blog-section-title { font-size: 1.3rem; font-weight: 700; color: #1a1a2e; margin-bottom: 24px; padding-bottom: 12px; border-bottom: 2px solid #f0a500; display: inline-block; }
 
   /* ─── Blog Cards Grid ─── */
-  .blog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 24px; padding-bottom: 56px; }
+  .blog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 24px; padding-bottom: 56px; }
   .blog-card {
     border-radius: 16px; overflow: hidden; background: #fff;
     border: 1px solid #e5e7eb; transition: all 0.3s cubic-bezier(0.4,0,0.2,1);

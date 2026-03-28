@@ -158,11 +158,22 @@ const styles = `
 
   @media (max-width: 768px) {
     .contact-hero h1 { font-size: 1.6rem; }
-    .quick-ribbon { flex-direction: column; align-items: center; padding: 16px 20px; }
-    .contact-grid { grid-template-columns: 1fr; }
+    .contact-hero { padding: 48px 0 24px; }
+    .quick-ribbon { flex-direction: column; align-items: center; padding: 0 20px; }
+    .ribbon-btn { width: 100%; justify-content: center; min-height: 48px; }
+    .contact-grid { grid-template-columns: 1fr; gap: 24px; }
     .form-row { grid-template-columns: 1fr; }
     .warehouse-grid { grid-template-columns: repeat(2, 1fr); }
     .map-overlay { position: relative; bottom: auto; left: auto; max-width: 100%; border-radius: 0 0 16px 16px; }
+    .warehouse-section h2 { font-size: 1.3rem !important; }
+    .contact-form-box { padding: 24px 16px; }
+    .contact-card { padding: 16px; gap: 12px; }
+    .contact-card-icon { width: 44px; height: 44px; }
+  }
+  @media (max-width: 480px) {
+    .contact-hero h1 { font-size: 1.3rem; }
+    .contact-card h3 { font-size: 0.85rem; }
+    .contact-card p { font-size: 0.78rem; }
   }
 `
 

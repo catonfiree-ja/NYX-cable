@@ -132,14 +132,14 @@ const styles = `
     .hero-product-info h1 { font-size: 1.3rem; }
     .hero-desc { font-size: 0.85rem; }
     .hero-cta { flex-direction: column; }
-    .hero-cta .cta-btn-call, .hero-cta .cta-btn-line { width: 100%; justify-content: center; }
+    .hero-cta .cta-btn-call, .hero-cta .cta-btn-line, .hero-cta .cta-btn-detail { width: 100%; justify-content: center; min-height: 48px; font-size: 0.88rem; }
     .variants-table { display: block; overflow-x: auto; }
     .quick-quote-bar { max-width: 100vw; overflow: hidden; }
     .quick-quote-inner { flex-direction: column; gap: 8px; }
     .quick-quote-info { width: 100%; }
     .quick-quote-name { font-size: 0.78rem; }
     .quick-quote-actions { width: 100%; }
-    .quick-quote-actions .btn { flex: 1; text-align: center; padding: 10px 12px; font-size: 0.78rem; }
+    .quick-quote-actions .btn { flex: 1; text-align: center; padding: 10px 12px; font-size: 0.78rem; min-height: 44px; }
     .blogs-grid { grid-template-columns: 1fr !important; gap: 12px; }
     .blog-card-link { padding: 14px; }
     .blog-card-link .bc-title { font-size: 0.85rem; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
@@ -152,6 +152,11 @@ const styles = `
     .product-full-desc { padding: 18px; }
     .spec-card { padding: 16px; }
     .section-block { padding: 28px 0; }
+    .section-nav-inner { gap: 4px; }
+    .section-nav-pill { padding: 6px 14px; font-size: 0.75rem; min-height: 36px; }
+    .hero-product-code { font-size: 0.75rem; padding: 3px 10px; }
+    .hero-cat-tag { font-size: 0.65rem; }
+    .breadcrumb { font-size: 0.75rem; margin-bottom: 14px; }
   }
 
   /* ─── Hardcoded Content Sections ─── */
