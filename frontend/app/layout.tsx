@@ -88,11 +88,14 @@ export default function RootLayout({
           <div className="container">
             <div className="top-bar-contact">
               <span style={{ color: '#fff', fontWeight: 300 }}>Hot Line :</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="#fff" style={{ marginLeft: 4 }}><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.25 1.02l-2.2 2.2z" /></svg>
               <a href="tel:021115588" style={{ color: '#ffc107', fontWeight: 300 }}>02-111-5588</a>
               <span style={{ color: '#fff' }}>|</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="#fff" style={{ marginLeft: 2 }}><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" /></svg>
               <a href="mailto:sales@nyxcable.com" style={{ color: '#ffc107', fontWeight: 300 }}>sales@nyxcable.com</a>
             </div>
             <div className="top-bar-contact">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="#fff" style={{ marginRight: 4 }}><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z" /></svg>
               <span style={{ color: '#fbb03b' }}>จ-ศ 8:30-17:30</span>
             </div>
           </div>
