@@ -48,7 +48,7 @@ const styles = `
   .about-text h2 span { color: #f0a500; }
   .about-text p { color: #4b5563; line-height: 1.9; margin-bottom: 16px; font-size: 0.95rem; }
   .about-stats {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 24px;
+    display: grid; grid-template-columns: 1fr; gap: 16px; margin-top: 24px;
     padding: 20px; background: #f8fafc; border-radius: 16px; border: 1px solid #e5e7eb;
   }
   .about-stat { text-align: center; }
@@ -163,7 +163,7 @@ const styles = `
     .about-grid { grid-template-columns: 1fr; gap: 24px; margin-bottom: 40px; }
     .about-text h2 { font-size: 1.3rem; }
     .about-text p { font-size: 0.88rem; }
-    .about-stats { grid-template-columns: repeat(3, 1fr); gap: 8px; padding: 16px; }
+    .about-stats { grid-template-columns: 1fr; gap: 8px; padding: 16px; }
     .about-stat .num { font-size: 1.4rem; }
     .about-stat .label { font-size: 0.68rem; }
     .about-video-box { border-radius: 14px; }
