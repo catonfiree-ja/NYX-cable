@@ -59,11 +59,11 @@ const styles = `
     display: flex; align-items: center; justify-content: center;
     font-size: 1.4rem; flex-shrink: 0;
   }
-  .icon-tel { background: linear-gradient(135deg, rgba(240,165,0,0.12), rgba(240,165,0,0.06)); }
-  .icon-line { background: linear-gradient(135deg, rgba(6,199,85,0.12), rgba(6,199,85,0.06)); }
-  .icon-mail { background: linear-gradient(135deg, rgba(0,102,204,0.12), rgba(0,102,204,0.06)); }
-  .icon-loc { background: linear-gradient(135deg, rgba(139,92,246,0.12), rgba(139,92,246,0.06)); }
-  .icon-time { background: linear-gradient(135deg, rgba(16,185,129,0.12), rgba(16,185,129,0.06)); }
+  .icon-tel { background: transparent; }
+  .icon-line { background: transparent; }
+  .icon-mail { background: transparent; }
+  .icon-loc { background: transparent; }
+  .icon-time { background: transparent; }
   .contact-card h3 { font-size: 0.95rem; font-weight: 700; color: #1a1a2e; margin-bottom: 4px; }
   .contact-card p { font-size: 0.85rem; color: #4b5563; line-height: 1.6; }
   .contact-card a { color: #0066cc; font-weight: 600; text-decoration: none; }
