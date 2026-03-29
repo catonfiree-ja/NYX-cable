@@ -199,7 +199,7 @@ export default async function HomePage() {
     }
     .hero-v2 .container { position: relative; z-index: 1; }
     .hero-v2 h1 { font-size: 3.5rem; font-weight: 400; line-height: 1.15; margin-bottom: 16px; letter-spacing: -0.5px; color: #ffffff; animation: fadeInUp 0.8s ease; }
-    .hero-v2 h1 .blue { color: #ffffff; }
+    .hero-v2 h1 .blue { color: #93c5fd; }
     .hero-v2 h1 .yellow { color: #ffffff; }
     .hero-v2 .subtitle { font-size: 1.5rem; font-weight: 300; margin-bottom: 10px; color: #93c5fd; animation: fadeInUp 0.8s ease 0.1s both; }
     .hero-v2 .tagline { font-size: 1.35rem; color: #fbb03b; line-height: 1.8; max-width: 560px; margin-bottom: 32px; animation: fadeInUp 0.8s ease 0.2s both; }
@@ -610,7 +610,7 @@ export default async function HomePage() {
               </h1>
               <div className="subtitle">สายไฟฟ้าสำหรับโรงงานอุตสาหกรรม</div>
               <p className="tagline">
-                <span style={{ color: '#fbb03b', fontSize: '1.5rem', display: 'block', marginBottom: '8px' }}>ใช้เทคโนโลยีการผลิตขั้นสูงจากยุโรป</span>
+                <span style={{ fontSize: '1.5rem', display: 'block', marginBottom: '8px' }}><span style={{ color: 'rgba(255,255,255,0.85)' }}>ใช้เทคโนโลยีการผลิตขั้นสูง</span><span style={{ color: '#fbb03b' }}>จากยุโรป</span></span>
                 <span style={{ color: 'rgba(255,255,255,0.85)' }}>ทุกขั้นตอน มั่นใจในคุณภาพ สายไฟคุณภาพมาตรฐาน DIN VDE สต็อกพร้อมส่งทุกขนาด บริการจัดส่งทั่วประเทศ</span>
               </p>
 
@@ -706,7 +706,7 @@ export default async function HomePage() {
               <div style={{ marginBottom: 20, borderTop: '1px solid #e5e5e5', width: '100%' }}></div>
               <h3>สต็อกพร้อมส่งทุกขนาด</h3>
               <p>สินค้า <span style={{ color: '#0e76bd' }}>60+</span> รุ่น</p>
-              <p><span style={{ color: '#0e76bd' }}>15,000+</span> ขนาด</p>
+              <p><span style={{ color: '#0e76bd' }}>15,000+</span> SKU</p>
             </div>
             {/* บรรจุภัณฑ์แข็งแรง */}
             <div className="service-item">
@@ -899,16 +899,16 @@ export default async function HomePage() {
               <tbody>
                 {[
                   ['พื้นที่หน้าตัดสาย', 'เล็กกว่า 40-55%', 'ใหญ่กว่า'],
-                  ['ตัวนำทองแดง', 'เคลือบดีบุก (Tinned)', 'ทองแดงเปล่า'],
+                  ['ตัวนำทองแดง', 'เคลือบดีบุก (Tinned)', 'ตัวนำทองแดงเส้นฝอยละเอียดเส้นใหญ่'],
                   ['มาตรฐาน', 'DIN VDE / IEC ยุโรป', 'มอก. พื้นฐาน'],
-                  ['ความอ่อนตัว', 'สูงมาก (เส้นฝอยละเอียด)', 'ปานกลาง'],
-                  ['จำนวนคอร์', 'สูงสุด 100 คอร์', 'สูงสุด 24 คอร์'],
+                  ['ความอ่อนตัว', 'สูงมาก (เส้นฝอยละเอียด)', 'ความอ่อนตัวน้อย'],
+                  ['จำนวนคอร์', 'สูงสุด 100 คอร์', 'จำนวนคอร์สูงสุด 30 คอร์'],
                   ['ป้องกัน EMI (ชีลด์)', 'Tinned Cu Braid', 'Copper Tape / ไม่มี'],
                   ['ราคา', 'เทียบเท่าหรือถูกกว่า', 'ใกล้เคียง'],
                 ].map((row, i) => (
                   <tr key={i} style={{ background: i % 2 === 0 ? '#fff' : '#f8fafc' }}>
                     <td style={{ padding: '10px 16px', fontWeight: 600, color: '#334155', borderBottom: '1px solid #e8edf3' }}>{row[0]}</td>
-                    <td style={{ padding: '10px 16px', textAlign: 'center', color: '#003366', fontWeight: 700, borderBottom: '1px solid #e8edf3' }}>✓ {row[1]}</td>
+                    <td style={{ padding: '10px 16px', textAlign: 'center', borderBottom: '1px solid #e8edf3' }}><span style={{ color: '#10b981', fontWeight: 700 }}>✓</span> <span style={{ color: '#003366', fontWeight: 700 }}>{row[1]}</span></td>
                     <td style={{ padding: '10px 16px', textAlign: 'center', color: '#64748b', borderBottom: '1px solid #e8edf3' }}>{row[2]}</td>
                   </tr>
                 ))}

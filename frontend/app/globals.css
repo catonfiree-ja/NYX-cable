@@ -1340,7 +1340,7 @@ a:hover {
 }
 
 .cta-call {
-  background: linear-gradient(145deg, #0d47a1, #1565c0, #1976d2);
+  background: linear-gradient(145deg, #b87400, #d48900, #e69500);
 }
 
 .cta-line-big {
@@ -1348,7 +1348,7 @@ a:hover {
 }
 
 .cta-email {
-  background: linear-gradient(145deg, #b87400, #d48900, #e69500);
+  background: linear-gradient(145deg, #0d47a1, #1565c0, #1976d2);
 }
 
 .prefooter-cta-sub {

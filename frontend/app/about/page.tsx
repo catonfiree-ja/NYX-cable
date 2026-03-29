@@ -241,7 +241,7 @@ export default async function AboutPage() {
       <section className="about-hero">
         <div className="container">
           <h1>{heroHeading}</h1>
-          <p className="hero-sub">{heroSub}</p>
+          <p className="hero-sub"><span>ผู้นำด้านสายไฟอุตสาหกรรมมาตรฐานยุโรป </span><span style={{ color: '#fbb03b' }}>ลูกค้ากว่า 99% กลับมาซื้อซ้ำ</span></p>
           <div className="hero-badges">
             <span className="hero-badge">📋 ประสบการณ์กว่า 20 ปี</span>
             <span className="hero-badge">🏭 ลูกค้ากว่า 5,000 บริษัท</span>
@@ -261,10 +261,11 @@ export default async function AboutPage() {
               เพื่อตอบสนองความต้องการของลูกค้าในทุกกลุ่มอุตสาหกรรม ไม่ว่าจะเป็นโครงการระดับเมกะโปรเจกต์
               โรงงานอุตสาหกรรม ตลอดจนกลุ่มธุรกิจรับเหมาก่อสร้างชั้นนำ
             </p>
-            <div className="about-stats">
-              <div className="about-stat"><div className="num">20+</div><div className="label">ปีประสบการณ์</div></div>
-              <div className="about-stat"><div className="num">5,000+</div><div className="label">บริษัทลูกค้า</div></div>
-              <div className="about-stat"><div className="num">15,000+</div><div className="label">SKU สินค้า</div></div>
+            <div className="about-stats" style={{ textAlign: 'center' }}>
+              <div className="about-stat" style={{ width: '100%' }}>
+                <div className="label" style={{ fontSize: '1rem', marginBottom: 8 }}>เราขายสายไปแล้วกว่า</div>
+                <div className="num" style={{ fontSize: '2.5rem' }}>20,000,000 เมตร+</div>
+              </div>
             </div>
           </div>
           <div className="about-video-box">
@@ -292,11 +293,20 @@ export default async function AboutPage() {
           <div className="info-box">
             <div className="box-icon vision">🎯</div>
             <h3>วิสัยทัศน์องค์กร (Our Vision)</h3>
-            <p>
-              เราตั้งเป้าหมายเป็นผู้นำด้านการจัดจำหน่ายสายไฟอุตสาหกรรมคุณภาพสูงอันดับ 1 ของประเทศไทย
-              โดยมุ่งเน้นมาตรฐานความปลอดภัยระดับสากล ส่งมอบสินค้าที่หลากหลาย ครบวงจร
-              พร้อมทีมวิศวกรให้คำปรึกษาอย่างมืออาชีพ
-            </p>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
+              <div>
+                <h4 style={{ color: '#003366', fontWeight: 700, marginBottom: 6 }}>🚀 นวัตกรรม & ความเร็ว</h4>
+                <p style={{ margin: 0 }}>จัดส่งเร็วกว่า บริการ Same/Next Day Delivery และประยุกต์ใช้ AI ในการจัดการสต๊อกอย่างแม่นยำ</p>
+              </div>
+              <div>
+                <h4 style={{ color: '#003366', fontWeight: 700, marginBottom: 6 }}>🤝 เป็นพันธมิตรเชิงกลยุทธ์</h4>
+                <p style={{ margin: 0 }}>ที่กลุ่มอุตสาหกรรมไว้วางใจสูงสุด ด้วยการส่งมอบสายไฟฟ้าที่ 'ใช่ที่สุด' เพื่อลดต้นทุนและยกระดับประสิทธิภาพอย่างยั่งยืน</p>
+              </div>
+              <div>
+                <h4 style={{ color: '#003366', fontWeight: 700, marginBottom: 6 }}>⚡ ตัวจริงด้านสายไฟคอนโทรล</h4>
+                <p style={{ margin: 0 }}>เติบโตเคียงข้างลูกค้า ด้วยกระบวนการทำงานที่เป็นเลิศ และทีมงานที่มุ่งมั่นสู่ความสำเร็จอย่างแท้จริง</p>
+              </div>
+            </div>
           </div>
 
           {/* Box 2: About Us */}
