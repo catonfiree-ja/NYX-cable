@@ -20,7 +20,8 @@ export default async function PrivacyPolicyPage() {
 
   return (
     <>
-      <style dangerouslySetInnerHTML={{ __html: `
+      <style dangerouslySetInnerHTML={{
+        __html: `
         .pp-hero { background: linear-gradient(135deg, #001a33, #003366); color: #fff; padding: 60px 0 40px; text-align: center; }
         .pp-hero h1 { font-size: 2rem; font-weight: 800; margin-bottom: 8px; }
         .pp-hero p { opacity: 0.7; font-size: 0.9rem; }
@@ -100,7 +101,7 @@ export default async function PrivacyPolicyPage() {
               <p style={{ marginTop: 8 }}>
                 2098 หมู่ 1 ต.สำโรงเหนือ (ซ.สุขุมวิท 72) อ.เมือง สมุทรปราการ 10270<br />
                 โทร: <a href="tel:021115588" style={{ color: '#0066cc' }}>02-111-5588</a><br />
-                อีเมล: <a href="mailto:sales@nyxcable.com" style={{ color: '#0066cc' }}>sales@nyxcable.com</a>
+                อีเมล: <a href="https://mail.google.com/mail/?view=cm&to=sales@nyxcable.com" target="_blank" rel="noopener noreferrer" style={{ color: '#0066cc' }}>sales@nyxcable.com</a>
               </p>
             </div>
           </>

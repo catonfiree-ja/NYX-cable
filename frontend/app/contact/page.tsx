@@ -235,7 +235,7 @@ export default function ContactPage() {
     const body = encodeURIComponent(
       `ชื่อ: ${name}\nบริษัท: ${company || '-'}\nเบอร์โทร: ${phone}\nอีเมล: ${email || '-'}\nสินค้าที่สนใจ: ${product || '-'}\n\nรายละเอียด:\n${message}`
     )
-    window.location.href = `mailto:sales@nyxcable.com?subject=${subject}&body=${body}`
+    window.open(`https://mail.google.com/mail/?view=cm&to=sales@nyxcable.com&su=${subject}&body=${body}`, '_blank')
     sessionStorage.setItem('nyx-form-last-submit', Date.now().toString())
     setSubmitted(true)
     setLoading(false)
@@ -253,7 +253,7 @@ export default function ContactPage() {
           <div className="quick-ribbon">
             <a href="tel:021115588" className="ribbon-btn call">โทร 02-111-5588</a>
             <a href="https://page.line.me/@ubb9405u" className="ribbon-btn line" target="_blank" rel="noopener noreferrer">แอด LINE @nyxcable</a>
-            <a href="mailto:sales@nyxcable.com" className="ribbon-btn email">sales@nyxcable.com</a>
+            <a href="https://mail.google.com/mail/?view=cm&to=sales@nyxcable.com" target="_blank" rel="noopener noreferrer" className="ribbon-btn email">sales@nyxcable.com</a>
           </div>
         </div>
       </section>
@@ -272,7 +272,7 @@ export default function ContactPage() {
             </div>
             <div className="contact-card">
               <div className="contact-card-icon icon-mail"><Image src="/images/icons/contact-email.svg" alt="อีเมล" width={32} height={32} /></div>
-              <div><h3>อีเมล</h3><p><a href="mailto:sales@nyxcable.com">sales@nyxcable.com</a><br />ตอบกลับภายใน 1 ชม.</p></div>
+              <div><h3>อีเมล</h3><p><a href="https://mail.google.com/mail/?view=cm&to=sales@nyxcable.com" target="_blank" rel="noopener noreferrer">sales@nyxcable.com</a><br />ตอบกลับภายใน 1 ชม.</p></div>
             </div>
             <div className="contact-card">
               <div className="contact-card-icon icon-loc"><Image src="/images/icons/contact-location.svg" alt="ที่อยู่" width={32} height={32} /></div>

@@ -753,7 +753,7 @@ export default async function HomePage() {
               <span className="cta-blink-text">Click เลย !!!</span>
             </span>
           </a>
-          <a href="mailto:sales@nyxcable.com" className="cta-big cta-email cta-pulse">
+          <a href="https://mail.google.com/mail/?view=cm&to=sales@nyxcable.com" target="_blank" rel="noopener noreferrer" className="cta-big cta-email cta-pulse">
             <span className="cta-big-icon">
               <svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" /></svg>
             </span>

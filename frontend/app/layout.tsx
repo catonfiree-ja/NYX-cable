@@ -92,7 +92,7 @@ export default function RootLayout({
               <a href="tel:021115588" style={{ color: '#ffc107', fontWeight: 300 }}>02-111-5588</a>
               <span style={{ color: '#fff' }}>|</span>
               <svg width="14" height="14" viewBox="0 0 24 24" fill="#fff" style={{ marginLeft: 2 }}><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" /></svg>
-              <a href="mailto:sales@nyxcable.com" style={{ color: '#ffc107', fontWeight: 300 }}>sales@nyxcable.com</a>
+              <a href="https://mail.google.com/mail/?view=cm&to=sales@nyxcable.com" target="_blank" rel="noopener noreferrer" style={{ color: '#ffc107', fontWeight: 300 }}>sales@nyxcable.com</a>
             </div>
             <div className="top-bar-contact">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="#fff" style={{ marginRight: 4 }}><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z" /></svg>
@@ -135,7 +135,7 @@ export default function RootLayout({
                 <span className="cta-blink-text">Click เลย !!!</span>
               </span>
             </a>
-            <a href="mailto:sales@nyxcable.com" className="cta-big cta-email cta-pulse">
+            <a href="https://mail.google.com/mail/?view=cm&to=sales@nyxcable.com" target="_blank" rel="noopener noreferrer" className="cta-big cta-email cta-pulse">
               <span className="cta-big-icon">
                 <svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" /></svg>
               </span>
@@ -205,7 +205,7 @@ export default function RootLayout({
                   <span style={{ width: 40, height: 40, borderRadius: 10, background: 'linear-gradient(135deg, rgba(0,102,204,0.2), rgba(0,102,204,0.08))', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="#4da6ff"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" /></svg>
                   </span>
-                  <a href="mailto:sales@nyxcable.com" style={{ color: '#fff', textDecoration: 'none', fontWeight: 600 }}>sales@nyxcable.com</a>
+                  <a href="https://mail.google.com/mail/?view=cm&to=sales@nyxcable.com" target="_blank" rel="noopener noreferrer" style={{ color: '#fff', textDecoration: 'none', fontWeight: 600 }}>sales@nyxcable.com</a>
                 </div>
                 <div className="footer-contact-item" style={{ gap: '12px' }}>
                   <span style={{ width: 40, height: 40, borderRadius: 10, background: 'linear-gradient(135deg, rgba(6,199,85,0.2), rgba(6,199,85,0.08))', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
