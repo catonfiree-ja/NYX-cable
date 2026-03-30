@@ -5,6 +5,8 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       { protocol: 'https', hostname: 'i.ytimg.com' },
       { protocol: 'https', hostname: 'cdn.sanity.io' },
+      { protocol: 'https', hostname: 'nyxcable.com' },
+      { protocol: 'http', hostname: 'nyxcable.com' },
     ],
   },
   async redirects() {
