@@ -219,6 +219,13 @@ export default function RootLayout({
                   </span>
                   <a href="https://maps.app.goo.gl/eiNSyf1Rqcwnh58M7" target="_blank" rel="noopener noreferrer" style={{ color: '#fff', textDecoration: 'none', fontSize: '0.82rem' }}>2098 หมู่ 1 ต.สำโรงเหนือ<br />(ซ.สุขุมวิท 72) อ.เมือง สมุทรปราการ 10270</a>
                 </div>
+                {/* LINE QR */}
+                <div style={{ marginTop: 20, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                  <a href="https://line.me/R/ti/p/@ubb9405u" target="_blank" rel="noopener noreferrer" style={{ display: 'block', background: '#fff', borderRadius: 12, padding: 8, lineHeight: 0, boxShadow: '0 2px 12px rgba(0,0,0,0.15)' }}>
+                    <Image src="/images/NYXLineQR.jpg" alt="LINE QR Code @nyxcable" width={110} height={110} style={{ borderRadius: 6, filter: 'grayscale(100%) contrast(1.2)', display: 'block' }} />
+                  </a>
+                  <span style={{ fontSize: '0.72rem', color: 'rgba(255,255,255,0.5)', marginTop: 8, letterSpacing: '0.02em' }}>สแกนเพิ่มเพื่อน LINE</span>
+                </div>
 
               </div>
             </div>
@@ -271,6 +278,6 @@ export default function RootLayout({
           })();
         `}} />
       </body>
-    </html>
+    </html >
   );
 }

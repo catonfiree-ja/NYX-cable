@@ -111,9 +111,6 @@ const styles = `
 
   /* Verified badge */
   .verified-badge {
-    position: absolute;
-    top: 16px;
-    right: 16px;
     display: inline-flex;
     align-items: center;
     gap: 4px;
@@ -124,6 +121,7 @@ const styles = `
     font-weight: 600;
     border-radius: 50px;
     letter-spacing: 0.3px;
+    margin-bottom: 12px;
   }
 
   .review-header { display: flex; align-items: center; gap: 14px; margin-bottom: 16px; }
@@ -245,6 +243,48 @@ const reviews = [
     text: 'NYX CABLE ส่งไวเหมือนเดิมเลยย บริการดีมากกก ที่นี่ไม่ทำให้เสียใจเลยค่ะ 💜💜💜',
     time: '4 เดือนที่แล้ว',
   },
+  {
+    name: 'account AIT',
+    initial: 'A',
+    stars: 5,
+    text: 'ฝ่ายขายคุณจิตตี้ ให้บริการได้ดี รวดเร็ว ตรงกับความต้องการ ถึงแม้บางครั้งจะเป็นงานด่วน ก็สามารถตอบสนองความต้องการลูกค้าได้ทันเวลาค่ะ',
+    time: '8 เดือนที่แล้ว',
+  },
+  {
+    name: 'Aun Zaa',
+    initial: 'A',
+    stars: 5,
+    text: 'สายไฟดีแนะนำ ใช้งานไม่เคยมีปัญหา กลับมาซื้อที่ NYX ตลอด พนักงานให้ความช่วยเหลือดีมาก',
+    time: '6 เดือนที่แล้ว',
+  },
+  {
+    name: 'ปัทมา มหัคฆพงศ์',
+    initial: 'ป',
+    stars: 5,
+    text: 'เจ้าหน้าที่ใส่ใจในรายละเอียดสินค้า พร้อมนำเสนอสินค้าที่ตรงกับการใช้งานของเราและการบริการรวดเร็วดีมาก สำหรับผู้รับเหมาที่มีงานหลายระบบแบบเรา การสื่อสารที่ถูกต้อง-ความรวดเร็วของพนักงานขายสำคัญมาก ซึ่งทำให้งานของเราสำเร็จทันกำหนดเวลาและตรงตามมาตรฐาน',
+    time: '9 เดือนที่แล้ว',
+  },
+  {
+    name: 'Suchada Nusawat',
+    initial: 'S',
+    stars: 5,
+    text: 'พนักงานพูดจาดี ให้คำแนะนำชัดเจน จะมาใช้บริการอีกค่ะ',
+    time: '3 เดือนที่แล้ว',
+  },
+  {
+    name: 'Worawak Phunoo',
+    initial: 'W',
+    stars: 5,
+    text: 'ราคาสมเหตุสมผลเมื่อเทียบกับมาตราฐานยุโรป ได้ของดีในราคาที่จับต้องได้ แนะนะเลยครับ',
+    time: '6 เดือนที่แล้ว',
+  },
+  {
+    name: 'Ratikorn Jansatitpaiboon',
+    initial: 'R',
+    stars: 5,
+    text: 'เลือกใช้สายคอนโทรลจาก NYX Cable มาหลายรุ่น เช่น OPVC-JZ, LiYCY, YSLY-JZ คุณภาพดีตามมาตรฐานยุโรป สายอ่อนตัว ใช้งานง่าย มีความยืดหยุ่นดี รองรับงานอุตสาหกรรมได้สบาย บริการตอบไว จัดส่งรวดเร็ว ประทับใจทั้งคุณภาพและบริการค่ะ',
+    time: '8 เดือนที่แล้ว',
+  },
 ]
 
 const avatarColors = [
@@ -254,6 +294,12 @@ const avatarColors = [
   'linear-gradient(135deg, #dc2626, #f87171)',
   'linear-gradient(135deg, #d97706, #fbbf24)',
   'linear-gradient(135deg, #0891b2, #22d3ee)',
+  'linear-gradient(135deg, #6366f1, #818cf8)',
+  'linear-gradient(135deg, #ea580c, #fb923c)',
+  'linear-gradient(135deg, #047857, #10b981)',
+  'linear-gradient(135deg, #1d4ed8, #60a5fa)',
+  'linear-gradient(135deg, #be185d, #f472b6)',
+  'linear-gradient(135deg, #854d0e, #facc15)',
 ]
 
 function StarSVG({ filled }: { filled: boolean }) {
@@ -276,9 +322,9 @@ function GoogleIcon() {
 }
 
 export default function ReviewsPage() {
-  const totalReviews = reviews.length
-  const avgRating = (reviews.reduce((sum, r) => sum + r.stars, 0) / totalReviews).toFixed(1)
-  const starCounts = [5, 4, 3, 2, 1].map(s => reviews.filter(r => r.stars === s).length)
+  const totalReviews = 340
+  const avgRating = '5.0'
+  const starCounts = [340, 0, 0, 0, 0]
 
   return (
     <>
@@ -306,7 +352,7 @@ export default function ReviewsPage() {
                 <StarSVG key={i} filled={i <= Math.round(Number(avgRating))} />
               ))}
             </div>
-            <div className="count">{totalReviews} รีวิวจาก Google Maps</div>
+            <div className="count">12 ตัวอย่างรีวิวจาก Google Map</div>
           </div>
           <div className="reviews-bars">
             {[5, 4, 3, 2, 1].map((star, i) => (
@@ -315,13 +361,20 @@ export default function ReviewsPage() {
                 <div className="bar-track">
                   <div
                     className={`bar-fill bar-fill-${star}`}
-                    style={{ width: `${reviews.length > 0 ? (starCounts[i] / reviews.length) * 100 : 0}%` }}
+                    style={{ width: `${totalReviews > 0 ? (starCounts[i] / totalReviews) * 100 : 0}%` }}
                   />
                 </div>
                 <span className="bar-count">{starCounts[i]}</span>
               </div>
             ))}
           </div>
+        </div>
+
+        <div style={{ textAlign: 'center', padding: '16px 0 32px' }}>
+          <a href="https://www.google.com/maps/place/NYX+Cable,+%E0%B8%AA%E0%B8%B2%E0%B8%A2%E0%B8%84%E0%B8%AD%E0%B8%99%E0%B9%82%E0%B8%97%E0%B8%A3%E0%B8%A5,+OPVC-JZ,+CVV,+VCT/@13.6581099,100.5967715,17z/data=!4m8!3m7!1s0x311d5f937a0d75c5:0x1a6f99f75d845ed0!8m2!3d13.6581099!4d100.5993464!9m1!1b1!16s%2Fg%2F11c4jd40c2" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '12px 28px', background: 'linear-gradient(135deg, #4285f4, #34a853)', color: '#fff', borderRadius: '50px', fontWeight: 700, fontSize: '0.95rem', textDecoration: 'none', boxShadow: '0 4px 14px rgba(66,133,244,0.3)', transition: 'all 0.25s' }}>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" /></svg>
+            ดูรีวิวทั้งหมดบน Google Maps
+          </a>
         </div>
 
         <div className="reviews-grid">
@@ -348,12 +401,7 @@ export default function ReviewsPage() {
             </a>
           ))}
         </div>
-        <div style={{ textAlign: 'center', padding: '32px 0 16px' }}>
-          <a href="https://www.google.com/maps/place/NYX+Cable,+%E0%B8%AA%E0%B8%B2%E0%B8%A2%E0%B8%84%E0%B8%AD%E0%B8%99%E0%B9%82%E0%B8%97%E0%B8%A3%E0%B8%A5,+OPVC-JZ,+CVV,+VCT/@13.6581099,100.5967715,17z/data=!4m8!3m7!1s0x311d5f937a0d75c5:0x1a6f99f75d845ed0!8m2!3d13.6581099!4d100.5993464!9m1!1b1!16s%2Fg%2F11c4jd40c2" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '12px 28px', background: 'linear-gradient(135deg, #4285f4, #34a853)', color: '#fff', borderRadius: '50px', fontWeight: 700, fontSize: '0.95rem', textDecoration: 'none', boxShadow: '0 4px 14px rgba(66,133,244,0.3)', transition: 'all 0.25s' }}>
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" /></svg>
-            ดูรีวิวทั้งหมดบน Google Maps
-          </a>
-        </div>
+
       </div>
 
 

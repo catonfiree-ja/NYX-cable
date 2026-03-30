@@ -280,7 +280,7 @@ export default function ContactPage() {
             </div>
             <div className="contact-card">
               <div className="contact-card-icon icon-time"><Image src="/images/icons/contact-clock.svg" alt="เวลาทำการ" width={32} height={32} /></div>
-              <div><h3>เวลาทำการ</h3><p>จันทร์ - ศุกร์ 8:30 - 17:30<br />เสาร์-อาทิตย์ ปิดทำการ</p></div>
+              <div><h3>เวลาทำการ</h3><p><span style={{ color: '#0066cc', fontWeight: 600 }}>จันทร์ - ศุกร์ 8:30 - 17:30</span><br />เสาร์-อาทิตย์ ปิดทำการ</p></div>
             </div>
           </div>
 
