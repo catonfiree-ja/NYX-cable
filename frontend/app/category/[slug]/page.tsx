@@ -116,21 +116,28 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
 
   const categoryDesc = hardcoded?.shortDescription || cmsCategory?.shortDescription || ''
 
-  // Products: CMS primary, hardcoded fallback
-  const cmsProducts = cmsCategory?.products || []
-  const hardcodedProducts = hardcoded?.products || []
-
-  // Build hardcoded image lookup by slug for fallback
-  const hardcodedImageMap: Record<string, string> = {}
-  for (const cat of Object.values(categoryProductsMap)) {
-    for (const p of cat.products) {
-      if (p.image) hardcodedImageMap[p.slug] = p.image
-    }
+  // Build CMS product lookup by slug for enrichment (ALL products, not just this category)
+  const allCmsProducts = await getProducts().catch(() => [])
+  const cmsProductMap: Record<string, any> = {}
+  for (const p of allCmsProducts) {
+    const s = p.slug?.current
+    if (s) cmsProductMap[s] = p
   }
 
-  // Use CMS products if available, otherwise fallback to hardcoded
-  const useCMS = cmsProducts.length > 0
-  const products = useCMS ? cmsProducts : hardcodedProducts
+  // Master product list: hardcoded structure enriched with CMS data
+  const hardcodedProducts = hardcoded?.products || []
+
+  const products = hardcodedProducts.map((hp: any) => {
+    const cms = cmsProductMap[hp.slug]
+    const cmsImage = cms?.image ? urlFor(cms.image).width(400).height(400).url() : null
+    return {
+      slug: hp.slug,
+      title: cms?.title || hp.title,
+      code: cms?.productCode || hp.code,
+      shortDescription: cms?.shortDescription || hp.shortDescription,
+      image: cmsImage || hp.image || null,
+    }
+  })
 
   // For "other categories" sidebar, use hardcoded keys
   const otherCatSlugs = Object.keys(categoryProductsMap).filter(s => s !== slug).slice(0, 6)
@@ -152,29 +159,20 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
       <div className="container">
         {products.length > 0 ? (
           <div className="cat-grid">
-            {products.map((product: any) => {
-              const productSlug = useCMS ? product.slug?.current : product.slug
-              const productCode = useCMS ? product.productCode : product.code
-              // CMS image → hardcoded image fallback
-              const productImage = useCMS
-                ? (product.image ? urlFor(product.image).width(400).height(400).url() : hardcodedImageMap[productSlug] || null)
-                : product.image
-
-              return (
-                <a key={productSlug} href={`/product/${productSlug}`} className="cat-product-card">
-                  <div className="cat-product-img">
-                    {productImage ? (
-                      <img src={productImage} alt={product.title} width={400} height={400} style={{ width: '100%', height: 'auto', display: 'block' }} loading="lazy" />
-                    ) : (productCode || 'NYX')}
-                  </div>
-                  <div className="cat-product-body">
-                    <h3>{product.title}</h3>
-                    <div className="code">{productCode}</div>
-                    <p>{product.shortDescription}</p>
-                  </div>
-                </a>
-              )
-            })}
+            {products.map((product: any) => (
+              <a key={product.slug} href={`/product/${product.slug}`} className="cat-product-card">
+                <div className="cat-product-img">
+                  {product.image ? (
+                    <img src={product.image} alt={product.title} width={400} height={400} style={{ width: '100%', height: 'auto', display: 'block' }} loading="lazy" />
+                  ) : (product.code || 'NYX')}
+                </div>
+                <div className="cat-product-body">
+                  <h3>{product.title}</h3>
+                  <div className="code">{product.code}</div>
+                  <p>{product.shortDescription}</p>
+                </div>
+              </a>
+            ))}
           </div>
         ) : (
           <div className="cat-empty">
