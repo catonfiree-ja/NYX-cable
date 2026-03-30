@@ -120,6 +120,14 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
   const cmsProducts = cmsCategory?.products || []
   const hardcodedProducts = hardcoded?.products || []
 
+  // Build hardcoded image lookup by slug for fallback
+  const hardcodedImageMap: Record<string, string> = {}
+  for (const cat of Object.values(categoryProductsMap)) {
+    for (const p of cat.products) {
+      if (p.image) hardcodedImageMap[p.slug] = p.image
+    }
+  }
+
   // Use CMS products if available, otherwise fallback to hardcoded
   const useCMS = cmsProducts.length > 0
   const products = useCMS ? cmsProducts : hardcodedProducts
@@ -147,8 +155,9 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
             {products.map((product: any) => {
               const productSlug = useCMS ? product.slug?.current : product.slug
               const productCode = useCMS ? product.productCode : product.code
+              // CMS image → hardcoded image fallback
               const productImage = useCMS
-                ? (product.image ? urlFor(product.image).width(400).height(400).url() : null)
+                ? (product.image ? urlFor(product.image).width(400).height(400).url() : hardcodedImageMap[productSlug] || null)
                 : product.image
 
               return (
