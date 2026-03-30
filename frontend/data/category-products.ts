@@ -125,6 +125,7 @@ export const categoryProductsMap: Record<string, CategoryData> = {
         title: 'CVV-S : สายคอนโทรลมีชีลด์',
         code: 'CVV-S',
         shortDescription: 'สายคอนโทรลมาตรฐาน JIS มีชีลด์ป้องกัน EMI 600V ใช้งานแพร่หลายในประเทศไทย',
+        image: '/images/products/liycy.jpg',
       },
       {
         slug: 'multiflex-cy',
@@ -167,12 +168,14 @@ export const categoryProductsMap: Record<string, CategoryData> = {
         title: 'STTP : สาย RS485/RS422 มีชีลด์',
         code: 'STTP',
         shortDescription: 'สาย RS485/RS422 มีชีลด์ฟอยล์ป้องกัน EMI/RFI ได้ดีเยี่ยม',
+        image: '/images/products/rs485-rs422.jpg',
       },
       {
         slug: 'rs485-rs422-belden',
         title: 'Belden : สาย RS485/RS422',
         code: 'BELDEN',
         shortDescription: 'สาย RS485/RS422 Belden คุณภาพระดับโลก ชีลด์หลายชั้น ความเสถียรสูงสุด',
+        image: '/images/products/rs485-rs422.jpg',
       },
       {
         slug: 'rs485-rs422-hosiwell',
@@ -222,6 +225,7 @@ export const categoryProductsMap: Record<string, CategoryData> = {
         title: 'Lift-1S : สายสลิงเดี่ยว Crane Pendant',
         code: 'LIFT-1S',
         shortDescription: 'สายไฟสลิงเดี่ยวสำหรับ Crane Pendant cable Lift Cable ฉนวนยาง รับแรงดึง',
+        image: '/images/products/lift-2s.jpg',
       },
       {
         slug: 'lift-2s',
@@ -235,6 +239,7 @@ export const categoryProductsMap: Record<string, CategoryData> = {
         title: 'NSGAFou : สายไฟทนการขีดข่วนและน้ำมัน',
         code: 'NSGAFOU',
         shortDescription: 'สายไฟรับแรงดึงฉนวนยาง Cable Reel/Trolley 1.8/3 kV ตามมาตรฐาน VDE',
+        image: '/images/products/nshtou.jpg',
       },
     ],
   },
@@ -293,6 +298,7 @@ export const categoryProductsMap: Record<string, CategoryData> = {
         title: 'NGFLGou : สายไฟแบนฉนวนยาง',
         code: 'NGFLGOU',
         shortDescription: 'สายไฟแบนฉนวนยาง Cable Trolley ทน UV ความชื้น สภาพอากาศภายนอก',
+        image: '/images/products/h07vvh6-f.jpg',
       },
       // --- Drag Chain / Motion ---
       {
@@ -321,6 +327,7 @@ export const categoryProductsMap: Record<string, CategoryData> = {
         title: 'Multiflex CP : สายรางกระดูกงูมีชีลด์ ทนน้ำมัน',
         code: 'MF-CP',
         shortDescription: 'สายรางกระดูกงูมีชีลด์ ฉนวน PUR ทนน้ำมัน/สารเคมี อนุกรมแม่เหล็กต่ำ',
+        image: '/images/products/multiflex-p.jpg',
       },
       // --- Special ---
       {
@@ -328,12 +335,14 @@ export const categoryProductsMap: Record<string, CategoryData> = {
         title: 'NTSCGEWOEU : สาย Cable Reel เหมือง',
         code: 'NTSCG',
         shortDescription: 'สายไฟสำหรับเหมือง Cable Reel ทนสภาพแวดล้อมรุนแรงที่สุด -40°C ถึง 60°C',
+        image: '/images/products/nshtou.jpg',
       },
       {
         slug: 'robot-cable',
         title: 'Robot Welding Cable : สายหุ่นยนต์เชื่อม',
         code: 'ROBOT',
         shortDescription: 'สายไฟสำหรับหุ่นยนต์เชื่อม ทนแรงบิดซ้ำๆ ตัวนำฝอยละเอียดพิเศษ ทนความร้อนจากการเชื่อม',
+        image: '/images/products/welding-cable.jpg',
       },
     ],
   },
