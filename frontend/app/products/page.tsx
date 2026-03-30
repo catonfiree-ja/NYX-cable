@@ -5,6 +5,7 @@ import Link from 'next/link'
 import ProductSearch from '@/components/ProductSearch'
 import { decodeHtmlEntities } from '@/lib/decode-html'
 import { BreadcrumbSchema, FAQSchema } from '@/components/StructuredData'
+import { categoryProductsMap } from '@/data/category-products'
 
 const styles = `
   .products-hero { background: linear-gradient(135deg, var(--color-primary-dark), var(--color-primary)); color: var(--color-white); padding: var(--spacing-3xl) 0; text-align: center; }
@@ -142,7 +143,10 @@ export default async function ProductsPage() {
               const cmsSlug = cat.slug?.current || ''
               const slug = cmsSlugRemap[cmsSlug] || cmsSlug
               const icon = catIcons[cmsSlug] || catIcons[slug] || 'NYX'
-              const count = cat.productCount || 0
+              // Use hardcoded product count (matches what category page actually shows)
+              const hardcoded = categoryProductsMap[slug]
+              const count = hardcoded?.products?.length || cat.productCount || 0
+              const desc = hardcoded?.shortDescription || cat.shortDescription
               return (
                 <a key={cat._id} href={`/category/${slug}`} className="cat-card">
                   <div className="cat-card-header">
@@ -152,8 +156,8 @@ export default async function ProductsPage() {
                       {count > 0 && <div className="cat-card-count">{count} รุ่น</div>}
                     </div>
                   </div>
-                  {cat.shortDescription && (
-                    <div className="cat-card-desc">{decodeHtmlEntities(cat.shortDescription)}</div>
+                  {desc && (
+                    <div className="cat-card-desc">{decodeHtmlEntities(desc)}</div>
                   )}
                   <div className="cat-card-footer">
                     <span>ดูสินค้าในหมวดนี้</span>
