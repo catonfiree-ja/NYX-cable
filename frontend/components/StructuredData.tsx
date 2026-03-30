@@ -42,7 +42,7 @@ export function OrganizationSchema() {
       'สาย VFD', 'VFD Cable', 'Servo Cable',
       'สายทนความร้อน', 'Heat Resistant Cable', 'SiHF',
       'สายชีลด์', 'Shielded Cable', 'YSLYCY',
-      'สายเครน', 'Crane Cable',
+      'High-Flex Cable', 'Drag Chain Cable', 'Cable Reel', 'Crane Cable',
       'สายไฟอุตสาหกรรม', 'Industrial Cable',
       'DIN VDE', 'IEC 60502',
     ],

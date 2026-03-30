@@ -313,12 +313,13 @@ export default function ContactPage() {
                   <select id="product" name="product">
                     <option value="">-- เลือกหมวดหมู่ --</option>
                     <option>สายคอนโทรล (Control Cable)</option>
-                    <option>สาย VFD / Servo Cable</option>
-                    <option>สายทนความร้อน (Heat Resistant)</option>
                     <option>สายชีลด์ (Shielded Cable)</option>
-                    <option>สายเครน (Crane Cable)</option>
-                    <option>สาย Bus / Data Cable</option>
-                    <option>สายไฟกันน้ำ (Rubber Cable)</option>
+                    <option>สายคู่บิดเกลียว RS485/RS422</option>
+                    <option>สายไฟฉนวนยาง/กันน้ำ (Rubber Cable)</option>
+                    <option>สายเครน / High-Flex Motion Cable</option>
+                    <option>Industrial Bus Cable (Profibus/Profinet)</option>
+                    <option>สายทนความร้อน ทนสารเคมี</option>
+                    <option>สาย Wiring ตู้คอนโทรล</option>
                     <option>อื่นๆ</option>
                   </select>
                 </div>

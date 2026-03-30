@@ -53,7 +53,6 @@ const catIcons: Record<string, string> = {
   'industrial-bus-cable': 'BUS',
   'resistant-cable': 'HRC',
   'rubber-cable': 'RBR',
-  'crane-cable': 'CRN',
   'wiring-cable': 'WIR',
   'special-cable': 'SPL',
 }

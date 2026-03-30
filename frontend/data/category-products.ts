@@ -121,6 +121,12 @@ export const categoryProductsMap: Record<string, CategoryData> = {
         image: '/images/products/olflex-classic-115-cy.jpg',
       },
       {
+        slug: 'cvv-s',
+        title: 'CVV-S : สายคอนโทรลมีชีลด์',
+        code: 'CVV-S',
+        shortDescription: 'สายคอนโทรลมาตรฐาน JIS มีชีลด์ป้องกัน EMI 600V ใช้งานแพร่หลายในประเทศไทย',
+      },
+      {
         slug: 'multiflex-cy',
         title: 'Multiflex CY : สายชีลด์รางกระดูกงู',
         code: 'MF-CY',
@@ -252,8 +258,37 @@ export const categoryProductsMap: Record<string, CategoryData> = {
   // ─── 6. High-Flex Motion Cables ─── 
   'high-flex-cable': {
     title: 'สายเคเบิลสำหรับงานเคลื่อนที่',
-    shortDescription: 'สายไฟสำหรับรางกระดูกงู (Drag Chain) หุ่นยนต์ และเครื่องจักรที่เคลื่อนที่ ทนโค้งงอซ้ำๆ',
+    shortDescription: 'สายไฟสำหรับรางกระดูกงู (Drag Chain) Cable Reel เครน หุ่นยนต์ และเครื่องจักรที่เคลื่อนที่',
     products: [
+      // --- Crane / Cable Reel ---
+      {
+        slug: 'nshtou',
+        title: 'NSHTOU : สาย Cable Reel Crane',
+        code: 'NSHTOU',
+        shortDescription: 'สายไฟ Cable Reel Crane ฉนวนยาง ทนแรงดึงสูงพิเศษ 0.6/1 kV -40°C ถึง 60°C',
+        image: '/images/products/nshtou.jpg',
+      },
+      {
+        slug: 'pur-hf',
+        title: 'PUR-HF : สาย Cable Reel 100%',
+        code: 'PUR-HF',
+        shortDescription: 'สายไฟ Cable Reel ฉนวน PUR ทนแรงดึง UV 600/1000V 90°C',
+        image: '/images/products/pur-hf.jpg',
+      },
+      {
+        slug: 'h07vvh6-f',
+        title: 'H07VVH6-F : สายไฟแบน Flat Cable',
+        code: 'H07VVH6-F',
+        shortDescription: 'สายไฟแบน Flat Cable สำหรับ Crane Cable Trolley ลิฟต์ ไม่บิดตัว 450/750V',
+        image: '/images/products/h07vvh6-f.jpg',
+      },
+      {
+        slug: 'ngflgou',
+        title: 'NGFLGou : สายไฟแบนฉนวนยาง',
+        code: 'NGFLGOU',
+        shortDescription: 'สายไฟแบนฉนวนยาง Cable Trolley ทน UV ความชื้น สภาพอากาศภายนอก',
+      },
+      // --- Drag Chain / Motion ---
       {
         slug: 'multiflex-y',
         title: 'Multiflex Y : สายรางกระดูกงู',
@@ -262,17 +297,31 @@ export const categoryProductsMap: Record<string, CategoryData> = {
         image: '/images/products/multiflex-y.jpg',
       },
       {
-        slug: 'igus',
-        title: 'Multiflex CP : สายรางกระดูกงูมีชีลด์ ทนน้ำมัน',
-        code: 'MF-CP',
-        shortDescription: 'สายรางกระดูกงูมีชีลด์ ฉนวน PUR ทนน้ำมัน/สารเคมี ใช้แทน FD CLASSIC 810 CP ได้',
-      },
-      {
         slug: 'multiflex-p',
         title: 'Multiflex P : สายรางกระดูกงู PUR',
         code: 'MF-P',
         shortDescription: 'สายรางกระดูกงู ฉนวน PUR ทนน้ำมัน สารเคมี แรงขูดขีด สำหรับ Drag Chain',
         image: '/images/products/multiflex-p.jpg',
+      },
+      {
+        slug: 'multiflex-cy',
+        title: 'Multiflex CY : สายชีลด์รางกระดูกงู',
+        code: 'MF-CY',
+        shortDescription: 'สายชีลด์สำหรับรางกระดูกงู (Drag Chain) มีชีลด์กัน EMI ทนโค้งงอซ้ำๆ',
+        image: '/images/products/multiflex.jpg',
+      },
+      {
+        slug: 'igus',
+        title: 'Multiflex CP : สายรางกระดูกงูมีชีลด์ ทนน้ำมัน',
+        code: 'MF-CP',
+        shortDescription: 'สายรางกระดูกงูมีชีลด์ ฉนวน PUR ทนน้ำมัน/สารเคมี อนุกรมแม่เหล็กต่ำ',
+      },
+      // --- Special ---
+      {
+        slug: 'ntscgewoeu',
+        title: 'NTSCGEWOEU : สาย Cable Reel เหมือง',
+        code: 'NTSCG',
+        shortDescription: 'สายไฟสำหรับเหมือง Cable Reel ทนสภาพแวดล้อมรุนแรงที่สุด -40°C ถึง 60°C',
       },
       {
         slug: 'robot-cable',
@@ -325,6 +374,18 @@ export const categoryProductsMap: Record<string, CategoryData> = {
         code: 'PROFINET',
         shortDescription: 'สาย Profinet 100 Mbps สีเขียว Cat 5e มีชีลด์ สำหรับ Factory Automation',
         image: '/images/products/profinet-type-a.jpg',
+      },
+      {
+        slug: 'profinet-type-b',
+        title: 'Profinet Type B',
+        code: 'PN-TYPE-B',
+        shortDescription: 'สาย Profinet Type B สำหรับ Industrial Ethernet ความเร็ว 100 Mbps',
+      },
+      {
+        slug: 'profinet-type-c',
+        title: 'Profinet Type C',
+        code: 'PN-TYPE-C',
+        shortDescription: 'สาย Profinet Type C สำหรับ Industrial Ethernet ความเร็ว 100 Mbps',
       },
       {
         slug: 'profinet-connector-180',
@@ -395,10 +456,28 @@ export const categoryProductsMap: Record<string, CategoryData> = {
       },
       {
         slug: 'pfa-cable',
-        title: 'PFA/PTFE/ETFE/FEP Cable',
+        title: 'PFA Cable : สายทนความร้อน 260°C',
         code: 'PFA',
-        shortDescription: 'สายฉนวน PFA/PTFE/ETFE/FEP ทนความร้อนสูงสุด 260°C ทนสารเคมีได้ยอดเยี่ยม',
+        shortDescription: 'สายฉนวน PFA ทนความร้อนสูงสุด 260°C ทนสารเคมีได้ยอดเยี่ยม',
         image: '/images/products/pfa-cable.jpg',
+      },
+      {
+        slug: 'ptfe-cable',
+        title: 'PTFE Cable : สายทนความร้อน 260°C',
+        code: 'PTFE',
+        shortDescription: 'สายฉนวน PTFE (Teflon) ทนความร้อนสูง 260°C ทนสารเคมีทุกชนิด',
+      },
+      {
+        slug: 'etfe-cable',
+        title: 'ETFE Cable : สายทนความร้อน 200°C',
+        code: 'ETFE',
+        shortDescription: 'สายฉนวน ETFE ทนความร้อน 200°C ทนสารเคมี แรงกระแทก รังสี',
+      },
+      {
+        slug: 'fep-cable',
+        title: 'FEP Cable : สายทนความร้อน 200°C',
+        code: 'FEP',
+        shortDescription: 'สายฉนวน FEP ทนความร้อน 200°C ใสโปร่งใส ทนสารเคมี สำหรับงานอาหารและยา',
       },
       {
         slug: 'thermocouple-type-k-cable',
@@ -420,65 +499,12 @@ export const categoryProductsMap: Record<string, CategoryData> = {
         code: 'YC11Y-JZ',
         shortDescription: 'สายคอนโทรลฉนวน PUR มีชีลด์ ทนน้ำมัน สารเคมี 500V 80°C ฝังดินได้',
       },
-    ],
-  },
-
-  // ─── 9. สายเครน (Crane Cable) — ไม่มีใน nav แต่อยู่ใน CMS ─── 
-  'crane-cable': {
-    title: 'สายเครน (Crane Cable)',
-    shortDescription: 'สายไฟสำหรับเครน Cable Reel Cable Trolley ทนแรงดึง โค้งงอ สภาพอากาศ',
-    products: [
       {
-        slug: 'pur-hf',
-        title: 'PUR-HF : สาย Cable Reel Crane',
-        code: 'PUR-HF',
-        shortDescription: 'สายไฟ Cable Reel ฉนวน PUR ทนแรงดึง UV 600/1000V 90°C',
-        image: '/images/products/pur-hf.jpg',
-      },
-      {
-        slug: 'nsgafou',
-        title: 'NSGAFou : สายไฟรับแรงดึง',
-        code: 'NSGAFOU',
-        shortDescription: 'สายไฟรับแรงดึงฉนวนยาง Cable Reel/Trolley 0.6/1 kV ตามมาตรฐาน VDE 0250',
-      },
-      {
-        slug: 'nshtou',
-        title: 'NSHTOU : สาย Cable Reel Crane',
-        code: 'NSHTOU',
-        shortDescription: 'สายไฟ Cable Reel Crane ฉนวนยาง ทนแรงดึงสูงพิเศษ 0.6/1 kV -40°C ถึง 60°C',
-        image: '/images/products/nshtou.jpg',
-      },
-      {
-        slug: 'nsshoeu',
-        title: 'NSSHOeu : สายรับแรงดึงพิเศษ',
-        code: 'NSSHOEU',
-        shortDescription: 'สายรับแรงดึงพิเศษ ฉนวนยาง Neoprene ทนแรงกระแทก สภาพอากาศรุนแรง',
-      },
-      {
-        slug: 'ntscgewoeu',
-        title: 'NTSCGEWOEU : สายสำหรับเหมือง',
-        code: 'NTSCG',
-        shortDescription: 'สายไฟสำหรับเหมือง Cable Reel ทนสภาพแวดล้อมรุนแรงที่สุด -40°C ถึง 60°C',
-      },
-      {
-        slug: 'h07vvh6-f',
-        title: 'H07VVH6-F : สายไฟแบน Flat Cable',
-        code: 'H07VVH6-F',
-        shortDescription: 'สายไฟแบน Flat Cable สำหรับ Crane Cable Trolley ลิฟต์ ไม่บิดตัว 450/750V',
-        image: '/images/products/h07vvh6-f.jpg',
-      },
-      {
-        slug: 'ngflgou',
-        title: 'NGFLGou : สายไฟแบนฉนวนยาง',
-        code: 'NGFLGOU',
-        shortDescription: 'สายไฟแบนฉนวนยาง Cable Trolley ทน UV ความชื้น สภาพอากาศภายนอก',
-      },
-      {
-        slug: 'lift-2s',
-        title: 'Lift 2S : สายลิฟต์',
-        code: 'LIFT-2S',
-        shortDescription: 'สายลิฟต์ ยืดหยุ่นสูง รับแรงดึง ทนโค้งงอซ้ำๆ สำหรับลิฟต์ทุกประเภท',
-        image: '/images/products/lift-2s.jpg',
+        slug: 'h07rn-f',
+        title: 'H07RN-F : สายไฟกันน้ำ (ทนสารเคมี)',
+        code: 'H07RN-F',
+        shortDescription: 'สายไฟฉนวนยาง กันน้ำ ทนน้ำมัน สารเคมี แรงกระแทก EPR+Neoprene 450/750V',
+        image: '/images/products/h07rn-f.jpg',
       },
     ],
   },

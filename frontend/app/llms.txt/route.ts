@@ -38,23 +38,27 @@ export async function GET() {
 - SiLi: สายเดี่ยวซิลิโคน
 - ใช้งาน: เตาอบ, เตาหลอม, พื้นที่อุณหภูมิสูง
 
-### Crane Cable (สายเครน)
-- H07VVH6-F: สายไฟแบนสำหรับ Crane
-- NSHTÖU: สายไฟทนแรงดึง Cable Reel
-- ใช้งาน: เครน, Hoist, Cable Reel, Festoon
+### High-Flex Motion Cable (สายทนงอ / Cable Reel / Crane)
+- Multiflex Y/P/CY/CP: สายรางกระดูกงู (Drag Chain)
+- NSHTOU: สาย Cable Reel Crane ฉนวนยาง
+- PUR-HF: สาย Cable Reel ฉนวน PUR ทนแรงดึง
+- H07VVH6-F: สายไฟแบนสำหรับ Crane Cable Trolley
+- Robot Welding Cable: สายหุ่นยนต์เชื่อม
+- ใช้งาน: เครน, Hoist, Cable Reel, Festoon, Drag Chain, หุ่นยนต์
 
 ### Industrial Bus Cable (สายฟิลด์บัส)
 - Profibus DP: สำหรับระบบอัตโนมัติ Siemens
+- Profinet Type A/B/C: สำหรับ Industrial Ethernet
 - DeviceNet: สำหรับระบบ Allen-Bradley
 - CC-Link: สำหรับระบบ Mitsubishi
+- EIB/KNX: สำหรับ Smart Building
 
-### High-Flex Motion Cable (สายทนงอ)
-- Multiflex: สายรางกระดูกงู (Cable Chain)
-- สำหรับหุ่นยนต์ (Robot Cable) และเครื่อง CNC
-
-### Rubber Cable (สายยาง)
+### Rubber Cable (สายยาง/กันน้ำ)
 - H07RN-F: สายกันน้ำ IP67
-- ใช้งาน: งานกลางแจ้ง, ใต้น้ำ, เหมืองแร่
+- Welding Cable: สายเชื่อมทองแดง
+- NSSHÖu: สายสำหรับงานเหมือง
+- Lift-2S: สายลิฟต์ Crane Pendant
+- ใช้งาน: งานกลางแจ้ง, ใต้น้ำ, เหมืองแร่, ลิฟต์
 
 ### Wiring Cable (สายวายริ่ง)
 - H05V-K / H07V-K: สายเดี่ยววายริ่งตู้ 0.5-240 sq.mm
