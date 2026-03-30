@@ -6,6 +6,17 @@ import { notFound } from 'next/navigation'
 import { decodeHtmlEntities } from '@/lib/decode-html'
 import { categoryProductsMap } from '@/data/category-products'
 
+// CMS slug → hardcoded slug mapping (for categories where CMS uses different slug)
+const categorySlugAliases: Record<string, string> = {
+  'vsf': 'wiring-cable',
+  'rubber-cable': 'water-resistant-cable',
+}
+
+// Resolve CMS slug to hardcoded key
+function resolveSlug(slug: string): string {
+  return categorySlugAliases[slug] || slug
+}
+
 const styles = `
   .cat-hero {
     background: linear-gradient(160deg, #001a33 0%, #002d5c 35%, #003d7a 70%, #002244 100%);
@@ -56,18 +67,20 @@ const styles = `
 `
 
 export async function generateStaticParams() {
-  // Combine CMS slugs + hardcoded slugs
+  // Combine CMS slugs + hardcoded slugs + alias slugs
   const categories = await getCategories().catch(() => [])
   const cmsParams = categories
     .filter((c: any) => c.slug?.current)
     .map((c: any) => ({ slug: c.slug.current }))
   const hardcodedParams = Object.keys(categoryProductsMap).map(slug => ({ slug }))
-  const allSlugs = new Set([...cmsParams.map((p: any) => p.slug), ...hardcodedParams.map(p => p.slug)])
+  const aliasParams = Object.keys(categorySlugAliases).map(slug => ({ slug }))
+  const allSlugs = new Set([...cmsParams.map((p: any) => p.slug), ...hardcodedParams.map(p => p.slug), ...aliasParams.map(p => p.slug)])
   return Array.from(allSlugs).map(slug => ({ slug }))
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = await params
+  const { slug: rawSlug } = await params
+  const slug = resolveSlug(rawSlug)
   const hardcoded = categoryProductsMap[slug]
   if (hardcoded) {
     return {
@@ -84,7 +97,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 }
 
 export default async function CategoryPage({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = await params
+  const { slug: rawSlug } = await params
+  const slug = resolveSlug(rawSlug)
   const hardcoded = categoryProductsMap[slug]
 
   // Use hardcoded data as primary, CMS as fallback

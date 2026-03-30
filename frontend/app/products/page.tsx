@@ -54,7 +54,14 @@ const catIcons: Record<string, string> = {
   'resistant-cable': 'HRC',
   'water-resistant-cable': 'RBR',
   'wiring-cable': 'WIR',
+  'vsf': 'WIR',
   'special-cable': 'SPL',
+}
+
+// CMS slug → hardcoded slug mapping
+const cmsSlugRemap: Record<string, string> = {
+  'vsf': 'wiring-cable',
+  'rubber-cable': 'water-resistant-cable',
 }
 
 export const metadata: Metadata = {
@@ -132,8 +139,9 @@ export default async function ProductsPage() {
           <div className="cat-hub-title">เลือกหมวดหมู่สินค้า</div>
           <div className="cat-hub-grid">
             {sortedCategories.map((cat: any) => {
-              const slug = cat.slug?.current || ''
-              const icon = catIcons[slug] || 'NYX'
+              const cmsSlug = cat.slug?.current || ''
+              const slug = cmsSlugRemap[cmsSlug] || cmsSlug
+              const icon = catIcons[cmsSlug] || catIcons[slug] || 'NYX'
               const count = cat.productCount || 0
               return (
                 <a key={cat._id} href={`/category/${slug}`} className="cat-card">
