@@ -218,8 +218,14 @@ export const categoryProductsMap: Record<string, CategoryData> = {
         image: '/images/products/nshtou.jpg',
       },
       {
+        slug: 'lift-1s',
+        title: 'Lift-1S : สายสลิงเดี่ยว Crane Pendant',
+        code: 'LIFT-1S',
+        shortDescription: 'สายไฟสลิงเดี่ยวสำหรับ Crane Pendant cable Lift Cable ฉนวนยาง รับแรงดึง',
+      },
+      {
         slug: 'lift-2s',
-        title: 'Lift-2S : สายลิฟต์ Crane Pendant',
+        title: 'Lift-2S : สายสลิงคู่ Crane Pendant',
         code: 'LIFT-2S',
         shortDescription: 'สายไฟสลิงคู่สำหรับ Crane Pendant cable Lift Cable ยืดหยุ่นสูง รับแรงดึง',
         image: '/images/products/lift-2s.jpg',
