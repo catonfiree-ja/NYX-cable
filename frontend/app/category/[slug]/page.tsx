@@ -187,6 +187,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
         <section style={{ padding: '48px 0', background: '#f8fafc' }}>
           <div className="container" style={{ maxWidth: 800, lineHeight: 1.8, color: '#334155' }}>
             <h2 style={{ fontSize: '1.6rem', fontWeight: 700, color: '#003366', marginBottom: 16 }}>YSLY-JZ สายคอนโทรลคุณภาพสูงสำหรับโรงงานอุตสาหกรรม</h2>
+            <img src="/images/products/compare-multi-core-cable-2.jpg" alt="เปรียบเทียบสายคอนโทรล YSLY-JZ กับสาย VCT และ CVV" width={1024} height={576} style={{ width: '100%', height: 'auto', borderRadius: 12, marginBottom: 20 }} />
             <p>สายไฟคอนโทรล ถือเป็นหัวใจสำคัญของงานระบบไฟฟ้าในโรงงานอุตสาหกรรมและระบบอัตโนมัติ (Automation System) เพราะเป็นสายที่ใช้ควบคุมการทำงานของเครื่องจักร การส่งสัญญาณ และการเชื่อมต่ออุปกรณ์ไฟฟ้าหลายชนิดเข้าด้วยกันอย่างมีประสิทธิภาพ รวมถึงต้องมีความทนทาน ความแม่นยำในการส่งสัญญาณ และความปลอดภัย ซึ่งเป็นคุณสมบัติหลักที่ไม่อาจมองข้ามได้</p>
 
             <h3 style={{ fontSize: '1.2rem', fontWeight: 700, color: '#003366', margin: '28px 0 12px' }}>สายคอนโทรล (Control Cable) คืออะไร ?</h3>
@@ -194,20 +195,12 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
             <p>เมื่อเปรียบเทียบกับสายไฟฟ้าที่ใช้ในระบบไฟฟ้าทั่วไป สายคอนโทรลมักจะออกแบบให้มีฉนวนที่บางกว่า เนื่องจากเกรดของ PVC ที่ใช้มีคุณภาพสูงกว่า ทำให้ทนทานต่อสภาพแวดล้อมทางอุตสาหกรรมได้ดี มีความอ่อนตัว และรองรับแรงดันไฟฟ้าได้ถึง 1,000V อย่างมีประสิทธิภาพ</p>
 
             <h3 style={{ fontSize: '1.2rem', fontWeight: 700, color: '#003366', margin: '28px 0 12px' }}>ประเภทของสายคอนโทรลที่ NYX Cable จำหน่าย</h3>
-            <div style={{ display: 'grid', gap: 12, marginBottom: 24 }}>
-              <div style={{ background: '#fff', padding: '14px 18px', borderRadius: 8, border: '1px solid #e2e8f0' }}>
-                <strong style={{ color: '#003366' }}>1. <Link href="/category/control-cable" style={{ color: '#0066cc' }}>สายมัลติคอร์ (Multicore Cable)</Link></strong>
-              </div>
-              <div style={{ background: '#fff', padding: '14px 18px', borderRadius: 8, border: '1px solid #e2e8f0' }}>
-                <strong style={{ color: '#003366' }}>2. สายไฟอ่อนสำหรับเดินงาน Control และ Power</strong>
-              </div>
-              <div style={{ background: '#fff', padding: '14px 18px', borderRadius: 8, border: '1px solid #e2e8f0' }}>
-                <strong style={{ color: '#003366' }}>3. สายคู่บิดเกลียว ไม่มีชีลด์</strong>
-              </div>
-              <div style={{ background: '#fff', padding: '14px 18px', borderRadius: 8, border: '1px solid #e2e8f0' }}>
-                <strong style={{ color: '#003366' }}>4. สาย Wiring ตู้คอนโทรล</strong>
-              </div>
-            </div>
+            <ol style={{ paddingLeft: 20, marginBottom: 24 }}>
+              <li><Link href="/products?category=control-cable" style={{ color: '#0066cc', fontWeight: 600 }}>สายมัลติคอร์ (Multicore Cable)</Link></li>
+              <li><Link href="/products?category=control-cable" style={{ color: '#0066cc', fontWeight: 600 }}>สายไฟอ่อนสำหรับเดินงาน Control และ Power</Link></li>
+              <li><Link href="/category/twisted-pair-cable" style={{ color: '#0066cc', fontWeight: 600 }}>สายคู่บิดเกลียว ไม่มีชีลด์</Link></li>
+              <li><Link href="/products?category=control-cable" style={{ color: '#0066cc', fontWeight: 600 }}>สาย Wiring ตู้คอนโทรล</Link></li>
+            </ol>
 
             <h3 style={{ fontSize: '1.2rem', fontWeight: 700, color: '#003366', margin: '28px 0 12px' }}>สายคอนโทรลเหมาะสำหรับการใช้งานหรืออุตสาหกรรมประเภทใด ?</h3>
             <p>ด้วยคุณสมบัติเด่นด้านความยืดหยุ่นและความทนทาน สายไฟฟ้าคอนโทรลจึงเป็นที่ต้องการอย่างยิ่งในหลากหลายอุตสาหกรรมที่ต้องพึ่งพาระบบการวัดและควบคุมอุปกรณ์ต่าง ๆ ระบบอัตโนมัติภายในโรงงาน เช่น</p>
@@ -300,6 +293,19 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
                 <p style={{ margin: '4px 0 0', fontSize: '0.88rem' }}>เลือกจากผู้ผลิตหรือผู้นำเข้าที่มีมาตรฐานรองรับ เช่น IEC, CE, TIS หรือ VDE เพื่อความปลอดภัยและอายุการใช้งานที่ยาวนาน</p>
               </div>
             </div>
+
+            <h3 style={{ fontSize: '1.2rem', fontWeight: 700, color: '#003366', margin: '28px 0 12px' }}>สินค้าในหมวดสายคอนโทรล — ดูตารางรายละเอียดและสเปก</h3>
+            <p>เลือกรุ่นสายคอนโทรลที่ต้องการ เพื่อดูตารางขนาด-สเปก และราคา:</p>
+            <ul style={{ paddingLeft: 20, marginBottom: 24 }}>
+              <li><Link href="/product/ysly-jz" style={{ color: '#0066cc', fontWeight: 600 }}>YSLY-JZ</Link> — สายคอนโทรลยอดนิยม มีสายกราวนด์ (153 ขนาด)</li>
+              <li><Link href="/product/opvc-jz" style={{ color: '#0066cc', fontWeight: 600 }}>OPVC-JZ</Link> — สเปกเหมือน YSLY-JZ 100% (153 ขนาด)</li>
+              <li><Link href="/product/jz-500" style={{ color: '#0066cc', fontWeight: 600 }}>JZ-500</Link> — สเปกเหมือน YSLY-JZ 100% (153 ขนาด)</li>
+              <li><Link href="/product/olflex-classic-110" style={{ color: '#0066cc', fontWeight: 600 }}>OLFLEX CLASSIC 110</Link> — สเปกเหมือน YSLY-JZ 100% (153 ขนาด)</li>
+              <li><Link href="/product/flex-jz" style={{ color: '#0066cc', fontWeight: 600 }}>Flex-JZ</Link> — สเปกเหมือน YSLY-JZ 100% (153 ขนาด)</li>
+              <li><Link href="/product/vct" style={{ color: '#0066cc', fontWeight: 600 }}>สายไฟ VCT</Link> — สายอ่อน ทนกระแส รับแรงดัน 450/750V</li>
+              <li><Link href="/product/h05v-k" style={{ color: '#0066cc', fontWeight: 600 }}>H05V-K</Link> — สาย Wiring ตู้คอนโทรล 500V (0.5–1 mm²)</li>
+              <li><Link href="/product/h07v-k" style={{ color: '#0066cc', fontWeight: 600 }}>H07V-K</Link> — สาย Wiring ตู้คอนโทรล 750V (1.5–240 mm²)</li>
+            </ul>
 
             <h3 style={{ fontSize: '1.2rem', fontWeight: 700, color: '#003366', margin: '28px 0 12px' }}>NYX CABLE จำหน่ายสายคอนโทรลงานอุตสาหกรรม ราคาปลีก-ส่ง พร้อมส่งด่วนใน 3 ชม. จากโกดังบางนา</h3>
             <p>สายไฟคอนโทรล (Control Cable) จาก NYX CABLE คือสายไฟอุตสาหกรรมคุณภาพสูงที่ออกแบบมาเพื่อตอบโจทย์งานควบคุมทุกประเภท ที่นี่เราจำหน่ายสายไฟคอนโทรล VSF (THW-F) ที่ใช้สำหรับเดินตู้คอนโทรลโดยเฉพาะ อีกทั้งยังจำหน่ายสายรุ่นยอดนิยมอย่าง YSLY-JZ / YSLY-OZ โดยทุกสายผ่านการผลิตตามมาตรฐานสากล จึงมั่นใจได้ในความปลอดภัย ความทนทาน และอายุการใช้งานที่ยาวนาน เหมาะสำหรับงานระบบเครื่องจักรอัตโนมัติ ตู้ควบคุมไฟฟ้า และโครงสร้างระบบไฟฟ้าในโรงงานอุตสาหกรรมโดยเฉพาะ</p>
