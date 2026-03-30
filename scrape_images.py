@@ -1,84 +1,94 @@
-"""Scrape product images from nyxcable.com and download them."""
+"""Scrape ALL remaining product images from nyxcable.com"""
 import requests
 import re
 import os
-import sys
-import urllib.parse
 
-# Product URLs to scrape
 products = {
-    'ysly-jz': 'https://nyxcable.com/product/ysly-jz/',
-    'olflex-classic-110': 'https://nyxcable.com/product/olflex-classic-110/',
-    'jz-500': 'https://nyxcable.com/product/jz-500/',
-    'opvc-jz': 'https://nyxcable.com/product/opvc-jz/',
-    'flex-jz': 'https://nyxcable.com/product/flex-jz/',
-    'cvv': 'https://nyxcable.com/product/cvv/',
-    'vct': 'https://nyxcable.com/product/vct/',
-    'multicore-cable': 'https://nyxcable.com/product/multicore-cable/',
-    'ysly-jz-1kv': 'https://nyxcable.com/product/ysly-jz-1kv/',
-    'control-cable-overview': 'https://nyxcable.com/product/%E0%B8%AA%E0%B8%B2%E0%B8%A2%E0%B8%84%E0%B8%AD%E0%B8%99%E0%B9%82%E0%B8%97%E0%B8%A3%E0%B8%A5/',
-    # Shielded
-    'liycy': 'https://nyxcable.com/product/liycy/',
-    'liycy-jz': 'https://nyxcable.com/product/liycy-jz/',
-    'olflex-classic-115-cy': 'https://nyxcable.com/product/olflex-classic-115-cy/',
-    # Rubber
-    'h07rn-f': 'https://nyxcable.com/product/h07rn-f/',
-    # Wiring
-    'h05v-k': 'https://nyxcable.com/product/h05v-k/',
-    'h07v-k': 'https://nyxcable.com/product/h07v-k/',
+    # Shielded - missing
+    'multiflex-cy': 'https://nyxcable.com/product/multiflex-512-c-pvc-cy/',
+    'double-shielded-cable': 'https://nyxcable.com/product/double-shielded-cable/',
+    # Twisted Pair
+    'liyy-tp': 'https://nyxcable.com/product/liyy-tp/',
+    'rs485-rs422': 'https://nyxcable.com/product/rs485-rs422/',
+    'rs485-rs422-sttp': 'https://nyxcable.com/product/sttp/',
+    'rs485-rs422-belden': 'https://nyxcable.com/product/belden-9841/',
+    'rs485-rs422-hosiwell': 'https://nyxcable.com/product/hosiwell/',
+    'rs485-rs422-liycy-tp': 'https://nyxcable.com/product/liycy-tp/',
+    # Rubber - missing welding
+    'welding-cable': 'https://nyxcable.com/product/welding-cable/',
+    # High-Flex
+    'multiflex-y': 'https://nyxcable.com/product/multiflex-y/',
+    'igus': 'https://nyxcable.com/product/multiflex-512-c-pur-cp/',
+    'multiflex-p': 'https://nyxcable.com/product/multiflex-p/',
+    'robot-cable': 'https://nyxcable.com/product/robot-welding-cable/',
+    # Industrial Bus
+    'profibus-cable': 'https://nyxcable.com/product/profibus-cable/',
+    'profinet-type-a': 'https://nyxcable.com/product/profinet-type-a/',
+    'cc-link': 'https://nyxcable.com/product/cc-link/',
+    'devicenet-thick': 'https://nyxcable.com/product/devicenet-thick/',
+    'eib-bus-knx': 'https://nyxcable.com/product/eib-bus-knx/',
+    # Resistant
+    'sif': 'https://nyxcable.com/product/sif/',
+    'sihf': 'https://nyxcable.com/product/sihf/',
+    'pfa-cable': 'https://nyxcable.com/product/pfa-cable/',
+    'thermocouple-type-k-cable': 'https://nyxcable.com/product/thermocouple-type-k-cable/',
+    'y11y-jz': 'https://nyxcable.com/product/y11y-jz/',
+    # Crane
+    'pur-hf': 'https://nyxcable.com/product/pur-hf/',
+    'nshtou': 'https://nyxcable.com/product/nshtou/',
+    'h07vvh6-f': 'https://nyxcable.com/product/h07vvh6-f/',
+    'lift-2s': 'https://nyxcable.com/product/lift-2s/',
+    # Multicore with Thai URL
+    'multicore-cable': 'https://nyxcable.com/product/%E0%B8%AA%E0%B8%B2%E0%B8%A2%E0%B8%A1%E0%B8%B1%E0%B8%A5%E0%B8%95%E0%B8%B4%E0%B8%84%E0%B8%AD%E0%B8%A3%E0%B9%8C/',
 }
 
 output_dir = os.path.join('frontend', 'public', 'images', 'products')
 os.makedirs(output_dir, exist_ok=True)
 
 headers = {
-    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
     'Referer': 'https://nyxcable.com/',
 }
 
-results = {}
-
+ok = 0
+fail = 0
 for slug, url in products.items():
-    try:
-        resp = requests.get(url, headers=headers, timeout=15)
-        resp.raise_for_status()
-        html = resp.text
-        
-        # Find main product image - look for og:image or woocommerce product image
-        og_match = re.search(r'<meta\s+property=["\']og:image["\']\s+content=["\'](.*?)["\']', html)
-        if og_match:
-            img_url = og_match.group(1)
-        else:
-            # Try woocommerce product image
-            woo_match = re.search(r'woocommerce-product-gallery__image.*?<img[^>]+src=["\'](.*?)["\']', html, re.DOTALL)
-            if woo_match:
-                img_url = woo_match.group(1)
+    # Skip if already exists
+    for ext in ['.jpg', '.png', '.webp']:
+        if os.path.exists(os.path.join(output_dir, f"{slug}{ext}")):
+            print(f"  SKIP {slug}: already exists")
+            ok += 1
+            break
+    else:
+        try:
+            resp = requests.get(url, headers=headers, timeout=15)
+            resp.raise_for_status()
+            html = resp.text
+            og = re.search(r'<meta\s+property=["\']og:image["\']\s+content=["\'](.*?)["\']', html)
+            if not og:
+                print(f"  NOIMG {slug}")
+                fail += 1
+                continue
+            img_url = og.group(1)
+            ext = '.webp' if '.webp' in img_url else '.jpg' if '.jpg' in img_url else '.png'
+            filepath = os.path.join(output_dir, f"{slug}{ext}")
+            img_resp = requests.get(img_url, headers=headers, timeout=15)
+            if img_resp.status_code == 200 and len(img_resp.content) > 1000:
+                with open(filepath, 'wb') as f:
+                    f.write(img_resp.content)
+                print(f"  OK   {slug}: {slug}{ext} ({len(img_resp.content)/1024:.0f} KB)")
+                ok += 1
             else:
-                # Any product image
-                img_match = re.search(r'<img[^>]+class="[^"]*wp-post-image[^"]*"[^>]+src=["\'](.*?)["\']', html)
-                if img_match:
-                    img_url = img_match.group(1)
-                else:
-                    print(f"  SKIP {slug}: no image found")
-                    continue
-        
-        # Download image
-        ext = '.webp' if '.webp' in img_url else '.jpg' if '.jpg' in img_url else '.png'
-        filename = f"{slug}{ext}"
-        filepath = os.path.join(output_dir, filename)
-        
-        img_resp = requests.get(img_url, headers=headers, timeout=15)
-        if img_resp.status_code == 200 and len(img_resp.content) > 1000:
-            with open(filepath, 'wb') as f:
-                f.write(img_resp.content)
-            size_kb = len(img_resp.content) / 1024
-            print(f"  OK   {slug}: {filename} ({size_kb:.0f} KB) from {img_url[:80]}...")
-            results[slug] = f"/images/products/{filename}"
-        else:
-            print(f"  FAIL {slug}: HTTP {img_resp.status_code}, size={len(img_resp.content)}")
-    except Exception as e:
-        print(f"  ERR  {slug}: {e}")
+                print(f"  FAIL {slug}: HTTP {img_resp.status_code}")
+                fail += 1
+        except Exception as e:
+            print(f"  ERR  {slug}: {e}")
+            fail += 1
 
-print(f"\n=== Downloaded {len(results)} images ===")
-for slug, path in results.items():
-    print(f"  '{slug}': '{path}',")
+print(f"\nDone: {ok} OK, {fail} failed")
+
+# List all files
+print("\nAll product images:")
+for f in sorted(os.listdir(output_dir)):
+    size = os.path.getsize(os.path.join(output_dir, f))
+    print(f"  {f} ({size/1024:.0f} KB)")
