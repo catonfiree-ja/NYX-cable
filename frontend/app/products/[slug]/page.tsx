@@ -4,6 +4,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { decodeHtmlEntities } from '@/lib/decode-html'
+import { categoryProductsMap } from '@/data/category-products'
 
 const styles = `
   .cat-hero {
@@ -55,15 +56,26 @@ const styles = `
 `
 
 export async function generateStaticParams() {
-  const categories = await getCategories()
-  return categories
+  // Combine CMS slugs + hardcoded slugs
+  const categories = await getCategories().catch(() => [])
+  const cmsParams = categories
     .filter((c: any) => c.slug?.current)
     .map((c: any) => ({ slug: c.slug.current }))
+  const hardcodedParams = Object.keys(categoryProductsMap).map(slug => ({ slug }))
+  const allSlugs = new Set([...cmsParams.map((p: any) => p.slug), ...hardcodedParams.map(p => p.slug)])
+  return Array.from(allSlugs).map(slug => ({ slug }))
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
-  const category = await getCategory(slug)
+  const hardcoded = categoryProductsMap[slug]
+  if (hardcoded) {
+    return {
+      title: `${hardcoded.title} | สายไฟอุตสาหกรรม NYX Cable`,
+      description: hardcoded.shortDescription,
+    }
+  }
+  const category = await getCategory(slug).catch(() => null)
   if (!category) return { title: 'หมวดหมู่ไม่พบ | NYX Cable' }
   return {
     title: `${category.title} | สายไฟอุตสาหกรรม NYX Cable`,
@@ -73,18 +85,17 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
 export default async function CategoryPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
-  const category = await getCategory(slug)
-  if (!category) notFound()
+  const hardcoded = categoryProductsMap[slug]
 
-  const allProducts = await getProducts()
-  const allCategories = await getCategories()
-  const products = allProducts.filter((p: any) =>
-    p.categories?.some((c: any) => c.slug?.current === slug)
-  )
-  const otherCategories = allCategories
-    .filter((c: any) => !c.parent && c.slug?.current !== slug)
-    .sort((a: any, b: any) => (b.productCount || 0) - (a.productCount || 0))
-    .slice(0, 6)
+  // Use hardcoded data as primary, CMS as fallback
+  const categoryTitle = hardcoded?.title || (await getCategory(slug).catch(() => null))?.title
+  if (!categoryTitle) notFound()
+
+  const categoryDesc = hardcoded?.shortDescription || ''
+  const hardcodedProducts = hardcoded?.products || []
+
+  // For "other categories" sidebar, use hardcoded keys
+  const otherCatSlugs = Object.keys(categoryProductsMap).filter(s => s !== slug).slice(0, 6)
 
   return (
     <>
@@ -92,28 +103,28 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
       <section className="cat-hero">
         <div className="container">
           <div className="breadcrumb">
-            <Link href="/">หน้าแรก</Link> › <Link href="/products">ผลิตภัณฑ์</Link> › {category.title}
+            <Link href="/">หน้าแรก</Link> › <Link href="/products">ผลิตภัณฑ์</Link> › {categoryTitle}
           </div>
-          <h1>{category.title}</h1>
-          {category.shortDescription && <p>{decodeHtmlEntities(category.shortDescription)}</p>}
-          {products.length > 0 && <div className="product-count-badge">{products.length} รุ่นในหมวดนี้</div>}
+          <h1>{categoryTitle}</h1>
+          {categoryDesc && <p>{categoryDesc}</p>}
+          {hardcodedProducts.length > 0 && <div className="product-count-badge">{hardcodedProducts.length} รุ่นในหมวดนี้</div>}
         </div>
       </section>
 
       <div className="container">
-        {products.length > 0 ? (
+        {hardcodedProducts.length > 0 ? (
           <div className="cat-grid">
-            {products.map((product: any) => (
-              <a key={product._id} href={`/products/detail/${product.slug?.current}`} className="cat-product-card">
+            {hardcodedProducts.map((product) => (
+              <a key={product.slug} href={`/products/detail/${product.slug}`} className="cat-product-card">
                 <div className="cat-product-img">
                   {product.image ? (
-                    <Image src={urlFor(product.image).width(400).height(400).url()} alt={product.title} width={400} height={400} style={{ width: '100%', height: 'auto', display: 'block' }} />
-                  ) : (product.productCode || 'NYX')}
+                    <img src={product.image} alt={product.title} width={400} height={400} style={{ width: '100%', height: 'auto', display: 'block' }} loading="lazy" />
+                  ) : (product.code || 'NYX')}
                 </div>
                 <div className="cat-product-body">
                   <h3>{product.title}</h3>
-                  {product.productCode && <div className="code">{product.productCode}</div>}
-                  {product.shortDescription && <p>{decodeHtmlEntities(product.shortDescription)}</p>}
+                  <div className="code">{product.code}</div>
+                  <p>{product.shortDescription}</p>
                 </div>
               </a>
             ))}
@@ -297,18 +308,18 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
       )}
 
       {/* ─── Other Categories ─── */}
-      {otherCategories.length > 0 && (
+      {otherCatSlugs.length > 0 && (
         <section style={{ padding: '36px 0', background: '#fff' }}>
           <div className="container" style={{ textAlign: 'center' }}>
             <h3 style={{ fontSize: '1rem', fontWeight: 600, color: '#64748b', marginBottom: 16, textTransform: 'uppercase', letterSpacing: 2 }}>หมวดหมู่อื่น</h3>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: 10, justifyContent: 'center' }}>
-              {otherCategories.map((c: any) => (
+              {otherCatSlugs.map((catSlug) => (
                 <a
-                  key={c._id}
-                  href={`/products/${c.slug?.current}`}
+                  key={catSlug}
+                  href={`/products/${catSlug}`}
                   style={{ padding: '8px 18px', border: '1px solid #e2e8f0', borderRadius: 20, fontSize: '0.85rem', color: '#003366', fontWeight: 500, textDecoration: 'none', transition: 'all 0.2s' }}
                 >
-                  {c.title} {c.productCount ? `(${c.productCount})` : ''}
+                  {categoryProductsMap[catSlug]?.title || catSlug} ({categoryProductsMap[catSlug]?.products.length || 0})
                 </a>
               ))}
               <Link href="/products" style={{ padding: '8px 18px', border: '1px solid #0099ff', borderRadius: 20, fontSize: '0.85rem', color: '#0099ff', fontWeight: 600, textDecoration: 'none' }}>ดูทั้งหมด →</Link>
