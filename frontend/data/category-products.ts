@@ -204,6 +204,26 @@ export const categoryProductsMap: Record<string, CategoryData> = {
         shortDescription: 'สายเชื่อมไฟฟ้า ตัวนำทองแดงฝอยละเอียดมากพิเศษ ฉนวนยาง EPR ทนความร้อนจากการเชื่อม',
         image: '/images/products/welding-cable.jpg',
       },
+      {
+        slug: 'nsshoeu',
+        title: 'NSSHÖu : สายไฟสำหรับงานเหมือง',
+        code: 'NSSHOEU',
+        shortDescription: 'สายรับแรงดึงพิเศษ ฉนวนยาง Neoprene ทนแรงกระแทก สภาพอากาศรุนแรง',
+        image: '/images/products/nshtou.jpg',
+      },
+      {
+        slug: 'lift-2s',
+        title: 'Lift-2S : สายลิฟต์ Crane Pendant',
+        code: 'LIFT-2S',
+        shortDescription: 'สายไฟสลิงคู่สำหรับ Crane Pendant cable Lift Cable ยืดหยุ่นสูง รับแรงดึง',
+        image: '/images/products/lift-2s.jpg',
+      },
+      {
+        slug: 'nsgafou',
+        title: 'NSGAFou : สายไฟทนการขีดข่วนและน้ำมัน',
+        code: 'NSGAFOU',
+        shortDescription: 'สายไฟรับแรงดึงฉนวนยาง Cable Reel/Trolley 1.8/3 kV ตามมาตรฐาน VDE',
+      },
     ],
   },
 
