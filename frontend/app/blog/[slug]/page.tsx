@@ -414,7 +414,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ slu
           <h2>สินค้าที่เกี่ยวข้อง</h2>
           <div className="related-products-grid">
             {relatedProducts.slice(0, 4).map((p: any) => (
-              <a key={p._id} href={`/products/detail/${p.slug?.current}`} className="rp-card">
+              <a key={p._id} href={`/product/${p.slug?.current}`} className="rp-card">
                 {p.productCode && <div className="rp-code">{p.productCode}</div>}
                 <div className="rp-name">{p.title}</div>
                 {p.shortDescription && <div className="rp-desc">{decodeHtmlEntities(p.shortDescription)}</div>}

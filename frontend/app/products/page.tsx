@@ -52,7 +52,7 @@ const catIcons: Record<string, string> = {
   'high-flex-cable': 'HFX',
   'industrial-bus-cable': 'BUS',
   'resistant-cable': 'HRC',
-  'rubber-cable': 'RBR',
+  'water-resistant-cable': 'RBR',
   'wiring-cable': 'WIR',
   'special-cable': 'SPL',
 }
@@ -78,7 +78,7 @@ export default async function ProductsPage() {
     'control-cable': 1,
     'shielded-cable': 2,
     'twisted-pair-cable': 3,
-    'rubber-cable': 4,
+    'water-resistant-cable': 4,
     'wiring-cable': 5,
     'high-flex-cable': 6,
     'industrial-bus-cable': 7,
@@ -89,7 +89,7 @@ export default async function ProductsPage() {
     'control-cable': 'สายคอนโทรล',
     'shielded-cable': 'สายชีลด์ (Shielded Cable)',
     'twisted-pair-cable': 'สายคู่บิดเกลียว RS485 / RS422',
-    'rubber-cable': 'สายไฟฉนวนทำจากยาง/กันน้ำ',
+    'water-resistant-cable': 'สายไฟฉนวนทำจากยาง/กันน้ำ',
     'wiring-cable': 'สายวายริ่งตู้ (VSF)',
     'high-flex-cable': 'สายเคเบิลสำหรับงานเคลื่อนที่',
     'industrial-bus-cable': 'สายฟิลด์บัส (Industrial Bus Cables)',
@@ -136,7 +136,7 @@ export default async function ProductsPage() {
               const icon = catIcons[slug] || 'NYX'
               const count = cat.productCount || 0
               return (
-                <a key={cat._id} href={`/products/${slug}`} className="cat-card">
+                <a key={cat._id} href={`/category/${slug}`} className="cat-card">
                   <div className="cat-card-header">
                     <div className="cat-card-icon">{icon}</div>
                     <div className="cat-card-meta">

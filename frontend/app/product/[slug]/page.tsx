@@ -230,7 +230,7 @@ function buildProductLinkMap(products: any[], variants?: any[]): ProductLinkMap 
     if (!slug) continue
     // Add productCode as match pattern (e.g., "YSLY-JZ", "OPVC-JZ")
     if (p.productCode && p.productCode.length > 2) {
-      map.push({ pattern: p.productCode, slug, label: p.productCode, prefix: '/products/detail/' })
+      map.push({ pattern: p.productCode, slug, label: p.productCode, prefix: '/product/' })
     }
   }
   // Add variant models (e.g., "YSLY-JZ 3G0.5")
@@ -300,8 +300,8 @@ function normalizeSlug(slug: string): string {
 
 function rewriteLinks(html: string): string {
   return html
-    // /product/slug → /products/detail/slug
-    .replace(/https?:\/\/nyxcable\.com\/product\/([^/"'\s]+)\/?/g, (_, s) => `/products/detail/${normalizeSlug(s)}`)
+    // /product/slug → /product/slug
+    .replace(/https?:\/\/nyxcable\.com\/product\/([^/"'\s]+)\/?/g, (_, s) => `/product/${normalizeSlug(s)}`)
     // /cat/slug → /products
     .replace(/https?:\/\/nyxcable\.com\/cat\/[^/"'\s]+\/?/g, '/products')
     // /shop/slug → /products
@@ -457,7 +457,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return {
     title: product.metaTitle || product.title,
     description: product.metaDescription || decodeHtmlEntities(product.shortDescription),
-    alternates: { canonical: `https://www.nyxcable.com/products/detail/${slug}` },
+    alternates: { canonical: `https://www.nyxcable.com/product/${slug}` },
   }
 }
 
@@ -482,7 +482,7 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
       <BreadcrumbSchema items={[
         { name: 'หน้าแรก', url: 'https://www.nyxcable.com' },
         { name: 'ผลิตภัณฑ์', url: 'https://www.nyxcable.com/products' },
-        { name: product.title, url: `https://www.nyxcable.com/products/detail/${slug}` },
+        { name: product.title, url: `https://www.nyxcable.com/product/${slug}` },
       ]} />
       <style dangerouslySetInnerHTML={{ __html: styles }} />
       <div className="product-detail-hero">
@@ -512,20 +512,20 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
                 <a href={`https://page.line.me/ubb9405u?text=${encodeURIComponent(`สนใจสินค้า: ${product.title}${product.productCode ? ` (${product.productCode})` : ''} — ขอใบเสนอราคา`)}`} target="_blank" rel="noopener noreferrer" className="cta-btn-line">แอด LINE</a>
                 {(() => {
                   const detailLinks: Record<string, { href: string; label: string }> = {
-                    'control-cable': { href: '/products/detail/ysly-jz', label: 'ดูสเปก YSLY-JZ' },
-                    'multicore-cable': { href: '/products/detail/ysly-jz', label: 'ดูสเปก YSLY-JZ' },
-                    'opvc-jz': { href: '/products/detail/ysly-jz', label: 'เทียบสเปก YSLY-JZ' },
-                    'jz-500': { href: '/products/detail/ysly-jz', label: 'เทียบสเปก YSLY-JZ' },
-                    'olflex-classic-110': { href: '/products/detail/ysly-jz', label: 'เทียบสเปก YSLY-JZ' },
-                    'flex-jz': { href: '/products/detail/ysly-jz', label: 'เทียบสเปก YSLY-JZ' },
-                    'h05v-k': { href: '/products/detail/h07v-k', label: 'ดู H07V-K (750V)' },
-                    'h07v-k': { href: '/products/detail/h05v-k', label: 'ดู H05V-K (500V)' },
-                    'vct': { href: '/products/detail/control-cable', label: 'ดูสายคอนโทรลทั้งหมด' },
-                    'cvv': { href: '/products/detail/vct', label: 'เทียบสเปก VCT' },
-                    'liycy': { href: '/products/detail/liycy-jz', label: 'ดู LiYCY-JZ' },
-                    'liycy-jz': { href: '/products/detail/liycy', label: 'ดู LiYCY' },
-                    'ysly-jz-1kv': { href: '/products/detail/ysly-jz', label: 'ดู YSLY-JZ (500V)' },
-                    'olflex-classic-115-cy': { href: '/products/detail/liycy', label: 'เทียบสเปก LiYCY' },
+                    'control-cable': { href: '/product/ysly-jz', label: 'ดูสเปก YSLY-JZ' },
+                    'multicore-cable': { href: '/product/ysly-jz', label: 'ดูสเปก YSLY-JZ' },
+                    'opvc-jz': { href: '/product/ysly-jz', label: 'เทียบสเปก YSLY-JZ' },
+                    'jz-500': { href: '/product/ysly-jz', label: 'เทียบสเปก YSLY-JZ' },
+                    'olflex-classic-110': { href: '/product/ysly-jz', label: 'เทียบสเปก YSLY-JZ' },
+                    'flex-jz': { href: '/product/ysly-jz', label: 'เทียบสเปก YSLY-JZ' },
+                    'h05v-k': { href: '/product/h07v-k', label: 'ดู H07V-K (750V)' },
+                    'h07v-k': { href: '/product/h05v-k', label: 'ดู H05V-K (500V)' },
+                    'vct': { href: '/product/control-cable', label: 'ดูสายคอนโทรลทั้งหมด' },
+                    'cvv': { href: '/product/vct', label: 'เทียบสเปก VCT' },
+                    'liycy': { href: '/product/liycy-jz', label: 'ดู LiYCY-JZ' },
+                    'liycy-jz': { href: '/product/liycy', label: 'ดู LiYCY' },
+                    'ysly-jz-1kv': { href: '/product/ysly-jz', label: 'ดู YSLY-JZ (500V)' },
+                    'olflex-classic-115-cy': { href: '/product/liycy', label: 'เทียบสเปก LiYCY' },
                   }
                   const link = detailLinks[slug]
                   if (!link) return null
@@ -673,7 +673,7 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
                 <h2>สินค้าที่เกี่ยวข้อง</h2>
                 <div className="related-grid">
                   {relatedProducts.map((rp: any) => (
-                    <a key={rp._id} href={`/products/detail/${rp.slug?.current}`} className="related-card">
+                    <a key={rp._id} href={`/product/${rp.slug?.current}`} className="related-card">
                       <h3>{rp.title}</h3>
                       {rp.productCode && <span className="product-code" style={{ marginTop: '8px' }}>{rp.productCode}</span>}
                     </a>
@@ -721,7 +721,7 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
                   <h2>สินค้าหมวดอื่นที่น่าสนใจ</h2>
                   <div className="op-grid">
                     {otherProducts.map((p: any) => (
-                      <a key={p._id} href={`/products/detail/${p.slug?.current}`} className="op-card">
+                      <a key={p._id} href={`/product/${p.slug?.current}`} className="op-card">
                         {p.productCode && <div className="op-code">{p.productCode}</div>}
                         <div className="op-name">{p.title}</div>
                       </a>
@@ -779,7 +779,7 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
           brand: { '@type': 'Brand', name: 'NYX Cable' },
           manufacturer: { '@type': 'Organization', name: 'NYX Cable' },
           category: categories.length > 0 ? categories.map((c: any) => c.title).join(', ') : 'สายไฟอุตสาหกรรม',
-          url: `https://www.nyxcable.com/products/detail/${slug}`,
+          url: `https://www.nyxcable.com/product/${slug}`,
           offers: {
             '@type': 'AggregateOffer',
             priceCurrency: 'THB',

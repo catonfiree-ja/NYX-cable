@@ -79,7 +79,7 @@ export default function ProductSearch({ products }: ProductSearchProps) {
             </div>
             <div className="products-grid">
                 {filtered.map((prod: any) => (
-                    <a key={prod._id} href={`/products/detail/${prod.slug?.current}`} className="product-mini">
+                    <a key={prod._id} href={`/product/${prod.slug?.current}`} className="product-mini">
                         <h4>{prod.title}</h4>
                         {prod.productCode && <div className="code">{prod.productCode}</div>}
                         {prod.shortDescription && <p>{decodeHtmlEntities(prod.shortDescription)}</p>}

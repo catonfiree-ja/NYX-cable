@@ -115,7 +115,7 @@ export default async function VariantDetailPage({ params }: { params: Promise<{ 
       <div className="variant-hero">
         <div className="container">
           <div className="breadcrumb">
-            <Link href="/">หน้าแรก</Link> / <Link href="/products">ผลิตภัณฑ์</Link> / {parent && <><Link href={`/products/detail/${parent.slug?.current}`}>{parent.title}</Link> / </>}{variant.title}
+            <Link href="/">หน้าแรก</Link> / <Link href="/products">ผลิตภัณฑ์</Link> / {parent && <><Link href={`/product/${parent.slug?.current}`}>{parent.title}</Link> / </>}{variant.title}
           </div>
         </div>
       </div>
@@ -138,7 +138,7 @@ export default async function VariantDetailPage({ params }: { params: Promise<{ 
           <div className="variant-info">
             <h1>{variant.title}</h1>
             {parent && (
-              <Link href={`/products/detail/${parent.slug?.current}`} className="variant-parent-link" style={{ display: 'block', marginBottom: '12px' }}>
+              <Link href={`/product/${parent.slug?.current}`} className="variant-parent-link" style={{ display: 'block', marginBottom: '12px' }}>
                 ← ดูสินค้าหลัก: {parent.title}
               </Link>
             )}

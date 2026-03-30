@@ -55,9 +55,9 @@ export const productContentMap: Record<string, ProductContent> = {
                 title: 'ประเภทของสายคอนโทรลที่ NYX Cable จำหน่าย',
                 content: (
                     <ol>
-                        <li><a href="/products/detail/multicore-cable">สายมัลติคอร์ (Multicore Cable)</a></li>
-                        <li><a href="/products/control-cable">สายไฟอ่อนสำหรับเดินงาน Control และ Power</a></li>
-                        <li><a href="/products/twisted-pair-cable">สายคู่บิดเกลียว ไม่มีชีลด์</a></li>
+                        <li><a href="/product/multicore-cable">สายมัลติคอร์ (Multicore Cable)</a></li>
+                        <li><a href="/category/control-cable">สายไฟอ่อนสำหรับเดินงาน Control และ Power</a></li>
+                        <li><a href="/category/twisted-pair-cable">สายคู่บิดเกลียว ไม่มีชีลด์</a></li>
                         <li><a href="/products/vsf">สาย Wiring ตู้คอนโทรล</a></li>
                     </ol>
                 ),
@@ -153,14 +153,14 @@ export const productContentMap: Record<string, ProductContent> = {
                     <>
                         <p>เลือกรุ่นสายคอนโทรลที่ต้องการ เพื่อดูตารางขนาด-สเปก และราคา:</p>
                         <ul>
-                            <li><a href="/products/detail/ysly-jz"><strong>YSLY-JZ</strong></a> — สายคอนโทรลยอดนิยม มีสายกราวนด์ (153 ขนาด)</li>
-                            <li><a href="/products/detail/opvc-jz"><strong>OPVC-JZ</strong></a> — สเปกเหมือน YSLY-JZ 100% (153 ขนาด)</li>
-                            <li><a href="/products/detail/jz-500"><strong>JZ-500</strong></a> — สเปกเหมือน YSLY-JZ 100% (153 ขนาด)</li>
-                            <li><a href="/products/detail/olflex-classic-110"><strong>OLFLEX CLASSIC 110</strong></a> — สเปกเหมือน YSLY-JZ 100% (153 ขนาด)</li>
-                            <li><a href="/products/detail/flex-jz"><strong>Flex-JZ</strong></a> — สเปกเหมือน YSLY-JZ 100% (153 ขนาด)</li>
-                            <li><a href="/products/detail/vct"><strong>สายไฟ VCT</strong></a> — สายอ่อน ทนกระแส รับแรงดัน 450/750V</li>
-                            <li><a href="/products/detail/h05v-k"><strong>H05V-K</strong></a> — สาย Wiring ตู้คอนโทรล 500V (0.5–1 mm²)</li>
-                            <li><a href="/products/detail/h07v-k"><strong>H07V-K</strong></a> — สาย Wiring ตู้คอนโทรล 750V (1.5–240 mm²)</li>
+                            <li><a href="/product/ysly-jz"><strong>YSLY-JZ</strong></a> — สายคอนโทรลยอดนิยม มีสายกราวนด์ (153 ขนาด)</li>
+                            <li><a href="/product/opvc-jz"><strong>OPVC-JZ</strong></a> — สเปกเหมือน YSLY-JZ 100% (153 ขนาด)</li>
+                            <li><a href="/product/jz-500"><strong>JZ-500</strong></a> — สเปกเหมือน YSLY-JZ 100% (153 ขนาด)</li>
+                            <li><a href="/product/olflex-classic-110"><strong>OLFLEX CLASSIC 110</strong></a> — สเปกเหมือน YSLY-JZ 100% (153 ขนาด)</li>
+                            <li><a href="/product/flex-jz"><strong>Flex-JZ</strong></a> — สเปกเหมือน YSLY-JZ 100% (153 ขนาด)</li>
+                            <li><a href="/product/vct"><strong>สายไฟ VCT</strong></a> — สายอ่อน ทนกระแส รับแรงดัน 450/750V</li>
+                            <li><a href="/product/h05v-k"><strong>H05V-K</strong></a> — สาย Wiring ตู้คอนโทรล 500V (0.5–1 mm²)</li>
+                            <li><a href="/product/h07v-k"><strong>H07V-K</strong></a> — สาย Wiring ตู้คอนโทรล 750V (1.5–240 mm²)</li>
                         </ul>
                     </>
                 ),
@@ -246,9 +246,9 @@ export const productContentMap: Record<string, ProductContent> = {
                     <>
                         <p>สายคอนโทรล YSLY-JZ มีสเปกเหมือนกันกับสายยี่ห้ออื่นดังนี้ สามารถใช้ทดแทนกันได้ทุกประการ:</p>
                         <ul>
-                            <li><a href="/products/detail/opvc-jz">OPVC-JZ</a></li>
-                            <li><a href="/products/detail/jz-500">JZ-500</a></li>
-                            <li><a href="/products/detail/olflex-classic-110">OLFLEX CLASSIC 110</a></li>
+                            <li><a href="/product/opvc-jz">OPVC-JZ</a></li>
+                            <li><a href="/product/jz-500">JZ-500</a></li>
+                            <li><a href="/product/olflex-classic-110">OLFLEX CLASSIC 110</a></li>
                         </ul>
                     </>
                 ),
@@ -313,7 +313,7 @@ export const productContentMap: Record<string, ProductContent> = {
                 id: 'equivalents',
                 title: 'OPVC-JZ สเปกเหมือนกับ YSLY-JZ 100%',
                 content: (
-                    <p>สายคอนโทรล OPVC-JZ มีสเปกเหมือนกัน 100% กับ <a href="/products/detail/ysly-jz">YSLY-JZ</a> ทุกประการ สามารถใช้ทดแทนกันได้ ใช้ได้กับทั้งงาน Control และ Power เป็นสาย Multi core ที่มีขนาดตั้งแต่ 0.5 mm² – 240 mm² และ 2–100 คอร์</p>
+                    <p>สายคอนโทรล OPVC-JZ มีสเปกเหมือนกัน 100% กับ <a href="/product/ysly-jz">YSLY-JZ</a> ทุกประการ สามารถใช้ทดแทนกันได้ ใช้ได้กับทั้งงาน Control และ Power เป็นสาย Multi core ที่มีขนาดตั้งแต่ 0.5 mm² – 240 mm² และ 2–100 คอร์</p>
                 ),
             },
             {
@@ -361,7 +361,7 @@ export const productContentMap: Record<string, ProductContent> = {
                 id: 'equivalents',
                 title: 'JZ 500 Volt สเปกเหมือนกับ YSLY-JZ 100%',
                 content: (
-                    <p>สายคอนโทรล JZ 500 Volt สเปกเหมือนกัน 100% กับ <a href="/products/detail/ysly-jz">YSLY-JZ</a> ทุกประการ ใช้ทดแทน VCT และ CVV ได้ มีพื้นที่หน้าตัดเล็กกว่าแต่คุณสมบัติไฟฟ้าเหมือนเดิม ผลิตได้ 0.5–240 mm² และ 2–100 คอร์</p>
+                    <p>สายคอนโทรล JZ 500 Volt สเปกเหมือนกัน 100% กับ <a href="/product/ysly-jz">YSLY-JZ</a> ทุกประการ ใช้ทดแทน VCT และ CVV ได้ มีพื้นที่หน้าตัดเล็กกว่าแต่คุณสมบัติไฟฟ้าเหมือนเดิม ผลิตได้ 0.5–240 mm² และ 2–100 คอร์</p>
                 ),
             },
             {
@@ -399,7 +399,7 @@ export const productContentMap: Record<string, ProductContent> = {
                 id: 'equivalents',
                 title: 'OLFLEX CLASSIC 110 สเปกเหมือนกับ YSLY-JZ 100%',
                 content: (
-                    <p>สายคอนโทรล OLFLEX CLASSIC 110 สเปกเหมือนกัน 100% กับ <a href="/products/detail/ysly-jz">YSLY-JZ</a> ทุกประการ ใช้ทดแทน VCT และ CVV ได้ มีพื้นที่หน้าตัดเล็กกว่าแต่คุณสมบัติไฟฟ้าเหมือนเดิม ผลิตได้ 0.5–240 mm² และ 2–100 คอร์</p>
+                    <p>สายคอนโทรล OLFLEX CLASSIC 110 สเปกเหมือนกัน 100% กับ <a href="/product/ysly-jz">YSLY-JZ</a> ทุกประการ ใช้ทดแทน VCT และ CVV ได้ มีพื้นที่หน้าตัดเล็กกว่าแต่คุณสมบัติไฟฟ้าเหมือนเดิม ผลิตได้ 0.5–240 mm² และ 2–100 คอร์</p>
                 ),
             },
             {
@@ -644,7 +644,7 @@ export const productContentMap: Record<string, ProductContent> = {
                 id: 'equivalents',
                 title: 'Flex-JZ สเปกเหมือนกับ YSLY-JZ 100%',
                 content: (
-                    <p>สายคอนโทรล Flex-JZ สเปกเหมือนกัน 100% กับ <a href="/products/detail/ysly-jz">YSLY-JZ</a> ทุกประการ สามารถใช้ทดแทนกันได้ ใช้ได้กับทั้งงาน Control และ Power</p>
+                    <p>สายคอนโทรล Flex-JZ สเปกเหมือนกัน 100% กับ <a href="/product/ysly-jz">YSLY-JZ</a> ทุกประการ สามารถใช้ทดแทนกันได้ ใช้ได้กับทั้งงาน Control และ Power</p>
                 ),
             },
             {
@@ -726,7 +726,7 @@ export const productContentMap: Record<string, ProductContent> = {
                         <li><strong>แรงดัน</strong> — รองรับ 1,000V (สูงกว่ารุ่น 500V ปกติ)</li>
                         <li><strong>ตัวนำ</strong> — ทองแดงฝอยละเอียด Class 5 อ่อนตัวสูง</li>
                         <li><strong>ฉนวน</strong> — PVC ชนิดพิเศษหนาขึ้น ป้องกันการลามไฟ</li>
-                        <li><strong>สเปก</strong> — เหมือน <a href="/products/detail/ysly-jz">YSLY-JZ</a> แต่ฉนวนหนากว่าเพื่อรองรับ 1kV</li>
+                        <li><strong>สเปก</strong> — เหมือน <a href="/product/ysly-jz">YSLY-JZ</a> แต่ฉนวนหนากว่าเพื่อรองรับ 1kV</li>
                     </ul>
                 ),
             },
@@ -1047,7 +1047,7 @@ export const productContentMap: Record<string, ProductContent> = {
     'multicore-cable': {
         sections: [
             { id: 'overview', title: 'สายไฟมัลติคอร์ (Multi-Core Cable) คืออะไร ?', content: (<><p>สายไฟมัลติคอร์เป็นสายไฟที่มีตัวนำหลายแกนภายในเปลือกเดียวกัน เหมาะสำหรับงานคอนโทรลและงานจ่ายไฟเครื่องจักรในอุตสาหกรรม</p><p>NYX CABLE จำหน่ายสายมัลติคอร์คุณภาพยุโรปหลายรุ่น</p></>) },
-            { id: 'types', title: 'ประเภทสายมัลติคอร์', content: (<ul><li><a href="/products/detail/ysly-jz">YSLY-JZ</a> — สายคอนโทรลมาตรฐานยุโรป</li><li><a href="/products/detail/opvc-jz">OPVC-JZ</a> — สายคอนโทรลราคาคุ้มค่า</li><li><a href="/products/detail/flex-jz">Flex-JZ</a> — สายคอนโทรลอ่อนตัวนุ่ม</li><li><a href="/products/detail/jz-500">JZ-500</a> — สายคอนโทรลระดับพรีเมี่ยม</li></ul>) },
+            { id: 'types', title: 'ประเภทสายมัลติคอร์', content: (<ul><li><a href="/product/ysly-jz">YSLY-JZ</a> — สายคอนโทรลมาตรฐานยุโรป</li><li><a href="/product/opvc-jz">OPVC-JZ</a> — สายคอนโทรลราคาคุ้มค่า</li><li><a href="/product/flex-jz">Flex-JZ</a> — สายคอนโทรลอ่อนตัวนุ่ม</li><li><a href="/product/jz-500">JZ-500</a> — สายคอนโทรลระดับพรีเมี่ยม</li></ul>) },
             { id: 'applications', title: 'การใช้งาน', content: (<ul><li>งานคอนโทรลเครื่องจักรในโรงงาน</li><li>จ่ายไฟเครื่องจักร</li><li>เชื่อมต่อระหว่างตู้คอนโทรลกับเครื่องจักร</li></ul>) },
         ],
         faqs: [

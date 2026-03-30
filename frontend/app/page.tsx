@@ -95,17 +95,17 @@ export default async function HomePage() {
     {
       q: "สายคอนโทรล คืออะไร?",
       a: "สายไฟที่มีตัวนำเป็นเส้นฝอยขนาดเล็กทำให้มีความอ่อนตัวสูง เหมาะสำหรับเชื่อมต่อเพื่อนำสัญญาณระหว่างอุปกรณ์วัดและคอมพิวเตอร์ ลักษณะของสายคอนโทรลสำหรับโรงงานอุตสาหกรรมนั้นมีหลายรูปแบบ ตามสภาพหน้างาน โดยสิ่งที่ทำให้แต่ละชนิดแตกต่างกัน คือ ตัวนำไฟฟ้า ฉนวน Shield และฉนวนภายนอก",
-      link: "/products/control-cable"
+      link: "/category/control-cable"
     },
     {
       q: "LiYCY อ่านว่าอะไร?",
       a: "LiYCY (อ่านว่า แอล-ไอ-วาย-ซี-วาย ตามตัวอักษร) เป็นชื่อตามมาตรฐาน DIN VDE โดยแต่ละตัวอักษรบ่งบอกโครงสร้างสายจากในออกนอก: Li = Litze (ตัวนำเส้นฝอย), Y = PVC (ฉนวน), C = Cu Screen (ชีลด์ทองแดง), Y = PVC (เปลือกนอก) — เป็นสายคอนโทรลมีชีลด์ป้องกันสัญญาณรบกวน",
-      link: "/products/detail/liycy"
+      link: "/product/liycy"
     },
     {
       q: "สายไฟชนิดใดเดินใต้น้ำได้?",
       a: "สาย H07RN-F ฉนวนภายในและภายนอกทำจากยาง Neoprene ทนน้ำ ทนแดด ทนสารเคมี ทนต่อแรงดันน้ำได้ดีกว่าสาย PVC ทั่วไป สาย NYY หรือ CV ถึงจะฉนวนหนา แต่ทำจาก PVC หากแช่น้ำลึกกว่า 1 เมตรนานๆ ฉนวนจะบวมและเสียหาย",
-      link: "/products/detail/h07rn-f"
+      link: "/product/h07rn-f"
     },
     {
       q: "สแควร์มิล (Sq.mm.) คืออะไร?",
@@ -120,27 +120,27 @@ export default async function HomePage() {
     {
       q: "การเคลือบทองแดงด้วยดีบุก (Tinned Copper) มีประโยชน์อย่างไร?",
       a: "ป้องกันการเกิดสนิมทองแดง (Oxidation สีเขียว) ที่ทำให้ความสามารถนำไฟฟ้าลดลง จำเป็นในงาน: จุดเชื่อมต่อที่สัมผัสอากาศ, พื้นที่ชื้น/ใต้ดิน/ใต้น้ำ, อุณหภูมิเกิน 80°C และพื้นที่มีสารเคมีกัดกร่อนสูง",
-      link: "/products/control-cable"
+      link: "/category/control-cable"
     },
     {
       q: "จะรู้ได้อย่างไรว่าสายไฟรุ่นไหนอ่อนตัวกว่ากัน?",
       a: "ดูจากค่ารัศมีความโค้งงอ (Bending Radius) เป็นจำนวนเท่าของเส้นผ่าศูนย์กลาง — ยิ่งค่าน้อย สายยิ่งอ่อนตัว เช่น สาย Superflex 12G0.75 OD 12mm Bending Radius 3 เท่า ดังนั้นรัศมีโค้งงอเล็กสุดคือ 12×3 = 36 mm",
-      link: "/products/high-flex-cable"
+      link: "/category/high-flex-cable"
     },
     {
       q: "YSLY-JZ ดีกว่า VCT / CVV อย่างไร?",
       a: "YSLY-JZ มีพื้นที่หน้าตัดเล็กกว่า 40-55% ช่วยประหยัดขนาดท่อ ร้อยท่อง่ายกว่า ค่าแรงถูกกว่า แต่รับกระแสได้เท่ากับ CVV/VCT และใช้กับไฟ 3 Phase ได้ (ทนแรงดัน 500V) ราคาก็ใกล้เคียงกัน",
-      link: "/products/detail/ysly-jz"
+      link: "/product/ysly-jz"
     },
     {
       q: "Shield แบบ Braid กับ Copper Tape ต่างกันอย่างไร? (CVV-S vs LiYCY)",
       a: "Tinned Copper Braid (LiYCY) อ่อนตัวกว่ามาก ไม่ต้องมีตัวกันบาดจากความคม ทำให้สายมีพื้นที่หน้าตัดเล็กกว่า ใช้ท่อเล็กลง 35-70% ประหยัดค่าแรงติดตั้ง ในราคาที่เทียบเคียงกัน",
-      link: "/products/detail/liycy"
+      link: "/product/liycy"
     },
     {
       q: "YSLY-JZ รับกระแสได้เท่าไหร่?",
       a: "สาย YSLY-JZ ผลิตตั้งแต่ 0.5–2.5 mm² รับกระแส 3A (0.5mm²) ถึง 18A (2.5mm²) ที่ 30°C เดิน 1 เส้น เพียงพอสำหรับงานคอนโทรลและสัญญาณในโรงงาน",
-      link: "/products/detail/ysly-jz"
+      link: "/product/ysly-jz"
     },
   ];
 
@@ -771,7 +771,7 @@ export default async function HomePage() {
 
           <div className="control-cable-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20 }}>
             {mainProducts.map(p => (
-              <a key={p.slug} href={`/products/detail/${p.slug}`} className="card-hover" style={{ display: 'block', textDecoration: 'none', color: 'inherit', background: '#fff', border: '1px solid #e8edf3', borderRadius: 14, overflow: 'hidden', boxShadow: '0 2px 8px rgba(0,0,0,0.04)' }}>
+              <a key={p.slug} href={`/product/${p.slug}`} className="card-hover" style={{ display: 'block', textDecoration: 'none', color: 'inherit', background: '#fff', border: '1px solid #e8edf3', borderRadius: 14, overflow: 'hidden', boxShadow: '0 2px 8px rgba(0,0,0,0.04)' }}>
                 <div style={{ background: '#f8fafc' }}>
                   <Image src={p.img} alt={`${p.name} ${p.thaiName}`} width={400} height={400} sizes="(max-width: 768px) 50vw, 200px" style={{ width: '100%', height: 'auto', display: 'block' }} loading="lazy" />
                 </div>

@@ -192,7 +192,7 @@ export const categoryProductsMap: Record<string, CategoryData> = {
   },
 
   // ─── 4. สายไฟฉนวนยาง / กันน้ำ ─── 
-  'rubber-cable': {
+  'water-resistant-cable': {
     title: 'สายไฟฉนวนทำจากยาง / กันน้ำ',
     shortDescription: 'สายไฟฉนวนยาง กันน้ำ ทนสภาพอากาศ สำหรับปั๊มน้ำ เครื่องจักรกลางแจ้ง งานก่อสร้าง',
     products: [
@@ -204,14 +204,14 @@ export const categoryProductsMap: Record<string, CategoryData> = {
         image: '/images/products/h07rn-f.jpg',
       },
       {
-        slug: 'welding-cable',
+        slug: 'welding-cable-h01n2d',
         title: 'สายเชื่อม (Welding Cable)',
         code: 'WELD',
         shortDescription: 'สายเชื่อมไฟฟ้า ตัวนำทองแดงฝอยละเอียดมากพิเศษ ฉนวนยาง EPR ทนความร้อนจากการเชื่อม',
         image: '/images/products/welding-cable.jpg',
       },
       {
-        slug: 'nsshoeu',
+        slug: 'nsshou',
         title: 'NSSHÖu : สายไฟสำหรับงานเหมือง',
         code: 'NSSHOEU',
         shortDescription: 'สายรับแรงดึงพิเศษ ฉนวนยาง Neoprene ทนแรงกระแทก สภาพอากาศรุนแรง',
@@ -317,7 +317,7 @@ export const categoryProductsMap: Record<string, CategoryData> = {
         image: '/images/products/multiflex.jpg',
       },
       {
-        slug: 'igus',
+        slug: 'multiflex-cp',
         title: 'Multiflex CP : สายรางกระดูกงูมีชีลด์ ทนน้ำมัน',
         code: 'MF-CP',
         shortDescription: 'สายรางกระดูกงูมีชีลด์ ฉนวน PUR ทนน้ำมัน/สารเคมี อนุกรมแม่เหล็กต่ำ',

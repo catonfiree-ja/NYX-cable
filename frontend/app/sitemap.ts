@@ -25,14 +25,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ])
 
     productPages = products.map((p: any) => ({
-      url: encodeURI(`${baseUrl}/products/detail/${p.slug?.current}`),
+      url: encodeURI(`${baseUrl}/product/${p.slug?.current}`),
       lastModified: new Date(),
       changeFrequency: 'weekly' as const,
       priority: 0.8,
     }))
 
     variantPages = variants.map((v: any) => ({
-      url: encodeURI(`${baseUrl}/products/variant/${v.slug?.current}`),
+      url: encodeURI(`${baseUrl}/product/variant/${v.slug?.current}`),
       lastModified: new Date(),
       changeFrequency: 'weekly' as const,
       priority: 0.7,
@@ -41,7 +41,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     categoryPages = categories
       .filter((c: any) => c.slug?.current)
       .map((c: any) => ({
-        url: encodeURI(`${baseUrl}/products/${c.slug.current}`),
+        url: encodeURI(`${baseUrl}/category/${c.slug.current}`),
         lastModified: new Date(),
         changeFrequency: 'weekly' as const,
         priority: 0.8,

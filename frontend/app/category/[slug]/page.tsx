@@ -115,7 +115,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
         {hardcodedProducts.length > 0 ? (
           <div className="cat-grid">
             {hardcodedProducts.map((product) => (
-              <a key={product.slug} href={`/products/detail/${product.slug}`} className="cat-product-card">
+              <a key={product.slug} href={`/product/${product.slug}`} className="cat-product-card">
                 <div className="cat-product-img">
                   {product.image ? (
                     <img src={product.image} alt={product.title} width={400} height={400} style={{ width: '100%', height: 'auto', display: 'block' }} loading="lazy" />
@@ -159,11 +159,11 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
             <div style={{ display: 'grid', gap: 16, marginBottom: 24 }}>
               <div style={{ background: '#fff', padding: '16px 20px', borderRadius: 8, border: '1px solid #e2e8f0' }}>
                 <strong style={{ color: '#003366' }}>1. สาย Multicore (สายคอนโทรลทั่วไป)</strong>
-                <p style={{ margin: '6px 0 0', fontSize: '0.9rem' }}>ใช้เชื่อมต่อระหว่างตู้คอนโทรลไปยังเครื่องจักร — รุ่นยอดนิยม: <Link href="/products/detail/ysly-jz" style={{ color: '#0066cc' }}>YSLY-JZ</Link>, OPVC-JZ, JZ-500, Olflex Classic 110, CVV, VCT</p>
+                <p style={{ margin: '6px 0 0', fontSize: '0.9rem' }}>ใช้เชื่อมต่อระหว่างตู้คอนโทรลไปยังเครื่องจักร — รุ่นยอดนิยม: <Link href="/product/ysly-jz" style={{ color: '#0066cc' }}>YSLY-JZ</Link>, OPVC-JZ, JZ-500, Olflex Classic 110, CVV, VCT</p>
               </div>
               <div style={{ background: '#fff', padding: '16px 20px', borderRadius: 8, border: '1px solid #e2e8f0' }}>
                 <strong style={{ color: '#003366' }}>2. สาย Shielded (สายคอนโทรลมีชีลด์)</strong>
-                <p style={{ margin: '6px 0 0', fontSize: '0.9rem' }}>จำเป็นเมื่อเดินสายใกล้ VFD/Inverter — รุ่นยอดนิยม: <Link href="/products/detail/liycy" style={{ color: '#0066cc' }}>LiYCY</Link>, <Link href="/products/detail/olflex-classic-115-cy" style={{ color: '#0066cc' }}>Olflex Classic 115 CY</Link>, CVV-S มี Braided Copper Shield ป้องกัน EMI</p>
+                <p style={{ margin: '6px 0 0', fontSize: '0.9rem' }}>จำเป็นเมื่อเดินสายใกล้ VFD/Inverter — รุ่นยอดนิยม: <Link href="/product/liycy" style={{ color: '#0066cc' }}>LiYCY</Link>, <Link href="/product/olflex-classic-115-cy" style={{ color: '#0066cc' }}>Olflex Classic 115 CY</Link>, CVV-S มี Braided Copper Shield ป้องกัน EMI</p>
               </div>
               <div style={{ background: '#fff', padding: '16px 20px', borderRadius: 8, border: '1px solid #e2e8f0' }}>
                 <strong style={{ color: '#003366' }}>3. สาย Wiring (สายเดินภายในตู้)</strong>
@@ -179,7 +179,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
             <div style={{ display: 'grid', gap: 12, marginBottom: 24 }}>
               <div style={{ background: '#fff', padding: '14px 18px', borderRadius: 8, borderLeft: '4px solid #0066cc' }}>
                 <strong>1. สภาพแวดล้อมสัญญาณรบกวน (EMI)</strong>
-                <p style={{ margin: '4px 0 0', fontSize: '0.88rem' }}>มี Inverter/VFD ใกล้เคียงหรือไม่? ถ้ามี &quot;ต้อง&quot; ใช้ <Link href="/products/shielded-cable" style={{ color: '#0066cc' }}>สายชีลด์</Link> (LiYCY, CVV-S)</p>
+                <p style={{ margin: '4px 0 0', fontSize: '0.88rem' }}>มี Inverter/VFD ใกล้เคียงหรือไม่? ถ้ามี &quot;ต้อง&quot; ใช้ <Link href="/category/shielded-cable" style={{ color: '#0066cc' }}>สายชีลด์</Link> (LiYCY, CVV-S)</p>
               </div>
               <div style={{ background: '#fff', padding: '14px 18px', borderRadius: 8, borderLeft: '4px solid #0066cc' }}>
                 <strong>2. ลักษณะการติดตั้ง: อยู่นิ่ง vs เคลื่อนที่</strong>
@@ -236,9 +236,9 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
             <table style={{ width: '100%', borderCollapse: 'collapse', marginBottom: 20, fontSize: '0.9rem' }}>
               <thead><tr style={{ background: '#003366', color: '#fff' }}><th style={{ padding: '10px 14px', textAlign: 'left' }}>ประเภท</th><th style={{ padding: '10px 14px', textAlign: 'left' }}>ป้องกัน</th><th style={{ padding: '10px 14px', textAlign: 'left' }}>จุดเด่น</th><th style={{ padding: '10px 14px', textAlign: 'left' }}>รุ่นแนะนำ</th></tr></thead>
               <tbody>
-                <tr style={{ borderBottom: '1px solid #e2e8f0' }}><td style={{ padding: '10px 14px' }}><strong>Tinned Copper Braid</strong></td><td style={{ padding: '10px 14px' }}>ความถี่ต่ำ ✓</td><td style={{ padding: '10px 14px' }}>ทนแรงกระแทก ความครอบคลุมสูง</td><td style={{ padding: '10px 14px' }}><Link href="/products/detail/liycy" style={{ color: '#0066cc' }}>LiYCY</Link></td></tr>
+                <tr style={{ borderBottom: '1px solid #e2e8f0' }}><td style={{ padding: '10px 14px' }}><strong>Tinned Copper Braid</strong></td><td style={{ padding: '10px 14px' }}>ความถี่ต่ำ ✓</td><td style={{ padding: '10px 14px' }}>ทนแรงกระแทก ความครอบคลุมสูง</td><td style={{ padding: '10px 14px' }}><Link href="/product/liycy" style={{ color: '#0066cc' }}>LiYCY</Link></td></tr>
                 <tr style={{ borderBottom: '1px solid #e2e8f0', background: '#f1f5f9' }}><td style={{ padding: '10px 14px' }}><strong>Aluminum Foil</strong></td><td style={{ padding: '10px 14px' }}>ความถี่สูง ✓</td><td style={{ padding: '10px 14px' }}>น้ำหนักเบา มี Drain Wire</td><td style={{ padding: '10px 14px' }}>LiYCY(TP)</td></tr>
-                <tr style={{ borderBottom: '1px solid #e2e8f0' }}><td style={{ padding: '10px 14px' }}><strong>Double Shield (Foil+Braid)</strong></td><td style={{ padding: '10px 14px' }}>ทุกย่านความถี่ ✓✓</td><td style={{ padding: '10px 14px' }}>ป้องกันสูงสุดสำหรับงานวิกฤต</td><td style={{ padding: '10px 14px' }}><Link href="/products/detail/double-shielded-cable" style={{ color: '#0066cc' }}>Double Shield</Link></td></tr>
+                <tr style={{ borderBottom: '1px solid #e2e8f0' }}><td style={{ padding: '10px 14px' }}><strong>Double Shield (Foil+Braid)</strong></td><td style={{ padding: '10px 14px' }}>ทุกย่านความถี่ ✓✓</td><td style={{ padding: '10px 14px' }}>ป้องกันสูงสุดสำหรับงานวิกฤต</td><td style={{ padding: '10px 14px' }}><Link href="/product/double-shielded-cable" style={{ color: '#0066cc' }}>Double Shield</Link></td></tr>
               </tbody>
             </table>
 
@@ -278,7 +278,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
               </details>
               <details style={{ background: '#fff', padding: '14px 18px', borderRadius: 8, border: '1px solid #e2e8f0', cursor: 'pointer' }}>
                 <summary style={{ fontWeight: 600, color: '#003366' }}>Q: สายชีลด์สามัญมีรุ่นไหนบ้าง?</summary>
-                <p style={{ margin: '8px 0 0', fontSize: '0.9rem' }}>รุ่นยอดนิยม ได้แก่ <Link href="/products/detail/liycy" style={{ color: '#0066cc' }}>LiYCY</Link> (มาตรฐานยุโรป), <Link href="/products/detail/olflex-classic-115-cy" style={{ color: '#0066cc' }}>Olflex Classic 115 CY</Link>, CVV-S (มาตรฐาน JIS), และ <Link href="/products/detail/double-shielded-cable" style={{ color: '#0066cc' }}>Double Shielded Cable</Link> สำหรับงานที่ต้องการป้องกันสูงสุด</p>
+                <p style={{ margin: '8px 0 0', fontSize: '0.9rem' }}>รุ่นยอดนิยม ได้แก่ <Link href="/product/liycy" style={{ color: '#0066cc' }}>LiYCY</Link> (มาตรฐานยุโรป), <Link href="/product/olflex-classic-115-cy" style={{ color: '#0066cc' }}>Olflex Classic 115 CY</Link>, CVV-S (มาตรฐาน JIS), และ <Link href="/product/double-shielded-cable" style={{ color: '#0066cc' }}>Double Shielded Cable</Link> สำหรับงานที่ต้องการป้องกันสูงสุด</p>
               </details>
             </div>
           </div>
@@ -316,7 +316,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
               {otherCatSlugs.map((catSlug) => (
                 <a
                   key={catSlug}
-                  href={`/products/${catSlug}`}
+                  href={`/category/${catSlug}`}
                   style={{ padding: '8px 18px', border: '1px solid #e2e8f0', borderRadius: 20, fontSize: '0.85rem', color: '#003366', fontWeight: 500, textDecoration: 'none', transition: 'all 0.2s' }}
                 >
                   {categoryProductsMap[catSlug]?.title || catSlug} ({categoryProductsMap[catSlug]?.products.length || 0})
