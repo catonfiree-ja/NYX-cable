@@ -294,6 +294,54 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
               </div>
             </div>
 
+            <h2 style={{ fontSize: '1.4rem', fontWeight: 700, color: '#003366', margin: '32px 0 16px' }}>ราคาสายคอนโทรล YSLY-JZ ของ NYX CABLE</h2>
+            <div style={{ overflowX: 'auto', marginBottom: 24 }}>
+              <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.82rem', minWidth: 700 }}>
+                <thead><tr style={{ background: '#003366', color: '#fff' }}>
+                  <th style={{ padding: '8px 10px', textAlign: 'left', whiteSpace: 'nowrap' }}>Model</th>
+                  <th style={{ padding: '8px 10px', textAlign: 'center' }}>NO. of strands × Max strand Dia.(mm)</th>
+                  <th style={{ padding: '8px 10px', textAlign: 'center' }}>Outer Dia. (mm)</th>
+                  <th style={{ padding: '8px 10px', textAlign: 'center' }}>Cu Weight (kg/km)</th>
+                  <th style={{ padding: '8px 10px', textAlign: 'center' }}>Weight (kg/km)</th>
+                  <th style={{ padding: '8px 10px', textAlign: 'center' }}>Conductor Resistance @ 20°C (Ω/km)</th>
+                  <th style={{ padding: '8px 10px', textAlign: 'right', whiteSpace: 'nowrap' }}>ราคา (บาท/ม.)</th>
+                </tr></thead>
+                <tbody>
+                  {[
+                    ['YSLY-OZ 2X0.5', '16×0.20', '4.9', '9.6', '38', '39.0', '14.44'],
+                    ['YSLY-JZ 3G0.5', '16×0.20', '5.2', '14.4', '47', '39.0', '19.54'],
+                    ['YSLY-JZ 4G0.5', '16×0.20', '5.7', '19.2', '58', '39.0', '24.37'],
+                    ['YSLY-JZ 5G0.5', '16×0.20', '6.0', '24', '75', '39.0', '30.34'],
+                    ['YSLY-JZ 6G0.5', '16×0.20', '6.5', '28.8', '89', '39.0', '40.00'],
+                    ['YSLY-JZ 7G0.5', '16×0.20', '7.1', '33.6', '93', '39.0', '44.58'],
+                    ['YSLY-JZ 8G0.5', '16×0.20', '7.7', '38.4', '110', '39.0', '51.40'],
+                    ['YSLY-JZ 10G0.5', '16×0.20', '8.6', '48', '140', '39.0', '64.42'],
+                    ['YSLY-JZ 12G0.5', '16×0.20', '9.1', '58', '150', '39.0', '75.54'],
+                    ['YSLY-JZ 14G0.5', '16×0.20', '9.3', '67', '170', '39.0', '90.65'],
+                    ['YSLY-JZ 16G0.5', '16×0.20', '10.4', '77', '195', '39.0', '101.46'],
+                    ['YSLY-JZ 18G0.5', '16×0.20', '10.8', '86', '215', '39.0', '113.29'],
+                    ['YSLY-JZ 20G0.5', '16×0.20', '11.8', '96', '230', '39.0', '123.86'],
+                    ['YSLY-JZ 21G0.5', '16×0.20', '12.0', '101', '245', '39.0', '135.44'],
+                    ['YSLY-JZ 25G0.5', '16×0.20', '12.8', '120', '280', '39.0', '152.66'],
+                    ['YSLY-JZ 30G0.5', '16×0.20', '13.7', '144', '310', '39.0', '184.45'],
+                    ['YSLY-JZ 32G0.5', '16×0.20', '14.0', '154', '345', '39.0', '199.00'],
+                    ['YSLY-JZ 35G0.5', '16×0.20', '14.9', '168', '390', '39.0', '235.08'],
+                    ['YSLY-JZ 50G0.5', '16×0.20', '17.6', '240', '510', '39.0', '409.97'],
+                  ].map((row, i) => (
+                    <tr key={i} style={{ borderBottom: '1px solid #e2e8f0', background: i % 2 === 1 ? '#f1f5f9' : '#fff' }}>
+                      <td style={{ padding: '7px 10px', fontWeight: 600, whiteSpace: 'nowrap' }}>{row[0]}</td>
+                      <td style={{ padding: '7px 10px', textAlign: 'center' }}>{row[1]}</td>
+                      <td style={{ padding: '7px 10px', textAlign: 'center' }}>{row[2]}</td>
+                      <td style={{ padding: '7px 10px', textAlign: 'center' }}>{row[3]}</td>
+                      <td style={{ padding: '7px 10px', textAlign: 'center' }}>{row[4]}</td>
+                      <td style={{ padding: '7px 10px', textAlign: 'center' }}>{row[5]}</td>
+                      <td style={{ padding: '7px 10px', textAlign: 'right', fontWeight: 600, color: '#0066cc' }}>{row[6]}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+
             <h3 style={{ fontSize: '1.2rem', fontWeight: 700, color: '#003366', margin: '28px 0 12px' }}>สินค้าในหมวดสายคอนโทรล — ดูตารางรายละเอียดและสเปก</h3>
             <p>เลือกรุ่นสายคอนโทรลที่ต้องการ เพื่อดูตารางขนาด-สเปก และราคา:</p>
             <ul style={{ paddingLeft: 20, marginBottom: 24 }}>
