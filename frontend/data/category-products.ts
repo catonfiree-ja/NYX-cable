@@ -355,24 +355,28 @@ export const categoryProductsMap: Record<string, CategoryData> = {
         title: 'Profibus Drag Chain',
         code: 'PB-DC',
         shortDescription: 'สาย Profibus สำหรับรางกระดูกงู ตัวนำฝอยละเอียดพิเศษ ฉนวน PUR สีม่วง',
+        image: '/images/products/profibus-cable.jpg',
       },
       {
         slug: 'profibus-outdoor',
         title: 'Profibus Outdoor',
         code: 'PB-OUT',
         shortDescription: 'สาย Profibus สำหรับภายนอกอาคาร ฉนวน PE ทน UV ความชื้น สภาพอากาศ',
+        image: '/images/products/profibus-cable.jpg',
       },
       {
         slug: 'profibus-connector-90',
         title: 'Profibus Connector 90°',
         code: 'PB-CON90',
         shortDescription: 'หัวต่อ Profibus 90 องศา มี Terminating Resistor สำหรับพื้นที่จำกัด',
+        image: '/images/products/profibus-cable.jpg',
       },
       {
         slug: 'profibus-connector-90pg',
         title: 'Profibus Connector 90° PG',
         code: 'PB-CON90PG',
         shortDescription: 'หัวต่อ Profibus 90 องศา + Cable Gland รัดสาย ทนแรงสั่นสะเทือน',
+        image: '/images/products/profibus-cable.jpg',
       },
       {
         slug: 'profinet-type-a',
@@ -386,18 +390,21 @@ export const categoryProductsMap: Record<string, CategoryData> = {
         title: 'Profinet Type B',
         code: 'PN-TYPE-B',
         shortDescription: 'สาย Profinet Type B สำหรับ Industrial Ethernet ความเร็ว 100 Mbps',
+        image: '/images/products/profinet-type-a.jpg',
       },
       {
         slug: 'profinet-type-c',
         title: 'Profinet Type C',
         code: 'PN-TYPE-C',
         shortDescription: 'สาย Profinet Type C สำหรับ Industrial Ethernet ความเร็ว 100 Mbps',
+        image: '/images/products/profinet-type-a.jpg',
       },
       {
         slug: 'profinet-connector-180',
         title: 'Profinet Connector 180°',
         code: 'PN-CON180',
         shortDescription: 'หัวต่อ Profinet RJ45 แบบ 180 องศา ติดตั้งง่าย ไม่ต้องใช้เครื่องมือพิเศษ',
+        image: '/images/products/profinet-type-a.jpg',
       },
       {
         slug: 'cc-link',
@@ -418,6 +425,7 @@ export const categoryProductsMap: Record<string, CategoryData> = {
         title: 'DeviceNet Thin',
         code: 'DN-THIN',
         shortDescription: 'สาย DeviceNet Thin สำหรับ Drop Line ระยะ 6 เมตร อ่อนตัว เดินสายง่าย',
+        image: '/images/products/devicenet-thick.jpg',
       },
       {
         slug: 'eib-bus-knx',
@@ -446,12 +454,14 @@ export const categoryProductsMap: Record<string, CategoryData> = {
         title: 'SiF-GL : สายทนความร้อน 200°C (ไฟเบอร์กลาส)',
         code: 'SIF-GL',
         shortDescription: 'สายฉนวนซิลิโคน+ไฟเบอร์กลาส ทนความร้อน 200°C สำหรับเตาอบ เตาหลอม',
+        image: '/images/products/sif.jpg',
       },
       {
         slug: 'siaf-ignition-wire',
         title: 'SIAF : สาย Ignition Wire',
         code: 'SIAF',
         shortDescription: 'สายฉนวนซิลิโคน ตัวนำเคลือบนิกเกิล สำหรับงานจุดระเบิดและอุณหภูมิสูงมาก',
+        image: '/images/products/sif.jpg',
       },
       {
         slug: 'sihf',
@@ -472,18 +482,21 @@ export const categoryProductsMap: Record<string, CategoryData> = {
         title: 'PTFE Cable : สายทนความร้อน 260°C',
         code: 'PTFE',
         shortDescription: 'สายฉนวน PTFE (Teflon) ทนความร้อนสูง 260°C ทนสารเคมีทุกชนิด',
+        image: '/images/products/pfa-cable.jpg',
       },
       {
         slug: 'etfe-cable',
         title: 'ETFE Cable : สายทนความร้อน 200°C',
         code: 'ETFE',
         shortDescription: 'สายฉนวน ETFE ทนความร้อน 200°C ทนสารเคมี แรงกระแทก รังสี',
+        image: '/images/products/pfa-cable.jpg',
       },
       {
         slug: 'fep-cable',
         title: 'FEP Cable : สายทนความร้อน 200°C',
         code: 'FEP',
         shortDescription: 'สายฉนวน FEP ทนความร้อน 200°C ใสโปร่งใส ทนสารเคมี สำหรับงานอาหารและยา',
+        image: '/images/products/pfa-cable.jpg',
       },
       {
         slug: 'thermocouple-type-k-cable',
@@ -504,6 +517,7 @@ export const categoryProductsMap: Record<string, CategoryData> = {
         title: 'YC11Y-JZ : สายทนน้ำมัน PUR มีชีลด์',
         code: 'YC11Y-JZ',
         shortDescription: 'สายคอนโทรลฉนวน PUR มีชีลด์ ทนน้ำมัน สารเคมี 500V 80°C ฝังดินได้',
+        image: '/images/products/y11y-jz.jpg',
       },
       {
         slug: 'h07rn-f',
