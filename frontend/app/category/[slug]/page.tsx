@@ -81,32 +81,48 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug: rawSlug } = await params
   const slug = resolveSlug(rawSlug)
+
+  // Try CMS first for SEO data
+  const cmsCategory = await getCategory(slug).catch(() => null)
   const hardcoded = categoryProductsMap[slug]
-  if (hardcoded) {
-    return {
-      title: `${hardcoded.title} | สายไฟอุตสาหกรรม NYX Cable`,
-      description: hardcoded.shortDescription,
-    }
-  }
-  const category = await getCategory(slug).catch(() => null)
-  if (!category) return { title: 'หมวดหมู่ไม่พบ | NYX Cable' }
+
+  const title = cmsCategory?.metaTitle
+    || (hardcoded ? `${hardcoded.title} | สายไฟอุตสาหกรรม NYX Cable` : null)
+    || (cmsCategory ? `${cmsCategory.title} | สายไฟอุตสาหกรรม NYX Cable` : 'หมวดหมู่ไม่พบ | NYX Cable')
+
+  const description = cmsCategory?.metaDescription
+    || hardcoded?.shortDescription
+    || cmsCategory?.shortDescription
+    || `สายไฟคุณภาพมาตรฐานยุโรป NYX Cable`
+
   return {
-    title: `${category.title} | สายไฟอุตสาหกรรม NYX Cable`,
-    description: category.shortDescription || `สายไฟ ${category.title} คุณภาพมาตรฐานยุโรป NYX Cable`,
+    title,
+    description,
+    alternates: { canonical: `https://www.nyxcable.com/category/${slug}` },
   }
 }
 
 export default async function CategoryPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug: rawSlug } = await params
   const slug = resolveSlug(rawSlug)
+
+  // Fetch CMS data first
+  const cmsCategory = await getCategory(slug).catch(() => null)
   const hardcoded = categoryProductsMap[slug]
 
-  // Use hardcoded data as primary, CMS as fallback
-  const categoryTitle = hardcoded?.title || (await getCategory(slug).catch(() => null))?.title
+  // Determine title (CMS or hardcoded)
+  const categoryTitle = hardcoded?.title || cmsCategory?.title
   if (!categoryTitle) notFound()
 
-  const categoryDesc = hardcoded?.shortDescription || ''
+  const categoryDesc = hardcoded?.shortDescription || cmsCategory?.shortDescription || ''
+
+  // Products: CMS primary, hardcoded fallback
+  const cmsProducts = cmsCategory?.products || []
   const hardcodedProducts = hardcoded?.products || []
+
+  // Use CMS products if available, otherwise fallback to hardcoded
+  const useCMS = cmsProducts.length > 0
+  const products = useCMS ? cmsProducts : hardcodedProducts
 
   // For "other categories" sidebar, use hardcoded keys
   const otherCatSlugs = Object.keys(categoryProductsMap).filter(s => s !== slug).slice(0, 6)
@@ -121,27 +137,35 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
           </div>
           <h1>{categoryTitle}</h1>
           {categoryDesc && <p>{categoryDesc}</p>}
-          {hardcodedProducts.length > 0 && <div className="product-count-badge">{hardcodedProducts.length} รุ่นในหมวดนี้</div>}
+          {products.length > 0 && <div className="product-count-badge">{products.length} รุ่นในหมวดนี้</div>}
         </div>
       </section>
 
       <div className="container">
-        {hardcodedProducts.length > 0 ? (
+        {products.length > 0 ? (
           <div className="cat-grid">
-            {hardcodedProducts.map((product) => (
-              <a key={product.slug} href={`/product/${product.slug}`} className="cat-product-card">
-                <div className="cat-product-img">
-                  {product.image ? (
-                    <img src={product.image} alt={product.title} width={400} height={400} style={{ width: '100%', height: 'auto', display: 'block' }} loading="lazy" />
-                  ) : (product.code || 'NYX')}
-                </div>
-                <div className="cat-product-body">
-                  <h3>{product.title}</h3>
-                  <div className="code">{product.code}</div>
-                  <p>{product.shortDescription}</p>
-                </div>
-              </a>
-            ))}
+            {products.map((product: any) => {
+              const productSlug = useCMS ? product.slug?.current : product.slug
+              const productCode = useCMS ? product.productCode : product.code
+              const productImage = useCMS
+                ? (product.image ? urlFor(product.image).width(400).height(400).url() : null)
+                : product.image
+
+              return (
+                <a key={productSlug} href={`/product/${productSlug}`} className="cat-product-card">
+                  <div className="cat-product-img">
+                    {productImage ? (
+                      <img src={productImage} alt={product.title} width={400} height={400} style={{ width: '100%', height: 'auto', display: 'block' }} loading="lazy" />
+                    ) : (productCode || 'NYX')}
+                  </div>
+                  <div className="cat-product-body">
+                    <h3>{product.title}</h3>
+                    <div className="code">{productCode}</div>
+                    <p>{product.shortDescription}</p>
+                  </div>
+                </a>
+              )
+            })}
           </div>
         ) : (
           <div className="cat-empty">

@@ -1,4 +1,5 @@
 import React from 'react'
+import type { Metadata } from 'next'
 import { getProduct, getProducts, getVariants, getBlogPosts } from '@/lib/queries'
 import { urlFor } from '@/lib/sanity'
 import Image from 'next/image'
@@ -11,11 +12,44 @@ import { productContentMap } from '@/data/product-content'
 import { BreadcrumbSchema } from '@/components/StructuredData'
 import { categoryProductsMap } from '@/data/category-products'
 
-// Slug alias map: new slug -> CMS slug (for renamed products)
-const slugAliases: Record<string, string> = {
-  'welding-cable-h01n2d': 'welding-cable',
-  'nsshou': 'nsshoeu',
-  'multiflex-cp': 'igus',
+// Slug aliases are no longer needed — CMS slugs were updated to match hardcoded slugs
+const slugAliases: Record<string, string> = {}
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params
+  const resolvedSlug = slugAliases[slug] || slug
+  const product = await getProduct(resolvedSlug).catch(() => null)
+
+  if (product) {
+    const title = product.metaTitle || `${product.title} | สายไฟอุตสาหกรรม NYX Cable`
+    const description = product.metaDescription || product.shortDescription || `${product.title} คุณภาพมาตรฐานยุโรป NYX Cable`
+    const ogImage = product.ogImage ? urlFor(product.ogImage).width(1200).height(630).url() : undefined
+
+    return {
+      title,
+      description,
+      alternates: { canonical: `https://www.nyxcable.com/product/${slug}` },
+      openGraph: {
+        title,
+        description,
+        ...(ogImage && { images: [{ url: ogImage, width: 1200, height: 630 }] }),
+      },
+    }
+  }
+
+  // Fallback: check hardcoded data
+  for (const cat of Object.values(categoryProductsMap)) {
+    const p = cat.products.find(p => p.slug === slug)
+    if (p) {
+      return {
+        title: `${p.title} | สายไฟอุตสาหกรรม NYX Cable`,
+        description: p.shortDescription || `${p.title} คุณภาพมาตรฐานยุโรป NYX Cable`,
+        alternates: { canonical: `https://www.nyxcable.com/product/${slug}` },
+      }
+    }
+  }
+
+  return { title: 'สินค้าไม่พบ | NYX Cable' }
 }
 
 const styles = `
@@ -466,35 +500,6 @@ export async function generateStaticParams() {
   return Array.from(allSlugs).filter(Boolean).map(slug => ({ slug }))
 }
 
-export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug: rawSlug } = await params
-  const slug = decodeURIComponent(rawSlug)
-  // Try CMS with original slug first, then alias
-  let product = await getProduct(slug)
-  if (!product && slugAliases[slug]) {
-    product = await getProduct(slugAliases[slug])
-  }
-  if (!product) {
-    // Check if this slug exists in hardcoded data (category-products.ts)
-    let hardcodedProduct: any = null
-    for (const cat of Object.values(categoryProductsMap)) {
-      hardcodedProduct = cat.products.find(p => p.slug === slug)
-      if (hardcodedProduct) break
-    }
-    if (!hardcodedProduct) notFound()
-    // Return basic metadata for hardcoded-only products
-    return {
-      title: hardcodedProduct.title + ' | NYX Cable',
-      description: hardcodedProduct.shortDescription || '',
-      alternates: { canonical: `https://www.nyxcable.com/product/${slug}` },
-    }
-  }
-  return {
-    title: product.metaTitle || product.title,
-    description: product.metaDescription || decodeHtmlEntities(product.shortDescription),
-    alternates: { canonical: `https://www.nyxcable.com/product/${slug}` },
-  }
-}
 
 export default async function ProductDetailPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug: rawSlug } = await params
