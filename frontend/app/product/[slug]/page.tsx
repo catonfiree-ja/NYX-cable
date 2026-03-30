@@ -9,6 +9,14 @@ import ExcelSpecTable from './ExcelSpecTable'
 import productSpecsData from '@/data/product-specs.json'
 import { productContentMap } from '@/data/product-content'
 import { BreadcrumbSchema } from '@/components/StructuredData'
+import { categoryProductsMap } from '@/data/category-products'
+
+// Slug alias map: new slug -> CMS slug (for renamed products)
+const slugAliases: Record<string, string> = {
+  'welding-cable-h01n2d': 'welding-cable',
+  'nsshou': 'nsshoeu',
+  'multiflex-cp': 'igus',
+}
 
 const styles = `
   /* ─── Hero ─── */
@@ -446,14 +454,41 @@ function renderDescription(body: any, shortDesc?: string, productTitle?: string,
 
 export async function generateStaticParams() {
   const products = await getProducts()
-  return products.map((p: any) => ({ slug: p.slug?.current }))
+  const cmsParams = products.map((p: any) => ({ slug: p.slug?.current }))
+  // Include hardcoded product slugs from category-products.ts
+  const hardcodedSlugs = new Set<string>()
+  for (const cat of Object.values(categoryProductsMap)) {
+    for (const p of cat.products) {
+      hardcodedSlugs.add(p.slug)
+    }
+  }
+  const allSlugs = new Set([...cmsParams.map((p: any) => p.slug), ...hardcodedSlugs])
+  return Array.from(allSlugs).filter(Boolean).map(slug => ({ slug }))
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug: rawSlug } = await params
   const slug = decodeURIComponent(rawSlug)
-  const product = await getProduct(slug)
-  if (!product) return { title: 'ไม่พบสินค้า' }
+  // Try CMS with original slug first, then alias
+  let product = await getProduct(slug)
+  if (!product && slugAliases[slug]) {
+    product = await getProduct(slugAliases[slug])
+  }
+  if (!product) {
+    // Check if this slug exists in hardcoded data (category-products.ts)
+    let hardcodedProduct: any = null
+    for (const cat of Object.values(categoryProductsMap)) {
+      hardcodedProduct = cat.products.find(p => p.slug === slug)
+      if (hardcodedProduct) break
+    }
+    if (!hardcodedProduct) notFound()
+    // Return basic metadata for hardcoded-only products
+    return {
+      title: hardcodedProduct.title + ' | NYX Cable',
+      description: hardcodedProduct.shortDescription || '',
+      alternates: { canonical: `https://www.nyxcable.com/product/${slug}` },
+    }
+  }
   return {
     title: product.metaTitle || product.title,
     description: product.metaDescription || decodeHtmlEntities(product.shortDescription),
@@ -464,8 +499,82 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 export default async function ProductDetailPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug: rawSlug } = await params
   const slug = decodeURIComponent(rawSlug)
-  const product = await getProduct(slug)
-  if (!product) notFound()
+  // Try CMS with original slug first, then alias
+  let product = await getProduct(slug)
+  if (!product && slugAliases[slug]) {
+    product = await getProduct(slugAliases[slug])
+  }
+  if (!product) {
+    // Check if this slug exists in hardcoded data (category-products.ts)
+    let hardcodedProduct: any = null
+    let parentCategory: any = null
+    for (const [catSlug, cat] of Object.entries(categoryProductsMap)) {
+      const found = cat.products.find(p => p.slug === slug)
+      if (found) {
+        hardcodedProduct = found
+        parentCategory = { slug: catSlug, title: cat.title }
+        break
+      }
+    }
+    if (!hardcodedProduct) notFound()
+
+    // Render a basic page for hardcoded-only products
+    return (
+      <>
+        <BreadcrumbSchema items={[
+          { name: 'หน้าแรก', url: 'https://www.nyxcable.com' },
+          { name: 'ผลิตภัณฑ์', url: 'https://www.nyxcable.com/products' },
+          { name: hardcodedProduct.title, url: `https://www.nyxcable.com/product/${slug}` },
+        ]} />
+        <style dangerouslySetInnerHTML={{ __html: styles }} />
+        <div className="product-detail-hero">
+          <div className="container">
+            <div className="breadcrumb">
+              <Link href="/">หน้าแรก</Link> › <Link href="/products">ผลิตภัณฑ์</Link>
+              {parentCategory && <> › <Link href={`/category/${parentCategory.slug}`}>{parentCategory.title}</Link></>}
+              {' › '}{hardcodedProduct.title}
+            </div>
+            <div className="hero-product-layout">
+              <div className="hero-image-box">
+                {hardcodedProduct.image ? (
+                  <img src={hardcodedProduct.image} alt={hardcodedProduct.title} style={{ width: '100%', height: 'auto', objectFit: 'contain' }} />
+                ) : <span className="fallback-text">{hardcodedProduct.code || 'NYX'}</span>}
+              </div>
+              <div className="hero-product-info">
+                <h1>{hardcodedProduct.title}</h1>
+                {hardcodedProduct.code && <span className="hero-product-code">{hardcodedProduct.code}</span>}
+                {parentCategory && (
+                  <div className="hero-categories">
+                    <span className="hero-cat-tag">{parentCategory.title}</span>
+                  </div>
+                )}
+                {hardcodedProduct.shortDescription && <p className="hero-desc">{hardcodedProduct.shortDescription}</p>}
+                <div className="hero-cta">
+                  <a href="tel:021115588" className="cta-btn-call">สอบถามราคา</a>
+                  <a href={`https://page.line.me/ubb9405u?text=${encodeURIComponent(`สนใจสินค้า: ${hardcodedProduct.title}${hardcodedProduct.code ? ` (${hardcodedProduct.code})` : ''} — ขอใบเสนอราคา`)}`} target="_blank" rel="noopener noreferrer" className="cta-btn-line">แอด LINE</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="quick-quote-bar">
+          <div className="quick-quote-inner">
+            <div className="quick-quote-info">
+              <div className="quick-quote-badge">NYX</div>
+              <div>
+                <div className="quick-quote-name">{hardcodedProduct.title}</div>
+                {hardcodedProduct.code && <div className="quick-quote-code">{hardcodedProduct.code}</div>}
+              </div>
+            </div>
+            <div className="quick-quote-actions">
+              <a href={`https://page.line.me/ubb9405u?text=${encodeURIComponent(`ขอใบเสนอราคา: ${hardcodedProduct.title}`)}`} className="btn btn-accent" target="_blank" rel="noopener noreferrer">ขอใบเสนอราคา</a>
+              <a href="tel:021115588" className="btn btn-primary">โทรสอบถาม</a>
+            </div>
+          </div>
+        </div>
+      </>
+    )
+  }
 
   const variants = product.variants || []
   const specs = product.specifications || []
@@ -637,7 +746,7 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
           const hasSpecs = variants.some((v: any) => v.cores || v.crossSection)
           const VariantName = ({ v, fallback }: { v: any, fallback?: string }) => {
             const name = v.model || v.title || fallback || 'ขนาด'
-            if (v.slug?.current) return <a href={`/products/variant/${v.slug.current}`} style={{ fontWeight: 700, color: '#f0a500', textDecoration: 'underline', textUnderlineOffset: '3px' }}>{name}</a>
+            if (v.slug?.current) return <a href={`/product/variant/${v.slug.current}`} style={{ fontWeight: 700, color: '#f0a500', textDecoration: 'underline', textUnderlineOffset: '3px' }}>{name}</a>
             return <span style={{ fontWeight: 600, color: 'var(--color-primary)' }}>{name}</span>
           }
           if (hasSpecs) return <div className="section-block" id="variants"><div className="container"><VariantTable variants={variants} /></div></div>
@@ -651,7 +760,7 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
                       const name = v.model || v.title?.replace(product.title, '').trim() || `ขนาดที่ ${idx + 1}`
                       const content = (<>{name}{v.crossSection && <span style={{ display: 'block', fontSize: '0.72rem', color: '#64748b', marginTop: '2px' }}>{v.crossSection} mm²</span>}</>)
                       const cardStyle = { display: 'block', padding: '12px 16px', borderRadius: '8px', border: '1px solid #e2e8f0', textDecoration: 'none', color: '#1a1a2e', transition: 'all 0.2s', fontWeight: 600, fontSize: '0.85rem' } as const
-                      if (v.slug?.current) return <a key={v._id} href={`/products/variant/${v.slug.current}`} style={cardStyle}>{content}</a>
+                      if (v.slug?.current) return <a key={v._id} href={`/product/variant/${v.slug.current}`} style={cardStyle}>{content}</a>
                       return <div key={v._id} style={cardStyle}>{content}</div>
                     })}
                   </div>
