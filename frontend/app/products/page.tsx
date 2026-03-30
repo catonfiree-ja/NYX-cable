@@ -18,29 +18,52 @@ const styles = `
   /* ─── Category Hub ─── */
   .cat-hub { padding: 48px 0 64px; }
   .cat-hub-title { font-size: 1.1rem; font-weight: 700; color: var(--color-primary); margin-bottom: 24px; text-align: center; text-transform: uppercase; letter-spacing: 2px; }
-  .cat-hub-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
-  .cat-card { display: block; text-decoration: none; color: inherit; background: #fff; border: 1px solid #e2e8f0; border-radius: 14px; overflow: hidden; transition: all 0.3s cubic-bezier(0.4,0,0.2,1); position: relative; }
-  .cat-card:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(0,51,102,0.12); border-color: var(--color-secondary); }
-  .cat-card-header { padding: 28px 24px 20px; display: flex; align-items: center; gap: 16px; }
-  .cat-card-icon { width: 56px; height: 56px; border-radius: 12px; background: linear-gradient(135deg, #003366, #0066cc); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: 800; letter-spacing: 0.5px; flex-shrink: 0; }
-  .cat-card-meta h3 { font-size: 1.1rem; font-weight: 700; color: var(--color-primary); margin-bottom: 2px; line-height: 1.3; }
-  .cat-card-count { font-size: 0.78rem; color: var(--color-secondary); font-weight: 600; }
-  .cat-card-desc { padding: 0 24px 20px; font-size: 0.88rem; color: #64748b; line-height: 1.7; }
+  .cat-hub-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 24px; }
+  .cat-card {
+    display: block; text-decoration: none; color: inherit;
+    border: 1px solid #e8edf3; border-radius: 16px;
+    overflow: hidden; transition: all 0.35s cubic-bezier(0.4,0,0.2,1);
+    position: relative; background: #fff;
+    box-shadow: 0 2px 8px rgba(0,51,102,0.04);
+  }
+  .cat-card:hover { transform: translateY(-6px); box-shadow: 0 12px 36px rgba(0,51,102,0.12); border-color: rgba(0,153,255,0.3); }
+  .cat-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #003366, #0099ff); opacity: 0; transition: opacity 0.3s; z-index: 1; }
+  .cat-card:hover::before { opacity: 1; }
+  .cat-card-img-wrap { background: #f8fafc; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+  .cat-card-img-wrap img { width: 100%; height: auto; display: block; transition: transform 0.4s cubic-bezier(0.4,0,0.2,1); }
+  .cat-card:hover .cat-card-img-wrap img { transform: scale(1.05); }
+  .cat-card-header { padding: 20px 24px 12px; display: flex; align-items: center; gap: 14px; }
+  .cat-card-icon { width: 44px; height: 44px; border-radius: 10px; background: linear-gradient(135deg, #003366, #0066cc); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; font-weight: 800; letter-spacing: 0.5px; flex-shrink: 0; }
+  .cat-card-meta h3 { font-size: 1.05rem; font-weight: 700; color: #003366; margin-bottom: 2px; line-height: 1.3; }
+  .cat-card-count { font-size: 0.72rem; color: #0099ff; font-weight: 600; }
+  .cat-card-desc { padding: 0 24px 16px; font-size: 0.82rem; color: #64748b; line-height: 1.6; }
   .cat-card-footer { padding: 14px 24px; border-top: 1px solid #f1f5f9; display: flex; justify-content: space-between; align-items: center; background: #fafbfc; }
-  .cat-card-footer span { font-size: 0.85rem; color: var(--color-secondary); font-weight: 600; }
-  .cat-card-footer .arrow { font-size: 1.1rem; color: var(--color-secondary); transition: transform 0.3s; }
+  .cat-card-footer span { font-size: 0.85rem; color: #0099ff; font-weight: 600; }
+  .cat-card-footer .arrow { font-size: 1.1rem; color: #0099ff; transition: transform 0.3s; }
   .cat-card:hover .arrow { transform: translateX(4px); }
 
   /* ─── All Products Grid ─── */
   .all-products-section { padding: 48px 0; background: #f8fafc; }
   .all-products-title { font-size: 1.3rem; font-weight: 700; color: var(--color-primary); margin-bottom: 8px; text-align: center; }
   .all-products-sub { font-size: 0.9rem; color: #64748b; text-align: center; margin-bottom: 32px; }
-  .products-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 16px; }
-  .product-mini { display: block; text-decoration: none; color: inherit; background: #fff; border: 1px solid #e2e8f0; border-radius: 10px; padding: 16px; transition: all 0.25s; }
-  .product-mini:hover { border-color: var(--color-secondary); box-shadow: 0 4px 12px rgba(0,51,102,0.08); transform: translateY(-2px); }
-  .product-mini h4 { font-size: 0.88rem; font-weight: 600; color: var(--color-primary); margin-bottom: 4px; line-height: 1.4; }
-  .product-mini .code { font-size: 0.75rem; color: var(--color-secondary); font-weight: 500; }
-  .product-mini p { font-size: 0.8rem; color: #94a3b8; margin-top: 6px; line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .products-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 24px; }
+  .product-mini {
+    display: block; text-decoration: none; color: inherit;
+    border: 1px solid #e8edf3; border-radius: 16px;
+    overflow: hidden; transition: all 0.35s cubic-bezier(0.4,0,0.2,1);
+    position: relative; background: #fff;
+    box-shadow: 0 2px 8px rgba(0,51,102,0.04);
+  }
+  .product-mini:hover { transform: translateY(-6px); box-shadow: 0 12px 36px rgba(0,51,102,0.12); border-color: rgba(0,153,255,0.3); }
+  .product-mini::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #003366, #0099ff); opacity: 0; transition: opacity 0.3s; z-index: 1; }
+  .product-mini:hover::before { opacity: 1; }
+  .product-mini-img { background: #f8fafc; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+  .product-mini-img img { width: 100%; height: auto; display: block; transition: transform 0.4s cubic-bezier(0.4,0,0.2,1); }
+  .product-mini:hover .product-mini-img img { transform: scale(1.05); }
+  .product-mini-body { padding: 20px; }
+  .product-mini h4 { font-size: 0.95rem; font-weight: 700; color: #003366; margin-bottom: 6px; line-height: 1.4; }
+  .product-mini .code { font-size: 0.72rem; color: #0099ff; font-weight: 600; margin-bottom: 10px; letter-spacing: 0.3px; }
+  .product-mini p { font-size: 0.82rem; color: #64748b; margin-top: 0; line-height: 1.6; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
 
   @media (max-width: 768px) { .cat-hub-grid { grid-template-columns: 1fr; } .products-grid { grid-template-columns: 1fr; } }
 `
@@ -147,8 +170,14 @@ export default async function ProductsPage() {
               const hardcoded = categoryProductsMap[slug]
               const count = hardcoded?.products?.length || cat.productCount || 0
               const desc = hardcoded?.shortDescription || cat.shortDescription
+              const catImg = hardcoded?.products?.[0]?.image
               return (
                 <a key={cat._id} href={`/category/${slug}`} className="cat-card">
+                  {catImg && (
+                    <div className="cat-card-img-wrap">
+                      <img src={catImg} alt={cat.title} width={400} height={400} style={{ width: '100%', height: 'auto', display: 'block' }} loading="lazy" />
+                    </div>
+                  )}
                   <div className="cat-card-header">
                     <div className="cat-card-icon">{icon}</div>
                     <div className="cat-card-meta">
@@ -170,12 +199,31 @@ export default async function ProductsPage() {
         </section>
       </div>
 
-      {/* ─── All Products Quick List ─── */}
+      {/* ─── All Products Grid with Images ─── */}
       <section className="all-products-section">
         <div className="container">
-          <div className="all-products-title">สินค้าทั้งหมด {products.length} รุ่น</div>
+          <div className="all-products-title">สินค้าทั้งหมด</div>
           <div className="all-products-sub">คลิกเพื่อดูรายละเอียดและสั่งซื้อ</div>
-          <ProductSearch products={products.map((p: any) => ({ _id: p._id, title: p.title, productCode: p.productCode, shortDescription: p.shortDescription, slug: p.slug }))} />
+          <div className="products-grid">
+            {Object.entries(categoryProductsMap).flatMap(([catSlug, catData]) =>
+              catData.products.map((p) => (
+                <a key={`${catSlug}-${p.slug}`} href={`/product/${p.slug}`} className="product-mini">
+                  <div className="product-mini-img">
+                    {p.image ? (
+                      <img src={p.image} alt={p.title} width={400} height={400} style={{ width: '100%', height: 'auto', display: 'block' }} loading="lazy" />
+                    ) : (
+                      <span style={{ fontSize: '0.95rem', fontWeight: 700, color: '#003366' }}>{p.code || 'NYX'}</span>
+                    )}
+                  </div>
+                  <div className="product-mini-body">
+                    <h4>{p.title}</h4>
+                    <div className="code">{p.code}</div>
+                    <p>{p.shortDescription}</p>
+                  </div>
+                </a>
+              ))
+            )}
+          </div>
         </div>
       </section>
 
