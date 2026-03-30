@@ -312,14 +312,14 @@ export default function ContactPage() {
                   <label htmlFor="product">สินค้าที่สนใจ</label>
                   <select id="product" name="product">
                     <option value="">-- เลือกหมวดหมู่ --</option>
-                    <option>สายคอนโทรล (Control Cable)</option>
+                    <option>สายคอนโทรล</option>
                     <option>สายชีลด์ (Shielded Cable)</option>
-                    <option>สายคู่บิดเกลียว RS485/RS422</option>
-                    <option>สายไฟฉนวนยาง/กันน้ำ (Rubber Cable)</option>
-                    <option>สายเครน / High-Flex Motion Cable</option>
-                    <option>Industrial Bus Cable (Profibus/Profinet)</option>
+                    <option>สายคู่บิดเกลียว RS485 / RS422</option>
+                    <option>สายไฟฉนวนทำจากยาง/กันน้ำ</option>
+                    <option>สายวายริ่งตู้ (VSF)</option>
+                    <option>สายเคเบิลสำหรับงานเคลื่อนที่</option>
+                    <option>สายฟิลด์บัส (Industrial Bus Cables)</option>
                     <option>สายทนความร้อน ทนสารเคมี</option>
-                    <option>สาย Wiring ตู้คอนโทรล</option>
                     <option>อื่นๆ</option>
                   </select>
                 </div>

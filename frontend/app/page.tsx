@@ -202,7 +202,7 @@ export default async function HomePage() {
     .hero-v2 h1 .blue { color: #93c5fd; }
     .hero-v2 h1 .yellow { color: #ffffff; }
     .hero-v2 .subtitle { font-size: 1.5rem; font-weight: 300; margin-bottom: 10px; color: #93c5fd; animation: fadeInUp 0.8s ease 0.1s both; }
-    .hero-v2 .tagline { font-size: 1.35rem; color: #fbb03b; line-height: 1.8; max-width: 560px; margin-bottom: 32px; animation: fadeInUp 0.8s ease 0.2s both; }
+    .hero-v2 .tagline { font-size: 1.15rem; color: #fbb03b; line-height: 1.8; margin-bottom: 32px; animation: fadeInUp 0.8s ease 0.2s both; }
     .hero-v2-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 48px; align-items: center; }
     .hero-v2-right { display: flex; flex-direction: column; gap: 14px; }
     .hero-trust-badge {
@@ -610,8 +610,8 @@ export default async function HomePage() {
               </h1>
               <div className="subtitle">สายไฟฟ้าสำหรับโรงงานอุตสาหกรรม</div>
               <p className="tagline">
-                <span style={{ fontSize: '1.5rem', display: 'block', marginBottom: '8px' }}><span style={{ color: 'rgba(255,255,255,0.85)' }}>ใช้เทคโนโลยีการผลิตขั้นสูง</span><span style={{ color: '#fbb03b' }}>จากยุโรป</span></span>
-                <span style={{ color: 'rgba(255,255,255,0.85)' }}>ทุกขั้นตอน มั่นใจในคุณภาพ สายไฟคุณภาพมาตรฐาน DIN VDE สต็อกพร้อมส่งทุกขนาด บริการจัดส่งทั่วประเทศ</span>
+                <span style={{ fontSize: '1.2rem', display: 'block', marginBottom: '8px' }}><span style={{ color: 'rgba(255,255,255,0.85)' }}>ใช้เทคโนโลยีการผลิตขั้นสูง</span><span style={{ color: '#fbb03b' }}>จากยุโรป</span><span style={{ color: 'rgba(255,255,255,0.85)' }}>ทุกขั้นตอน มั่นใจในคุณภาพ</span></span>
+                <span style={{ color: 'rgba(255,255,255,0.85)' }}>สายไฟคุณภาพมาตรฐาน DIN VDE สต็อกพร้อมส่งทุกขนาด บริการจัดส่งทั่วประเทศ</span>
               </p>
 
             </div>

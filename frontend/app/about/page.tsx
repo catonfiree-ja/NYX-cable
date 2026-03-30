@@ -96,28 +96,7 @@ const styles = `
   .info-box .stat-item .big { font-size: 2rem; font-weight: 800; color: #003366; line-height: 1; }
   .info-box .stat-item .txt { font-size: 0.7rem; color: #9ca3af; margin-top: 4px; }
 
-  /* ─── Team Grid (Primal-style) ─── */
-  .team-section { padding: 64px 0; background: #f8fafc; }
-  .team-grid {
-    display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px;
-  }
-  .team-card {
-    background: #fff; border-radius: 16px; overflow: hidden;
-    border: 1px solid #e5e7eb;
-    transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
-    text-align: center;
-  }
-  .team-card:hover { border-color: #0066cc; box-shadow: 0 8px 24px rgba(0,51,102,0.08); transform: translateY(-4px); }
-  .team-avatar {
-    width: 100%; aspect-ratio: 1; overflow: hidden;
-    background: linear-gradient(135deg, #003366, #0066cc);
-    display: flex; align-items: center; justify-content: center;
-    color: #fff; font-size: 2rem; font-weight: 800;
-  }
-  .team-avatar img { width: 100%; height: 100%; object-fit: cover; }
-  .team-info { padding: 14px 12px; }
-  .team-info h3 { font-size: 0.9rem; font-weight: 700; color: #1a1a2e; margin-bottom: 2px; }
-  .team-info p { font-size: 0.72rem; color: #6b7280; }
+
 
   /* ─── Atmosphere Gallery ─── */
   .atmosphere-section { padding: 0; }
@@ -171,8 +150,7 @@ const styles = `
     .info-boxes { grid-template-columns: 1fr; gap: 14px; }
     .info-box { padding: 20px 16px; }
     .section-title h2 { font-size: 1.3rem; }
-    .team-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
-    .team-info h4 { font-size: 0.82rem; }
+
     .atmosphere-grid { grid-template-columns: repeat(2, 1fr); gap: 0; }
     .about-cta { padding: 36px 0; }
     .about-cta h2 { font-size: 1.3rem; }
@@ -181,48 +159,12 @@ const styles = `
   @media (max-width: 480px) {
     .about-hero h1 { font-size: 1.3rem; }
     .hero-badge { font-size: 0.72rem; padding: 6px 12px; }
-    .team-grid { grid-template-columns: repeat(3, 1fr); gap: 8px; }
-    .team-info h3 { font-size: 0.75rem; }
-    .team-info p { font-size: 0.65rem; }
+
     .about-stat .num { font-size: 1.2rem; }
   }
 `
 
-const teamMembers = [
-  { name: 'คุณไพบูลย์', role: 'ผู้บริหาร', initial: 'พ' },
-  { name: 'คุณสมศักดิ์', role: 'ฝ่ายขาย', initial: 'ส' },
-  { name: 'คุณนิตยา', role: 'ฝ่ายบัญชี', initial: 'น' },
-  { name: 'คุณวิชัย', role: 'วิศวกรขาย', initial: 'ว' },
-  { name: 'คุณปรีชา', role: 'ฝ่ายคลังสินค้า', initial: 'ป' },
-  { name: 'คุณสุภาพร', role: 'ฝ่ายบริการลูกค้า', initial: 'ส' },
-  { name: 'คุณอนุชา', role: 'ฝ่ายจัดส่ง', initial: 'อ' },
-  { name: 'คุณรัตนา', role: 'ฝ่ายเอกสาร', initial: 'ร' },
-  { name: 'คุณธนกร', role: 'วิศวกรเทคนิค', initial: 'ธ' },
-  { name: 'คุณมณี', role: 'ฝ่ายธุรการ', initial: 'ม' },
-  { name: 'คุณประยุทธ์', role: 'ฝ่ายคลังสินค้า', initial: 'ป' },
-  { name: 'คุณจิราพร', role: 'ฝ่ายขาย', initial: 'จ' },
-  { name: 'คุณเกรียงไกร', role: 'ช่างเทคนิค', initial: 'ก' },
-  { name: 'คุณพิมพ์', role: 'ฝ่ายการตลาด', initial: 'พ' },
-  { name: 'คุณสุรชัย', role: 'ฝ่ายจัดส่ง', initial: 'ส' },
-  { name: 'คุณอรวรรณ', role: 'ฝ่ายบริการลูกค้า', initial: 'อ' },
-  { name: 'คุณชาญชัย', role: 'ช่างเทคนิค', initial: 'ช' },
-  { name: 'คุณวิไล', role: 'ฝ่ายจัดซื้อ', initial: 'ว' },
-  { name: 'คุณสมหมาย', role: 'ฝ่ายคลังสินค้า', initial: 'ส' },
-  { name: 'คุณนพดล', role: 'ฝ่ายจัดส่ง', initial: 'น' },
-]
 
-const avatarGradients = [
-  'linear-gradient(135deg, #003366, #0066cc)',
-  'linear-gradient(135deg, #059669, #34d399)',
-  'linear-gradient(135deg, #7c3aed, #a78bfa)',
-  'linear-gradient(135deg, #dc2626, #f87171)',
-  'linear-gradient(135deg, #d97706, #fbbf24)',
-  'linear-gradient(135deg, #0891b2, #22d3ee)',
-  'linear-gradient(135deg, #6366f1, #818cf8)',
-  'linear-gradient(135deg, #ea580c, #fb923c)',
-  'linear-gradient(135deg, #047857, #10b981)',
-  'linear-gradient(135deg, #1d4ed8, #60a5fa)',
-]
 
 export default async function AboutPage() {
   const aboutCms = await getAboutPage()
@@ -264,7 +206,30 @@ export default async function AboutPage() {
             <div className="about-stats" style={{ textAlign: 'center' }}>
               <div className="about-stat" style={{ width: '100%' }}>
                 <div className="label" style={{ fontSize: '1rem', marginBottom: 8 }}>เราขายสายไปแล้วกว่า</div>
-                <div className="num" style={{ fontSize: '2.5rem' }}>20,000,000 เมตร+</div>
+                <div className="num" style={{ fontSize: '2.5rem', color: '#fbb03b' }}>20,000,000 เมตร+</div>
+              </div>
+              <div style={{ display: 'flex', justifyContent: 'center', gap: 40, marginTop: 20, alignItems: 'flex-end', flexWrap: 'wrap' }}>
+                {/* IEC */}
+                <div style={{ textAlign: 'center', width: 110 }}>
+                  <div style={{ width: 72, height: 72, margin: '0 auto 8px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    <Image src="/images/certifications/iec-logo.png" alt="IEC มาตรฐานสากล" width={58} height={58} style={{ objectFit: 'contain' }} />
+                  </div>
+                  <span style={{ fontSize: '0.82rem', color: '#6b7280', fontWeight: 500, whiteSpace: 'nowrap' }}>มาตรฐานสากล</span>
+                </div>
+                {/* VDE */}
+                <div style={{ textAlign: 'center', width: 110 }}>
+                  <div style={{ width: 72, height: 72, margin: '0 auto 8px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    <Image src="/images/certifications/vde-logo.png" alt="VDE มาตรฐานเยอรมนี" width={72} height={72} style={{ objectFit: 'contain', background: '#fff', borderRadius: 8 }} />
+                  </div>
+                  <span style={{ fontSize: '0.82rem', color: '#6b7280', fontWeight: 500, whiteSpace: 'nowrap' }}>มาตรฐานเยอรมนี</span>
+                </div>
+                {/* TISI มอก. */}
+                <div style={{ textAlign: 'center', width: 110 }}>
+                  <div style={{ width: 72, height: 72, margin: '0 auto 8px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    <Image src="/images/certifications/tisi-logo.png" alt="มอก. มาตรฐาน มอก." width={64} height={64} style={{ objectFit: 'contain' }} />
+                  </div>
+                  <span style={{ fontSize: '0.82rem', color: '#6b7280', fontWeight: 500, whiteSpace: 'nowrap' }}>มาตรฐาน มอก.</span>
+                </div>
               </div>
             </div>
           </div>
@@ -345,24 +310,7 @@ export default async function AboutPage() {
         </div>
       </div>
 
-      {/* ─── Team Grid (no heading) ─── */}
-      <section className="team-section">
-        <div className="container">
-          <div className="team-grid">
-            {teamMembers.map((member, i) => (
-              <div key={i} className="team-card">
-                <div className="team-avatar" style={{ background: avatarGradients[i % avatarGradients.length] }}>
-                  {member.initial}
-                </div>
-                <div className="team-info">
-                  <h3>{member.name}</h3>
-                  <p>{member.role}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+
 
       {/* ─── บรรยากาศของเรา (Full-frame Gallery) ─── */}
       <section className="atmosphere-section">
