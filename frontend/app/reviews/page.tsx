@@ -1,16 +1,20 @@
 import type { Metadata } from 'next'
 import { BreadcrumbSchema } from '@/components/StructuredData'
-import { getReviews } from '@/lib/queries'
+import { getReviews, getSiteSettings } from '@/lib/queries'
 
-export const metadata: Metadata = {
-  title: 'รีวิวจากลูกค้า | NYX Cable',
-  description: 'ลูกค้ากว่า 50 องค์กรไว้วางใจสายไฟ NYX Cable คะแนนเฉลี่ย 5.0/5 ดาว จากผู้ใช้งานจริง',
-  openGraph: {
-    title: 'รีวิวจากลูกค้า | NYX Cable',
-    description: 'รีวิวจริงจากวิศวกรและช่างไฟฟ้าที่ใช้สายไฟ NYX Cable คะแนนเฉลี่ย 5.0/5 จากผู้ใช้งานจริง',
-    images: [{ url: '/images/gallery/profile.webp', width: 1200, height: 630, alt: 'NYX Cable รีวิวจากลูกค้า' }],
-  },
-  alternates: { canonical: 'https://www.nyxcable.com/reviews' },
+export async function generateMetadata(): Promise<Metadata> {
+  const settings = await getSiteSettings().catch(() => null)
+  const companyName = settings?.companyName || 'NYX Cable'
+  return {
+    title: `รีวิวจากลูกค้า | ${companyName}`,
+    description: `ลูกค้ากว่า 50 องค์กรไว้วางใจสายไฟ ${companyName} คะแนนเฉลี่ย 5.0/5 ดาว จากผู้ใช้งานจริง`,
+    openGraph: {
+      title: `รีวิวจากลูกค้า | ${companyName}`,
+      description: `รีวิวจริงจากวิศวกรและช่างไฟฟ้าที่ใช้สายไฟ ${companyName} คะแนนเฉลี่ย 5.0/5 จากผู้ใช้งานจริง`,
+      images: [{ url: '/images/gallery/profile.webp', width: 1200, height: 630, alt: `${companyName} รีวิวจากลูกค้า` }],
+    },
+    alternates: { canonical: 'https://www.nyxcable.com/reviews' },
+  }
 }
 
 const styles = `

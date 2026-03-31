@@ -3,10 +3,13 @@ import { getSiteSettings, getContactPage } from '@/lib/queries'
 import ContactClient from './ContactClient'
 import type { ContactInfo } from './ContactClient'
 
-export const metadata: Metadata = {
-  title: 'ติดต่อเรา | NYX Cable',
-  description: 'ติดต่อทีมงาน NYX Cable สอบถามราคาสายไฟอุตสาหกรรม สั่งซื้อ ขอใบเสนอราคา — โทร 02-111-5588 หรือ LINE @nyxcable',
-  alternates: { canonical: 'https://www.nyxcable.com/contact' },
+export async function generateMetadata(): Promise<Metadata> {
+  const cms = await getContactPage().catch(() => null)
+  return {
+    title: cms?.metaTitle || 'ติดต่อเรา | NYX Cable',
+    description: cms?.metaDescription || 'ติดต่อทีมงาน NYX Cable สอบถามราคาสายไฟอุตสาหกรรม สั่งซื้อ ขอใบเสนอราคา — โทร 02-111-5588 หรือ LINE @nyxcable',
+    alternates: { canonical: 'https://www.nyxcable.com/contact' },
+  }
 }
 
 export default async function ContactPage() {
