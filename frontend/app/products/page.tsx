@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { getProducts, getCategories } from '@/lib/queries'
+import { getProducts, getCategories, getSiteSettings } from '@/lib/queries'
 import { urlFor } from '@/lib/sanity'
 import Link from 'next/link'
 import ProductSearch from '@/components/ProductSearch'
@@ -88,13 +88,19 @@ const cmsSlugRemap: Record<string, string> = {
   'rubber-cable': 'water-resistant-cable',
 }
 
-export const metadata: Metadata = {
-  title: 'ผลิตภัณฑ์สายไฟอุตสาหกรรม | แบ่งตามหมวดหมู่',
-  description: 'สายไฟอุตสาหกรรมคุณภาพสูง มาตรฐานยุโรป — สายคอนโทรล สาย VFD สายทนความร้อน สายชีลด์ สายเครน แบ่งตามหมวดหมู่ เลือกง่าย',
-  alternates: { canonical: 'https://www.nyxcable.com/products' },
+export async function generateMetadata(): Promise<Metadata> {
+  const s = await getSiteSettings().catch(() => null)
+  return {
+    title: s?.seoTitle || 'ผลิตภัณฑ์สายไฟอุตสาหกรรม | แบ่งตามหมวดหมู่',
+    description: s?.seoDescription || 'สายไฟอุตสาหกรรมคุณภาพสูง มาตรฐานยุโรป — สายคอนโทรล สาย VFD สายทนความร้อน สายชีลด์ สายเครน แบ่งตามหมวดหมู่ เลือกง่าย',
+    alternates: { canonical: 'https://www.nyxcable.com/products' },
+  }
 }
 
 export default async function ProductsPage() {
+  const settings = await getSiteSettings().catch(() => null)
+  const sitePhone = settings?.phone || '02-111-5588'
+  const siteLineOA = settings?.lineOA || '@nyxcable'
   let products: any[] = []
   let categories: any[] = []
 
@@ -272,10 +278,10 @@ export default async function ProductsPage() {
       {/* ─── FAQ Section ─── */}
       <FAQSchema faqs={[
         { question: 'สายคอนโทรล YSLY-JZ กับ YSLY-JB ต่างกันอย่างไร?', answer: 'YSLY-JZ เหมาะสำหรับเดินสายในตู้คอนโทรลและภายในอาคาร ส่วน YSLY-JB มีเปลือกนอกหนากว่า ฝังดินได้ ทนความชื้นและแรงกดทับ' },
-        { question: 'เลือกขนาดสายไฟอย่างไรให้เหมาะกับงาน?', answer: 'ต้องพิจารณากระแสไฟที่ใช้ ระยะทาง และจำนวนแกนที่ต้องการ สอบถามทีมวิศวกร NYX Cable ฟรี โทร 02-111-5588' },
+        { question: 'เลือกขนาดสายไฟอย่างไรให้เหมาะกับงาน?', answer: `ต้องพิจารณากระแสไฟที่ใช้ ระยะทาง และจำนวนแกนที่ต้องการ สอบถามทีมวิศวกร NYX Cable ฟรี โทร ${sitePhone}` },
         { question: 'สายไฟ NYX Cable มาตรฐานอะไร?', answer: 'ผลิตตามมาตรฐาน DIN VDE ยุโรป (DIN VDE 0281, 0282) ผ่าน IEC 60502, IEC 60332, CE Marking และ RoHS' },
         { question: 'มีสต็อกพร้อมส่งหรือต้องรอนานแค่ไหน?', answer: 'สต็อกพร้อมส่งกว่า 150 ขนาดจากโกดังบางนา จัดส่งภายใน 1-2 วันทำการทั่วประเทศ' },
-        { question: 'ราคาสายไฟ NYX Cable เท่าไหร่?', answer: 'ราคาขึ้นอยู่กับรุ่น ขนาด และจำนวน สอบถามราคาตรงได้ที่ 02-111-5588 หรือ LINE @nyxcable ราคาขายส่งโรงงาน ไม่ผ่านคนกลาง' },
+        { question: 'ราคาสายไฟ NYX Cable เท่าไหร่?', answer: `ราคาขึ้นอยู่กับรุ่น ขนาด และจำนวน สอบถามราคาตรงได้ที่ ${sitePhone} หรือ LINE ${siteLineOA} ราคาขายส่งโรงงาน ไม่ผ่านคนกลาง` },
       ]} />
       <section style={{ background: '#f8fafc', padding: '48px 0' }}>
         <div className="container">
@@ -283,10 +289,10 @@ export default async function ProductsPage() {
           <div style={{ maxWidth: 800, margin: '0 auto', display: 'flex', flexDirection: 'column', gap: 16 }}>
             {[
               { q: 'สายคอนโทรล YSLY-JZ กับ YSLY-JB ต่างกันอย่างไร?', a: 'YSLY-JZ เหมาะสำหรับเดินสายในตู้คอนโทรลและภายในอาคาร ส่วน YSLY-JB มีเปลือกนอกหนากว่า ฝังดินได้ ทนความชื้นและแรงกดทับ' },
-              { q: 'เลือกขนาดสายไฟอย่างไรให้เหมาะกับงาน?', a: 'ต้องพิจารณากระแสไฟที่ใช้ ระยะทาง และจำนวนแกนที่ต้องการ สอบถามทีมวิศวกร NYX Cable ฟรี โทร 02-111-5588' },
+              { q: 'เลือกขนาดสายไฟอย่างไรให้เหมาะกับงาน?', a: `ต้องพิจารณากระแสไฟที่ใช้ ระยะทาง และจำนวนแกนที่ต้องการ สอบถามทีมวิศวกร NYX Cable ฟรี โทร ${sitePhone}` },
               { q: 'สายไฟ NYX Cable มาตรฐานอะไร?', a: 'ผลิตตามมาตรฐาน DIN VDE ยุโรป (DIN VDE 0281, 0282) ผ่าน IEC 60502, IEC 60332, CE Marking และ RoHS' },
               { q: 'มีสต็อกพร้อมส่งหรือต้องรอนานแค่ไหน?', a: 'สต็อกพร้อมส่งกว่า 150 ขนาดจากโกดังบางนา จัดส่งภายใน 1-2 วันทำการทั่วประเทศ' },
-              { q: 'ราคาสายไฟ NYX Cable เท่าไหร่?', a: 'ราคาขึ้นอยู่กับรุ่น ขนาด และจำนวน สอบถามราคาตรงได้ที่ 02-111-5588 หรือ LINE @nyxcable ราคาขายส่งโรงงาน ไม่ผ่านคนกลาง' },
+              { q: 'ราคาสายไฟ NYX Cable เท่าไหร่?', a: `ราคาขึ้นอยู่กับรุ่น ขนาด และจำนวน สอบถามราคาตรงได้ที่ ${sitePhone} หรือ LINE ${siteLineOA} ราคาขายส่งโรงงาน ไม่ผ่านคนกลาง` },
             ].map((item, i) => (
               <details key={i} style={{ background: '#fff', borderRadius: 12, border: '1px solid #e2e8f0', overflow: 'hidden' }}>
                 <summary style={{ padding: '16px 20px', fontWeight: 600, fontSize: '0.95rem', color: 'var(--color-primary)', cursor: 'pointer' }}>{item.q}</summary>

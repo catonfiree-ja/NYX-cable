@@ -92,7 +92,7 @@ export default async function RootLayout({
     <html lang="th" className={prompt.variable}>
       <body className={prompt.className}>
         <a href="#main-content" className="skip-nav">ข้ามไปเนื้อหาหลัก</a>
-        <OrganizationSchema />
+        <OrganizationSchema phone={`+66-${phoneRaw}`} email={email} lineUrl={lineUrl} fbUrl={fbUrl} />
         <GoogleAnalytics />
         {/* Corner Ribbon — PRODUCTS */}
         <Link href="/products" className="corner-ribbon">PRODUCTS</Link>

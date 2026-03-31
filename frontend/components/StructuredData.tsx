@@ -1,4 +1,6 @@
-export function OrganizationSchema() {
+export function OrganizationSchema({ phone, email, lineUrl, fbUrl }: { phone?: string; email?: string; lineUrl?: string; fbUrl?: string } = {}) {
+  const tel = phone || '+66-2-111-5588'
+  const mail = email || 'sales@nyxcable.com'
   const schema = {
     '@context': 'https://schema.org',
     '@type': ['Organization', 'Store'],
@@ -7,12 +9,12 @@ export function OrganizationSchema() {
     url: 'https://www.nyxcable.com',
     logo: 'https://www.nyxcable.com/images/NYXcable-Logo.png',
     description: 'ผู้นำด้านสายไฟอุตสาหกรรมคุณภาพสูง มาตรฐานยุโรป สายคอนโทรล สาย VFD สายทนความร้อน สายชีลด์ ส่งตรงจากโรงงาน',
-    telephone: '+66-2-111-5588',
-    email: 'sales@nyxcable.com',
+    telephone: tel,
+    email: mail,
     contactPoint: [
       {
         '@type': 'ContactPoint',
-        telephone: '+66-2-111-5588',
+        telephone: tel,
         contactType: 'sales',
         areaServed: 'TH',
         availableLanguage: ['Thai', 'English'],
@@ -33,8 +35,8 @@ export function OrganizationSchema() {
       closes: '17:30',
     },
     sameAs: [
-      'https://page.line.me/ubb9405u',
-      'https://www.facebook.com/NYXCable',
+      lineUrl || 'https://page.line.me/ubb9405u',
+      fbUrl || 'https://www.facebook.com/NYXCable',
       'https://www.youtube.com/@time7222',
     ],
     knowsAbout: [
@@ -57,14 +59,15 @@ export function OrganizationSchema() {
   )
 }
 
-export function LocalBusinessSchema() {
+export function LocalBusinessSchema({ phone }: { phone?: string } = {}) {
+  const tel = phone || '+66-2-111-5588'
   const schema = {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
     name: 'NYX Cable',
     image: 'https://www.nyxcable.com/images/gallery/profile.webp',
     url: 'https://www.nyxcable.com',
-    telephone: '+66-2-111-5588',
+    telephone: tel,
     address: {
       '@type': 'PostalAddress',
       streetAddress: '2098 หมู่ 1 ต.สำโรงเหนือ (ซ.สุขุมวิท 72)',

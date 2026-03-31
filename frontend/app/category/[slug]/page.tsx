@@ -1,4 +1,4 @@
-import { getCategory, getCategories, getProducts } from '@/lib/queries'
+import { getCategory, getCategories, getProducts, getSiteSettings } from '@/lib/queries'
 import { urlFor } from '@/lib/sanity'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -118,6 +118,11 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
 
   // Build CMS product lookup by slug for enrichment (ALL products, not just this category)
   const allCmsProducts = await getProducts().catch(() => [])
+  const settings = await getSiteSettings().catch(() => null)
+  const sitePhone = settings?.phone || '02-111-5588'
+  const sitePhoneRaw = sitePhone.replace(/[^0-9]/g, '')
+  const siteLineOA = settings?.lineOA || '@nyxcable'
+  const siteLineUrl = settings?.lineUrl || 'https://page.line.me/ubb9405u'
   const cmsProductMap: Record<string, any> = {}
   for (const p of allCmsProducts) {
     const s = p.slug?.current
@@ -370,7 +375,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
 
             <h3 style={{ fontSize: '1.2rem', fontWeight: 700, color: '#003366', margin: '28px 0 12px' }}>NYX CABLE จำหน่ายสายคอนโทรลงานอุตสาหกรรม ราคาปลีก-ส่ง พร้อมส่งด่วนใน 3 ชม. จากโกดังบางนา</h3>
             <p>สายไฟคอนโทรล (Control Cable) จาก NYX CABLE คือสายไฟอุตสาหกรรมคุณภาพสูงที่ออกแบบมาเพื่อตอบโจทย์งานควบคุมทุกประเภท ที่นี่เราจำหน่ายสายไฟคอนโทรล VSF (THW-F) ที่ใช้สำหรับเดินตู้คอนโทรลโดยเฉพาะ อีกทั้งยังจำหน่ายสายรุ่นยอดนิยมอย่าง YSLY-JZ / YSLY-OZ โดยทุกสายผ่านการผลิตตามมาตรฐานสากล จึงมั่นใจได้ในความปลอดภัย ความทนทาน และอายุการใช้งานที่ยาวนาน เหมาะสำหรับงานระบบเครื่องจักรอัตโนมัติ ตู้ควบคุมไฟฟ้า และโครงสร้างระบบไฟฟ้าในโรงงานอุตสาหกรรมโดยเฉพาะ</p>
-            <p>NYX CABLE มีสต๊อกพร้อมส่ง ตั้งแต่ขนาด 0.5 mm² – 240 mm² พร้อมบริการให้คำปรึกษาโดยผู้เชี่ยวชาญด้านสายไฟฟ้า ช่วยให้คุณเลือกสเปกสายได้ตรงตามการใช้งานจริง ทั้งรุ่นและขนาด ทำให้ไม่ต้องเผื่อขนาดสายไฟให้ใหญ่เกินความจำเป็น ช่วยให้ลดต้นทุน และมีโอกาสปิดงานได้เพิ่มขึ้น ปลอดภัย และคุ้มค่าในระยะยาว สนใจสั่งซื้อสอบถามข้อมูลเพิ่มเติมได้ที่โทร <a href="tel:+6621115588" style={{ color: '#0066cc', fontWeight: 600 }}>02-111-5588</a> หรือ LINE OA : <a href="https://page.line.me/ubb9405u?openQrModal=true" target="_blank" rel="noopener noreferrer" style={{ color: '#06c755', fontWeight: 600 }}>@nyxcable</a></p>
+            <p>NYX CABLE มีสต๊อกพร้อมส่ง ตั้งแต่ขนาด 0.5 mm² – 240 mm² พร้อมบริการให้คำปรึกษาโดยผู้เชี่ยวชาญด้านสายไฟฟ้า ช่วยให้คุณเลือกสเปกสายได้ตรงตามการใช้งานจริง ทั้งรุ่นและขนาด ทำให้ไม่ต้องเผื่อขนาดสายไฟให้ใหญ่เกินความจำเป็น ช่วยให้ลดต้นทุน และมีโอกาสปิดงานได้เพิ่มขึ้น ปลอดภัย และคุ้มค่าในระยะยาว สนใจสั่งซื้อสอบถามข้อมูลเพิ่มเติมได้ที่โทร <a href={`tel:+66${sitePhoneRaw}`} style={{ color: '#0066cc', fontWeight: 600 }}>{sitePhone}</a> หรือ LINE OA : <a href={`${siteLineUrl}?openQrModal=true`} target="_blank" rel="noopener noreferrer" style={{ color: '#06c755', fontWeight: 600 }}>{siteLineOA}</a></p>
 
             <h3 style={{ fontSize: '1.2rem', fontWeight: 700, color: '#003366', margin: '28px 0 12px' }}>FAQs คำถามที่พบบ่อยเกี่ยวกับสายคอนโทรล</h3>
             <div style={{ display: 'grid', gap: 12, marginBottom: 16 }}>
@@ -400,114 +405,121 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
               </details>
               <details style={{ background: '#fff', padding: '14px 18px', borderRadius: 8, border: '1px solid #e2e8f0', cursor: 'pointer' }}>
                 <summary style={{ fontWeight: 600, color: '#003366' }}>Q: สั่งซื้อสายคอนโทรลจาก NYX CABLE ได้อย่างไร ?</summary>
-                <p style={{ margin: '8px 0 0', fontSize: '0.9rem' }}>สามารถสั่งซื้อได้โดยโทร 02-111-5588 หรือติดต่อผ่าน LINE OA : @nyxcable ทีมผู้เชี่ยวชาญพร้อมให้คำปรึกษาและช่วยเลือกสเปคสายให้ตรงกับงาน มีสต๊อกพร้อมส่งด่วนใน 3 ชม. จากโกดังบางนา</p>
+                <p style={{ margin: '8px 0 0', fontSize: '0.9rem' }}>สามารถสั่งซื้อได้โดยโทร {sitePhone} หรือติดต่อผ่าน LINE OA : {siteLineOA} ทีมผู้เชี่ยวชาญพร้อมให้คำปรึกษาและช่วยเลือกสเปคสายให้ตรงกับงาน มีสต๊อกพร้อมส่งด่วนใน 3 ชม. จากโกดังบางนา</p>
               </details>
             </div>
           </div>
-        </section>
-      )}
+        </section >
+      )
+      }
 
-      {slug === 'shielded-cable' && (
-        <section style={{ padding: '48px 0', background: '#f8fafc' }}>
-          <div className="container" style={{ maxWidth: 800, lineHeight: 1.8, color: '#334155' }}>
-            <h2 style={{ fontSize: '1.6rem', fontWeight: 700, color: '#003366', marginBottom: 16 }}>สายชีลด์ (Shielded Cable) คืออะไร? ครบทุกเรื่องที่ต้องรู้</h2>
-            <p>สายชีลด์คือสายไฟที่มีตัวป้องกันสัญญาณรบกวนแม่เหล็กไฟฟ้า (EMI) และคลื่นวิทยุ (RFI) ครอบรอบตัวนำ ทำให้สัญญาณที่ส่งผ่านมีความถูกต้อง ไม่ถูกบิดเบือนจากสภาพแวดล้อมภายนอก จำเป็นอย่างยิ่งเมื่อเดินสายใกล้กับสาย Power, มอเตอร์ขนาดใหญ่ หรือ Inverter (VSD/VFD)</p>
+      {
+        slug === 'shielded-cable' && (
+          <section style={{ padding: '48px 0', background: '#f8fafc' }}>
+            <div className="container" style={{ maxWidth: 800, lineHeight: 1.8, color: '#334155' }}>
+              <h2 style={{ fontSize: '1.6rem', fontWeight: 700, color: '#003366', marginBottom: 16 }}>สายชีลด์ (Shielded Cable) คืออะไร? ครบทุกเรื่องที่ต้องรู้</h2>
+              <p>สายชีลด์คือสายไฟที่มีตัวป้องกันสัญญาณรบกวนแม่เหล็กไฟฟ้า (EMI) และคลื่นวิทยุ (RFI) ครอบรอบตัวนำ ทำให้สัญญาณที่ส่งผ่านมีความถูกต้อง ไม่ถูกบิดเบือนจากสภาพแวดล้อมภายนอก จำเป็นอย่างยิ่งเมื่อเดินสายใกล้กับสาย Power, มอเตอร์ขนาดใหญ่ หรือ Inverter (VSD/VFD)</p>
 
-            <h3 style={{ fontSize: '1.2rem', fontWeight: 700, color: '#003366', margin: '28px 0 12px' }}>เปรียบเทียบประเภทชีลด์</h3>
-            <table style={{ width: '100%', borderCollapse: 'collapse', marginBottom: 20, fontSize: '0.9rem' }}>
-              <thead><tr style={{ background: '#003366', color: '#fff' }}><th style={{ padding: '10px 14px', textAlign: 'left' }}>ประเภท</th><th style={{ padding: '10px 14px', textAlign: 'left' }}>ป้องกัน</th><th style={{ padding: '10px 14px', textAlign: 'left' }}>จุดเด่น</th><th style={{ padding: '10px 14px', textAlign: 'left' }}>รุ่นแนะนำ</th></tr></thead>
-              <tbody>
-                <tr style={{ borderBottom: '1px solid #e2e8f0' }}><td style={{ padding: '10px 14px' }}><strong>Tinned Copper Braid</strong></td><td style={{ padding: '10px 14px' }}>ความถี่ต่ำ ✓</td><td style={{ padding: '10px 14px' }}>ทนแรงกระแทก ความครอบคลุมสูง</td><td style={{ padding: '10px 14px' }}><Link href="/product/liycy" style={{ color: '#0066cc' }}>LiYCY</Link></td></tr>
-                <tr style={{ borderBottom: '1px solid #e2e8f0', background: '#f1f5f9' }}><td style={{ padding: '10px 14px' }}><strong>Aluminum Foil</strong></td><td style={{ padding: '10px 14px' }}>ความถี่สูง ✓</td><td style={{ padding: '10px 14px' }}>น้ำหนักเบา มี Drain Wire</td><td style={{ padding: '10px 14px' }}>LiYCY(TP)</td></tr>
-                <tr style={{ borderBottom: '1px solid #e2e8f0' }}><td style={{ padding: '10px 14px' }}><strong>Double Shield (Foil+Braid)</strong></td><td style={{ padding: '10px 14px' }}>ทุกย่านความถี่ ✓✓</td><td style={{ padding: '10px 14px' }}>ป้องกันสูงสุดสำหรับงานวิกฤต</td><td style={{ padding: '10px 14px' }}><Link href="/product/double-shielded-cable" style={{ color: '#0066cc' }}>Double Shield</Link></td></tr>
-              </tbody>
-            </table>
+              <h3 style={{ fontSize: '1.2rem', fontWeight: 700, color: '#003366', margin: '28px 0 12px' }}>เปรียบเทียบประเภทชีลด์</h3>
+              <table style={{ width: '100%', borderCollapse: 'collapse', marginBottom: 20, fontSize: '0.9rem' }}>
+                <thead><tr style={{ background: '#003366', color: '#fff' }}><th style={{ padding: '10px 14px', textAlign: 'left' }}>ประเภท</th><th style={{ padding: '10px 14px', textAlign: 'left' }}>ป้องกัน</th><th style={{ padding: '10px 14px', textAlign: 'left' }}>จุดเด่น</th><th style={{ padding: '10px 14px', textAlign: 'left' }}>รุ่นแนะนำ</th></tr></thead>
+                <tbody>
+                  <tr style={{ borderBottom: '1px solid #e2e8f0' }}><td style={{ padding: '10px 14px' }}><strong>Tinned Copper Braid</strong></td><td style={{ padding: '10px 14px' }}>ความถี่ต่ำ ✓</td><td style={{ padding: '10px 14px' }}>ทนแรงกระแทก ความครอบคลุมสูง</td><td style={{ padding: '10px 14px' }}><Link href="/product/liycy" style={{ color: '#0066cc' }}>LiYCY</Link></td></tr>
+                  <tr style={{ borderBottom: '1px solid #e2e8f0', background: '#f1f5f9' }}><td style={{ padding: '10px 14px' }}><strong>Aluminum Foil</strong></td><td style={{ padding: '10px 14px' }}>ความถี่สูง ✓</td><td style={{ padding: '10px 14px' }}>น้ำหนักเบา มี Drain Wire</td><td style={{ padding: '10px 14px' }}>LiYCY(TP)</td></tr>
+                  <tr style={{ borderBottom: '1px solid #e2e8f0' }}><td style={{ padding: '10px 14px' }}><strong>Double Shield (Foil+Braid)</strong></td><td style={{ padding: '10px 14px' }}>ทุกย่านความถี่ ✓✓</td><td style={{ padding: '10px 14px' }}>ป้องกันสูงสุดสำหรับงานวิกฤต</td><td style={{ padding: '10px 14px' }}><Link href="/product/double-shielded-cable" style={{ color: '#0066cc' }}>Double Shield</Link></td></tr>
+                </tbody>
+              </table>
 
-            <h3 style={{ fontSize: '1.2rem', fontWeight: 700, color: '#003366', margin: '28px 0 12px' }}>การต่อกราวนด์ชีลด์ที่ถูกวิธี</h3>
-            <div style={{ display: 'grid', gap: 12, marginBottom: 24 }}>
-              <div style={{ background: '#fff', padding: '14px 18px', borderRadius: 8, borderLeft: '4px solid #0066cc' }}>
-                <strong>ต่อปลายเดียว (One-end Grounding)</strong>
-                <p style={{ margin: '4px 0 0', fontSize: '0.88rem' }}>ป้องกัน Ground Loop — เหมาะกับสัญญาณ Analog 4-20mA, Thermocouple, RTD</p>
+              <h3 style={{ fontSize: '1.2rem', fontWeight: 700, color: '#003366', margin: '28px 0 12px' }}>การต่อกราวนด์ชีลด์ที่ถูกวิธี</h3>
+              <div style={{ display: 'grid', gap: 12, marginBottom: 24 }}>
+                <div style={{ background: '#fff', padding: '14px 18px', borderRadius: 8, borderLeft: '4px solid #0066cc' }}>
+                  <strong>ต่อปลายเดียว (One-end Grounding)</strong>
+                  <p style={{ margin: '4px 0 0', fontSize: '0.88rem' }}>ป้องกัน Ground Loop — เหมาะกับสัญญาณ Analog 4-20mA, Thermocouple, RTD</p>
+                </div>
+                <div style={{ background: '#fff', padding: '14px 18px', borderRadius: 8, borderLeft: '4px solid #0066cc' }}>
+                  <strong>ต่อทั้งสองปลาย (Both-ends Grounding)</strong>
+                  <p style={{ margin: '4px 0 0', fontSize: '0.88rem' }}>เหมาะกับสาย Data ความเร็วสูง เช่น RS485, Ethernet, Industrial Bus</p>
+                </div>
               </div>
-              <div style={{ background: '#fff', padding: '14px 18px', borderRadius: 8, borderLeft: '4px solid #0066cc' }}>
-                <strong>ต่อทั้งสองปลาย (Both-ends Grounding)</strong>
-                <p style={{ margin: '4px 0 0', fontSize: '0.88rem' }}>เหมาะกับสาย Data ความเร็วสูง เช่น RS485, Ethernet, Industrial Bus</p>
+
+              <h3 style={{ fontSize: '1.2rem', fontWeight: 700, color: '#003366', margin: '28px 0 12px' }}>การใช้งานในอุตสาหกรรม</h3>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 12, marginBottom: 24 }}>
+                <div style={{ background: '#fff', padding: '12px 16px', borderRadius: 8, border: '1px solid #e2e8f0', fontSize: '0.9rem' }}>ระบบ PLC — ป้องกัน EMI จาก VFD</div>
+                <div style={{ background: '#fff', padding: '12px 16px', borderRadius: 8, border: '1px solid #e2e8f0', fontSize: '0.9rem' }}>เครือข่ายเซ็นเซอร์ — สัญญาณ 4-20mA</div>
+                <div style={{ background: '#fff', padding: '12px 16px', borderRadius: 8, border: '1px solid #e2e8f0', fontSize: '0.9rem' }}>ระบบ Servo Drive — ป้องกัน Noise</div>
+                <div style={{ background: '#fff', padding: '12px 16px', borderRadius: 8, border: '1px solid #e2e8f0', fontSize: '0.9rem' }}>อุปกรณ์วัดคุม — ต้องการความแม่นยำสูง</div>
+              </div>
+
+              <h3 style={{ fontSize: '1.2rem', fontWeight: 700, color: '#003366', margin: '28px 0 12px' }}>คำถามที่พบบ่อยเกี่ยวกับสายชีลด์ (FAQ)</h3>
+              <div style={{ display: 'grid', gap: 12, marginBottom: 16 }}>
+                <details style={{ background: '#fff', padding: '14px 18px', borderRadius: 8, border: '1px solid #e2e8f0', cursor: 'pointer' }}>
+                  <summary style={{ fontWeight: 600, color: '#003366' }}>Q: เมื่อไหร่ต้องใช้สายชีลด์?</summary>
+                  <p style={{ margin: '8px 0 0', fontSize: '0.9rem' }}>เมื่อเดินสายใกล้ Inverter/VFD, มอเตอร์ขนาดใหญ่ หรือเดินในรางเดียวกับสาย Power ต้องใช้สายชีลด์ (LiYCY, CVV-S) เพื่อป้องกัน EMI ไม่ให้บิดเบือนสัญญาณควบคุม</p>
+                </details>
+                <details style={{ background: '#fff', padding: '14px 18px', borderRadius: 8, border: '1px solid #e2e8f0', cursor: 'pointer' }}>
+                  <summary style={{ fontWeight: 600, color: '#003366' }}>Q: Braid Shield กับ Foil Shield ต่างกันอย่างไร?</summary>
+                  <p style={{ margin: '8px 0 0', fontSize: '0.9rem' }}>Braid Shield (ถักทองแดง) ป้องกันความถี่ต่ำได้ดีกว่า ทนทาน เหมาะกับงานอุตสาหกรรม ส่วน Foil Shield (ฟอยล์อลูมิเนียม) ป้องกันความถี่สูงได้ดีกว่า น้ำหนักเบา ราคาถูกกว่า</p>
+                </details>
+                <details style={{ background: '#fff', padding: '14px 18px', borderRadius: 8, border: '1px solid #e2e8f0', cursor: 'pointer' }}>
+                  <summary style={{ fontWeight: 600, color: '#003366' }}>Q: ชีลด์ต้องต่อกราวนด์ไหม?</summary>
+                  <p style={{ margin: '8px 0 0', fontSize: '0.9rem' }}>ต้อง! ชีลด์ที่ไม่ได้ต่อกราวนด์จะไม่ทำหน้าที่ป้องกัน แนะนำต่อปลายเดียว (One-end) สำหรับงาน Analog เพื่อป้องกัน Ground Loop หรือต่อสองปลาย (Both-ends) สำหรับสาย Data ความเร็วสูง</p>
+                </details>
+                <details style={{ background: '#fff', padding: '14px 18px', borderRadius: 8, border: '1px solid #e2e8f0', cursor: 'pointer' }}>
+                  <summary style={{ fontWeight: 600, color: '#003366' }}>Q: สายชีลด์สามัญมีรุ่นไหนบ้าง?</summary>
+                  <p style={{ margin: '8px 0 0', fontSize: '0.9rem' }}>รุ่นยอดนิยม ได้แก่ <Link href="/product/liycy" style={{ color: '#0066cc' }}>LiYCY</Link> (มาตรฐานยุโรป), <Link href="/product/olflex-classic-115-cy" style={{ color: '#0066cc' }}>Olflex Classic 115 CY</Link>, CVV-S (มาตรฐาน JIS), และ <Link href="/product/double-shielded-cable" style={{ color: '#0066cc' }}>Double Shielded Cable</Link> สำหรับงานที่ต้องการป้องกันสูงสุด</p>
+                </details>
               </div>
             </div>
+          </section>
+        )
+      }
 
-            <h3 style={{ fontSize: '1.2rem', fontWeight: 700, color: '#003366', margin: '28px 0 12px' }}>การใช้งานในอุตสาหกรรม</h3>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 12, marginBottom: 24 }}>
-              <div style={{ background: '#fff', padding: '12px 16px', borderRadius: 8, border: '1px solid #e2e8f0', fontSize: '0.9rem' }}>ระบบ PLC — ป้องกัน EMI จาก VFD</div>
-              <div style={{ background: '#fff', padding: '12px 16px', borderRadius: 8, border: '1px solid #e2e8f0', fontSize: '0.9rem' }}>เครือข่ายเซ็นเซอร์ — สัญญาณ 4-20mA</div>
-              <div style={{ background: '#fff', padding: '12px 16px', borderRadius: 8, border: '1px solid #e2e8f0', fontSize: '0.9rem' }}>ระบบ Servo Drive — ป้องกัน Noise</div>
-              <div style={{ background: '#fff', padding: '12px 16px', borderRadius: 8, border: '1px solid #e2e8f0', fontSize: '0.9rem' }}>อุปกรณ์วัดคุม — ต้องการความแม่นยำสูง</div>
+      {
+        slug === 'instrument-cable' && (
+          <section style={{ padding: '48px 0', background: '#f8fafc' }}>
+            <div className="container" style={{ maxWidth: 800, lineHeight: 1.8, color: '#334155' }}>
+              <h2 style={{ fontSize: '1.6rem', fontWeight: 700, color: '#003366', marginBottom: 16 }}>สาย Instrument / Twisted Pair Cable คืออะไร?</h2>
+              <p>สายอินสตรูเมนท์เป็นสายสัญญาณที่ใช้หลักการ Differential Signaling ตัวนำทบกันเป็นคู่ (Twisted Pair) เพื่อลด Crosstalk และสัญญาณรบกวนแม่เหล็ก เหมาะสำหรับระบบ RS485, RS422 และอุปกรณ์ตรวจวัดในโรงงาน</p>
+
+              <h3 style={{ fontSize: '1.2rem', fontWeight: 700, color: '#003366', margin: '28px 0 12px' }}>ประเภทสาย Twisted Pair</h3>
+              <ul style={{ paddingLeft: 20, marginBottom: 16 }}>
+                <li><strong>UTP (Unshielded Twisted Pair)</strong> — สาย LAN ทั่วไป</li>
+                <li><strong>FTP / STP (Shielded)</strong> — มีฟอยล์หรือถักชีลด์ป้องกันสัญญาณรบกวน เหมาะกับงานอุตสาหกรรม</li>
+              </ul>
+
+              <h3 style={{ fontSize: '1.2rem', fontWeight: 700, color: '#003366', margin: '28px 0 12px' }}>การใช้งาน</h3>
+              <ul style={{ paddingLeft: 20, marginBottom: 16 }}>
+                <li><strong>โรงงานอุตสาหกรรม:</strong> เชื่อมต่อ PLC, Industrial Bus (RS485/RS422), Solar Farm Monitoring</li>
+                <li><strong>อาคาร/สำนักงาน:</strong> ระบบ LAN, VoIP, ระบบรักษาความปลอดภัย</li>
+                <li><strong>Data Center:</strong> Backbone เครือข่ายความเร็วสูง</li>
+              </ul>
             </div>
-
-            <h3 style={{ fontSize: '1.2rem', fontWeight: 700, color: '#003366', margin: '28px 0 12px' }}>คำถามที่พบบ่อยเกี่ยวกับสายชีลด์ (FAQ)</h3>
-            <div style={{ display: 'grid', gap: 12, marginBottom: 16 }}>
-              <details style={{ background: '#fff', padding: '14px 18px', borderRadius: 8, border: '1px solid #e2e8f0', cursor: 'pointer' }}>
-                <summary style={{ fontWeight: 600, color: '#003366' }}>Q: เมื่อไหร่ต้องใช้สายชีลด์?</summary>
-                <p style={{ margin: '8px 0 0', fontSize: '0.9rem' }}>เมื่อเดินสายใกล้ Inverter/VFD, มอเตอร์ขนาดใหญ่ หรือเดินในรางเดียวกับสาย Power ต้องใช้สายชีลด์ (LiYCY, CVV-S) เพื่อป้องกัน EMI ไม่ให้บิดเบือนสัญญาณควบคุม</p>
-              </details>
-              <details style={{ background: '#fff', padding: '14px 18px', borderRadius: 8, border: '1px solid #e2e8f0', cursor: 'pointer' }}>
-                <summary style={{ fontWeight: 600, color: '#003366' }}>Q: Braid Shield กับ Foil Shield ต่างกันอย่างไร?</summary>
-                <p style={{ margin: '8px 0 0', fontSize: '0.9rem' }}>Braid Shield (ถักทองแดง) ป้องกันความถี่ต่ำได้ดีกว่า ทนทาน เหมาะกับงานอุตสาหกรรม ส่วน Foil Shield (ฟอยล์อลูมิเนียม) ป้องกันความถี่สูงได้ดีกว่า น้ำหนักเบา ราคาถูกกว่า</p>
-              </details>
-              <details style={{ background: '#fff', padding: '14px 18px', borderRadius: 8, border: '1px solid #e2e8f0', cursor: 'pointer' }}>
-                <summary style={{ fontWeight: 600, color: '#003366' }}>Q: ชีลด์ต้องต่อกราวนด์ไหม?</summary>
-                <p style={{ margin: '8px 0 0', fontSize: '0.9rem' }}>ต้อง! ชีลด์ที่ไม่ได้ต่อกราวนด์จะไม่ทำหน้าที่ป้องกัน แนะนำต่อปลายเดียว (One-end) สำหรับงาน Analog เพื่อป้องกัน Ground Loop หรือต่อสองปลาย (Both-ends) สำหรับสาย Data ความเร็วสูง</p>
-              </details>
-              <details style={{ background: '#fff', padding: '14px 18px', borderRadius: 8, border: '1px solid #e2e8f0', cursor: 'pointer' }}>
-                <summary style={{ fontWeight: 600, color: '#003366' }}>Q: สายชีลด์สามัญมีรุ่นไหนบ้าง?</summary>
-                <p style={{ margin: '8px 0 0', fontSize: '0.9rem' }}>รุ่นยอดนิยม ได้แก่ <Link href="/product/liycy" style={{ color: '#0066cc' }}>LiYCY</Link> (มาตรฐานยุโรป), <Link href="/product/olflex-classic-115-cy" style={{ color: '#0066cc' }}>Olflex Classic 115 CY</Link>, CVV-S (มาตรฐาน JIS), และ <Link href="/product/double-shielded-cable" style={{ color: '#0066cc' }}>Double Shielded Cable</Link> สำหรับงานที่ต้องการป้องกันสูงสุด</p>
-              </details>
-            </div>
-          </div>
-        </section>
-      )}
-
-      {slug === 'instrument-cable' && (
-        <section style={{ padding: '48px 0', background: '#f8fafc' }}>
-          <div className="container" style={{ maxWidth: 800, lineHeight: 1.8, color: '#334155' }}>
-            <h2 style={{ fontSize: '1.6rem', fontWeight: 700, color: '#003366', marginBottom: 16 }}>สาย Instrument / Twisted Pair Cable คืออะไร?</h2>
-            <p>สายอินสตรูเมนท์เป็นสายสัญญาณที่ใช้หลักการ Differential Signaling ตัวนำทบกันเป็นคู่ (Twisted Pair) เพื่อลด Crosstalk และสัญญาณรบกวนแม่เหล็ก เหมาะสำหรับระบบ RS485, RS422 และอุปกรณ์ตรวจวัดในโรงงาน</p>
-
-            <h3 style={{ fontSize: '1.2rem', fontWeight: 700, color: '#003366', margin: '28px 0 12px' }}>ประเภทสาย Twisted Pair</h3>
-            <ul style={{ paddingLeft: 20, marginBottom: 16 }}>
-              <li><strong>UTP (Unshielded Twisted Pair)</strong> — สาย LAN ทั่วไป</li>
-              <li><strong>FTP / STP (Shielded)</strong> — มีฟอยล์หรือถักชีลด์ป้องกันสัญญาณรบกวน เหมาะกับงานอุตสาหกรรม</li>
-            </ul>
-
-            <h3 style={{ fontSize: '1.2rem', fontWeight: 700, color: '#003366', margin: '28px 0 12px' }}>การใช้งาน</h3>
-            <ul style={{ paddingLeft: 20, marginBottom: 16 }}>
-              <li><strong>โรงงานอุตสาหกรรม:</strong> เชื่อมต่อ PLC, Industrial Bus (RS485/RS422), Solar Farm Monitoring</li>
-              <li><strong>อาคาร/สำนักงาน:</strong> ระบบ LAN, VoIP, ระบบรักษาความปลอดภัย</li>
-              <li><strong>Data Center:</strong> Backbone เครือข่ายความเร็วสูง</li>
-            </ul>
-          </div>
-        </section>
-      )}
+          </section>
+        )
+      }
 
       {/* ─── Other Categories ─── */}
-      {otherCatSlugs.length > 0 && (
-        <section style={{ padding: '36px 0', background: '#fff' }}>
-          <div className="container" style={{ textAlign: 'center' }}>
-            <h3 style={{ fontSize: '1rem', fontWeight: 600, color: '#64748b', marginBottom: 16, textTransform: 'uppercase', letterSpacing: 2 }}>หมวดหมู่อื่น</h3>
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 10, justifyContent: 'center' }}>
-              {otherCatSlugs.map((catSlug) => (
-                <a
-                  key={catSlug}
-                  href={`/category/${catSlug}`}
-                  style={{ padding: '8px 18px', border: '1px solid #e2e8f0', borderRadius: 20, fontSize: '0.85rem', color: '#003366', fontWeight: 500, textDecoration: 'none', transition: 'all 0.2s' }}
-                >
-                  {categoryProductsMap[catSlug]?.title || catSlug} ({categoryProductsMap[catSlug]?.products.length || 0})
-                </a>
-              ))}
-              <Link href="/products" style={{ padding: '8px 18px', border: '1px solid #0099ff', borderRadius: 20, fontSize: '0.85rem', color: '#0099ff', fontWeight: 600, textDecoration: 'none' }}>ดูทั้งหมด →</Link>
+      {
+        otherCatSlugs.length > 0 && (
+          <section style={{ padding: '36px 0', background: '#fff' }}>
+            <div className="container" style={{ textAlign: 'center' }}>
+              <h3 style={{ fontSize: '1rem', fontWeight: 600, color: '#64748b', marginBottom: 16, textTransform: 'uppercase', letterSpacing: 2 }}>หมวดหมู่อื่น</h3>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: 10, justifyContent: 'center' }}>
+                {otherCatSlugs.map((catSlug) => (
+                  <a
+                    key={catSlug}
+                    href={`/category/${catSlug}`}
+                    style={{ padding: '8px 18px', border: '1px solid #e2e8f0', borderRadius: 20, fontSize: '0.85rem', color: '#003366', fontWeight: 500, textDecoration: 'none', transition: 'all 0.2s' }}
+                  >
+                    {categoryProductsMap[catSlug]?.title || catSlug} ({categoryProductsMap[catSlug]?.products.length || 0})
+                  </a>
+                ))}
+                <Link href="/products" style={{ padding: '8px 18px', border: '1px solid #0099ff', borderRadius: 20, fontSize: '0.85rem', color: '#0099ff', fontWeight: 600, textDecoration: 'none' }}>ดูทั้งหมด →</Link>
+              </div>
             </div>
-          </div>
-        </section>
-      )}
+          </section>
+        )
+      }
     </>
   )
 }

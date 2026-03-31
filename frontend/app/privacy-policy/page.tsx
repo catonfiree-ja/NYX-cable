@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { getPrivacyPage } from '@/lib/queries'
+import { getPrivacyPage, getSiteSettings } from '@/lib/queries'
 import { PortableText } from '@portabletext/react'
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -12,6 +12,11 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function PrivacyPolicyPage() {
   const privacyCms = await getPrivacyPage()
+  const settings = await getSiteSettings().catch(() => null)
+  const phone = settings?.phone || '02-111-5588'
+  const phoneRaw = phone.replace(/[^0-9]/g, '')
+  const email = settings?.email || 'sales@nyxcable.com'
+  const address = settings?.address || '2098 หมู่ 1 ต.สำโรงเหนือ (ซ.สุขุมวิท 72) อ.เมือง สมุทรปราการ 10270'
 
   const heading = privacyCms?.heading || 'นโยบายความเป็นส่วนตัว'
   const subheading = privacyCms?.subheading || 'Privacy Policy — บริษัท นิกซ์ เคเบิ้ล จำกัด'
@@ -99,9 +104,9 @@ export default async function PrivacyPolicyPage() {
             <div className="contact-box">
               <strong>บริษัท นิกซ์ เคเบิ้ล จำกัด (NYX Cable Co., Ltd.)</strong>
               <p style={{ marginTop: 8 }}>
-                2098 หมู่ 1 ต.สำโรงเหนือ (ซ.สุขุมวิท 72) อ.เมือง สมุทรปราการ 10270<br />
-                โทร: <a href="tel:021115588" style={{ color: '#0066cc' }}>02-111-5588</a><br />
-                อีเมล: <a href="https://mail.google.com/mail/?view=cm&to=sales@nyxcable.com" target="_blank" rel="noopener noreferrer" style={{ color: '#0066cc' }}>sales@nyxcable.com</a>
+                {address}<br />
+                โทร: <a href={`tel:${phoneRaw}`} style={{ color: '#0066cc' }}>{phone}</a><br />
+                อีเมล: <a href={`https://mail.google.com/mail/?view=cm&to=${email}`} target="_blank" rel="noopener noreferrer" style={{ color: '#0066cc' }}>{email}</a>
               </p>
             </div>
           </>
