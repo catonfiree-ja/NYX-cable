@@ -562,8 +562,8 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
                 )}
                 {hardcodedProduct.shortDescription && <p className="hero-desc">{hardcodedProduct.shortDescription}</p>}
                 <div className="hero-cta">
-                  <a href="tel:021115588" className="cta-btn-call">สอบถามราคา</a>
-                  <a href={`https://page.line.me/ubb9405u?text=${encodeURIComponent(`สนใจสินค้า: ${hardcodedProduct.title}${hardcodedProduct.code ? ` (${hardcodedProduct.code})` : ''} — ขอใบเสนอราคา`)}`} target="_blank" rel="noopener noreferrer" className="cta-btn-line">แอด LINE</a>
+                  <a href={`tel:${siteInfo.phoneRaw}`} className="cta-btn-call">สอบถามราคา</a>
+                  <a href={`${siteInfo.lineUrl}?text=${encodeURIComponent(`สนใจสินค้า: ${hardcodedProduct.title}${hardcodedProduct.code ? ` (${hardcodedProduct.code})` : ''} — ขอใบเสนอราคา`)}`} target="_blank" rel="noopener noreferrer" className="cta-btn-line">แอด LINE</a>
                 </div>
               </div>
             </div>
@@ -579,8 +579,8 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
               </div>
             </div>
             <div className="quick-quote-actions">
-              <a href={`https://page.line.me/ubb9405u?text=${encodeURIComponent(`ขอใบเสนอราคา: ${hardcodedProduct.title}`)}`} className="btn btn-accent" target="_blank" rel="noopener noreferrer">ขอใบเสนอราคา</a>
-              <a href="tel:021115588" className="btn btn-primary">โทรสอบถาม</a>
+              <a href={`${siteInfo.lineUrl}?text=${encodeURIComponent(`ขอใบเสนอราคา: ${hardcodedProduct.title}`)}`} className="btn btn-accent" target="_blank" rel="noopener noreferrer">ขอใบเสนอราคา</a>
+              <a href={`tel:${siteInfo.phoneRaw}`} className="btn btn-primary">โทรสอบถาม</a>
             </div>
           </div>
         </div>
@@ -629,8 +629,8 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
               )}
               {product.shortDescription && !productContentMap[slug] && <p className="hero-desc">{decodeHtmlEntities(product.shortDescription)}</p>}
               <div className="hero-cta">
-                <a href="tel:021115588" className="cta-btn-call">สอบถามราคา</a>
-                <a href={`https://page.line.me/ubb9405u?text=${encodeURIComponent(`สนใจสินค้า: ${product.title}${product.productCode ? ` (${product.productCode})` : ''} — ขอใบเสนอราคา`)}`} target="_blank" rel="noopener noreferrer" className="cta-btn-line">แอด LINE</a>
+                <a href={`tel:${siteInfo.phoneRaw}`} className="cta-btn-call">สอบถามราคา</a>
+                <a href={`${siteInfo.lineUrl}?text=${encodeURIComponent(`สนใจสินค้า: ${product.title}${product.productCode ? ` (${product.productCode})` : ''} — ขอใบเสนอราคา`)}`} target="_blank" rel="noopener noreferrer" className="cta-btn-line">แอด LINE</a>
                 {(() => {
                   const detailLinks: Record<string, { href: string; label: string }> = {
                     'control-cable': { href: '/product/ysly-jz', label: 'ดูสเปก YSLY-JZ' },
@@ -866,8 +866,8 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
             </div>
           </div>
           <div className="quick-quote-actions">
-            <a href={`https://page.line.me/ubb9405u?text=${encodeURIComponent(`ขอใบเสนอราคา: ${product.title}${product.productCode ? ` (${product.productCode})` : ''}`)}`} className="btn btn-accent" target="_blank" rel="noopener noreferrer">ขอใบเสนอราคารุ่นนี้</a>
-            <a href="tel:021115588" className="btn btn-primary">โทรสอบถาม</a>
+            <a href={`${siteInfo.lineUrl}?text=${encodeURIComponent(`ขอใบเสนอราคา: ${product.title}${product.productCode ? ` (${product.productCode})` : ''}`)}`} className="btn btn-accent" target="_blank" rel="noopener noreferrer">ขอใบเสนอราคารุ่นนี้</a>
+            <a href={`tel:${siteInfo.phoneRaw}`} className="btn btn-primary">โทรสอบถาม</a>
           </div>
         </div>
       </div>

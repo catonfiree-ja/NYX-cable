@@ -1,4 +1,4 @@
-import { getVariant, getVariants } from '@/lib/queries'
+import { getVariant, getVariants, getSiteSettings } from '@/lib/queries'
 import { urlFor } from '@/lib/sanity'
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
@@ -92,6 +92,9 @@ export default async function VariantDetailPage({ params }: { params: Promise<{ 
   const { slug } = await params
   const variant = await getVariant(slug)
   if (!variant) notFound()
+  const settings = await getSiteSettings().catch(() => null)
+  const phoneRaw = (settings?.phone || '02-111-5588').replace(/[^0-9]/g, '')
+  const lineUrl = settings?.lineUrl || 'https://page.line.me/ubb9405u'
 
   const parent = variant.parentProduct
   const siblings = variant.siblingVariants || []
@@ -178,8 +181,8 @@ export default async function VariantDetailPage({ params }: { params: Promise<{ 
             )}
 
             <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', marginTop: '20px' }}>
-              <a href="tel:021115588" className="cta-btn-call">สอบถามราคา</a>
-              <a href={`https://page.line.me/ubb9405u?text=${lineText}`} target="_blank" rel="noopener noreferrer" className="cta-btn-line">แอด LINE</a>
+              <a href={`tel:${phoneRaw}`} className="cta-btn-call">สอบถามราคา</a>
+              <a href={`${lineUrl}?text=${lineText}`} target="_blank" rel="noopener noreferrer" className="cta-btn-line">แอด LINE</a>
             </div>
           </div>
         </div>
@@ -205,8 +208,8 @@ export default async function VariantDetailPage({ params }: { params: Promise<{ 
             </div>
           </div>
           <div className="quick-quote-actions">
-            <a href={`https://page.line.me/ubb9405u?text=${lineText}`} className="btn btn-accent" target="_blank" rel="noopener noreferrer">ขอใบเสนอราคารุ่นนี้</a>
-            <a href="tel:021115588" className="btn btn-primary">โทรสอบถาม</a>
+            <a href={`${lineUrl}?text=${lineText}`} className="btn btn-accent" target="_blank" rel="noopener noreferrer">ขอใบเสนอราคารุ่นนี้</a>
+            <a href={`tel:${phoneRaw}`} className="btn btn-primary">โทรสอบถาม</a>
           </div>
         </div>
       </div>
@@ -229,7 +232,7 @@ export default async function VariantDetailPage({ params }: { params: Promise<{ 
               "@type": "AggregateOffer",
               priceCurrency: "THB",
               availability: variant.inStock !== false ? "https://schema.org/InStock" : "https://schema.org/PreOrder",
-              seller: { "@type": "Organization", name: "NYX Cable", url: "https://www.nyxcable.com", telephone: "021115588" }
+              seller: { "@type": "Organization", name: "NYX Cable", url: "https://www.nyxcable.com", telephone: phoneRaw }
             },
           })
         }}
