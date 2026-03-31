@@ -238,17 +238,22 @@ export async function getSiteSettings() {
       companyName,
       tagline,
       phone,
+      email,
       lineOA,
       lineUrl,
-      email,
       address,
+      businessHours,
       googleMapsUrl,
+      mapsEmbedUrl,
       heroSlides,
       "featuredProducts": featuredProducts[]->{ _id, title, slug, productCode, "image": images[0] },
       clientLogos,
       socialLinks,
       footerText,
-      googleAnalyticsId
+      googleAnalyticsId,
+      seoTitle,
+      seoDescription,
+      ogImage
     }
   `)
 }
