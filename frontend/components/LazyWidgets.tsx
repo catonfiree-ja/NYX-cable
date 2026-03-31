@@ -5,11 +5,16 @@ import dynamic from 'next/dynamic'
 const CookieConsent = dynamic(() => import('@/components/CookieConsent'), { ssr: false })
 const FloatingContactFAB = dynamic(() => import('@/components/FloatingContactFAB'), { ssr: false })
 
-export default function LazyWidgets() {
+interface LazyWidgetsProps {
+    phoneRaw?: string;
+    lineUrl?: string;
+}
+
+export default function LazyWidgets({ phoneRaw, lineUrl }: LazyWidgetsProps) {
     return (
         <>
             <CookieConsent />
-            <FloatingContactFAB />
+            <FloatingContactFAB phoneRaw={phoneRaw} lineUrl={lineUrl} />
         </>
     )
 }

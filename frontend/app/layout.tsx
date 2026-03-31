@@ -56,7 +56,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "NYX Cable — สายไฟอุตสาหกรรมคุณภาพยุโรป",
-    description: "ผู้นำด้านสายไฟอุตสาหกรรม สต็อกพร้อมส่ง ปรึกษาวิศวกรฟรี โทร 02-111-5588",
+    description: "ผู้นำด้านสายไฟอุตสาหกรรม สต็อกพร้อมส่ง ปรึกษาวิศวกรฟรี",
     images: ["/images/gallery/profile.webp"],
   },
 };
@@ -251,7 +251,7 @@ export default async function RootLayout({
         </footer>
 
         {/* Lazy-loaded: CookieConsent + FloatingContactFAB */}
-        <LazyWidgets />
+        <LazyWidgets phoneRaw={phoneRaw} lineUrl={lineUrl} />
         <script dangerouslySetInnerHTML={{
           __html: `
           (function(){

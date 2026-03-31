@@ -2,7 +2,12 @@
 
 import { useState, useEffect } from 'react';
 
-export default function FloatingContactFAB() {
+interface FloatingContactFABProps {
+  phoneRaw?: string;
+  lineUrl?: string;
+}
+
+export default function FloatingContactFAB({ phoneRaw = '021115588', lineUrl = 'https://line.me/R/ti/p/@ubb9405u' }: FloatingContactFABProps) {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -15,7 +20,7 @@ export default function FloatingContactFAB() {
   return (
     <div className="floating-fab">
       <a
-        href="https://line.me/R/ti/p/@ubb9405u"
+        href={lineUrl}
         target="_blank"
         rel="noopener noreferrer"
         className="fab-btn fab-line"
@@ -27,7 +32,7 @@ export default function FloatingContactFAB() {
         <span>LINE</span>
       </a>
       <a
-        href="tel:021115588"
+        href={`tel:${phoneRaw}`}
         className="fab-btn fab-call"
         aria-label="โทรหาเรา"
       >
@@ -39,3 +44,4 @@ export default function FloatingContactFAB() {
     </div>
   );
 }
+
