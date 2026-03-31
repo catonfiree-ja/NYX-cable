@@ -1,6 +1,6 @@
 import React from 'react'
 import type { Metadata } from 'next'
-import { getProduct, getProducts, getVariants, getBlogPosts } from '@/lib/queries'
+import { getProduct, getProducts, getVariants, getBlogPosts, getSiteSettings } from '@/lib/queries'
 import { urlFor } from '@/lib/sanity'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -502,6 +502,13 @@ export async function generateStaticParams() {
 
 
 export default async function ProductDetailPage({ params }: { params: Promise<{ slug: string }> }) {
+  const settings = await getSiteSettings().catch(() => null);
+  const siteInfo = {
+    phone: settings?.phone || '02-111-5588',
+    phoneRaw: (settings?.phone || '02-111-5588').replace(/[^0-9]/g, ''),
+    email: settings?.email || 'sales@nyxcable.com',
+    lineUrl: settings?.lineUrl || 'https://page.line.me/ubb9405u',
+  };
   const { slug: rawSlug } = await params
   const slug = decodeURIComponent(rawSlug)
   // Try CMS with original slug first, then alias
@@ -770,8 +777,8 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
                     })}
                   </div>
                   <div className="cta-actions" style={{ justifyContent: 'flex-start', marginTop: '20px' }}>
-                    <a href={`https://page.line.me/ubb9405u?text=${encodeURIComponent(`สอบถามขนาด: ${product.title} (${variants.length} รุ่น)`)}`} className="btn btn-accent" target="_blank" rel="noopener noreferrer">สอบถามขนาดทาง LINE</a>
-                    <a href="tel:021115588" className="btn btn-primary">โทร 02-111-5588</a>
+                    <a href={`${siteInfo.lineUrl}?text=${encodeURIComponent(`สอบถามขนาด: ${product.title} (${variants.length} รุ่น)`)}`} className="btn btn-accent" target="_blank" rel="noopener noreferrer">สอบถามขนาดทาง LINE</a>
+                    <a href={`tel:${siteInfo.phoneRaw}`} className="btn btn-primary">โทร {siteInfo.phone}</a>
                   </div>
                 </section>
               </div>
@@ -902,8 +909,8 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
               '@type': 'Organization',
               name: 'NYX Cable',
               url: 'https://www.nyxcable.com',
-              telephone: '02-111-5588',
-              email: 'sales@nyxcable.com',
+              telephone: siteInfo.phone,
+              email: siteInfo.email,
               address: { '@type': 'PostalAddress', addressLocality: 'บางนา', addressRegion: 'กรุงเทพฯ', addressCountry: 'TH' }
             }
           }
