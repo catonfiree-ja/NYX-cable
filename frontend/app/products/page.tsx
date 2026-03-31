@@ -199,15 +199,57 @@ export default async function ProductsPage() {
         </section>
       </div>
 
-      {/* ─── All Products Grid with Images ─── */}
+      {/* ─── All Products Grid with Images (Sanity CMS + Hardcoded) ─── */}
       <section className="all-products-section">
         <div className="container">
           <div className="all-products-title">สินค้าทั้งหมด</div>
           <div className="all-products-sub">คลิกเพื่อดูรายละเอียดและสั่งซื้อ</div>
           <div className="products-grid">
-            {Object.entries(categoryProductsMap).flatMap(([catSlug, catData]) =>
-              catData.products.map((p) => (
-                <a key={`${catSlug}-${p.slug}`} href={`/product/${p.slug}`} className="product-mini">
+            {(() => {
+              // Build CMS product lookup by slug
+              const cmsMap: Record<string, any> = {}
+              for (const p of products) {
+                const s = p.slug?.current
+                if (s) cmsMap[s] = p
+              }
+
+              // Merge hardcoded + CMS data
+              const seenSlugs = new Set<string>()
+              const allProducts: any[] = []
+
+              // 1) Hardcoded products enriched with CMS data
+              for (const [, catData] of Object.entries(categoryProductsMap)) {
+                for (const hp of catData.products) {
+                  if (seenSlugs.has(hp.slug)) continue
+                  seenSlugs.add(hp.slug)
+                  const cms = cmsMap[hp.slug]
+                  const cmsImage = cms?.image ? urlFor(cms.image).width(400).height(400).url() : null
+                  allProducts.push({
+                    slug: hp.slug,
+                    title: cms?.title || hp.title,
+                    code: cms?.productCode || hp.code,
+                    shortDescription: cms?.shortDescription || hp.shortDescription,
+                    image: cmsImage || hp.image || null,
+                  })
+                }
+              }
+
+              // 2) CMS-only products (added by client in Sanity, not in hardcode)
+              for (const cp of products) {
+                const s = cp.slug?.current
+                if (!s || seenSlugs.has(s)) continue
+                seenSlugs.add(s)
+                allProducts.push({
+                  slug: s,
+                  title: cp.title,
+                  code: cp.productCode || '',
+                  shortDescription: cp.shortDescription || '',
+                  image: cp.image ? urlFor(cp.image).width(400).height(400).url() : null,
+                })
+              }
+
+              return allProducts.map((p) => (
+                <a key={p.slug} href={`/product/${p.slug}`} className="product-mini">
                   <div className="product-mini-img">
                     {p.image ? (
                       <img src={p.image} alt={p.title} width={400} height={400} style={{ width: '100%', height: 'auto', display: 'block' }} loading="lazy" />
@@ -222,7 +264,7 @@ export default async function ProductsPage() {
                   </div>
                 </a>
               ))
-            )}
+            })()}
           </div>
         </div>
       </section>

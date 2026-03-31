@@ -126,6 +126,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
 
   // Master product list: hardcoded structure enriched with CMS data
   const hardcodedProducts = hardcoded?.products || []
+  const hardcodedSlugs = new Set(hardcodedProducts.map((hp: any) => hp.slug))
 
   const products = hardcodedProducts.map((hp: any) => {
     const cms = cmsProductMap[hp.slug]
@@ -138,6 +139,18 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
       image: cmsImage || hp.image || null,
     }
   })
+
+  // Also include CMS-only products (added by client in Sanity but not in hardcode)
+  const cmsOnlyProducts = (cmsCategory?.products || [])
+    .filter((cp: any) => cp.slug?.current && !hardcodedSlugs.has(cp.slug.current))
+    .map((cp: any) => ({
+      slug: cp.slug.current,
+      title: cp.title,
+      code: cp.productCode || '',
+      shortDescription: cp.shortDescription || '',
+      image: cp.image ? urlFor(cp.image).width(400).height(400).url() : null,
+    }))
+  products.push(...cmsOnlyProducts)
 
   // For "other categories" sidebar, use hardcoded keys
   const otherCatSlugs = Object.keys(categoryProductsMap).filter(s => s !== slug).slice(0, 6)
