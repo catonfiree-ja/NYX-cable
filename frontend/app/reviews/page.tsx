@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { BreadcrumbSchema } from '@/components/StructuredData'
+import { getReviews } from '@/lib/queries'
 
 export const metadata: Metadata = {
   title: 'รีวิวจากลูกค้า | NYX Cable',
@@ -321,10 +322,17 @@ function GoogleIcon() {
   )
 }
 
-export default function ReviewsPage() {
-  const totalReviews = 340
-  const avgRating = '5.0'
-  const starCounts = [340, 0, 0, 0, 0]
+export default async function ReviewsPage() {
+  // Fetch reviews from CMS, fallback to hardcoded
+  let cmsReviews: any[] = []
+  try {
+    cmsReviews = await getReviews()
+  } catch { /* use hardcoded fallback */ }
+
+  const reviewData = cmsReviews && cmsReviews.length > 0 ? cmsReviews : reviews
+  const avgRating = (reviewData.reduce((sum: number, r: any) => sum + r.stars, 0) / reviewData.length).toFixed(1)
+  const totalReviews = reviewData.length > 0 ? 340 : 0
+  const starCounts = [totalReviews, 0, 0, 0, 0]
 
   return (
     <>
@@ -378,7 +386,7 @@ export default function ReviewsPage() {
         </div>
 
         <div className="reviews-grid">
-          {reviews.map((review, idx) => (
+          {reviewData.map((review: any, idx: number) => (
             <a key={idx} href="https://www.google.com/maps/place/NYX+Cable,+%E0%B8%AA%E0%B8%B2%E0%B8%A2%E0%B8%84%E0%B8%AD%E0%B8%99%E0%B9%82%E0%B8%97%E0%B8%A3%E0%B8%A5,+OPVC-JZ,+CVV,+VCT/@13.6581099,100.5967715,17z/data=!4m8!3m7!1s0x311d5f937a0d75c5:0x1a6f99f75d845ed0!8m2!3d13.6581099!4d100.5993464!9m1!1b1!16s%2Fg%2F11c4jd40c2?entry=ttu&g_ep=EgoyMDI2MDMxOC4xIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}>
               <div className="review-card">
                 <div className="verified-badge" style={{ display: 'flex', alignItems: 'center', gap: 4 }}>

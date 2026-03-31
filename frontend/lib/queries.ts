@@ -389,3 +389,17 @@ export async function getPrivacyPage() {
   `)
 }
 
+// ─── Review Queries ─────────────────────────────────────
+
+export async function getReviews() {
+  return client.fetch(`
+    *[_type == "review"] | order(orderRank desc, _createdAt desc) {
+      _id,
+      name,
+      initial,
+      stars,
+      text,
+      time
+    }
+  `)
+}

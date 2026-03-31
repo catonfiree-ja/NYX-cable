@@ -11,6 +11,7 @@ import aboutPage from './aboutPage'
 import contactPage from './contactPage'
 import homePage from './homePage'
 import privacyPage from './privacyPage'
+import review from './review'
 
 export const schemaTypes = [
   // Products
@@ -35,5 +36,8 @@ export const schemaTypes = [
 
   // Settings
   siteSettings,
+
+  // Reviews
+  review,
 ]
 
