@@ -193,7 +193,7 @@ export const productContentMap: Record<string, ProductContent> = {
             },
             {
                 q: 'สั่งซื้อสายคอนโทรลจาก NYX CABLE ได้อย่างไร ?',
-                a: 'สามารถสั่งซื้อได้โดยโทร 02-111-5588 หรือแอดไลน์ @nyxcable — มีสต๊อกพร้อมส่งจากโกดังบางนาภายใน 3 ชม.',
+                a: 'สามารถสั่งซื้อได้โดยติดต่อฝ่ายขาย NYX CABLE หรือแอดไลน์ @nyxcable — มีสต๊อกพร้อมส่งจากโกดังบางนาภายใน 3 ชม.',
             },
         ],
     },
@@ -562,7 +562,7 @@ export const productContentMap: Record<string, ProductContent> = {
                 id: 'nyx-selling',
                 title: 'สั่งซื้อสาย VCT คุณภาพสูงจาก NYX CABLE',
                 content: (
-                    <p>สายไฟ VCT จาก NYX CABLE คือสายไฟอเนกประสงค์คุณภาพสูงที่ตอบโจทย์งานติดตั้งทุกประเภท จำหน่ายทั้งสาย VCT ธรรมดา และสาย VCT-G (มีสายดิน) มีสต๊อกพร้อมส่งมอบทันทีทั่วประเทศ พร้อมบริการให้คำปรึกษาโดยผู้เชี่ยวชาญด้านสายไฟฟ้า โทร <a href="tel:021115588">02-111-5588</a> หรือ LINE : <a href="https://page.line.me/ubb9405u" target="_blank" rel="noopener noreferrer">@nyxcable</a></p>
+                    <p>สายไฟ VCT จาก NYX CABLE คือสายไฟอเนกประสงค์คุณภาพสูงที่ตอบโจทย์งานติดตั้งทุกประเภท จำหน่ายทั้งสาย VCT ธรรมดา และสาย VCT-G (มีสายดิน) มีสต๊อกพร้อมส่งมอบทันทีทั่วประเทศ พร้อมบริการให้คำปรึกษาโดยผู้เชี่ยวชาญด้านสายไฟฟ้า <a href="/contact">ติดต่อฝ่ายขาย</a> หรือกดปุ่มด้านบนเพื่อโทรหรือแอดไลน์ได้ทันที</p>
                 ),
             },
         ],
@@ -615,7 +615,7 @@ export const productContentMap: Record<string, ProductContent> = {
                 id: 'nyx-selling',
                 title: 'สาย CVV, CVV-F, CVV-S คุณภาพสูงจาก NYX CABLE',
                 content: (
-                    <p>NYX CABLE จำหน่ายสาย CVV, CVV-F, CVV-S คุณภาพยุโรป สินค้าพร้อมสต๊อก ไม่ต้องรอผลิต พร้อมส่งด่วนภายใน 3 ชม. สนใจสั่งซื้อสอบถามโทร <a href="tel:021115588">02-111-5588</a> หรือ LINE : <a href="https://page.line.me/ubb9405u" target="_blank" rel="noopener noreferrer">@nyxcable</a></p>
+                    <p>NYX CABLE จำหน่ายสาย CVV, CVV-F, CVV-S คุณภาพยุโรป สินค้าพร้อมสต๊อก ไม่ต้องรอผลิต พร้อมส่งด่วนภายใน 3 ชม. สนใจสั่งซื้อ <a href="/contact">ติดต่อฝ่ายขาย</a> หรือกดปุ่มด้านบนเพื่อโทรหรือแอดไลน์ได้ทันที</p>
                 ),
             },
         ],
