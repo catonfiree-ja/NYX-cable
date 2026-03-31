@@ -263,7 +263,7 @@ export default function ContactPage({ cms = {} }: { cms?: ContactInfo }) {
     const body = encodeURIComponent(
       `ชื่อ: ${name}\nบริษัท: ${company || '-'}\nเบอร์โทร: ${phone}\nอีเมล: ${email || '-'}\nสินค้าที่สนใจ: ${product || '-'}\n\nรายละเอียด:\n${message}`
     )
-    window.open(`https://mail.google.com/mail/?view=cm&to=sales@nyxcable.com&su=${subject}&body=${body}`, '_blank')
+    window.open(`https://mail.google.com/mail/?view=cm&to=${info.email}&su=${subject}&body=${body}`, '_blank')
     sessionStorage.setItem('nyx-form-last-submit', Date.now().toString())
     setSubmitted(true)
     setLoading(false)
