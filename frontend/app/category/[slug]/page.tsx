@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { decodeHtmlEntities } from '@/lib/decode-html'
 import { categoryProductsMap } from '@/data/category-products'
+import { BreadcrumbSchema, FAQSchema } from '@/components/StructuredData'
 
 // CMS slug → hardcoded slug mapping (for categories where CMS uses different slug)
 const categorySlugAliases: Record<string, string> = {
@@ -160,8 +161,20 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
   // For "other categories" sidebar, use hardcoded keys
   const otherCatSlugs = Object.keys(categoryProductsMap).filter(s => s !== slug).slice(0, 6)
 
+  // Build FAQ data for schema
+  const faqData = (cmsCategory?.faqItems || []).map((item: any) => ({
+    question: item.question || '',
+    answer: item.answer || '',
+  })).filter((f: any) => f.question && f.answer)
+
   return (
     <>
+      <BreadcrumbSchema items={[
+        { name: 'หน้าแรก', url: 'https://www.nyxcable.com' },
+        { name: 'ผลิตภัณฑ์', url: 'https://www.nyxcable.com/products' },
+        { name: categoryTitle, url: `https://www.nyxcable.com/category/${slug}` },
+      ]} />
+      {faqData.length > 0 && <FAQSchema faqs={faqData} />}
       <style dangerouslySetInnerHTML={{ __html: styles }} />
       <section className="cat-hero">
         <div className="container">

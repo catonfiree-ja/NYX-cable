@@ -182,20 +182,7 @@ export async function getCategory(slug: string) {
 
 export async function getBlogPosts() {
   return client.fetch(`
-    *[_type == "blogPost"
-      && !(slug.current in [
-        "12-ไอเดียรถเข็นไฟฟ้าดีไซ",
-        "10-สนามบินรักษ์โลก-ประหยั",
-        "ผุด-2-ไอเดียรถสาธารณะพลั",
-        "ลาก่อนนิวเคลียร์-ญี่ปุ่",
-        "มาเหนือเมฆ-stella-รถยนต์พลังโ",
-        "ไอเดียแหวก-เสาไฟฟ้าแรง-2",
-        "จับตา-โซล่าฟาร์ม-ดีจริงห",
-        "กระทรวงพลังงาน-ร่วม-การไ",
-        "บ้านยุคใหม่-ขายไฟฟ้า-คืน",
-        "solaroof-seminar"
-      ])
-    ] | order(publishedAt desc) {
+    *[_type == "blogPost"] | order(publishedAt desc) {
       _id,
       title,
       slug,
@@ -321,14 +308,30 @@ export async function getGalleryAlbums() {
 export async function getHomePage() {
   return client.fetch(`
     *[_type == "homePage"][0] {
+      heroTitle,
+      heroSubtitle,
+      heroBadges,
+      heroCtaText,
+      heroCtaUrl,
+      heroTagline,
+      heroTrustBadges,
       whyNyxHeading,
       whyNyxSubheading,
       whyNyxItems,
       deliveryHeading,
       deliverySubheading,
+      servicesHeading,
+      articlesHeading,
+      articlesSubheading,
+      comparisonHeading,
+      comparisonSubheading,
       ctaHeading,
       ctaSubheading,
       ctaButtons,
+      videoUrl,
+      videoHeading,
+      faqHeading,
+      faqSubheading,
       metaTitle,
       metaDescription,
       ogImage

@@ -6,6 +6,103 @@ export default defineType({
   type: 'document',
   icon: () => '🏠',
   fields: [
+    // ─── Hero Section ───
+    defineField({
+      name: 'heroTitle',
+      title: 'หัวข้อ Hero',
+      type: 'string',
+      initialValue: 'NYX CABLE',
+      group: 'hero',
+    }),
+    defineField({
+      name: 'heroSubtitle',
+      title: 'คำอธิบาย Hero',
+      type: 'text',
+      rows: 2,
+      initialValue: 'ผู้นำด้านสายไฟอุตสาหกรรมมาตรฐานยุโรป ครบวงจร ส่งไว ราคาโรงงาน',
+      group: 'hero',
+    }),
+    defineField({
+      name: 'heroBadges',
+      title: 'ป้ายจุดเด่น Hero',
+      type: 'array',
+      of: [{ type: 'string' }],
+      group: 'hero',
+      description: 'เช่น "📋 ประสบการณ์กว่า 20 ปี", "🏭 ลูกค้ากว่า 5,000 บริษัท"',
+    }),
+    defineField({
+      name: 'heroCtaText',
+      title: 'ข้อความปุ่ม Hero',
+      type: 'string',
+      initialValue: 'ดูผลิตภัณฑ์ทั้งหมด',
+      group: 'hero',
+    }),
+    defineField({
+      name: 'heroCtaUrl',
+      title: 'ลิงก์ปุ่ม Hero',
+      type: 'string',
+      initialValue: '/products',
+      group: 'hero',
+    }),
+    defineField({
+      name: 'heroTagline',
+      title: 'ข้อความ Tagline Hero',
+      type: 'text',
+      rows: 3,
+      group: 'hero',
+      description: 'ข้อความรองใต้ subtitle เช่น "ใช้เทคโนโลยีการผลิตขั้นสูงจากยุโรป..."',
+    }),
+    defineField({
+      name: 'heroTrustBadges',
+      title: 'Trust Badges (กล่องด้านขวา)',
+      type: 'array',
+      of: [
+        {
+          type: 'object',
+          fields: [
+            { name: 'title', type: 'string', title: 'หัวข้อ' },
+            { name: 'description', type: 'string', title: 'คำอธิบาย' },
+            { name: 'url', type: 'string', title: 'ลิงก์' },
+          ],
+          preview: {
+            select: { title: 'title', subtitle: 'description' },
+          },
+        },
+      ],
+      group: 'hero',
+    }),
+
+    // ─── Video Section ───
+    defineField({
+      name: 'videoUrl',
+      title: 'YouTube Video URL',
+      type: 'string',
+      initialValue: 'https://www.youtube.com/watch?v=IEu9jZBH3qQ',
+      group: 'sections',
+    }),
+    defineField({
+      name: 'videoHeading',
+      title: 'หัวข้อส่วนวิดีโอ',
+      type: 'string',
+      initialValue: 'แนะนำ NYX Cable',
+      group: 'sections',
+    }),
+
+    // ─── FAQ Section ───
+    defineField({
+      name: 'faqHeading',
+      title: 'หัวข้อส่วน FAQ',
+      type: 'string',
+      initialValue: 'ความรู้เกี่ยวกับสายไฟ',
+      group: 'sections',
+    }),
+    defineField({
+      name: 'faqSubheading',
+      title: 'คำอธิบายย่อย FAQ',
+      type: 'string',
+      group: 'sections',
+    }),
+
     // ─── Why NYX Section ───
     defineField({
       name: 'whyNyxHeading',
@@ -41,54 +138,55 @@ export default defineType({
       group: 'sections',
     }),
 
-    // ─── Delivery Gallery Section ───
+    // ─── Services Section ───
     defineField({
-      name: 'deliveryHeading',
-      title: 'หัวข้อส่วน "ภาพส่งสินค้า"',
+      name: 'servicesHeading',
+      title: 'หัวข้อส่วน "บริการของเรา"',
       type: 'string',
-      initialValue: '🚛 ภาพส่งสินค้าจริง',
-      group: 'sections',
-    }),
-    defineField({
-      name: 'deliverySubheading',
-      title: 'คำอธิบาย',
-      type: 'text',
-      rows: 2,
+      initialValue: 'บริการของเรา',
       group: 'sections',
     }),
 
-    // ─── CTA Section ───
+    // ─── Delivery Gallery Section ───
     defineField({
-      name: 'ctaHeading',
-      title: 'หัวข้อ CTA',
+      name: 'deliveryHeading',
+      title: 'หัวข้อส่วน "การส่งสินค้า"',
       type: 'string',
-      initialValue: 'สนใจสินค้า? ติดต่อเราวันนี้',
+      initialValue: 'การส่งสินค้า',
+      group: 'sections',
+    }),
+
+    // ─── Articles Section ───
+    defineField({
+      name: 'articlesHeading',
+      title: 'หัวข้อส่วน "ข่าวสารและบทความ"',
+      type: 'string',
+      initialValue: 'ข่าวสารและบทความล่าสุด',
       group: 'sections',
     }),
     defineField({
-      name: 'ctaSubheading',
-      title: 'คำอธิบาย CTA',
+      name: 'articlesSubheading',
+      title: 'คำอธิบายส่วนบทความ',
       type: 'text',
       rows: 2,
+      initialValue: 'ความรู้เกี่ยวกับสายไฟอุตสาหกรรม อัพเดทเทรนด์และเทคนิคต่างๆ',
+      group: 'sections',
+    }),
+
+    // ─── Comparison Table Section ───
+    defineField({
+      name: 'comparisonHeading',
+      title: 'หัวข้อส่วน "เปรียบเทียบ"',
+      type: 'string',
+      initialValue: 'เปรียบเทียบ NYX Cable กับสายไฟทั่วไป',
       group: 'sections',
     }),
     defineField({
-      name: 'ctaButtons',
-      title: 'ปุ่ม CTA',
-      type: 'array',
-      of: [
-        {
-          type: 'object',
-          fields: [
-            { name: 'text', type: 'string', title: 'ข้อความปุ่ม' },
-            { name: 'url', type: 'string', title: 'ลิงก์' },
-            { name: 'style', type: 'string', title: 'สไตล์', options: { list: ['primary', 'secondary', 'outline'] } },
-          ],
-          preview: {
-            select: { title: 'text', subtitle: 'url' },
-          },
-        },
-      ],
+      name: 'comparisonSubheading',
+      title: 'คำอธิบายส่วนเปรียบเทียบ',
+      type: 'text',
+      rows: 2,
+      initialValue: 'ดูข้อแตกต่างที่ชัดเจน ทำไมโรงงานชั้นนำเลือก NYX Cable',
       group: 'sections',
     }),
 
@@ -120,6 +218,7 @@ export default defineType({
     }),
   ],
   groups: [
+    { name: 'hero', title: 'Hero Section' },
     { name: 'sections', title: 'ส่วนเนื้อหา' },
     { name: 'seo', title: 'SEO' },
   ],

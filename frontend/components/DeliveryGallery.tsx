@@ -230,7 +230,7 @@ export default function DeliveryGallery({ photos }: { photos: DeliveryPhoto[] })
                                 >
                                     <img
                                         src={photo.src}
-                                        alt=""
+                                        alt={photo.alt || 'ภาพจัดส่งสินค้า NYX Cable'}
                                         style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
                                     />
                                 </button>

@@ -4,6 +4,15 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { BreadcrumbSchema } from '@/components/StructuredData'
 
+// Helper: safely extract string from CMS value (handles Portable Text blocks)
+function safeStr(val: any, fallback: string = ''): string {
+  if (!val) return fallback
+  if (typeof val === 'string') return val
+  if (Array.isArray(val)) return val.map((b: any) => b?.children?.map((c: any) => c?.text).join('')).join('\n') || fallback
+  if (typeof val === 'object' && val?.text) return val.text
+  return fallback
+}
+
 export async function generateMetadata(): Promise<Metadata> {
   const about = await getAboutPage()
   return {
@@ -169,7 +178,10 @@ const styles = `
 export default async function AboutPage() {
   const aboutCms = await getAboutPage()
   const heroHeading = aboutCms?.heroHeading || 'เกี่ยวกับ NYX Cable'
-  const heroSub = 'ผู้นำด้านสายไฟอุตสาหกรรมมาตรฐานยุโรป ลูกค้ากว่า 99% กลับมาซื้อซ้ำ'
+  const heroSub = aboutCms?.heroSubheading || 'ผู้นำด้านสายไฟอุตสาหกรรมมาตรฐานยุโรป ลูกค้ากว่า 99% กลับมาซื้อซ้ำ'
+  const heroBadges = aboutCms?.heroBadges?.length > 0
+    ? aboutCms.heroBadges.map((b: any) => typeof b === 'string' ? b : (b?.text || ''))
+    : ['📋 ประสบการณ์กว่า 20 ปี', '🏭 ลูกค้ากว่า 5,000 บริษัท', '📦 สินค้ากว่า 15,000 SKU']
 
   return (
     <>
@@ -183,11 +195,11 @@ export default async function AboutPage() {
       <section className="about-hero">
         <div className="container">
           <h1>{heroHeading}</h1>
-          <p className="hero-sub"><span>ผู้นำด้านสายไฟอุตสาหกรรมมาตรฐานยุโรป </span><span style={{ color: '#fbb03b' }}>ลูกค้ากว่า 99% กลับมาซื้อซ้ำ</span></p>
+          <p className="hero-sub">{heroSub}</p>
           <div className="hero-badges">
-            <span className="hero-badge">📋 ประสบการณ์กว่า 20 ปี</span>
-            <span className="hero-badge">🏭 ลูกค้ากว่า 5,000 บริษัท</span>
-            <span className="hero-badge">📦 สินค้ากว่า 15,000 SKU</span>
+            {heroBadges.map((badge: string, i: number) => (
+              <span key={i} className="hero-badge">{badge}</span>
+            ))}
           </div>
         </div>
       </section>
@@ -196,17 +208,17 @@ export default async function AboutPage() {
       <div className="container about-content">
         <div className="about-grid">
           <div className="about-text">
-            <h2>NYX CABLE<br /><span>ผู้เชี่ยวชาญสายไฟอุตสาหกรรม</span></h2>
+            <h2>{aboutCms?.storyHeading || <>NYX CABLE<br /><span>ผู้เชี่ยวชาญสายไฟอุตสาหกรรม</span></>}</h2>
             <p>
-              NYX CABLE คือผู้จัดจำหน่ายและผู้เชี่ยวชาญด้านผลิตภัณฑ์สายไฟคุณภาพสูง
+              {safeStr(aboutCms?.storyContent, `NYX CABLE คือผู้จัดจำหน่ายและผู้เชี่ยวชาญด้านผลิตภัณฑ์สายไฟคุณภาพสูง
               ที่มุ่งมั่นส่งมอบโซลูชันด้านระบบไฟฟ้าที่ปลอดภัย ทนทาน และได้มาตรฐานระดับสากล
               เพื่อตอบสนองความต้องการของลูกค้าในทุกกลุ่มอุตสาหกรรม ไม่ว่าจะเป็นโครงการระดับเมกะโปรเจกต์
-              โรงงานอุตสาหกรรม ตลอดจนกลุ่มธุรกิจรับเหมาก่อสร้างชั้นนำ
+              โรงงานอุตสาหกรรม ตลอดจนกลุ่มธุรกิจรับเหมาก่อสร้างชั้นนำ`)}
             </p>
             <div className="about-stats" style={{ textAlign: 'center' }}>
               <div className="about-stat" style={{ width: '100%' }}>
-                <div className="label" style={{ fontSize: '1rem', marginBottom: 8 }}>เราขายสายไปแล้วกว่า</div>
-                <div className="num" style={{ fontSize: '2.5rem', color: '#fbb03b' }}>20,000,000 เมตร+</div>
+                <div className="label" style={{ fontSize: '1rem', marginBottom: 8 }}>{aboutCms?.stats?.[0]?.label || 'เราขายสายไปแล้วกว่า'}</div>
+                <div className="num" style={{ fontSize: '2.5rem', color: '#fbb03b' }}>{aboutCms?.stats?.[0]?.number || '20,000,000 เมตร+'}</div>
               </div>
               <div style={{ display: 'flex', justifyContent: 'center', gap: 40, marginTop: 20, alignItems: 'flex-end', flexWrap: 'wrap' }}>
                 {/* IEC */}
@@ -257,20 +269,18 @@ export default async function AboutPage() {
           {/* Box 1: Vision */}
           <div className="info-box">
             <div className="box-icon vision">🎯</div>
-            <h3>วิสัยทัศน์องค์กร (Our Vision)</h3>
+            <h3>{aboutCms?.visionHeading || 'วิสัยทัศน์องค์กร (Our Vision)'}</h3>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
-              <div>
-                <h4 style={{ color: '#003366', fontWeight: 700, marginBottom: 6 }}>🚀 นวัตกรรม & ความเร็ว</h4>
-                <p style={{ margin: 0 }}>จัดส่งเร็วกว่า บริการ Same/Next Day Delivery และประยุกต์ใช้ AI ในการจัดการสต๊อกอย่างแม่นยำ</p>
-              </div>
-              <div>
-                <h4 style={{ color: '#003366', fontWeight: 700, marginBottom: 6 }}>🤝 เป็นพันธมิตรเชิงกลยุทธ์</h4>
-                <p style={{ margin: 0 }}>ที่กลุ่มอุตสาหกรรมไว้วางใจสูงสุด ด้วยการส่งมอบสายไฟฟ้าที่ 'ใช่ที่สุด' เพื่อลดต้นทุนและยกระดับประสิทธิภาพอย่างยั่งยืน</p>
-              </div>
-              <div>
-                <h4 style={{ color: '#003366', fontWeight: 700, marginBottom: 6 }}>⚡ ตัวจริงด้านสายไฟคอนโทรล</h4>
-                <p style={{ margin: 0 }}>เติบโตเคียงข้างลูกค้า ด้วยกระบวนการทำงานที่เป็นเลิศ และทีมงานที่มุ่งมั่นสู่ความสำเร็จอย่างแท้จริง</p>
-              </div>
+              {(aboutCms?.whyNyxItems?.length > 0 ? aboutCms.whyNyxItems : [
+                { icon: '🚀', title: 'นวัตกรรม & ความเร็ว', description: 'จัดส่งเร็วกว่า บริการ Same/Next Day Delivery และประยุกต์ใช้ AI ในการจัดการสต๊อกอย่างแม่นยำ' },
+                { icon: '🤝', title: 'เป็นพันธมิตรเชิงกลยุทธ์', description: "ที่กลุ่มอุตสาหกรรมไว้วางใจสูงสุด ด้วยการส่งมอบสายไฟฟ้าที่ 'ใช่ที่สุด' เพื่อลดต้นทุนและยกระดับประสิทธิภาพอย่างยั่งยืน" },
+                { icon: '⚡', title: 'ตัวจริงด้านสายไฟคอนโทรล', description: 'เติบโตเคียงข้างลูกค้า ด้วยกระบวนการทำงานที่เป็นเลิศ และทีมงานที่มุ่งมั่นสู่ความสำเร็จอย่างแท้จริง' },
+              ]).map((item: any, i: number) => (
+                <div key={i}>
+                  <h4 style={{ color: '#003366', fontWeight: 700, marginBottom: 6 }}>{item.icon} {item.title}</h4>
+                  <p style={{ margin: 0 }}>{item.description}</p>
+                </div>
+              ))}
             </div>
           </div>
 
@@ -279,7 +289,7 @@ export default async function AboutPage() {
             <div className="box-icon about">🏢</div>
             <h3>เกี่ยวกับเรา</h3>
             <p>
-              บริษัท นิกซ์ เคเบิ้ล จำกัด เราเป็นผู้เชี่ยวชาญและนำเข้า สายไฟคอนโทรล
+              {safeStr(aboutCms?.storyContent, `บริษัท นิกซ์ เคเบิ้ล จำกัด เราเป็นผู้เชี่ยวชาญและนำเข้า สายไฟคอนโทรล
               และสายไฟฟ้าชนิดพิเศษแบบต่างๆสำหรับโรงงานอุตสาหกรรมโดยเฉพาะ
               มีประสบการณ์มากกว่า 20 ปี ในการบริการให้คำปรึกษา แนะนำ แก้ไขปัญหา
               เปรียบเทียบ และ จัดส่งสินค้า ทางด้านสายไฟฟ้าสำหรับโรงงาน
@@ -288,7 +298,7 @@ export default async function AboutPage() {
               ทำให้ตอบสนองทุกความต้องการ มีการจัดส่งได้ยืดหยุ่น ตามความต้องการของลูกค้า
               ทั้งแบบธรรมดาและด่วนพิเศษ โดยสายคอนโทรลทุกรุ่นนั้นมีเทคโนโลยีการผลิตชั้นสูงจากยุโรป
               และควบคุมการผลิตด้วยระบบคอมพิวเตอร์ที่ทันสมัย ตามมาตราฐาน VDE และ IEC
-              ทำให้ได้สายไฟฟ้าที่มีคุณภาพ สร้างความพึงพอใจและ มีลูกค้ากลับมาซื้อซ้ำกว่า 99%
+              ทำให้ได้สายไฟฟ้าที่มีคุณภาพ สร้างความพึงพอใจและ มีลูกค้ากลับมาซื้อซ้ำกว่า 99%`)}
             </p>
           </div>
 
@@ -302,9 +312,13 @@ export default async function AboutPage() {
               ทำให้ได้สายไฟฟ้าที่มีคุณภาพ สร้างความพึงพอใจให้ลูกค้า
             </p>
             <div className="stat-row">
-              <div className="stat-item"><div className="big">99%</div><div className="txt">ลูกค้ากลับมาซื้อซ้ำ</div></div>
-              <div className="stat-item"><div className="big">VDE</div><div className="txt">มาตรฐานยุโรป</div></div>
-              <div className="stat-item"><div className="big">IEC</div><div className="txt">มาตรฐานสากล</div></div>
+              {(aboutCms?.stats?.length > 1 ? aboutCms.stats.slice(1) : [
+                { number: '99%', label: 'ลูกค้ากลับมาซื้อซ้ำ' },
+                { number: 'VDE', label: 'มาตรฐานยุโรป' },
+                { number: 'IEC', label: 'มาตรฐานสากล' },
+              ]).map((stat: any, i: number) => (
+                <div key={i} className="stat-item"><div className="big">{stat.number}</div><div className="txt">{stat.label}</div></div>
+              ))}
             </div>
           </div>
         </div>

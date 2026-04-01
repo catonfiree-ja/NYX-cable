@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { getProducts, getBlogPosts, getFAQs, getHomePage, getSiteSettings } from '@/lib/queries'
+import { getProducts, getBlogPosts, getFAQs, getHomePage, getSiteSettings, getCategories } from '@/lib/queries'
 import Image from 'next/image'
 import Link from 'next/link'
 import { urlFor as sanityUrlFor } from '@/lib/sanity'
@@ -7,6 +7,14 @@ import { decodeHtmlEntities } from '@/lib/decode-html'
 import DeliveryGallery from '@/components/DeliveryGallery'
 import { filterBlogPosts } from '@/lib/blog-utils'
 import RevealOnScroll from '@/app/components/RevealOnScroll'
+
+// Helper: safely extract string from CMS value (handles Portable Text blocks)
+function safeStr(val: any, fallback: string = ''): string {
+  if (!val) return fallback
+  if (typeof val === 'string') return val
+  if (Array.isArray(val)) return val.map((b: any) => b?.children?.map((c: any) => c?.text).join('')).join('\n') || fallback
+  return fallback
+}
 
 export async function generateMetadata(): Promise<Metadata> {
   const homeCms = await getHomePage()
@@ -27,12 +35,14 @@ export default async function HomePage() {
   let blogPosts: any[] = []
   let faqs: any[] = []
   let homeCms: any = null
+  let cmsCategories: any[] = []
   try {
-    ;[products, blogPosts, faqs, homeCms] = await Promise.all([
+    ;[products, blogPosts, faqs, homeCms, cmsCategories] = await Promise.all([
       getProducts().catch(() => []),
       getBlogPosts().catch(() => []),
       getFAQs().catch(() => []),
       getHomePage().catch(() => null),
+      getCategories().catch(() => []),
     ])
   } catch (e) {
     console.error('[HomePage] Failed to fetch CMS data:', e)
@@ -52,7 +62,7 @@ export default async function HomePage() {
     })),
   } : null
 
-  const categories = [
+  const defaultCategories = [
     { name: "สายคอนโทรล (Control Cable)", slug: "control-cable", abbr: "CC", desc: "YSLY-JZ, YSLY-JB สายคอนโทรลประสิทธิภาพสูง มาตรฐาน DIN VDE", count: 12, fallbackImg: "/images/categories/control-cable.jpg" },
     { name: "สายชีลด์ (Shielded Cable)", slug: "shielded-cable", abbr: "SHD", desc: "สายไฟมีชีลด์ป้องกันคลื่นแม่เหล็กไฟฟ้า สำหรับระบบอัตโนมัติ", count: 7, fallbackImg: "/images/categories/shielded-cable.jpg" },
     { name: "สายคู่บิดเกลียว RS485 / RS422", slug: "rs485-rs422-cable", abbr: "RS", desc: "สายสัญญาณ RS485/RS422 สำหรับระบบ SCADA และ PLC", count: 4, fallbackImg: "/images/categories/bus-data-cable.jpg" },
@@ -62,6 +72,16 @@ export default async function HomePage() {
     { name: "สายฟิลด์บัส (Industrial Bus)", slug: "industrial-bus-cable", abbr: "BUS", desc: "Profibus, DeviceNet, CC-Link สายสื่อสารข้อมูลอุตสาหกรรม", count: 4, fallbackImg: "/images/categories/bus-data-cable.jpg" },
     { name: "สายทนความร้อน ทนสารเคมี", slug: "heat-resistant-cable", abbr: "HRC", desc: "SiHF, SiLi ทนความร้อนสูงถึง 180°C ทนน้ำมันและสารเคมี", count: 6, fallbackImg: "/images/categories/heat-resistant-cable.jpg" },
   ];
+  const categories = cmsCategories.length > 0
+    ? cmsCategories.map((c: any) => ({
+        name: safeStr(c.title),
+        slug: c.slug?.current || c.slug,
+        abbr: safeStr(c.title).substring(0, 2).toUpperCase(),
+        desc: safeStr(c.shortDescription),
+        count: c.productCount || 0,
+        fallbackImg: c.image ? sanityUrlFor(c.image).width(400).url() : '/images/categories/control-cable.jpg',
+      }))
+    : defaultCategories;
 
   // ─── ข้อมูลจากต้นฉบับ — ทำไมต้องเลือก NYX CABLE ───
   const defaultWhyNyx = [
@@ -75,15 +95,15 @@ export default async function HomePage() {
     ? homeCms.whyNyxItems.map((item: any, i: number) => ({
       num: String(i + 1).padStart(2, '0'),
       title: item.title,
-      desc: item.description,
-      stat: item.icon || '',
+      desc: safeStr(item.description),
+      stat: safeStr(item.icon),
     }))
     : defaultWhyNyx;
-  const whyNyxHeading = homeCms?.whyNyxHeading || 'ทำไมต้องเลือก NYX CABLE';
-  const whyNyxSubheading = homeCms?.whyNyxSubheading || 'มั่นใจคุณภาพ + บริการรวดเร็วทันใจ + ราคาดี + ยืนยันจากผู้ใช้จริง';
+  const whyNyxHeading = safeStr(homeCms?.whyNyxHeading, 'ทำไมต้องเลือก NYX CABLE');
+  const whyNyxSubheading = safeStr(homeCms?.whyNyxSubheading, 'มั่นใจคุณภาพ + บริการรวดเร็วทันใจ + ราคาดี + ยืนยันจากผู้ใช้จริง');
 
   // ─── รายชื่อสินค้าหลักพร้อมคำอธิบายไทย (จากต้นฉบับ) ───
-  const mainProducts = [
+  const defaultMainProducts = [
     { name: "YSLY-JZ", thaiName: "สายคอนโทรล", slug: "ysly-jz", img: "/images/products/ysly-jz.jpg" },
     { name: "LiYCY", thaiName: "สายคอนโทรลมีชีลด์", slug: "liycy", img: "/images/products/liycy.jpg" },
     { name: "ST-TP", thaiName: "สายชีลด์ สำหรับ RS485/RS422 โดยเฉพาะ", slug: "rs485-rs422", img: "/images/products/st-tp.jpg" },
@@ -94,9 +114,17 @@ export default async function HomePage() {
     { name: "SiHF", thaiName: "สายไฟทนความร้อน", slug: "sihf", img: "/images/products/sihf.jpg" },
     { name: "Multiflex", thaiName: "สายไฟรางกระดูกงู สายไฟหุ่นยนต์", slug: "robot-cable", img: "/images/products/multiflex.jpg" },
   ];
+  const mainProducts = topProducts.length > 0
+    ? topProducts.map((p: any) => ({
+        name: safeStr(p.name),
+        thaiName: safeStr(p.thaiName) || safeStr(p.shortDescription),
+        slug: p.slug?.current || p.slug,
+        img: p.images?.[0] ? sanityUrlFor(p.images[0]).width(400).url() : '/images/products/ysly-jz.jpg',
+      }))
+    : defaultMainProducts;
 
   // ─── FAQ ความรู้จากต้นฉบับ ───
-  const knowledgeFAQs = [
+  const defaultKnowledgeFAQs = [
     {
       q: "สายคอนโทรล คืออะไร?",
       a: "สายไฟที่มีตัวนำเป็นเส้นฝอยขนาดเล็กทำให้มีความอ่อนตัวสูง เหมาะสำหรับเชื่อมต่อเพื่อนำสัญญาณระหว่างอุปกรณ์วัดและคอมพิวเตอร์ ลักษณะของสายคอนโทรลสำหรับโรงงานอุตสาหกรรมนั้นมีหลายรูปแบบ ตามสภาพหน้างาน โดยสิ่งที่ทำให้แต่ละชนิดแตกต่างกัน คือ ตัวนำไฟฟ้า ฉนวน Shield และฉนวนภายนอก",
@@ -148,6 +176,9 @@ export default async function HomePage() {
       link: "/product/ysly-jz"
     },
   ];
+  const knowledgeFAQs = faqs.length > 0
+    ? faqs.map((f: any) => ({ q: safeStr(f.question), a: safeStr(f.answer), link: safeStr(f.link) }))
+    : defaultKnowledgeFAQs;
 
   const clients = [
     { name: 'SCG', id: 'image-0946e535cf5788a2e11b68c726c193210b5175c8-293x118-png' },
@@ -607,41 +638,39 @@ export default async function HomePage() {
           <div className="hero-v2-grid">
             <div>
               <h1>
-                <span className="blue">NYX CABLE</span>
+                <span className="blue">{safeStr(homeCms?.heroTitle, 'NYX CABLE')}</span>
                 <br />
                 Experts in Control Cables
                 <br />
                 for <span className="yellow">Industrial Excellence</span>
               </h1>
-              <div className="subtitle">สายไฟฟ้าสำหรับโรงงานอุตสาหกรรม</div>
+              <div className="subtitle">{safeStr(homeCms?.heroSubtitle, 'สายไฟฟ้าสำหรับโรงงานอุตสาหกรรม')}</div>
               <p className="tagline">
-                <span style={{ fontSize: '1.2rem', display: 'block', marginBottom: '8px' }}><span style={{ color: 'rgba(255,255,255,0.85)' }}>ใช้เทคโนโลยีการผลิตขั้นสูง</span><span style={{ color: '#fbb03b' }}>จากยุโรป</span><span style={{ color: 'rgba(255,255,255,0.85)' }}>ทุกขั้นตอน มั่นใจในคุณภาพ</span></span>
-                <span style={{ color: 'rgba(255,255,255,0.85)' }}>สายไฟคุณภาพมาตรฐาน DIN VDE สต็อกพร้อมส่งทุกขนาด บริการจัดส่งทั่วประเทศ</span>
+                {homeCms?.heroTagline ? (
+                  <span style={{ color: 'rgba(255,255,255,0.85)' }}>{safeStr(homeCms.heroTagline)}</span>
+                ) : (
+                  <>
+                    <span style={{ fontSize: '1.2rem', display: 'block', marginBottom: '8px' }}><span style={{ color: 'rgba(255,255,255,0.85)' }}>ใช้เทคโนโลยีการผลิตขั้นสูง</span><span style={{ color: '#fbb03b' }}>จากยุโรป</span><span style={{ color: 'rgba(255,255,255,0.85)' }}>ทุกขั้นตอน มั่นใจในคุณภาพ</span></span>
+                    <span style={{ color: 'rgba(255,255,255,0.85)' }}>สายไฟคุณภาพมาตรฐาน DIN VDE สต็อกพร้อมส่งทุกขนาด บริการจัดส่งทั่วประเทศ</span>
+                  </>
+                )}
               </p>
 
             </div>
             <div className="hero-v2-right">
-              <Link href="/contact" className="hero-trust-badge" style={{ textDecoration: 'none', color: 'inherit' }}>
-                <span className="trust-icon">01</span>
-                <div className="trust-text">
-                  <p style={{ fontWeight: 700, margin: 0 }}>ให้คำแนะนำ</p>
-                  <p>จากผู้เชี่ยวชาญด้านสายไฟฟ้าคอนโทรลโดยเฉพาะ</p>
-                </div>
-              </Link>
-              <Link href="/contact" className="hero-trust-badge" style={{ textDecoration: 'none', color: 'inherit' }}>
-                <span className="trust-icon">02</span>
-                <div className="trust-text">
-                  <p style={{ fontWeight: 700, margin: 0 }}>แก้ไขปัญหา</p>
-                  <p>แก้ไขปัญหาตรงจุดกับปรึกษามืออาชีพ</p>
-                </div>
-              </Link>
-              <Link href="/gallery" className="hero-trust-badge" style={{ textDecoration: 'none', color: 'inherit' }}>
-                <span className="trust-icon">03</span>
-                <div className="trust-text">
-                  <p style={{ fontWeight: 700, margin: 0 }}>จัดส่งสินค้า</p>
-                  <p>ถึงที่หมายอย่างเป็นระบบและตรงต่อเวลา</p>
-                </div>
-              </Link>
+              {(homeCms?.heroTrustBadges?.length > 0 ? homeCms.heroTrustBadges : [
+                { title: 'ให้คำแนะนำ', description: 'จากผู้เชี่ยวชาญด้านสายไฟฟ้าคอนโทรลโดยเฉพาะ', url: '/contact' },
+                { title: 'แก้ไขปัญหา', description: 'แก้ไขปัญหาตรงจุดกับปรึกษามืออาชีพ', url: '/contact' },
+                { title: 'จัดส่งสินค้า', description: 'ถึงที่หมายอย่างเป็นระบบและตรงต่อเวลา', url: '/gallery' },
+              ]).map((badge: any, i: number) => (
+                <Link key={i} href={badge.url || '/contact'} className="hero-trust-badge" style={{ textDecoration: 'none', color: 'inherit' }}>
+                  <span className="trust-icon">{String(i + 1).padStart(2, '0')}</span>
+                  <div className="trust-text">
+                    <p style={{ fontWeight: 700, margin: 0 }}>{badge.title}</p>
+                    <p>{badge.description}</p>
+                  </div>
+                </Link>
+              ))}
             </div>
           </div>
         </div>
@@ -691,7 +720,7 @@ export default async function HomePage() {
       <section style={{ paddingTop: 48, paddingBottom: 20, background: '#fff', textAlign: 'center' }}>
         <div className="container">
           <div style={{ marginBottom: 24, borderTop: '1px solid #e5e5e5', width: '100%' }}></div>
-          <h2 style={{ fontSize: '2rem', fontWeight: 700, color: '#000000', marginBottom: 0, lineHeight: 1, textAlign: 'center' }}>บริการของเรา</h2>
+          <h2 style={{ fontSize: '2rem', fontWeight: 700, color: '#000000', marginBottom: 0, lineHeight: 1, textAlign: 'center' }}>{safeStr(homeCms?.servicesHeading, 'บริการของเรา')}</h2>
           <div className="services-grid">
             {/* ส่งด่วนจากโกดังบางนา */}
             <div className="service-item">
@@ -838,7 +867,7 @@ export default async function HomePage() {
       {/* ─── การส่งสินค้า (Pixel-Perfect from nyxcable.com) ─── */}
       <section className="delivery-section-custom" style={{ background: '#f5f5f5', padding: '60px 0' }}>
         <div className="container">
-          <h2 style={{ fontSize: '2rem', fontWeight: 700, color: '#000000', textAlign: 'center', marginBottom: 36 }}>การส่งสินค้า</h2>
+          <h2 style={{ fontSize: '2rem', fontWeight: 700, color: '#000000', textAlign: 'center', marginBottom: 36 }}>{safeStr(homeCms?.deliveryHeading, 'การส่งสินค้า')}</h2>
           <DeliveryGallery photos={[
             { src: '/delivery-orig/delivery-orig-01.jpg', alt: 'NYX Cable คนงานในโกดัง', gridColumn: '1', gridRow: '1' },
             { src: '/delivery-orig/delivery-orig-02.jpg', alt: 'NYX Cable สายไฟบนรถบรรทุก', gridColumn: '2', gridRow: '1 / 3' },
@@ -867,8 +896,8 @@ export default async function HomePage() {
       {/* ─── Latest Articles (from original) ─── */}
       <section className="latest-articles">
         <div className="container">
-          <h2>ข่าวสารและบทความล่าสุด</h2>
-          <p className="section-sub">ความรู้เกี่ยวกับสายไฟอุตสาหกรรม อัพเดทเทรนด์และเทคนิคต่างๆ</p>
+          <h2>{safeStr(homeCms?.articlesHeading, 'ข่าวสารและบทความล่าสุด')}</h2>
+          <p className="section-sub">{safeStr(homeCms?.articlesSubheading, 'ความรู้เกี่ยวกับสายไฟอุตสาหกรรม อัพเดทเทรนด์และเทคนิคต่างๆ')}</p>
           <div className="articles-grid">
             {latestPosts.map((post: any) => (
               <a key={post._id} href={`/blog/${post.slug?.current}`} className="article-card">
@@ -890,8 +919,8 @@ export default async function HomePage() {
       {/* ─── เปรียบเทียบ NYX Cable vs สายทั่วไป ─── */}
       <section className="comparison-section" style={{ padding: '60px 0', background: 'linear-gradient(180deg, #f0f7ff, #fff)' }}>
         <div className="container">
-          <h2 style={{ textAlign: 'center', fontSize: '1.6rem', fontWeight: 800, color: '#003366', marginBottom: 8 }}>เปรียบเทียบ NYX Cable กับสายไฟทั่วไป</h2>
-          <p className="section-sub" style={{ textAlign: 'center', marginBottom: 32 }}>ดูข้อแตกต่างที่ชัดเจน ทำไมโรงงานชั้นนำเลือก NYX Cable</p>
+          <h2 style={{ textAlign: 'center', fontSize: '1.6rem', fontWeight: 800, color: '#003366', marginBottom: 8 }}>{safeStr(homeCms?.comparisonHeading, 'เปรียบเทียบ NYX Cable กับสายไฟทั่วไป')}</h2>
+          <p className="section-sub" style={{ textAlign: 'center', marginBottom: 32 }}>{safeStr(homeCms?.comparisonSubheading, 'ดูข้อแตกต่างที่ชัดเจน ทำไมโรงงานชั้นนำเลือก NYX Cable')}</p>
           <div style={{ overflowX: 'auto', WebkitOverflowScrolling: 'touch' }}>
             <table className="comparison-table" style={{ width: '100%', maxWidth: 800, margin: '0 auto', borderCollapse: 'collapse', fontSize: '0.9rem', borderRadius: 12, overflow: 'hidden', boxShadow: '0 2px 12px rgba(0,0,0,0.06)', minWidth: 480 }}>
               <thead>
@@ -929,12 +958,12 @@ export default async function HomePage() {
       {/* ─── วิดีโอแนะนำ NYX Cable (Lazy Facade) ─── */}
       <section style={{ padding: '60px 0', background: '#fff' }}>
         <div className="container">
-          <h2 style={{ textAlign: 'center', fontSize: '1.6rem', fontWeight: 800, color: '#003366', marginBottom: 8 }}>แนะนำ NYX Cable</h2>
+          <h2 style={{ textAlign: 'center', fontSize: '1.6rem', fontWeight: 800, color: '#003366', marginBottom: 8 }}>{safeStr(homeCms?.videoHeading, 'แนะนำ NYX Cable')}</h2>
           <p style={{ textAlign: 'center', color: '#475569', marginBottom: 32, fontSize: '0.95rem' }}>ทำความรู้จักกับเราผ่านวิดีโอ</p>
           <div style={{ maxWidth: 800, margin: '0 auto', borderRadius: 20, overflow: 'hidden', boxShadow: '0 8px 30px rgba(0,51,102,0.1)', border: '1px solid #e5e7eb', aspectRatio: '16 / 9', position: 'relative', background: '#000', cursor: 'pointer' }}>
-            <a href="https://www.youtube.com/watch?v=IEu9jZBH3qQ" target="_blank" rel="noopener noreferrer" style={{ display: 'block', width: '100%', height: '100%', position: 'absolute', top: 0, left: 0 }}>
+            <a href={homeCms?.videoUrl || 'https://www.youtube.com/watch?v=IEu9jZBH3qQ'} target="_blank" rel="noopener noreferrer" style={{ display: 'block', width: '100%', height: '100%', position: 'absolute', top: 0, left: 0 }}>
               <Image
-                src="https://i.ytimg.com/vi/IEu9jZBH3qQ/hqdefault.jpg"
+                src={`https://i.ytimg.com/vi/${(homeCms?.videoUrl || 'https://www.youtube.com/watch?v=IEu9jZBH3qQ').split('v=')[1]?.split('&')[0] || 'IEu9jZBH3qQ'}/hqdefault.jpg`}
                 alt="NYX Cable - สายไฟอุตสาหกรรมคุณภาพสูง"
                 loading="lazy"
                 width={800}
@@ -952,8 +981,8 @@ export default async function HomePage() {
       {/* ─── Knowledge FAQ (from original) ─── */}
       <section className="knowledge-section">
         <div className="container">
-          <h2>ความรู้เกี่ยวกับสายไฟ</h2>
-          <p className="section-sub">คำตอบที่ลูกค้าถามบ่อย เกี่ยวกับสายไฟอุตสาหกรรม</p>
+          <h2>{safeStr(homeCms?.faqHeading, 'ความรู้เกี่ยวกับสายไฟ')}</h2>
+          <p className="section-sub">{safeStr(homeCms?.faqSubheading, 'คำตอบที่ลูกค้าถามบ่อย เกี่ยวกับสายไฟอุตสาหกรรม')}</p>
           <div className="faq-list">
             {knowledgeFAQs.map((faq, i) => (
               <div key={i} className="faq-item">
