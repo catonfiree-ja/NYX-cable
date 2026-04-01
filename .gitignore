@@ -39,6 +39,7 @@ frontend/cms-*.js
 frontend/list-posts.js
 frontend/scripts/read-pdf.cjs
 
-# Temp audit reports
+# Temp audit reports & client deliverables (ส่งทาง LINE)
 new-site-report.json
 old-site-report.json
+deliverables/
