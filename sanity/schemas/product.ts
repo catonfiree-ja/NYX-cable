@@ -143,6 +143,28 @@ export default defineType({
       description: 'เช่น VDE, IEC, CE, UL',
     }),
     defineField({
+      name: 'faqItems',
+      title: 'คำถามที่พบบ่อย (FAQ)',
+      type: 'array',
+      of: [
+        {
+          type: 'object',
+          fields: [
+            { name: 'question', type: 'string', title: 'คำถาม' },
+            {
+              name: 'answer',
+              type: 'array',
+              of: [{ type: 'block' }],
+              title: 'คำตอบ',
+            },
+          ],
+          preview: {
+            select: { title: 'question' },
+          },
+        },
+      ],
+    }),
+    defineField({
       name: 'featured',
       title: 'สินค้าเด่น',
       type: 'boolean',

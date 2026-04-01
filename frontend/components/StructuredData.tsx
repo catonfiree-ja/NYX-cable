@@ -1,13 +1,15 @@
+import { SITE_CONSTANTS } from '@/lib/constants'
+
 export function OrganizationSchema({ phone, email, lineUrl, fbUrl }: { phone?: string; email?: string; lineUrl?: string; fbUrl?: string } = {}) {
-  const tel = phone || '+66-2-111-5588'
-  const mail = email || 'sales@nyxcable.com'
+  const tel = phone || SITE_CONSTANTS.contact.phone
+  const mail = email || SITE_CONSTANTS.contact.email
   const schema = {
     '@context': 'https://schema.org',
     '@type': ['Organization', 'Store'],
     name: 'NYX Cable',
     alternateName: ['บริษัท เอ็นวายเอ็กซ์ เคเบิ้ล จำกัด', 'NYX Cable Co., Ltd.'],
-    url: 'https://www.nyxcable.com',
-    logo: 'https://www.nyxcable.com/images/NYXcable-Logo.png',
+    url: process.env.NEXT_PUBLIC_SITE_URL || 'https://www.nyxcable.com',
+    logo: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://www.nyxcable.com'}/images/NYXcable-Logo.png`,
     description: 'ผู้นำด้านสายไฟอุตสาหกรรมคุณภาพสูง มาตรฐานยุโรป สายคอนโทรล สาย VFD สายทนความร้อน สายชีลด์ ส่งตรงจากโรงงาน',
     telephone: tel,
     email: mail,
@@ -35,9 +37,9 @@ export function OrganizationSchema({ phone, email, lineUrl, fbUrl }: { phone?: s
       closes: '17:30',
     },
     sameAs: [
-      lineUrl || 'https://page.line.me/ubb9405u',
-      fbUrl || 'https://www.facebook.com/NYXCable',
-      'https://www.youtube.com/@time7222',
+      lineUrl || SITE_CONSTANTS.contact.lineUrl,
+      fbUrl || SITE_CONSTANTS.contact.facebook,
+      SITE_CONSTANTS.contact.youtube,
     ],
     knowsAbout: [
       'สายคอนโทรล', 'Control Cable', 'YSLY-JZ', 'YSLY-JB',

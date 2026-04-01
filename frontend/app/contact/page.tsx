@@ -36,6 +36,12 @@ export default async function ContactPage() {
       cms.heroSubheading = contactCms.heroSubheading
       cms.businessHours = contactCms.businessHours
       cms.mapsEmbedUrl = contactCms.googleMapsEmbed
+      cms.phoneSubtext = contactCms.phoneSubtext
+      cms.lineSubtext = contactCms.lineSubtext
+      cms.emailSubtext = contactCms.emailSubtext
+      cms.businessHoursSubtext = contactCms.businessHoursSubtext
+      cms.warehouseHeading = contactCms.warehouseHeading
+      cms.warehouseImages = contactCms.warehouseImages
     }
   } catch {
     // Use defaults in ContactClient

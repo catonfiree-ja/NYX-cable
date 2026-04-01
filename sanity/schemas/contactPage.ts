@@ -31,6 +31,34 @@ export default defineType({
       group: 'info',
     }),
     defineField({
+      name: 'phoneSubtext',
+      title: 'คำอธิบายย่อย: โทรศัพท์',
+      type: 'string',
+      group: 'info',
+      description: 'เช่น "ตอบทันที ในเวลาทำการ"',
+    }),
+    defineField({
+      name: 'lineSubtext',
+      title: 'คำอธิบายย่อย: LINE Official',
+      type: 'string',
+      group: 'info',
+      description: 'เช่น "ตอบไว 5 นาที"',
+    }),
+    defineField({
+      name: 'emailSubtext',
+      title: 'คำอธิบายย่อย: อีเมล',
+      type: 'string',
+      group: 'info',
+      description: 'เช่น "ตอบกลับภายใน 1 ชม."',
+    }),
+    defineField({
+      name: 'businessHoursSubtext',
+      title: 'คำอธิบายย่อย: เวลาทำการ',
+      type: 'string',
+      group: 'info',
+      description: 'เช่น "เสาร์-อาทิตย์ ปิดทำการ"',
+    }),
+    defineField({
       name: 'googleMapsEmbed',
       title: 'Google Maps Embed URL',
       type: 'url',
@@ -38,25 +66,37 @@ export default defineType({
       group: 'info',
     }),
 
-    // ─── Additional Info ───
+    // ─── Warehouse Images ───
     defineField({
-      name: 'additionalInfo',
-      title: 'ข้อมูลเพิ่มเติม',
+      name: 'warehouseHeading',
+      title: 'หัวข้อคลังสินค้า',
+      type: 'string',
+      initialValue: 'สำนักงานและคลังสินค้า',
+      group: 'gallery',
+    }),
+    defineField({
+      name: 'warehouseImages',
+      title: 'รูปภาพคลังสินค้า/สำนักงาน',
       type: 'array',
       of: [
         {
-          type: 'object',
-          fields: [
-            { name: 'icon', type: 'string', title: 'Emoji/Icon' },
-            { name: 'title', type: 'string', title: 'หัวข้อ' },
-            { name: 'content', type: 'text', title: 'เนื้อหา', rows: 2 },
-          ],
-          preview: {
-            select: { title: 'title', subtitle: 'content' },
-          },
+          type: 'image',
+          options: { hotspot: true },
+          fields: [{ name: 'alt', type: 'string', title: 'Alt Text' }],
         },
       ],
+      group: 'gallery',
+      description: 'เพิ่มรูปภาพสำหรับแสดงด้านล่างของหน้าติดต่อเรา (แนะนำ 4 หรือ 8 รูป)',
+    }),
+
+    // ─── Form Options ───
+    defineField({
+      name: 'productInterestOptions',
+      title: 'ตัวเลือก "สินค้าที่สนใจ" ในฟอร์ม',
+      type: 'array',
+      of: [{ type: 'string' }],
       group: 'info',
+      description: 'รายชื่อตัวเลือกใน Dropdown เช่น "สายคอนโทรล", "สายกันน้ำ", "สาย Profibus"',
     }),
 
     // ─── SEO ───
@@ -89,6 +129,7 @@ export default defineType({
   groups: [
     { name: 'hero', title: 'Hero Section' },
     { name: 'info', title: 'ข้อมูลติดต่อ' },
+    { name: 'gallery', title: 'รูปภาพ' },
     { name: 'seo', title: 'SEO' },
   ],
   preview: {

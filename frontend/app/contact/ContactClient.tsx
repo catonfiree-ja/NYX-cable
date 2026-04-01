@@ -15,6 +15,12 @@ export interface ContactInfo {
   heroHeading?: string
   heroSubheading?: string
   mapsEmbedUrl?: string
+  warehouseHeading?: string
+  warehouseImages?: any[]
+  phoneSubtext?: string
+  lineSubtext?: string
+  emailSubtext?: string
+  businessHoursSubtext?: string
 }
 
 const defaults: ContactInfo = {
@@ -28,6 +34,10 @@ const defaults: ContactInfo = {
   businessHours: 'จันทร์ - ศุกร์ 8:30 - 17:30',
   heroHeading: 'ติดต่อเรา',
   heroSubheading: 'ทีมวิศวกรพร้อมให้คำปรึกษา สอบถามราคาและสต็อกสินค้า',
+  phoneSubtext: 'ตอบทันที ในเวลาทำการ',
+  lineSubtext: 'ตอบไว 5 นาที',
+  emailSubtext: 'ตอบกลับภายใน 1 ชม.',
+  businessHoursSubtext: 'เสาร์-อาทิตย์ ปิดทำการ',
 }
 
 const styles = `
@@ -292,15 +302,15 @@ export default function ContactPage({ cms = {} }: { cms?: ContactInfo }) {
           <div className="contact-info-cards">
             <div className="contact-card">
               <div className="contact-card-icon icon-tel"><Image src="/images/icons/contact-phone.svg" alt="โทรศัพท์" width={32} height={32} /></div>
-              <div><h3>โทรศัพท์</h3><p><a href={`tel:${info.phoneRaw}`}>{info.phone}</a><br />ตอบทันที ในเวลาทำการ</p></div>
+              <div><h3>โทรศัพท์</h3><p><a href={`tel:${info.phoneRaw}`}>{info.phone}</a><br />{info.phoneSubtext}</p></div>
             </div>
             <div className="contact-card">
               <div className="contact-card-icon icon-line"><Image src="/images/icons/contact-line.svg" alt="LINE" width={32} height={32} /></div>
-              <div><h3>LINE Official</h3><p><a href={info.lineUrl} target="_blank" rel="noopener noreferrer">{info.lineOA}</a><br />ตอบไว 5 นาที</p></div>
+              <div><h3>LINE Official</h3><p><a href={info.lineUrl} target="_blank" rel="noopener noreferrer">{info.lineOA}</a><br />{info.lineSubtext}</p></div>
             </div>
             <div className="contact-card">
               <div className="contact-card-icon icon-mail"><Image src="/images/icons/contact-email.svg" alt="อีเมล" width={32} height={32} /></div>
-              <div><h3>อีเมล</h3><p><a href={`https://mail.google.com/mail/?view=cm&to=${info.email}`} target="_blank" rel="noopener noreferrer">{info.email}</a><br />ตอบกลับภายใน 1 ชม.</p></div>
+              <div><h3>อีเมล</h3><p><a href={`https://mail.google.com/mail/?view=cm&to=${info.email}`} target="_blank" rel="noopener noreferrer">{info.email}</a><br />{info.emailSubtext}</p></div>
             </div>
             <div className="contact-card">
               <div className="contact-card-icon icon-loc"><Image src="/images/icons/contact-location.svg" alt="ที่อยู่" width={32} height={32} /></div>
@@ -308,7 +318,7 @@ export default function ContactPage({ cms = {} }: { cms?: ContactInfo }) {
             </div>
             <div className="contact-card">
               <div className="contact-card-icon icon-time"><Image src="/images/icons/contact-clock.svg" alt="เวลาทำการ" width={32} height={32} /></div>
-              <div><h3>เวลาทำการ</h3><p><span style={{ color: '#0066cc', fontWeight: 600 }}>{info.businessHours}</span><br />เสาร์-อาทิตย์ ปิดทำการ</p></div>
+              <div><h3>เวลาทำการ</h3><p><span style={{ color: '#0066cc', fontWeight: 600 }}>{info.businessHours}</span><br />{info.businessHoursSubtext}</p></div>
             </div>
           </div>
 
@@ -385,22 +395,35 @@ export default function ContactPage({ cms = {} }: { cms?: ContactInfo }) {
       {/* ─── Warehouse ─── */}
       <div className="container">
         <section className="warehouse-section">
-          <h2 style={{ fontSize: '2.5rem', fontWeight: 800 }}>สำนักงานและคลังสินค้า</h2>
+          <h2 style={{ fontSize: '2.5rem', fontWeight: 800 }}>{info.warehouseHeading || 'สำนักงานและคลังสินค้า'}</h2>
           <div className="warehouse-grid">
-            {[
-              { src: '/images/office/office-building.jpg', alt: 'อาคารสำนักงาน NYX Cable' },
-              { src: '/images/office/office-entrance.jpg', alt: 'ทางเข้าสำนักงาน NYX Cable' },
-              { src: '/images/office/office-door.jpg', alt: 'ประตูสำนักงาน NYX Cable' },
-              { src: '/images/office/warehouse.jpg', alt: 'คลังสินค้าสายไฟ NYX Cable' },
-              { src: '/images/office/cable-rolls.jpg', alt: 'ม้วนสายไฟพร้อมส่ง NYX Cable' },
-              { src: '/images/office/cable-shelves.jpg', alt: 'ชั้นวางสินค้าสายไฟ NYX Cable' },
-              { src: '/images/office/meeting-room.jpg', alt: 'ห้องประชุม NYX Cable' },
-              { src: '/images/office/cable-cutting.jpg', alt: 'เครื่องตัดสายไฟ NYX Cable' },
-            ].map((photo, i) => (
-              <div key={i} className="warehouse-photo">
-                <Image src={photo.src} alt={photo.alt} loading="lazy" fill style={{ objectFit: 'cover' }} sizes="(max-width: 768px) 50vw, 25vw" />
-              </div>
-            ))}
+            {(() => {
+              const sanityUrlFor = (img: any) => img?.asset?._ref ? `https://cdn.sanity.io/images/30wikoy9/production/${img.asset._ref.replace('image-', '').replace(/-([a-z]+)$/, '.$1')}` : '';
+
+              const defaultPhotos = [
+                { src: '/images/office/office-building.jpg', alt: 'อาคารสำนักงาน NYX Cable' },
+                { src: '/images/office/office-entrance.jpg', alt: 'ทางเข้าสำนักงาน NYX Cable' },
+                { src: '/images/office/office-door.jpg', alt: 'ประตูสำนักงาน NYX Cable' },
+                { src: '/images/office/warehouse.jpg', alt: 'คลังสินค้าสายไฟ NYX Cable' },
+                { src: '/images/office/cable-rolls.jpg', alt: 'ม้วนสายไฟพร้อมส่ง NYX Cable' },
+                { src: '/images/office/cable-shelves.jpg', alt: 'ชั้นวางสินค้าสายไฟ NYX Cable' },
+                { src: '/images/office/meeting-room.jpg', alt: 'ห้องประชุม NYX Cable' },
+                { src: '/images/office/cable-cutting.jpg', alt: 'เครื่องตัดสายไฟ NYX Cable' },
+              ];
+
+              const photosToRender = info.warehouseImages && info.warehouseImages.length > 0
+                ? info.warehouseImages.map((img: any) => ({
+                  src: sanityUrlFor(img),
+                  alt: img.alt || 'NYX Cable Facility'
+                })).filter((p: any) => p.src)
+                : defaultPhotos;
+
+              return photosToRender.map((photo: any, i: number) => (
+                <div key={i} className="warehouse-photo">
+                  <Image src={photo.src} alt={photo.alt} loading="lazy" fill style={{ objectFit: 'cover' }} sizes="(max-width: 768px) 50vw, 25vw" />
+                </div>
+              ));
+            })()}
           </div>
         </section>
       </div>

@@ -7,8 +7,8 @@ export default defineType({
   icon: () => '⚙️',
   groups: [
     { name: 'contact', title: '📞 ข้อมูลติดต่อ', default: true },
+    { name: 'navigation', title: '🧭 เมนูนำทาง' },
     { name: 'social', title: '🔗 โซเชียล' },
-    { name: 'homepage', title: '🏠 หน้าแรก' },
     { name: 'seo', title: '🔍 SEO' },
     { name: 'advanced', title: '⚙️ ขั้นสูง' },
   ],
@@ -39,17 +39,15 @@ export default defineType({
     }),
     defineField({
       name: 'email',
-      title: 'อีเมล',
+      title: 'Email Address',
       type: 'string',
-      initialValue: 'sales@nyxcable.com',
-      description: 'อีเมลที่แสดงทั่วทั้งเว็บ',
+      description: 'อีเมลติดต่อหลัก',
       group: 'contact',
     }),
     defineField({
       name: 'lineOA',
       title: 'LINE Official Account',
       type: 'string',
-      initialValue: '@nyxcable',
       description: 'ชื่อ LINE OA เช่น @nyxcable',
       group: 'contact',
     }),
@@ -57,8 +55,7 @@ export default defineType({
       name: 'lineUrl',
       title: 'LINE URL',
       type: 'url',
-      initialValue: 'https://page.line.me/ubb9405u',
-      description: 'ลิงก์สำหรับแอด LINE (ปุ่มทั่วเว็บ)',
+      description: 'ลิงก์สำหรับคลิกแอดไลน์',
       group: 'contact',
     }),
     defineField({
@@ -106,51 +103,7 @@ export default defineType({
       ],
     }),
 
-    // ─── หน้าแรก ───
-    defineField({
-      name: 'heroSlides',
-      title: 'สไลด์หน้าแรก (Hero)',
-      type: 'array',
-      group: 'homepage',
-      of: [
-        {
-          type: 'object',
-          fields: [
-            { name: 'image', type: 'image', title: 'รูป', options: { hotspot: true }, fields: [{ name: 'alt', type: 'string', title: 'Alt Text' }] },
-            { name: 'heading', type: 'string', title: 'หัวข้อ' },
-            { name: 'subheading', type: 'string', title: 'หัวข้อย่อย' },
-            { name: 'ctaText', type: 'string', title: 'ข้อความปุ่ม' },
-            { name: 'ctaUrl', type: 'string', title: 'ลิงก์ปุ่ม' },
-          ],
-          preview: {
-            select: { title: 'heading', media: 'image' },
-          },
-        },
-      ],
-    }),
-    defineField({
-      name: 'featuredProducts',
-      title: 'สินค้าแนะนำ (หน้าแรก)',
-      type: 'array',
-      group: 'homepage',
-      of: [{ type: 'reference', to: [{ type: 'product' }] }],
-      validation: (Rule) => Rule.max(8),
-    }),
-    defineField({
-      name: 'clientLogos',
-      title: 'โลโก้ลูกค้า',
-      type: 'array',
-      group: 'homepage',
-      of: [
-        {
-          type: 'image',
-          fields: [
-            { name: 'name', type: 'string', title: 'ชื่อบริษัท' },
-            { name: 'alt', type: 'string', title: 'Alt Text', description: 'ถ้าไม่กรอก ระบบจะใช้ชื่อบริษัทแทน' },
-          ],
-        },
-      ],
-    }),
+
 
     // ─── Footer ───
     defineField({
@@ -159,6 +112,61 @@ export default defineType({
       type: 'text',
       rows: 3,
       group: 'advanced',
+    }),
+    defineField({
+      name: 'lineQrImage',
+      title: 'LINE QR Code',
+      type: 'image',
+      group: 'contact',
+      description: 'รูป QR Code สำหรับแอดไลน์',
+      fields: [
+        { name: 'alt', type: 'string', title: 'Alt Text' },
+      ],
+    }),
+    defineField({
+      name: 'businessHoursNote',
+      title: 'หมายเหตุเวลาทำการ',
+      type: 'string',
+      group: 'contact',
+      description: 'เช่น "พักเที่ยง 12:00-13:00" หรือ "เสาร์-อาทิตย์ ปิดทำการ"',
+    }),
+
+    // ─── เมนูนำทาง ───
+    defineField({
+      name: 'headerNavigation',
+      title: 'เมนู Header',
+      type: 'array',
+      group: 'navigation',
+      of: [
+        {
+          type: 'object',
+          fields: [
+            { name: 'label', type: 'string', title: 'ชื่อเมนู' },
+            { name: 'href', type: 'string', title: 'ลิงก์' },
+          ],
+          preview: {
+            select: { title: 'label', subtitle: 'href' },
+          },
+        },
+      ],
+    }),
+    defineField({
+      name: 'footerNavigation',
+      title: 'เมนู Footer (Quick Links)',
+      type: 'array',
+      group: 'navigation',
+      of: [
+        {
+          type: 'object',
+          fields: [
+            { name: 'label', type: 'string', title: 'ชื่อลิงก์' },
+            { name: 'href', type: 'string', title: 'ลิงก์' },
+          ],
+          preview: {
+            select: { title: 'label', subtitle: 'href' },
+          },
+        },
+      ],
     }),
 
     // ─── SEO ───

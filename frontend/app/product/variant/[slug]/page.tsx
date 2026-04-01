@@ -1,4 +1,5 @@
 import { getVariant, getVariants, getSiteSettings } from '@/lib/queries'
+import { SITE_CONSTANTS } from '@/lib/constants'
 import { urlFor } from '@/lib/sanity'
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
@@ -93,8 +94,8 @@ export default async function VariantDetailPage({ params }: { params: Promise<{ 
   const variant = await getVariant(slug)
   if (!variant) notFound()
   const settings = await getSiteSettings().catch(() => null)
-  const phoneRaw = (settings?.phone || '02-111-5588').replace(/[^0-9]/g, '')
-  const lineUrl = settings?.lineUrl || 'https://page.line.me/ubb9405u'
+  const phoneRaw = (settings?.phone || SITE_CONSTANTS.contact.phone).replace(/[^0-9]/g, '')
+  const lineUrl = settings?.lineUrl || SITE_CONSTANTS.contact.lineUrl
 
   const parent = variant.parentProduct
   const siblings = variant.siblingVariants || []

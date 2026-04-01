@@ -22,28 +22,8 @@ export default defineType({
       initialValue: 'ผู้นำด้านสายไฟอุตสาหกรรมมาตรฐานยุโรป ครบวงจร ส่งไว ราคาโรงงาน',
       group: 'hero',
     }),
-    defineField({
-      name: 'heroBadges',
-      title: 'ป้ายจุดเด่น Hero',
-      type: 'array',
-      of: [{ type: 'string' }],
-      group: 'hero',
-      description: 'เช่น "📋 ประสบการณ์กว่า 20 ปี", "🏭 ลูกค้ากว่า 5,000 บริษัท"',
-    }),
-    defineField({
-      name: 'heroCtaText',
-      title: 'ข้อความปุ่ม Hero',
-      type: 'string',
-      initialValue: 'ดูผลิตภัณฑ์ทั้งหมด',
-      group: 'hero',
-    }),
-    defineField({
-      name: 'heroCtaUrl',
-      title: 'ลิงก์ปุ่ม Hero',
-      type: 'string',
-      initialValue: '/products',
-      group: 'hero',
-    }),
+
+
     defineField({
       name: 'heroTagline',
       title: 'ข้อความ Tagline Hero',
@@ -147,6 +127,50 @@ export default defineType({
       group: 'sections',
     }),
 
+    // ─── CTA Buttons Section ───
+    defineField({
+      name: 'ctaCallText',
+      title: 'ปุ่ม CTA โทร: ข้อความหลัก',
+      type: 'string',
+      initialValue: 'Call หาเราทันที',
+      group: 'sections',
+    }),
+    defineField({
+      name: 'ctaCallSub',
+      title: 'ปุ่ม CTA โทร: ข้อความรอง',
+      type: 'string',
+      initialValue: 'Click เลย !!!',
+      group: 'sections',
+    }),
+    defineField({
+      name: 'ctaLineText',
+      title: 'ปุ่ม CTA LINE: ข้อความหลัก',
+      type: 'string',
+      initialValue: 'LINE ปรึกษาฟรี',
+      group: 'sections',
+    }),
+    defineField({
+      name: 'ctaLineSub',
+      title: 'ปุ่ม CTA LINE: ข้อความรอง',
+      type: 'string',
+      initialValue: 'Click เลย !!!',
+      group: 'sections',
+    }),
+    defineField({
+      name: 'ctaEmailText',
+      title: 'ปุ่ม CTA อีเมล: ข้อความหลัก',
+      type: 'string',
+      initialValue: 'Email สอบถาม',
+      group: 'sections',
+    }),
+    defineField({
+      name: 'ctaEmailSub',
+      title: 'ปุ่ม CTA อีเมล: ข้อความรอง',
+      type: 'string',
+      initialValue: 'Click เลย !!!',
+      group: 'sections',
+    }),
+
     // ─── Delivery Gallery Section ───
     defineField({
       name: 'deliveryHeading',
@@ -171,6 +195,24 @@ export default defineType({
       rows: 2,
       initialValue: 'ความรู้เกี่ยวกับสายไฟอุตสาหกรรม อัพเดทเทรนด์และเทคนิคต่างๆ',
       group: 'sections',
+    }),
+
+    // ─── Client Logos ───
+    defineField({
+      name: 'clientLogos',
+      title: 'โลโก้ลูกค้า (Client Logos)',
+      type: 'array',
+      of: [
+        {
+          type: 'image',
+          options: { hotspot: true },
+          fields: [
+            { name: 'alt', type: 'string', title: 'ชื่อบริษัท (Alt Text)' },
+          ],
+        },
+      ],
+      group: 'sections',
+      description: 'อัปโหลดโลโก้ลูกค้าที่ใช้งานสายไฟ NYX Cable (แสดงเป็นแถวสไลด์)',
     }),
 
     // ─── Comparison Table Section ───

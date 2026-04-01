@@ -4,6 +4,7 @@ import { getProduct, getProducts, getVariants, getBlogPosts, getSiteSettings } f
 import { urlFor } from '@/lib/sanity'
 import Image from 'next/image'
 import Link from 'next/link'
+import DOMPurify from 'isomorphic-dompurify'
 import { notFound } from 'next/navigation'
 import VariantTable from './VariantTable'
 import ExcelSpecTable from './ExcelSpecTable'
@@ -354,12 +355,19 @@ function rewriteLinks(html: string): string {
     .replace(/https?:\/\/nyxcable\.com\/?/g, '/')
 }
 
+function sanitizeHtml(html: string): string {
+  return DOMPurify.sanitize(html, {
+    ALLOWED_TAGS: ['b', 'i', 'em', 'strong', 'a', 'p', 'br', 'ul', 'ol', 'li', 'h2', 'h3', 'h4', 'h5', 'span', 'div', 'img', 'table', 'thead', 'tbody', 'tr', 'th', 'td', 'figure', 'figcaption', 'blockquote', 'pre', 'code', 'sub', 'sup'],
+    ALLOWED_ATTR: ['href', 'target', 'rel', 'src', 'alt', 'width', 'height', 'style', 'class', 'id', 'colspan', 'rowspan'],
+  })
+}
+
 function renderDescription(body: any, shortDesc?: string, productTitle?: string, linkMap?: ProductLinkMap, currentSlug?: string) {
   if (!body) return null
   if (typeof body === 'string') {
     // If it's the same as shortDescription, skip
     if (shortDesc && body.includes(shortDesc.substring(0, 50))) return null
-    return <div className="product-full-desc" dangerouslySetInnerHTML={{ __html: rewriteLinks(body) }} />
+    return <div className="product-full-desc" dangerouslySetInnerHTML={{ __html: sanitizeHtml(rewriteLinks(body)) }} />
   }
   if (!Array.isArray(body)) return null
 

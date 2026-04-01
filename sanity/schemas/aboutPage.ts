@@ -51,15 +51,20 @@ export default defineType({
       ],
       group: 'content',
     }),
+
     defineField({
-      name: 'storyImage',
-      title: 'รูปประกอบเรื่องราว',
-      type: 'image',
-      options: { hotspot: true },
-      fields: [
-        { name: 'alt', type: 'string', title: 'Alt Text', description: 'เช่น "โรงงานผลิตสายไฟ NYX Cable"' },
-      ],
+      name: 'videoUrl',
+      title: 'URL วีดีโอ YouTube',
+      type: 'url',
       group: 'content',
+      description: 'ลิงก์วีดีโอ YouTube เช่น https://www.youtube.com/watch?v=xxxxx',
+    }),
+    defineField({
+      name: 'videoHeading',
+      title: 'หัวข้อวีดีโอ',
+      type: 'string',
+      group: 'content',
+      description: 'เช่น "แนะนำ NYX Cable"',
     }),
 
     // ─── Stats ───
@@ -127,25 +132,6 @@ export default defineType({
       group: 'content',
     }),
 
-    // ─── Certificates ───
-    defineField({
-      name: 'certificates',
-      title: 'ใบรับรอง/มาตรฐาน',
-      type: 'array',
-      of: [
-        {
-          type: 'object',
-          fields: [
-            { name: 'name', type: 'string', title: 'ชื่อมาตรฐาน' },
-            { name: 'image', type: 'image', title: 'รูปใบรับรอง', options: { hotspot: true }, fields: [{ name: 'alt', type: 'string', title: 'Alt Text' }] },
-          ],
-          preview: {
-            select: { title: 'name', media: 'image' },
-          },
-        },
-      ],
-      group: 'content',
-    }),
 
     // ─── SEO ───
     defineField({

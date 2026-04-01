@@ -6,4 +6,7 @@ export default defineCliConfig({
     dataset: 'production',
   },
   studioHost: 'nyx-cable',
+  deployment: {
+    appId: 'j3cu75aiym626jg31ruenpp3',
+  },
 })

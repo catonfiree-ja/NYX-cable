@@ -245,21 +245,27 @@ export default async function AboutPage() {
               </div>
             </div>
           </div>
-          <div className="about-video-box">
-            <a href="https://www.youtube.com/watch?v=IEu9jZBH3qQ" target="_blank" rel="noopener noreferrer" style={{ display: 'block', position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}>
-              <Image
-                src="https://i.ytimg.com/vi/IEu9jZBH3qQ/hqdefault.jpg"
-                alt="NYX Cable - สายไฟอุตสาหกรรมคุณภาพสูง"
-                loading="lazy"
-                width={800}
-                height={450}
-                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-              />
-              <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: 68, height: 48, background: 'rgba(255,0,0,0.85)', borderRadius: 14, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <svg viewBox="0 0 24 24" fill="#fff" width="28" height="28"><path d="M8 5v14l11-7z" /></svg>
+          {(() => {
+            const videoUrl = aboutCms?.videoUrl || 'https://www.youtube.com/watch?v=IEu9jZBH3qQ'
+            const videoId = videoUrl.match(/(?:v=|youtu\.be\/)([a-zA-Z0-9_-]+)/)?.[1] || 'IEu9jZBH3qQ'
+            return (
+              <div className="about-video-box">
+                <a href={videoUrl} target="_blank" rel="noopener noreferrer" style={{ display: 'block', position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}>
+                  <Image
+                    src={`https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`}
+                    alt={aboutCms?.videoHeading || 'NYX Cable - สายไฟอุตสาหกรรมคุณภาพสูง'}
+                    loading="lazy"
+                    width={800}
+                    height={450}
+                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                  />
+                  <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: 68, height: 48, background: 'rgba(255,0,0,0.85)', borderRadius: 14, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    <svg viewBox="0 0 24 24" fill="#fff" width="28" height="28"><path d="M8 5v14l11-7z" /></svg>
+                  </div>
+                </a>
               </div>
-            </a>
-          </div>
+            )
+          })()}
         </div>
       </div>
 

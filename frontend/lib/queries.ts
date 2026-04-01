@@ -14,7 +14,7 @@ export async function getProducts() {
       "categories": categories[]->{ _id, title, slug },
       "image": images[0]
     }
-  `)
+  `, {}, { next: { tags: ['products'] } })
 }
 
 export async function getProduct(slug: string) {
@@ -230,19 +230,20 @@ export async function getSiteSettings() {
       lineUrl,
       address,
       businessHours,
+      businessHoursNote,
       googleMapsUrl,
       mapsEmbedUrl,
-      heroSlides,
-      "featuredProducts": featuredProducts[]->{ _id, title, slug, productCode, "image": images[0] },
-      clientLogos,
       socialLinks,
       footerText,
+      lineQrImage,
+      headerNavigation,
+      footerNavigation,
       googleAnalyticsId,
       seoTitle,
       seoDescription,
       ogImage
     }
-  `)
+  `, {}, { next: { tags: ['settings'] } })
 }
 
 // ─── FAQ Queries ────────────────────────────────────────
@@ -310,9 +311,6 @@ export async function getHomePage() {
     *[_type == "homePage"][0] {
       heroTitle,
       heroSubtitle,
-      heroBadges,
-      heroCtaText,
-      heroCtaUrl,
       heroTagline,
       heroTrustBadges,
       whyNyxHeading,
@@ -325,9 +323,12 @@ export async function getHomePage() {
       articlesSubheading,
       comparisonHeading,
       comparisonSubheading,
-      ctaHeading,
-      ctaSubheading,
-      ctaButtons,
+      ctaCallText,
+      ctaCallSub,
+      ctaLineText,
+      ctaLineSub,
+      ctaEmailText,
+      ctaEmailSub,
       videoUrl,
       videoHeading,
       faqHeading,
@@ -347,13 +348,13 @@ export async function getAboutPage() {
       heroBadges,
       storyHeading,
       storyContent,
-      storyImage,
+      videoUrl,
+      videoHeading,
       stats,
       visionHeading,
       visionContent,
       whyNyxHeading,
       whyNyxItems,
-      certificates,
       metaTitle,
       metaDescription
     }
@@ -366,8 +367,13 @@ export async function getContactPage() {
       heroHeading,
       heroSubheading,
       businessHours,
+      phoneSubtext,
+      lineSubtext,
+      emailSubtext,
+      businessHoursSubtext,
       googleMapsEmbed,
-      additionalInfo,
+      warehouseHeading,
+      warehouseImages,
       metaTitle,
       metaDescription
     }
@@ -409,5 +415,5 @@ export async function getReviews() {
       text,
       time
     }
-  `)
+  `, {}, { next: { tags: ['reviews'] } })
 }
