@@ -220,29 +220,7 @@ export default async function AboutPage() {
                 <div className="label" style={{ fontSize: '1rem', marginBottom: 8 }}>{aboutCms?.stats?.[0]?.label || 'เราขายสายไปแล้วกว่า'}</div>
                 <div className="num" style={{ fontSize: '2.5rem', color: '#fbb03b' }}>{aboutCms?.stats?.[0]?.number || '20,000,000 เมตร+'}</div>
               </div>
-              <div style={{ display: 'flex', justifyContent: 'center', gap: 40, marginTop: 20, alignItems: 'flex-end', flexWrap: 'wrap' }}>
-                {/* IEC */}
-                <div style={{ textAlign: 'center', width: 110 }}>
-                  <div style={{ width: 72, height: 72, margin: '0 auto 8px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                    <Image src="/images/certifications/iec-logo.png" alt="IEC มาตรฐานสากล" width={58} height={58} style={{ objectFit: 'contain' }} />
-                  </div>
-                  <span style={{ fontSize: '0.82rem', color: '#6b7280', fontWeight: 500, whiteSpace: 'nowrap' }}>มาตรฐานสากล</span>
-                </div>
-                {/* VDE */}
-                <div style={{ textAlign: 'center', width: 110 }}>
-                  <div style={{ width: 72, height: 72, margin: '0 auto 8px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                    <Image src="/images/certifications/vde-logo.png" alt="VDE มาตรฐานเยอรมนี" width={72} height={72} style={{ objectFit: 'contain', background: '#fff', borderRadius: 8 }} />
-                  </div>
-                  <span style={{ fontSize: '0.82rem', color: '#6b7280', fontWeight: 500, whiteSpace: 'nowrap' }}>มาตรฐานเยอรมนี</span>
-                </div>
-                {/* TISI มอก. */}
-                <div style={{ textAlign: 'center', width: 110 }}>
-                  <div style={{ width: 72, height: 72, margin: '0 auto 8px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                    <Image src="/images/certifications/tisi-logo.png" alt="มอก. มาตรฐาน มอก." width={64} height={64} style={{ objectFit: 'contain' }} />
-                  </div>
-                  <span style={{ fontSize: '0.82rem', color: '#6b7280', fontWeight: 500, whiteSpace: 'nowrap' }}>มาตรฐาน มอก.</span>
-                </div>
-              </div>
+
             </div>
           </div>
           {(() => {
@@ -317,24 +295,24 @@ export default async function AboutPage() {
               และควบคุมการผลิตด้วยระบบคอมพิวเตอร์ที่ทันสมัย ตามมาตรฐาน VDE และ IEC
               ทำให้ได้สายไฟฟ้าที่มีคุณภาพ สร้างความพึงพอใจให้ลูกค้า
             </p>
-            <div style={{ display: 'flex', justifyContent: 'center', gap: 32, marginTop: 20, alignItems: 'flex-end', flexWrap: 'wrap' }}>
-              <div style={{ textAlign: 'center', width: 100 }}>
-                <div style={{ width: 64, height: 64, margin: '0 auto 8px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                  <Image src="/images/certifications/iec-logo.png" alt="IEC มาตรฐานสากล" width={52} height={52} style={{ objectFit: 'contain' }} />
+            <div style={{ display: 'flex', justifyContent: 'center', gap: 16, marginTop: 20, alignItems: 'flex-end' }}>
+              <div style={{ textAlign: 'center', flex: '1 1 0', minWidth: 0 }}>
+                <div style={{ width: 48, height: 48, margin: '0 auto 6px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  <Image src="/images/certifications/iec-logo.png" alt="IEC มาตรฐานสากล" width={44} height={44} style={{ objectFit: 'contain' }} />
                 </div>
-                <span style={{ fontSize: '0.78rem', color: '#6b7280', fontWeight: 500 }}>มาตรฐานสากล</span>
+                <span style={{ fontSize: '0.7rem', color: '#6b7280', fontWeight: 500 }}>มาตรฐานสากล</span>
               </div>
-              <div style={{ textAlign: 'center', width: 100 }}>
-                <div style={{ width: 64, height: 64, margin: '0 auto 8px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                  <Image src="/images/certifications/vde-logo.png" alt="VDE มาตรฐานเยอรมนี" width={64} height={64} style={{ objectFit: 'contain', background: '#fff', borderRadius: 8 }} />
+              <div style={{ textAlign: 'center', flex: '1 1 0', minWidth: 0 }}>
+                <div style={{ width: 48, height: 48, margin: '0 auto 6px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  <Image src="/images/certifications/vde-logo.png" alt="VDE มาตรฐานเยอรมนี" width={48} height={48} style={{ objectFit: 'contain', background: '#fff', borderRadius: 6 }} />
                 </div>
-                <span style={{ fontSize: '0.78rem', color: '#6b7280', fontWeight: 500 }}>มาตรฐานเยอรมนี</span>
+                <span style={{ fontSize: '0.7rem', color: '#6b7280', fontWeight: 500 }}>มาตรฐานเยอรมนี</span>
               </div>
-              <div style={{ textAlign: 'center', width: 100 }}>
-                <div style={{ width: 64, height: 64, margin: '0 auto 8px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                  <Image src="/images/certifications/tisi-logo.png" alt="มอก. มาตรฐาน มอก." width={56} height={56} style={{ objectFit: 'contain' }} />
+              <div style={{ textAlign: 'center', flex: '1 1 0', minWidth: 0 }}>
+                <div style={{ width: 48, height: 48, margin: '0 auto 6px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  <Image src="/images/certifications/tisi-logo.png" alt="มอก. มาตรฐาน มอก." width={44} height={44} style={{ objectFit: 'contain' }} />
                 </div>
-                <span style={{ fontSize: '0.78rem', color: '#6b7280', fontWeight: 500 }}>มาตรฐาน มอก.</span>
+                <span style={{ fontSize: '0.7rem', color: '#6b7280', fontWeight: 500 }}>มาตรฐาน มอก.</span>
               </div>
             </div>
           </div>
