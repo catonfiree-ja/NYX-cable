@@ -817,7 +817,9 @@ export default async function HomePage() {
 
       <section style={{ padding: '60px 0', background: '#fff', position: 'relative' }}>
         <div className="container">
-          <h2 style={{ fontSize: '2rem', fontWeight: 800, color: '#000', textAlign: 'center', marginBottom: 8 }}>สายคอนโทรล</h2>
+          <h2 style={{ fontSize: '2rem', fontWeight: 800, color: '#000', textAlign: 'center', marginBottom: 8 }}>สินค้าของเรา <span style={{ color: '#003366' }}>NYX CABLE</span></h2>
+          <p style={{ textAlign: 'center', color: '#475569', fontSize: '1.1rem', marginBottom: 32 }}>หลากหลายมากกว่า <strong style={{ color: '#003366' }}>15,000 SKU</strong> ตอบโจทย์ทุกความต้องการ</p>
+          <h3 style={{ fontSize: '1.6rem', fontWeight: 700, color: '#000', textAlign: 'center', marginBottom: 24 }}>สายคอนโทรล</h3>
 
           <div className="control-cable-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20 }}>
             {mainProducts.map(p => (
