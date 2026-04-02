@@ -7,6 +7,7 @@ import { decodeHtmlEntities } from '@/lib/decode-html'
 import DeliveryGallery from '@/components/DeliveryGallery'
 import { filterBlogPosts } from '@/lib/blog-utils'
 import RevealOnScroll from '@/app/components/RevealOnScroll'
+import HeroRichText from '@/components/HeroRichText'
 
 // Helper: safely extract string from CMS value (handles Portable Text blocks)
 function safeStr(val: any, fallback: string = ''): string {
@@ -637,24 +638,30 @@ export default async function HomePage() {
         <div className="container">
           <div className="hero-v2-grid">
             <div>
-              <h1>
-                <span className="blue">{safeStr(homeCms?.heroTitle, 'NYX CABLE')}</span>
-                <br />
-                Experts in Control Cables
-                <br />
-                for <span className="yellow">Industrial Excellence</span>
-              </h1>
-              <div className="subtitle">{safeStr(homeCms?.heroSubtitle, 'สายไฟฟ้าสำหรับโรงงานอุตสาหกรรม')}</div>
-              <p className="tagline">
-                {homeCms?.heroTagline ? (
-                  <span style={{ color: 'rgba(255,255,255,0.85)' }}>{safeStr(homeCms.heroTagline)}</span>
-                ) : (
-                  <>
-                    <span style={{ fontSize: '1.2rem', display: 'block', marginBottom: '8px' }}><span style={{ color: 'rgba(255,255,255,0.85)' }}>ใช้เทคโนโลยีการผลิตขั้นสูง</span><span style={{ color: '#fbb03b' }}>จากยุโรป</span><span style={{ color: 'rgba(255,255,255,0.85)' }}>ทุกขั้นตอน มั่นใจในคุณภาพ</span></span>
-                    <span style={{ color: 'rgba(255,255,255,0.85)' }}>สายไฟคุณภาพมาตรฐาน DIN VDE สต็อกพร้อมส่งทุกขนาด บริการจัดส่งทั่วประเทศ</span>
-                  </>
-                )}
-              </p>
+              {homeCms?.heroContent && homeCms.heroContent.length > 0 ? (
+                <HeroRichText value={homeCms.heroContent} className="hero-rich-content" />
+              ) : (
+                <>
+                  <h1>
+                    <span className="blue">{safeStr(homeCms?.heroTitle, 'NYX CABLE')}</span>
+                    <br />
+                    Experts in Control Cables
+                    <br />
+                    for <span className="yellow">Industrial Excellence</span>
+                  </h1>
+                  <div className="subtitle">{safeStr(homeCms?.heroSubtitle, 'สายไฟฟ้าสำหรับโรงงานอุตสาหกรรม')}</div>
+                  <p className="tagline">
+                    {homeCms?.heroTagline ? (
+                      <span style={{ color: 'rgba(255,255,255,0.85)' }}>{safeStr(homeCms.heroTagline)}</span>
+                    ) : (
+                      <>
+                        <span style={{ fontSize: '1.2rem', display: 'block', marginBottom: '8px' }}><span style={{ color: 'rgba(255,255,255,0.85)' }}>ใช้เทคโนโลยีการผลิตขั้นสูง</span><span style={{ color: '#fbb03b' }}>จากยุโรป</span><span style={{ color: 'rgba(255,255,255,0.85)' }}>ทุกขั้นตอน มั่นใจในคุณภาพ</span></span>
+                        <span style={{ color: 'rgba(255,255,255,0.85)' }}>สายไฟคุณภาพมาตรฐาน DIN VDE สต็อกพร้อมส่งทุกขนาด บริการจัดส่งทั่วประเทศ</span>
+                      </>
+                    )}
+                  </p>
+                </>
+              )}
 
             </div>
             <div className="hero-v2-right">

@@ -309,6 +309,7 @@ export async function getGalleryAlbums() {
 export async function getHomePage() {
   return client.fetch(`
     *[_type == "homePage"][0] {
+      heroContent,
       heroTitle,
       heroSubtitle,
       heroTagline,

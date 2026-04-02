@@ -19,26 +19,36 @@ export default defineType({
   fields: [
     // ─── Hero Section ───
     defineField({
+      name: 'heroContent',
+      title: '✏️ เนื้อหา Hero (แก้ สี/ขนาด ได้)',
+      type: 'heroRichText',
+      group: 'hero',
+      description: 'แก้ไขข้อความ Hero พร้อมปรับสี ปรับขนาด ได้ทั้งหมด (ไฮไลท์ข้อความ → กดปุ่ม 🎨 เลือกสี / กดปุ่ม Aa เลือกขนาด)',
+    }),
+    defineField({
       name: 'heroTitle',
-      title: 'หัวข้อ Hero',
+      title: 'หัวข้อ Hero (เก่า — ใช้ช่อง Rich Text ด้านบนแทน)',
       type: 'string',
       initialValue: 'NYX CABLE',
       group: 'hero',
+      hidden: true,
     }),
     defineField({
       name: 'heroSubtitle',
-      title: 'คำอธิบาย Hero',
+      title: 'คำอธิบาย Hero (เก่า)',
       type: 'text',
       rows: 2,
       initialValue: 'ผู้นำด้านสายไฟอุตสาหกรรมมาตรฐานยุโรป ครบวงจร ส่งไว ราคาโรงงาน',
       group: 'hero',
+      hidden: true,
     }),
     defineField({
       name: 'heroTagline',
-      title: 'ข้อความ Tagline Hero',
+      title: 'ข้อความ Tagline Hero (เก่า)',
       type: 'text',
       rows: 3,
       group: 'hero',
+      hidden: true,
       description: 'ข้อความรองใต้ subtitle เช่น "ใช้เทคโนโลยีการผลิตขั้นสูงจากยุโรป..."',
     }),
     defineField({
