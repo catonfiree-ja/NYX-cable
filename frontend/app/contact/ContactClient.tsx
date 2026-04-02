@@ -1,6 +1,7 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import Script from 'next/script'
 import Image from 'next/image'
 
 export interface ContactInfo {
@@ -220,6 +221,8 @@ export default function ContactPage({ cms = {} }: { cms?: ContactInfo }) {
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
 
+  const recaptchaSiteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY
+
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
     setError('')
@@ -249,38 +252,43 @@ export default function ContactPage({ cms = {} }: { cms?: ContactInfo }) {
       return
     }
 
-    // Try Web3Forms if key is set, otherwise use mailto fallback
-    const web3Key = process.env.NEXT_PUBLIC_WEB3FORMS_KEY
-    if (web3Key && web3Key !== 'YOUR_WEB3FORMS_KEY') {
-      try {
-        formData.append('access_key', web3Key)
-        const res = await fetch('https://api.web3forms.com/submit', {
-          method: 'POST',
-          body: formData,
-        })
-        const data = await res.json()
-        if (data.success) {
-          sessionStorage.setItem('nyx-form-last-submit', Date.now().toString())
-          setSubmitted(true)
-          setLoading(false)
-          return
-        }
-      } catch { /* fallback to mailto */ }
+    try {
+      // Get reCAPTCHA v3 token (invisible)
+      let recaptchaToken = ''
+      if (recaptchaSiteKey && (window as any).grecaptcha) {
+        try {
+          recaptchaToken = await (window as any).grecaptcha.execute(recaptchaSiteKey, { action: 'contact_form' })
+        } catch { /* proceed without token */ }
+      }
+
+      // Send via API route (server-side reCAPTCHA verify + Web3Forms)
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ recaptchaToken, name, company, phone, email, product, message }),
+      })
+      const data = await res.json()
+
+      if (data.success) {
+        sessionStorage.setItem('nyx-form-last-submit', Date.now().toString())
+        setSubmitted(true)
+        setLoading(false)
+        return
+      } else {
+        setError(data.message || 'เกิดข้อผิดพลาด กรุณาลองใหม่')
+      }
+    } catch {
+      setError('ไม่สามารถส่งข้อความได้ กรุณาลองใหม่อีกครั้ง')
     }
 
-    // Mailto fallback — always works
-    const subject = encodeURIComponent(`[เว็บไซต์] สอบถามจาก ${name}`)
-    const body = encodeURIComponent(
-      `ชื่อ: ${name}\nบริษัท: ${company || '-'}\nเบอร์โทร: ${phone}\nอีเมล: ${email || '-'}\nสินค้าที่สนใจ: ${product || '-'}\n\nรายละเอียด:\n${message}`
-    )
-    window.open(`https://mail.google.com/mail/?view=cm&to=${info.email}&su=${subject}&body=${body}`, '_blank')
-    sessionStorage.setItem('nyx-form-last-submit', Date.now().toString())
-    setSubmitted(true)
     setLoading(false)
   }
 
   return (
     <>
+      {recaptchaSiteKey && (
+        <Script src={`https://www.google.com/recaptcha/api.js?render=${recaptchaSiteKey}`} strategy="lazyOnload" />
+      )}
       <style dangerouslySetInnerHTML={{ __html: styles }} />
 
       {/* ─── Hero ─── */}

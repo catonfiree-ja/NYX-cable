@@ -115,14 +115,8 @@ export default async function HomePage() {
     { name: "SiHF", thaiName: "สายไฟทนความร้อน", slug: "sihf", img: "/images/products/sihf.jpg" },
     { name: "Multiflex", thaiName: "สายไฟรางกระดูกงู สายไฟหุ่นยนต์", slug: "robot-cable", img: "/images/products/multiflex.jpg" },
   ];
-  const mainProducts = topProducts.length > 0
-    ? topProducts.map((p: any) => ({
-        name: safeStr(p.name),
-        thaiName: safeStr(p.thaiName) || safeStr(p.shortDescription),
-        slug: p.slug?.current || p.slug,
-        img: p.images?.[0] ? sanityUrlFor(p.images[0]).width(400).url() : '/images/products/ysly-jz.jpg',
-      }))
-    : defaultMainProducts;
+  // Always use hardcoded products for homepage to match original nyxcable.com
+  const mainProducts = defaultMainProducts;
 
   // ─── FAQ ความรู้จากต้นฉบับ ───
   const defaultKnowledgeFAQs = [
@@ -817,9 +811,9 @@ export default async function HomePage() {
 
       <section style={{ padding: '60px 0', background: '#fff', position: 'relative' }}>
         <div className="container">
-          <h2 style={{ fontSize: '2rem', fontWeight: 800, color: '#000', textAlign: 'center', marginBottom: 8 }}>สินค้าของเรา <span style={{ color: '#003366' }}>NYX CABLE</span></h2>
-          <p style={{ textAlign: 'center', color: '#475569', fontSize: '1.1rem', marginBottom: 32 }}>หลากหลายมากกว่า <strong style={{ color: '#003366' }}>15,000 SKU</strong> ตอบโจทย์ทุกความต้องการ</p>
-          <h3 style={{ fontSize: '1.6rem', fontWeight: 700, color: '#000', textAlign: 'center', marginBottom: 24 }}>สายคอนโทรล</h3>
+          <h2 style={{ fontSize: '1.8rem', fontWeight: 700, color: '#333', textAlign: 'center', marginBottom: 10 }}>สินค้าของเรา <span style={{ color: '#003366', fontWeight: 800 }}>NYX CABLE</span></h2>
+          <p style={{ textAlign: 'center', color: '#555', fontSize: '1.05rem', marginBottom: 32 }}>หลากหลายมากกว่า <span style={{ color: '#003366', fontWeight: 700, textDecoration: 'underline', textUnderlineOffset: '4px' }}>15,000 SKU</span> ตอบโจทย์ทุกความต้องการ</p>
+          <h3 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#333', textAlign: 'center', marginBottom: 24 }}>สายคอนโทรล</h3>
 
           <div className="control-cable-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20 }}>
             {mainProducts.map(p => (
