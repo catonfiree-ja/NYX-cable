@@ -991,7 +991,7 @@ export default async function HomePage() {
           <div style={{ maxWidth: 800, margin: '0 auto', borderRadius: 20, overflow: 'hidden', boxShadow: '0 8px 30px rgba(0,51,102,0.1)', border: '1px solid #e5e7eb', aspectRatio: '16 / 9', position: 'relative', background: '#000', cursor: 'pointer' }}>
             <a href={homeCms?.videoUrl || 'https://www.youtube.com/watch?v=IEu9jZBH3qQ'} target="_blank" rel="noopener noreferrer" style={{ display: 'block', width: '100%', height: '100%', position: 'absolute', top: 0, left: 0 }}>
               <Image
-                src={`https://i.ytimg.com/vi/${(homeCms?.videoUrl || 'https://www.youtube.com/watch?v=IEu9jZBH3qQ').split('v=')[1]?.split('&')[0] || 'IEu9jZBH3qQ'}/hqdefault.jpg`}
+                src="/images/youtube-cover.png"
                 alt="NYX Cable - สายไฟอุตสาหกรรมคุณภาพสูง"
                 loading="lazy"
                 width={800}
