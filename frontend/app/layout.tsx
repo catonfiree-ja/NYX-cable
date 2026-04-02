@@ -235,7 +235,7 @@ export default async function RootLayout({
                 {/* LINE QR */}
                 <div style={{ marginTop: 20, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                   <a href={lineDeepLink} target="_blank" rel="noopener noreferrer" style={{ display: 'block', background: '#fff', borderRadius: 12, padding: 8, lineHeight: 0, boxShadow: '0 2px 12px rgba(0,0,0,0.15)' }}>
-                    <Image src="/images/NYXLineQR.jpg" alt="LINE QR Code @nyxcable" width={110} height={110} style={{ borderRadius: 6, filter: 'grayscale(100%) contrast(1.2)', display: 'block' }} />
+                    <Image src="/images/NYXLineQR.jpg" alt="LINE QR Code @nyxcable" width={110} height={110} style={{ borderRadius: 6, filter: 'grayscale(100%) sepia(100%) hue-rotate(190deg) saturate(300%) brightness(0.85) contrast(1.5)', display: 'block' }} />
                   </a>
                   <span style={{ fontSize: '0.72rem', color: 'rgba(255,255,255,0.5)', marginTop: 8, letterSpacing: '0.02em' }}>สแกนเพิ่มเพื่อน LINE</span>
                 </div>
