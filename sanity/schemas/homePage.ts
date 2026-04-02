@@ -133,6 +133,13 @@ export default defineType({
       group: 'cta',
     }),
     defineField({
+      name: 'ctaCallLink',
+      title: 'ปุ่ม CTA โทร: เบอร์โทร / ลิงก์',
+      type: 'string',
+      group: 'cta',
+      description: 'เช่น 021115588 (ระบบจะแปลงเป็น tel: อัตโนมัติ)',
+    }),
+    defineField({
       name: 'ctaLineText',
       title: 'ปุ่ม CTA LINE: ข้อความหลัก',
       type: 'string',
@@ -147,6 +154,13 @@ export default defineType({
       group: 'cta',
     }),
     defineField({
+      name: 'ctaLineLink',
+      title: 'ปุ่ม CTA LINE: URL ลิงก์',
+      type: 'string',
+      group: 'cta',
+      description: 'เช่น https://line.me/R/ti/p/@ubb9405u',
+    }),
+    defineField({
       name: 'ctaEmailText',
       title: 'ปุ่ม CTA อีเมล: ข้อความหลัก',
       type: 'string',
@@ -159,6 +173,13 @@ export default defineType({
       type: 'string',
       initialValue: 'Click เลย !!!',
       group: 'cta',
+    }),
+    defineField({
+      name: 'ctaEmailLink',
+      title: 'ปุ่ม CTA อีเมล: อีเมล / ลิงก์',
+      type: 'string',
+      group: 'cta',
+      description: 'เช่น sales@nyxcable.com (ระบบจะแปลงเป็น mailto: อัตโนมัติ)',
     }),
 
     // ─── Why NYX Section ───
