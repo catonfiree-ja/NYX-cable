@@ -87,6 +87,35 @@ export default defineType({
       initialValue: 'บริการของเรา',
       group: 'services',
     }),
+    defineField({
+      name: 'servicesItems',
+      title: 'รายการบริการ',
+      type: 'array',
+      group: 'services',
+      description: 'รายการบริการ 4 ช่อง แต่ละรายการมีไอคอน หัวข้อ และคำอธิบาย 2 บรรทัด',
+      of: [
+        {
+          type: 'object',
+          fields: [
+            {
+              name: 'icon',
+              type: 'image',
+              title: 'ไอคอน',
+              options: { hotspot: true },
+              fields: [
+                { name: 'alt', type: 'string', title: 'Alt Text' },
+              ],
+            },
+            { name: 'title', type: 'string', title: 'หัวข้อ' },
+            { name: 'line1', type: 'string', title: 'บรรทัดที่ 1' },
+            { name: 'line2', type: 'string', title: 'บรรทัดที่ 2' },
+          ],
+          preview: {
+            select: { title: 'title', subtitle: 'line1', media: 'icon' },
+          },
+        },
+      ],
+    }),
 
     // ─── CTA Buttons Section ───
     defineField({

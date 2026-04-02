@@ -319,6 +319,13 @@ export async function getHomePage() {
       deliveryHeading,
       deliverySubheading,
       servicesHeading,
+      servicesItems[] {
+        _key,
+        icon { alt, asset-> { _id, url } },
+        title,
+        line1,
+        line2
+      },
       articlesHeading,
       articlesSubheading,
       comparisonHeading,

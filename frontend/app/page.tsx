@@ -733,55 +733,47 @@ export default async function HomePage() {
       })()}
 
 
-      {/* ─── บริการของเรา (Pixel-Perfect Original Theme, 4 Items) ─── */}
-      <section style={{ paddingTop: 48, paddingBottom: 20, background: '#fff', textAlign: 'center' }}>
-        <div className="container">
-          <div style={{ marginBottom: 24, borderTop: '1px solid #e5e5e5', width: '100%' }}></div>
-          <h2 style={{ fontSize: '2rem', fontWeight: 700, color: '#000000', marginBottom: 0, lineHeight: 1, textAlign: 'center' }}>{safeStr(homeCms?.servicesHeading, 'บริการของเรา')}</h2>
-          <div className="services-grid">
-            {/* ส่งด่วนจากโกดังบางนา */}
-            <div className="service-item">
-              <div style={{ marginBottom: 20 }}>
-                <Image src="/images/icons/service-delivery.png" alt="ส่งด่วนจากโกดังบางนา" width={80} height={80} style={{ display: 'block', margin: '0 auto' }} />
+      {/* ─── บริการของเรา (CMS-Driven, 4 Items) ─── */}
+      {(() => {
+        const defaultServices = [
+          { title: 'ส่งด่วนจากโกดังบางนา', line1: 'ส่งด่วน 2 ชม.', line2: 'ในกรุงเทพฯ-ปริมณฑล', iconSrc: '/images/icons/service-delivery.png' },
+          { title: 'สต็อกพร้อมส่งทุกขนาด', line1: 'สินค้า 60+ รุ่น', line2: '15,000+ SKU', iconSrc: '/images/icons/service-consult.png' },
+          { title: 'บรรจุภัณฑ์แข็งแรง', line1: 'แพ็คอย่างดี', line2: 'ป้องกันความเสียหาย', iconSrc: '/images/icons/service-solve.png' },
+          { title: 'จัดส่งทั่วประเทศ', line1: 'ขนส่งผ่าน', line2: 'พาร์ทเนอร์ชั้นนำ', iconSrc: '/images/icons/service-nationwide.png' },
+        ];
+        const cmsServices = homeCms?.servicesItems;
+        const items = (cmsServices && cmsServices.length > 0)
+          ? cmsServices.map((s: any) => ({
+              title: s.title,
+              line1: s.line1,
+              line2: s.line2,
+              iconSrc: s.icon?.asset?.url || '/images/icons/service-delivery.png',
+              iconAlt: s.icon?.alt || s.title,
+            }))
+          : defaultServices.map(s => ({ ...s, iconAlt: s.title }));
+
+        return (
+          <section style={{ paddingTop: 48, paddingBottom: 20, background: '#fff', textAlign: 'center' }}>
+            <div className="container">
+              <div style={{ marginBottom: 24, borderTop: '1px solid #e5e5e5', width: '100%' }}></div>
+              <h2 style={{ fontSize: '2rem', fontWeight: 700, color: '#000000', marginBottom: 0, lineHeight: 1, textAlign: 'center' }}>{safeStr(homeCms?.servicesHeading, 'บริการของเรา')}</h2>
+              <div className="services-grid">
+                {items.map((svc: any, idx: number) => (
+                  <div key={idx} className="service-item">
+                    <div style={{ marginBottom: 20 }}>
+                      <Image src={svc.iconSrc} alt={svc.iconAlt} width={80} height={80} style={{ display: 'block', margin: '0 auto' }} />
+                    </div>
+                    <div style={{ marginBottom: 20, borderTop: '1px solid #e5e5e5', width: '100%' }}></div>
+                    <h3>{svc.title}</h3>
+                    <p>{svc.line1}</p>
+                    <p><span style={{ color: '#0e76bd' }}>{svc.line2}</span></p>
+                  </div>
+                ))}
               </div>
-              <div style={{ marginBottom: 20, borderTop: '1px solid #e5e5e5', width: '100%' }}></div>
-              <h3>ส่งด่วนจากโกดังบางนา</h3>
-              <p>ส่งด่วน <span style={{ color: '#0e76bd' }}>2 ชม.</span></p>
-              <p>ในกรุงเทพฯ-ปริมณฑล</p>
             </div>
-            {/* สต็อกพร้อมส่งทุกขนาด */}
-            <div className="service-item">
-              <div style={{ marginBottom: 20 }}>
-                <Image src="/images/icons/service-consult.png" alt="สต็อกพร้อมส่งทุกขนาด" width={80} height={80} style={{ display: 'block', margin: '0 auto' }} />
-              </div>
-              <div style={{ marginBottom: 20, borderTop: '1px solid #e5e5e5', width: '100%' }}></div>
-              <h3>สต็อกพร้อมส่งทุกขนาด</h3>
-              <p>สินค้า <span style={{ color: '#0e76bd' }}>60+</span> รุ่น</p>
-              <p><span style={{ color: '#0e76bd' }}>15,000+</span> SKU</p>
-            </div>
-            {/* บรรจุภัณฑ์แข็งแรง */}
-            <div className="service-item">
-              <div style={{ marginBottom: 20 }}>
-                <Image src="/images/icons/service-solve.png" alt="บรรจุภัณฑ์แข็งแรง" width={80} height={80} style={{ display: 'block', margin: '0 auto' }} />
-              </div>
-              <div style={{ marginBottom: 20, borderTop: '1px solid #e5e5e5', width: '100%' }}></div>
-              <h3>บรรจุภัณฑ์แข็งแรง</h3>
-              <p>แพ็คอย่างดี</p>
-              <p><span style={{ color: '#0e76bd' }}>ป้องกันความเสียหาย</span></p>
-            </div>
-            {/* จัดส่งทั่วประเทศ */}
-            <div className="service-item">
-              <div style={{ marginBottom: 20 }}>
-                <Image src="/images/icons/service-nationwide.png" alt="จัดส่งทั่วประเทศ" width={80} height={80} style={{ display: 'block', margin: '0 auto' }} />
-              </div>
-              <div style={{ marginBottom: 20, borderTop: '1px solid #e5e5e5', width: '100%' }}></div>
-              <h3>จัดส่งทั่วประเทศ</h3>
-              <p>ขนส่งผ่าน</p>
-              <p><span style={{ color: '#0e76bd' }}>พาร์ทเนอร์ชั้นนำ</span></p>
-            </div>
-          </div>
-        </div>
-      </section>
+          </section>
+        );
+      })()}
 
       {/* ─── CTA Buttons (same as pre-footer) ─── */}
       <section className="prefooter-cta" style={{ background: '#fff' }}>
