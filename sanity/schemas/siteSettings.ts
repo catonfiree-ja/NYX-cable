@@ -9,6 +9,7 @@ export default defineType({
     { name: 'contact', title: '📞 ข้อมูลติดต่อ', default: true },
     { name: 'navigation', title: '🧭 เมนูนำทาง' },
     { name: 'social', title: '🔗 โซเชียล' },
+    { name: 'pages', title: '📄 หน้าเพจ' },
     { name: 'seo', title: '🔍 SEO' },
     { name: 'advanced', title: '⚙️ ขั้นสูง' },
   ],
@@ -194,6 +195,24 @@ export default defineType({
       fields: [
         { name: 'alt', type: 'string', title: 'Alt Text' },
       ],
+    }),
+
+    // ─── หน้าผลิตภัณฑ์ ───
+    defineField({
+      name: 'productsHeading',
+      title: 'หัวข้อหน้าผลิตภัณฑ์',
+      type: 'string',
+      initialValue: 'ผลิตภัณฑ์สายไฟอุตสาหกรรม',
+      group: 'pages',
+      description: 'ข้อความหัวข้อใหญ่ที่แสดงบนส่วนบนของหน้าผลิตภัณฑ์',
+    }),
+    defineField({
+      name: 'productsSubheading',
+      title: 'คำอธิบายหน้าผลิตภัณฑ์',
+      type: 'string',
+      initialValue: 'เลือกตามหมวดหมู่',
+      group: 'pages',
+      description: 'ข้อความรองใต้หัวข้อ เช่น "เลือกตามหมวดหมู่"',
     }),
 
     // ─── ขั้นสูง ───

@@ -241,7 +241,9 @@ export async function getSiteSettings() {
       googleAnalyticsId,
       seoTitle,
       seoDescription,
-      ogImage
+      ogImage,
+      productsHeading,
+      productsSubheading
     }
   `, {}, { next: { tags: ['settings'] } })
 }

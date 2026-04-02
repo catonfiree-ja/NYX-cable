@@ -158,8 +158,8 @@ export default async function ProductsPage() {
       <section className="products-hero">
         <div className="container">
           <div className="breadcrumb"><Link href="/">หน้าแรก</Link> / ผลิตภัณฑ์</div>
-          <h1>ผลิตภัณฑ์สายไฟอุตสาหกรรม</h1>
-          <p>เลือกตามหมวดหมู่ — {categories.filter((c: any) => !c.parent).length} หมวดหมู่ / {products.length} รุ่น</p>
+          <h1>{settings?.productsHeading || 'ผลิตภัณฑ์สายไฟอุตสาหกรรม'}</h1>
+          <p>{settings?.productsSubheading || 'เลือกตามหมวดหมู่'} — {categories.filter((c: any) => !c.parent).length} หมวดหมู่ / {products.length} รุ่น</p>
         </div>
       </section>
 
