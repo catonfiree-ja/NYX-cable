@@ -9,15 +9,16 @@ import { categoryProductsMap } from '@/data/category-products'
 
 const styles = `
   .products-hero { background: linear-gradient(135deg, var(--color-primary-dark), var(--color-primary)); color: var(--color-white); padding: var(--spacing-3xl) 0; text-align: center; }
-  .products-hero h1 { font-size: var(--font-size-3xl); font-weight: 700; margin-bottom: var(--spacing-sm); }
-  .products-hero p { font-size: var(--font-size-lg); opacity: 0.85; }
+  .products-hero h1 { font-size: 2.8rem; font-weight: 700; margin-bottom: var(--spacing-sm); }
+  .products-hero p { font-size: 1.4rem; opacity: 0.85; }
+  .products-hero .highlight { color: #FFD700; font-weight: 700; }
   .breadcrumb { font-size: var(--font-size-sm); opacity: 0.7; margin-bottom: var(--spacing-md); }
   .breadcrumb a { color: rgba(255,255,255,0.7); }
   .breadcrumb a:hover { color: var(--color-accent); }
 
   /* ─── Category Hub ─── */
   .cat-hub { padding: 48px 0 64px; }
-  .cat-hub-title { font-size: 1.1rem; font-weight: 700; color: var(--color-primary); margin-bottom: 24px; text-align: center; text-transform: uppercase; letter-spacing: 2px; }
+  .cat-hub-title { font-size: 1.8rem; font-weight: 700; color: var(--color-primary); margin-bottom: 24px; text-align: center; letter-spacing: 2px; }
   .cat-hub-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 24px; }
   .cat-card {
     display: block; text-decoration: none; color: inherit;
@@ -44,7 +45,7 @@ const styles = `
 
   /* ─── All Products Grid ─── */
   .all-products-section { padding: 48px 0; background: #f8fafc; }
-  .all-products-title { font-size: 1.3rem; font-weight: 700; color: var(--color-primary); margin-bottom: 8px; text-align: center; }
+  .all-products-title { font-size: 1.8rem; font-weight: 700; color: var(--color-primary); margin-bottom: 24px; text-align: center; }
   .all-products-sub { font-size: 0.9rem; color: #64748b; text-align: center; margin-bottom: 32px; }
   .products-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 24px; }
   .product-mini {
@@ -157,16 +158,17 @@ export default async function ProductsPage() {
       {/* Hero */}
       <section className="products-hero">
         <div className="container">
-          <div className="breadcrumb"><Link href="/">หน้าแรก</Link> / ผลิตภัณฑ์</div>
+
           <h1>{settings?.productsHeading || 'ผลิตภัณฑ์สายไฟอุตสาหกรรม'}</h1>
-          <p>{settings?.productsSubheading || 'เลือกตามหมวดหมู่'} — {categories.filter((c: any) => !c.parent).length} หมวดหมู่ / {products.length} รุ่น</p>
+          <p><span className="highlight">{categories.filter((c: any) => !c.parent).length} หมวดหมู่สินค้า</span> / {products.length} รุ่น</p>
         </div>
       </section>
 
       {/* ─── Category Hub Grid ─── */}
       <div className="container">
         <section className="cat-hub">
-          <div className="cat-hub-title">เลือกหมวดหมู่สินค้า</div>
+          <div className="cat-hub-title">หมวดหมู่สินค้า</div>
+
           <div className="cat-hub-grid">
             {sortedCategories.map((cat: any) => {
               const cmsSlug = cat.slug?.current || ''
@@ -209,7 +211,7 @@ export default async function ProductsPage() {
       <section className="all-products-section">
         <div className="container">
           <div className="all-products-title">สินค้าทั้งหมด</div>
-          <div className="all-products-sub">คลิกเพื่อดูรายละเอียดและสั่งซื้อ</div>
+
           <div className="products-grid">
             {(() => {
               // Build CMS product lookup by slug

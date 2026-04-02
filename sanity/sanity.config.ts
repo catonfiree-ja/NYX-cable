@@ -20,51 +20,90 @@ export default defineConfig({
           .id('root')
           .title('NYX Cable CMS')
           .items([
-            // Site Settings (singleton)
+            // ─── 1. หน้าแรก (ตรงกับหน้าบ้าน: แรกสุด) ───
             S.listItem()
-              .id('siteSettings')
-              .title('⚙️ ตั้งค่าเว็บไซต์')
+              .id('homePage')
+              .title('🏠 หน้าแรก')
               .child(
                 S.document()
-                  .schemaType('siteSettings')
-                  .documentId('siteSettings')
+                  .schemaType('homePage')
+                  .documentId('homePage')
               ),
 
             S.divider(),
 
-            // Page Singletons
+            // ─── 2. สินค้า (Menu: สินค้า / Products) ───
             S.listItem()
-              .id('pages')
-              .title('📄 หน้าเว็บ (Singleton)')
+              .id('products')
+              .title('📦 สินค้า')
               .child(
                 S.list()
-                  .id('pagesList')
-                  .title('หน้าเว็บ')
+                  .id('productsList')
+                  .title('จัดการสินค้า')
                   .items([
-                    S.listItem()
-                      .id('homePage')
-                      .title('🏠 หน้าแรก')
-                      .child(
-                        S.document()
-                          .schemaType('homePage')
-                          .documentId('homePage')
-                      ),
-                    S.listItem()
-                      .id('aboutPage')
-                      .title('🏢 เกี่ยวกับเรา')
-                      .child(
-                        S.document()
-                          .schemaType('aboutPage')
-                          .documentId('aboutPage')
-                      ),
-                    S.listItem()
-                      .id('contactPage')
-                      .title('📞 ติดต่อเรา')
-                      .child(
-                        S.document()
-                          .schemaType('contactPage')
-                          .documentId('contactPage')
-                      ),
+                    S.documentTypeListItem('productCategory').title('📂 หมวดหมู่สินค้า'),
+                    S.documentTypeListItem('product').title('📦 สินค้าทั้งหมด'),
+                    S.documentTypeListItem('productVariant').title('📏 ขนาดสินค้า (Variants)'),
+                  ])
+              ),
+
+            S.divider(),
+
+            // ─── 3. เกี่ยวกับเรา (Menu: เกี่ยวกับเรา) ───
+            S.listItem()
+              .id('aboutPage')
+              .title('🏢 เกี่ยวกับเรา')
+              .child(
+                S.document()
+                  .schemaType('aboutPage')
+                  .documentId('aboutPage')
+              ),
+
+            // ─── 4. ติดต่อเรา (Menu: ติดต่อเรา) ───
+            S.listItem()
+              .id('contactPage')
+              .title('📞 ติดต่อเรา')
+              .child(
+                S.document()
+                  .schemaType('contactPage')
+                  .documentId('contactPage')
+              ),
+
+            S.divider(),
+
+            // ─── 5. บทความ (Menu: บทความ / Blog) ───
+            S.listItem()
+              .id('blog')
+              .title('📝 บทความ')
+              .child(
+                S.list()
+                  .id('blogList')
+                  .title('จัดการบทความ')
+                  .items([
+                    S.documentTypeListItem('blogPost').title('📝 บทความทั้งหมด'),
+                    S.documentTypeListItem('postCategory').title('📁 หมวดหมู่บทความ'),
+                  ])
+              ),
+
+            // ─── 6. รีวิวลูกค้า (Menu: รีวิว) ───
+            S.documentTypeListItem('review').title('⭐ รีวิวลูกค้า'),
+
+            // ─── 7. แกลเลอรี่ (Menu: แกลเลอรี่) ───
+            S.documentTypeListItem('galleryAlbum').title('📸 แกลเลอรี่'),
+
+            S.divider(),
+
+            // ─── 8. FAQ + หน้าอื่นๆ ───
+            S.listItem()
+              .id('extras')
+              .title('📋 อื่นๆ')
+              .child(
+                S.list()
+                  .id('extrasList')
+                  .title('อื่นๆ')
+                  .items([
+                    S.documentTypeListItem('faq').title('❓ คำถามที่พบบ่อย'),
+                    S.documentTypeListItem('page').title('📄 หน้าเว็บทั่วไป'),
                     S.listItem()
                       .id('privacyPage')
                       .title('🔒 นโยบายความเป็นส่วนตัว')
@@ -78,43 +117,15 @@ export default defineConfig({
 
             S.divider(),
 
-            // Products
+            // ─── 9. ตั้งค่าเว็บไซต์ (ล่างสุด) ───
             S.listItem()
-              .id('products')
-              .title('📦 สินค้า')
+              .id('siteSettings')
+              .title('⚙️ ตั้งค่าเว็บไซต์')
               .child(
-                S.list()
-                  .id('productsList')
-                  .title('สินค้า')
-                  .items([
-                    S.documentTypeListItem('product').title('สินค้าทั้งหมด'),
-                    S.documentTypeListItem('productVariant').title('ขนาดสินค้า (Variants)'),
-                    S.documentTypeListItem('productCategory').title('หมวดหมู่สินค้า'),
-                  ])
+                S.document()
+                  .schemaType('siteSettings')
+                  .documentId('siteSettings')
               ),
-
-            S.divider(),
-
-            // Content
-            S.listItem()
-              .id('content')
-              .title('📝 เนื้อหา')
-              .child(
-                S.list()
-                  .id('contentList')
-                  .title('เนื้อหา')
-                  .items([
-                    S.documentTypeListItem('blogPost').title('บทความ'),
-                    S.documentTypeListItem('postCategory').title('หมวดหมู่บทความ'),
-                    S.documentTypeListItem('page').title('หน้าเว็บ'),
-                    S.documentTypeListItem('faq').title('คำถามที่พบบ่อย'),
-                  ])
-              ),
-
-            S.divider(),
-
-            // Gallery
-            S.documentTypeListItem('galleryAlbum').title('📸 แกลเลอรี่'),
           ]),
     }),
     visionTool({ defaultApiVersion: '2024-01-01' }),
