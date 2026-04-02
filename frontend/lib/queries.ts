@@ -333,6 +333,11 @@ export async function getHomePage() {
       videoHeading,
       faqHeading,
       faqSubheading,
+      clientLogos[] {
+        _key,
+        alt,
+        asset-> { _id, url }
+      },
       metaTitle,
       metaDescription,
       ogImage

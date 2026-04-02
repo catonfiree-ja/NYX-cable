@@ -678,14 +678,20 @@ export default async function HomePage() {
 
       {/* ─── Our Clients — 5-Row Alternating Marquee ─── */}
       {(() => {
-        // All logos normalized to 160x72 PNG canvas
+        // Use CMS logos if available, fallback to static files
+        const cmsLogos = homeCms?.clientLogos || [];
+        const totalLogos = cmsLogos.length > 0 ? cmsLogos.length : 66;
+        
+        // Split into 5 rows
+        const perRow = Math.ceil(totalLogos / 5);
         const rows = [
-          { logos: Array.from({ length: 14 }, (_, i) => i + 1), dir: 'left' },
-          { logos: Array.from({ length: 13 }, (_, i) => i + 15), dir: 'right' },
-          { logos: Array.from({ length: 13 }, (_, i) => i + 28), dir: 'left' },
-          { logos: Array.from({ length: 13 }, (_, i) => i + 41), dir: 'right' },
-          { logos: Array.from({ length: 13 }, (_, i) => i + 54), dir: 'left' },
-        ];
+          { start: 0, count: perRow, dir: 'left' },
+          { start: perRow, count: perRow, dir: 'right' },
+          { start: perRow * 2, count: perRow, dir: 'left' },
+          { start: perRow * 3, count: perRow, dir: 'right' },
+          { start: perRow * 4, count: totalLogos - perRow * 4, dir: 'left' },
+        ].filter(r => r.count > 0);
+
         return (
           <section className="clients-section">
             <div style={{ maxWidth: '100vw', padding: 0, overflow: 'hidden' }}>
@@ -694,18 +700,29 @@ export default async function HomePage() {
                 {rows.map((row, rowIdx) => (
                   <div key={rowIdx} className={`marquee-row dir-${row.dir}`}>
                     <div className="marquee-logos">
-                      {row.logos.map(n => (
-                        <div key={`a-${n}`} className="client-logo">
-                          <img src={`/client-logos/logo-${String(n).padStart(2, '0')}.webp`} alt={`ลูกค้า NYX Cable #${n}`} loading="lazy" width="100" height="45" />
-                        </div>
-                      ))}
+                      {Array.from({ length: row.count }, (_, i) => {
+                        const idx = row.start + i;
+                        const logo = cmsLogos[idx];
+                        const imgSrc = logo?.asset?.url || `/client-logos/logo-${String(idx + 1).padStart(2, '0')}.webp`;
+                        const altText = logo?.alt || `ลูกค้า NYX Cable #${idx + 1}`;
+                        return (
+                          <div key={`a-${idx}`} className="client-logo">
+                            <img src={imgSrc} alt={altText} loading="lazy" width="100" height="45" />
+                          </div>
+                        );
+                      })}
                     </div>
                     <div className="marquee-logos" aria-hidden="true">
-                      {row.logos.map(n => (
-                        <div key={`b-${n}`} className="client-logo">
-                          <img src={`/client-logos/logo-${String(n).padStart(2, '0')}.webp`} alt="" loading="lazy" width="100" height="45" />
-                        </div>
-                      ))}
+                      {Array.from({ length: row.count }, (_, i) => {
+                        const idx = row.start + i;
+                        const logo = cmsLogos[idx];
+                        const imgSrc = logo?.asset?.url || `/client-logos/logo-${String(idx + 1).padStart(2, '0')}.webp`;
+                        return (
+                          <div key={`b-${idx}`} className="client-logo">
+                            <img src={imgSrc} alt="" loading="lazy" width="100" height="45" />
+                          </div>
+                        );
+                      })}
                     </div>
                   </div>
                 ))}
