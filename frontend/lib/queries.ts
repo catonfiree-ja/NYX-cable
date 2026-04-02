@@ -318,6 +318,13 @@ export async function getHomePage() {
       whyNyxItems,
       deliveryHeading,
       deliverySubheading,
+      deliveryPhotos[] {
+        _key,
+        alt,
+        gridColumn,
+        gridRow,
+        asset-> { _id, url }
+      },
       servicesHeading,
       servicesItems[] {
         _key,

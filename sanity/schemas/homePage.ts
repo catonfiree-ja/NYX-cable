@@ -225,6 +225,24 @@ export default defineType({
       initialValue: 'การส่งสินค้า',
       group: 'delivery',
     }),
+    defineField({
+      name: 'deliveryPhotos',
+      title: 'รูปภาพการส่งสินค้า',
+      type: 'array',
+      group: 'delivery',
+      description: 'รูปภาพแกลเลอรี่การส่งสินค้า สามารถเพิ่ม/ลบ/เรียงลำดับได้',
+      of: [
+        {
+          type: 'image',
+          options: { hotspot: true },
+          fields: [
+            { name: 'alt', type: 'string', title: 'คำอธิบายรูป (Alt Text)' },
+            { name: 'gridColumn', type: 'string', title: 'Grid Column', description: 'เช่น 1, 2, 1 / 3 (ข้ามคอลัมน์)' },
+            { name: 'gridRow', type: 'string', title: 'Grid Row', description: 'เช่น 1, 2 / 4 (ข้ามแถว)' },
+          ],
+        },
+      ],
+    }),
 
     // ─── Video & Articles Section ───
     defineField({
