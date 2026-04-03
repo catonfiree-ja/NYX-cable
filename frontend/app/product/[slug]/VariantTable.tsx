@@ -198,7 +198,7 @@ export default function VariantTable({ variants }: { variants: Variant[] }) {
                 <tr key={v._id}>
                   <td>
                     {v.slug?.current ? (
-                      <a href={`/products/variant/${v.slug.current}`} className="vt-name-link">{v.model || v.title}</a>
+                      <a href={`/product/variant/${v.slug.current}`} className="vt-name-link">{v.model || v.title}</a>
                     ) : (
                       <span style={{ fontWeight: 600, color: '#1a3c6e' }}>{v.model || v.title}</span>
                     )}

@@ -282,7 +282,7 @@ function buildProductLinkMap(products: any[], variants?: any[]): ProductLinkMap 
       const slug = v.slug?.current
       if (!slug) continue
       if (v.model && v.model.length > 3) {
-        map.push({ pattern: v.model, slug, label: v.model, prefix: '/products/variant/' })
+        map.push({ pattern: v.model, slug, label: v.model, prefix: '/product/variant/' })
       }
     }
   }
@@ -350,7 +350,7 @@ function rewriteLinks(html: string): string {
     // /shop/slug → /products
     .replace(/https?:\/\/nyxcable\.com\/shop\/[^/"'\s]+\/?/g, '/products')
     // /สายคอนโทรล/variant-slug → /products/variant/variant-slug (normalize periods to hyphens)
-    .replace(/https?:\/\/nyxcable\.com\/%E0%B8%AA%E0%B8%B2%E0%B8%A2%E0%B8%84%E0%B8%AD%E0%B8%99%E0%B9%82%E0%B8%97%E0%B8%A3%E0%B8%A5\/([^/"'\s]+)\/?/g, (_, s) => `/products/variant/${normalizeSlug(s)}`)
+    .replace(/https?:\/\/nyxcable\.com\/%E0%B8%AA%E0%B8%B2%E0%B8%A2%E0%B8%84%E0%B8%AD%E0%B8%99%E0%B9%82%E0%B8%97%E0%B8%A3%E0%B8%A5\/([^/"'\s]+)\/?/g, (_, s) => `/product/variant/${normalizeSlug(s)}`)
     // Any remaining nyxcable.com links → homepage
     .replace(/https?:\/\/nyxcable\.com\/?/g, '/')
 }

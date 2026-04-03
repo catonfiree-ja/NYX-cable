@@ -8,6 +8,7 @@ import Link from 'next/link'
 import SiblingVariants from './SiblingVariants'
 
 // ─── Static Params for SSG ───
+export const dynamicParams = true // Allow variants not pre-generated to render on-demand
 export async function generateStaticParams() {
   const variants = await getVariants()
   return variants
@@ -228,7 +229,7 @@ export default async function VariantDetailPage({ params }: { params: Promise<{ 
             brand: { "@type": "Brand", name: "NYX Cable" },
             manufacturer: { "@type": "Organization", name: "NYX Cable" },
             category: "สายไฟอุตสาหกรรม",
-            url: `https://www.nyxcable.com/products/variant/${variant.slug?.current}`,
+            url: `https://www.nyxcable.com/product/variant/${variant.slug?.current}`,
             offers: {
               "@type": "AggregateOffer",
               priceCurrency: "THB",

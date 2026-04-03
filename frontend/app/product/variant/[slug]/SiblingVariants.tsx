@@ -167,7 +167,7 @@ export default function SiblingVariants({ siblings, currentVariant, parentTitle 
                 )
               }
               return (
-                <a key={s._id} href={`/products/variant/${s.slug?.current}`} className="sv-card">
+                <a key={s._id} href={`/product/variant/${s.slug?.current}`} className="sv-card">
                   <div className="sv-card-name">{s.title}</div>
                   {s.crossSection && <div className="sv-card-spec">{s.cores && `${s.cores} แกน × `}{s.crossSection} mm²</div>}
                 </a>
