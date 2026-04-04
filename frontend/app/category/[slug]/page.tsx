@@ -200,18 +200,18 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
                 if (product.subGroup) lastGroup = product.subGroup
                 return (
                   <>{groupHeader}
-                  <a key={product.slug} href={`/product/${product.slug}`} className="cat-product-card">
-                    <div className="cat-product-img">
-                      {product.image ? (
-                        <img src={product.image} alt={product.title} width={400} height={400} style={{ width: '100%', height: 'auto', display: 'block' }} loading="lazy" />
-                      ) : (product.code || 'NYX')}
-                    </div>
-                    <div className="cat-product-body">
-                      <h3>{product.title}</h3>
-                      <div className="code">{product.code}</div>
-                      <p>{product.shortDescription}</p>
-                    </div>
-                  </a></>
+                    <a key={product.slug} href={`/product/${product.slug}`} className="cat-product-card">
+                      <div className="cat-product-img">
+                        {product.image ? (
+                          <img src={product.image} alt={product.title} width={400} height={400} style={{ width: '100%', height: 'auto', display: 'block' }} loading="lazy" />
+                        ) : (product.code || 'NYX')}
+                      </div>
+                      <div className="cat-product-body">
+                        <h3>{product.title}</h3>
+                        <div className="code">{product.code}</div>
+                        <p>{product.shortDescription}</p>
+                      </div>
+                    </a></>
                 )
               })
             })()}
@@ -274,13 +274,15 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
 
             <h4 style={{ fontSize: '1.05rem', fontWeight: 700, color: '#003366', margin: '20px 0 10px' }}>สรุปความแตกต่างของสายไฟฟ้าคอนโทรลรุ่น YSLY-JZ และ YSLY-OZ</h4>
             <p>รุ่นหลักที่ใช้กันทั่วไปในตลาดคือ YSLY-JZ และ YSLY-OZ ซึ่งความแตกต่างของรหัส JZ และ OZ นั้น เป็นการบ่งชี้ถึงรูปแบบการเดินสายดิน (Grounding) ตามมาตรฐานการติดตั้งในยุโรป ดังนี้</p>
-            <table style={{ width: '100%', borderCollapse: 'collapse', marginBottom: 20, fontSize: '0.9rem' }}>
-              <thead><tr style={{ background: '#003366', color: '#fff' }}><th style={{ padding: '10px 14px', textAlign: 'left' }}>รุ่น</th><th style={{ padding: '10px 14px', textAlign: 'left' }}>สายดิน</th><th style={{ padding: '10px 14px', textAlign: 'left' }}>ตัวอย่าง</th><th style={{ padding: '10px 14px', textAlign: 'left' }}>รูปแบบสาย</th></tr></thead>
-              <tbody>
-                <tr style={{ borderBottom: '1px solid #e2e8f0' }}><td style={{ padding: '10px 14px' }}><strong>YSLY-JZ</strong></td><td style={{ padding: '10px 14px' }}>มี (สีเขียวคาดเหลือง)</td><td style={{ padding: '10px 14px' }}>YSLY-JZ 3G1 = 3 แกน, G = มีกราวนด์, 1 = 1.0 mm²</td><td style={{ padding: '10px 14px' }}>พิมพ์กำกับด้วยเลข 1, 2 และสีเขียวคาดเหลือง</td></tr>
-                <tr style={{ borderBottom: '1px solid #e2e8f0', background: '#f1f5f9' }}><td style={{ padding: '10px 14px' }}><strong>YSLY-OZ</strong></td><td style={{ padding: '10px 14px' }}>ไม่มี</td><td style={{ padding: '10px 14px' }}>YSLY-OZ 3X1 = 3 แกน, X = ไม่มีกราวนด์, 1 = 1.0 mm²</td><td style={{ padding: '10px 14px' }}>มาร์คด้วยเลข 1, 2, 3 (ทุกแกนเป็นสีดำ)</td></tr>
-              </tbody>
-            </table>
+            <div style={{ overflowX: 'auto', WebkitOverflowScrolling: 'touch' }}>
+              <table style={{ width: '100%', borderCollapse: 'collapse', marginBottom: 20, fontSize: '0.9rem', minWidth: 600 }}>
+                <thead><tr style={{ background: '#003366', color: '#fff' }}><th style={{ padding: '10px 14px', textAlign: 'left' }}>รุ่น</th><th style={{ padding: '10px 14px', textAlign: 'left' }}>สายดิน</th><th style={{ padding: '10px 14px', textAlign: 'left' }}>ตัวอย่าง</th><th style={{ padding: '10px 14px', textAlign: 'left' }}>รูปแบบสาย</th></tr></thead>
+                <tbody>
+                  <tr style={{ borderBottom: '1px solid #e2e8f0' }}><td style={{ padding: '10px 14px' }}><strong>YSLY-JZ</strong></td><td style={{ padding: '10px 14px' }}>มี (สีเขียวคาดเหลือง)</td><td style={{ padding: '10px 14px' }}>YSLY-JZ 3G1 = 3 แกน, G = มีกราวนด์, 1 = 1.0 mm²</td><td style={{ padding: '10px 14px' }}>พิมพ์กำกับด้วยเลข 1, 2 และสีเขียวคาดเหลือง</td></tr>
+                  <tr style={{ borderBottom: '1px solid #e2e8f0', background: '#f1f5f9' }}><td style={{ padding: '10px 14px' }}><strong>YSLY-OZ</strong></td><td style={{ padding: '10px 14px' }}>ไม่มี</td><td style={{ padding: '10px 14px' }}>YSLY-OZ 3X1 = 3 แกน, X = ไม่มีกราวนด์, 1 = 1.0 mm²</td><td style={{ padding: '10px 14px' }}>มาร์คด้วยเลข 1, 2, 3 (ทุกแกนเป็นสีดำ)</td></tr>
+                </tbody>
+              </table>
+            </div>
             <p>การจำแนกด้วยรหัส JZ และ OZ ช่วยให้ผู้ใช้งานสามารถเลือกสาย Control Cable ที่มีโครงสร้างตรงตามข้อกำหนดของระบบควบคุมไฟฟ้าและข้อบังคับด้านความปลอดภัยได้อย่างถูกต้องแม่นยำ</p>
 
             <h4 style={{ fontSize: '1.05rem', fontWeight: 700, color: '#003366', margin: '20px 0 10px' }}>จุดเด่นของ YSLY-JZ เมื่อเทียบกับสายคอนโทรลทั่วไป (VCT / IEC 53 และ CVV)</h4>
@@ -445,14 +447,16 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
               <p>สายชีลด์คือสายไฟที่มีตัวป้องกันสัญญาณรบกวนแม่เหล็กไฟฟ้า (EMI) และคลื่นวิทยุ (RFI) ครอบรอบตัวนำ ทำให้สัญญาณที่ส่งผ่านมีความถูกต้อง ไม่ถูกบิดเบือนจากสภาพแวดล้อมภายนอก จำเป็นอย่างยิ่งเมื่อเดินสายใกล้กับสาย Power, มอเตอร์ขนาดใหญ่ หรือ Inverter (VSD/VFD)</p>
 
               <h3 style={{ fontSize: '1.2rem', fontWeight: 700, color: '#003366', margin: '28px 0 12px' }}>เปรียบเทียบประเภทชีลด์</h3>
-              <table style={{ width: '100%', borderCollapse: 'collapse', marginBottom: 20, fontSize: '0.9rem' }}>
-                <thead><tr style={{ background: '#003366', color: '#fff' }}><th style={{ padding: '10px 14px', textAlign: 'left' }}>ประเภท</th><th style={{ padding: '10px 14px', textAlign: 'left' }}>ป้องกัน</th><th style={{ padding: '10px 14px', textAlign: 'left' }}>จุดเด่น</th><th style={{ padding: '10px 14px', textAlign: 'left' }}>รุ่นแนะนำ</th></tr></thead>
-                <tbody>
-                  <tr style={{ borderBottom: '1px solid #e2e8f0' }}><td style={{ padding: '10px 14px' }}><strong>Tinned Copper Braid</strong></td><td style={{ padding: '10px 14px' }}>ความถี่ต่ำ ✓</td><td style={{ padding: '10px 14px' }}>ทนแรงกระแทก ความครอบคลุมสูง</td><td style={{ padding: '10px 14px' }}><Link href="/product/liycy" style={{ color: '#0066cc' }}>LiYCY</Link></td></tr>
-                  <tr style={{ borderBottom: '1px solid #e2e8f0', background: '#f1f5f9' }}><td style={{ padding: '10px 14px' }}><strong>Aluminum Foil</strong></td><td style={{ padding: '10px 14px' }}>ความถี่สูง ✓</td><td style={{ padding: '10px 14px' }}>น้ำหนักเบา มี Drain Wire</td><td style={{ padding: '10px 14px' }}>LiYCY(TP)</td></tr>
-                  <tr style={{ borderBottom: '1px solid #e2e8f0' }}><td style={{ padding: '10px 14px' }}><strong>Double Shield (Foil+Braid)</strong></td><td style={{ padding: '10px 14px' }}>ทุกย่านความถี่ ✓✓</td><td style={{ padding: '10px 14px' }}>ป้องกันสูงสุดสำหรับงานวิกฤต</td><td style={{ padding: '10px 14px' }}><Link href="/product/double-shielded-cable" style={{ color: '#0066cc' }}>Double Shield</Link></td></tr>
-                </tbody>
-              </table>
+              <div style={{ overflowX: 'auto', WebkitOverflowScrolling: 'touch' }}>
+                <table style={{ width: '100%', borderCollapse: 'collapse', marginBottom: 20, fontSize: '0.9rem', minWidth: 600 }}>
+                  <thead><tr style={{ background: '#003366', color: '#fff' }}><th style={{ padding: '10px 14px', textAlign: 'left' }}>ประเภท</th><th style={{ padding: '10px 14px', textAlign: 'left' }}>ป้องกัน</th><th style={{ padding: '10px 14px', textAlign: 'left' }}>จุดเด่น</th><th style={{ padding: '10px 14px', textAlign: 'left' }}>รุ่นแนะนำ</th></tr></thead>
+                  <tbody>
+                    <tr style={{ borderBottom: '1px solid #e2e8f0' }}><td style={{ padding: '10px 14px' }}><strong>Tinned Copper Braid</strong></td><td style={{ padding: '10px 14px' }}>ความถี่ต่ำ ✓</td><td style={{ padding: '10px 14px' }}>ทนแรงกระแทก ความครอบคลุมสูง</td><td style={{ padding: '10px 14px' }}><Link href="/product/liycy" style={{ color: '#0066cc' }}>LiYCY</Link></td></tr>
+                    <tr style={{ borderBottom: '1px solid #e2e8f0', background: '#f1f5f9' }}><td style={{ padding: '10px 14px' }}><strong>Aluminum Foil</strong></td><td style={{ padding: '10px 14px' }}>ความถี่สูง ✓</td><td style={{ padding: '10px 14px' }}>น้ำหนักเบา มี Drain Wire</td><td style={{ padding: '10px 14px' }}>LiYCY(TP)</td></tr>
+                    <tr style={{ borderBottom: '1px solid #e2e8f0' }}><td style={{ padding: '10px 14px' }}><strong>Double Shield (Foil+Braid)</strong></td><td style={{ padding: '10px 14px' }}>ทุกย่านความถี่ ✓✓</td><td style={{ padding: '10px 14px' }}>ป้องกันสูงสุดสำหรับงานวิกฤต</td><td style={{ padding: '10px 14px' }}><Link href="/product/double-shielded-cable" style={{ color: '#0066cc' }}>Double Shield</Link></td></tr>
+                  </tbody>
+                </table>
+              </div>
 
               <h3 style={{ fontSize: '1.2rem', fontWeight: 700, color: '#003366', margin: '28px 0 12px' }}>การต่อกราวนด์ชีลด์ที่ถูกวิธี</h3>
               <div style={{ display: 'grid', gap: 12, marginBottom: 24 }}>

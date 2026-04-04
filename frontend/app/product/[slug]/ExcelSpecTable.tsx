@@ -56,6 +56,8 @@ const css = `
   .excel-spec-info { font-size: 0.82rem; color: #94a3b8; margin-bottom: 8px; }
 
   .excel-spec-scroll {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
     border-radius: 12px;
     border: 1px solid #e2e8f0; box-shadow: 0 1px 3px rgba(0,0,0,0.04);
   }
@@ -63,7 +65,7 @@ const css = `
   .excel-spec-scroll::-webkit-scrollbar-track { background: #f1f5f9; }
   .excel-spec-scroll::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 3px; }
 
-  .excel-spec-table { width: 100%; border-collapse: collapse; font-size: 0.84rem; margin: 0; }
+  .excel-spec-table { width: 100%; border-collapse: collapse; font-size: 0.84rem; margin: 0; min-width: 500px; }
   .excel-spec-table thead { position: sticky; top: 0; z-index: 2; }
   .excel-spec-table thead th {
     background: linear-gradient(180deg, #1a3c6e, #0f2d54); color: #fff;
@@ -104,12 +106,12 @@ const css = `
     .excel-spec-search input { width: 100%; }
     .excel-spec-header { flex-direction: column; align-items: flex-start; gap: 8px; }
     .excel-spec-header h2 { font-size: 1.1rem; }
-    .excel-spec-table { font-size: 0.75rem; }
+    .excel-spec-table { font-size: 0.75rem; min-width: 450px; }
     .excel-spec-table thead th { padding: 8px 6px; font-size: 0.7rem; }
     .excel-spec-table tbody td { padding: 6px 6px; }
+    .excel-spec-scroll { max-height: 500px; border-radius: 8px; overflow-x: auto; }
     .excel-spec-tabs { flex-wrap: nowrap; overflow-x: auto; -webkit-overflow-scrolling: touch; padding-bottom: 4px; gap: 4px; }
     .excel-spec-tab { white-space: nowrap; flex-shrink: 0; padding: 6px 12px; font-size: 0.75rem; }
-    .excel-spec-scroll { max-height: 500px; border-radius: 8px; }
     /* Hide less important columns on mobile */
     .excel-spec-table .col-partno,
     .excel-spec-table .col-cuweight,

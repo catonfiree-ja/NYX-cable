@@ -1792,16 +1792,12 @@ a:hover {
 /* ─── Mobile-Friendly Tables ─── */
 @media (max-width: 640px) {
   table {
-    display: block;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
     font-size: 0.8rem !important;
   }
 
   table th,
   table td {
     padding: 8px 10px !important;
-    white-space: nowrap;
   }
 
   /* Prefooter CTA buttons wrap better */
