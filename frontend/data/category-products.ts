@@ -91,6 +91,13 @@ export const categoryProductsMap: Record<string, CategoryData> = {
         shortDescription: 'รวมข้อมูลสายคอนโทรลทุกรุ่น วิธีเลือก คุณสมบัติเปรียบเทียบ สำหรับงานอุตสาหกรรม',
         image: '/images/products/control-cable-overview.jpg',
       },
+      {
+        slug: 'liyy-tp',
+        title: 'LiYY(TP) : สายคู่บิดเกลียว ไม่มีชีลด์',
+        code: 'LIYY-TP',
+        shortDescription: 'สายคู่บิดเกลียว ไม่มีชีลด์ สำหรับสัญญาณ 4-20mA และสัญญาณดิจิตอลทั่วไป',
+        image: 'https://nyxcable.com/wp-content/uploads/2019/04/LiYYTP.jpg',
+      },
     ],
   },
 
@@ -151,13 +158,7 @@ export const categoryProductsMap: Record<string, CategoryData> = {
         shortDescription: 'สาย RS485/RS422 คู่บิดเกลียว ตัวนำทองแดงเคลือบดีบุก ทนความชื้น',
         image: 'https://nyxcable.com/wp-content/uploads/2017/01/twisted-pair-cable.jpg',
       },
-      {
-        slug: 'liyy-tp',
-        title: 'LiYY-TP : สายคู่บิดเกลียว (ไม่มีชีลด์)',
-        code: 'LIYY-TP',
-        shortDescription: 'สายคู่บิดเกลียว ไม่มีชีลด์ สำหรับสัญญาณ 4-20mA และสัญญาณดิจิตอลทั่วไป',
-        image: 'https://nyxcable.com/wp-content/uploads/2019/04/LiYYTP.jpg',
-      },
+
       {
         slug: 'rs485-rs422-sttp',
         title: 'STTP : สาย RS485/RS422 มีชีลด์',
