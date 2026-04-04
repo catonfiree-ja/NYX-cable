@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import Link from 'next/link'
 import { decodeHtmlEntities } from '@/lib/decode-html'
 
 const styles = `
@@ -79,11 +80,11 @@ export default function ProductSearch({ products }: ProductSearchProps) {
             </div>
             <div className="products-grid">
                 {filtered.map((prod: any) => (
-                    <a key={prod._id} href={`/product/${prod.slug?.current}`} className="product-mini">
+                    <Link key={prod._id} href={`/product/${prod.slug?.current}`} className="product-mini">
                         <h4>{prod.title}</h4>
                         {prod.productCode && <div className="code">{prod.productCode}</div>}
                         {prod.shortDescription && <p>{decodeHtmlEntities(prod.shortDescription)}</p>}
-                    </a>
+                    </Link>
                 ))}
                 {filtered.length === 0 && (
                     <div style={{ gridColumn: '1 / -1', textAlign: 'center', padding: '40px 0', color: '#94a3b8' }}>
