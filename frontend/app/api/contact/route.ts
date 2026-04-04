@@ -59,10 +59,10 @@ export async function POST(req: NextRequest) {
         { status: 500 }
       )
     }
-  } catch (error) {
+  } catch (error: any) {
     console.error('[Contact API] Error:', error)
     return NextResponse.json(
-      { success: false, message: 'Internal server error' },
+      { success: false, message: `Error: ${error?.message || String(error)}` },
       { status: 500 }
     )
   }
