@@ -253,19 +253,23 @@ export default function ContactPage({ cms = {} }: { cms?: ContactInfo }) {
     }
 
     try {
-      // Get reCAPTCHA v3 token (invisible)
-      let recaptchaToken = ''
-      if (recaptchaSiteKey && (window as any).grecaptcha) {
-        try {
-          recaptchaToken = await (window as any).grecaptcha.execute(recaptchaSiteKey, { action: 'contact_form' })
-        } catch { /* proceed without token */ }
+      // Submit directly to Web3Forms from browser (bypasses Cloudflare challenge)
+      const web3Key = process.env.NEXT_PUBLIC_WEB3FORMS_KEY
+      if (!web3Key) {
+        setError('ระบบฟอร์มยังไม่ได้ตั้งค่า กรุณาติดต่อผู้ดูแลเว็บ')
+        setLoading(false)
+        return
       }
 
-      // Send via API route (server-side reCAPTCHA verify + Web3Forms)
-      const res = await fetch('/api/contact', {
+      const res = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ recaptchaToken, name, company, phone, email, product, message }),
+        body: JSON.stringify({
+          access_key: web3Key,
+          subject: `[เว็บไซต์] สอบถามจาก ${name}`,
+          from_name: 'NYX Cable Website',
+          name, company, phone, email, product, message,
+        }),
       })
       const data = await res.json()
 
