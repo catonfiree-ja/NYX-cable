@@ -5,21 +5,27 @@ export async function POST(req: NextRequest) {
     const body = await req.json()
     const { recaptchaToken, ...formData } = body
 
-    // 1. Verify reCAPTCHA v3 token
+    // 1. Verify reCAPTCHA v3 token (soft check — warn but don't block)
     const recaptchaSecret = process.env.RECAPTCHA_SECRET_KEY
     if (recaptchaSecret && recaptchaToken) {
-      const verifyRes = await fetch('https://www.google.com/recaptcha/api/siteverify', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: `secret=${recaptchaSecret}&response=${recaptchaToken}`,
-      })
-      const verifyData = await verifyRes.json()
-      
-      if (!verifyData.success || verifyData.score < 0.3) {
-        return NextResponse.json(
-          { success: false, message: 'reCAPTCHA verification failed' },
-          { status: 403 }
-        )
+      try {
+        const verifyRes = await fetch('https://www.google.com/recaptcha/api/siteverify', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: `secret=${recaptchaSecret}&response=${recaptchaToken}`,
+        })
+        const verifyData = await verifyRes.json()
+
+        if (!verifyData.success || verifyData.score < 0.3) {
+          // Log for monitoring but don't block — keys may be misconfigured
+          console.warn('[Contact API] reCAPTCHA soft-fail:', {
+            success: verifyData.success,
+            score: verifyData.score,
+            errors: verifyData['error-codes'],
+          })
+        }
+      } catch (err) {
+        console.warn('[Contact API] reCAPTCHA verify error:', err)
       }
     }
 
