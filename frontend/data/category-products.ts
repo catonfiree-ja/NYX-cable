@@ -127,13 +127,8 @@ export const categoryProductsMap: Record<string, CategoryData> = {
         shortDescription: 'สายคอนโทรลมาตรฐาน JIS มีชีลด์ป้องกัน EMI 600V ใช้งานแพร่หลายในประเทศไทย',
         image: 'https://nyxcable.com/wp-content/uploads/2019/11/LiYCY.jpg',
       },
-      {
-        slug: 'multiflex-cy',
-        title: 'Multiflex CY : สายชีลด์รางกระดูกงู',
-        code: 'MF-CY',
-        shortDescription: 'สายชีลด์สำหรับรางกระดูกงู (Drag Chain) มีชีลด์กัน EMI ทนโค้งงอซ้ำๆ',
-        image: 'https://nyxcable.com/wp-content/uploads/2019/04/YSLY-JZ.jpg',
-      },
+
+
       {
         slug: 'double-shielded-cable',
         title: 'Double Shielded Cable : สายชีลด์สองชั้น',
