@@ -295,7 +295,8 @@ export default function ContactPage({ cms = {} }: { cms?: ContactInfo }) {
       <section className="contact-hero">
         <div className="container">
           <h1>{info.heroHeading}</h1>
-          <p>{info.heroSubheading}</p>
+          <p>สินค้ามีให้เลือกกว่า 15,000 SKU <span style={{ color: '#FFD700', fontSize: '1.5em', fontWeight: 800 }}>จากโรงงานเองโดยตรง</span></p>
+          <p style={{ marginTop: '4px' }}>จัดส่งเร็วกว่า บริการ <span style={{ color: '#FFD700', fontSize: '1.5em', fontWeight: 800 }}>Same/Next Day</span> Delivery</p>
           <div className="quick-ribbon">
             <a href={`tel:${info.phoneRaw}`} className="ribbon-btn call">โทร {info.phone}</a>
             <a href={info.lineUrl} className="ribbon-btn line" target="_blank" rel="noopener noreferrer">แอด LINE {info.lineOA}</a>

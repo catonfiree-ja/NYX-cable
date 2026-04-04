@@ -349,7 +349,7 @@ export default async function ReviewsPage() {
       <section className="reviews-hero">
         <div className="container">
           <div className="trust-badge">★ คะแนนเฉลี่ย {avgRating}/5 จากผู้ใช้งานจริง {totalReviews} รีวิว</div>
-          <h1>รีวิวจากลูกค้า</h1>
+          <h1>รีวิว<span style={{ color: '#FFD700' }}>จริง</span>จากลูกค้า</h1>
           <p>รีวิวจริงจากลูกค้าที่ไว้วางใจสายไฟ NYX Cable บน Google Maps</p>
         </div>
       </section>
