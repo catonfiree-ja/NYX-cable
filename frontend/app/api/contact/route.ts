@@ -48,6 +48,18 @@ export async function POST(req: NextRequest) {
         ...formData,
       }),
     })
+
+    // Check if response is JSON before parsing
+    const contentType = web3Res.headers.get('content-type') || ''
+    if (!contentType.includes('application/json')) {
+      const text = await web3Res.text()
+      console.error('[Contact API] Web3Forms returned non-JSON:', web3Res.status, text.substring(0, 200))
+      return NextResponse.json(
+        { success: false, message: `Web3Forms error (HTTP ${web3Res.status}). Please check your access key.` },
+        { status: 500 }
+      )
+    }
+
     const web3Data = await web3Res.json()
 
     if (web3Data.success) {
