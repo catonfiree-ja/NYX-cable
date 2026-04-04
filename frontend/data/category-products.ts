@@ -481,27 +481,8 @@ export const categoryProductsMap: Record<string, CategoryData> = {
         shortDescription: 'สายฉนวน PFA ทนความร้อนสูงสุด 260°C ทนสารเคมีได้ยอดเยี่ยม',
         image: 'https://nyxcable.com/wp-content/uploads/2019/04/260C-SC-MC.jpg',
       },
-      {
-        slug: 'ptfe-cable',
-        title: 'PTFE Cable : สายทนความร้อน 260°C',
-        code: 'PTFE',
-        shortDescription: 'สายฉนวน PTFE (Teflon) ทนความร้อนสูง 260°C ทนสารเคมีทุกชนิด',
-        image: 'https://nyxcable.com/wp-content/uploads/2019/04/260C-SC-MC.jpg',
-      },
-      {
-        slug: 'etfe-cable',
-        title: 'ETFE Cable : สายทนความร้อน 200°C',
-        code: 'ETFE',
-        shortDescription: 'สายฉนวน ETFE ทนความร้อน 200°C ทนสารเคมี แรงกระแทก รังสี',
-        image: 'https://nyxcable.com/wp-content/uploads/2019/04/260C-SC-MC.jpg',
-      },
-      {
-        slug: 'fep-cable',
-        title: 'FEP Cable : สายทนความร้อน 200°C',
-        code: 'FEP',
-        shortDescription: 'สายฉนวน FEP ทนความร้อน 200°C ใสโปร่งใส ทนสารเคมี สำหรับงานอาหารและยา',
-        image: 'https://nyxcable.com/wp-content/uploads/2019/04/260C-SC-MC.jpg',
-      },
+
+
       {
         slug: 'thermocouple-type-k-cable',
         title: 'Thermocouple Type K Cable',
