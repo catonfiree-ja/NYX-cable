@@ -160,7 +160,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
   products.push(...cmsOnlyProducts)
 
   // For "other categories" sidebar, use hardcoded keys
-  const otherCatSlugs = Object.keys(categoryProductsMap).filter(s => s !== slug).slice(0, 6)
+  const otherCatSlugs = Object.keys(categoryProductsMap).filter(s => s !== slug)
 
   // Build FAQ data for schema
   const faqData = (cmsCategory?.faqItems || []).map((item: any) => ({
@@ -527,18 +527,20 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
         otherCatSlugs.length > 0 && (
           <section style={{ padding: '36px 0', background: '#fff' }}>
             <div className="container" style={{ textAlign: 'center' }}>
-              <h3 style={{ fontSize: '1rem', fontWeight: 600, color: '#64748b', marginBottom: 16, textTransform: 'uppercase', letterSpacing: 2 }}>หมวดหมู่อื่น</h3>
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: 10, justifyContent: 'center' }}>
+              <h3 style={{ fontSize: '1.6rem', fontWeight: 700, color: '#003366', marginBottom: 20 }}>หมวดหมู่อื่น</h3>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 12, maxWidth: 900, margin: '0 auto' }}>
                 {otherCatSlugs.map((catSlug) => (
                   <a
                     key={catSlug}
                     href={`/category/${catSlug}`}
-                    style={{ padding: '8px 18px', border: '1px solid #e2e8f0', borderRadius: 20, fontSize: '0.85rem', color: '#003366', fontWeight: 500, textDecoration: 'none', transition: 'all 0.2s' }}
+                    style={{ padding: '10px 14px', border: '1px solid #e2e8f0', borderRadius: 12, fontSize: '0.85rem', color: '#003366', fontWeight: 500, textDecoration: 'none', transition: 'all 0.2s', textAlign: 'center' }}
                   >
                     {categoryProductsMap[catSlug]?.title || catSlug} ({categoryProductsMap[catSlug]?.products.length || 0})
                   </a>
                 ))}
-                <Link href="/products" style={{ padding: '8px 18px', border: '1px solid #0099ff', borderRadius: 20, fontSize: '0.85rem', color: '#0099ff', fontWeight: 600, textDecoration: 'none' }}>ดูทั้งหมด →</Link>
+              </div>
+              <div style={{ marginTop: 16 }}>
+                <Link href="/products" style={{ padding: '10px 24px', border: '1px solid #0099ff', borderRadius: 20, fontSize: '0.9rem', color: '#0099ff', fontWeight: 600, textDecoration: 'none' }}>ดูทั้งหมด →</Link>
               </div>
             </div>
           </section>
