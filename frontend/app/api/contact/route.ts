@@ -17,7 +17,6 @@ export async function POST(req: NextRequest) {
         const verifyData = await verifyRes.json()
 
         if (!verifyData.success || verifyData.score < 0.3) {
-          // Log for monitoring but don't block — keys may be misconfigured
           console.warn('[Contact API] reCAPTCHA soft-fail:', {
             success: verifyData.success,
             score: verifyData.score,
@@ -30,8 +29,9 @@ export async function POST(req: NextRequest) {
     }
 
     // 2. Send to Web3Forms
-    const web3Key = process.env.NEXT_PUBLIC_WEB3FORMS_KEY
+    const web3Key = process.env.WEB3FORMS_KEY || process.env.NEXT_PUBLIC_WEB3FORMS_KEY
     if (!web3Key) {
+      console.error('[Contact API] No WEB3FORMS_KEY found in env')
       return NextResponse.json(
         { success: false, message: 'Form service not configured' },
         { status: 500 }
@@ -53,8 +53,9 @@ export async function POST(req: NextRequest) {
     if (web3Data.success) {
       return NextResponse.json({ success: true })
     } else {
+      console.error('[Contact API] Web3Forms error:', web3Data)
       return NextResponse.json(
-        { success: false, message: 'Failed to send message' },
+        { success: false, message: web3Data.message || 'Failed to send message' },
         { status: 500 }
       )
     }
