@@ -7,6 +7,7 @@ export interface CategoryProduct {
   code: string
   shortDescription: string
   image?: string // URL from nyxcable.com CDN
+  subGroup?: string // Optional sub-group header for category page display
 }
 
 export interface CategoryData {
@@ -142,6 +143,13 @@ export const categoryProductsMap: Record<string, CategoryData> = {
         code: 'DBL-SHD',
         shortDescription: 'สายชีลด์สองชั้น (Foil+Braid) ป้องกัน EMI สูงสุด สำหรับงานวิกฤตที่ต้องการความแม่นยำ',
         image: '/images/products/double-shielded-cable.jpg',
+      },
+      {
+        slug: 'multiflex-cy',
+        title: 'Multiflex CY : สายชีลด์รางกระดูกงู',
+        code: 'MF-CY',
+        shortDescription: 'สายชีลด์สำหรับรางกระดูกงู (Drag Chain) มีชีลด์กัน EMI ทนโค้งงอซ้ำๆ',
+        image: 'https://nyxcable.com/wp-content/uploads/2019/04/YSLY-JZ.jpg',
       },
     ],
   },
@@ -452,6 +460,7 @@ export const categoryProductsMap: Record<string, CategoryData> = {
         code: 'SIF',
         shortDescription: 'สายแกนเดี่ยวฉนวนซิลิโคน ทนความร้อน 180°C ตัวนำทองแดงเคลือบดีบุก 500V',
         image: 'https://nyxcable.com/wp-content/uploads/2019/04/SiF.jpg',
+        subGroup: 'สายทนความร้อน',
       },
       {
         slug: 'sif-gl',
@@ -459,6 +468,7 @@ export const categoryProductsMap: Record<string, CategoryData> = {
         code: 'SIF-GL',
         shortDescription: 'สายฉนวนซิลิโคน+ไฟเบอร์กลาส ทนความร้อน 200°C สำหรับเตาอบ เตาหลอม',
         image: 'https://nyxcable.com/wp-content/uploads/2019/04/SiF.jpg',
+        subGroup: 'สายทนความร้อน',
       },
       {
         slug: 'siaf-ignition-wire',
@@ -466,6 +476,7 @@ export const categoryProductsMap: Record<string, CategoryData> = {
         code: 'SIAF',
         shortDescription: 'สายฉนวนซิลิโคน ตัวนำเคลือบนิกเกิล สำหรับงานจุดระเบิดและอุณหภูมิสูงมาก',
         image: 'https://nyxcable.com/wp-content/uploads/2019/04/SiF.jpg',
+        subGroup: 'สายทนความร้อน',
       },
       {
         slug: 'sihf',
@@ -473,6 +484,7 @@ export const categoryProductsMap: Record<string, CategoryData> = {
         code: 'SIHF',
         shortDescription: 'สายหลายคอร์ฉนวนซิลิโคน ทน 180°C ทนน้ำมัน สำหรับเครื่องจักรความร้อนสูง',
         image: 'https://nyxcable.com/wp-content/uploads/2019/04/SiHF-SiHFC.jpg',
+        subGroup: 'สายทนความร้อน',
       },
       {
         slug: 'pfa-cable',
@@ -480,29 +492,15 @@ export const categoryProductsMap: Record<string, CategoryData> = {
         code: 'PFA',
         shortDescription: 'สายฉนวน PFA ทนความร้อนสูงสุด 260°C ทนสารเคมีได้ยอดเยี่ยม',
         image: 'https://nyxcable.com/wp-content/uploads/2019/04/260C-SC-MC.jpg',
+        subGroup: 'สายทนความร้อน',
       },
-
-
       {
         slug: 'thermocouple-type-k-cable',
-        title: 'Thermocouple Type K Cable',
+        title: 'Thermocouple Type K Extension Cable',
         code: 'TYPE-K',
         shortDescription: 'สาย Thermocouple Type K วัดอุณหภูมิ -200°C ถึง 1,260°C ตัวนำ Chromel-Alumel',
         image: 'https://nyxcable.com/wp-content/uploads/2019/04/Therm-Type-K.jpg',
-      },
-      {
-        slug: 'y11y-jz',
-        title: 'Y11Y-JZ : สายทนน้ำมัน PUR',
-        code: 'Y11Y-JZ',
-        shortDescription: 'สายคอนโทรลฉนวน PUR ทนน้ำมัน สารเคมี 500V 80°C ฝังดินได้',
-        image: 'https://nyxcable.com/wp-content/uploads/2019/04/YSLY-JZ.jpg',
-      },
-      {
-        slug: 'yc11y-jz',
-        title: 'YC11Y-JZ : สายทนน้ำมัน PUR มีชีลด์',
-        code: 'YC11Y-JZ',
-        shortDescription: 'สายคอนโทรลฉนวน PUR มีชีลด์ ทนน้ำมัน สารเคมี 500V 80°C ฝังดินได้',
-        image: 'https://nyxcable.com/wp-content/uploads/2019/04/YC11Y-JZ.jpg',
+        subGroup: 'สายทนความร้อน',
       },
       {
         slug: 'h07rn-f',
@@ -510,6 +508,23 @@ export const categoryProductsMap: Record<string, CategoryData> = {
         code: 'H07RN-F',
         shortDescription: 'สายไฟฉนวนยาง กันน้ำ ทนน้ำมัน สารเคมี แรงกระแทก EPR+Neoprene 450/750V',
         image: 'https://nyxcable.com/wp-content/uploads/2019/04/H07RN-F.jpg',
+        subGroup: 'สายทนสารเคมี',
+      },
+      {
+        slug: 'y11y-jz',
+        title: 'Y11Y-JZ : สายทนน้ำมัน PUR',
+        code: 'Y11Y-JZ',
+        shortDescription: 'สายคอนโทรลฉนวน PUR ทนน้ำมัน สารเคมี 500V 80°C ฝังดินได้',
+        image: 'https://nyxcable.com/wp-content/uploads/2019/04/YSLY-JZ.jpg',
+        subGroup: 'สายทนสารเคมี',
+      },
+      {
+        slug: 'yc11y-jz',
+        title: 'YC11Y-JZ : สายทนน้ำมัน PUR มีชีลด์',
+        code: 'YC11Y-JZ',
+        shortDescription: 'สายคอนโทรลฉนวน PUR มีชีลด์ ทนน้ำมัน สารเคมี 500V 80°C ฝังดินได้',
+        image: 'https://nyxcable.com/wp-content/uploads/2019/04/YC11Y-JZ.jpg',
+        subGroup: 'สายทนสารเคมี',
       },
     ],
   },

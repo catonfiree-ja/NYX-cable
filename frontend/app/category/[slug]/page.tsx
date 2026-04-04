@@ -143,6 +143,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
       code: cms?.productCode || hp.code,
       shortDescription: cms?.shortDescription || hp.shortDescription,
       image: cmsImage || hp.image || null,
+      subGroup: hp.subGroup || null,
     }
   })
 
@@ -190,20 +191,30 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
       <div className="container">
         {products.length > 0 ? (
           <div className="cat-grid">
-            {products.map((product: any) => (
-              <a key={product.slug} href={`/product/${product.slug}`} className="cat-product-card">
-                <div className="cat-product-img">
-                  {product.image ? (
-                    <img src={product.image} alt={product.title} width={400} height={400} style={{ width: '100%', height: 'auto', display: 'block' }} loading="lazy" />
-                  ) : (product.code || 'NYX')}
-                </div>
-                <div className="cat-product-body">
-                  <h3>{product.title}</h3>
-                  <div className="code">{product.code}</div>
-                  <p>{product.shortDescription}</p>
-                </div>
-              </a>
-            ))}
+            {(() => {
+              let lastGroup = ''
+              return products.map((product: any, idx: number) => {
+                const groupHeader = product.subGroup && product.subGroup !== lastGroup
+                  ? <h2 key={`group-${product.subGroup}`} style={{ gridColumn: '1 / -1', fontSize: '1.6rem', fontWeight: 800, color: '#003366', margin: idx === 0 ? '0 0 -8px' : '24px 0 -8px', padding: 0 }}>{product.subGroup}</h2>
+                  : null
+                if (product.subGroup) lastGroup = product.subGroup
+                return (
+                  <>{groupHeader}
+                  <a key={product.slug} href={`/product/${product.slug}`} className="cat-product-card">
+                    <div className="cat-product-img">
+                      {product.image ? (
+                        <img src={product.image} alt={product.title} width={400} height={400} style={{ width: '100%', height: 'auto', display: 'block' }} loading="lazy" />
+                      ) : (product.code || 'NYX')}
+                    </div>
+                    <div className="cat-product-body">
+                      <h3>{product.title}</h3>
+                      <div className="code">{product.code}</div>
+                      <p>{product.shortDescription}</p>
+                    </div>
+                  </a></>
+                )
+              })
+            })()}
           </div>
         ) : (
           <div className="cat-empty">
