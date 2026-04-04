@@ -18,7 +18,7 @@ const styles = `
 
   /* ─── Category Hub ─── */
   .cat-hub { padding: 48px 0 64px; }
-  .cat-hub-title { font-size: 1.8rem; font-weight: 700; color: var(--color-primary); margin-bottom: 24px; text-align: center; letter-spacing: 2px; }
+  .cat-hub-title { font-size: 2.8rem; font-weight: 700; color: var(--color-primary); margin-bottom: 24px; text-align: center; letter-spacing: 2px; }
   .cat-hub-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 24px; }
   .cat-card {
     display: block; text-decoration: none; color: inherit;
@@ -45,7 +45,7 @@ const styles = `
 
   /* ─── All Products Grid ─── */
   .all-products-section { padding: 48px 0; background: #f8fafc; }
-  .all-products-title { font-size: 1.8rem; font-weight: 700; color: var(--color-primary); margin-bottom: 24px; text-align: center; }
+  .all-products-title { font-size: 2.8rem; font-weight: 700; color: var(--color-primary); margin-bottom: 24px; text-align: center; }
   .all-products-sub { font-size: 0.9rem; color: #64748b; text-align: center; margin-bottom: 32px; }
   .products-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 24px; }
   .product-mini {
