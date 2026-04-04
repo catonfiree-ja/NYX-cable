@@ -56,7 +56,7 @@ const css = `
   .excel-spec-info { font-size: 0.82rem; color: #94a3b8; margin-bottom: 8px; }
 
   .excel-spec-scroll {
-    max-height: 600px; overflow: auto; border-radius: 12px;
+    border-radius: 12px;
     border: 1px solid #e2e8f0; box-shadow: 0 1px 3px rgba(0,0,0,0.04);
   }
   .excel-spec-scroll::-webkit-scrollbar { width: 6px; height: 6px; }
@@ -150,7 +150,7 @@ export default function ExcelSpecTable({ slug, data }: { slug: string; data: Pro
     return [...sizeSet].sort((a, b) => parseFloat(a) - parseFloat(b))
   }, [data])
 
-  const [activeTab, setActiveTab] = useState<string | 'all'>(sizes[0] || 'all')
+  const [activeTab, setActiveTab] = useState<string | 'all'>('all')
   const [search, setSearch] = useState('')
 
   const filtered = useMemo(() => {
