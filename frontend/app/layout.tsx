@@ -92,10 +92,10 @@ export default async function RootLayout({
   return (
     <html lang="th" className={prompt.variable}>
       <head>
-        <Script id="gtm-head" strategy="afterInteractive">{`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-N7JX4QS');`}</Script>
+        <Script id="gtm-head" strategy="lazyOnload">{`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-N7JX4QS');`}</Script>
       </head>
       <body className={prompt.className}>
-        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N7JX4QS" height="0" width="0" style={{display:'none',visibility:'hidden'}} /></noscript>
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N7JX4QS" height="0" width="0" style={{ display: 'none', visibility: 'hidden' }} /></noscript>
         <a href="#main-content" className="skip-nav">ข้ามไปเนื้อหาหลัก</a>
         <OrganizationSchema phone={`+66-${phoneRaw}`} email={email} lineUrl={lineUrl} fbUrl={fbUrl} />
         <GoogleAnalytics />

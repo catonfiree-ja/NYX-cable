@@ -72,7 +72,7 @@ const styles = `
   .related-products-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 16px; }
   .rp-card { display: block; text-decoration: none; color: #1a1a2e; border: 1px solid #e8edf3; border-radius: 14px; padding: 20px 16px; text-align: center; transition: all 0.3s cubic-bezier(0.4,0,0.2,1); background: #fff; box-shadow: 0 2px 6px rgba(0,51,102,0.03); }
   .rp-card:hover { border-color: #0099ff; box-shadow: 0 8px 24px rgba(0,51,102,0.1); transform: translateY(-4px); }
-  .rp-card .rp-code { font-size: 0.7rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px; }
+  .rp-card .rp-code { font-size: 0.7rem; color: #64748b; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px; }
   .rp-card .rp-name { font-size: 0.9rem; font-weight: 700; color: #003366; line-height: 1.3; }
   .rp-card .rp-desc { font-size: 0.75rem; color: #64748b; margin-top: 6px; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
 
@@ -404,8 +404,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ slu
 
         <div className="blog-share">
           <span>แชร์บทความ:</span>
-          <a href={`https://www.facebook.com/sharer/sharer.php?u=https://www.nyxcable.com/blog/${post.slug?.current}`} target="_blank" rel="noopener noreferrer" className="btn btn-primary btn-sm">Facebook</a>
-          <a href={`https://lin.ee/share?url=https://www.nyxcable.com/blog/${post.slug?.current}`} target="_blank" rel="noopener noreferrer" className="btn btn-line btn-sm">LINE</a>
+          <a href={`https://www.facebook.com/sharer/sharer.php?u=https://www.nyxcable.com/blog/${post.slug?.current}`} target="_blank" rel="noopener noreferrer" className="btn btn-primary btn-sm" aria-label="แชร์ทาง Facebook">Facebook</a>
+          <a href={`https://lin.ee/share?url=https://www.nyxcable.com/blog/${post.slug?.current}`} target="_blank" rel="noopener noreferrer" className="btn btn-line btn-sm" aria-label="แชร์ทาง LINE">LINE</a>
         </div>
       </article>
 

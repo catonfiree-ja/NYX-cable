@@ -350,9 +350,9 @@ a:hover {
 }
 
 .btn-line {
-  background: var(--color-line-green);
+  background: #059142;
   color: var(--color-white);
-  font-weight: 600;
+  font-weight: 700;
 }
 
 /* ─── CTA Pulse Animation ─── */
