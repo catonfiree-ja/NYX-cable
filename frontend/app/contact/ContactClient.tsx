@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import Script from 'next/script'
 import Image from 'next/image'
 
@@ -220,8 +220,16 @@ export default function ContactPage({ cms = {} }: { cms?: ContactInfo }) {
   const [submitted, setSubmitted] = useState(false)
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
+  const [recaptchaLoaded, setRecaptchaLoaded] = useState(false)
 
   const recaptchaSiteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY
+
+  // Load reCAPTCHA only when user starts interacting with the form
+  const triggerRecaptchaLoad = useCallback(() => {
+    if (!recaptchaLoaded && recaptchaSiteKey) {
+      setRecaptchaLoaded(true)
+    }
+  }, [recaptchaLoaded, recaptchaSiteKey])
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
@@ -290,7 +298,8 @@ export default function ContactPage({ cms = {} }: { cms?: ContactInfo }) {
 
   return (
     <>
-      {recaptchaSiteKey && (
+      {/* reCAPTCHA: load only when user focuses on form (saves ~177KB on initial load) */}
+      {recaptchaLoaded && recaptchaSiteKey && (
         <Script src={`https://www.google.com/recaptcha/api.js?render=${recaptchaSiteKey}`} strategy="lazyOnload" />
       )}
       <style dangerouslySetInnerHTML={{ __html: styles }} />
@@ -345,7 +354,7 @@ export default function ContactPage({ cms = {} }: { cms?: ContactInfo }) {
                 <p>ทีมงานจะติดต่อกลับภายใน 1 ชั่วโมง</p>
               </div>
             ) : (
-              <form onSubmit={handleSubmit}>
+              <form onSubmit={handleSubmit} onFocus={triggerRecaptchaLoad}>
                 <input type="hidden" name="subject" value="สอบถามจากเว็บไซต์ NYX Cable" />
                 <input type="hidden" name="from_name" value="NYX Cable Website" />
                 <input type="checkbox" name="botcheck" style={{ display: 'none' }} />
