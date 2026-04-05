@@ -75,13 +75,13 @@ export default async function HomePage() {
   ];
   const categories = cmsCategories.length > 0
     ? cmsCategories.map((c: any) => ({
-        name: safeStr(c.title),
-        slug: c.slug?.current || c.slug,
-        abbr: safeStr(c.title).substring(0, 2).toUpperCase(),
-        desc: safeStr(c.shortDescription),
-        count: c.productCount || 0,
-        fallbackImg: c.image ? sanityUrlFor(c.image).width(400).url() : '/images/categories/control-cable.jpg',
-      }))
+      name: safeStr(c.title),
+      slug: c.slug?.current || c.slug,
+      abbr: safeStr(c.title).substring(0, 2).toUpperCase(),
+      desc: safeStr(c.shortDescription),
+      count: c.productCount || 0,
+      fallbackImg: c.image ? sanityUrlFor(c.image).width(400).url() : '/images/categories/control-cable.jpg',
+    }))
     : defaultCategories;
 
   // ─── ข้อมูลจากต้นฉบับ — ทำไมต้องเลือก NYX CABLE ───
@@ -682,7 +682,7 @@ export default async function HomePage() {
         // Use CMS logos if available, fallback to static files
         const cmsLogos = homeCms?.clientLogos || [];
         const totalLogos = cmsLogos.length > 0 ? cmsLogos.length : 66;
-        
+
         // Split into 5 rows
         const perRow = Math.ceil(totalLogos / 5);
         const rows = [
@@ -745,12 +745,12 @@ export default async function HomePage() {
         const cmsServices = homeCms?.servicesItems;
         const items = (cmsServices && cmsServices.length > 0)
           ? cmsServices.map((s: any) => ({
-              title: s.title,
-              line1: s.line1,
-              line2: s.line2,
-              iconSrc: s.icon?.asset?.url || '/images/icons/service-delivery.png',
-              iconAlt: s.icon?.alt || s.title,
-            }))
+            title: s.title,
+            line1: s.line1,
+            line2: s.line2,
+            iconSrc: s.icon?.asset?.url || '/images/icons/service-delivery.png',
+            iconAlt: s.icon?.alt || s.title,
+          }))
           : defaultServices.map(s => ({ ...s, iconAlt: s.title }));
 
         return (
@@ -779,7 +779,7 @@ export default async function HomePage() {
       {/* ─── CTA Buttons (same as pre-footer) ─── */}
       <section className="prefooter-cta" style={{ background: '#fff' }}>
         <div className="prefooter-cta-buttons">
-          <a href={`tel:${(homeCms?.ctaCallLink || phoneRaw).replace(/[^0-9]/g, '')}`} className="cta-big cta-call cta-pulse">
+          <a href={`tel:${(homeCms?.ctaCallLink || phoneRaw).replace(/[^0-9]/g, '')}`} className="cta-big cta-call cta-pulse" aria-label="โทรหา NYX Cable">
             <span className="cta-big-icon">
               <svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.25 1.02l-2.2 2.2z" /></svg>
             </span>
@@ -788,7 +788,7 @@ export default async function HomePage() {
               <span className="cta-blink-text">{safeStr(homeCms?.ctaCallSub, 'Click เลย !!!')}</span>
             </span>
           </a>
-          <a href={homeCms?.ctaLineLink || lineUrl} target="_blank" rel="noopener noreferrer" className="cta-big cta-line-big cta-pulse">
+          <a href={homeCms?.ctaLineLink || lineUrl} target="_blank" rel="noopener noreferrer" className="cta-big cta-line-big cta-pulse" aria-label="LINE ปรึกษาฟรี">
             <span className="cta-big-icon">
               <svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.271.173-.51.43-.596.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314" /></svg>
             </span>
@@ -797,7 +797,7 @@ export default async function HomePage() {
               <span className="cta-blink-text">{safeStr(homeCms?.ctaLineSub, 'Click เลย !!!')}</span>
             </span>
           </a>
-          <a href={`https://mail.google.com/mail/?view=cm&to=${homeCms?.ctaEmailLink || email}`} target="_blank" rel="noopener noreferrer" className="cta-big cta-email cta-pulse">
+          <a href={`https://mail.google.com/mail/?view=cm&to=${homeCms?.ctaEmailLink || email}`} target="_blank" rel="noopener noreferrer" className="cta-big cta-email cta-pulse" aria-label="ส่งอีเมลสอบถาม">
             <span className="cta-big-icon">
               <svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" /></svg>
             </span>
@@ -985,7 +985,7 @@ export default async function HomePage() {
           <h2 style={{ textAlign: 'center', fontSize: '1.6rem', fontWeight: 800, color: '#003366', marginBottom: 8 }}>{safeStr(homeCms?.videoHeading, 'แนะนำ NYX Cable')}</h2>
           <p style={{ textAlign: 'center', color: '#475569', marginBottom: 32, fontSize: '0.95rem' }}>ทำความรู้จักกับเราผ่านวิดีโอ</p>
           <div style={{ maxWidth: 800, margin: '0 auto', borderRadius: 20, overflow: 'hidden', boxShadow: '0 8px 30px rgba(0,51,102,0.1)', border: '1px solid #e5e7eb', aspectRatio: '16 / 9', position: 'relative', background: '#000', cursor: 'pointer' }}>
-            <a href={homeCms?.videoUrl || 'https://www.youtube.com/watch?v=IEu9jZBH3qQ'} target="_blank" rel="noopener noreferrer" style={{ display: 'block', width: '100%', height: '100%', position: 'absolute', top: 0, left: 0 }}>
+            <a href={homeCms?.videoUrl || 'https://www.youtube.com/watch?v=IEu9jZBH3qQ'} target="_blank" rel="noopener noreferrer" aria-label="ดูวิดีโอแนะนำ NYX Cable" style={{ display: 'block', width: '100%', height: '100%', position: 'absolute', top: 0, left: 0 }}>
               <Image
                 src="/images/youtube-cover.png"
                 alt="NYX Cable - สายไฟอุตสาหกรรมคุณภาพสูง"

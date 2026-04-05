@@ -142,13 +142,13 @@ const styles = `
   .blog-card-link:hover { border-color: #2563eb; box-shadow: 0 4px 16px rgba(37,99,235,0.1); transform: translateY(-2px); }
   .blog-card-link .bc-title { font-size: 0.95rem; font-weight: 700; color: #1a3c6e; line-height: 1.4; margin-bottom: 6px; }
   .blog-card-link .bc-excerpt { font-size: 0.8rem; color: #64748b; line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
-  .blog-card-link .bc-date { font-size: 0.7rem; color: #64748b; margin-top: 8px; }
+  .blog-card-link .bc-date { font-size: 0.7rem; color: #475569; margin-top: 8px; }
   .other-products { padding: 48px 0; background: #fff; }
   .other-products h2 { font-size: 1.2rem; font-weight: 700; color: var(--color-primary); margin-bottom: 20px; text-align: center; }
   .op-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px; }
   .op-card { display: flex; flex-direction: column; align-items: center; justify-content: center; text-decoration: none; border: 1px solid #e2e8f0; border-radius: 12px; padding: 28px 24px; text-align: center; background: #fff; transition: all 0.25s; min-height: 100px; }
   .op-card:hover { border-color: #2563eb; box-shadow: 0 4px 16px rgba(37,99,235,0.1); transform: translateY(-2px); }
-  .op-card .op-code { font-size: 0.7rem; color: #64748b; letter-spacing: 0.5px; margin-bottom: 6px; }
+  .op-card .op-code { font-size: 0.7rem; color: #475569; letter-spacing: 0.5px; margin-bottom: 6px; }
   .op-card .op-name { font-size: 0.88rem; font-weight: 700; color: #1a3c6e; line-height: 1.5; text-wrap: balance; }
 
   /* ─── CTA Buttons ─── */

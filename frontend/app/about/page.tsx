@@ -228,7 +228,7 @@ export default async function AboutPage() {
             const videoId = videoUrl.match(/(?:v=|youtu\.be\/)([a-zA-Z0-9_-]+)/)?.[1] || 'IEu9jZBH3qQ'
             return (
               <div className="about-video-box">
-                <a href={videoUrl} target="_blank" rel="noopener noreferrer" style={{ display: 'block', position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}>
+                <a href={videoUrl} target="_blank" rel="noopener noreferrer" aria-label="ดูวิดีโอแนะนำ NYX Cable" style={{ display: 'block', position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}>
                   <Image
                     src="/images/youtube-cover.png"
                     alt={aboutCms?.videoHeading || 'NYX Cable - สายไฟอุตสาหกรรมคุณภาพสูง'}
