@@ -4,13 +4,14 @@ import { client } from './sanity'
 
 export async function getProducts() {
   return client.fetch(`
-    *[_type == "product"] | order(title asc) {
+    *[_type == "product"] | order(orderRank asc, title asc) {
       _id,
       title,
       slug,
       productCode,
       shortDescription,
       featured,
+      orderRank,
       "categories": categories[]->{ _id, title, slug },
       "image": images[0]
     }
@@ -133,7 +134,7 @@ export async function getFeaturedProducts() {
 
 export async function getCategories() {
   return client.fetch(`
-    *[_type == "productCategory"] | order(orderRank desc) {
+    *[_type == "productCategory"] | order(orderRank asc, title asc) {
       _id,
       title,
       slug,
@@ -164,12 +165,13 @@ export async function getCategory(slug: string) {
       "children": *[_type == "productCategory" && parent._ref == ^._id] {
         _id, title, slug, shortDescription, image
       },
-      "products": *[_type == "product" && references(^._id)] | order(title asc) {
+      "products": *[_type == "product" && references(^._id)] | order(orderRank asc, title asc) {
         _id,
         title,
         slug,
         productCode,
         shortDescription,
+        orderRank,
         "image": images[0]
       }
     }

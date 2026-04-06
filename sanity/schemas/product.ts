@@ -74,6 +74,14 @@ export default defineType({
       initialValue: false,
       group: 'basic',
     }),
+    defineField({
+      name: 'orderRank',
+      title: 'ลำดับการแสดงผล',
+      type: 'number',
+      group: 'basic',
+      initialValue: 100,
+      description: 'ยิ่งน้อยยิ่งแสดงก่อน (เช่น 1 = แสดงอันดับแรก)',
+    }),
 
     // ─── Specifications ───
     defineField({

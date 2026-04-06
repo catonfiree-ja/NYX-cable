@@ -11,7 +11,7 @@ import ExcelSpecTable from './ExcelSpecTable'
 import productSpecsData from '@/data/product-specs.json'
 import { productContentMap } from '@/data/product-content'
 import { BreadcrumbSchema } from '@/components/StructuredData'
-import { categoryProductsMap } from '@/data/category-products'
+// Hardcoded data removed — all product data now comes from CMS
 
 // Slug aliases are no longer needed — CMS slugs were updated to match hardcoded slugs
 const slugAliases: Record<string, string> = {}
@@ -35,18 +35,6 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
         description,
         ...(ogImage && { images: [{ url: ogImage, width: 1200, height: 630 }] }),
       },
-    }
-  }
-
-  // Fallback: check hardcoded data
-  for (const cat of Object.values(categoryProductsMap)) {
-    const p = cat.products.find(p => p.slug === slug)
-    if (p) {
-      return {
-        title: `${p.title} | สายไฟอุตสาหกรรม NYX Cable`,
-        description: p.shortDescription || `${p.title} คุณภาพมาตรฐานยุโรป NYX Cable`,
-        alternates: { canonical: `https://www.nyxcable.com/product/${slug}` },
-      }
     }
   }
 
@@ -496,16 +484,10 @@ function renderDescription(body: any, shortDesc?: string, productTitle?: string,
 
 export async function generateStaticParams() {
   const products = await getProducts()
-  const cmsParams = products.map((p: any) => ({ slug: p.slug?.current }))
-  // Include hardcoded product slugs from category-products.ts
-  const hardcodedSlugs = new Set<string>()
-  for (const cat of Object.values(categoryProductsMap)) {
-    for (const p of cat.products) {
-      hardcodedSlugs.add(p.slug)
-    }
-  }
-  const allSlugs = new Set([...cmsParams.map((p: any) => p.slug), ...hardcodedSlugs])
-  return Array.from(allSlugs).filter(Boolean).map(slug => ({ slug }))
+  return products
+    .map((p: any) => p.slug?.current)
+    .filter(Boolean)
+    .map((slug: string) => ({ slug }))
 }
 
 
@@ -524,77 +506,7 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
   if (!product && slugAliases[slug]) {
     product = await getProduct(slugAliases[slug])
   }
-  if (!product) {
-    // Check if this slug exists in hardcoded data (category-products.ts)
-    let hardcodedProduct: any = null
-    let parentCategory: any = null
-    for (const [catSlug, cat] of Object.entries(categoryProductsMap)) {
-      const found = cat.products.find(p => p.slug === slug)
-      if (found) {
-        hardcodedProduct = found
-        parentCategory = { slug: catSlug, title: cat.title }
-        break
-      }
-    }
-    if (!hardcodedProduct) notFound()
-
-    // Render a basic page for hardcoded-only products
-    return (
-      <>
-        <BreadcrumbSchema items={[
-          { name: 'หน้าแรก', url: 'https://www.nyxcable.com' },
-          { name: 'ผลิตภัณฑ์', url: 'https://www.nyxcable.com/products' },
-          { name: hardcodedProduct.title, url: `https://www.nyxcable.com/product/${slug}` },
-        ]} />
-        <style dangerouslySetInnerHTML={{ __html: styles }} />
-        <div className="product-detail-hero">
-          <div className="container">
-            <div className="breadcrumb">
-              <Link href="/">หน้าแรก</Link> › <Link href="/products">ผลิตภัณฑ์</Link>
-              {parentCategory && <> › <Link href={`/category/${parentCategory.slug}`}>{parentCategory.title}</Link></>}
-              {' › '}{hardcodedProduct.title}
-            </div>
-            <div className="hero-product-layout">
-              <div className="hero-image-box">
-                {hardcodedProduct.image ? (
-                  <img src={hardcodedProduct.image} alt={hardcodedProduct.title} style={{ width: '100%', height: 'auto', objectFit: 'contain' }} />
-                ) : <span className="fallback-text">{hardcodedProduct.code || 'NYX'}</span>}
-              </div>
-              <div className="hero-product-info">
-                <h1>{hardcodedProduct.title}</h1>
-                {hardcodedProduct.code && <span className="hero-product-code">{hardcodedProduct.code}</span>}
-                {parentCategory && (
-                  <div className="hero-categories">
-                    <span className="hero-cat-tag">{parentCategory.title}</span>
-                  </div>
-                )}
-                {hardcodedProduct.shortDescription && <p className="hero-desc">{hardcodedProduct.shortDescription}</p>}
-                <div className="hero-cta">
-                  <a href={`tel:${siteInfo.phoneRaw}`} className="cta-btn-call">สอบถามราคา</a>
-                  <a href={`${siteInfo.lineUrl}?text=${encodeURIComponent(`สนใจสินค้า: ${hardcodedProduct.title}${hardcodedProduct.code ? ` (${hardcodedProduct.code})` : ''} — ขอใบเสนอราคา`)}`} target="_blank" rel="noopener noreferrer" className="cta-btn-line">แอด LINE</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="quick-quote-bar">
-          <div className="quick-quote-inner">
-            <div className="quick-quote-info">
-              <div className="quick-quote-badge">NYX</div>
-              <div>
-                <div className="quick-quote-name">{hardcodedProduct.title}</div>
-                {hardcodedProduct.code && <div className="quick-quote-code">{hardcodedProduct.code}</div>}
-              </div>
-            </div>
-            <div className="quick-quote-actions">
-              <a href={`${siteInfo.lineUrl}?text=${encodeURIComponent(`ขอใบเสนอราคา: ${hardcodedProduct.title}`)}`} className="btn btn-accent" target="_blank" rel="noopener noreferrer">ขอใบเสนอราคา</a>
-              <a href={`tel:${siteInfo.phoneRaw}`} className="btn btn-primary">โทรสอบถาม</a>
-            </div>
-          </div>
-        </div>
-      </>
-    )
-  }
+  if (!product) notFound()
 
   const variants = product.variants || []
   const specs = product.specifications || []

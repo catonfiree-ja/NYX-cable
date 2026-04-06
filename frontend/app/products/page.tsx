@@ -5,7 +5,7 @@ import Link from 'next/link'
 import ProductSearch from '@/components/ProductSearch'
 import { decodeHtmlEntities } from '@/lib/decode-html'
 import { BreadcrumbSchema, FAQSchema } from '@/components/StructuredData'
-import { categoryProductsMap } from '@/data/category-products'
+// Hardcoded data removed — all product data now comes from CMS
 
 const styles = `
   .products-hero { background: linear-gradient(135deg, var(--color-primary-dark), var(--color-primary)); color: var(--color-white); padding: var(--spacing-3xl) 0; text-align: center; }
@@ -174,11 +174,9 @@ export default async function ProductsPage() {
               const cmsSlug = cat.slug?.current || ''
               const slug = cmsSlugRemap[cmsSlug] || cmsSlug
               const icon = catIcons[cmsSlug] || catIcons[slug] || 'NYX'
-              // Use hardcoded product count (matches what category page actually shows)
-              const hardcoded = categoryProductsMap[slug]
-              const count = hardcoded?.products?.length || cat.productCount || 0
-              const desc = hardcoded?.shortDescription || cat.shortDescription
-              const catImg = hardcoded?.products?.[0]?.image
+              const count = cat.productCount || 0
+              const desc = cat.shortDescription
+              const catImg = cat.image ? urlFor(cat.image).width(400).height(400).url() : null
               return (
                 <a key={cat._id} href={`/category/${slug}`} className="cat-card">
                   {catImg && (
@@ -207,72 +205,32 @@ export default async function ProductsPage() {
         </section>
       </div>
 
-      {/* ─── All Products Grid with Images (Sanity CMS + Hardcoded) ─── */}
+      {/* ─── All Products Grid (100% CMS, sorted by orderRank) ─── */}
       <section className="all-products-section">
         <div className="container">
           <div className="all-products-title">สินค้าทั้งหมด</div>
 
           <div className="products-grid">
-            {(() => {
-              // Build CMS product lookup by slug
-              const cmsMap: Record<string, any> = {}
-              for (const p of products) {
-                const s = p.slug?.current
-                if (s) cmsMap[s] = p
-              }
-
-              // Merge hardcoded + CMS data
-              const seenSlugs = new Set<string>()
-              const allProducts: any[] = []
-
-              // 1) Hardcoded products enriched with CMS data (CMS always wins)
-              for (const [, catData] of Object.entries(categoryProductsMap)) {
-                for (const hp of catData.products) {
-                  if (seenSlugs.has(hp.slug)) continue
-                  seenSlugs.add(hp.slug)
-                  const cms = cmsMap[hp.slug]
-                  const cmsImage = cms?.image ? urlFor(cms.image).width(400).height(400).url() : null
-                  allProducts.push({
-                    slug: hp.slug,
-                    title: cms?.title ?? hp.title,
-                    code: cms?.productCode ?? hp.code,
-                    shortDescription: cms?.shortDescription ?? hp.shortDescription,
-                    image: cmsImage ?? hp.image ?? null,
-                  })
-                }
-              }
-
-              // 2) CMS-only products (added by client in Sanity, not in hardcode)
-              for (const cp of products) {
-                const s = cp.slug?.current
-                if (!s || seenSlugs.has(s)) continue
-                seenSlugs.add(s)
-                allProducts.push({
-                  slug: s,
-                  title: cp.title,
-                  code: cp.productCode || '',
-                  shortDescription: cp.shortDescription || '',
-                  image: cp.image ? urlFor(cp.image).width(400).height(400).url() : null,
-                })
-              }
-
-              return allProducts.map((p) => (
-                <a key={p.slug} href={`/product/${p.slug}`} className="product-mini">
+            {products.map((p: any) => {
+              const s = p.slug?.current || ''
+              const img = p.image ? urlFor(p.image).width(400).height(400).url() : null
+              return (
+                <a key={s} href={`/product/${s}`} className="product-mini">
                   <div className="product-mini-img">
-                    {p.image ? (
-                      <img src={p.image} alt={p.title} width={400} height={400} style={{ width: '100%', height: 'auto', display: 'block' }} loading="lazy" />
+                    {img ? (
+                      <img src={img} alt={p.title} width={400} height={400} style={{ width: '100%', height: 'auto', display: 'block' }} loading="lazy" />
                     ) : (
-                      <span style={{ fontSize: '0.95rem', fontWeight: 700, color: '#003366' }}>{p.code || 'NYX'}</span>
+                      <span style={{ fontSize: '0.95rem', fontWeight: 700, color: '#003366' }}>{p.productCode || 'NYX'}</span>
                     )}
                   </div>
                   <div className="product-mini-body">
                     <h4>{p.title}</h4>
-                    <div className="code">{p.code}</div>
+                    <div className="code">{p.productCode}</div>
                     <p>{p.shortDescription}</p>
                   </div>
                 </a>
-              ))
-            })()}
+              )
+            })}
           </div>
         </div>
       </section>

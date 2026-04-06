@@ -4,7 +4,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { decodeHtmlEntities } from '@/lib/decode-html'
-import { categoryProductsMap } from '@/data/category-products'
+// Hardcoded data removed — all product data now comes from CMS
 import { BreadcrumbSchema, FAQSchema } from '@/components/StructuredData'
 
 // CMS slug → hardcoded slug mapping (for categories where CMS uses different slug)
@@ -68,14 +68,12 @@ const styles = `
 `
 
 export async function generateStaticParams() {
-  // Combine CMS slugs + hardcoded slugs + alias slugs
   const categories = await getCategories().catch(() => [])
   const cmsParams = categories
     .filter((c: any) => c.slug?.current)
     .map((c: any) => ({ slug: c.slug.current }))
-  const hardcodedParams = Object.keys(categoryProductsMap).map(slug => ({ slug }))
   const aliasParams = Object.keys(categorySlugAliases).map(slug => ({ slug }))
-  const allSlugs = new Set([...cmsParams.map((p: any) => p.slug), ...hardcodedParams.map(p => p.slug), ...aliasParams.map(p => p.slug)])
+  const allSlugs = new Set([...cmsParams.map((p: any) => p.slug), ...aliasParams.map(p => p.slug)])
   return Array.from(allSlugs).map(slug => ({ slug }))
 }
 
@@ -83,16 +81,12 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug: rawSlug } = await params
   const slug = resolveSlug(rawSlug)
 
-  // Try CMS first for SEO data
   const cmsCategory = await getCategory(slug).catch(() => null)
-  const hardcoded = categoryProductsMap[slug]
 
   const title = cmsCategory?.metaTitle
-    || (hardcoded ? `${hardcoded.title} | สายไฟอุตสาหกรรม NYX Cable` : null)
     || (cmsCategory ? `${cmsCategory.title} | สายไฟอุตสาหกรรม NYX Cable` : 'หมวดหมู่ไม่พบ | NYX Cable')
 
   const description = cmsCategory?.metaDescription
-    || hardcoded?.shortDescription
     || cmsCategory?.shortDescription
     || `สายไฟคุณภาพมาตรฐานยุโรป NYX Cable`
 
@@ -107,60 +101,36 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
   const { slug: rawSlug } = await params
   const slug = resolveSlug(rawSlug)
 
-  // Fetch CMS data first
+  // Fetch CMS data
   const cmsCategory = await getCategory(slug).catch(() => null)
-  const hardcoded = categoryProductsMap[slug]
 
-  // Determine title (CMS or hardcoded)
-  const categoryTitle = hardcoded?.title || cmsCategory?.title
+  // Determine title from CMS
+  const categoryTitle = cmsCategory?.title
   if (!categoryTitle) notFound()
 
-  const categoryDesc = hardcoded?.shortDescription || cmsCategory?.shortDescription || ''
+  const categoryDesc = cmsCategory?.shortDescription || ''
 
-  // Build CMS product lookup by slug for enrichment (ALL products, not just this category)
-  const allCmsProducts = await getProducts().catch(() => [])
   const settings = await getSiteSettings().catch(() => null)
   const sitePhone = settings?.phone || '02-111-5588'
   const sitePhoneRaw = sitePhone.replace(/[^0-9]/g, '')
   const siteLineOA = settings?.lineOA || '@nyxcable'
   const siteLineUrl = settings?.lineUrl || 'https://page.line.me/ubb9405u'
-  const cmsProductMap: Record<string, any> = {}
-  for (const p of allCmsProducts) {
-    const s = p.slug?.current
-    if (s) cmsProductMap[s] = p
-  }
 
-  // Master product list: hardcoded structure enriched with CMS data
-  const hardcodedProducts = hardcoded?.products || []
-  const hardcodedSlugs = new Set(hardcodedProducts.map((hp: any) => hp.slug))
+  // Product list: 100% from CMS, sorted by orderRank
+  const cmsProducts = cmsCategory?.products || []
+  const products = cmsProducts.map((cp: any) => ({
+    slug: cp.slug?.current || '',
+    title: cp.title,
+    code: cp.productCode || '',
+    shortDescription: cp.shortDescription || '',
+    image: cp.image ? urlFor(cp.image).width(400).height(400).url() : null,
+  }))
 
-  const products = hardcodedProducts.map((hp: any) => {
-    const cms = cmsProductMap[hp.slug]
-    const cmsImage = cms?.image ? urlFor(cms.image).width(400).height(400).url() : null
-    return {
-      slug: hp.slug,
-      title: cms?.title ?? hp.title,
-      code: cms?.productCode ?? hp.code,
-      shortDescription: cms?.shortDescription ?? hp.shortDescription,
-      image: cmsImage ?? hp.image ?? null,
-      subGroup: hp.subGroup || null,
-    }
-  })
-
-  // Also include CMS-only products (added by client in Sanity but not in hardcode)
-  const cmsOnlyProducts = (cmsCategory?.products || [])
-    .filter((cp: any) => cp.slug?.current && !hardcodedSlugs.has(cp.slug.current))
-    .map((cp: any) => ({
-      slug: cp.slug.current,
-      title: cp.title,
-      code: cp.productCode || '',
-      shortDescription: cp.shortDescription || '',
-      image: cp.image ? urlFor(cp.image).width(400).height(400).url() : null,
-    }))
-  products.push(...cmsOnlyProducts)
-
-  // For "other categories" sidebar, use hardcoded keys
-  const otherCatSlugs = Object.keys(categoryProductsMap).filter(s => s !== slug)
+  // For "other categories" sidebar, use CMS categories
+  const allCategories = await getCategories().catch(() => [])
+  const otherCatSlugs = allCategories
+    .filter((c: any) => c.slug?.current && c.slug.current !== slug && !c.parent)
+    .map((c: any) => ({ slug: c.slug.current, title: c.title, count: c.productCount || 0 }))
 
   // Build FAQ data for schema
   const faqData = (cmsCategory?.faqItems || []).map((item: any) => ({
@@ -533,13 +503,13 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
             <div className="container" style={{ textAlign: 'center' }}>
               <h3 style={{ fontSize: '1.6rem', fontWeight: 700, color: '#003366', marginBottom: 20 }}>หมวดหมู่อื่น</h3>
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 12, maxWidth: 900, margin: '0 auto' }}>
-                {otherCatSlugs.map((catSlug) => (
+                {otherCatSlugs.map((cat: any) => (
                   <a
-                    key={catSlug}
-                    href={`/category/${catSlug}`}
+                    key={cat.slug}
+                    href={`/category/${cat.slug}`}
                     style={{ padding: '10px 14px', border: '1px solid #e2e8f0', borderRadius: 12, fontSize: '0.85rem', color: '#003366', fontWeight: 500, textDecoration: 'none', transition: 'all 0.2s', textAlign: 'center' }}
                   >
-                    {categoryProductsMap[catSlug]?.title || catSlug} ({categoryProductsMap[catSlug]?.products.length || 0})
+                    {cat.title} ({cat.count})
                   </a>
                 ))}
               </div>
