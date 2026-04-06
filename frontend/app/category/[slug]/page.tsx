@@ -139,10 +139,10 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
     const cmsImage = cms?.image ? urlFor(cms.image).width(400).height(400).url() : null
     return {
       slug: hp.slug,
-      title: cms?.title || hp.title,
-      code: cms?.productCode || hp.code,
-      shortDescription: cms?.shortDescription || hp.shortDescription,
-      image: cmsImage || hp.image || null,
+      title: cms?.title ?? hp.title,
+      code: cms?.productCode ?? hp.code,
+      shortDescription: cms?.shortDescription ?? hp.shortDescription,
+      image: cmsImage ?? hp.image ?? null,
       subGroup: hp.subGroup || null,
     }
   })

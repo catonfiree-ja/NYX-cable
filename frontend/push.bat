@@ -8,7 +8,7 @@ git status --short
 echo === Adding files ===
 git add -A
 echo === Committing ===
-git commit -m "fix: delivery grid layout to match original site mosaic pattern"
+git commit -m "fix: disable Sanity CDN cache and prioritize CMS data over hardcoded fallbacks"
 echo === Pushing ===
 git push
 echo === Done ===
