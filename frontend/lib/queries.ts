@@ -342,6 +342,12 @@ export async function getHomePage() {
       articlesSubheading,
       comparisonHeading,
       comparisonSubheading,
+      comparisonRows[] {
+        _key,
+        feature,
+        nyxValue,
+        otherValue
+      },
       ctaCallText,
       ctaCallSub,
       ctaCallLink,
@@ -362,7 +368,15 @@ export async function getHomePage() {
       },
       metaTitle,
       metaDescription,
-      ogImage
+      ogImage,
+      whyNyxMainItems[] {
+        _key,
+        icon { alt, asset-> { _id, url } },
+        title,
+        line1,
+        line2,
+        highlightLine
+      },
     }
   `)
 }
@@ -382,6 +396,15 @@ export async function getAboutPage() {
       visionContent,
       whyNyxHeading,
       whyNyxItems,
+      standardsHeading,
+      standardsContent,
+      atmospherePhotos[] {
+        _key,
+        alt,
+        asset-> { _id, url }
+      },
+      ctaHeading,
+      ctaSubheading,
       metaTitle,
       metaDescription
     }

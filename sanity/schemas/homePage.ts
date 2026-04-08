@@ -209,7 +209,7 @@ export default defineType({
     }),
     defineField({
       name: 'whyNyxItems',
-      title: 'จุดเด่น',
+      title: 'จุดเด่น (Card Grid)',
       type: 'array',
       of: [
         {
@@ -225,6 +225,40 @@ export default defineType({
         },
       ],
       group: 'whyNyx',
+    }),
+    defineField({
+      name: 'whyNyxMainItems',
+      title: 'จุดเด่น NYX Cable (Section หลัก — มีไอคอนรูปภาพ)',
+      type: 'array',
+      group: 'whyNyx',
+      description: 'Section "ทำไมต้องเลือก NYX CABLE" แบบมีรูปไอคอน 4 รายการ',
+      of: [
+        {
+          type: 'object',
+          fields: [
+            {
+              name: 'icon',
+              type: 'image',
+              title: 'ไอคอน (80×80)',
+              options: { hotspot: true },
+              fields: [{ name: 'alt', type: 'string', title: 'Alt Text' }],
+            },
+            { name: 'title', type: 'string', title: 'หัวข้อ' },
+            { name: 'line1', type: 'string', title: 'บรรทัดที่ 1' },
+            { name: 'line2', type: 'string', title: 'บรรทัดที่ 2 (ถ้ามี)' },
+            {
+              name: 'highlightLine',
+              type: 'number',
+              title: 'บรรทัดที่เน้นสีทอง',
+              description: '1 = บรรทัดที่ 1, 2 = บรรทัดที่ 2',
+              initialValue: 2,
+            },
+          ],
+          preview: {
+            select: { title: 'title', subtitle: 'line1', media: 'icon' },
+          },
+        },
+      ],
     }),
 
     // ─── Delivery Gallery Section ───
@@ -313,6 +347,26 @@ export default defineType({
       rows: 2,
       initialValue: 'ดูข้อแตกต่างที่ชัดเจน ทำไมโรงงานชั้นนำเลือก NYX Cable',
       group: 'comparison',
+    }),
+    defineField({
+      name: 'comparisonRows',
+      title: 'แถวข้อมูลตารางเปรียบเทียบ',
+      type: 'array',
+      group: 'comparison',
+      description: 'แต่ละแถวมี 3 คอลัมน์: คุณสมบัติ, NYX Cable, สายทั่วไป',
+      of: [
+        {
+          type: 'object',
+          fields: [
+            { name: 'feature', type: 'string', title: 'คุณสมบัติ' },
+            { name: 'nyxValue', type: 'string', title: 'NYX Cable' },
+            { name: 'otherValue', type: 'string', title: 'สายทั่วไป' },
+          ],
+          preview: {
+            select: { title: 'feature', subtitle: 'nyxValue' },
+          },
+        },
+      ],
     }),
 
     // ─── SEO ───

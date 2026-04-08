@@ -184,7 +184,7 @@ export default async function BlogPage() {
       <section className="blog-hero">
         <div className="container">
           <h1>บทความ & ความรู้</h1>
-          <p>ข้อมูลเชิงลึกจากทีมวิศวกรผู้เชี่ยวชาญในสายงานโดยเฉพาะ</p>
+          <p>ข้อมูลเชิงลึกจากทีมวิศวกรผู้เชี่ยวชาญสายไฟโดยเฉพาะ</p>
           <p style={{ marginTop: '8px' }}>การันตีด้วย <span style={{ color: '#FFD700', fontSize: '1.5em', fontWeight: 800 }}>ประสบการณ์กว่า 20 ปี</span></p>
         </div>
       </section>

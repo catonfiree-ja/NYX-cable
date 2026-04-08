@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { usePathname } from 'next/navigation'
 
-const links = [
+const defaultLinks = [
   { href: '/', label: 'หน้าแรก' },
   { href: '/products', label: 'ผลิตภัณฑ์' },
   { href: '/gallery', label: 'แกลเลอรี่' },
@@ -13,9 +13,14 @@ const links = [
   { href: '/contact', label: 'ติดต่อเรา' },
 ]
 
-export default function NavLinks() {
+interface NavLinksProps {
+  navItems?: { label: string; href: string }[]
+}
+
+export default function NavLinks({ navItems }: NavLinksProps) {
   const pathname = usePathname()
   const [isOpen, setIsOpen] = useState(false)
+  const links = navItems && navItems.length > 0 ? navItems : defaultLinks
 
   return (
     <>

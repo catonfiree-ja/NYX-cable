@@ -125,7 +125,7 @@ export default async function RootLayout({
             <Link href="/" className="header-logo" aria-label="NYX Cable หน้าแรก">
               <Image src="/images/NYXcable-Logo.png" alt="NYX Cable สายไฟอุตสาหกรรมคุณภาพยุโรป" width={160} height={40} style={{ display: 'block', height: '40px', width: 'auto' }} priority />
             </Link>
-            <NavLinks />
+            <NavLinks navItems={settings?.headerNavigation} />
           </div>
         </header>
 
@@ -200,13 +200,20 @@ export default async function RootLayout({
               <div>
                 <h4>เมนู</h4>
                 <ul className="footer-links">
-                  <li><Link href="/">หน้าแรก</Link></li>
-                  <li><Link href="/products">ผลิตภัณฑ์</Link></li>
-                  <li><Link href="/blog">บทความ & คู่มือ</Link></li>
-                  <li><Link href="/gallery">แกลเลอรี่</Link></li>
-                  <li><Link href="/about">เกี่ยวกับเรา</Link></li>
-                  <li><Link href="/contact">ติดต่อเรา</Link></li>
-                  <li><Link href="/privacy-policy">นโยบายความเป็นส่วนตัว</Link></li>
+                  {(settings?.footerNavigation?.length > 0
+                    ? settings.footerNavigation.map((item: any) => (
+                      <li key={item.href}><Link href={item.href}>{item.label}</Link></li>
+                    ))
+                    : <>
+                      <li><Link href="/">หน้าแรก</Link></li>
+                      <li><Link href="/products">ผลิตภัณฑ์</Link></li>
+                      <li><Link href="/blog">บทความ & คู่มือ</Link></li>
+                      <li><Link href="/gallery">แกลเลอรี่</Link></li>
+                      <li><Link href="/about">เกี่ยวกับเรา</Link></li>
+                      <li><Link href="/contact">ติดต่อเรา</Link></li>
+                      <li><Link href="/privacy-policy">นโยบายความเป็นส่วนตัว</Link></li>
+                    </>
+                  )}
                 </ul>
               </div>
 

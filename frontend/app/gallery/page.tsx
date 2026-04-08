@@ -188,7 +188,7 @@ export default async function GalleryPage() {
         <div className="container">
           <h1>ผลงาน & การจัดส่ง</h1>
           <p>ประมวลภาพผลงานจริงและการจัดส่งสินค้าทั่วประเทศ</p>
-          <p style={{ marginTop: '8px' }}>(นี่เป็นเพียงส่วนหนึ่งจากความไว้วางใจของ <span style={{ color: '#FFD700', fontSize: '1.5em', fontWeight: 800 }}>ลูกค้ากว่า 5,000 ราย</span>)</p>
+          <p style={{ marginTop: '8px' }}>(เพียงส่วนหนึ่งจาก <span style={{ color: '#FFD700', fontSize: '1.5em', fontWeight: 800 }}>ลูกค้ากว่า 5,000 ราย</span>)</p>
 
         </div>
       </section>

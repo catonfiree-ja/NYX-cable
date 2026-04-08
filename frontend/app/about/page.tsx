@@ -194,8 +194,8 @@ export default async function AboutPage() {
       {/* ─── Hero ─── */}
       <section className="about-hero">
         <div className="container">
-          <h1>NYX CABLE</h1>
-          <p className="hero-sub">ผู้เชี่ยวชาญสายไฟอุตสาหกรรม โรงงานโดยตรง <span style={{ color: '#FFD700', fontSize: '1.5em', fontWeight: 800 }}>จากยุโรป</span></p>
+          <h1>{aboutCms?.heroHeading || 'NYX CABLE'}</h1>
+          <p className="hero-sub">{aboutCms?.heroSubheading || <>ผู้เชี่ยวชาญสายไฟอุตสาหกรรมโดยเฉพาะ <span style={{ color: '#FFD700', fontSize: '1.5em', fontWeight: 800 }}>จากยุโรป</span></>}</p>
           <div className="hero-badges">
             {heroBadges.map((badge: string, i: number) => (
               <span key={i} className="hero-badge">{badge}</span>
@@ -289,11 +289,11 @@ export default async function AboutPage() {
           {/* Box 3: Quality & Standards */}
           <div className="info-box">
             <div className="box-icon stats">⚡</div>
-            <h3>มาตรฐานและคุณภาพ</h3>
+            <h3>{aboutCms?.standardsHeading || 'มาตรฐานและคุณภาพ'}</h3>
             <p>
-              สายคอนโทรลทุกรุ่นนั้นใช้เทคโนโลยีการผลิตชั้นสูงจากยุโรป
+              {aboutCms?.standardsContent || `สายคอนโทรลทุกรุ่นนั้นใช้เทคโนโลยีการผลิตชั้นสูงจากยุโรป
               และควบคุมการผลิตด้วยระบบคอมพิวเตอร์ที่ทันสมัย ตามมาตรฐาน VDE และ IEC
-              ทำให้ได้สายไฟฟ้าที่มีคุณภาพ สร้างความพึงพอใจให้ลูกค้า
+              ทำให้ได้สายไฟฟ้าที่มีคุณภาพ สร้างความพึงพอใจให้ลูกค้า`}
             </p>
             <div style={{ display: 'flex', justifyContent: 'center', gap: 16, marginTop: 20, alignItems: 'flex-end' }}>
               <div style={{ textAlign: 'center', flex: '1 1 0', minWidth: 0 }}>
@@ -324,26 +324,43 @@ export default async function AboutPage() {
       {/* ─── บรรยากาศของเรา (Full-frame Gallery) ─── */}
       <section className="atmosphere-section">
         <div className="atmosphere-grid">
-          {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map(n => (
-            <div key={n} className="atmosphere-photo">
-              <Image
-                src={`/delivery-2026/delivery-2026-${String(n).padStart(2, '0')}.jpg`}
-                alt={`บรรยากาศ NYX Cable #${n}`}
-                width={400}
-                height={300}
-                loading="lazy"
-                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-              />
-            </div>
-          ))}
+          {(() => {
+            const cmsPhotos = aboutCms?.atmospherePhotos;
+            if (cmsPhotos && cmsPhotos.length > 0) {
+              return cmsPhotos.map((photo: any, i: number) => (
+                <div key={photo._key || i} className="atmosphere-photo">
+                  <Image
+                    src={photo.asset?.url || ''}
+                    alt={photo.alt || `บรรยากาศ NYX Cable #${i + 1}`}
+                    width={400}
+                    height={300}
+                    loading="lazy"
+                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                  />
+                </div>
+              ));
+            }
+            return [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map(n => (
+              <div key={n} className="atmosphere-photo">
+                <Image
+                  src={`/delivery-2026/delivery-2026-${String(n).padStart(2, '0')}.jpg`}
+                  alt={`บรรยากาศ NYX Cable #${n}`}
+                  width={400}
+                  height={300}
+                  loading="lazy"
+                  style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                />
+              </div>
+            ));
+          })()}
         </div>
       </section>
 
       {/* ─── CTA ─── */}
       <section className="about-cta">
         <div className="container">
-          <h2>พร้อมให้บริการคุณ</h2>
-          <p>ติดต่อเราวันนี้ เพื่อรับคำปรึกษาจากผู้เชี่ยวชาญ</p>
+          <h2>{aboutCms?.ctaHeading || 'พร้อมให้บริการคุณ'}</h2>
+          <p>{aboutCms?.ctaSubheading || 'ติดต่อเราวันนี้ เพื่อรับคำปรึกษาจากผู้เชี่ยวชาญ'}</p>
           <div className="about-cta-buttons">
             <Link href="/products" className="about-cta-btn products">ดูผลิตภัณฑ์ →</Link>
             <Link href="/contact" className="about-cta-btn contact">ติดต่อเรา</Link>

@@ -115,8 +115,16 @@ export default async function HomePage() {
     { name: "SiHF", thaiName: "สายไฟทนความร้อน", slug: "sihf", img: "/images/products/sihf.jpg" },
     { name: "Multiflex", thaiName: "สายไฟรางกระดูกงู สายไฟหุ่นยนต์", slug: "robot-cable", img: "/images/products/multiflex.jpg" },
   ];
-  // Always use hardcoded products for homepage to match original nyxcable.com
-  const mainProducts = defaultMainProducts;
+  // Use featured CMS products if available, fallback to hardcoded
+  const featuredProducts = products.filter((p: any) => p.featured);
+  const mainProducts = featuredProducts.length >= 3
+    ? featuredProducts.slice(0, 9).map((p: any) => ({
+      name: p.productCode || p.title?.split(':')[0]?.split(' : ')[0]?.trim() || p.title,
+      thaiName: p.shortDescription || p.title?.split(':')[1]?.split(' : ')[1]?.trim() || '',
+      slug: typeof p.slug === 'string' ? p.slug : p.slug?.current || '',
+      img: p.image ? sanityUrlFor(p.image).width(400).url() : '/images/products/default.jpg',
+    }))
+    : defaultMainProducts;
 
   // ─── FAQ ความรู้จากต้นฉบับ ───
   const defaultKnowledgeFAQs = [
@@ -835,43 +843,48 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* ─── ทำไมต้องเลือก NYX CABLE (Pixel-Perfect Original) ─── */}
       <section className="why-nyx-section" style={{ background: 'linear-gradient(rgba(0,20,50,0.82), rgba(0,20,50,0.82)), url("/images/why-nyx-bg.jpg") center/cover no-repeat fixed', padding: '60px 0', color: '#fff' }}>
         <div className="container">
           <h2 className="why-nyx-title">ทำไมต้องเลือก NYX CABLE</h2>
           <div className="why-nyx-items">
-            {/* มั่นใจคุณภาพ */}
-            <div className="why-nyx-item">
-              <Image src="/images/icons/why-shield.png" alt="มั่นใจคุณภาพ" width={80} height={80} className="why-nyx-icon" />
-              <div>
-                <h3>มั่นใจคุณภาพ</h3>
-                <p>ด้วยเทคโนโลยีการผลิตล่าสุด<br /><span style={{ color: '#fbbf24' }}>จากยุโรป</span></p>
-              </div>
-            </div>
-            {/* บริการรวดเร็วทันใจ */}
-            <div className="why-nyx-item">
-              <Image src="/images/icons/why-truck.png" alt="บริการรวดเร็วทันใจ" width={80} height={80} className="why-nyx-icon" />
-              <div>
-                <h3>บริการรวดเร็วทันใจ</h3>
-                <p>สินค้าพร้อมส่งด่วนจากโกดังบางนา<br /><span style={{ color: '#fbbf24' }}>เพียง 2 ชม.</span></p>
-              </div>
-            </div>
-            {/* ราคาดี */}
-            <div className="why-nyx-item">
-              <Image src="/images/icons/why-piggy.png" alt="ราคาดี" width={80} height={80} className="why-nyx-icon" />
-              <div>
-                <h3>ราคาดี</h3>
-                <p><span style={{ color: '#fbbf24' }}>เราเป็นโรงงาน</span><br />นำเข้าสายไฟฟ้าเองโดยตรง</p>
-              </div>
-            </div>
-            {/* ยืนยันจากผู้ใช้จริง */}
-            <div className="why-nyx-item">
-              <Image src="/images/icons/why-heart.png" alt="ยืนยันจากผู้ใช้จริง" width={80} height={80} className="why-nyx-icon" />
-              <div>
-                <h3>ยืนยันจากผู้ใช้จริง</h3>
-                <p style={{ color: '#fbbf24' }}>ลูกค้ากว่า 99% กลับมาซื้อซ้ำ</p>
-              </div>
-            </div>
+            {(() => {
+              const defaultWhyNyxMain = [
+                { title: 'มั่นใจคุณภาพ', line1: 'ด้วยเทคโนโลยีการผลิตล่าสุด', line2: 'จากยุโรป', highlightLine: 2, icon: '/images/icons/why-shield.png' },
+                { title: 'บริการรวดเร็วทันใจ', line1: 'สินค้าพร้อมส่งด่วนจากโกดังบางนา', line2: 'เพียง 2 ชม.', highlightLine: 2, icon: '/images/icons/why-truck.png' },
+                { title: 'ราคาดี', line1: 'เราเป็นโรงงาน', line2: 'นำเข้าสายไฟฟ้าเองโดยตรง', highlightLine: 1, icon: '/images/icons/why-piggy.png' },
+                { title: 'ยืนยันจากผู้ใช้จริง', line1: 'ลูกค้ากว่า 99% กลับมาซื้อซ้ำ', line2: '', highlightLine: 1, icon: '/images/icons/why-heart.png' },
+              ];
+              const items = homeCms?.whyNyxMainItems?.length > 0
+                ? homeCms.whyNyxMainItems.map((item: any) => ({
+                  title: item.title,
+                  line1: item.line1 || '',
+                  line2: item.line2 || '',
+                  highlightLine: item.highlightLine || 2,
+                  icon: item.icon?.asset?.url || '/images/icons/why-shield.png',
+                }))
+                : defaultWhyNyxMain;
+              return items.map((item: any, i: number) => (
+                <div key={i} className="why-nyx-item">
+                  <Image src={item.icon} alt={item.title} width={80} height={80} className="why-nyx-icon" />
+                  <div>
+                    <h3>{item.title}</h3>
+                    <p>
+                      {item.highlightLine === 1 ? (
+                        <>
+                          <span style={{ color: '#fbbf24' }}>{item.line1}</span>
+                          {item.line2 && <><br />{item.line2}</>}
+                        </>
+                      ) : (
+                        <>
+                          {item.line1}
+                          {item.line2 && <><br /><span style={{ color: '#fbbf24' }}>{item.line2}</span></>}
+                        </>
+                      )}
+                    </p>
+                  </div>
+                </div>
+              ));
+            })()}
           </div>
         </div>
       </section>
@@ -955,21 +968,30 @@ export default async function HomePage() {
                 </tr>
               </thead>
               <tbody>
-                {[
-                  ['พื้นที่หน้าตัดสาย', 'เล็กกว่า 40-55%', 'ใหญ่กว่า'],
-                  ['ตัวนำทองแดง', 'เส้นฝอยละเอียด', 'เส้นใหญ่'],
-                  ['มาตรฐาน', 'DIN VDE / IEC ยุโรป', 'มอก. พื้นฐาน'],
-                  ['ความอ่อนตัว', 'สูงมาก (เส้นฝอยละเอียด)', 'น้อย'],
-                  ['จำนวนคอร์', 'สูงสุด 100 คอร์', 'สูงสุด 30 คอร์'],
-                  ['ป้องกัน EMI (ชีลด์)', 'Tinned Cu Braid', 'Copper Tape / ไม่มี'],
-                  ['ราคา', 'เทียบเท่าหรือถูกกว่า', 'ใกล้เคียง'],
-                ].map((row, i) => (
-                  <tr key={i} style={{ background: i % 2 === 0 ? '#fff' : '#f8fafc' }}>
-                    <td style={{ padding: '10px 16px', fontWeight: 600, color: '#334155', borderBottom: '1px solid #e8edf3' }}>{row[0]}</td>
-                    <td style={{ padding: '10px 16px', textAlign: 'center', borderBottom: '1px solid #e8edf3' }}><span style={{ color: '#10b981', fontWeight: 700 }}>✓</span> <span style={{ color: '#003366', fontWeight: 700 }}>{row[1]}</span></td>
-                    <td style={{ padding: '10px 16px', textAlign: 'center', color: '#64748b', borderBottom: '1px solid #e8edf3' }}>{row[2]}</td>
-                  </tr>
-                ))}
+                {(homeCms?.comparisonRows?.length > 0
+                  ? homeCms.comparisonRows.map((row: any, i: number) => (
+                    <tr key={row._key || i} style={{ background: i % 2 === 0 ? '#fff' : '#f8fafc' }}>
+                      <td style={{ padding: '10px 16px', fontWeight: 600, color: '#334155', borderBottom: '1px solid #e8edf3' }}>{row.feature}</td>
+                      <td style={{ padding: '10px 16px', textAlign: 'center', borderBottom: '1px solid #e8edf3' }}><span style={{ color: '#10b981', fontWeight: 700 }}>✓</span> <span style={{ color: '#003366', fontWeight: 700 }}>{row.nyxValue}</span></td>
+                      <td style={{ padding: '10px 16px', textAlign: 'center', color: '#64748b', borderBottom: '1px solid #e8edf3' }}>{row.otherValue}</td>
+                    </tr>
+                  ))
+                  : [
+                    ['พื้นที่หน้าตัดสาย', 'เล็กกว่า 40-55%', 'ใหญ่กว่า'],
+                    ['ตัวนำทองแดง', 'เส้นฝอยละเอียด', 'เส้นใหญ่'],
+                    ['มาตรฐาน', 'DIN VDE / IEC ยุโรป', 'มอก. พื้นฐาน'],
+                    ['ความอ่อนตัว', 'สูงมาก (เส้นฝอยละเอียด)', 'น้อย'],
+                    ['จำนวนคอร์', 'สูงสุด 100 คอร์', 'สูงสุด 30 คอร์'],
+                    ['ป้องกัน EMI (ชีลด์)', 'Tinned Cu Braid', 'Copper Tape / ไม่มี'],
+                    ['ราคา', 'เทียบเท่าหรือถูกกว่า', 'ใกล้เคียง'],
+                  ].map((row, i) => (
+                    <tr key={i} style={{ background: i % 2 === 0 ? '#fff' : '#f8fafc' }}>
+                      <td style={{ padding: '10px 16px', fontWeight: 600, color: '#334155', borderBottom: '1px solid #e8edf3' }}>{row[0]}</td>
+                      <td style={{ padding: '10px 16px', textAlign: 'center', borderBottom: '1px solid #e8edf3' }}><span style={{ color: '#10b981', fontWeight: 700 }}>✓</span> <span style={{ color: '#003366', fontWeight: 700 }}>{row[1]}</span></td>
+                      <td style={{ padding: '10px 16px', textAlign: 'center', color: '#64748b', borderBottom: '1px solid #e8edf3' }}>{row[2]}</td>
+                    </tr>
+                  ))
+                )}
               </tbody>
             </table>
           </div>

@@ -133,6 +133,54 @@ export default defineType({
     }),
 
 
+    // ─── Atmosphere Gallery ───
+    defineField({
+      name: 'atmospherePhotos',
+      title: 'รูปภาพบรรยากาศบริษัท',
+      type: 'array',
+      group: 'gallery',
+      description: 'รูปภาพบรรยากาศบริษัท/คลังสินค้า แสดงเป็น Grid (แนะนำ 8-12 รูป)',
+      of: [
+        {
+          type: 'image',
+          options: { hotspot: true },
+          fields: [{ name: 'alt', type: 'string', title: 'Alt Text' }],
+        },
+      ],
+    }),
+
+    // ─── Standards & Quality Box ───
+    defineField({
+      name: 'standardsHeading',
+      title: 'หัวข้อ "มาตรฐานและคุณภาพ"',
+      type: 'string',
+      initialValue: 'มาตรฐานและคุณภาพ',
+      group: 'content',
+    }),
+    defineField({
+      name: 'standardsContent',
+      title: 'เนื้อหามาตรฐานฯ',
+      type: 'text',
+      rows: 4,
+      group: 'content',
+    }),
+
+    // ─── CTA Section ───
+    defineField({
+      name: 'ctaHeading',
+      title: 'หัวข้อ CTA',
+      type: 'string',
+      initialValue: 'พร้อมให้บริการคุณ',
+      group: 'content',
+    }),
+    defineField({
+      name: 'ctaSubheading',
+      title: 'คำอธิบาย CTA',
+      type: 'string',
+      initialValue: 'ติดต่อเราวันนี้ เพื่อรับคำปรึกษาจากผู้เชี่ยวชาญ',
+      group: 'content',
+    }),
+
     // ─── SEO ───
     defineField({
       name: 'metaTitle',
@@ -162,6 +210,7 @@ export default defineType({
   groups: [
     { name: 'hero', title: 'Hero Section' },
     { name: 'content', title: 'เนื้อหา' },
+    { name: 'gallery', title: 'รูปภาพ' },
     { name: 'seo', title: 'SEO' },
   ],
   preview: {

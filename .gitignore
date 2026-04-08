@@ -39,6 +39,19 @@ frontend/cms-*.js
 frontend/list-posts.js
 frontend/scripts/read-pdf.cjs
 
+# One-off seed/migration scripts (already run, tokens removed)
+seed-*.js
+fix-title.js
+fix-thai-slugs.js
+fix-sanity-entities.js
+import-to-sanity.bat
+migrate-to-sanity.js
+cleanup-secrets.bat
+
+# Sanity batch scripts with env tokens (keep locally only)
+sanity/*.bat
+!sanity/deploy-studio.bat
+
 # Temp audit reports & client deliverables (ส่งทาง LINE)
 new-site-report.json
 old-site-report.json
