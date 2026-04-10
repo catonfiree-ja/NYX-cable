@@ -155,6 +155,23 @@ const styles = `
   .quick-quote-actions { display: flex; gap: 10px; flex-shrink: 0; }
   .quick-quote-actions .btn { font-size: 0.82rem; padding: 8px 20px; border-radius: 8px; font-weight: 700; white-space: nowrap; }
 
+  /* ─── Spec Table (from Sanity specTable) ─── */
+  .spec-table-wrap { margin: 24px 0; }
+  .spec-table-caption { font-size: 1.05rem; font-weight: 700; color: #003366; margin-bottom: 12px; }
+  .spec-table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; border: 1px solid #e2e8f0; border-radius: 12px; }
+  .spec-table { width: 100%; border-collapse: collapse; font-size: 0.82rem; white-space: nowrap; }
+  .spec-table thead { background: linear-gradient(135deg, #003366, #004a8f); color: #fff; }
+  .spec-table th { padding: 10px 14px; text-align: center; font-weight: 600; border-right: 1px solid rgba(255,255,255,0.1); }
+  .spec-table th:last-child { border-right: none; }
+  .spec-table td { padding: 8px 14px; text-align: center; border-bottom: 1px solid #f0f4f8; border-right: 1px solid #f0f4f8; color: #334155; }
+  .spec-table td:last-child { border-right: none; }
+  .spec-table tbody tr:nth-child(even) { background: #f8fafc; }
+  .spec-table tbody tr:hover { background: #eef4ff; }
+
+  /* ─── Description Bullet List ─── */
+  .desc-bullet-list { margin: 8px 0 16px 24px; color: #475569; line-height: 1.85; font-size: 0.9rem; list-style: disc; }
+  .desc-bullet-list li { margin-bottom: 6px; }
+
   /* ─── Responsive ─── */
   @media (max-width: 900px) {
     .hero-product-layout { grid-template-columns: 1fr; gap: 24px; }
@@ -427,56 +444,113 @@ function renderDescription(body: any, shortDesc?: string, productTitle?: string,
     return true
   })
 
-  // Limit to max 50 blocks to allow full product descriptions
-  const limitedBlocks = cleanBlocks.slice(0, 50)
+  // Limit to max 200 blocks to allow full product descriptions
+  const limitedBlocks = cleanBlocks.slice(0, 200)
 
-  const elements = limitedBlocks.map((block: any, i: number) => {
-    if (block._type === 'block') {
-      // Build markDefs lookup for links
-      const markDefs = (block.markDefs || []).reduce((acc: any, def: any) => {
-        acc[def._key] = def
-        return acc
-      }, {} as Record<string, any>)
+  // Render a single block element
+  const renderBlock = (block: any, i: number) => {
+    // Build markDefs lookup for links
+    const markDefs = (block.markDefs || []).reduce((acc: any, def: any) => {
+      acc[def._key] = def
+      return acc
+    }, {} as Record<string, any>)
 
-      const children = (block.children || []).map((child: any, j: number) => {
-        const decoded = decodeHtmlEntities(child.text || '')
+    const children = (block.children || []).map((child: any, j: number) => {
+      const decoded = decodeHtmlEntities(child.text || '')
 
-        // Check for link marks first (from Portable Text markDefs)
-        const linkMark = child.marks?.find((m: string) => markDefs[m]?.href)
-        if (linkMark) {
-          const href = rewriteLinks(markDefs[linkMark].href)
-          return <a key={j} href={href} style={{ color: 'var(--nyx-orange)', textDecoration: 'underline' }}>{decoded}</a>
-        }
-
-        // Apply auto-linking for product codes
-        let content: React.ReactNode = linkMap && currentSlug ? autoLinkText(decoded, linkMap, currentSlug) : decoded
-
-        if (child.marks?.includes('strong')) {
-          return <strong key={j}>{content}</strong>
-        } else if (child.marks?.includes('em')) {
-          return <em key={j}>{content}</em>
-        }
-        return <span key={j}>{content}</span>
-      })
-      const textContent = (block.children || []).map((c: any) => c.text || '').join('')
-      if (!textContent.trim()) return null
-
-      // Skip blocks that partially match shortDescription (fuzzy dedup)
-      if (shortDesc && shortDesc.length > 20) {
-        const shortPrefix = shortDesc.substring(0, 30).replace(/[^\u0E00-\u0E7Fa-zA-Z0-9]/g, '')
-        const blockPrefix = textContent.substring(0, 30).replace(/[^\u0E00-\u0E7Fa-zA-Z0-9]/g, '')
-        if (shortPrefix === blockPrefix) return null
+      // Check for link marks first (from Portable Text markDefs)
+      const linkMark = child.marks?.find((m: string) => markDefs[m]?.href)
+      if (linkMark) {
+        const href = rewriteLinks(markDefs[linkMark].href)
+        return <a key={j} href={href} style={{ color: 'var(--nyx-orange)', textDecoration: 'underline' }}>{decoded}</a>
       }
 
-      switch (block.style) {
-        case 'h2': return <h2 key={i}>{children}</h2>
-        case 'h3': return <h3 key={i}>{children}</h3>
-        case 'h4': return <h4 key={i}>{children}</h4>
-        default: return <p key={i}>{children}</p>
+      // Apply auto-linking for product codes
+      let content: React.ReactNode = linkMap && currentSlug ? autoLinkText(decoded, linkMap, currentSlug) : decoded
+
+      if (child.marks?.includes('strong')) {
+        return <strong key={j}>{content}</strong>
+      } else if (child.marks?.includes('em')) {
+        return <em key={j}>{content}</em>
       }
+      return <span key={j}>{content}</span>
+    })
+    const textContent = (block.children || []).map((c: any) => c.text || '').join('')
+    if (!textContent.trim()) return null
+
+    // Skip blocks that partially match shortDescription (fuzzy dedup)
+    if (shortDesc && shortDesc.length > 20) {
+      const shortPrefix = shortDesc.substring(0, 30).replace(/[^\u0E00-\u0E7Fa-zA-Z0-9]/g, '')
+      const blockPrefix = textContent.substring(0, 30).replace(/[^\u0E00-\u0E7Fa-zA-Z0-9]/g, '')
+      if (shortPrefix === blockPrefix) return null
     }
-    return null
-  }).filter(Boolean)
+
+    switch (block.style) {
+      case 'h2': return <h2 key={i}>{children}</h2>
+      case 'h3': return <h3 key={i}>{children}</h3>
+      case 'h4': return <h4 key={i}>{children}</h4>
+      default: return <p key={i}>{children}</p>
+    }
+  }
+
+  // Group blocks into elements, merging consecutive bullet items into <ul>
+  const elements: React.ReactNode[] = []
+  let currentBulletItems: React.ReactNode[] = []
+
+  const flushBullets = () => {
+    if (currentBulletItems.length > 0) {
+      elements.push(<ul key={`ul-${elements.length}`} className="desc-bullet-list">{currentBulletItems}</ul>)
+      currentBulletItems = []
+    }
+  }
+
+  limitedBlocks.forEach((block: any, i: number) => {
+    // Handle specTable type
+    if (block._type === 'specTable') {
+      flushBullets()
+      const headers = block.headers || []
+      const rows = block.rows || []
+      if (headers.length === 0 && rows.length === 0) return
+      elements.push(
+        <div key={i} className="spec-table-wrap">
+          {block.caption && <h3 className="spec-table-caption">{block.caption}</h3>}
+          <div className="spec-table-scroll">
+            <table className="spec-table">
+              <thead>
+                <tr>{headers.map((h: string, hi: number) => <th key={hi}>{h}</th>)}</tr>
+              </thead>
+              <tbody>
+                {rows.map((row: any, ri: number) => (
+                  <tr key={ri}>
+                    {(row.cells || []).map((cell: string, ci: number) => <td key={ci}>{cell}</td>)}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      )
+      return
+    }
+
+    if (block._type !== 'block') return
+
+    // Check if it's a bullet list item
+    if (block.listItem === 'bullet') {
+      const rendered = renderBlock(block, i)
+      if (rendered) {
+        const textContent = (block.children || []).map((c: any) => c.text || '').join('')
+        currentBulletItems.push(<li key={i}>{textContent}</li>)
+      }
+      return
+    }
+
+    // Not a bullet — flush any pending bullets, then render normally
+    flushBullets()
+    const rendered = renderBlock(block, i)
+    if (rendered) elements.push(rendered)
+  })
+  flushBullets() // flush any remaining bullets
 
   if (elements.length === 0) return null
   return <div className="product-full-desc">{elements}</div>
@@ -588,6 +662,7 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
             {variants.length > 0 && <a href="#variants" className="section-nav-pill">ขนาดสินค้า</a>}
             {relatedProducts.length > 0 && <a href="#related" className="section-nav-pill">สินค้าที่เกี่ยวข้อง</a>}
             {productContentMap[slug]?.faqs && <a href="#faqs" className="section-nav-pill">FAQs</a>}
+            {!productContentMap[slug]?.faqs && product.faqItems?.length > 0 && <a href="#faqs" className="section-nav-pill">FAQs</a>}
             <a href="#blogs" className="section-nav-pill">บทความ</a>
           </div>
         </div>
@@ -672,6 +747,30 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
             </>
           )
         })()}
+
+        {/* ── CMS FAQ Items (from Sanity faqItems field) ── */}
+        {!productContentMap[slug]?.faqs && product.faqItems?.length > 0 && (
+          <div className="section-block" id="faqs">
+            <div className="container">
+              <div className="section-block-title">คำถามที่พบบ่อย (FAQs)</div>
+              <div className="faq-section">
+                {product.faqItems.map((faq: any, idx: number) => (
+                  <details key={idx} className="faq-item">
+                    <summary>{faq.question}</summary>
+                    <div className="faq-answer">
+                      {Array.isArray(faq.answer) ? faq.answer.map((block: any, bi: number) => {
+                        const text = block.children?.map((c: any) => c.text || '').join('') || ''
+                        if (!text) return null
+                        if (block.listItem === 'bullet') return <li key={bi}>{text}</li>
+                        return <p key={bi}>{text}</p>
+                      }) : <p>{String(faq.answer)}</p>}
+                    </div>
+                  </details>
+                ))}
+              </div>
+            </div>
+          </div>
+        )}
 
         {/* ── Variants ── */}
         {variants.length > 0 && (() => {

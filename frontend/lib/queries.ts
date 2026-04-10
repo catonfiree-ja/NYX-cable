@@ -37,6 +37,7 @@ export async function getProduct(slug: string) {
       featured,
       metaTitle,
       metaDescription,
+      faqItems,
       "categories": categories[]->{ _id, title, slug },
       "variants": *[_type == "productVariant" && references(^._id)] | order(cores asc, crossSection asc) {
         _id,
