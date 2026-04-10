@@ -54,6 +54,40 @@ const createMixedBlock = (parts, style = 'normal', listItem = undefined) => {
   return block
 }
 
+// Helper to create blocks with inline links
+// parts: array of { text, bold?, link? } where link is an href string
+const createLinkedBlock = (parts, style = 'normal', listItem = undefined) => {
+  const markDefs = []
+  const children = parts.map(part => {
+    const marks = []
+    if (part.bold) marks.push('strong')
+    if (part.link) {
+      const linkKey = crypto.randomUUID().slice(0, 8)
+      markDefs.push({ _key: linkKey, _type: 'link', href: part.link })
+      marks.push(linkKey)
+    }
+    return {
+      _key: crypto.randomUUID(),
+      _type: 'span',
+      marks,
+      text: part.text,
+    }
+  })
+
+  const block = {
+    _key: crypto.randomUUID(),
+    _type: 'block',
+    style,
+    markDefs,
+    children,
+  }
+  if (listItem) {
+    block.listItem = listItem
+    block.level = 1
+  }
+  return block
+}
+
 // Helper to create specTable block
 const createSpecTable = (caption, headers, rows) => ({
   _key: crypto.randomUUID(),
@@ -70,8 +104,12 @@ const createSpecTable = (caption, headers, rows) => ({
 // 1. FULL DESCRIPTION — matching WordPress exactly
 // ══════════════════════════════════════════════════
 const description = [
-  // ── Intro paragraph ──
-  createBlock('ในงานติดตั้งระบบไฟฟ้าที่ต้องการ ความยืดหยุ่น และความทนทานต่อสภาพแวดล้อมที่ท้าทาย สายไฟ VCT คือตัวเลือกอันดับแรกที่วิศวกรและช่างเทคนิคไว้วางใจ ด้วยโครงสร้างที่ออกแบบมาเป็นพิเศษ สายชนิดนี้จึงสามารถนำไปใช้งานได้อย่างหลากหลาย ตั้งแต่การติดตั้งภายในอาคารไปจนถึงการใช้งานกลางแจ้งโดยตรงโดยไม่ต้องร้อยท่อ เราพร้อมนำเสนอข้อมูลที่ครบถ้วนเกี่ยวกับคุณสมบัติและวิธีการเลือกใช้สาย VCT เพื่อให้ระบบไฟฟ้าของคุณมีความเสถียรและความปลอดภัยสูงสุด'),
+  // ── Intro paragraph with internal link ──
+  createLinkedBlock([
+    { text: 'ในงานติดตั้งระบบไฟฟ้าที่ต้องการ ความยืดหยุ่น และความทนทานต่อสภาพแวดล้อมที่ท้าทาย ' },
+    { text: 'สายไฟ VCT', bold: true },
+    { text: ' คือตัวเลือกอันดับแรกที่วิศวกรและช่างเทคนิคไว้วางใจ ด้วยโครงสร้างที่ออกแบบมาเป็นพิเศษ สายชนิดนี้จึงสามารถนำไปใช้งานได้อย่างหลากหลาย ตั้งแต่การติดตั้งภายในอาคารไปจนถึงการใช้งานกลางแจ้งโดยตรงโดยไม่ต้องร้อยท่อ เราพร้อมนำเสนอข้อมูลที่ครบถ้วนเกี่ยวกับคุณสมบัติและวิธีการเลือกใช้สาย VCT เพื่อให้ระบบไฟฟ้าของคุณมีความเสถียรและความปลอดภัยสูงสุด' },
+  ]),
 
   // ── สายไฟ VCT คืออะไร ? ──
   createBlock('สายไฟ VCT คืออะไร ?', 'h2'),
@@ -116,9 +154,12 @@ const description = [
     { text: 'งานที่ต้องการความทนทาน', bold: true },
     { text: ' : เนื่องจากมีเปลือกนอกที่หนา จึงช่วยป้องกันความเสียหายทางกลได้ดี รวมถึงเป็นสายไฟที่สามารถกันน้ำ (ป้องกันน้ำกระเด็นหรือฝน) ได้ในระดับหนึ่ง สาย VCT จึงเหมาะสำหรับงานติดตั้งในพื้นที่เปียกชื้นได้พอสมควร' }
   ], 'normal', 'bullet'),
-  createMixedBlock([
+  // ── งานที่ต้องการสายดิน — with link to VCT-G section ──
+  createLinkedBlock([
     { text: 'งานที่ต้องการสายดิน', bold: true },
-    { text: ' : เลือกประเภทสาย VCT-G ที่มีสายดินรวมอยู่ด้วย เหมาะสำหรับการติดตั้งเครื่องใช้ไฟฟ้าที่ต้องต่อสายดินเพื่อความปลอดภัย' }
+    { text: ' : เลือกประเภท' },
+    { text: 'สาย VCT-G', link: '/product/vct', bold: true },
+    { text: ' ที่มีสายดินรวมอยู่ด้วย เหมาะสำหรับการติดตั้งเครื่องใช้ไฟฟ้าที่ต้องต่อสายดินเพื่อความปลอดภัย' },
   ], 'normal', 'bullet'),
 
   // ── สายไฟ VCT มีกี่ประเภท ──
@@ -127,7 +168,10 @@ const description = [
 
   // ── 1. สาย VCT แบบแกนเดี่ยว ──
   createBlock('1. สาย VCT แบบแกนเดี่ยว', 'h3'),
-  createBlock('สายชนิดนี้ภายในจะมีตัวนำทองแดงเพียงแกนเดียว มีขนาดตั้งแต่ 1.0-35 mm² สีของฉนวน ภายในและสีของฉนวนภายนอกเป็นสีดำ นิยมใช้ในงานเดินสายทั่วไปภายในโรงงาน หรือตู้คอนโทรล'),
+  createLinkedBlock([
+    { text: 'สายชนิดนี้ภายในจะมีตัวนำทองแดงเพียงแกนเดียว มีขนาดตั้งแต่ 1.0-35 mm² สีของฉนวน ภายในและสีของฉนวนภายนอกเป็นสีดำ นิยมใช้ในงานเดินสายทั่วไปภายในโรงงาน หรือ' },
+    { text: 'ตู้คอนโทรล', link: '/product/control-cable' },
+  ]),
 
   // ── ตารางสเปก VCT แกนเดี่ยว ──
   createSpecTable(
@@ -257,19 +301,39 @@ const description = [
   ], 'normal', 'bullet'),
   createBlock('ปริมาณกระแสไฟฟ้าที่ไหลผ่าน (กระแสโหลด) เพื่อให้สายไฟ VCT ทนกระแสได้เพียงพอ และไม่เกิดความร้อนสูงจนเกินไป', 'normal', 'bullet'),
   createBlock('ระยะทาง (Voltage Drop) โดยคำณวนจากค่า Conductor resistance (Ω/km) และความยาวของสายไฟ', 'normal', 'bullet'),
-  createMixedBlock([
+  // ── จำนวนแกน — with VCT-G link ──
+  createLinkedBlock([
     { text: 'จำนวนแกน', bold: true },
-    { text: ' : เลือกจำนวนแกนให้ตรงกับลักษณะการใช้งาน เช่น สาย VCT 2 หรือ 3 แกน หรือ สาย VCT-G 3 หรือ 4 แกน สำหรับงานที่ต้องการสายดิน' }
+    { text: ' : เลือกจำนวนแกนให้ตรงกับลักษณะการใช้งาน เช่น สาย VCT 2 หรือ 3 แกน หรือ สาย ' },
+    { text: 'VCT-G', link: '/product/vct', bold: true },
+    { text: ' 3 หรือ 4 แกน สำหรับงานที่ต้องการสายดิน' },
   ], 'normal', 'bullet'),
   createMixedBlock([
     { text: 'แหล่งจำหน่าย', bold: true },
     { text: ' : เลือกซื้อจากผู้จำหน่ายที่น่าเชื่อถือ เพื่อให้ได้สาย VCT ที่เป็นทองแดงแท้เต็มหน้าตัดตามสเปก' }
   ], 'normal', 'bullet'),
 
-  // ── CTA section ──
-  createBlock('สั่งซื้อสายไฟราคาปลีก-ส่ง สาย VCT คุณภาพสูง สำหรับทุกงานติดตั้งจาก NYX CABLE', 'h2'),
-  createBlock('สายไฟ VCT จาก NYX CABLE คือสายไฟอเนกประสงค์คุณภาพสูงที่ตอบโจทย์งานติดตั้งทุกประเภท ทั้งในโรงงานอุตสาหกรรม งานต่อพ่วงเครื่องจักร และระบบไฟฟ้าทั่วไป เราจำหน่ายทั้งสาย VCT ธรรมดา และสาย VCT-G (มีสายดิน) รวมถึงขนาดที่ได้รับความนิยมสายไฟ VCT 4×4 , VCT 3X2.5 และ VCT 2X2.5 ทำให้มั่นใจได้ในความปลอดภัย ความทนทาน และอายุการใช้งานที่ยาวนาน'),
-  createBlock('NYX CABLE มีสต๊อกสินค้าพร้อมส่งมอบทันทีทั่วประเทศ พร้อมบริการให้คำปรึกษาโดยผู้เชี่ยวชาญด้านสายไฟฟ้า เพื่อช่วยให้คุณเลือกขนาดสายที่ถูกต้อง รวมถึงสาย VCT ที่ทนกระแสได้ตรงตามการใช้งานจริง ปลอดภัย คุ้มค่าในระยะยาว และได้ราคาสายไฟ VCT ที่ดีที่สุด หากสนใจสั่งซื้อสอบถามข้อมูลเพิ่มเติมได้ที่โทร 02-111-5588 หรือ LINE : @nyxcable'),
+  // ── CTA section with internal links ──
+  createLinkedBlock([
+    { text: 'สั่งซื้อสายไฟราคาปลีก-ส่ง สาย VCT คุณภาพสูง สำหรับทุกงานติดตั้งจาก ' },
+    { text: 'NYX CABLE', link: '/products', bold: true },
+  ], 'h2'),
+  createLinkedBlock([
+    { text: 'สายไฟ VCT จาก NYX CABLE คือสายไฟอเนกประสงค์คุณภาพสูงที่ตอบโจทย์งานติดตั้งทุกประเภท ทั้งในโรงงานอุตสาหกรรม งานต่อพ่วงเครื่องจักร และระบบไฟฟ้าทั่วไป เราจำหน่ายทั้งสาย VCT ธรรมดา และสาย ' },
+    { text: 'VCT-G', link: '/product/vct', bold: true },
+    { text: ' (มีสายดิน) รวมถึงขนาดที่ได้รับความนิยม ' },
+    { text: 'สายไฟ VCT 4×4', link: '/category/control-cable', bold: true },
+    { text: ' , ' },
+    { text: 'VCT 3X2.5', link: '/category/control-cable', bold: true },
+    { text: ' และ ' },
+    { text: 'VCT 2X2.5', link: '/category/control-cable', bold: true },
+    { text: ' ทำให้มั่นใจได้ในความปลอดภัย ความทนทาน และอายุการใช้งานที่ยาวนาน' },
+  ]),
+  createLinkedBlock([
+    { text: 'NYX CABLE มีสต๊อกสินค้าพร้อมส่งมอบทันทีทั่วประเทศ พร้อมบริการให้คำปรึกษาโดยผู้เชี่ยวชาญด้าน' },
+    { text: 'สายไฟฟ้า', link: '/products' },
+    { text: ' เพื่อช่วยให้คุณเลือกขนาดสายที่ถูกต้อง รวมถึงสาย VCT ที่ทนกระแสได้ตรงตามการใช้งานจริง ปลอดภัย คุ้มค่าในระยะยาว และได้ราคาสายไฟ VCT ที่ดีที่สุด หากสนใจสั่งซื้อสอบถามข้อมูลเพิ่มเติมได้ที่โทร 02-111-5588 หรือ LINE : @nyxcable' },
+  ]),
 ]
 
 // ══════════════════════════════════════════════════
@@ -294,7 +358,11 @@ const faqItems = [
     _key: crypto.randomUUID(),
     question: 'หากต้องการความปลอดภัยสูงสุดควรเลือกสายไฟ VCT ประเภทใด ?',
     answer: [
-      createBlock('ควรเลือกสาย VCT-G ซึ่งมีสายดิน (Ground) รวมอยู่ด้วย โดยสีของสายดินจะเป็นสีเขียวคาดเหลือง เพื่อเพิ่มความปลอดภัยในการใช้งานกับเครื่องใช้ไฟฟ้าที่ต้องต่อสายดิน')
+      createLinkedBlock([
+        { text: 'ควรเลือกสาย ' },
+        { text: 'VCT-G', link: '/product/vct', bold: true },
+        { text: ' ซึ่งมีสายดิน (Ground) รวมอยู่ด้วย โดยสีของสายดินจะเป็นสีเขียวคาดเหลือง เพื่อเพิ่มความปลอดภัยในการใช้งานกับเครื่องใช้ไฟฟ้าที่ต้องต่อสายดิน' },
+      ])
     ]
   },
   {
@@ -308,14 +376,22 @@ const faqItems = [
     _key: crypto.randomUUID(),
     question: 'จะเลือกขนาดสายไฟ VCT ให้เหมาะกับงานได้อย่างไร ?',
     answer: [
-      createBlock('ควรพิจารณาจากปริมาณกระแสไฟฟ้าที่ใช้งาน (กระแสโหลด) และระยะทางในการเดินสาย โดยคำนวณจากค่า Conductor resistance (Ω/km) เพื่อป้องกันปัญหา Voltage Drop สามารถปรึกษาผู้เชี่ยวชาญจาก NYX CABLE เพื่อช่วยเลือกขนาดสายที่เหมาะสม')
+      createLinkedBlock([
+        { text: 'ควรพิจารณาจากปริมาณกระแสไฟฟ้าที่ใช้งาน (กระแสโหลด) และระยะทางในการเดินสาย โดยคำนวณจากค่า Conductor resistance (Ω/km) เพื่อป้องกันปัญหา Voltage Drop สามารถปรึกษาผู้เชี่ยวชาญจาก ' },
+        { text: 'NYX CABLE', link: '/contact', bold: true },
+        { text: ' เพื่อช่วยเลือกขนาดสายที่เหมาะสม' },
+      ])
     ]
   },
   {
     _key: crypto.randomUUID(),
     question: 'ซื้อสายไฟ VCT คุณภาพสูงได้ที่ไหน ?',
     answer: [
-      createBlock('NYX CABLE จำหน่ายสายไฟ VCT คุณภาพสูง มีสต๊อกพร้อมส่งทั่วประเทศ พร้อมบริการให้คำปรึกษาโดยผู้เชี่ยวชาญ สนใจสอบถามข้อมูลเพิ่มเติมได้ที่โทร 02-111-5588 หรือ LINE : @nyxcable')
+      createLinkedBlock([
+        { text: '' },
+        { text: 'NYX CABLE', link: '/products', bold: true },
+        { text: ' จำหน่ายสายไฟ VCT คุณภาพสูง มีสต๊อกพร้อมส่งทั่วประเทศ พร้อมบริการให้คำปรึกษาโดยผู้เชี่ยวชาญ สนใจสอบถามข้อมูลเพิ่มเติมได้ที่โทร 02-111-5588 หรือ LINE : @nyxcable' },
+      ])
     ]
   },
   {
@@ -357,6 +433,7 @@ async function patchProduct() {
     console.log('SUCCESS! Patched VCT product:', res._id)
     console.log('Description blocks:', description.length)
     console.log('FAQ items:', faqItems.length)
+    console.log('Internal links added: VCT-G, ตู้คอนโทรล, NYX CABLE, สายไฟฟ้า, VCT 4×4, VCT 3X2.5, VCT 2X2.5')
   } catch (e) {
     console.error('Failed to patch document:', e.message)
     process.exit(1)
