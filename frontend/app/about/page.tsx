@@ -195,7 +195,7 @@ export default async function AboutPage() {
       <section className="about-hero">
         <div className="container">
           <h1>{aboutCms?.heroHeading || 'NYX CABLE'}</h1>
-          <p className="hero-sub">{aboutCms?.heroSubheading || <>ผู้เชี่ยวชาญสายไฟอุตสาหกรรมโดยเฉพาะ <span style={{ color: '#FFD700', fontSize: '1.5em', fontWeight: 800 }}>จากยุโรป</span></>}</p>
+          <p className="hero-sub">ผู้เชี่ยวชาญสายไฟอุตสาหกรรมโดยเฉพาะ <span style={{ color: '#FFD700', fontSize: '1.5em', fontWeight: 800 }}>จากยุโรป</span></p>
           <div className="hero-badges">
             {heroBadges.map((badge: string, i: number) => (
               <span key={i} className="hero-badge">{badge}</span>
