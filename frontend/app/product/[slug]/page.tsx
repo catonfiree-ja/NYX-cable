@@ -261,6 +261,22 @@ const styles = `
     .quick-quote-name { font-size: 0.72rem; }
     .quick-quote-badge { width: 30px; height: 30px; font-size: 0.55rem; }
   }
+  /* ── Product CTA Block ── */
+  .product-cta-block { background: linear-gradient(135deg, #f0a500 0%, #e6940a 100%); padding: 40px 0; margin-top: 8px; }
+  .product-cta-inner { text-align: center; color: #fff; }
+  .product-cta-inner h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 12px; color: #fff; }
+  .product-cta-inner p { font-size: 0.92rem; line-height: 1.7; color: rgba(255,255,255,0.9); margin-bottom: 20px; max-width: 700px; margin-left: auto; margin-right: auto; }
+  .product-cta-buttons { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .product-cta-buttons a { display: inline-flex; align-items: center; gap: 6px; padding: 12px 28px; border-radius: 50px; font-weight: 700; font-size: 0.9rem; text-decoration: none !important; transition: all 0.2s; }
+  .cta-phone-btn { background: #003366; color: #fff !important; }
+  .cta-phone-btn:hover { background: #004a8f; transform: translateY(-1px); }
+  .cta-line-btn { background: #06c755; color: #fff !important; }
+  .cta-line-btn:hover { background: #05b04a; transform: translateY(-1px); }
+  @media (max-width: 640px) {
+    .product-cta-inner h3 { font-size: 1rem; }
+    .product-cta-inner p { font-size: 0.85rem; }
+    .product-cta-buttons a { padding: 10px 22px; font-size: 0.85rem; }
+  }
 `
 
 // HTML tag names filter for WordPress-imported content
@@ -912,6 +928,20 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
           </div>
         </div>
       </div>
+
+      {/* ── Product CTA Block (appears on every product page) ── */}
+      <section className="product-cta-block">
+        <div className="container">
+          <div className="product-cta-inner">
+            <h3>สนใจ {product.title} ?</h3>
+            <p>NYX CABLE มีสต๊อกพร้อมส่งทั่วประเทศ พร้อมบริการให้คำปรึกษาโดยผู้เชี่ยวชาญด้านสายไฟอุตสาหกรรม สอบถามราคาและสั่งซื้อได้ทันที</p>
+            <div className="product-cta-buttons">
+              <a href={`tel:${siteInfo.phoneRaw}`} className="cta-phone-btn">📞 โทร {siteInfo.phone}</a>
+              <a href={`${siteInfo.lineUrl}?text=${encodeURIComponent(`สนใจ ${product.title}${product.productCode ? ` (${product.productCode})` : ''} — ขอราคา`)}`} target="_blank" rel="noopener noreferrer" className="cta-line-btn">💬 LINE @nyxcable</a>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* ─── Schema.org Product + Organization JSON-LD ─── */}
       {/* ─── Related Articles ─── */}
