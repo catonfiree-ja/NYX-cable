@@ -8,28 +8,37 @@ const client = createClient({
   token: process.env.SANITY_API_TOKEN,
 })
 
-const product = await client.fetch(`*[_type == "product" && slug.current == "multicore-cable"][0]{
-  _id, title,
-  "descLength": count(description),
-  "firstBlock": description[0],
-  "faqCount": count(faqItems),
-  "descSample": description[0..2]
+// Check ALL documents with multicore-cable slug
+const products = await client.fetch(`*[_type == "product" && slug.current == "multicore-cable"]{
+  _id, _rev, _createdAt, _updatedAt,
+  title,
+  "descBlockCount": count(description),
+  "firstBlockText": description[0].children[0].text,
+  "hasOldContent": defined(description) && count(description) > 0 && description[0].children[0].text match "*Multi-Core*"
 }`)
 
-console.log('Product:', product.title)
-console.log('Desc block count:', product.descLength)
-console.log('FAQ count:', product.faqCount)
-console.log('')
-console.log('First block type:', product.firstBlock?._type)
-console.log('First block text:', product.firstBlock?.children?.[0]?.text?.substring(0, 100))
-console.log('')
-if (typeof product.descLength === 'number' && product.descLength === 0) {
-  console.log('⚠️  description might be a STRING, not array!')
-}
-if (product.firstBlock?._type === 'block') {
-  console.log('✅ Description is Portable Text (array of blocks)')
-} else if (typeof product.firstBlock === 'string') {
-  console.log('❌ Description is a plain string:', product.firstBlock.substring(0, 200))
-} else {
-  console.log('First block raw:', JSON.stringify(product.firstBlock, null, 2)?.substring(0, 500))
-}
+console.log('=== ALL DOCUMENTS WITH slug "multicore-cable" ===')
+console.log('Count:', products.length)
+products.forEach((p, i) => {
+  console.log(`\n--- Document ${i+1} ---`)
+  console.log('ID:', p._id)
+  console.log('Rev:', p._rev)
+  console.log('Title:', p.title)
+  console.log('Created:', p._createdAt)
+  console.log('Updated:', p._updatedAt)
+  console.log('Desc blocks:', p.descBlockCount)
+  console.log('First text:', p.firstBlockText?.substring(0, 100))
+  console.log('Has old content?', p.hasOldContent)
+})
+
+// Also check for draft versions
+const drafts = await client.fetch(`*[_id in path("drafts.**") && _type == "product" && slug.current == "multicore-cable"]{
+  _id, title, "descBlockCount": count(description),
+  "firstBlockText": description[0].children[0].text
+}`)
+console.log('\n=== DRAFT DOCUMENTS ===')
+console.log('Count:', drafts.length)
+drafts.forEach((d, i) => {
+  console.log(`Draft ${i+1}:`, d._id, '-', d.title, '- blocks:', d.descBlockCount)
+  console.log('First text:', d.firstBlockText?.substring(0, 100))
+})
