@@ -58,7 +58,8 @@ export async function getProduct(slug: string) {
       "relatedProducts": relatedProducts[]->{ _id, title, slug, productCode, "image": images[0] }
     }
   `,
-    { slug }
+    { slug },
+    { next: { revalidate: 60 } }
   )
 }
 
