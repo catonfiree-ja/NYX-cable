@@ -49,9 +49,9 @@ const styles = `
   .breadcrumb { font-size: 0.82rem; margin-bottom: 20px; }
   .breadcrumb a { color: rgba(255,255,255,0.65); text-decoration: none; transition: color 0.2s; }
   .breadcrumb a:hover { color: #f0a500; }
-  .hero-product-layout { display: grid; grid-template-columns: 400px 1fr; gap: 40px; align-items: center; }
-  .hero-image-box { background: rgba(255,255,255,0.08); border-radius: 20px; display: flex; align-items: center; justify-content: center; padding: 24px; border: 1px solid rgba(255,255,255,0.1); backdrop-filter: blur(4px); min-height: 340px; }
-  .hero-image-box img, .hero-image-box > span { width: 100%; height: auto; max-height: 420px; object-fit: contain; border-radius: 12px; filter: drop-shadow(0 4px 20px rgba(0,0,0,0.2)); }
+  .hero-product-layout { display: grid; grid-template-columns: 440px 1fr; gap: 40px; align-items: start; }
+  .hero-image-box { background: rgba(255,255,255,0.08); border-radius: 20px; display: flex; align-items: center; justify-content: center; padding: 24px; border: 1px solid rgba(255,255,255,0.1); backdrop-filter: blur(4px); }
+  .hero-image-box img, .hero-image-box > span { width: 100%; height: auto; object-fit: contain; border-radius: 12px; filter: drop-shadow(0 4px 20px rgba(0,0,0,0.2)); }
   .hero-image-box .fallback-text { font-size: 1.4rem; font-weight: 800; color: rgba(255,255,255,0.2); letter-spacing: 2px; text-align: center; line-height: 1.4; word-break: break-word; padding: 12px; }
   .hero-product-info h1 { font-size: 1.8rem; font-weight: 800; margin-bottom: 8px; line-height: 1.35; }
   .hero-product-code { display: inline-flex; padding: 4px 14px; background: rgba(0,153,255,0.2); color: #7dd3fc; font-size: 0.85rem; font-weight: 600; border-radius: 50px; margin-bottom: 12px; border: 1px solid rgba(0,153,255,0.3); }
@@ -534,7 +534,7 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
           <div className="hero-product-layout">
             <div className="hero-image-box">
               {product.images?.[0] ? (
-                <Image src={urlFor(product.images[0]).width(600).height(500).url()} alt={product.title} width={600} height={500} style={{ width: '100%', height: 'auto', objectFit: 'contain' }} priority />
+                <Image src={urlFor(product.images[0]).width(800).height(750).url()} alt={product.title} width={800} height={750} style={{ width: '100%', height: 'auto', objectFit: 'contain' }} priority />
               ) : <span className="fallback-text">{product.productCode || 'NYX'}</span>}
             </div>
             <div className="hero-product-info">
