@@ -14,9 +14,6 @@ import { productContentMap } from '@/data/product-content'
 import { BreadcrumbSchema } from '@/components/StructuredData'
 // Hardcoded data removed — all product data now comes from CMS
 
-// Force dynamic rendering to ensure fresh Sanity data on every request
-export const dynamic = 'force-dynamic'
-
 // Slug aliases are no longer needed — CMS slugs were updated to match hardcoded slugs
 const slugAliases: Record<string, string> = {}
 
