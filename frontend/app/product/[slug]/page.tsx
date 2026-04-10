@@ -8,6 +8,7 @@ import DOMPurify from 'isomorphic-dompurify'
 import { notFound } from 'next/navigation'
 import VariantTable from './VariantTable'
 import ExcelSpecTable from './ExcelSpecTable'
+import SpecTableCollapsible from './SpecTableCollapsible'
 import productSpecsData from '@/data/product-specs.json'
 import { productContentMap } from '@/data/product-content'
 import { BreadcrumbSchema } from '@/components/StructuredData'
@@ -158,6 +159,23 @@ const styles = `
   /* ─── Spec Table (from Sanity specTable) ─── */
   .spec-table-wrap { margin: 24px 0; }
   .spec-table-caption { font-size: 1.05rem; font-weight: 700; color: #003366; margin-bottom: 12px; }
+  .spec-table-container { position: relative; border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden; }
+  .spec-table--compact { width: 100%; border-collapse: collapse; font-size: 0.75rem; table-layout: fixed; }
+  .spec-table--compact thead { background: linear-gradient(135deg, #003366, #004a8f); color: #fff; position: sticky; top: 0; z-index: 2; }
+  .spec-table--compact th { padding: 8px 6px; text-align: center; font-weight: 600; border-right: 1px solid rgba(255,255,255,0.1); white-space: normal; word-break: break-word; line-height: 1.3; font-size: 0.68rem; }
+  .spec-table--compact th:last-child { border-right: none; }
+  .spec-table--compact td { padding: 6px 5px; text-align: center; border-bottom: 1px solid #f0f4f8; border-right: 1px solid #f0f4f8; color: #334155; white-space: nowrap; font-size: 0.75rem; }
+  .spec-table--compact td:last-child { border-right: none; font-weight: 600; color: #003366; }
+  .spec-table--compact tbody tr:nth-child(even) { background: #f8fafc; }
+  .spec-table--compact tbody tr:hover { background: #eef4ff; }
+  /* Fade overlay */
+  .spec-table-fade { position: absolute; bottom: 0; left: 0; right: 0; height: 80px; background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,0.95)); pointer-events: none; z-index: 1; }
+  /* Toggle button */
+  .spec-table-toggle { display: flex; align-items: center; justify-content: center; gap: 6px; width: 100%; padding: 12px 0; margin-top: -1px; border: 1px solid #e2e8f0; border-top: none; border-radius: 0 0 12px 12px; background: #f8fafc; color: #003366; font-weight: 700; font-size: 0.85rem; cursor: pointer; transition: background 0.2s, color 0.2s; }
+  .spec-table-toggle:hover { background: #eef4ff; color: #004a8f; }
+  .spec-table-toggle-icon { transition: transform 0.3s ease; }
+  .spec-table-toggle-icon.expanded { transform: rotate(180deg); }
+  /* Legacy scroll wrapper (kept for backward compat) */
   .spec-table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; border: 1px solid #e2e8f0; border-radius: 12px; }
   .spec-table { width: 100%; border-collapse: collapse; font-size: 0.82rem; white-space: nowrap; }
   .spec-table thead { background: linear-gradient(135deg, #003366, #004a8f); color: #fff; }
@@ -167,6 +185,10 @@ const styles = `
   .spec-table td:last-child { border-right: none; }
   .spec-table tbody tr:nth-child(even) { background: #f8fafc; }
   .spec-table tbody tr:hover { background: #eef4ff; }
+  @media (max-width: 640px) {
+    .spec-table--compact th { font-size: 0.6rem; padding: 6px 3px; }
+    .spec-table--compact td { font-size: 0.68rem; padding: 5px 3px; }
+  }
 
   /* ─── Description Bullet List ─── */
   .desc-bullet-list { margin: 8px 0 16px 24px; color: #475569; line-height: 1.85; font-size: 0.9rem; list-style: disc; }
@@ -522,23 +544,13 @@ function renderDescription(body: any, shortDesc?: string, productTitle?: string,
       const rows = block.rows || []
       if (headers.length === 0 && rows.length === 0) return
       elements.push(
-        <div key={i} className="spec-table-wrap">
-          {block.caption && <h3 className="spec-table-caption">{block.caption}</h3>}
-          <div className="spec-table-scroll">
-            <table className="spec-table">
-              <thead>
-                <tr>{headers.map((h: string, hi: number) => <th key={hi}>{h}</th>)}</tr>
-              </thead>
-              <tbody>
-                {rows.map((row: any, ri: number) => (
-                  <tr key={ri}>
-                    {(row.cells || []).map((cell: string, ci: number) => <td key={ci}>{cell}</td>)}
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
+        <SpecTableCollapsible
+          key={i}
+          caption={block.caption}
+          headers={headers}
+          rows={rows}
+          initialRows={15}
+        />
       )
       return
     }
