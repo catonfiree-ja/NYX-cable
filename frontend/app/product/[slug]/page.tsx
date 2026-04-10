@@ -872,7 +872,7 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
             return (
               <section className="related-blogs" id="blogs">
                 <div className="container">
-                  <h2>คู่มือ &amp; บทความที่เกี่ยวข้อง</h2>
+                  <h2>บทความที่เกี่ยวข้อง</h2>
                   <div className="blogs-grid">
                     {blogPosts.map((bp: any) => (
                       <a key={bp._id} href={`/blog/${bp.slug?.current}`} className="blog-card-link">
@@ -930,37 +930,8 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
         </div>
       </div>
 
-      {/* ── Product CTA Block (appears on every product page) ── */}
-      <section className="product-cta-block">
-        <div className="container">
-          <div className="product-cta-inner">
-            <h3>สนใจ {product.title} ?</h3>
-            <p>NYX CABLE มีสต๊อกพร้อมส่งทั่วประเทศ พร้อมบริการให้คำปรึกษาโดยผู้เชี่ยวชาญด้านสายไฟอุตสาหกรรม สอบถามราคาและสั่งซื้อได้ทันที</p>
-            <div className="product-cta-buttons">
-              <a href={`tel:${siteInfo.phoneRaw}`} className="cta-phone-btn">📞 โทร {siteInfo.phone}</a>
-              <a href={`${siteInfo.lineUrl}?text=${encodeURIComponent(`สนใจ ${product.title}${product.productCode ? ` (${product.productCode})` : ''} — ขอราคา`)}`} target="_blank" rel="noopener noreferrer" className="cta-line-btn">💬 LINE @nyxcable</a>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* ─── Schema.org Product + Organization JSON-LD ─── */}
-      {/* ─── Related Articles ─── */}
-      {relatedArticles.length > 0 && (
-        <section style={{ background: '#f8fafc', padding: '48px 0' }}>
-          <div className="container">
-            <h2 style={{ fontSize: '1.3rem', fontWeight: 700, color: 'var(--color-primary)', marginBottom: 24, textAlign: 'center' }}>บทความที่เกี่ยวข้อง</h2>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: 16 }}>
-              {relatedArticles.map((article: any) => (
-                <a key={article._id} href={`/blog/${article.slug?.current}`} style={{ background: '#fff', borderRadius: 12, border: '1px solid #e2e8f0', padding: 20, textDecoration: 'none', color: 'inherit', transition: 'all 0.25s' }}>
-                  <h3 style={{ fontSize: '0.95rem', fontWeight: 600, color: 'var(--color-primary)', marginBottom: 8, lineHeight: 1.4 }}>{article.title}</h3>
-                  {article.excerpt && <p style={{ fontSize: '0.85rem', color: '#64748b', lineHeight: 1.6, display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>{article.excerpt}</p>}
-                </a>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
 
       <script type="application/ld+json" dangerouslySetInnerHTML={{
         __html: JSON.stringify({
