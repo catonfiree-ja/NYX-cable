@@ -33,6 +33,23 @@ const createBlock = (text, style = 'normal', listItem = undefined) => {
   return block
 }
 
+const createLinkedBlock = (parts, style = 'normal', listItem = undefined) => {
+  const markDefs = []
+  const children = parts.map(p => {
+    const marks = []
+    if (p.bold) marks.push('strong')
+    if (p.link) {
+      const k = crypto.randomUUID().slice(0, 8)
+      markDefs.push({ _key: k, _type: 'link', href: p.link })
+      marks.push(k)
+    }
+    return { _key: crypto.randomUUID(), _type: 'span', marks, text: p.text }
+  })
+  const block = { _key: crypto.randomUUID(), _type: 'block', style, markDefs, children }
+  if (listItem) { block.listItem = listItem; block.level = 1 }
+  return block
+}
+
 // 1. Recreate the EXACT LONG DESCRIPTION
 const description = [
   createBlock('สายไฟ CVV, CVV-F และ CVV-S เป็นชุดสายไฟฟ้าควบคุมและจ่ายไฟที่ได้รับความนิยมในงานอุตสาหกรรม ด้วยคุณสมบัติเด่นด้านความอ่อนตัวและโครงสร้างตัวนำหลายแกน ทำให้เหมาะสำหรับระบบควบคุมเครื่องจักร ระบบอัตโนมัติ และงานติดตั้งในรางไฟฟ้าในโรงงานทุกประเภท'),
@@ -90,7 +107,14 @@ const description = [
   createBlock('เลือกผู้ผลิตที่มีประสบการณ์ด้านสายไฟอุตสาหกรรม เช่น NYX CABLE', 'normal', 'bullet'),
   createBlock('แบรนด์ที่มีบริการส่งด่วนและให้คำแนะนำสเปกที่เหมาะสม จะช่วยให้ติดตั้งสาย CVV ได้ตรงตามหน้างาน', 'normal', 'bullet'),
 
-  createBlock('สายไฟ CVV, CVV-F และ CVV-S จาก NYX CABLE เป็นสายไฟคุณภาพสูงสำหรับงานอุตสาหกรรม ออกแบบให้ใช้สำหรับระบบคอนโทรลในโรงงานอุตสาหกรรมโดยเฉพาะ และใช้งานได้ยาวนาน ครอบคลุมทุกงานตั้งแต่ระบบเครื่องจักร รางไฟฟ้า จนถึงงานควบคุมอัตโนมัติ พร้อมมาตรฐานยุโรป VDE และ IEC มีสต๊อกพร้อมส่ง และบริการให้คำปรึกษาด้านสเปกสายไฟ ทำให้เลือกใช้งานได้ตรงตามหน้างาน ปลอดภัย และมีประสิทธิภาพสูง สนใจสั่งซื้อสอบถามข้อมูลเพิ่มเติมได้ที่โทร 02-111-5588 หรือ LINE : @nyxcable')
+  createLinkedBlock([
+    { text: 'สายไฟ CVV, CVV-F และ CVV-S จาก ' },
+    { text: 'NYX CABLE', link: '/products', bold: true },
+    { text: ' เป็นสายไฟคุณภาพสูงสำหรับงานอุตสาหกรรม ออกแบบให้ใช้สำหรับระบบคอนโทรลในโรงงานอุตสาหกรรมโดยเฉพาะ และใช้งานได้ยาวนาน ครอบคลุมทุกงานตั้งแต่ระบบเครื่องจักร รางไฟฟ้า จนถึงงานควบคุมอัตโนมัติ พร้อมมาตรฐานยุโรป VDE และ IEC มีสต๊อกพร้อมส่ง และบริการให้คำปรึกษาด้านสเปกสายไฟ ทำให้เลือกใช้งานได้ตรงตามหน้างาน ปลอดภัย และมีประสิทธิภาพสูง สนใจสั่งซื้อสอบถามข้อมูลเพิ่มเติมได้ที่โทร ' },
+    { text: '02-111-5588', link: 'tel:021115588', bold: true },
+    { text: ' หรือ LINE : ' },
+    { text: '@nyxcable', link: 'https://page.line.me/nyxcable', bold: true },
+  ])
 ]
 
 // 2. Recreate the EXACT FAQ items
