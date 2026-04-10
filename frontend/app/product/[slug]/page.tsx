@@ -874,11 +874,11 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
             const getExcerptText = (bp: any): string => {
               // If excerpt is already a string, use it
               if (typeof bp.excerpt === 'string' && bp.excerpt.trim()) return bp.excerpt.trim()
-              // If excerpt is Portable Text array, extract text from blocks
+              // If excerpt is Portable Text array, extract text from any block with children
               if (Array.isArray(bp.excerpt)) {
                 const text = bp.excerpt
-                  .filter((b: any) => b._type === 'block')
-                  .map((b: any) => (b.children || []).map((c: any) => c.text || '').join(''))
+                  .filter((b: any) => Array.isArray(b.children))
+                  .map((b: any) => b.children.map((c: any) => c.text || '').join(''))
                   .join(' ')
                   .trim()
                 if (text) return text
@@ -886,9 +886,9 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
               // Fallback: try body field
               if (Array.isArray(bp.body)) {
                 return bp.body
-                  .filter((b: any) => b._type === 'block')
+                  .filter((b: any) => Array.isArray(b.children))
                   .slice(0, 2)
-                  .map((b: any) => (b.children || []).map((c: any) => c.text || '').join(''))
+                  .map((b: any) => b.children.map((c: any) => c.text || '').join(''))
                   .join(' ')
                   .trim()
               }
