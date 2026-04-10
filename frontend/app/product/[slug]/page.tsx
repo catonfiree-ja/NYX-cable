@@ -638,10 +638,7 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
         { name: product.title, url: `https://www.nyxcable.com/product/${slug}` },
       ]} />
       <style dangerouslySetInnerHTML={{ __html: styles }} />
-      {/* DEBUG: Show what data was fetched at build time */}
-      <div id="debug-data" style={{ background: '#ff0', color: '#000', padding: '10px', fontSize: '12px', fontFamily: 'monospace' }}>
-        DEBUG: descType={typeof product.description} | isArray={String(Array.isArray(product.description))} | len={Array.isArray(product.description) ? product.description.length : 'N/A'} | first={product.description?.[0]?.children?.[0]?.text?.substring(0, 80)}
-      </div>
+
       <div className="product-detail-hero">
         <div className="container">
           <div className="breadcrumb">
@@ -750,19 +747,7 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
           <div className="section-block" id="description">
             <div className="container">
               <div className="section-block-title">รายละเอียดสินค้า</div>
-              {/* DEBUG: Direct render to test encoding */}
-              {Array.isArray(product.description) ? (
-                <div className="product-full-desc">
-                  {product.description.filter((b: any) => b._type === 'block' && b.children?.[0]?.text?.trim()).map((block: any, i: number) => {
-                    const text = block.children.map((c: any) => c.text || '').join('')
-                    if (block.style === 'h2') return <h2 key={i}>{text}</h2>
-                    if (block.style === 'h3') return <h3 key={i}>{text}</h3>
-                    return <p key={i}>{text}</p>
-                  })}
-                </div>
-              ) : (
-                <p>{String(product.description)}</p>
-              )}
+              {renderDescription(product.description, product.shortDescription, product.title, linkMap, slug)}
             </div>
           </div>
         )}
