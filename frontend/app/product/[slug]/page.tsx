@@ -638,6 +638,10 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
         { name: product.title, url: `https://www.nyxcable.com/product/${slug}` },
       ]} />
       <style dangerouslySetInnerHTML={{ __html: styles }} />
+      {/* DEBUG: Show what data was fetched at build time */}
+      <div id="debug-data" style={{ background: '#ff0', color: '#000', padding: '10px', fontSize: '12px', fontFamily: 'monospace' }}>
+        DEBUG: descType={typeof product.description} | isArray={String(Array.isArray(product.description))} | len={Array.isArray(product.description) ? product.description.length : 'N/A'} | first={product.description?.[0]?.children?.[0]?.text?.substring(0, 80)}
+      </div>
       <div className="product-detail-hero">
         <div className="container">
           <div className="breadcrumb">
