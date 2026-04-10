@@ -384,9 +384,18 @@ function renderDescription(body: any, shortDesc?: string, productTitle?: string,
   // Track seen texts to remove duplicates
   const seenTexts = new Set<string>()
 
+  // If body contains specTable blocks, it's curated CMS content — skip aggressive filtering
+  const hasSpecTable = body.some((b: any) => b._type === 'specTable')
+
   // WHITELIST approach: only keep blocks that are meaningful paragraphs
   // This handles all WordPress table remnants (broken cells, labels, repeated titles)
-  const cleanBlocks = body.filter((block: any) => {
+  // Skip filtering for curated content (contains specTable)
+  const cleanBlocks = hasSpecTable ? body.filter((block: any) => {
+    if (block._type !== 'block') return true
+    const children = block.children || []
+    const fullText = children.map((c: any) => c.text || '').join('').trim()
+    return fullText.length > 0
+  }) : body.filter((block: any) => {
     if (block._type !== 'block') return true
     const children = block.children || []
 
@@ -479,7 +488,8 @@ function renderDescription(body: any, shortDesc?: string, productTitle?: string,
     if (!textContent.trim()) return null
 
     // Skip blocks that partially match shortDescription (fuzzy dedup)
-    if (shortDesc && shortDesc.length > 20) {
+    // Skip this for curated content that has specTable
+    if (!hasSpecTable && shortDesc && shortDesc.length > 20) {
       const shortPrefix = shortDesc.substring(0, 30).replace(/[^\u0E00-\u0E7Fa-zA-Z0-9]/g, '')
       const blockPrefix = textContent.substring(0, 30).replace(/[^\u0E00-\u0E7Fa-zA-Z0-9]/g, '')
       if (shortPrefix === blockPrefix) return null
