@@ -59,7 +59,7 @@ export async function getProduct(slug: string) {
     }
   `,
     { slug },
-    { cache: 'no-store' }
+    { next: { revalidate: 60 } }
   )
 }
 
