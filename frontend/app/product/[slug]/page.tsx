@@ -509,7 +509,7 @@ function renderDescription(body: any, shortDesc?: string, productTitle?: string,
       const linkMark = child.marks?.find((m: string) => markDefs[m]?.href)
       if (linkMark) {
         const href = rewriteLinks(markDefs[linkMark].href)
-        return <a key={j} href={href} style={{ color: 'var(--nyx-orange)', textDecoration: 'underline' }}>{decoded}</a>
+        return <a key={j} href={href} style={{ color: '#f0a500', fontWeight: 700, textDecoration: 'underline' }}>{decoded}</a>
       }
 
       // Apply auto-linking for product codes
