@@ -262,7 +262,7 @@ const styles = `
     .quick-quote-badge { width: 30px; height: 30px; font-size: 0.55rem; }
   }
   /* ── Product CTA Block ── */
-  .product-cta-block { background: linear-gradient(135deg, #f0a500 0%, #e6940a 100%); padding: 40px 0; margin-top: 8px; }
+  .product-cta-block { background: linear-gradient(135deg, #003366 0%, #1a4f8a 100%); padding: 40px 0; margin-top: 8px; }
   .product-cta-inner { text-align: center; color: #fff; }
   .product-cta-inner h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 12px; color: #fff; }
   .product-cta-inner p { font-size: 0.92rem; line-height: 1.7; color: rgba(255,255,255,0.9); margin-bottom: 20px; max-width: 700px; margin-left: auto; margin-right: auto; }
