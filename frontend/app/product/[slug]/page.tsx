@@ -750,7 +750,19 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
           <div className="section-block" id="description">
             <div className="container">
               <div className="section-block-title">รายละเอียดสินค้า</div>
-              {renderDescription(product.description, product.shortDescription, product.title, linkMap, slug)}
+              {/* DEBUG: Direct render to test encoding */}
+              {Array.isArray(product.description) ? (
+                <div className="product-full-desc">
+                  {product.description.filter((b: any) => b._type === 'block' && b.children?.[0]?.text?.trim()).map((block: any, i: number) => {
+                    const text = block.children.map((c: any) => c.text || '').join('')
+                    if (block.style === 'h2') return <h2 key={i}>{text}</h2>
+                    if (block.style === 'h3') return <h3 key={i}>{text}</h3>
+                    return <p key={i}>{text}</p>
+                  })}
+                </div>
+              ) : (
+                <p>{String(product.description)}</p>
+              )}
             </div>
           </div>
         )}
