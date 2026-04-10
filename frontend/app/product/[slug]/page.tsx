@@ -869,18 +869,47 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
             const allBlogPosts = await getBlogPosts()
             const blogPosts = allBlogPosts.slice(0, 3)
             if (blogPosts.length === 0) return null
+
+            // Helper: extract plain text from Portable Text or string
+            const getExcerptText = (bp: any): string => {
+              // If excerpt is already a string, use it
+              if (typeof bp.excerpt === 'string' && bp.excerpt.trim()) return bp.excerpt.trim()
+              // If excerpt is Portable Text array, extract text from blocks
+              if (Array.isArray(bp.excerpt)) {
+                const text = bp.excerpt
+                  .filter((b: any) => b._type === 'block')
+                  .map((b: any) => (b.children || []).map((c: any) => c.text || '').join(''))
+                  .join(' ')
+                  .trim()
+                if (text) return text
+              }
+              // Fallback: try body field
+              if (Array.isArray(bp.body)) {
+                return bp.body
+                  .filter((b: any) => b._type === 'block')
+                  .slice(0, 2)
+                  .map((b: any) => (b.children || []).map((c: any) => c.text || '').join(''))
+                  .join(' ')
+                  .trim()
+              }
+              return ''
+            }
+
             return (
               <section className="related-blogs" id="blogs">
                 <div className="container">
                   <h2>บทความที่เกี่ยวข้อง</h2>
                   <div className="blogs-grid">
-                    {blogPosts.map((bp: any) => (
-                      <a key={bp._id} href={`/blog/${bp.slug?.current}`} className="blog-card-link">
-                        <div className="bc-title">{bp.title}</div>
-                        {bp.excerpt && <div className="bc-excerpt">{bp.excerpt}</div>}
-                        {bp.publishedAt && <div className="bc-date">{new Date(bp.publishedAt).toLocaleDateString('th-TH', { day: 'numeric', month: 'long', year: 'numeric' })}</div>}
-                      </a>
-                    ))}
+                    {blogPosts.map((bp: any) => {
+                      const excerptText = getExcerptText(bp)
+                      return (
+                        <a key={bp._id} href={`/blog/${bp.slug?.current}`} className="blog-card-link">
+                          <div className="bc-title">{bp.title}</div>
+                          {excerptText && <div className="bc-excerpt">{excerptText.length > 120 ? excerptText.slice(0, 120) + '...' : excerptText}</div>}
+                          {bp.publishedAt && <div className="bc-date">{new Date(bp.publishedAt).toLocaleDateString('th-TH', { day: 'numeric', month: 'long', year: 'numeric' })}</div>}
+                        </a>
+                      )
+                    })}
                   </div>
                 </div>
               </section>
