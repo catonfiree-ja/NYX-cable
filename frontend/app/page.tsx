@@ -105,15 +105,15 @@ export default async function HomePage() {
 
   // ─── รายชื่อสินค้าหลักพร้อมคำอธิบายไทย (จากต้นฉบับ) ───
   const defaultMainProducts = [
-    { name: "YSLY-JZ", thaiName: "สายคอนโทรล", slug: "ysly-jz", img: "/images/products/ysly-jz.jpg" },
-    { name: "LiYCY", thaiName: "สายคอนโทรลมีชีลด์", slug: "liycy", img: "/images/products/liycy.jpg" },
-    { name: "ST-TP", thaiName: "สายชีลด์ สำหรับ RS485/RS422 โดยเฉพาะ", slug: "rs485-rs422", img: "/images/products/st-tp.jpg" },
-    { name: "H07RN-F", thaiName: "สายไฟกันน้ำ สายไฟใต้น้ำ", slug: "h07rn-f", img: "/images/products/h07rn-f.jpg" },
-    { name: "NSHTÖU", thaiName: "สายไฟทนแรงดึงงาน Cable Reel", slug: "nshtou", img: "/images/products/nshtou.jpg" },
-    { name: "H07V-K", thaiName: "สายเดี่ยวสำหรับ Wiring ขนาด 0.5–240 mm²", slug: "h07v-k", img: "/images/products/h07v-k.jpg" },
-    { name: "H07VVH6-F", thaiName: "สายไฟแบนสำหรับ Crane", slug: "h07vvh6-f", img: "/images/products/h07vvh6-f.jpg" },
-    { name: "SiHF", thaiName: "สายไฟทนความร้อน", slug: "sihf", img: "/images/products/sihf.jpg" },
-    { name: "Multiflex", thaiName: "สายไฟรางกระดูกงู สายไฟหุ่นยนต์", slug: "robot-cable", img: "/images/products/multiflex.jpg" },
+    { name: "YSLY-JZ", thaiName: "สายคอนโทรล", slug: "ysly-jz", img: "/images/products/ysly-jz.jpg", categoryLink: "/category/control-cable" },
+    { name: "LiYCY", thaiName: "สายคอนโทรลมีชีลด์", slug: "liycy", img: "/images/products/liycy.jpg", categoryLink: "/category/shielded-cable" },
+    { name: "ST-TP", thaiName: "สายชีลด์ สำหรับ RS485/RS422 โดยเฉพาะ", slug: "rs485-rs422", img: "/images/products/st-tp.jpg", categoryLink: "/category/twisted-pair-cable" },
+    { name: "H07RN-F", thaiName: "สายไฟกันน้ำ สายไฟใต้น้ำ", slug: "h07rn-f", img: "/images/products/h07rn-f.jpg", categoryLink: "/category/water-resistant-cable" },
+    { name: "NSHTÖU", thaiName: "สายไฟทนแรงดึงงาน Cable Reel", slug: "nshtou", img: "/images/products/nshtou.jpg", categoryLink: "/category/high-flex-cable" },
+    { name: "H07V-K", thaiName: "สายเดี่ยวสำหรับ Wiring ขนาด 0.5–240 mm²", slug: "h07v-k", img: "/images/products/h07v-k.jpg", categoryLink: "/category/wiring-cable" },
+    { name: "H07VVH6-F", thaiName: "สายไฟแบนสำหรับ Crane", slug: "h07vvh6-f", img: "/images/products/h07vvh6-f.jpg", categoryLink: "/category/high-flex-cable" },
+    { name: "SiHF", thaiName: "สายไฟทนความร้อน", slug: "sihf", img: "/images/products/sihf.jpg", categoryLink: "/category/resistant-cable" },
+    { name: "Multiflex", thaiName: "สายไฟรางกระดูกงู สายไฟหุ่นยนต์", slug: "robot-cable", img: "/images/products/multiflex.jpg", categoryLink: "/category/industrial-bus-cable" },
   ];
   // Use featured CMS products if available, fallback to hardcoded
   const featuredProducts = products.filter((p: any) => p.featured);
@@ -123,6 +123,7 @@ export default async function HomePage() {
       thaiName: p.shortDescription || p.title?.split(':')[1]?.split(' : ')[1]?.trim() || '',
       slug: typeof p.slug === 'string' ? p.slug : p.slug?.current || '',
       img: p.image ? sanityUrlFor(p.image).width(400).url() : '/images/products/default.jpg',
+      categoryLink: p.categorySlug ? `/category/${p.categorySlug}` : '',
     }))
     : defaultMainProducts;
 
@@ -825,7 +826,7 @@ export default async function HomePage() {
 
           <div className="control-cable-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20 }}>
             {mainProducts.map(p => (
-              <a key={p.slug} href={`/product/${p.slug}`} className="card-hover" style={{ display: 'block', textDecoration: 'none', color: 'inherit', background: '#fff', border: '1px solid #e8edf3', borderRadius: 14, overflow: 'hidden', boxShadow: '0 2px 8px rgba(0,0,0,0.04)' }}>
+              <a key={p.slug} href={p.categoryLink || `/product/${p.slug}`} className="card-hover" style={{ display: 'block', textDecoration: 'none', color: 'inherit', background: '#fff', border: '1px solid #e8edf3', borderRadius: 14, overflow: 'hidden', boxShadow: '0 2px 8px rgba(0,0,0,0.04)' }}>
                 <div style={{ background: '#f8fafc' }}>
                   <Image src={p.img} alt={`${p.name} ${p.thaiName}`} width={400} height={400} sizes="(max-width: 768px) 50vw, 200px" style={{ width: '100%', height: 'auto', display: 'block' }} loading="lazy" />
                 </div>
