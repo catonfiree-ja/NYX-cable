@@ -113,7 +113,7 @@ export default async function HomePage() {
     { name: "H07V-K", thaiName: "สายเดี่ยวสำหรับ Wiring ขนาด 0.5–240 mm²", slug: "h07v-k", img: "/images/products/h07v-k.jpg", categoryLink: "/category/wiring-cable" },
     { name: "H07VVH6-F", thaiName: "สายไฟแบนสำหรับ Crane", slug: "h07vvh6-f", img: "/images/products/h07vvh6-f.jpg", categoryLink: "/category/high-flex-cable" },
     { name: "SiHF", thaiName: "สายไฟทนความร้อน", slug: "sihf", img: "/images/products/sihf.jpg", categoryLink: "/category/resistant-cable" },
-    { name: "Multiflex", thaiName: "สายไฟรางกระดูกงู สายไฟหุ่นยนต์", slug: "robot-cable", img: "/images/products/multiflex.jpg", categoryLink: "/category/industrial-bus-cable" },
+    { name: "สายฟิลด์บัส", thaiName: "Industrial Bus Cables", slug: "industrial-bus-cable", img: "/images/products/profibus-cable.jpg", categoryLink: "/category/industrial-bus-cable" },
   ];
   // Use featured CMS products if available, fallback to hardcoded
   const featuredProducts = products.filter((p: any) => p.featured);
