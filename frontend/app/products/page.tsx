@@ -225,8 +225,6 @@ export default async function ProductsPage() {
                   </div>
                   <div className="product-mini-body">
                     <h4>{p.title}</h4>
-                    <div className="code">{p.productCode}</div>
-                    <p>{p.shortDescription}</p>
                   </div>
                 </a>
               )
