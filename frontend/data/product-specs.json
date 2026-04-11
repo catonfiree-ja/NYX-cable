@@ -12877,5 +12877,48 @@
       }
     ],
     "count": 18
+  },
+  "h05v-k": {
+    "sheetName": "H05V-K",
+    "productUrl": "https://nyxcable.com/product/h05v-k/",
+    "items": [
+      {
+        "partNo": null,
+        "coreSize": "0.5",
+        "model": "H05V-K 1X0.5mm2",
+        "strands": "16x0.20",
+        "outerDia": "2.1",
+        "cuWeight": "4.8",
+        "weight": "9",
+        "resistance": "39",
+        "price": "5.17",
+        "link": "https://nyxcable.com/IEC06/H05V-K1x0.5"
+      },
+      {
+        "partNo": null,
+        "coreSize": "0.75",
+        "model": "H05V-K 1X0.75mm2",
+        "strands": "24x0.20",
+        "outerDia": "2.4",
+        "cuWeight": "7.2",
+        "weight": "11",
+        "resistance": "26",
+        "price": "7.26",
+        "link": "https://nyxcable.com/IEC06/H05V-K1x0.75"
+      },
+      {
+        "partNo": null,
+        "coreSize": "1",
+        "model": "H05V-K 1X1mm2",
+        "strands": "32x0.20",
+        "outerDia": "2.6",
+        "cuWeight": "9.6",
+        "weight": "14",
+        "resistance": "19.5",
+        "price": "9.10",
+        "link": "https://nyxcable.com/IEC06/H05V-K1x1"
+      }
+    ],
+    "count": 3
   }
 }
