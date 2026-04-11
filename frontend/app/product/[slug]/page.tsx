@@ -588,6 +588,13 @@ function renderDescription(body: any, shortDesc?: string, productTitle?: string,
     // Handle specTable type
     if (block._type === 'specTable') {
       flushBullets()
+      // Skip table blocks from body if ExcelSpecTable already handles this product
+      if (currentSlug) {
+        try {
+          const specsData = require('@/data/product-specs.json')
+          if (specsData[currentSlug]) return // ExcelSpecTable already shows the spec table
+        } catch {}
+      }
       const headers = block.headers || []
       const rows = block.rows || []
       if (headers.length === 0 && rows.length === 0) return

@@ -125,7 +125,7 @@ const css = `
   .excel-spec-table tbody tr:hover { background: #eff6ff; }
   .excel-spec-table tbody td {
     padding: 8px 12px; border-bottom: 1px solid #f1f5f9; color: #334155;
-    white-space: nowrap; text-align: center; border-right: 1px solid #f0f4f8;
+    text-align: center; border-right: 1px solid #f0f4f8;
   }
   .excel-spec-table tbody td:last-child { border-right: none; }
 
