@@ -241,9 +241,14 @@ export default function ExcelSpecTable({ slug, data }: { slug: string; data: Pro
                     <td className="col-partno" style={{ fontSize: '0.75rem', color: '#94a3b8' }}>{item.partNo || '-'}</td>
                     <td style={{ fontWeight: 600, color: '#003366' }}>{item.coreSize || '-'}</td>
                     <td className="excel-spec-model">
-                      {item.link ? (
-                        <a href={item.link.replace(/https?:\/\/nyxcable\.com/, '').replace(/\/$/, '') || item.link}>{item.model || '-'}</a>
-                      ) : (item.model || '-')}
+                      {item.link ? (() => {
+                        // Convert old WordPress URL to new variant URL
+                        // e.g. https://nyxcable.com/สายคอนโทรล/ysly-jz-3g0.5/ → /product/variant/ysly-jz-3g0-5
+                        const match = item.link.match(/nyxcable\.com\/[^/]+\/([^/]+)\/?$/)
+                        const variantSlug = match ? match[1].replace(/\./g, '-').toLowerCase() : null
+                        const href = variantSlug ? `/product/variant/${variantSlug}` : item.link
+                        return <a href={href}>{item.model || '-'}</a>
+                      })() : (item.model || '-')}
                     </td>
                     <td className="col-strands">{item.strands || '-'}</td>
                     <td>{item.outerDia || '-'}</td>
