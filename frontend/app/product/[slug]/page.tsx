@@ -596,6 +596,29 @@ function renderDescription(body: any, shortDesc?: string, productTitle?: string,
       return
     }
 
+    // Handle image type
+    if (block._type === 'image' && block.asset?._ref) {
+      flushBullets()
+      const ref = block.asset._ref
+      // Convert Sanity image ref to URL: image-{id}-{dimensions}-{format}
+      const match = ref.match(/^image-([a-f0-9]+)-(\d+x\d+)-(\w+)$/)
+      if (match) {
+        const [, id, dims, format] = match
+        const url = `https://cdn.sanity.io/images/30wikoy9/production/${id}-${dims}.${format}`
+        elements.push(
+          <div key={i} style={{ margin: '24px 0', borderRadius: '12px', overflow: 'hidden' }}>
+            <img
+              src={url}
+              alt={block.alt || ''}
+              style={{ width: '100%', height: 'auto', display: 'block' }}
+              loading="lazy"
+            />
+          </div>
+        )
+      }
+      return
+    }
+
     if (block._type !== 'block') return
 
     // Check if it's a bullet list item
