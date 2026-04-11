@@ -311,24 +311,49 @@ type ProductLinkMap = { pattern: string; slug: string; label: string; prefix: st
 
 function buildProductLinkMap(products: any[], variants?: any[]): ProductLinkMap {
   const map: ProductLinkMap = []
+  const addedPatterns = new Set<string>()
+  
+  const addPattern = (pattern: string, slug: string, prefix: string) => {
+    if (pattern.length < 3 || addedPatterns.has(pattern.toLowerCase())) return
+    addedPatterns.add(pattern.toLowerCase())
+    map.push({ pattern, slug, label: pattern, prefix })
+  }
+  
   for (const p of products) {
     const slug = p.slug?.current
     if (!slug) continue
-    // Add productCode as match pattern (e.g., "YSLY-JZ", "OPVC-JZ")
+    
+    // 1. productCode exact match (e.g., "YSLY-JZ", "H05V-K")
     if (p.productCode && p.productCode.length > 2) {
-      map.push({ pattern: p.productCode, slug, label: p.productCode, prefix: '/product/' })
+      addPattern(p.productCode, slug, '/product/')
+    }
+    
+    // 2. Title before colon (e.g., "Olflex Classic 110" from "Olflex Classic 110 : สายคอนโทรล")
+    if (p.title) {
+      const beforeColon = p.title.split(/\s*[:\-–—]\s*/)[0].trim()
+      if (beforeColon.length > 3 && beforeColon.length < 40 && /[A-Za-z]/.test(beforeColon)) {
+        addPattern(beforeColon, slug, '/product/')
+      }
+    }
+    
+    // 3. Thai name patterns - "สาย{CODE}", "สายคอนโทรล {CODE}"  
+    if (p.productCode && p.productCode.length > 2) {
+      addPattern(`สาย ${p.productCode}`, slug, '/product/')
+      addPattern(`สายคอนโทรล ${p.productCode}`, slug, '/product/')
     }
   }
+  
   // Add variant models (e.g., "YSLY-JZ 3G0.5")
   if (variants) {
     for (const v of variants) {
       const slug = v.slug?.current
       if (!slug) continue
       if (v.model && v.model.length > 3) {
-        map.push({ pattern: v.model, slug, label: v.model, prefix: '/product/variant/' })
+        addPattern(v.model, slug, '/product/variant/')
       }
     }
   }
+  
   // Sort by pattern length descending so longer patterns match first
   map.sort((a, b) => b.pattern.length - a.pattern.length)
   return map
@@ -698,7 +723,7 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
             {(product.voltageRating || product.temperatureRange || product.standards || specs.length > 0) && <a href="#specs" className="section-nav-pill">ข้อมูลเทคนิค</a>}
             {(productSpecsData as any)[slug] && <a href="#spec-table" className="section-nav-pill">ตารางสเปค</a>}
             {!productContentMap[slug] && (product.description || product.shortDescription) && <a href="#description" className="section-nav-pill">รายละเอียด</a>}
-            {variants.length > 0 && <a href="#variants" className="section-nav-pill">ขนาดสินค้า</a>}
+            {variants.length > 0 && !(productSpecsData as any)[slug] && <a href="#variants" className="section-nav-pill">ขนาดสินค้า</a>}
             {relatedProducts.length > 0 && <a href="#related" className="section-nav-pill">สินค้าที่เกี่ยวข้อง</a>}
             {productContentMap[slug]?.faqs && <a href="#faqs" className="section-nav-pill">FAQs</a>}
             {!productContentMap[slug]?.faqs && product.faqItems?.length > 0 && <a href="#faqs" className="section-nav-pill">FAQs</a>}
@@ -811,8 +836,8 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
           </div>
         )}
 
-        {/* ── Variants ── */}
-        {variants.length > 0 && (() => {
+        {/* ── Variants (skip if ExcelSpecTable already shows the same data) ── */}
+        {variants.length > 0 && !(productSpecsData as any)[slug] && (() => {
           const hasSpecs = variants.some((v: any) => v.cores || v.crossSection)
           const VariantName = ({ v, fallback }: { v: any, fallback?: string }) => {
             const name = v.model || v.title || fallback || 'ขนาด'
