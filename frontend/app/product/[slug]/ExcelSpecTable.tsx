@@ -98,7 +98,7 @@ const css = `
   .excel-spec-scroll::-webkit-scrollbar-track { background: #f1f5f9; }
   .excel-spec-scroll::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 3px; }
 
-  .excel-spec-table { width: 100%; border-collapse: collapse; font-size: 0.84rem; margin: 0; min-width: 500px; }
+  .excel-spec-table { width: 100%; border-collapse: collapse; font-size: 0.84rem; margin: 0; min-width: 100%; }
   .excel-spec-table thead { position: sticky; top: 0; z-index: 2; }
   .excel-spec-table thead th {
     background: linear-gradient(180deg, #1a3c6e, #0f2d54); color: #fff;
