@@ -652,7 +652,20 @@ function renderDescription(body: any, shortDesc?: string, productTitle?: string,
   if (shortDesc && shortDesc.length > 0) {
     // If shortDescription contains HTML tags, render as sanitized HTML
     if (/<[a-z][\s\S]*>/i.test(shortDesc)) {
-      const sanitized = sanitizeHtml(rewriteLinks(shortDesc))
+      // Strip <table> elements when ExcelSpecTable handles them (avoids duplication)
+      let cleanHtml = shortDesc
+      if (currentSlug) {
+        try {
+          const specsData = require('@/data/product-specs.json')
+          if (specsData[currentSlug]) {
+            cleanHtml = cleanHtml.replace(/<table[\s\S]*?<\/table>/gi, '')
+            // Also remove the heading just before the table if it's a spec/price heading
+            cleanHtml = cleanHtml.replace(/<h[2-4][^>]*>[^<]*(?:ตาราง|สเปก|ราคา|speck?)[^<]*<\/h[2-4]>\s*$/gi, '')
+          }
+        } catch {}
+      }
+      const sanitized = sanitizeHtml(rewriteLinks(cleanHtml))
+      if (!sanitized.trim()) return null // Nothing left after stripping
       shortDescElement = <div className="product-short-desc" dangerouslySetInnerHTML={{ __html: sanitized }} />
     } else {
       // Plain text: split by newlines and render as paragraphs
