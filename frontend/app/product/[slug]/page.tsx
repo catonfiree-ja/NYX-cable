@@ -739,27 +739,7 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
               <div className="hero-cta">
                 <a href={`tel:${siteInfo.phoneRaw}`} className="cta-btn-call">สอบถามราคา</a>
                 <a href={`${siteInfo.lineUrl}?text=${encodeURIComponent(`สนใจสินค้า: ${product.title}${product.productCode ? ` (${product.productCode})` : ''} — ขอใบเสนอราคา`)}`} target="_blank" rel="noopener noreferrer" className="cta-btn-line">แอด LINE</a>
-                {(() => {
-                  const detailLinks: Record<string, { href: string; label: string }> = {
-                    'control-cable': { href: '/product/ysly-jz', label: 'ดูสเปก YSLY-JZ' },
-                    'multicore-cable': { href: '/product/ysly-jz', label: 'ดูสเปก YSLY-JZ' },
-                    'opvc-jz': { href: '/product/ysly-jz', label: 'เทียบสเปก YSLY-JZ' },
-                    'jz-500': { href: '/product/ysly-jz', label: 'เทียบสเปก YSLY-JZ' },
-                    'olflex-classic-110': { href: '/product/ysly-jz', label: 'เทียบสเปก YSLY-JZ' },
-                    'flex-jz': { href: '/product/ysly-jz', label: 'เทียบสเปก YSLY-JZ' },
-                    'h05v-k': { href: '/product/h07v-k', label: 'ดู H07V-K (750V)' },
-                    'h07v-k': { href: '/product/h05v-k', label: 'ดู H05V-K (500V)' },
-                    'vct': { href: '/product/control-cable', label: 'ดูสายคอนโทรลทั้งหมด' },
-                    'cvv': { href: '/product/vct', label: 'เทียบสเปก VCT' },
-                    'liycy': { href: '/product/liycy-jz', label: 'ดู LiYCY-JZ' },
-                    'liycy-jz': { href: '/product/liycy', label: 'ดู LiYCY' },
-                    'ysly-jz-1kv': { href: '/product/ysly-jz', label: 'ดู YSLY-JZ (500V)' },
-                    'olflex-classic-115-cy': { href: '/product/liycy', label: 'เทียบสเปก LiYCY' },
-                  }
-                  const link = detailLinks[slug]
-                  if (!link) return null
-                  return <a href={link.href} className="cta-btn-detail">{link.label}</a>
-                })()}
+
               </div>
             </div>
           </div>
