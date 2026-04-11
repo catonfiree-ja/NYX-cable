@@ -652,21 +652,34 @@ function renderDescription(body: any, shortDesc?: string, productTitle?: string,
   if (shortDesc && shortDesc.length > 0) {
     // If shortDescription contains HTML tags, render as sanitized HTML
     if (/<[a-z][\s\S]*>/i.test(shortDesc)) {
-      // Strip <table> elements when ExcelSpecTable handles them (avoids duplication)
-      let cleanHtml = shortDesc
+      // When ExcelSpecTable handles the data AND body exists, skip shortDescription entirely
+      // (CVV, VCT, etc. have duplicate text in both body and shortDescription)
+      let skipShortDesc = false
       if (currentSlug) {
         try {
           const specsData = require('@/data/product-specs.json')
-          if (specsData[currentSlug]) {
-            cleanHtml = cleanHtml.replace(/<table[\s\S]*?<\/table>/gi, '')
-            // Also remove the heading just before the table if it's a spec/price heading
-            cleanHtml = cleanHtml.replace(/<h[2-4][^>]*>[^<]*(?:ตาราง|สเปก|ราคา|speck?)[^<]*<\/h[2-4]>\s*$/gi, '')
+          if (specsData[currentSlug] && elements.length > 0) {
+            skipShortDesc = true // body (portable text) already has the same content
           }
         } catch {}
       }
-      const sanitized = sanitizeHtml(rewriteLinks(cleanHtml))
-      if (!sanitized.trim()) return null // Nothing left after stripping
-      shortDescElement = <div className="product-short-desc" dangerouslySetInnerHTML={{ __html: sanitized }} />
+      if (!skipShortDesc) {
+        // Strip <table> elements when ExcelSpecTable handles them
+        let cleanHtml = shortDesc
+        if (currentSlug) {
+          try {
+            const specsData = require('@/data/product-specs.json')
+            if (specsData[currentSlug]) {
+              cleanHtml = cleanHtml.replace(/<table[\s\S]*?<\/table>/gi, '')
+              cleanHtml = cleanHtml.replace(/<h[2-4][^>]*>[^<]*(?:ตาราง|สเปก|ราคา|speck?)[^<]*<\/h[2-4]>\s*$/gi, '')
+            }
+          } catch {}
+        }
+        const sanitized = sanitizeHtml(rewriteLinks(cleanHtml))
+        if (sanitized.trim()) {
+          shortDescElement = <div className="product-short-desc" dangerouslySetInnerHTML={{ __html: sanitized }} />
+        }
+      }
     } else {
       // Plain text: split by newlines and render as paragraphs
       const lines = shortDesc.split('\n').filter(l => l.trim())
