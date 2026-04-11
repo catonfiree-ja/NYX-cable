@@ -643,20 +643,30 @@ function renderDescription(body: any, shortDesc?: string, productTitle?: string,
 
   if (elements.length === 0 && !shortDesc) return null
 
-  // Build short description paragraphs to show BEFORE description blocks
-  const shortDescElements: React.ReactNode[] = []
+  // Build short description to show BEFORE description blocks
+  let shortDescElement: React.ReactNode = null
   if (shortDesc && shortDesc.length > 0) {
-    const lines = shortDesc.split('\n').filter(l => l.trim())
-    lines.forEach((line, idx) => {
-      const trimmed = line.trim()
-      if (!trimmed) return
-      // Apply auto-linking to shortDescription text too
-      const content = linkMap && currentSlug ? autoLinkText(trimmed, linkMap, currentSlug) : trimmed
-      shortDescElements.push(<p key={`sd-${idx}`}>{content}</p>)
-    })
+    // If shortDescription contains HTML tags, render as sanitized HTML
+    if (/<[a-z][\s\S]*>/i.test(shortDesc)) {
+      const sanitized = sanitizeHtml(rewriteLinks(shortDesc))
+      shortDescElement = <div className="product-short-desc" dangerouslySetInnerHTML={{ __html: sanitized }} />
+    } else {
+      // Plain text: split by newlines and render as paragraphs
+      const lines = shortDesc.split('\n').filter(l => l.trim())
+      const paras = lines.map((line, idx) => {
+        const trimmed = line.trim()
+        if (!trimmed) return null
+        const content = linkMap && currentSlug ? autoLinkText(trimmed, linkMap, currentSlug) : trimmed
+        return <p key={`sd-${idx}`}>{content}</p>
+      }).filter(Boolean)
+      if (paras.length > 0) {
+        shortDescElement = <>{paras}</>
+      }
+    }
   }
 
-  return <div className="product-full-desc">{shortDescElements}{elements}</div>
+  if (elements.length === 0 && !shortDescElement) return null
+  return <div className="product-full-desc">{shortDescElement}{elements}</div>
 }
 
 export async function generateStaticParams() {
