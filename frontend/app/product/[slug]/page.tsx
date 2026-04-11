@@ -641,8 +641,22 @@ function renderDescription(body: any, shortDesc?: string, productTitle?: string,
   })
   flushBullets() // flush any remaining bullets
 
-  if (elements.length === 0) return null
-  return <div className="product-full-desc">{elements}</div>
+  if (elements.length === 0 && !shortDesc) return null
+
+  // Build short description paragraphs to show BEFORE description blocks
+  const shortDescElements: React.ReactNode[] = []
+  if (shortDesc && shortDesc.length > 0) {
+    const lines = shortDesc.split('\n').filter(l => l.trim())
+    lines.forEach((line, idx) => {
+      const trimmed = line.trim()
+      if (!trimmed) return
+      // Apply auto-linking to shortDescription text too
+      const content = linkMap && currentSlug ? autoLinkText(trimmed, linkMap, currentSlug) : trimmed
+      shortDescElements.push(<p key={`sd-${idx}`}>{content}</p>)
+    })
+  }
+
+  return <div className="product-full-desc">{shortDescElements}{elements}</div>
 }
 
 export async function generateStaticParams() {
