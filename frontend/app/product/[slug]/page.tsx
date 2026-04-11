@@ -14,6 +14,9 @@ import { productContentMap } from '@/data/product-content'
 import { BreadcrumbSchema } from '@/components/StructuredData'
 // Hardcoded data removed — all product data now comes from CMS
 
+// ISR: revalidate every 60 seconds so CMS changes appear without redeploy
+export const revalidate = 60
+
 // Slug aliases are no longer needed — CMS slugs were updated to match hardcoded slugs
 const slugAliases: Record<string, string> = {}
 
