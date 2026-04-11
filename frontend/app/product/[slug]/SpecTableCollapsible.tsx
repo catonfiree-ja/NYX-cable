@@ -5,7 +5,7 @@ import { useState } from 'react'
 interface SpecTableCollapsibleProps {
   caption?: string
   headers: string[]
-  rows: { cells: string[] }[]
+  rows: (string[] | { cells: string[] })[]
   initialRows?: number
 }
 
@@ -32,13 +32,16 @@ export default function SpecTableCollapsible({
             </tr>
           </thead>
           <tbody>
-            {visibleRows.map((row, ri) => (
-              <tr key={ri}>
-                {(row.cells || []).map((cell, ci) => (
-                  <td key={ci}>{cell}</td>
-                ))}
-              </tr>
-            ))}
+            {visibleRows.map((row, ri) => {
+              const cells = Array.isArray(row) ? row : (row.cells || [])
+              return (
+                <tr key={ri}>
+                  {cells.map((cell: string, ci: number) => (
+                    <td key={ci}>{cell}</td>
+                  ))}
+                </tr>
+              )
+            })}
           </tbody>
         </table>
 
