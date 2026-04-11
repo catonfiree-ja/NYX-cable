@@ -101,10 +101,14 @@ const styles = `
   .product-full-desc a { color: #f0a500; font-weight: 600; text-decoration: underline; text-underline-offset: 3px; transition: color 0.2s; }
   .product-full-desc a:hover { color: #d4940a; }
   .product-full-desc strong, .product-full-desc b { color: #1e293b; font-weight: 700; }
-  .product-full-desc table { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 20px 0; border-radius: 10px; overflow: hidden; border: 1px solid #e2e8f0; }
-  .product-full-desc table th { background: #003366; color: #fff; padding: 10px 14px; text-align: left; font-weight: 600; }
-  .product-full-desc table td { padding: 10px 14px; border-bottom: 1px solid #f1f5f9; color: #334155; }
+  .product-full-desc table { width: 100%; border-collapse: collapse; font-size: 0.82rem; margin: 20px 0; border-radius: 12px; overflow: hidden; border: 1px solid #e2e8f0; display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .product-full-desc table thead { background: linear-gradient(180deg, #1a3c6e, #0f2d54); }
+  .product-full-desc table th { background: transparent; color: #fff; padding: 10px 12px; text-align: center; font-weight: 600; font-size: 0.76rem; white-space: nowrap; border-right: 1px solid rgba(255,255,255,0.1); border-bottom: 1px solid rgba(255,255,255,0.15); }
+  .product-full-desc table th:last-child { border-right: none; }
+  .product-full-desc table td { padding: 8px 12px; border-bottom: 1px solid #f1f5f9; border-right: 1px solid #f0f4f8; color: #334155; text-align: center; white-space: nowrap; }
+  .product-full-desc table td:last-child { border-right: none; }
   .product-full-desc table tr:nth-child(even) td { background: #f8fafc; }
+  .product-full-desc table tbody tr:hover td { background: #eef4ff; }
 
   /* ─── Variants ─── */
   .product-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 24px; }
