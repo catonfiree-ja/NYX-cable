@@ -97,8 +97,10 @@ const css = `
   .excel-spec-scroll::-webkit-scrollbar { width: 6px; height: 6px; }
   .excel-spec-scroll::-webkit-scrollbar-track { background: #f1f5f9; }
   .excel-spec-scroll::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 3px; }
+  .excel-spec-scroll.compact { overflow-x: visible; display: flex; justify-content: center; }
 
   .excel-spec-table { width: 100%; border-collapse: collapse; font-size: 0.84rem; margin: 0; min-width: 100%; }
+  .compact .excel-spec-table { width: auto; min-width: unset; margin: 0 auto; }
   .excel-spec-table thead { position: sticky; top: 0; z-index: 2; }
   .excel-spec-table thead th {
     background: linear-gradient(180deg, #1a3c6e, #0f2d54); color: #fff;
@@ -330,7 +332,7 @@ export default function ExcelSpecTable({ slug, data, variants = [] }: { slug: st
           return (
             <div key={tIdx}>
               {table.title && <h3 className="excel-spec-section-title">{table.title}</h3>}
-              <div className="excel-spec-scroll">
+              <div className={`excel-spec-scroll${table.headers.length <= 5 ? ' compact' : ''}`}>
                 <DynamicTable headers={table.headers} items={table.items} hasSubHeaders={hasSubHeaders} />
               </div>
             </div>
@@ -413,7 +415,7 @@ export default function ExcelSpecTable({ slug, data, variants = [] }: { slug: st
           <p className="excel-spec-info">แสดง {filtered.length} จาก {customData.items.length} ขนาด{search && ` • "${search}"`}</p>
         )}
 
-        <div className="excel-spec-scroll">
+        <div className={`excel-spec-scroll${customData.headers.length <= 5 ? ' compact' : ''}`}>
           <DynamicTable headers={customData.headers} items={filtered} hasSubHeaders={hasSubHeaders} />
         </div>
 
