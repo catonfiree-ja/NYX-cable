@@ -997,22 +997,6 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
         }
       </div>
 
-      {/* ─── Quick Quote Floating Bar ─── */}
-      <div className="quick-quote-bar">
-        <div className="quick-quote-inner">
-          <div className="quick-quote-info">
-            <div className="quick-quote-badge">NYX</div>
-            <div>
-              <div className="quick-quote-name">{product.title}</div>
-              {product.productCode && <div className="quick-quote-code">{product.productCode}</div>}
-            </div>
-          </div>
-          <div className="quick-quote-actions">
-            <a href={`${siteInfo.lineUrl}?text=${encodeURIComponent(`ขอใบเสนอราคา: ${product.title}${product.productCode ? ` (${product.productCode})` : ''}`)}`} className="btn btn-accent" target="_blank" rel="noopener noreferrer">ขอใบเสนอราคารุ่นนี้</a>
-            <a href={`tel:${siteInfo.phoneRaw}`} className="btn btn-primary">โทรสอบถาม</a>
-          </div>
-        </div>
-      </div>
 
 
       {/* ─── Schema.org Product + Organization JSON-LD ─── */}
