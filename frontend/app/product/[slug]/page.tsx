@@ -735,7 +735,7 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
                   ))}
                 </div>
               )}
-              {product.shortDescription && !productContentMap[slug] && <p className="hero-desc">{decodeHtmlEntities(product.shortDescription)}</p>}
+              {/* shortDescription is displayed in full in the description section below */}
               <div className="hero-cta">
                 <a href={`tel:${siteInfo.phoneRaw}`} className="cta-btn-call">สอบถามราคา</a>
                 <a href={`${siteInfo.lineUrl}?text=${encodeURIComponent(`สนใจสินค้า: ${product.title}${product.productCode ? ` (${product.productCode})` : ''} — ขอใบเสนอราคา`)}`} target="_blank" rel="noopener noreferrer" className="cta-btn-line">แอด LINE</a>
