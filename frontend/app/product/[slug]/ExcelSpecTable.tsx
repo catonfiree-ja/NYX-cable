@@ -141,7 +141,25 @@ function isValidPrice(price: string | null | undefined): boolean {
   return !isNaN(num) && num > 0
 }
 
-export default function ExcelSpecTable({ slug, data }: { slug: string; data: ProductSpecData }) {
+interface VariantInfo {
+  title?: string
+  slug?: { current?: string }
+  model?: string
+}
+
+export default function ExcelSpecTable({ slug, data, variants = [] }: { slug: string; data: ProductSpecData; variants?: VariantInfo[] }) {
+  // Build a map from model name (normalized) → variant slug for linking
+  const variantSlugMap = useMemo(() => {
+    const map = new Map<string, string>()
+    variants.forEach(v => {
+      const slugCurrent = v.slug?.current
+      if (!slugCurrent) return
+      // Index by title and model (normalized lowercase)
+      if (v.title) map.set(v.title.toLowerCase().trim(), slugCurrent)
+      if (v.model) map.set(v.model.toLowerCase().trim(), slugCurrent)
+    })
+    return map
+  }, [variants])
   // Group by cross-section size
   const sizes = useMemo(() => {
     const sizeSet = new Set<string>()
@@ -240,7 +258,14 @@ export default function ExcelSpecTable({ slug, data }: { slug: string; data: Pro
                   <tr key={idx}>
                     <td className="col-partno" style={{ fontSize: '0.75rem', color: '#94a3b8' }}>{item.partNo || '-'}</td>
                     <td style={{ fontWeight: 600, color: '#003366' }}>{item.coreSize || '-'}</td>
-                    <td className="excel-spec-model">{item.model || '-'}</td>
+                    <td className="excel-spec-model">
+                      {(() => {
+                        const modelText = item.model || '-'
+                        const variantSlug = item.model ? variantSlugMap.get(item.model.toLowerCase().trim()) : null
+                        if (variantSlug) return <a href={`/product/variant/${variantSlug}`}>{modelText}</a>
+                        return modelText
+                      })()}
+                    </td>
                     <td className="col-strands">{item.strands || '-'}</td>
                     <td>{item.outerDia || '-'}</td>
                     <td className="col-cuweight">{item.cuWeight || '-'}</td>
