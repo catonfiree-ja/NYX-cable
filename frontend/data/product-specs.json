@@ -14915,8 +14915,10 @@
   "rs485-rs422-belden": {
     "sheetName": "RS485/RS422 Belden",
     "productUrl": "/product/rs485-rs422-belden",
+    "renderInline": true,
     "tables": [
       {
+        "beforeHeading": "ทำไมระบบอัตโนมัติและโรงงานอุตสาหกรรม",
         "title": "ตารางเปรียบเทียบขนาด AWG (ที่นิยมใช้) กับ mm² โดยประมาณ",
         "headers": [
           {
@@ -14965,6 +14967,7 @@
         "count": 5
       },
       {
+        "beforeHeading": "รุ่นสาย belden ที่นิยมใช้งาน",
         "title": "คำแนะนำในการเลือกขนาดสาย Belden (RS485/RS422) ตามระยะทาง",
         "headers": [
           {

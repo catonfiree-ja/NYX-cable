@@ -565,6 +565,16 @@ function renderDescription(body: any, shortDesc?: string, productTitle?: string,
       if (shortPrefix === blockPrefix) return null
     }
 
+    // Skip heading blocks containing spec/price keywords when ExcelSpecTable handles data
+    if (block.style && /^h[2-4]$/.test(block.style) && currentSlug) {
+      if (/(?:สเปก|ราคา|ตารางข้อมูล|ตารางขนาด)/i.test(textContent)) {
+        try {
+          const specsData = require('@/data/product-specs.json')
+          if (specsData[currentSlug] && !specsData[currentSlug].renderInline) return null
+        } catch {}
+      }
+    }
+
     switch (block.style) {
       case 'h2': return <h2 key={i}>{children}</h2>
       case 'h3': return <h3 key={i}>{children}</h3>
@@ -648,7 +658,83 @@ function renderDescription(body: any, shortDesc?: string, productTitle?: string,
     // Not a bullet — flush any pending bullets, then render normally
     flushBullets()
     const rendered = renderBlock(block, i)
-    if (rendered) elements.push(rendered)
+    if (rendered) {
+      elements.push(rendered)
+      // For renderInline products, insert spec table BEFORE matching heading
+      if (block.style && /^h[2-4]$/.test(block.style) && currentSlug) {
+        try {
+          const specsData = require('@/data/product-specs.json')
+          const specEntry = specsData[currentSlug]
+          if (specEntry?.renderInline && specEntry.tables) {
+            const headingText = (block.children || []).map((c: any) => c.text || '').join('')
+            const normH = headingText.replace(/\s+/g, ' ').trim().toLowerCase()
+            // Check each table for a beforeHeading match
+            const tablesToInsert: any[] = []
+            specEntry.tables.forEach((tbl: any, tIdx: number) => {
+              const matchKey = (tbl.beforeHeading || '').replace(/\s+/g, ' ').trim().toLowerCase()
+              if (!matchKey || !normH.includes(matchKey)) return
+              tablesToInsert.push({ tbl, tIdx })
+            })
+            // Insert tables BEFORE the heading (splice into elements before the heading we just pushed)
+            if (tablesToInsert.length > 0) {
+              const headingEl = elements.pop() // remove the heading we just pushed
+              tablesToInsert.forEach(({ tbl, tIdx }) => {
+                const tblHeaders = tbl.headers || []
+                const tblItems = tbl.items || []
+                if (tblHeaders.length > 0 && tblItems.length > 0) {
+                  elements.push(
+                    <h4 key={`inline-tbl-title-${tIdx}`} style={{ marginTop: '20px', fontSize: '0.95rem', color: '#1e3a5f' }}>
+                      {tbl.title}
+                    </h4>
+                  )
+                  elements.push(
+                    <div key={`inline-tbl-${tIdx}`} style={{ margin: '12px 0 28px', overflowX: 'auto' }}>
+                      <table style={{
+                        borderCollapse: 'collapse', width: 'auto', margin: '0 auto',
+                        fontSize: '0.85rem', background: '#fff', borderRadius: '8px', overflow: 'hidden',
+                        boxShadow: '0 1px 3px rgba(0,0,0,0.08)', border: '1px solid #e2e8f0'
+                      }}>
+                        <thead>
+                          <tr>
+                            {tblHeaders.map((h: any, hIdx: number) => (
+                              <th key={hIdx} style={{
+                                background: 'linear-gradient(135deg, #0f2d54 0%, #18436e 100%)',
+                                color: '#fff', padding: '10px 16px', textAlign: 'center',
+                                fontWeight: 600, fontSize: '0.82rem', whiteSpace: 'nowrap',
+                                borderRight: hIdx < tblHeaders.length - 1 ? '1px solid rgba(255,255,255,0.12)' : 'none',
+                                borderBottom: '2px solid #f0a500'
+                              }}>{h.label}</th>
+                            ))}
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {tblItems.map((row: any, rIdx: number) => (
+                            <tr key={rIdx} style={{ background: rIdx % 2 === 0 ? '#fff' : '#f8fafc' }}>
+                              {tblHeaders.map((h: any, cIdx: number) => {
+                                let cellVal = row[h.key] || ''
+                                cellVal = cellVal.replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&amp;/g, '&')
+                                return (
+                                  <td key={cIdx} style={{
+                                    padding: '8px 16px', textAlign: 'center', color: '#334155',
+                                    borderBottom: '1px solid #f1f5f9', whiteSpace: 'nowrap',
+                                    borderRight: cIdx < tblHeaders.length - 1 ? '1px solid #f0f4f8' : 'none'
+                                  }}>{cellVal}</td>
+                                )
+                              })}
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  )
+                }
+              })
+              elements.push(headingEl!) // re-add the heading after the tables
+            }
+          }
+        } catch {}
+      }
+    }
   })
   flushBullets() // flush any remaining bullets
 
@@ -825,6 +911,7 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
         {(() => {
           const specData = (productSpecsData as any)[slug]
           if (!specData) return null
+          if (specData.renderInline) return null // inline tables render within description
           return (
             <div className="section-block" id="spec-table">
               <div className="container">
