@@ -1789,6 +1789,147 @@ a:hover {
   }
 }
 
+/* ─── SpecTableCollapsible (CMS body tables) ─── */
+.spec-table-wrap {
+  margin: 24px 0 32px;
+  width: 100%;
+}
+
+.spec-table-caption {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #0f2d54;
+  margin-bottom: 12px;
+}
+
+.spec-table-container {
+  position: relative;
+  overflow-x: auto;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e2e8f0;
+}
+
+.spec-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+  background: #fff;
+}
+
+.spec-table thead tr {
+  background: linear-gradient(135deg, #0f2d54 0%, #18436e 100%);
+}
+
+.spec-table th {
+  color: #fff;
+  padding: 11px 16px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 0.82rem;
+  white-space: nowrap;
+  border-right: 1px solid rgba(255, 255, 255, 0.12);
+  border-bottom: 2px solid #f0a500;
+}
+
+.spec-table th:last-child {
+  border-right: none;
+}
+
+.spec-table td {
+  padding: 9px 16px;
+  text-align: center;
+  color: #334155;
+  border-bottom: 1px solid #f1f5f9;
+  border-right: 1px solid #f0f4f8;
+}
+
+.spec-table td:last-child {
+  border-right: none;
+}
+
+.spec-table tbody tr:nth-child(even) {
+  background: #f8fafc;
+}
+
+.spec-table tbody tr:hover {
+  background: #eef4fb;
+}
+
+/* Internal link styling in table cells */
+.spec-table td a,
+.spec-table td a:visited {
+  color: #1a5fb4;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.spec-table td a:hover {
+  color: #f0a500;
+  text-decoration: underline;
+}
+
+/* Small tables: center in container */
+.spec-table-wrap--centered {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.spec-table-wrap--centered .spec-table-container {
+  width: auto;
+  max-width: 100%;
+}
+
+.spec-table-wrap--centered .spec-table {
+  width: auto;
+}
+
+/* Collapse fade overlay */
+.spec-table-fade {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: linear-gradient(transparent, rgba(255, 255, 255, 0.95));
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Toggle button */
+.spec-table-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 100%;
+  padding: 10px 0;
+  margin-top: 4px;
+  background: none;
+  border: 1px solid #e2e8f0;
+  border-radius: 0 0 10px 10px;
+  color: #1a5fb4;
+  font-weight: 600;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.spec-table-toggle:hover {
+  background: #eef4fb;
+  color: #0f2d54;
+}
+
+.spec-table-toggle-icon {
+  transition: transform 0.3s ease;
+}
+
+.spec-table-toggle-icon.expanded {
+  transform: rotate(180deg);
+}
+
 /* ─── Mobile-Friendly Tables ─── */
 @media (max-width: 640px) {
   table {

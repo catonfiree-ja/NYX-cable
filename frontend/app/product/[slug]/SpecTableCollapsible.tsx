@@ -1,12 +1,59 @@
 'use client'
 
 import { useState } from 'react'
+import Link from 'next/link'
 
 interface SpecTableCollapsibleProps {
   caption?: string
   headers: string[]
   rows: (string[] | { cells: string[] })[]
   initialRows?: number
+}
+
+// Known product slug mappings for internal linking
+const PRODUCT_LINKS: Record<string, string> = {
+  'ysly-jz': '/product/ysly-jz',
+  'ysly-oz': '/product/ysly-jz',
+  'opvc-jz': '/product/opvc-jz',
+  'jz-500': '/product/jz-500',
+  'jz500': '/product/jz-500',
+  'olflex classic 110': '/product/olflex-classic-110',
+  'olflex-classic-110': '/product/olflex-classic-110',
+  'cvv': '/product/cvv',
+  'cvv-f': '/product/cvv',
+  'cvv-s': '/product/cvv',
+  'vct': '/product/vct',
+  'vct-g': '/product/vct',
+  'h07rn-f': '/product/h07rn-f',
+  'nyy': '/product/nyy',
+  'thw': '/product/thw',
+  'thw-a': '/product/thw-a',
+  'vaf': '/product/vaf',
+}
+
+/** Render cell text, converting product names into internal links */
+function renderCellContent(text: string) {
+  // First unescape HTML entities
+  let clean = text
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&amp;/g, '&')
+
+  // Check if the cell text contains a known product name and create a link
+  const lowerText = clean.toLowerCase().trim()
+  
+  for (const [keyword, href] of Object.entries(PRODUCT_LINKS)) {
+    if (lowerText.includes(keyword)) {
+      // Create link wrapping the entire cell text
+      return (
+        <Link href={href} style={{ color: '#1a5fb4', textDecoration: 'none', fontWeight: 500 }}>
+          {clean}
+        </Link>
+      )
+    }
+  }
+  
+  return clean
 }
 
 export default function SpecTableCollapsible({
@@ -19,11 +66,14 @@ export default function SpecTableCollapsible({
   const visibleRows = expanded ? rows : rows.slice(0, initialRows)
   const hasMore = rows.length > initialRows
 
+  // Determine if table is "small" (few columns, few rows) → center it
+  const isSmall = headers.length <= 5 && rows.length <= 20
+
   return (
-    <div className="spec-table-wrap">
+    <div className={`spec-table-wrap ${isSmall ? 'spec-table-wrap--centered' : ''}`}>
       {caption && <h3 className="spec-table-caption">{caption}</h3>}
       <div className="spec-table-container">
-        <table className="spec-table spec-table--compact">
+        <table className="spec-table">
           <thead>
             <tr>
               {headers.map((h, hi) => (
@@ -37,7 +87,7 @@ export default function SpecTableCollapsible({
               return (
                 <tr key={ri}>
                   {cells.map((cell: string, ci: number) => (
-                    <td key={ci}>{cell}</td>
+                    <td key={ci}>{renderCellContent(cell)}</td>
                   ))}
                 </tr>
               )
