@@ -4,6 +4,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { decodeHtmlEntities } from '@/lib/decode-html'
+import { PortableText } from '@portabletext/react'
 // Hardcoded data removed — all product data now comes from CMS
 import { BreadcrumbSchema, FAQSchema } from '@/components/StructuredData'
 
@@ -65,6 +66,12 @@ const styles = `
     .cat-hero h1 { font-size: 1.5rem; }
     .cat-grid { grid-template-columns: 1fr; }
   }
+  .cat-description-content h2, .cat-description-content h3 { font-size: 1.3rem; font-weight: 700; color: #003366; margin: 28px 0 12px; }
+  .cat-description-content h2:first-child { font-size: 1.6rem; margin-top: 0; }
+  .cat-description-content p { font-size: 1rem; margin-bottom: 16px; line-height: 1.8; }
+  .cat-description-content ul, .cat-description-content ol { padding-left: 20px; margin-bottom: 16px; }
+  .cat-description-content li { margin-bottom: 8px; font-size: 0.95rem; line-height: 1.7; }
+  .cat-description-content strong { color: #003366; }
 `
 
 export async function generateStaticParams() {
@@ -109,6 +116,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
   if (!categoryTitle) notFound()
 
   const categoryDesc = cmsCategory?.shortDescription || ''
+  const categoryDescription = cmsCategory?.description || null
 
   const settings = await getSiteSettings().catch(() => null)
   const sitePhone = settings?.phone || '02-111-5588'
@@ -517,14 +525,22 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
       }
 
       {/* ─── Category Description (bottom) ─── */}
-      {categoryDesc && (
+      {categoryDescription && categoryDescription.length > 0 ? (
+        <section style={{ padding: '48px 0', background: '#f8fafc' }}>
+          <div className="container" style={{ maxWidth: 800, lineHeight: 1.8, color: '#334155' }}>
+            <div className="cat-description-content">
+              <PortableText value={categoryDescription} />
+            </div>
+          </div>
+        </section>
+      ) : categoryDesc ? (
         <section style={{ padding: '48px 0', background: '#f8fafc' }}>
           <div className="container" style={{ maxWidth: 800, lineHeight: 1.8, color: '#334155' }}>
             <h2 style={{ fontSize: '1.6rem', fontWeight: 700, color: '#003366', marginBottom: 16 }}>{categoryTitle}</h2>
             <p style={{ fontSize: '1rem', marginBottom: 0 }}>{categoryDesc}</p>
           </div>
         </section>
-      )}
+      ) : null}
 
       {/* ─── Other Categories ─── */}
       {
