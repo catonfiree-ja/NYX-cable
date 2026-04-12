@@ -174,7 +174,6 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
             <Link href="/">หน้าแรก</Link> › <Link href="/products">ผลิตภัณฑ์</Link> › {categoryTitle}
           </div>
           <h1>{categoryTitle}</h1>
-          {categoryDesc && <p>{categoryDesc}</p>}
           {products.length > 0 && <div className="product-count-badge">{products.length} รุ่นในหมวดนี้</div>}
         </div>
       </section>
@@ -516,6 +515,16 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
           </section>
         )
       }
+
+      {/* ─── Category Description (bottom) ─── */}
+      {categoryDesc && (
+        <section style={{ padding: '48px 0', background: '#f8fafc' }}>
+          <div className="container" style={{ maxWidth: 800, lineHeight: 1.8, color: '#334155' }}>
+            <h2 style={{ fontSize: '1.6rem', fontWeight: 700, color: '#003366', marginBottom: 16 }}>{categoryTitle}</h2>
+            <p style={{ fontSize: '1rem', marginBottom: 0 }}>{categoryDesc}</p>
+          </div>
+        </section>
+      )}
 
       {/* ─── Other Categories ─── */}
       {
