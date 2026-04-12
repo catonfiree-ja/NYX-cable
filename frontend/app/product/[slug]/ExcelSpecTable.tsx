@@ -236,16 +236,9 @@ function findProductLink(text: string): string | null {
   return null
 }
 
-/** Convert a WordPress link — return original URL since variant data is on WP */
-function convertWpLink(wpUrl: string): string | null {
-  if (!wpUrl) return null
-  // The WordPress site is still live, so link directly to it
-  // This preserves the per-variant page links (e.g. /สายคอนโทรล/ysly-jz-3g0.5/)
-  return wpUrl
-}
 
 /* ─── Legacy Table (Backward Compatible) ─── */
-function LegacyTable({ items, variantSlugMap }: { items: SpecItem[]; variantSlugMap: Map<string, string> }) {
+function LegacyTable({ items, findVariantSlug }: { items: SpecItem[]; findVariantSlug: (model: string) => string | null }) {
   const hasPrice = items.some(item => isValidPrice(item.price))
   return (
     <table className="excel-spec-table">
@@ -267,20 +260,17 @@ function LegacyTable({ items, variantSlugMap }: { items: SpecItem[]; variantSlug
           <tr><td colSpan={hasPrice ? 9 : 8}><div className="excel-spec-empty"><div className="icon">⌕</div>ไม่พบรุ่นที่ค้นหา</div></td></tr>
         ) : items.map((item, idx) => {
           const modelText = item.model || '-'
-          // Use the link field from product-specs.json data
-          // Convert WordPress URLs to internal links
-          const itemLink = item.link ? convertWpLink(item.link) : null
-          const variantSlug = !itemLink && item.model ? variantSlugMap.get(item.model.toLowerCase().trim()) : null
-          const productLink = !itemLink && !variantSlug && item.model ? findProductLink(item.model) : null
-          const href = itemLink || (variantSlug ? `/product/variant/${variantSlug}` : productLink)
+          // Priority 1: Match against Sanity productVariant slugs (contains-match)
+          const variantSlug = item.model ? findVariantSlug(item.model) : null
+          // Priority 2: Fallback to static PRODUCT_SLUG_MAP
+          const productLink = !variantSlug && item.model ? findProductLink(item.model) : null
+          const href = variantSlug ? `/product/variant/${variantSlug}` : productLink
           return (
             <tr key={idx}>
               <td className="col-partno" style={{ fontSize: '0.75rem', color: '#94a3b8' }}>{item.partNo || '-'}</td>
               <td style={{ fontWeight: 600, color: '#003366' }}>{item.coreSize || '-'}</td>
               <td className="excel-spec-model">
-                {href ? (
-                  <a href={href} {...(href.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {})}>{modelText}</a>
-                ) : modelText}
+                {href ? <a href={href}>{modelText}</a> : modelText}
               </td>
               <td className="col-strands">{item.strands || '-'}</td>
               <td>{item.outerDia || '-'}</td>
@@ -359,6 +349,7 @@ function DynamicTable({ headers, items, hasSubHeaders }: { headers: HeaderDef[];
 
 /* ─── Main Component ─── */
 export default function ExcelSpecTable({ slug, data, variants = [] }: { slug: string; data: ProductSpecData; variants?: VariantInfo[] }) {
+  // Build map: variant model/title (lowercase) → slug
   const variantSlugMap = useMemo(() => {
     const map = new Map<string, string>()
     variants.forEach(v => {
@@ -369,6 +360,19 @@ export default function ExcelSpecTable({ slug, data, variants = [] }: { slug: st
     })
     return map
   }, [variants])
+
+  /** Find variant slug by checking if modelText contains any variant model name */
+  function findVariantSlug(modelText: string): string | null {
+    const lower = modelText.toLowerCase().trim()
+    // 1. Exact match first
+    const exact = variantSlugMap.get(lower)
+    if (exact) return exact
+    // 2. Contains match — for text like "สายคอนโทรล YSLY-JZ 3G0.5" containing "ysly-jz 3g0.5"
+    for (const [key, slug] of variantSlugMap) {
+      if (lower.includes(key) || key.includes(lower)) return slug
+    }
+    return null
+  }
 
   // Multi-table mode (VCT, RS485-Belden)
   if (isMultiTable(data)) {
@@ -546,7 +550,7 @@ export default function ExcelSpecTable({ slug, data, variants = [] }: { slug: st
       )}
 
       <div className="excel-spec-scroll">
-        <LegacyTable items={filtered} variantSlugMap={variantSlugMap} />
+        <LegacyTable items={filtered} findVariantSlug={findVariantSlug} />
       </div>
 
       {hasPrice && (

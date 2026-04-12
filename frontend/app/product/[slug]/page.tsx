@@ -917,7 +917,7 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
           return (
             <div className="section-block" id="spec-table">
               <div className="container">
-                <ExcelSpecTable slug={slug} data={specData} variants={variants} />
+                <ExcelSpecTable slug={slug} data={specData} variants={allVariants} />
               </div>
             </div>
           )
