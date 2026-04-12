@@ -438,7 +438,33 @@ function sanitizeHtml(html: string): string {
 }
 
 function renderDescription(body: any, shortDesc?: string, productTitle?: string, linkMap?: ProductLinkMap, currentSlug?: string) {
-  if (!body) return null
+  // If both body and shortDescription are empty, nothing to render
+  if (!body && !shortDesc) return null
+
+  // If body is null/empty but shortDescription exists, build shortDesc element directly
+  if (!body || (Array.isArray(body) && body.length === 0)) {
+    if (!shortDesc || shortDesc.length === 0) return null
+    // Render shortDescription as the only content
+    if (/<[a-z][\s\S]*>/i.test(shortDesc)) {
+      const sanitized = sanitizeHtml(rewriteLinks(shortDesc))
+      if (sanitized.trim()) {
+        return <div className="product-full-desc"><div className="product-short-desc" dangerouslySetInnerHTML={{ __html: sanitized }} /></div>
+      }
+    } else {
+      const lines = shortDesc.split('\n').filter(l => l.trim())
+      const paras = lines.map((line, idx) => {
+        const trimmed = line.trim()
+        if (!trimmed) return null
+        const content = linkMap && currentSlug ? autoLinkText(trimmed, linkMap, currentSlug) : trimmed
+        return <p key={`sd-${idx}`}>{content}</p>
+      }).filter(Boolean)
+      if (paras.length > 0) {
+        return <div className="product-full-desc">{paras}</div>
+      }
+    }
+    return null
+  }
+
   if (typeof body === 'string') {
     // If it's the same as shortDescription, skip
     if (shortDesc && body.includes(shortDesc.substring(0, 50))) return null
@@ -747,14 +773,16 @@ function renderDescription(body: any, shortDesc?: string, productTitle?: string,
   if (shortDesc && shortDesc.length > 0) {
     // If shortDescription contains HTML tags, render as sanitized HTML
     if (/<[a-z][\s\S]*>/i.test(shortDesc)) {
-      // When ExcelSpecTable handles the data AND body exists, skip shortDescription entirely
+      // When ExcelSpecTable handles the data AND body has substantial paragraph content, skip shortDescription
       // (CVV, VCT, etc. have duplicate text in both body and shortDescription)
+      // Only skip when body has >= 3 non-heading elements (not just a single h2 title)
       let skipShortDesc = false
       if (currentSlug) {
         try {
           const specsData = require('@/data/product-specs.json')
-          if (specsData[currentSlug] && elements.length > 0) {
-            skipShortDesc = true // body (portable text) already has the same content
+          const nonHeadingElements = elements.filter((el: any) => el?.type !== 'h2' && el?.type !== 'h3' && el?.type !== 'h4')
+          if (specsData[currentSlug] && nonHeadingElements.length >= 3) {
+            skipShortDesc = true // body (portable text) already has substantial content
           }
         } catch {}
       }
