@@ -236,6 +236,39 @@ function findProductLink(text: string): string | null {
   return null
 }
 
+/** Convert a WordPress link to an internal path */
+function convertWpLink(wpUrl: string): string | null {
+  if (!wpUrl) return null
+  try {
+    // Extract the last segment from the WP URL path
+    // e.g. "https://nyxcable.com/สายคอนโทรล/ysly-jz-3g0.5/" → "ysly-jz-3g0.5"
+    const url = new URL(wpUrl)
+    const segments = url.pathname.split('/').filter(Boolean)
+    const lastSeg = segments[segments.length - 1]
+    if (!lastSeg) return null
+    
+    // Decode URI component and create a clean slug
+    const decoded = decodeURIComponent(lastSeg).toLowerCase()
+    
+    // Map to a known product parent page by checking PRODUCT_SLUG_MAP
+    const parentLink = findProductLink(decoded)
+    if (parentLink) return parentLink
+    
+    // Fallback: try to find parent product from the slug pattern
+    // e.g. "ysly-jz-3g0.5" → check if "ysly-jz" is a product
+    const parts = decoded.split('-')
+    for (let i = parts.length - 1; i >= 2; i--) {
+      const candidate = parts.slice(0, i).join('-')
+      const link = findProductLink(candidate)
+      if (link) return link
+    }
+    
+    return null
+  } catch {
+    return null
+  }
+}
+
 /* ─── Legacy Table (Backward Compatible) ─── */
 function LegacyTable({ items, variantSlugMap }: { items: SpecItem[]; variantSlugMap: Map<string, string> }) {
   const hasPrice = items.some(item => isValidPrice(item.price))
@@ -259,16 +292,18 @@ function LegacyTable({ items, variantSlugMap }: { items: SpecItem[]; variantSlug
           <tr><td colSpan={hasPrice ? 9 : 8}><div className="excel-spec-empty"><div className="icon">⌕</div>ไม่พบรุ่นที่ค้นหา</div></td></tr>
         ) : items.map((item, idx) => {
           const modelText = item.model || '-'
-          const variantSlug = item.model ? variantSlugMap.get(item.model.toLowerCase().trim()) : null
-          const productLink = !variantSlug && item.model ? findProductLink(item.model) : null
+          // Use the link field from product-specs.json data
+          // Convert WordPress URLs to internal links
+          const itemLink = item.link ? convertWpLink(item.link) : null
+          const variantSlug = !itemLink && item.model ? variantSlugMap.get(item.model.toLowerCase().trim()) : null
+          const productLink = !itemLink && !variantSlug && item.model ? findProductLink(item.model) : null
+          const href = itemLink || (variantSlug ? `/product/variant/${variantSlug}` : productLink)
           return (
             <tr key={idx}>
               <td className="col-partno" style={{ fontSize: '0.75rem', color: '#94a3b8' }}>{item.partNo || '-'}</td>
               <td style={{ fontWeight: 600, color: '#003366' }}>{item.coreSize || '-'}</td>
               <td className="excel-spec-model">
-                {variantSlug ? <a href={`/product/variant/${variantSlug}`}>{modelText}</a> 
-                  : productLink ? <a href={productLink}>{modelText}</a> 
-                  : modelText}
+                {href ? <a href={href}>{modelText}</a> : modelText}
               </td>
               <td className="col-strands">{item.strands || '-'}</td>
               <td>{item.outerDia || '-'}</td>
