@@ -118,18 +118,39 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
 
   // Product list: 100% from CMS, sorted by orderRank
   const cmsProducts = cmsCategory?.products || []
+
+  // SubGroup mappings for categories that need section headers
+  const subGroupMap: Record<string, Record<string, string>> = {
+    'resistant-cable': {
+      'sif': 'สายทนความร้อน',
+      'sif-gl': 'สายทนความร้อน',
+      'siaf-ignition-wire': 'สายทนความร้อน',
+      'sihf': 'สายทนความร้อน',
+      'pfa-cable': 'สายทนความร้อน',
+      'thermocouple-type-k-cable': 'สายทนความร้อน',
+      'h07rn-f': 'สายทนสารเคมี',
+      'y11y-jz': 'สายทนสารเคมี',
+      'yc11y-jz': 'สายทนสารเคมี',
+      'ptfe-cable': 'สายทนสารเคมี',
+    },
+  }
+  const currentSubGroups = subGroupMap[slug] || {}
+
   const products = cmsProducts.map((cp: any) => ({
     slug: cp.slug?.current || '',
     title: cp.title,
     code: cp.productCode || '',
     shortDescription: cp.shortDescription || '',
     image: cp.image ? urlFor(cp.image).width(400).height(400).url() : null,
+    subGroup: currentSubGroups[cp.slug?.current || ''] || '',
   }))
 
   // For "other categories" sidebar, use CMS categories
   const allCategories = await getCategories().catch(() => [])
+  // Include specific child categories to ensure 8 categories always show
+  const showChildSlugs = ['wiring-cable']
   const otherCatSlugs = allCategories
-    .filter((c: any) => c.slug?.current && c.slug.current !== slug && !c.parent)
+    .filter((c: any) => c.slug?.current && c.slug.current !== slug && (!c.parent || showChildSlugs.includes(c.slug.current)))
     .map((c: any) => ({ slug: c.slug.current, title: c.title, count: c.productCount || 0 }))
 
   // Build FAQ data for schema
@@ -501,7 +522,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
         otherCatSlugs.length > 0 && (
           <section style={{ padding: '36px 0', background: '#fff' }}>
             <div className="container" style={{ textAlign: 'center' }}>
-              <h3 style={{ fontSize: '1.6rem', fontWeight: 700, color: '#003366', marginBottom: 20 }}>หมวดหมู่อื่น</h3>
+              <h3 style={{ fontSize: '2rem', fontWeight: 700, color: '#003366', marginBottom: 20 }}>หมวดหมู่อื่น</h3>
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 12, maxWidth: 900, margin: '0 auto' }}>
                 {otherCatSlugs.map((cat: any) => (
                   <a
