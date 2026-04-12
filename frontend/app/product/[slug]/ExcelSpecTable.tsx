@@ -204,6 +204,38 @@ function isCustomFormat(data: ProductSpecData): data is CustomSpecData {
   return 'headers' in data && 'items' in data
 }
 
+/* ─── Product Link Map (for internal linking in tables) ─── */
+const PRODUCT_SLUG_MAP: Record<string, string> = {
+  'ysly-jz': '/product/ysly-jz',
+  'ysly-oz': '/product/ysly-jz',
+  'opvc-jz': '/product/opvc-jz',
+  'jz-500': '/product/jz-500',
+  'jz500': '/product/jz-500',
+  'olflex classic 110': '/product/olflex-classic-110',
+  'olflex-classic-110': '/product/olflex-classic-110',
+  'cvv': '/product/cvv',
+  'cvv-f': '/product/cvv',
+  'cvv-s': '/product/cvv',
+  'vct': '/product/vct',
+  'vct-g': '/product/vct',
+  'h07rn-f': '/product/h07rn-f',
+  'nyy': '/product/nyy',
+  'thw': '/product/thw',
+  'thw-a': '/product/thw-a',
+  'vaf': '/product/vaf',
+  'rs485': '/product/rs485-rs422-belden',
+  'belden': '/product/rs485-rs422-belden',
+}
+
+/** Find a product page link from model text */
+function findProductLink(text: string): string | null {
+  const lower = text.toLowerCase()
+  for (const [keyword, href] of Object.entries(PRODUCT_SLUG_MAP)) {
+    if (lower.includes(keyword)) return href
+  }
+  return null
+}
+
 /* ─── Legacy Table (Backward Compatible) ─── */
 function LegacyTable({ items, variantSlugMap }: { items: SpecItem[]; variantSlugMap: Map<string, string> }) {
   const hasPrice = items.some(item => isValidPrice(item.price))
@@ -228,12 +260,15 @@ function LegacyTable({ items, variantSlugMap }: { items: SpecItem[]; variantSlug
         ) : items.map((item, idx) => {
           const modelText = item.model || '-'
           const variantSlug = item.model ? variantSlugMap.get(item.model.toLowerCase().trim()) : null
+          const productLink = !variantSlug && item.model ? findProductLink(item.model) : null
           return (
             <tr key={idx}>
               <td className="col-partno" style={{ fontSize: '0.75rem', color: '#94a3b8' }}>{item.partNo || '-'}</td>
               <td style={{ fontWeight: 600, color: '#003366' }}>{item.coreSize || '-'}</td>
               <td className="excel-spec-model">
-                {variantSlug ? <a href={`/product/variant/${variantSlug}`}>{modelText}</a> : modelText}
+                {variantSlug ? <a href={`/product/variant/${variantSlug}`}>{modelText}</a> 
+                  : productLink ? <a href={productLink}>{modelText}</a> 
+                  : modelText}
               </td>
               <td className="col-strands">{item.strands || '-'}</td>
               <td>{item.outerDia || '-'}</td>
@@ -295,8 +330,12 @@ function DynamicTable({ headers, items, hasSubHeaders }: { headers: HeaderDef[];
                   </td>
                 )
               }
+              // Detect model/product-name columns and add links
+              const isModelCol = /model|รุ่น/i.test(h.label)
+              const pLink = isModelCol ? findProductLink(val) : null
               // First column bold
-              if (i === 0) return <td key={i} style={{ fontWeight: 600, color: '#003366' }}>{val}</td>
+              if (i === 0) return <td key={i} style={{ fontWeight: 600, color: '#003366' }}>{pLink ? <a href={pLink} className="excel-spec-model">{val}</a> : val}</td>
+              if (pLink) return <td key={i} className="excel-spec-model"><a href={pLink}>{val}</a></td>
               return <td key={i}>{val}</td>
             })}
           </tr>
