@@ -683,12 +683,12 @@ function renderDescription(body: any, shortDesc?: string, productTitle?: string,
                 const tblItems = tbl.items || []
                 if (tblHeaders.length > 0 && tblItems.length > 0) {
                   elements.push(
-                    <h4 key={`inline-tbl-title-${tIdx}`} style={{ marginTop: '20px', fontSize: '0.95rem', color: '#1e3a5f' }}>
+                    <h4 key={`inline-tbl-title-${tIdx}`} style={{ marginTop: '20px', fontSize: '0.95rem', color: '#1e3a5f', textAlign: 'center' }}>
                       {tbl.title}
                     </h4>
                   )
                   elements.push(
-                    <div key={`inline-tbl-${tIdx}`} style={{ margin: '12px 0 28px', overflowX: 'auto' }}>
+                    <div key={`inline-tbl-${tIdx}`} style={{ margin: '12px 0 28px', overflowX: 'auto', display: 'flex', justifyContent: 'center' }}>
                       <table style={{
                         borderCollapse: 'collapse', width: 'auto', margin: '0 auto',
                         fontSize: '0.85rem', background: '#fff', borderRadius: '8px', overflow: 'hidden',
