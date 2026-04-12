@@ -12924,6 +12924,7 @@
   "cvv": {
     "sheetName": "สาย CVV / CVV-F",
     "productUrl": "/product/cvv",
+    "skipBodySpecTables": true,
     "headers": [
       {
         "key": "col0",

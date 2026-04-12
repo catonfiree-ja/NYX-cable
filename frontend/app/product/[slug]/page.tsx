@@ -565,12 +565,13 @@ function renderDescription(body: any, shortDesc?: string, productTitle?: string,
       if (shortPrefix === blockPrefix) return null
     }
 
-    // Skip heading blocks containing spec/price keywords when ExcelSpecTable handles data
+    // Skip heading blocks that are redundant spec/price section headers
+    // Only skip specific patterns like "สเปก และราคาของสาย CVV" (not general "ราคา")
     if (block.style && /^h[2-4]$/.test(block.style) && currentSlug) {
-      if (/(?:สเปก|ราคา|ตารางข้อมูล|ตารางขนาด)/i.test(textContent)) {
+      if (/^สเปก\s*(และ|&)?\s*ราคา(ของ)?สาย/i.test(textContent.trim())) {
         try {
           const specsData = require('@/data/product-specs.json')
-          if (specsData[currentSlug] && !specsData[currentSlug].renderInline) return null
+          if (specsData[currentSlug]?.skipBodySpecTables) return null
         } catch {}
       }
     }
@@ -598,11 +599,12 @@ function renderDescription(body: any, shortDesc?: string, productTitle?: string,
     // Handle specTable type
     if (block._type === 'specTable') {
       flushBullets()
-      // Skip table blocks from body if ExcelSpecTable already handles this product
+      // Skip table blocks from body ONLY for products flagged with skipBodySpecTables
+      // (e.g. CVV where body tables are exact duplicates of ExcelSpecTable)
       if (currentSlug) {
         try {
           const specsData = require('@/data/product-specs.json')
-          if (specsData[currentSlug]) return // ExcelSpecTable already shows the spec table
+          if (specsData[currentSlug]?.skipBodySpecTables) return
         } catch {}
       }
       const headers = block.headers || []
