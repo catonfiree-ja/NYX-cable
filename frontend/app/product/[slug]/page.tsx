@@ -773,16 +773,23 @@ function renderDescription(body: any, shortDesc?: string, productTitle?: string,
   if (shortDesc && shortDesc.length > 0) {
     // If shortDescription contains HTML tags, render as sanitized HTML
     if (/<[a-z][\s\S]*>/i.test(shortDesc)) {
-      // When ExcelSpecTable handles the data AND body has substantial paragraph content, skip shortDescription
-      // (CVV, VCT, etc. have duplicate text in both body and shortDescription)
-      // Only skip when body has >= 3 non-heading elements (not just a single h2 title)
+      // When ExcelSpecTable handles the data AND body has substantial content, skip shortDescription
+      // (CVV, VCT, YSLY-JZ etc. have duplicate text in both body and shortDescription)
+      // Only skip when body text totals >= 200 chars (not just a single h2 title)
       let skipShortDesc = false
       if (currentSlug) {
         try {
           const specsData = require('@/data/product-specs.json')
-          const nonHeadingElements = elements.filter((el: any) => el?.type !== 'h2' && el?.type !== 'h3' && el?.type !== 'h4')
-          if (specsData[currentSlug] && nonHeadingElements.length >= 3) {
-            skipShortDesc = true // body (portable text) already has substantial content
+          if (specsData[currentSlug]) {
+            // Measure total text from body blocks to decide if body is substantial
+            const totalBodyText = limitedBlocks
+              .filter((b: any) => b._type === 'block')
+              .map((b: any) => (b.children || []).map((c: any) => c.text || '').join(''))
+              .join('')
+              .trim()
+            if (totalBodyText.length >= 200) {
+              skipShortDesc = true // body (portable text) already has substantial content
+            }
           }
         } catch {}
       }
